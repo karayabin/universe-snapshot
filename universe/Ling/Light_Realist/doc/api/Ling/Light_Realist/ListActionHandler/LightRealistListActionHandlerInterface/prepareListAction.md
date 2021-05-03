@@ -25,7 +25,7 @@ Prepares the given listAction for the given actionId.
 
 The goal is to transform the list action in a form that the list renderer will understand.
 
-See more in [details about the list actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md).
+See more in [details about the list actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-actions.md).
 
 
 

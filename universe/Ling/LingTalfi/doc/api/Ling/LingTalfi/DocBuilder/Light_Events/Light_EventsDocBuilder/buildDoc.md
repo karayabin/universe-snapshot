@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_EventsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Events/Light_EventsDocBuilder.php#L45-L210)
+See the source code for method [Light_EventsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Events/Light_EventsDocBuilder.php#L45-L211)
 
 
 See Also

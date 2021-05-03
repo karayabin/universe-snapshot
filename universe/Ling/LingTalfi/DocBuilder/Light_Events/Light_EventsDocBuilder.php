@@ -143,6 +143,7 @@ class Light_EventsDocBuilder
             "keyWord2UrlMap" => [
                 "Light_Events conception notes" => $doc . '/pages/conception-notes.md',
                 'bashtml' => 'https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md',
+                'basic open events convention' => 'https://github.com/lingtalfi/Light_Events/blob/master/doc/pages/conception-notes.md#basic-open-events-convention',
             ],
             /**
              * An array of external classes to url.

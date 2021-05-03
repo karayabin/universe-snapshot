@@ -1,0 +1,29 @@
+name: blogen_header_with_action_buttons
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenHeaderWithActionButtonsWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenHeaderWithActionButtonsWidget
+template: default.php
+vars:
+    attr:
+        id: actions
+        class: py-4 mb-4 bg-light
+
+    column_class: col-md-3
+    buttons:
+        -
+            class: btn btn-light btn-block
+            icon: fas fa-arrow-left
+            url: /?page=dashboard
+            text: Back to Dashboard
+
+        -
+            class: btn btn-success btn-block
+            icon: fas fa-check
+            url: /?page=dashboard
+            text: Save Changes
+
+        -
+            class: btn btn-danger btn-block
+            icon: fas fa-trash
+            url: /?page=dashboard
+            text: Delete Post

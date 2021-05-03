@@ -1,0 +1,176 @@
+
+.jim-toolbox {
+    display: block;
+    direction: ltr;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.21s;
+}
+
+
+.jim-toolbox.toolbox-close {
+    transform: translate(54px, 0);
+}
+
+
+.jim-toolbox .toolbox-toggle {
+    background: #fff;
+    color: #000;
+    position: fixed;
+    top: 200px;
+    z-index: 10;
+    right: 0;
+    width: 54px;
+
+    padding: .5rem;
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+    box-shadow: -5px 0 10px 0 rgba(0, 0, 0, .1);
+    transition: all .1s ease-in-out;
+    cursor: pointer;
+}
+
+
+.jim-toolbox .toolbox-toggle .arrow-icon {
+    color: #666;
+    display: none;
+}
+
+
+.jim-toolbox .toolbox-toggle-top .text-toggle-plus {
+    display: none;
+}
+
+.jim-toolbox .toolbox-toggle-container {
+    position: static;
+    max-height: 454px;
+    overflow: hidden;
+}
+
+.jim-toolbox .toolbox-toggle-container-slider {
+    transition: transform 0.6s ease;
+}
+
+.jim-toolbox .toolbox-toggle-container.without-text .toolbox-toggle-item-name {
+    display: none;
+}
+
+
+.jim-toolbox .toolbox-toggle-item {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    background: #edf2f5;
+    padding: .5rem;
+    border-radius: .2rem;
+    text-align: center;
+    margin-bottom: 7px;
+}
+
+.jim-toolbox .toolbox-toggle-item:hover {
+    background: #e4ebf0;
+    color: #000
+}
+
+
+.jim-toolbox .toolbox-toggle-item i {
+    margin-bottom: .5rem;
+}
+
+.jim-toolbox .toolbox-toggle-container.without-text .toolbox-toggle-item i {
+    margin-bottom: 0px;
+}
+
+
+.jim-toolbox .toolbox-toggle i {
+    font-size: 20px;
+}
+
+.jim-toolbox .toolbox-toggle-item-name {
+    text-transform: uppercase;
+    font-size: .875rem;
+    font-weight: 500;
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+
+}
+
+
+.jim-toolbox .toolbox-notransition {
+    transition: none !important;
+}
+
+
+.jim-toolbox .toolbox-panel {
+    background: #fff;
+    border-left: 0 solid transparent;
+    display: block;
+    height: 100%;
+    position: fixed;
+    width: 320px;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: -320px;
+    transition: right .2s ease-in-out
+}
+
+.jim-toolbox.open .toolbox-panel:before {
+    content: "";
+    background: rgba(0, 0, 0, .325);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none
+}
+
+.jim-toolbox.open .toolbox-panel {
+    right: 0
+}
+
+
+.jim-toolbox .toolbox-content {
+    height: calc(100% - 50px);
+    overflow: auto;
+    position: relative;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    top: 50px;
+}
+
+.jim-toolbox .toolbox-title {
+    padding: 1.35rem 1.5rem;
+    font-size: .875rem;
+    background: #fff;
+    color: #000;
+    border-bottom: 1px solid #e2e8ee
+}
+
+.jim-toolbox .toolbox-title .close,
+.jim-toolbox .toolbox-title h4 {
+    color: #000
+}
+
+.jim-toolbox .toolbox-body {
+    flex: 1
+}
+
+.jim-toolbox .toolbox-body,
+.jim-toolbox .toolbox-footer {
+    padding: 1rem 1.5rem
+}
+
+
+.jim-toolbox .toolbox-module {
+    display: none;
+}
+
+
+.jim-toolbox .toolbox-error-color {
+    color: red;
+}

@@ -20,8 +20,8 @@ class LightKitAdminPermissionHelper
      *
      *
      * Note: the main lka permission groups are:
-     * - Light_Kit_Admin.admin
-     * - Light_Kit_Admin.user
+     * - Ling.Light_Kit_Admin.admin
+     * - Ling.Light_Kit_Admin.user
      *
      *
      * @param LightUserDatabaseService $userDb
@@ -33,8 +33,8 @@ class LightKitAdminPermissionHelper
 
         $permGroupApi = $userDb->getFactory()->getPermissionGroupApi();
         $permApi = $userDb->getFactory()->getPermissionApi();
-        $groupAdminId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.admin", null, true);
-        $groupUserId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.user", null, true);
+        $groupAdminId = $permGroupApi->getPermissionGroupIdByName("Ling.Light_Kit_Admin.admin", null, true);
+        $groupUserId = $permGroupApi->getPermissionGroupIdByName("Ling.Light_Kit_Admin.user", null, true);
 
 
         $adminId = $permApi->getPermissionIdByName("$basePluginName.admin", null, true);

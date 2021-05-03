@@ -62,7 +62,7 @@ example: <
     name: zeroadmin_notification_toast
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationToastWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationToastWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationToastWidget
     template: default.php
     vars: 
         title: Bootstrap

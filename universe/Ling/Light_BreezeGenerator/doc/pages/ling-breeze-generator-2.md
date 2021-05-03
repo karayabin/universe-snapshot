@@ -186,7 +186,7 @@ Otherwise, you can do something like this:
 
 require_once "init.inc.php";
 
-$f = "/komin/jin_site_demo/config/data/Light_UserData/Light_BreezeGenerator/luda.byml"; // your config file
+$f = "/komin/jin_site_demo/config/data/Ling.Light_UserData/Ling.Light_BreezeGenerator/luda.byml"; // your config file
 
 $container->get("breeze_generator")
     ->addConfigurationEntryByFile("luda", $f) 

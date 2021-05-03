@@ -96,7 +96,7 @@ class DeveloperWizardLkaHelper
         if (null !== $path) {
             $lkaGenConfigPath = $path;
         } else {
-            $lkaGenConfigPath = $appDir . "/config/data/$planet/Light_Kit_Admin_Generator/$serviceName.generated.byml";
+            $lkaGenConfigPath = $appDir . "/config/data/$galaxy.$planet/Ling.Light_Kit_Admin_Generator/$serviceName.generated.byml";
         }
 
 

@@ -1,6 +1,6 @@
 Light_UserRowRestriction
 ===========
-2020-03-03 -> 2021-03-05
+2020-03-03 -> 2021-03-15
 
 
 
@@ -77,6 +77,10 @@ Related
 
 History Log
 =============
+
+- 1.3.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.3.4 -- 2021-03-05
 

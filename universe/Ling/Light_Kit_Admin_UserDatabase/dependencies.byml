@@ -5,7 +5,6 @@ dependencies:
         - Chloroform
         - CliTools
         - Light
-        - Light_BMenu
         - Light_ControllerHub
         - Light_Database
         - Light_EasyRoute

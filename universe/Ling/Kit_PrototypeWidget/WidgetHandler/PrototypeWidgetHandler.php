@@ -84,7 +84,16 @@ class PrototypeWidgetHandler implements WidgetHandlerInterface, KitPageRendererA
     /**
      * @implementation
      */
-    public function handle(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string
+    public function process(array &$widgetConf, array $debug): void
+    {
+        // we do nothing here
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function render(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string
     {
         if (null !== $this->rootDir) {
             if (array_key_exists("template", $widgetConf)) {

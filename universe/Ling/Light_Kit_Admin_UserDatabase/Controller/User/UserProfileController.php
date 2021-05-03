@@ -75,7 +75,7 @@ class UserProfileController extends AdminPageController
 
         // avatar_url
         $appDir = $container->getApplicationDir();
-        $f = $appDir . "/config/data/Light_Kit_Admin_UserDatabase/nuggets/ajax_file_box/user-profile.byml";
+        $f = $appDir . "/config/data/Ling.Light_Kit_Admin_UserDatabase/nuggets/ajax_file_box/user-profile.byml";
         $conf = $ng->getNuggetByPath($f);
         $avatarConf = array_merge($conf, [
             'urls' => [$avatar_url],
@@ -90,7 +90,6 @@ class UserProfileController extends AdminPageController
         ]));
 
 
-
         //--------------------------------------------
         // Posting the form and validating data
         //--------------------------------------------
@@ -98,9 +97,6 @@ class UserProfileController extends AdminPageController
             if (true === $form->validates()) {
 
                 $vid = $form->getVeryImportantData();
-
-
-
 
 
                 //--------------------------------------------
@@ -178,11 +174,15 @@ class UserProfileController extends AdminPageController
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        $page = 'Light_Kit_Admin/kit/zeroadmin/user/user_profile';
+        $page = 'Ling.Light_Kit_Admin_UserDatabase/user_profile';
         return $this->renderAdminPage($page, [
-            "form" => $form,
-            "is_root" => RightsHelper::isRoot($container),
-            "rights" => RightsHelper::getGroupedRights($user->getRights()),
+            'widgetVariables' => [
+                "body.user_profile_form" => [
+                    "form" => $form,
+                    "is_root" => RightsHelper::isRoot($container),
+                    "rights" => RightsHelper::getGroupedRights($user->getRights()),
+                ],
+            ],
         ]);
     }
 }

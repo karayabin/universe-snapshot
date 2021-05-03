@@ -7,7 +7,7 @@ LightDebugTraceService::onCsrfTokenRegenerated
 
 
 
-LightDebugTraceService::onCsrfTokenRegenerated — Callable for the Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
+LightDebugTraceService::onCsrfTokenRegenerated — Callable for the Ling.Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
 
 
 
@@ -21,7 +21,7 @@ public [LightDebugTraceService::onCsrfTokenRegenerated](https://github.com/lingt
 
 
 
-Callable for the Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
+Callable for the Ling.Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
 
 
 

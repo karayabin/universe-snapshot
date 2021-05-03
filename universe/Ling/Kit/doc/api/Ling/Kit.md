@@ -1,6 +1,6 @@
 Ling/Kit
 ================
-2019-04-24 --> 2021-03-05
+2019-04-24 --> 2021-04-09
 
 
 
@@ -42,7 +42,8 @@ Table of contents
 - [WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md) &ndash; The WidgetConfDecoratorInterface interface.
     - [WidgetConfDecoratorInterface::decorate](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface/decorate.md) &ndash; Decorates the given widget configuration array.
 - [WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) &ndash; The WidgetHandlerInterface interface.
-    - [WidgetHandlerInterface::handle](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/handle.md) &ndash; Returns the html code of the widget, according to the widget configuration.
+    - [WidgetHandlerInterface::process](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/process.md) &ndash; Process the widget.
+    - [WidgetHandlerInterface::render](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/render.md) &ndash; Returns the html code of the widget, according to the widget configuration.
 
 
 Dependencies

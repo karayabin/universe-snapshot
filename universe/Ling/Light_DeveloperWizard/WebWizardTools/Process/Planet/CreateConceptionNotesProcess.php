@@ -23,6 +23,7 @@ class CreateConceptionNotesProcess extends LightDeveloperWizardCommonProcess
         $this->setName("create-conception-notes");
         $this->setLabel("Creates the conception notes for this planet.");
         $this->setLearnMoreByHash('create-conception-notes');
+        $this->mustBeLight = false;
     }
 
 

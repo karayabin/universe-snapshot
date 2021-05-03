@@ -20,7 +20,7 @@ example: <
     name: portfoliogrid_header_with_description
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
     template: default.php
     vars: 
         attr: 

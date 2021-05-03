@@ -1,0 +1,23 @@
+name: FreeContentWidget
+description: <
+    FreeContentWidget is a bootstrap widget that displays whatever content you pass to it.
+>
+
+vars:
+    content:
+        type: string
+        default_value: ok
+        description: todo: here
+        example: ok
+
+
+example: <
+    name: free
+    type: picasso
+    id: page1-body-free
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\FreeContentWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/FreeContentWidget
+    template: default.php
+    vars: 
+        content: ok
+>

@@ -3,13 +3,18 @@ dependencies:
         - BabyYaml
         - Bat
         - Bootstrap4AdminTable
+        - CheapLogger
         - Chloroform
         - Chloroform_HeliumRenderer
         - CliTools
         - FontAwesome
         - HtmlPageTools
+        - JAcpHep
         - JBee
+        - JFormCollect
         - JPostForm
+        - JRadioHide
+        - JSelectHide
         - Jquery
         - Kit_PicassoWidget
         - Light
@@ -33,7 +38,6 @@ dependencies:
         - Light_MicroPermission
         - Light_Nugget
         - Light_PlanetInstaller
-        - Light_PluginInstaller
         - Light_Realform
         - Light_Realist
         - Light_ReverseRouter
@@ -45,6 +49,7 @@ dependencies:
         - PhpSpreadSheetTool
         - SimplePdoWrapper
         - UniverseTools
+        - UrlSmuggler
         - WiseTool
     
 

@@ -4,7 +4,7 @@
 
 The LightKitAdminUserPreferencesUserMainPageController class
 ================
-2020-08-13 --> 2021-03-05
+2020-08-13 --> 2021-03-23
 
 
 
@@ -33,13 +33,13 @@ class <span class="pl-k">LightKitAdminUserPreferencesUserMainPageController</spa
 
 - Inherited methods
     - public AdminPageController::__construct() : void
-    - public AdminPageController::renderAdminPage(string $page, ?$params = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+    - public AdminPageController::renderAdminPage(string $page, ?array $options = []) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - public LightKitAdminController::setRoute(array $route) : void
     - protected LightKitAdminController::getKitAdmin() : Ling\Light_Kit_Admin\Service\LightKitAdminService
     - protected LightKitAdminController::getFlasher() : Ling\Light_Flasher\Service\LightFlasherService
     - protected LightKitAdminController::getUser() : Ling\Light_User\LightWebsiteUser
     - protected LightKitAdminController::getValidWebsiteUser() : Ling\Light_User\LightWebsiteUser
-    - public LightKitAdminController::renderPage(string $page, ?array $dynamicVariables = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+    - public LightKitAdminController::renderPage(string $page, ?array $options = []) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - public LightKitAdminController::renderDefaultPage() : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - protected LightKitAdminController::getRedirectResponseByRoute(string $route, ?array $urlParams = []) : Ling\Light\Http\HttpRedirectResponse
     - protected LightKitAdminController::checkRight(string $right) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) | null

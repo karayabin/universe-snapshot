@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-05
+2019-10-24 -> 2021-05-02
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -43,8 +43,10 @@ Summary
     - [Error handling](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/error-handling.md)
     - [Events](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/events.md)
     - [How to debug](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/how-to-debug.md)
+    - [Kit theme](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/kit-theme.md)
     - [Light kit admin js environment](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/light-kit-admin-js-environment.md)
     - [Light kit admin plugins](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md)
+    - [lka jim toolbox](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-jim-toolbox.md)
     - [Pages](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/pages.md)
     - [Permissions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/permissions.md)
     - [Procedures](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/procedures.md)
@@ -55,12 +57,8 @@ Summary
 
 Services
 =========
-2019-10-24 -> 2021-03-01
+2019-10-24 -> 2021-03-18
 
-This plugin provides the following services:
-
-- kit_admin (returns a LightKitAdminService instance)
-- ?kit_admin_rights (returns a LightKitAdminRightsManager instance)
 
 Here is an example of the service configuration:
 
@@ -92,6 +90,7 @@ kit_admin:
 
 kit_admin_vars:
     route_prefix: /admin
+    theme: Ling.Light_Kit_Admin/zeroadmin
 
 
 
@@ -119,20 +118,10 @@ $ajax_handler.methods_collection:
 
 $bmenu.methods_collection:
     -
-        method: registerHost
+        method: addMenuModifier
         args:
-            menu_type: admin_main_menu
-            host:
-                instance: Ling\Light_Kit_Admin\BMenu\LightKitAdminBMenuHost
-                methods:
-                    setContainer:
-                        container: @container()
-                    setBaseDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/bmenu
-                    setMenuStructureId:
-                        id: lka_mainmenu_1
-                    setDefaultItemsParentPath:
-                        path: lka-plugins
+            modifier:
+                instance: Ling\Light_Kit_Admin\Light_BMenu\MenuModifier\LightKitAdminBMenuModifier
 
 $bullsheet.methods_collection:
     -
@@ -160,38 +149,18 @@ $bullsheet.methods_collection:
 
 
 
-
-$events.methods_collection:
-    -
-        method: registerListener
-        args:
-            events:
-                - Light_Kit_Admin.on_user_successful_connexion
-            listener:
-                instance: @service(kit_admin)
-                callable_method: onWebsiteUserLogin
-    -
-        method: registerListener
-        args:
-            events:
-                - Light.on_exception_caught
-            listener:
-                instance: @service(kit_admin)
-                callable_method: onLightExceptionCaught
-
-
 $kit.methods_collection:
     -
         method: addPageConfigurationTransformer
         args:
             -
-                instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
+                instance: Ling\Light_Kit_Admin\ConfigurationTransformer\LightKitAdminConfigurationTransformer
 
 $micro_permission.methods_collection:
     -
         method: registerMicroPermissionsByProfile
         args:
-            file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml
 
 
 
@@ -202,13 +171,13 @@ $realist.methods_collection:
     -
         method: registerListRenderer
         args:
-            identifier: Light_Kit_Admin
+            identifier: Ling.Light_Kit_Admin
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
     -
         method: registerListItemRenderer
         args:
-            identifier: Light_Kit_Admin
+            identifier: Ling.Light_Kit_Admin
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
 
@@ -219,7 +188,12 @@ $realist.methods_collection:
 # --------------------------------------
 # vars
 # --------------------------------------
-$user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
+$user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Ling/Light_Kit_Admin/img/avatars2
+
+
+
+
+
 
 
 
@@ -230,6 +204,52 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.35 -- 2021-05-02
+
+    - add jim toolbox system
+  
+- 0.12.34 -- 2021-04-09
+
+    - add acpHep dependency
+    - checkpoint commit
+  
+- 0.12.33 -- 2021-03-23
+
+    - adapt api to Ling.Light_Realist:2.0.15
+  
+- 0.12.32 -- 2021-03-22
+
+    - fix some events not namespaced correctly
+  
+- 0.12.31 -- 2021-03-22
+
+    - adapt api to work with Ling.Light_Events:1.10.0
+  
+- 0.12.30 -- 2021-03-19
+
+    - fix open events now in the events directory
+  
+- 0.12.29 -- 2021-03-18
+
+    - switch to Ling.Light_Events' open registration system (second try)
+  
+- 0.12.28 -- 2021-03-18
+
+    - switch to Ling.Light_Events' open registration system
+  
+- 0.12.27 -- 2021-03-18
+
+    - add LightKitAdminBasePlanetInstaller class
+  
+- 0.12.26 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 0.12.25 -- 2021-03-09
+
+    - update api to adapt new Ling.Light_Mailer changes
+    - rename template dir to include galaxy name
+  
 - 0.12.24 -- 2021-03-05
 
     - update README.md, add install alternative

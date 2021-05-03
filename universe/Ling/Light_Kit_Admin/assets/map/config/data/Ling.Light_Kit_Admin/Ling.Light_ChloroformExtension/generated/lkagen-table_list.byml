@@ -1,0 +1,55 @@
+lud_permission_group.id: 
+    fields: id as value, concat(id, '. ', name) as label
+    table: lud_permission_group
+    column: id
+    search_column: concat(id, '. ', name)
+    csrf_token: true
+    micro_permission: tables.lud_permission_group.read
+
+lud_permission.id: 
+    fields: id as value, concat(id, '. ', name) as label
+    table: lud_permission
+    column: id
+    search_column: concat(id, '. ', name)
+    csrf_token: true
+    micro_permission: tables.lud_permission.read
+
+lud_user_group.id: 
+    fields: id as value, concat(id, '. ', name) as label
+    table: lud_user_group
+    column: id
+    search_column: concat(id, '. ', name)
+    csrf_token: true
+    micro_permission: tables.lud_user_group.read
+
+lud_plugin_option.id: 
+    fields: id as value, concat(id, '. ', plugin) as label
+    table: lud_plugin_option
+    column: id
+    search_column: concat(id, '. ', plugin)
+    csrf_token: true
+    micro_permission: tables.lud_plugin_option.read
+
+lud_user.id: 
+    fields: id as value, concat(id, '. ', pseudo) as label
+    table: lud_user
+    column: id
+    search_column: concat(id, '. ', pseudo)
+    csrf_token: true
+    micro_permission: tables.lud_user.read
+
+luda_resource.id: 
+    fields: id as value, concat(id, '. ', real_path) as label
+    table: luda_resource
+    column: id
+    search_column: concat(id, '. ', real_path)
+    csrf_token: true
+    micro_permission: tables.luda_resource.read
+
+luda_tag.id: 
+    fields: id as value, concat(id, '. ', name) as label
+    table: luda_tag
+    column: id
+    search_column: concat(id, '. ', name)
+    csrf_token: true
+    micro_permission: tables.luda_tag.read

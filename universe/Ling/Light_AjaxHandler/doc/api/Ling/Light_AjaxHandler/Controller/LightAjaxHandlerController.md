@@ -4,7 +4,7 @@
 
 The LightAjaxHandlerController class
 ================
-2019-09-19 --> 2021-03-05
+2019-09-19 --> 2021-04-06
 
 
 
@@ -69,4 +69,4 @@ See the source code of [Ling\Light_AjaxHandler\Controller\LightAjaxHandlerContro
 
 SeeAlso
 ==============
-Next class: [LightAjaxHandlerException](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Exception/LightAjaxHandlerException.md)<br>
+Next class: [ClientErrorException](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Exception/ClientErrorException.md)<br>

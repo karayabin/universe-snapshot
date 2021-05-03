@@ -48,7 +48,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/CheapLogger.php#L31-L40)
+See the source code for method [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/CheapLogger.php#L32-L41)
 
 
 See Also
@@ -56,5 +56,5 @@ See Also
 
 The [CheapLogger](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger.md) class.
 
-Next method: [getLogMessage](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/getLogMessage.md)<br>
+Next method: [logg](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/logg.md)<br>
 

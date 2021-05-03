@@ -4,7 +4,7 @@
 
 The ClassParser class
 ================
-2019-02-21 --> 2021-03-05
+2019-02-21 --> 2021-03-23
 
 
 
@@ -65,7 +65,7 @@ class <span class="pl-k">ClassParser</span> implements [ClassParserInterface](ht
     - protected [getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodVisibility.md)(ReflectionMethod $method) : string
     - protected [getPropertyVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertyVisibility.md)(ReflectionProperty $property) : string
     - private [trimLines](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/trimLines.md)(array $lines) : array
-    - private [expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/expandIncludes.md)(string $rawContent, ?$resolved = false, ?array &$includeReferences = []) : string
+    - private [expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/expandIncludes.md)(string $rawContent, ?&$resolved = false, ?array &$includeReferences = []) : string
     - private [getTagDescriptionByContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getTagDescriptionByContent.md)(string $content) : string
 
 }

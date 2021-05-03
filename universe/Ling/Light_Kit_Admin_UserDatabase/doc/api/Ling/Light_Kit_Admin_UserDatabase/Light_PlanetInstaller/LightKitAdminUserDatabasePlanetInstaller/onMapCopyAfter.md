@@ -55,7 +55,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminUserDatabasePlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller.php#L22-L29)
+See the source code for method [LightKitAdminUserDatabasePlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller.php#L24-L58)
 
 
 See Also

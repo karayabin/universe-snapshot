@@ -7,7 +7,7 @@ LightKitAdminListActionHandler::getInRicsTags
 
 
 
-LightKitAdminListActionHandler::getInRicsTags — Returns an array containing one [in_rics tag](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist-conception-notes.md#in_rics) per item in the given rics array.
+LightKitAdminListActionHandler::getInRicsTags — Returns an array containing one [in_rics tag](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/duelist-conception-notes.md#in_rics) per item in the given rics array.
 
 
 
@@ -21,7 +21,7 @@ protected [LightKitAdminListActionHandler::getInRicsTags](https://github.com/lin
 
 
 
-Returns an array containing one [in_rics tag](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist-conception-notes.md#in_rics) per item in the given rics array.
+Returns an array containing one [in_rics tag](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/duelist-conception-notes.md#in_rics) per item in the given rics array.
 If one of the rics provided by the user doesn't match the ric defined in the configuration,
 and exception is thrown.
 

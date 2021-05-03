@@ -186,7 +186,7 @@ Dynamic injection
 =============
 2019-11-01
 
-We use the same system as [realist dynamic injection](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist.md#dynamic-injection).
+We use the same system as [realist dynamic injection](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/duelist.md#dynamic-injection).
 
 Dynamic injection basically allows us to add dynamic variables into the (otherwise static) configuration array.
 

@@ -1,0 +1,59 @@
+kit:
+    instance: Ling\Light_Kit\Service\LightKitService
+    methods:
+        configure:
+            settings:
+                application_dir: ${app_dir}
+        setConfStorage:
+            -
+                instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
+                methods:
+                    setRootDir:
+                        rootDir: ${app_dir}/config/data
+        setContainer:
+            container: @container()
+
+    methods_collection:
+        -
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\ConfigurationTransformer\DynamicVariableTransformer
+        -
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\ConfigurationTransformer\LightExecuteNotationResolver
+
+
+        -
+            method: registerWidgetHandler
+            args:
+                - picasso
+                -
+                    instance: Ling\Light_Kit\WidgetHandler\LightKitPicassoWidgetHandler
+                    constructor_args:
+                        options:
+                            showCssNuggetHeaders: true
+                            showJsNuggetHeaders: true
+                    methods:
+                        setWidgetBaseDir:
+                            dir: ${app_dir}
+                        setContainer:
+                            container: @container()
+        -
+            method: registerWidgetHandler
+            args:
+                - prototype
+                -
+                    instance: Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
+                    methods:
+                        setRootDir:
+                            appDir: ${app_dir}
+
+
+kit_css_file_generator:
+    instance: Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
+    constructor_args:
+        rootDir: ${app_dir}/www
+        format: css/tmp/$identifier-compiled-widgets.css

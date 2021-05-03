@@ -1,0 +1,11 @@
+.kit-has-dual-pane .pane-title {
+  background-color: #dceaf9;
+  padding: 10px;
+  border-radius: 10px; }
+.kit-has-dual-pane button:disabled {
+  cursor: not-allowed; }
+
+.kit-has-dual-pane-iframe {
+  border: none; }
+
+/*# sourceMappingURL=default.css.map */

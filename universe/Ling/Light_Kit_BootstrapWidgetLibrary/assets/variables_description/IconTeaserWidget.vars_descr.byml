@@ -55,7 +55,7 @@ example: <
     type: picasso
     active: true
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\IconTeaserWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget
     template: default.php
     vars: 
         attr: 

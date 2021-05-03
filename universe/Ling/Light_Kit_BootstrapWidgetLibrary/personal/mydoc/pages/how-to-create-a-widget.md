@@ -30,7 +30,7 @@ Here are the steps for a widget named IconTeaserWidget.
 It's an empty class.
 
 
-2. Create the template in **my_app/templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget/templates/default.php**
+2. Create the template in **my_app/templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget/templates/default.php**
 And paste your html or code in it.
 
 
@@ -94,7 +94,7 @@ $boxes = $z['boxes'] ?? [];
 
 
 
-3. Open the kit page configuration file (for instance **my_app/config/data/Light_Kit_Demo/kit/glozzom/glozzom_home.byml**), and add the widget to the page,
+3. Open the kit page configuration file (for instance **my_app/config/data/Ling.Light_Kit_Demo/Ling.Light_Kit/glozzom/glozzom_home.byml**), and add the widget to the page,
     so that you can have a preview of the widget while creating it.
     
     I often start with a prototype that I already have, so that I have a precise idea of how the widget look.
@@ -111,7 +111,7 @@ A typical page configuration looks like this:
 
 ```yaml
 label: Light Kit Admin Login Page
-layout: templates/Light_Kit_Admin/layouts/zeroadmin/zeroadmin_standalone_layout.php
+layout: templates/Ling.Light_Kit_Admin/layouts/zeroadmin/zeroadmin_standalone_layout.php
 layout_vars:
     page_one_id: page_one
     page_two_id: page_two
@@ -131,7 +131,7 @@ zones:
             name: zeroadmin_login_form
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminLoginFormWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminLoginFormWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminLoginFormWidget
             template: default.php
             vars:
                 form_method: post
@@ -193,10 +193,10 @@ copy-pasting has always proven being very useful).
 
 
 
-7. Then I create the description file, starting with this little code (which needs to be adapted depending on the page I'm working on):
+7. Then I create the description file, starting with this little code (which needs to be adapted depending on the page you're working on):
 
  ```php
- //$pageConfFile = "/komin/jin_site_demo/config/kit/pages/Light_Kit_Demo/looplab/looplab_home.byml";
+ //$pageConfFile = "/komin/jin_site_demo/config/Ling.Light_Kit/pages/Light_Kit_Demo/looplab/looplab_home.byml";
  //$outputDir = "/tmp/assets";
  //$o = new VariableDescriptionFileGeneratorUtil();
  //$o->generate($pageConfFile, $outputDir);

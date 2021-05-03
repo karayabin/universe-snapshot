@@ -17,3 +17,11 @@
 1.0.4: 
     - Ling:ArrayToString:1.4.5+
     - Ling:Bat:1.308+
+
+1.0.5: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.31+
+
+1.0.6: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.31+

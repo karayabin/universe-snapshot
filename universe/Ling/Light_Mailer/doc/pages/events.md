@@ -1,13 +1,13 @@
 Light_Mailer events
 =============
-2020-06-29
+2020-06-29 -> 2021-03-09
 
 
 
 The **Light_Mailer** plugin provides the following events:
 
 
-- Light_Mailer.on_mail_sent: this event is triggered from LightMailerService->sendMessage,
+- **Ling.Light_Mailer.on_mail_sent**: this event is triggered from LightMailerService->sendMessage,
         when an email was successfully sent. 
         You can use this to collect statistics about who opened their mail for instance.
         The data is a [LightEvent](https://github.com/lingtalfi/Light/blob/master/Events/LightEvent.php) with the following variables:

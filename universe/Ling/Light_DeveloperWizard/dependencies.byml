@@ -11,7 +11,6 @@ dependencies:
         - Light_DbSynchronizer
         - Light_Kit_Admin
         - Light_Kit_Admin_Generator
-        - Light_LingStandardService
         - Light_PluginInstaller
         - Light_UserDatabase
         - SimplePdoWrapper

@@ -4,6 +4,7 @@
 namespace Ling\Light_Kit_Admin_DebugTrace\Service;
 
 
+use Exception;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\FileSystemTool;
@@ -14,6 +15,7 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_CsrfSimple\Service\LightCsrfSimpleService;
 use Ling\Light_Events\Service\LightEventsService;
+use Ling\Light_Kit_Admin_DebugTrace\Exception\LightKitAdminDebugTraceException;
 
 /**
  * The LightKitAdminDebugTraceService class.
@@ -80,7 +82,7 @@ class LightKitAdminDebugTraceService
     //
     //--------------------------------------------
     /**
-     * Listener for the @page(Light.initialize_1 event).
+     * Listener for the @page(Ling.Light.initialize_1 event).
      * It will write information about the http request and the csrf token into the debug trace file.
      *
      *
@@ -134,7 +136,7 @@ class LightKitAdminDebugTraceService
 
 
     /**
-     * Callable for the Light.on_route_found event provided by @page(the Light framework).
+     * Callable for the Ling.Light.on_route_found event provided by @page(the Light framework).
      *
      * @param LightEvent $event
      * @param string $eventName
@@ -150,7 +152,7 @@ class LightKitAdminDebugTraceService
 
 
     /**
-     * Callable for the Light_Kit_Admin.on_page_rendered_before event provided by @page(the Light_Kit_Admin plugin).
+     * Callable for the Ling.Light_Kit_Admin.on_page_rendered_before event provided by @page(the Light_Kit_Admin plugin).
      *
      * @param LightEvent $event
      * @param string $eventName
@@ -166,7 +168,7 @@ class LightKitAdminDebugTraceService
 
 
     /**
-     * Callable for the Light_CsrfSimple.on_csrf_token_regenerated event provided by @page(the Light_CsrfSimple plugin).
+     * Callable for the Ling.Light_CsrfSimple.on_csrf_token_regenerated event provided by @page(the Light_CsrfSimple plugin).
      *
      * @param LightEvent $event
      * @param string $eventName
@@ -182,7 +184,7 @@ class LightKitAdminDebugTraceService
 
 
     /**
-     * Callable for the Light_Kit.on_page_conf_ready event provided by @page(the Light_Kit plugin).
+     * Callable for the Ling.Light_Kit.on_page_conf_ready event provided by @page(the Light_Kit plugin).
      *
      * @param LightEvent $event
      * @param string $eventName
@@ -200,7 +202,7 @@ class LightKitAdminDebugTraceService
                     $myZones[$name][] = [
                         "name" => $widget['name'],
                         "className" => $widget['className'] . " (" . $widget['type'] . ")",
-                        "widgetFile" => $widget['widgetDir'] . "/" . $widget['template'],
+                        "widgetFile" => $widget['widgetDir'] . "/templates/" . $widget['template'],
                     ];
                 }
             }
@@ -216,7 +218,7 @@ class LightKitAdminDebugTraceService
 
 
     /**
-     * Callable for @page(the Light.end_routine event).
+     * Callable for @page(the Ling.Light.end_routine event).
      * @param LightEvent $event
      * @throws \Exception
      */
@@ -242,6 +244,39 @@ class LightKitAdminDebugTraceService
                 "session" => $session,
             ]);
 
+        }
+    }
+
+
+
+    /**
+     * Returns the file path, in the target dir, corresponding to the given uri.
+     *
+     * If the target dir is not defined, an exception is thrown.
+     *
+     * @param string $uri
+     * @return string
+     * @throws LightKitAdminDebugTraceException
+     */
+    public function getTargetDirFilePathByUri(string $uri): string
+    {
+        if (null !== $this->targetDir) {
+
+
+            $this->targetDirCurrentFileName =
+                str_replace([
+                    '/',
+                ], [
+                    '_slash_',
+                ], $uri)
+                . ".txt";
+
+            if (strlen($this->targetDirCurrentFileName) > 255) {
+                $this->targetDirCurrentFileName = substr($this->targetDirCurrentFileName, 0, 255);
+            }
+            return $this->targetDir . "/" . $this->targetDirCurrentFileName;
+        } else {
+            throw new LightKitAdminDebugTraceException("The targetDir property was not defined in the service config.");
         }
     }
 
@@ -337,21 +372,12 @@ class LightKitAdminDebugTraceService
         }
 
         if (null !== $this->targetDir) {
-
-
-            $this->targetDirCurrentFileName =
-                str_replace([
-                    '/',
-                ], [
-                    '_slash_',
-                ], $request->getUri())
-                . ".txt";
-
-            if (strlen($this->targetDirCurrentFileName) > 255) {
-                $this->targetDirCurrentFileName = substr($this->targetDirCurrentFileName, 0, 255);
-            }
+            $file = $this->getTargetDirFilePathByUri($request->getUri());
+            FileSystemTool::mkfile($file, "");
         }
     }
+
+
 
 
     /**

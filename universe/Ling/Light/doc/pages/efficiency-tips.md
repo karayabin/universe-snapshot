@@ -15,7 +15,7 @@ If you want to generate an API based on the database schema, consider using the 
 
 
 ```php
-// In your service conf, assign luda to /myapp/config/data/Light_UserData/Light_BreezeGenerator/luda.byml
+// In your service conf, assign luda to /myapp/config/data/Ling.Light_UserData/Ling.Light_BreezeGenerator/luda.byml
 az($container->get("breeze_generator")->generate("luda"));
 ``` 
 

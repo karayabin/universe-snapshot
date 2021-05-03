@@ -4,7 +4,7 @@
 
 The LightCsrfSessionValidator class
 ================
-2019-11-27 --> 2021-03-05
+2019-11-27 --> 2021-03-15
 
 
 
@@ -22,10 +22,10 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightCsrfSessionValidator</span> extends AbstractValidator implements ValidatorInterface {
+class <span class="pl-k">LightCsrfSessionValidator</span> extends [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md) implements [ValidatorInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) {
 
 - Properties
-    - protected Ling\Light\ServiceContainer\LightServiceContainerInterface [$container](#property-container) ;
+    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
 
 - Inherited properties
     - protected string [AbstractValidator::$messagesDir](#property-messagesDir) ;
@@ -33,13 +33,13 @@ class <span class="pl-k">LightCsrfSessionValidator</span> extends AbstractValida
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator/__construct.md)() : void
-    - public [test](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator/test.md)($value, string $fieldName, Ling\Chloroform\Field\FieldInterface $field, ?string &$error = null) : bool
-    - public [setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator/setContainer.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : [LightCsrfSessionValidator](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator.md)
+    - public [test](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator/test.md)($value, string $fieldName, [Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, ?string &$error = null) : bool
+    - public [setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : [LightCsrfSessionValidator](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator.md)
 
 - Inherited methods
-    - public static AbstractValidator::create() : Ling\Chloroform\Validator\AbstractValidator
+    - public static AbstractValidator::create() : [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md)
     - public AbstractValidator::toArray() : array
-    - public AbstractValidator::setErrorMessage(string $errorMessage, ?string $messageIdentifier = null) : Ling\Chloroform\Validator\AbstractValidator
+    - public AbstractValidator::setErrorMessage(string $errorMessage, ?string $messageIdentifier = null) : [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md)
     - protected AbstractValidator::getErrorMessage(string $msgId, array $variables) : string
     - protected AbstractValidator::getMessages(?bool $identifierAsKey = false) : array
     - protected AbstractValidator::getDefaultMessagesDir(string $baseDir) : string

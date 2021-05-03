@@ -7,7 +7,7 @@ LightBMenuService::getItems
 
 
 
-LightBMenuService::getItems — Returns the computed menu items identified by the given $menuType.
+LightBMenuService::getItems — Returns the computed menu items for the given menu name.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md)(string $menuType) : array
+public [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md)(string $menuName) : array
 
 
 
 
-Returns the computed menu items identified by the given $menuType.
+Returns the computed menu items for the given menu name.
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- menuType
+- menuName
 
     
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L108-L162)
+See the source code for method [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L103-L121)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightBMenuService](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/__construct.md)<br>Next method: [registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md)<br>
+Previous method: [getMenusBaseDir](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getMenusBaseDir.md)<br>
 

@@ -16,6 +16,152 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
 
 
             /**
+             * This method returns a function that you can use to quickly implement
+             * a gui based on alcp protocol.
+             *
+             *
+             *
+             * The idea with this method is this:
+             *
+             *
+             *        var controller = 'Ling\\Light_Kit_Admin_Kit_Editor\\Controller\\Editor\\LkeEditorController';
+             *        var execLink = window.LightKitAdminEnvironment.getHubExecLinkFunction(controller);
+             *
+             *
+             *        var jContext = $('#kit-lke-editor-container');
+             *        jContext.on('click.lke', '.lkeacp', function () {
+             *           execLink($(this), function (data) {
+             *               console.log("ok");
+             *           });
+             *           return false;
+             *       });
+             *
+             *
+             * And your link look something like this:
+             *
+             *
+             *        <a
+             *        class="lkeacp"
+             *        data-param-method="removeWebsite"
+             *        data-param-identifier="website 1"
+             *        href="#"><i class="fas fa-trash-alt text-primary"></i></a>
+             *
+             *
+             *
+             *
+             *
+             * Available options are:
+             *
+             * - before: a callable to call before the request
+             * - after: a callable to call after the request, no matter which response type was returned
+             * - error: a callable to call when the request fails
+             *
+             *
+             *
+             *
+             * @param controllerClass
+             * @param options
+             * @returns {function(*=, *=): void}
+             */
+            getHubExecLinkFunction: function (controllerClass, options) {
+
+                var before = options.before || function () {
+                };
+                var after = options.after || function () {
+                };
+                var error = options.error || null;
+
+
+                var baseUrl = '/hub?execute=' + controllerClass + '->';
+                return function execLink(jTarget, success) {
+
+                    before();
+
+
+                    var params = window.AcpHepHelper.getHepParameters(jTarget);
+                    if ("method" in params) {
+                        var method = params.method;
+                        delete params.method;
+                        var url = baseUrl + method;
+                        LightKitAdminEnvironment.alcpPost(url, params, success, error, {
+                            after: after,
+                        });
+
+                    } else {
+                        LightKitAdminEnvironment.error("Missing data-param-method attribute.");
+                    }
+                };
+            },
+
+            /**
+             * A variation on the getHubExecLinkFunction function (above).
+             * This variation is more low level.
+             *
+             *
+             * The returned function accepts the following arguments:
+             *
+             * - success: a callable to execute when the server's alcp response is successful
+             * - options: a map of options:
+             *      - postParams: an array of extra data to send to the server via POST
+             *
+             *
+             * @param controllerClass
+             * @param method
+             * @param options
+             * @returns {function(*=, *=): void}
+             */
+            getHubExecuteFunction: function (controllerClass, method, options) {
+
+
+                var before = options.before || function () {
+                };
+                var after = options.after || function () {
+                };
+                var error = options.error || null;
+
+                var url = '/hub?execute=' + controllerClass + '->' + method;
+
+                return function execLink(success, fnOptions) {
+
+                    var postParams = fnOptions.postParams || {};
+                    before();
+                    LightKitAdminEnvironment.alcpPost(url, postParams, success, error, {
+                        after: after,
+                    });
+                };
+            },
+
+            getHubExecuteAjaxFunction: function (controllerClass, method, options) {
+                var loader = options.loader || null;
+                var before = options.before || function () {
+                    if (null !== loader) {
+                        loader.removeClass('d-none');
+                    }
+
+                };
+                var after = options.after || function () {
+                    if (null !== loader) {
+                        loader.addClass('d-none');
+                    }
+                };
+                options.before = before;
+                options.after = after;
+                return this.getHubExecuteFunction(controllerClass, method, options);
+            },
+
+            alcpPost: function (url, data, successCallback, errorCallback, options) {
+                if (
+                    'undefined' === typeof errorCallback ||
+                    null === errorCallback
+                ) {
+                    errorCallback = function (errMsg) {
+                        LightKitAdminEnvironment.toast("Error", errMsg, "error");
+                    };
+                }
+                window.AcpHepHelper.post(url, data, successCallback, errorCallback, options);
+            },
+
+            /**
              * Asks the user if he/she's sure to execute the action before executing it.
              *
              * Available options are:
@@ -23,7 +169,7 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
              * - title: the title of the modal. Defaults to null (no title)
              * - cancelText: the text to display for the cancel action. Defaults to "Cancel"
              * - okText: the text to display for the ok action. Defaults to "Ok"
-             * - loader: bool = true. Whether to display a loader while the action is executing.
+             * - loader: bool = false. Whether to display a loader while the action is executing.
              *      If false, the modal will close directly as the user clicks the "Ok" button.
              *      If true, the modal will show a loader inside the modal when the user clicks the "Ok" button,
              *      and the developer needs to close the modal once the action is done.
@@ -46,7 +192,7 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                 var cancelText = options.cancelText || 'Cancel';
                 var okText = options.okText || 'Ok';
                 var loadingText = options.loadingText || 'Loading...';
-                var loader = options.loader || true;
+                var loader = options.loader || false;
                 var modalId = 'lka-confirm-modal';
                 var okId = 'lka-confirm-modal-ok-btn';
                 var loaderId = 'lka-confirm-modal-loader-btn';
@@ -100,6 +246,7 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                 var jOk = jModal.find('#' + okId);
                 var jLoader = jModal.find('#' + loaderId);
                 jOk.on('click', function () {
+
                     if (true === loader || "1" === loader) {
                         jOk.hide();
                         jLoader.removeClass("d-none");
@@ -110,6 +257,7 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                         });
                     } else {
                         callback();
+                        jModal.modal('hide');
                     }
                     return false;
                 });

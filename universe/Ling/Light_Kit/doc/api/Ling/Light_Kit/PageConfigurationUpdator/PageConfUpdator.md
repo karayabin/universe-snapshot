@@ -4,7 +4,7 @@
 
 The PageConfUpdator class
 ================
-2019-04-25 --> 2021-03-05
+2019-04-25 --> 2021-04-09
 
 
 
@@ -80,4 +80,4 @@ See the source code of [Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator]
 
 SeeAlso
 ==============
-Previous class: [PageConfigurationTransformerInterface](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/PageConfigurationTransformerInterface.md)<br>Next class: [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md)<br>
+Previous class: [WidgetVariablesHelper](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Helper/WidgetVariablesHelper.md)<br>Next class: [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md)<br>

@@ -1,6 +1,6 @@
 Light Events, conception notes
 ==================
-2019-10-31 -> 2020-11-06
+2019-10-31 -> 2021-03-22
 
 
 
@@ -61,43 +61,75 @@ We use the [Light_Logger](https://github.com/lingtalfi/Light_Logger) service und
 
 
 
-Dynamic events registration
+Events registration
+---------
+2021-03-18
+
+
+Not all events are equal.
+
+Some of them will be called on every page refresh, while some others will be called only a certain situations.
+
+That's why we provide a hybrid registration system, composed of two systems:
+
+- [open registration system](#open-events-registration-system)
+- [close registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-close-registration)
+
+
+So, as a third-party plugin author, you can choose which one suits you best.
+For instance if the event you listen to is not called often, you can use the open registration system.
+
+On the other hand if you want to listen to an event that you know will be called all the time, just use the traditional closed registration system.
+
+
+The open registered listeners are executed **AFTER** the one registered statically.
+
+
+
+
+
+
+
+
+Open events registration system
 ------------
-2020-08-14 -> 2020-08-17
+2020-08-14 -> 2021-03-18
 
 
-As an alternative to registering events statically, which is very fast but usually registers more listeners than the one actually used,
-our service also supports dynamic registration, which is much slower in action since its based on the filesystem, but has the benefit of actually
-calling only the relevant listeners.
-
-We recommend using static registration for events that are called often, and dynamic registration for events that occur more occasionally.
-This recommendation is obviously very subjective, and depends on your application and your mindset.
-
-To use our **dynamic registration** system, you need to know the event name first, and then you create a [babyYaml](https://github.com/lingtalfi/BabyYaml) file at the root of the **appDir/config/dynamic/Light_Events/$eventName** directory.
-
-For now, we only will parse direct children of this directory (this idea is very new as I'm writing those lines).
 
 
-By convention, plugin authors create a file using with their plugin names, because then it allows them to use automation tool (such as the [kaos suite](https://github.com/lingtalfi/LingTalfi/tree/master/Kaos) for instance).
 
 
-So for instance, typically a plugin named **Light_MyPlugin** who wants to listen to the **Light_Database.on_lun_user_notification_create** event will create a structure like this one:
-
-- appDir/config/dynamic/Light_Events/Light_Database.on_lun_user_notification_create/Light_MyPlugin.byml
+We provide an [open registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration), which works as explained below.
 
 
-However, this is just a convention, and as the app maintainer, you can create your own events registration nuggets very easily. All the following files are valid and would be registered dynamically:
 
-   
-- appDir/config/dynamic/Light_Events/Light_Database.on_lun_user_notification_create/Boris.byml
-- appDir/config/dynamic/Light_Events/Light_Database.on_lun_user_notification_create/The_App_Maintainer.byml
-- appDir/config/dynamic/Light_Events/Light_Database.on_lun_user_notification_create/whatever.byml
+
+### The event file location
+2021-03-18 -> 2021-03-19
+
+
+Basically, for a given **$event_name** event, we will trigger all listeners defined in the following file:
+
+- **config/open/Ling.Light_Events/events/$event_name.byml**
+
+
+This is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file. 
+
+
+For now, we only parse direct children of the **events** directory (i.e. sub-directories are not allowed).
+
+Third-party authors add their listeners in that file in a collaborative manner.
+
+
+
+### The event file content
+2021-03-18 -> 2021-03-19
 
 
 As for the content of that babyYaml file, we expect an array of callables.
 
 Each callable must be written in a special format, which you can think of as the [light execute notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md).
-
 
 
 So for instance a file could contain something like this:
@@ -106,6 +138,7 @@ So for instance a file could contain something like this:
 - @some_service->method(ee,ff)
 - @some_service2->method(ee,ff)
 ```
+
 
 
 There are some extra variables available to you:
@@ -139,11 +172,70 @@ Instead, by default, the propagation doesn't stop, and your method can stop the 
 the special string **LightEventsService::STOP_PROPAGATION**.
 
 
+By convention, for readability's sake, since this file is written collaboratively by multiple plugins,
+third-party authors will start their "addition" to the file with a section comment stating their name, like this:
 
-The dynamically registered listeners are executed *AFTER* the one registered statically.
+
+```yaml
+# --------------------------------------
+# Ling.Light_Kit_Admin_PluginABC
+# --------------------------------------
+- @some_service->method(ee,ff)
+- @some_service2->method(ee,ff)
+- 
+# --------------------------------------
+# GalaxyTwo.ShowBizPlanet
+# --------------------------------------
+- @some_service3->method(data, event)
+- @some_service4->anotherMethod(data)
+
+
+```
 
 
 
+To help third-party authors with this task, we provide the **LightEventsHelper::registerOpenEventByPlanet** method, which 
+assumes that the [basic open events convention](#basic-open-events-convention) is implemented.
+
+
+
+
+Basic open events convention
+---------
+2021-03-19 -> 2021-03-22
+
+
+This is a convention to help third-party authors registering their plugin's events.
+
+A plugin **GalaxyOne.PluginOne** should create the following file:
+
+- config/data/GalaxyOne.PluginOne/Ling.Light_Events/open-events.byml
+
+
+This file should look like this:
+
+```yaml
+    
+# the formal notation would look like this:
+$eventName:
+    - $callable    
+    - $callable    
+    - ...
+
+```
+
+
+Here is a concrete example:
+
+```yaml
+Ling.Light_Kit_Admin.on_user_successful_connexion:
+    - @plugin_one->onWebsiteUserLogin(data)
+```
+
+
+
+Once this is done, the third-party author can call the **LightEventsHelper::registerOpenEventByPlanet**, which will put the events in the right spot,
+in the **config/open/Ling.Light_Events/events/** directory.
 
 
 

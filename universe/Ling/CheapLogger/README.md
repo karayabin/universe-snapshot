@@ -1,6 +1,6 @@
 CheapLogger
 ===========
-2019-12-19 -> 2021-03-05
+2019-12-19 -> 2021-03-23
 
 
 
@@ -42,6 +42,14 @@ Summary
 
 History Log
 =============
+
+- 1.0.6 -- 2021-03-23
+
+    - update DocTool documentation 
+  
+- 1.0.5 -- 2021-03-23
+
+    - add CheapLogger::logg method
 
 - 1.0.4 -- 2021-03-05
 

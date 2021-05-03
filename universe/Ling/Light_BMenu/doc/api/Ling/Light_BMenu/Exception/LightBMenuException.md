@@ -4,7 +4,7 @@
 
 The LightBMenuException class
 ================
-2019-08-08 --> 2021-03-05
+2019-08-08 --> 2021-03-18
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_BMenu\Exception\LightBMenuException](https://
 
 SeeAlso
 ==============
-Previous class: [BMenuDirectInjectorInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/DirectInjection/BMenuDirectInjectorInterface.md)<br>Next class: [LightBMenuAbstractHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost.md)<br>
+Next class: [LightBMenu](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Menu/LightBMenu.md)<br>

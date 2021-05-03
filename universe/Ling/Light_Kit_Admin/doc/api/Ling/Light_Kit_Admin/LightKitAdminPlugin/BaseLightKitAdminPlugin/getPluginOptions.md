@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [BaseLightKitAdminPlugin::getPluginOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/LightKitAdminPlugin/BaseLightKitAdminPlugin.php#L37-L40)
+See the source code for method [BaseLightKitAdminPlugin::getPluginOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/LightKitAdminPlugin/BaseLightKitAdminPlugin.php#L37-L43)
 
 
 See Also

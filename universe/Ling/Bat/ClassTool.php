@@ -520,7 +520,7 @@ class ClassTool
      * @param string $className
      * @return false|\ReflectionClass
      */
-    public static function getReflectionClass(string $className)
+    public static function getReflectionClass(string $className): \ReflectionClass|false
     {
         try {
             return new \ReflectionClass($className);
@@ -725,6 +725,27 @@ class ClassTool
             throw new BatException("Cannot instantiate class $className.");
         }
         return false;
+    }
+
+
+    /**
+     * Returns an instance of the given class, only if it implements the given interface.
+     * If the given class doesn't implement the interface, null is returned.
+     *
+     * @param string $class
+     * @param string $interface
+     * @return object|null
+     * @throws \Exception
+     */
+    public static function instantiateIfImplements(string $class, string $interface): object|null
+    {
+        if (true === self::isLoaded($class)) {
+            $r = new \ReflectionClass($class);
+            if (true === $r->implementsInterface($interface)) {
+                return new $class();
+            }
+        }
+        return null;
     }
 
 

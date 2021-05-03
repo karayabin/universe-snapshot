@@ -113,6 +113,7 @@ class LightNuggetService
         }
         list($plugin, $suggestionPath) = $p;
 
+
         $plugin = FileSystemTool::removeTraversalDots($plugin);
         $suggestionPath = FileSystemTool::removeTraversalDots($suggestionPath);
 

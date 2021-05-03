@@ -101,7 +101,7 @@ example: <
     name: blogen_admin_table
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenAdminTableWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenAdminTableWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenAdminTableWidget
     template: default.php
     vars: 
         attr: 

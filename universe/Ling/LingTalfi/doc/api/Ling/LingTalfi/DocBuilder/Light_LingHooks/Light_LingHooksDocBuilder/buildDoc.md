@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_LingHooksDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_LingHooks/Light_LingHooksDocBuilder.php#L45-L209)
+See the source code for method [Light_LingHooksDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_LingHooks/Light_LingHooksDocBuilder.php#L45-L213)
 
 
 See Also

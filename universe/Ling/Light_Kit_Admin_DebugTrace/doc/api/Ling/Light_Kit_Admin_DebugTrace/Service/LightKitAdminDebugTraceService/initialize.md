@@ -7,7 +7,7 @@ LightKitAdminDebugTraceService::initialize
 
 
 
-LightKitAdminDebugTraceService::initialize — Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightKitAdminDebugTraceService::initialize — Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightKitAdminDebugTraceService::initialize](https://github.com/lingtalfi
 
 
 
-Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 It will write information about the http request and the csrf token into the debug trace file.
 
 
@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminDebugTraceService::initialize](https://github.com/lingtalfi/Light_Kit_Admin_DebugTrace/blob/master/Service/LightKitAdminDebugTraceService.php#L91-L133)
+See the source code for method [LightKitAdminDebugTraceService::initialize](https://github.com/lingtalfi/Light_Kit_Admin_DebugTrace/blob/master/Service/LightKitAdminDebugTraceService.php#L93-L135)
 
 
 See Also

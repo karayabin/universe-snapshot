@@ -1,6 +1,6 @@
 Light_BMenu
 ===========
-2019-08-08 -> 2021-03-05
+2019-08-08 -> 2021-03-18
 
 
 
@@ -60,31 +60,18 @@ bmenu:
 ```
 
 
-And here is an excerpt of a host application defining the host for this service:
-
-```yaml
-$bmenu.methods_collection:
-    -
-        method: registerHost
-        args:
-            menu_type: main_menu
-            host:
-                instance: Ling\Light_Kit_Admin\BMenu\LightKitAdminBMenuHost
-                methods:
-                    setAppDir:
-                        dir: ${app_dir}
-                    setMenuStructureId:
-                        id: lka_mainmenu_1
-                    setDefaultItemsParentPath:
-                        path: lka-plugins
-``` 
-
-
-
 
 History Log
 =============
 
+- 2.0.0 -- 2021-03-18
+
+    - switch to open registration system
+  
+- 1.9.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.9.3 -- 2021-03-05
 
     - update README.md, add install alternative

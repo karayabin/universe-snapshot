@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserData
 ================
-2020-02-28 --> 2021-03-05
+2020-02-28 --> 2021-03-23
 
 
 
@@ -116,7 +116,6 @@ Table of contents
 - [LightKitAdminUserDataService](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService.md) &ndash; The LightKitAdminUserDataService class.
     - [LightKitAdminUserDataService::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/__construct.md) &ndash; Builds the LightKitAdminUserDataService instance.
     - [LightKitAdminUserDataService::setContainer](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/setContainer.md) &ndash; Sets the container.
-    - [LightKitAdminUserDataService::inject](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/inject.md) &ndash; Injects menu fragments in the given menu, knowing the "menuStructureId" context.
 
 
 Dependencies
@@ -127,17 +126,13 @@ Dependencies
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 - [Light](https://github.com/lingtalfi/Light)
-- [Light_BMenu](https://github.com/lingtalfi/Light_BMenu)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 - [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
 - [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
 - [Light_User](https://github.com/lingtalfi/Light_User)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [Light_UserRowRestriction](https://github.com/lingtalfi/Light_UserRowRestriction)
-- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

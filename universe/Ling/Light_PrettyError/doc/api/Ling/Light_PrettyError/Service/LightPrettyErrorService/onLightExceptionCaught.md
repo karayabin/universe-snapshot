@@ -7,7 +7,7 @@ LightPrettyErrorService::onLightExceptionCaught
 
 
 
-LightPrettyErrorService::onLightExceptionCaught — This method is a callable to execute when the [Light.on_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md) is triggered.
+LightPrettyErrorService::onLightExceptionCaught — This method is a callable to execute when the [Ling.Light.on_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md) is triggered.
 
 
 
@@ -21,7 +21,7 @@ public [LightPrettyErrorService::onLightExceptionCaught](https://github.com/ling
 
 
 
-This method is a callable to execute when the [Light.on_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md) is triggered.
+This method is a callable to execute when the [Ling.Light.on_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md) is triggered.
 It will basically try to return a prettier exception response (rather than the awful default debugging blank screen).
 
 

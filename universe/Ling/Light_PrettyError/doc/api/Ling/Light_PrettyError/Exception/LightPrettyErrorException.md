@@ -4,7 +4,7 @@
 
 The LightPrettyErrorException class
 ================
-2019-04-05 --> 2021-03-05
+2019-04-05 --> 2021-03-22
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_PrettyError\Exception\LightPrettyErrorExcepti
 
 SeeAlso
 ==============
-Next class: [LightPrettyErrorService](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Service/LightPrettyErrorService.md)<br>
+Next class: [LightPrettyErrorPlanetInstaller](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Light_PlanetInstaller/LightPrettyErrorPlanetInstaller.md)<br>

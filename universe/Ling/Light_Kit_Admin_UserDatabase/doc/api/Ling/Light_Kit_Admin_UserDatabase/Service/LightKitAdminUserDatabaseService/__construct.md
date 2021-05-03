@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminUserDatabaseService::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Service/LightKitAdminUserDatabaseService.php#L29-L32)
+See the source code for method [LightKitAdminUserDatabaseService::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Service/LightKitAdminUserDatabaseService.php#L26-L29)
 
 
 See Also

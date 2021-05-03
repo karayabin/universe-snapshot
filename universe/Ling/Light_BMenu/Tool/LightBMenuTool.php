@@ -13,6 +13,26 @@ class LightBMenuTool
 
 
     /**
+     * Takes an array of menu items, and converts it to an array of menu id => menu items.
+     *
+     * @param array $items
+     */
+    public static function toAssociative(array &$items)
+    {
+        foreach ($items as $k => $item) {
+            unset($items[$k]);
+            $items[$item['id']] = $item;
+            $children = $item['children'];
+            if ($children) {
+                self::toAssociative($children);
+                $items[$item['id']]['children'] = $children;
+            }
+        }
+    }
+
+
+
+    /**
      * Parses the given menu item, and returns an array with the following structure:
      *
      * - 0: bool, isActive. Whether the menu item is active (true only if it's a leaf and the url of the

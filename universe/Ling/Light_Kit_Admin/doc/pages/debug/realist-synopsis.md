@@ -1,6 +1,6 @@
 Realist synopsis
 =========
-2020-08-20
+2020-08-20 -> 2021-03-09
 
 
 
@@ -9,12 +9,12 @@ at the moment, so here is a global synopsis, to help me get the global vision.
 
 
 So a page is displayed, which means a controller is called.
-Let's take the example of the Light_Kit_Admin_UserNotifications plugin, on the user main page list.
+Let's take the example of the **Light_Kit_Admin_UserNotifications** plugin, on the user main page list.
 
 In that case, the **render** method of the  **LightKitAdminUserNotificationsUserMainPageController** controller is called.
 
-It internally calls a kit widget which basically executes this widget file: **templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LightRealistWidget/templates/default.php**,
-with a request declaration found in here: **config/data/Light_Kit_Admin_UserNotifications/Light_Realist/custom/kit_admin_user_notifications_mainpage.byml**.
+It internally calls a kit widget which basically executes this widget file: **templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LightRealistWidget/templates/default.php**,
+with a request declaration found in here: **config/data/Ling.Light_Kit_Admin_UserNotifications/Ling.Light_Realist/custom/kit_admin_user_notifications_mainpage.byml**.
 
 
 The widget file will first be looking for a renderer to render the list.

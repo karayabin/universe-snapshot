@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ClassNameHelper::getClassNameInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md)(string $className, ReflectionClass $class, array $generatedItems2Url, array $includeReferences, ?$useStatementFound = null) : false | array
+public static [ClassNameHelper::getClassNameInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md)(string $className, ReflectionClass $class, array $generatedItems2Url, array $includeReferences, ?&$useStatementFound = null) : false | array
 
 
 

@@ -1,164 +1,171 @@
 Light_BMenu Conception notes
 ================
-2019-08-08
+2019-08-08 -> 2021-03-18
 
 
 
-Summary
-=========
-- [The rough idea](#the-rough-idea)
-- [Zooming on some feature details](#zooming-on-some-feature-details)
-- [The menu item structure](#the-menu-item-structure)
+**BMenu** is a service that provides menus.
 
 
-The rough idea
---------------
+A menu is composed of items.
 
-This service tries to provide a workaround for the following problem, where we want to create some menu(s)
-in an application that accepts plugins, and taking into account that the menu structure might evolve (as 
-the application might evolve with time).
-
-
-
-
-Our workaround involves two actors:
-
-- the host (aka master), which provides a base menu structure
-- the subscribers (the plugins), which add inject their own menu fragments into the base menu structure
-
-
-
-The synopsis starts with registering a host.
-
-A host is basically the entity responsible for displaying the menu.
-
-When we register the host, we assign it to a menu type, like "main menu" for instance.
-
-And so we can register different hosts, each host responsible for displaying a specific menu type. 
-
-
-
-Now at the host level, each host generates a **menuStructureId**.
-
-The **menuStructureId** serves as an identifier of the menu structure.
-
-This means if by chance the base menu structure evolves (which we recommend not to), the **menuStructureId** should reflect that change.
-In other words, the **menuStructureId** is bound to a particular state of the base menu.
-
-For instance, if the base structure of the host menu is this:
-
-- components
-- pages
-- plugins
-
-And with time, application moves to version 2.1.5 (for instance), and the menu structure becomes this:
-
-- components
-- pages
-- admin
-- tools
-
-
-Then the **menuStructureId** must reflect this change.
-
-The **menuStructureId** ONLY CHANGES when there is a change in the menu structure (i.e. it doesn't 
-care of the application version number).
-
-The **menuStructureId** helps plugins know about the menu structure, so that they can potentially inject menu fragments
-exactly where they want.
-
-
-In an ideal world, the host application will never change the menu structure, and we recommend that
-host application authors try their best to do so.
-
-However, just in case the change is unavoidable, the **menuStructureId** is there to have your back, helping you to deal
-with the compatibility problems that might arise.
-
-So, the **menuStructureId** is passed to the subscribers, and they have the possibility to inject their menu fragments
-directly into the menu.
-
-That's the first thing a subscriber can do.
-
-However some people might argue that this technique is not optimal, as a dramatic change in the host base menu structure
-would force all the plugin authors to revisit their menu injection.
-
-And so for this reason we provide another technique for plugins to use, where plugin can just basically say:
-"Hey host, you know what, here are my menu items, do whatever you want with them".
-
-In other words, they rely on the host to inject the menu items for them.
-This technique is much safer, as it's guaranteed that the menu items will be displayed somewhere.
-
-The drawback of this technique is that the plugin author doesn't have control on WHERE EXACTLY the items will be injected.
-Probably, the host application will create a "plugins" submenu and inject all those safe menu items in there, who knows?
-
-And so plugin authors have two techniques at their disposal:
-
-- the direct injection (plugins inject their menu fragments directly into the base menu structure, having the **menuStructureId** as their guide)
-- let the host handle the display of the items (if plugin authors don't have specific needs, it's recommended that they go with this method)
-
-So the two techniques hopefully give the necessary flexibility to plugin authors to create great menus.
-
-
-So, all that is the basic idea, now time for me to implement :)
-
-
- 
-
-Zooming on some feature details
-------------------
-
-
-### Rights 
-I'm currently working on the Light_Kit_Admin (lka) project, and a big part of it revolves around the question of user "rights".
-In an lka project, even the menu items are subject to the user "rights".
-
-In practise, we want to hide some menu elements if the user doesn't have the rights to show the page that it points to.
-
-In order to help with this problem, we provide the following key:
-
-- _right: string, the right required to view this menu item. 
-
-In terms of implementation, we will parse the menu after it has been created by the host and plugins, and remove the entries 
-if the user doesn't have the proper right.
-
-So, if we use this feature, we will assume that the following services are available:
-
-- user_manager
-
-
-Note: we don't want want our menu service to be restricted to be an light kit admin menu only, it could be also a front end menu, or something else,
-so this rights system is just an option that we can activate/deactivate.
-
-
-
-Actually, rather than implementing this ourself, I would rather delegate this to the host, that would be less limited,
-and would simplify the overview for this class (which is already quite complex).
-
- 
-  
 
 The menu item structure
 ---------------
+2021-03-16
 
-A menu item has the following structure (only the id and the children keys are mandatory):
-
-
-- id: string, the identifier for this menu item (it should be unique amongst its siblings)
-- icon: string, the css class for the icon
-- text: string, the text of the menu item 
-- url: string, the url of the menu item (for leave nodes only, not parents)
-- badge_text: string, the text of the badge (the badge is displayed next to the menu item text)
-- badge_class: string, the css class to add to the badge
-- children: array, an array of menu items (recursion accepted)
- 
+A menu item is an array with the following structure:
 
 
-
-
+- id: string, the identifier for this menu item (it should be unique amongst its brothers/sisters)
+- children: array, an array of **menu item id** => **menu item** (i.e. recursion)
+  
+- ?icon: string, the css class for the icon
+- ?text: string, the text of the menu item
+- ?url: string, the url of the menu item (for leave nodes only, not parents)
+- ?badge_text: string, the text of the badge (the badge is displayed next to the menu item text)
+- ?badge_class: string, the css class to add to the badge
+- ...you can add your own entries here...
 
 
 
- 
- 
- 
+The menu structure
+--------
+2021-03-16
+
+
+The **menu** contains any number of [menu items](#the-menu-item-structure).
+
+It's an array which keys are **menu item ids**, and which values are the **menu item arrays**.
+
+In other words, the **menu item id** is also used as a key to reference the **menu item** entry.
+
+Here is an example of what a menu could look like:
+
+
+```yaml
+lka-dashboard: 
+    id: lka-dashboard
+    icon: fas fa-bars
+    text: Dashboard
+    route: lka_route-home
+    children: []
+    _right: Ling.Light_Kit_Admin.user
+    url: /admin
+
+lka-user: 
+    id: lka-user
+    icon: fas fa-user
+    text: User
+    route: null
+    children: 
+        lka_userdatabase-user_profile: 
+            id: lka_userdatabase-user_profile
+            icon: ""
+            text: Profile
+            route: lka_userdatabase_route-user_profile
+            badge_text: HOT
+            badge_class: bg-danger text-white
+            children: []
+            active: true
+            _right: Ling.Light_Kit_Admin.user
+            url: /user/profile
+        
+        kit_admin_train-usermainpage: 
+            id: kit_admin_train-usermainpage
+            icon: fas fa-asterisk
+            text: Train
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_Train
+                controller: Custom/LightKitAdminTrainUserMainPageController
+            
+            _right: Ling.Light_Kit_Admin.user
+            children: []
+            url: /hub?plugin=Light_Kit_Admin_Train&controller=Custom/LightKitAdminTrainUserMainPageController
+    _right: Ling.Light_Kit_Admin.user
+
+lka-admin: 
+    id: lka-admin
+    icon: fas fa-user-cog
+    text: Admin
+    route: null
+    _right: Ling.Light_Kit_Admin.admin
+    children: 
+        kit_admin_user_data-luda: 
+            id: kit_admin_user_data-luda
+            icon: fas fa-puzzle-piece
+            text: User Data
+            route: null
+            children: 
+                - 
+                    id: kit_admin_user_data-luda_resource
+                    icon: fas fa-asterisk
+                    text: Resource
+                    route: lch_route-hub
+                    route_url_params: 
+                        plugin: Ling/Light_Kit_Admin_UserData
+                        controller: Generated/LudaResourceController
+                    
+                    _right: Ling.Light_Kit_Admin.user
+                    children: []
+                    url: /hub?plugin=Ling/Light_Kit_Admin_UserData&controller=Generated/LudaResourceController
+                
+
+```
+
+
+
+
+Registering menus and items
+---------
+2021-03-16
+
+
+
+We use an [open registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration),
+and each menu will be contained in its own [babyYaml](https://github.com/lingtalfi/BabyYaml) file.
+
+All the menus will be located in the following directory:
+
+- **config/open/Ling.Light_BMenu/menus**
+
+
+So for instance, if you want to create a menu called **my_menu**, you should create it here:
+
+- **config/open/Ling.Light_BMenu/menus/my_menu.byml**
+
+
+
+You might be interested to know that our service class provides some methods to help with the registration, should you need them.
+
+
+
+
+Menu modifiers
+--------
+2021-03-16 -> 2021-03-18
+
+
+
+We also provide a **menu modifier system**, to dynamically modify a menu.
+
+To use this **menu modifier system**, register your **menu modifier** directly to our service.
+
+
+Note: I didn't provide the menu modifier system as an **open registration system**, because I reckon
+that a website only has a few menus (like 1, or maybe 2,3,4), and so it was not worth creating an **open registration system** for that few items.
+
+
+
+Below is an example of how a third-party plugin can configure its service to add a menu modifier:
+
+```yaml
+$bmenu.methods_collection:
+    -
+        method: addMenuModifier
+        args:
+            modifier:
+                instance: Ling\Light_Kit_Admin\Light_BMenu\MenuModifier\LightKitAdminBMenuModifier
+``` 
 

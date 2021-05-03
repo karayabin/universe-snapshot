@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [KitPageRenderer::addWidgetConfDecorator](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L225-L228)
+See the source code for method [KitPageRenderer::addWidgetConfDecorator](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L207-L210)
 
 
 See Also

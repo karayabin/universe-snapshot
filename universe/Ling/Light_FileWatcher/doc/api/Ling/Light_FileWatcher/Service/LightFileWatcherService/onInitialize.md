@@ -7,7 +7,7 @@ LightFileWatcherService::onInitialize
 
 
 
-LightFileWatcherService::onInitialize — Method called in response to [the Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightFileWatcherService::onInitialize — Method called in response to [the Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightFileWatcherService::onInitialize](https://github.com/lingtalfi/Ligh
 
 
 
-Method called in response to [the Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Method called in response to [the Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 It will seek for monitored files changes.
 And for every file that has actually changed, we re-install the plugin owning that file.

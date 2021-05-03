@@ -282,7 +282,7 @@ success_messages:
 
 security:
     any:
-        permission: Light_Kit_Admin.admin
+        permission: Ling.Light_Kit_Admin.admin
 
 
 chloroform:

@@ -53,6 +53,7 @@ class Light_CsrfSessionDocBuilder
         $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
+        $chloroDoc = "https://github.com/lingtalfi/Chloroform/blob/master/doc";
 
 
         $options = [
@@ -75,7 +76,10 @@ class Light_CsrfSessionDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Chloroform\Field\HiddenField",
+                "Ling\Chloroform\Field\AbstractField",
+                "Ling\Chloroform\Validator\AbstractValidator",
+
             ],
             /**
              * Your project start date.
@@ -141,7 +145,12 @@ class Light_CsrfSessionDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "chloroform conception notes" =>  "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md",
+                "getFormattedValue section in the Chloroform conception notes" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-getformattedvalue-method",
+
+                "field id section" => $chloroDoc . "/pages/chloroform-discussion.md#the-field-id",
+                "very important data" => $chloroDoc . "/pages/chloroform-discussion.md#the-concept-of-very-important-data",
+                "ValidatorConfig object" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorConfig.md",
             ],
             /**
              * An array of external classes to url.
@@ -153,7 +162,14 @@ class Light_CsrfSessionDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\Chloroform\Exception\ChloroformException" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Exception/ChloroformException.md",
+                "Ling\Chloroform\Field\HiddenField" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField.md",
+                "Ling\Chloroform\Field\FieldInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Chloroform\Validator\ValidatorInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md",
+                "Ling\Chloroform\DataTransformer\DataTransformerInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md",
+                "Ling\Chloroform\Validator\AbstractValidator" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md",
+
             ],
             "ignoreFilesStartingWith" => [
 //                "PHPExcel/",

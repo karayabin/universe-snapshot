@@ -4,7 +4,7 @@
 
 The LightSimpleHttpServerException class
 ================
-2020-10-30 --> 2021-03-05
+2020-10-30 --> 2021-03-22
 
 
 

@@ -1,6 +1,6 @@
 The configuration block
 --------------
-2019-10-24 -> 2020-09-24
+2019-10-24 -> 2021-03-15
 
 
 A configuration block is an array.
@@ -15,6 +15,7 @@ Below is it's babyYaml form, commented, which serves as the reference documentat
 # To use a variable you've defined here, use the !{variableName} notation
 variables: 
     plugin: Light_Kit_Admin
+    galaxyName: Ling
 
 
 # This is optional. Under the hood, the real generator uses the Light_Database plugin to interact with the database,
@@ -100,7 +101,7 @@ list:
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/!{plugin}/Light_Realist/list/generated
+    target_dir: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_Realist/list/generated
 
 
     # the base name of the files to generate
@@ -124,7 +125,7 @@ list:
 
 
     # Whether to use the cross columns on foreign keys
-    # See more about cross columns in https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+    # See more about cross columns in https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/crossed-column.md
     ?use_cross_columns: true
 
     # An array of common representative column names.
@@ -152,8 +153,8 @@ list:
     # which is a built-in transformer provided by Light_Realist.
     # This is used to create a link out of the cross column.
     # 
-    # See more about the column transformer in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#types-the-column-transformers
-    # See more about the cross columns in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+    # See more about the column transformer in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/realist-conception-notes.md#types-the-column-transformers
+    # See more about the cross columns in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/crossed-column.md
     # 
     # In particular, the url_params.controller value is generated from this option.
     # See the BaseRealistRowsRenderer implementation for more details: https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer.md
@@ -208,7 +209,7 @@ list:
             - password
     # This array let you override the default column types.
     # It's an array of table => types, with types being an array of columnName => type.
-    # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+    # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
     # This is used to generate the rendering.open_admin_table.data_types setting in the config file.
     #
     ?open_admin_table_column_types:
@@ -290,7 +291,7 @@ form:
     # The security array. See the [baked in security system of Light_Nugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#a-baked-in-security-system-for-nugget-users) for more details.
     security:
         any:
-            permission: Light_Kit_Admin.admin
+            permission: Ling.Light_Kit_Admin.admin
 
 
 
@@ -299,7 +300,7 @@ form:
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/!{plugin}/Light_Realform/form/generated
+    target_dir: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_Realform/form/generated
 
 
     # This array let you ignore/skip columns that you want to exclude from the generated form config file.
@@ -372,7 +373,7 @@ form:
             # See the [Light_Nugget baked in security system](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#a-baked-in-security-system-for-nugget-users) for more details.
             table_list_security:
                 any:
-                    permission: Light_Kit_Admin.admin
+                    permission: Ling.Light_Kit_Admin.admin
 
 
     # An array of table => notRequiredFields, with notRequiredFields being an array of the fields for which you don't

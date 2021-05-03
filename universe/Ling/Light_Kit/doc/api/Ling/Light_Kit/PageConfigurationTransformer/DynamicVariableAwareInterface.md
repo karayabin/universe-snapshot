@@ -4,7 +4,7 @@
 
 The DynamicVariableAwareInterface class
 ================
-2019-04-25 --> 2021-03-05
+2019-04-25 --> 2021-04-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Kit\PageConfigurationTransformer\DynamicVaria
 
 SeeAlso
 ==============
-Previous class: [LightKitException](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Exception/LightKitException.md)<br>Next class: [DynamicVariableTransformer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/DynamicVariableTransformer.md)<br>
+Previous class: [WidgetVariablesHelper](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Helper/WidgetVariablesHelper.md)<br>Next class: [DynamicVariableTransformer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/DynamicVariableTransformer.md)<br>

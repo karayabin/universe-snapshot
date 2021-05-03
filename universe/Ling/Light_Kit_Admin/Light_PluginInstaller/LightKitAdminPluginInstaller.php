@@ -75,18 +75,18 @@ class LightKitAdminPluginInstaller extends LightUserDatabaseBasePluginInstaller
              * - create "lka_admin" user in the "default" user group
              * - create a "lka_dude" user in the "default" user group
              *
-             * - create a "Light_Kit_Admin.admin" permission group
-             * - create a "Light_Kit_Admin.user" permission group
+             * - create a "Ling.Light_Kit_Admin.admin" permission group
+             * - create a "Ling.Light_Kit_Admin.user" permission group
              *
-             * - create a "Light_Kit_Admin.admin" permission
-             * - create a "Light_Kit_Admin.user" permission
+             * - create a "Ling.Light_Kit_Admin.admin" permission
+             * - create a "Ling.Light_Kit_Admin.user" permission
              *
-             * - bind the "Light_Kit_Admin.admin" permission to the "Light_Kit_Admin.admin" permission group
-             * - bind the "Light_Kit_Admin.user" permission to the "Light_Kit_Admin.admin" permission group
-             * - bind the "Light_Kit_Admin.user" permission to the "Light_Kit_Admin.user" permission group
+             * - bind the "Ling.Light_Kit_Admin.admin" permission to the "Ling.Light_Kit_Admin.admin" permission group
+             * - bind the "Ling.Light_Kit_Admin.user" permission to the "Ling.Light_Kit_Admin.admin" permission group
+             * - bind the "Ling.Light_Kit_Admin.user" permission to the "Ling.Light_Kit_Admin.user" permission group
              *
-             * - bind the "lka_admin" user to the "Light_Kit_Admin.admin" permission group
-             * - bind the "lka_dude" user to the "Light_Kit_Admin.user" permission group
+             * - bind the "lka_admin" user to the "Ling.Light_Kit_Admin.admin" permission group
+             * - bind the "lka_dude" user to the "Ling.Light_Kit_Admin.user" permission group
              *
              */
 
@@ -113,19 +113,19 @@ class LightKitAdminPluginInstaller extends LightUserDatabaseBasePluginInstaller
 
 
             $groupAdminId = $factory->getPermissionGroupApi()->insertPermissionGroup([
-                "name" => "Light_Kit_Admin.admin",
+                "name" => "Ling.Light_Kit_Admin.admin",
             ]);
 
             $groupUserId = $factory->getPermissionGroupApi()->insertPermissionGroup([
-                "name" => "Light_Kit_Admin.user",
+                "name" => "Ling.Light_Kit_Admin.user",
             ]);
 
             $permissionUserId = $factory->getPermissionApi()->insertPermission([
-                "name" => "Light_Kit_Admin.user",
+                "name" => "Ling.Light_Kit_Admin.user",
             ]);
 
             $permissionAdminId = $factory->getPermissionApi()->insertPermission([
-                "name" => "Light_Kit_Admin.admin",
+                "name" => "Ling.Light_Kit_Admin.admin",
             ]);
 
             $factory->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
@@ -215,10 +215,10 @@ class LightKitAdminPluginInstaller extends LightUserDatabaseBasePluginInstaller
             $res = $wrapper->transaction(function () use ($wrapper) {
 
                 $wrapper->delete("lud_permission_group", [
-                    "name" => "Light_Kit_Admin.admin",
+                    "name" => "Ling.Light_Kit_Admin.admin",
                 ]);
                 $wrapper->delete("lud_permission_group", [
-                    "name" => "Light_Kit_Admin.user",
+                    "name" => "Ling.Light_Kit_Admin.user",
                 ]);
 
             }, $exception);
@@ -238,11 +238,11 @@ class LightKitAdminPluginInstaller extends LightUserDatabaseBasePluginInstaller
             $res = $wrapper->transaction(function () use ($wrapper) {
 
                 $wrapper->delete("lud_permission", [
-                    "name" => "Light_Kit_Admin.admin",
+                    "name" => "Ling.Light_Kit_Admin.admin",
                 ]);
 
                 $wrapper->delete("lud_permission", [
-                    "name" => "Light_Kit_Admin.user",
+                    "name" => "Ling.Light_Kit_Admin.user",
                 ]);
 
             }, $exception);

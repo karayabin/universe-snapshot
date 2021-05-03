@@ -402,6 +402,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     private function buildClassPage(ClassInfo $classInfo)
     {
 
+
         $gitBase = $this->projectRepoUrl . "/blob/master";
 
 

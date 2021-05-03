@@ -31,13 +31,4 @@ Other params might be added via POST and/or GET.
 The **handler** must be an instance of **AjaxHandlerInterface**.
 
 
-The server will respond using a variation of the [acp protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol),
-which accepts a third form or response:
-
-
-- type: print    
-- content: some html...
-
-
-This will bypass the ajax communication protocol and just print the given content as is.
-
+The server will respond with an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/alcp-response.md).

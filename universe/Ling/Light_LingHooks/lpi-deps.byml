@@ -13,3 +13,14 @@
 1.0.3: 
     - Ling:Light:0.69.30+
     - Ling:Light_QuickMailAlert:1.1.2+
+
+1.0.4: 
+    - Ling:Light:0.70.0+
+    - Ling:Light_QuickMailAlert:1.1.4+
+
+1.0.5: 
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_Events:1.10.0+
+    - Ling:Light_PlanetInstaller:1.0.20+
+    - Ling:Light_QuickMailAlert:1.1.5+

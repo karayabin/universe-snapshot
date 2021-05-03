@@ -1,6 +1,6 @@
 Light_FileWatcher
 ===========
-2020-06-25 -> 2021-03-05
+2020-06-25 -> 2021-03-15
 
 
 
@@ -67,7 +67,7 @@ $events.methods_collection:
         method: registerListener
         args:
             events:
-                - Light.initialize_1
+                - Ling.Light.initialize_1
             listener:
                 instance: @service(file_watcher)
                 callable_method: onInitialize
@@ -94,6 +94,10 @@ $logger.methods_collection:
 
 History Log
 =============
+
+- 1.1.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.1.3 -- 2021-03-05
 

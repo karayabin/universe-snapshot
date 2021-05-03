@@ -283,3 +283,11 @@
     - Ling:Light:0.69.30+
     - Ling:SimplePdoWrapper:1.30.16+
     - Ling:UniverseTools:1.22.29+
+
+2.0.19: 
+    - Ling:Bat:1.308+
+    - Ling:CliTools:1.10.26+
+    - Ling:CyclicChainDetector:1.1.2+
+    - Ling:Light:0.70.0+
+    - Ling:SimplePdoWrapper:1.30.17+
+    - Ling:UniverseTools:1.22.31+

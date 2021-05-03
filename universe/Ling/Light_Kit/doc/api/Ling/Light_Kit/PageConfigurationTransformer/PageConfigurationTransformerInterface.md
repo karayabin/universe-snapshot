@@ -4,7 +4,7 @@
 
 The PageConfigurationTransformerInterface class
 ================
-2019-04-25 --> 2021-03-05
+2019-04-25 --> 2021-04-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Kit\PageConfigurationTransformer\PageConfigur
 
 SeeAlso
 ==============
-Previous class: [LightExecuteNotationResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LightExecuteNotationResolver.md)<br>Next class: [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)<br>
+Previous class: [LightExecuteNotationResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LightExecuteNotationResolver.md)<br>Next class: [ThemeTransformer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/ThemeTransformer.md)<br>

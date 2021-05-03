@@ -1,6 +1,6 @@
 Light_ErrorHandler
 ===========
-2020-06-01 -> 2021-03-05
+2020-06-01 -> 2021-03-15
 
 
 
@@ -67,7 +67,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.initialize_1
+            events: Ling.Light.initialize_1
             listener:
                 instance: @service(error_handler)
                 callable_method: registerFunctions
@@ -111,6 +111,10 @@ Related
 
 History Log
 =============
+
+- 1.0.9 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.0.8 -- 2021-03-05
 

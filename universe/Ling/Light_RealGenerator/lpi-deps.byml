@@ -564,3 +564,12 @@
     - Ling:Light_DatabaseInfo:1.12.5+
     - Ling:Light_Logger:1.11.6+
     - Ling:SqlWizard:1.13.7+
+
+1.31.17: 
+    - Ling:ArrayVariableResolver:1.2.4+
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Light:0.70.0+
+    - Ling:Light_DatabaseInfo:1.12.6+
+    - Ling:Light_Logger:1.11.7+
+    - Ling:SqlWizard:1.13.8+

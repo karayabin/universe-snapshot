@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealformMultipleEditController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/RealformMultipleEditController.php#L47-L51)
+See the source code for method [RealformMultipleEditController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/RealformMultipleEditController.php#L46-L50)
 
 
 See Also

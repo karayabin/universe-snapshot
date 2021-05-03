@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2021-03-05
+2019-11-06 -> 2021-03-15
 
 
 
@@ -90,7 +90,7 @@ Usage example
 =============
 
 ```php
-$configFile = $appDir . '/config/data/Light_Kit_Admin/Light_Kit_Admin_Generator/jindemo.byml';
+$configFile = $appDir . '/config/data/Ling.Light_Kit_Admin/Ling.Light_Kit_Admin_Generator/jindemo.byml';
 az($container->get("kit_admin_generator")->generate($configFile));
 ```
 
@@ -101,6 +101,14 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.14 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.19.13 -- 2021-03-09
+
+    - update planet to adapt Ling.Light_Kit_Admin:0.12.25
+  
 - 1.19.12 -- 2021-03-05
 
     - update README.md, add install alternative

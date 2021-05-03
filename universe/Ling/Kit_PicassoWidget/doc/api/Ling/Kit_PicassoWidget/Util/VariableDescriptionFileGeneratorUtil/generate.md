@@ -58,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [VariableDescriptionFileGeneratorUtil::generate](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionFileGeneratorUtil.php#L36-L75)
+See the source code for method [VariableDescriptionFileGeneratorUtil::generate](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionFileGeneratorUtil.php#L36-L78)
 
 
 See Also

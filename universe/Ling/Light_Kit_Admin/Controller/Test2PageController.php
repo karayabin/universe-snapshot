@@ -23,7 +23,7 @@ class Test2PageController extends AdminPageController
     public function render()
     {
 
-        $page = 'Light_Kit_Admin/kit/zeroadmin/test/test2';
+        $page = 'Light_Kit_Admin/Ling.Light_Kit/zeroadmin/test/test2';
         $params = [];
 
 //
@@ -54,7 +54,7 @@ class Test2PageController extends AdminPageController
 //        //--------------------------------------------
 //        //
 //        //--------------------------------------------
-//        $this->checkRight("Light_Kit_Admin.admin");
+//        $this->checkRight("Ling.Light_Kit_Admin.admin");
 //        $params = [
 //            'ajaxHandlerUrl' => $ajaxHandlerUrl,
 //            'ajaxHandlerId' => 'Light_RowLookup',

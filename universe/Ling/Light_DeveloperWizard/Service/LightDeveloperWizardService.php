@@ -28,6 +28,7 @@ use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceClass\CreateLss01Se
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceClass\CreateServiceProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceConfig\AddPluginInstallerHookProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceConfig\SortHooksAlphabeticallyProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Widget\AddBootstrapWidgetLibraryWidgetProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\WebWizard\LightDeveloperWizardWebWizard;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\UniverseTools\PlanetTool;
@@ -273,6 +274,8 @@ class LightDeveloperWizardService
                 $ww->setProcess((new CreateConceptionNotesProcess()));
 
 
+                // widget
+                $ww->setProcess((new AddBootstrapWidgetLibraryWidgetProcess()));
 
 
                 $ww->setContext([
@@ -431,7 +434,8 @@ class LightDeveloperWizardService
             </ul>
         <?php elseif (1 === $guiDisplay): ?>
 
-            <h4><?php echo $galaxy . "/" . $planet; ?> (<a href="?">reset</a> | <a href="?planetdir=<?php echo htmlspecialchars($planetDir); ?>">processes</a>)</h4>
+            <h4><?php echo $galaxy . "/" . $planet; ?> (<a href="?">reset</a> | <a
+                        href="?planetdir=<?php echo htmlspecialchars($planetDir); ?>">processes</a>)</h4>
 
             <p>
                 <?php if (true === $createFileExists): ?>

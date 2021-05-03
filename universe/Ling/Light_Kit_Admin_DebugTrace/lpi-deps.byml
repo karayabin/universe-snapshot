@@ -117,3 +117,67 @@
     - Ling:Light_CsrfSession:1.0.4+
     - Ling:Light_CsrfSimple:1.2.4+
     - Ling:Light_Events:1.9.7+
+
+1.6.8: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Light:0.69.32+
+    - Ling:Light_CsrfSession:1.0.4+
+    - Ling:Light_CsrfSimple:1.2.4+
+    - Ling:Light_Events:1.9.7+
+
+1.6.9: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Light:0.70.0+
+    - Ling:Light_CsrfSession:1.0.5+
+    - Ling:Light_CsrfSimple:1.2.5+
+    - Ling:Light_Events:1.9.8+
+
+1.6.10: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.309+
+    - Ling:Light:0.70.1+
+    - Ling:Light_CsrfSession:1.0.5+
+    - Ling:Light_CsrfSimple:1.2.5+
+    - Ling:Light_Events:1.9.10+
+
+1.6.11: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.31+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_CsrfSession:1.0.5+
+    - Ling:Light_CsrfSimple:1.2.5+
+    - Ling:Light_Events:1.10.0+
+    - Ling:Light_PlanetInstaller:1.0.20+
+
+1.6.12: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.312+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_CsrfSession:1.0.5+
+    - Ling:Light_CsrfSimple:1.2.5+
+    - Ling:Light_Events:1.10.2+
+    - Ling:Light_PlanetInstaller:1.0.20+
+
+1.6.13: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.312+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_CsrfSession:1.0.5+
+    - Ling:Light_CsrfSimple:1.2.5+
+    - Ling:Light_Events:1.10.2+
+    - Ling:Light_PlanetInstaller:1.0.20+
+
+1.6.14: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.312+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_CsrfSession:1.0.5+
+    - Ling:Light_CsrfSimple:1.2.5+
+    - Ling:Light_Events:1.10.2+
+    - Ling:Light_PlanetInstaller:1.0.20+

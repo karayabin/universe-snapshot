@@ -1,6 +1,6 @@
 Kit_PrototypeWidget
 ===========
-2019-04-25 -> 2021-03-05
+2019-04-25 -> 2021-04-08
 
 
 
@@ -107,6 +107,14 @@ Related
 History Log
 =============
 
+- 1.1.5 -- 2021-04-08
+
+    - adapt api to Kit:1.14.0
+  
+- 1.1.4 -- 2021-04-08
+
+    - adapt api to Kit:1.13.0
+  
 - 1.1.3 -- 2021-03-05
 
     - update README.md, add install alternative

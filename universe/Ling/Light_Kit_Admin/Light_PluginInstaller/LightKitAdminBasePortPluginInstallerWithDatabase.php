@@ -92,7 +92,7 @@ abstract class LightKitAdminBasePortPluginInstallerWithDatabase extends LightUse
             $basePluginName = $this->_sourcePluginName;
             $permApi = $userDb->getFactory()->getPermissionApi();
 
-            if (null !== ($groupAdminId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.admin"))) {
+            if (null !== ($groupAdminId = $permGroupApi->getPermissionGroupIdByName("Ling.Light_Kit_Admin.admin"))) {
 
                 if (null !== ($adminId = $permApi->getPermissionIdByName("$basePluginName.admin"))) {
 
@@ -131,9 +131,9 @@ abstract class LightKitAdminBasePortPluginInstallerWithDatabase extends LightUse
 
             $permGroupApi = $userDb->getFactory()->getPermissionGroupApi();
             $permApi = $userDb->getFactory()->getPermissionApi();
-            $groupAdminId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.admin");
+            $groupAdminId = $permGroupApi->getPermissionGroupIdByName("Ling.Light_Kit_Admin.admin");
             $adminId = $permApi->getPermissionIdByName("$basePluginName.admin");
-            $groupUserId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.user");
+            $groupUserId = $permGroupApi->getPermissionGroupIdByName("Ling.Light_Kit_Admin.user");
             $userId = $permApi->getPermissionIdByName("$basePluginName.user");
 
 

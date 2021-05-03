@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/JSelectHide/blob/master/README.md
+https://github.com/lingtalfi/JSelectHide/blob/master/doc/api/Ling/JSelectHide.md

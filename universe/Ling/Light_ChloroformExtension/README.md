@@ -1,6 +1,6 @@
 Light_ChloroformExtension
 ===========
-2019-11-18 -> 2021-03-05
+2019-11-18 -> 2021-03-15
 
 
 
@@ -86,6 +86,10 @@ Related
 History Log
 =============
 
+- 1.6.14 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.6.13 -- 2021-03-05
 
     - update README.md, add install alternative

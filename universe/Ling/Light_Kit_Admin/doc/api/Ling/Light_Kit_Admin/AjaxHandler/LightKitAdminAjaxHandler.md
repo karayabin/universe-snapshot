@@ -4,7 +4,7 @@
 
 The LightKitAdminAjaxHandler class
 ================
-2019-05-17 --> 2021-03-05
+2019-05-17 --> 2021-05-02
 
 
 
@@ -67,4 +67,4 @@ See the source code of [Ling\Light_Kit_Admin\AjaxHandler\LightKitAdminAjaxHandle
 
 SeeAlso
 ==============
-Next class: [LightKitAdminBMenuHost](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost.md)<br>
+Next class: [LightKitAdminGeneralBullsheeter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Bullsheet/LightKitAdminGeneralBullsheeter.md)<br>

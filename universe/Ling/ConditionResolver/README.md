@@ -1,6 +1,6 @@
 ConditionResolver
 ===========
-2017-11-07 -> 2021-03-05
+2017-11-07 -> 2021-03-26
 
 
 
@@ -71,9 +71,22 @@ found in the **doc/simple-conditions-language.md** document.
 
 
 
+Related
+===========
+2021-03-26
+
+
+- [LogicalOperator](https://github.com/lingtalfi/LogicalOperator)
+
+
+
 History Log
 ------------------    
 
+- 1.1.4 -- 2021-03-26
+
+    - update README.md, add related section
+  
 - 1.1.3 -- 2021-03-05
 
     - update README.md, add install alternative

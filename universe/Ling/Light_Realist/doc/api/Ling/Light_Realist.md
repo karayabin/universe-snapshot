@@ -1,6 +1,6 @@
 Ling/Light_Realist
 ================
-2019-08-12 --> 2021-03-05
+2019-08-12 --> 2021-04-09
 
 
 
@@ -22,6 +22,15 @@ Table of contents
     - ContainerAwareLightAjaxHandler::setContainer &ndash; Sets the light service container interface.
 - [DeveloperVariableProviderInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DeveloperVariableProvider/DeveloperVariableProviderInterface.md) &ndash; The DeveloperVariableProviderInterface interface.
     - [DeveloperVariableProviderInterface::getVariables](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DeveloperVariableProvider/DeveloperVariableProviderInterface/getVariables.md) &ndash; Returns the developer variables for the given contextId.
+- [DuelistEngineInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface.md) &ndash; The DuelistEngineInterface interface.
+    - [DuelistEngineInterface::getRowsInfo](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface/getRowsInfo.md) &ndash; Returns an array based on the given requestId, duelist declaration and tags, or false if something wrong occurs.
+    - [DuelistEngineInterface::getError](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface/getError.md) &ndash; Returns the error message if any, or null otherwise.
+- [MysqlDuelistEngine](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/MysqlDuelistEngine.md) &ndash; The MysqlDuelistEngine class.
+    - [MysqlDuelistEngine::__construct](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/MysqlDuelistEngine/__construct.md) &ndash; Builds the MysqlDuelistEngine instance.
+    - [MysqlDuelistEngine::setUseDebug](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/MysqlDuelistEngine/setUseDebug.md) &ndash; Sets the useDebug.
+    - [MysqlDuelistEngine::setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/MysqlDuelistEngine/setContainer.md) &ndash; Sets the light service container interface.
+    - [MysqlDuelistEngine::getRowsInfo](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/MysqlDuelistEngine/getRowsInfo.md) &ndash; Returns an array based on the given requestId, duelist declaration and tags, or false if something wrong occurs.
+    - [MysqlDuelistEngine::getError](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/MysqlDuelistEngine/getError.md) &ndash; Returns the error message if any, or null otherwise.
 - [ContainerAwareRealistDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/ContainerAwareRealistDynamicInjectionHandler.md) &ndash; The ContainerAwareRealistDynamicInjectionHandler class
     - [ContainerAwareRealistDynamicInjectionHandler::__construct](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/ContainerAwareRealistDynamicInjectionHandler/__construct.md) &ndash; Builds the ContainerAwareRealistDynamicInjectionHandler instance.
     - [ContainerAwareRealistDynamicInjectionHandler::setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/ContainerAwareRealistDynamicInjectionHandler/setContainer.md) &ndash; Sets the light service container interface.
@@ -129,6 +138,7 @@ Dependencies
 ============
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [JAcpHep](https://github.com/lingtalfi/JAcpHep)
 - [JResponsiveTableHelper](https://github.com/lingtalfi/JResponsiveTableHelper)
 - [JRicAdminTableHelper](https://github.com/lingtalfi/JRicAdminTableHelper)

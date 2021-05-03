@@ -579,7 +579,7 @@ function myController(LightServiceContainerInterface $service){
 
 
 And the "page_one" is actually a page name, configured in the kit configuration.
-I plan to put all page configuration (at least with the babyYaml implementation) in a **config/kit/pages** directory,
+I plan to put all page configuration (at least with the babyYaml implementation) in a **config/Ling.Light_Kit/pages** directory,
 so that plugins know where to inject their pages. 
 
 The layout root_dir would be the app_dir, so that it's agnostic (plugin authors will have total freedom as to where

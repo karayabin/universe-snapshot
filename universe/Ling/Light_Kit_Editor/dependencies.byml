@@ -1,0 +1,22 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - CliTools
+        - DirScanner
+        - Kit
+        - Light
+        - Light_Database
+        - Light_EasyRoute
+        - Light_Kit
+        - Light_PlanetInstaller
+        - Light_Realform
+        - Light_Realist
+        - LogicalOperator
+        - PaginationHelper
+        - RowsSortHelper
+        - SimplePdoWrapper
+    
+
+post_install: 
+    map: true

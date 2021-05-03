@@ -4,7 +4,7 @@
 
 The LightKitAdminPluginInterface class
 ================
-2019-05-17 --> 2021-03-05
+2019-05-17 --> 2021-05-02
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPl
 
 SeeAlso
 ==============
-Previous class: [BaseLightKitAdminPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin.md)<br>Next class: [LightKitAdminControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler.md)<br>
+Previous class: [BaseLightKitAdminPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin.md)<br>Next class: [LightKitAdminBMenuModifier](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier.md)<br>

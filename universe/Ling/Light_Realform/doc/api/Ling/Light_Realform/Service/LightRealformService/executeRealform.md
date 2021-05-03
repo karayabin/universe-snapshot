@@ -22,16 +22,16 @@ public [LightRealformService::executeRealform](https://github.com/lingtalfi/Ligh
 
 
 Creates the chloroform from the config nugget identified by the given nuggetId,
-then execute our [form handling system a algorithm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md#form-handling-system-a), and returns the chloroform
+then execute our [form handling system a algorithm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes.md#form-handling-system-a), and returns the chloroform
 instance.
 
 
-More info in the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md).
+More info in the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes.md).
 
 
 Available options are:
 - onSuccess: callable (array validPostedData).
-     See more info in the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md).
+     See more info in the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes.md).
 
 
 
@@ -68,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformService::executeRealform](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L199-L221)
+See the source code for method [LightRealformService::executeRealform](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L199-L222)
 
 
 See Also

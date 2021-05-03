@@ -1,6 +1,6 @@
 Task details
 =============
-2020-07-09 -> 2020-12-01
+2020-07-09 -> 2021-03-18
 
 
 
@@ -107,7 +107,7 @@ See an [example of lka generator config file](https://github.com/lingtalfi/Light
 
 Create lka planet
 ----------
-2020-08-04
+2020-08-04 -> 2021-03-18
 
 Creates the corresponding [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) planet.
 
@@ -136,13 +136,13 @@ The generated files are:
 - $appDir/
 ----- config/
 --------- data/
-------------- Light_Kit_Admin_MyPlanet/
------------------ Light_Kit_Admin_Generator/
+------------- MyGalaxy.Light_Kit_Admin_MyPlanet/
+----------------- Ling.Light_Kit_Admin_Generator/
 --------------------- kit_admin_my_planet.generated.byml
 --------- services/
-------------- Light_Kit_Admin_MyPlanet.byml
+------------- MyGalaxy.Light_Kit_Admin_MyPlanet.byml
 ----- universe/
---------- Ling/
+--------- MyGalaxy/
 ------------- Light_Kit_Admin_MyPlanet/
 ----------------- Service/
 --------------------- LightKitAdminMyPlanetService.php
@@ -202,7 +202,7 @@ The files are only created if they don't exist.
 
 Execute the lka generator config file
 ----------
-2020-08-03 -> 2020-09-04
+2020-08-03 -> 2021-03-18
 
 
 Pre-requisites:
@@ -219,7 +219,7 @@ If the [create file](https://github.com/lingtalfi/TheBar/blob/master/discussions
 
 
 - create the extra files (i.e. not created already by the lka generator) required to make the plugin work
-- bind (if possible) the origin planet permissions to the Light_Kit_Admin.admin/user permission groups, as recommended in the [lka permissions documentation](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/permissions.md#plugin-authors-the-light_kit_admin-permission-philosophy)
+- bind (if possible) the origin planet permissions to the Ling.Light_Kit_Admin.admin/user permission groups, as recommended in the [lka permissions documentation](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/permissions.md#plugin-authors-the-light_kit_admin-permission-philosophy)
 - add the necessary hooks in the service config file, depending on the lka generator config
 
 
@@ -228,8 +228,8 @@ If the [create file](https://github.com/lingtalfi/TheBar/blob/master/discussions
 The executed config file's is the first one found in the following locations:
 
 
-- $appDir/config/data/$planetName/Light_Kit_Admin_Generator/$serviceName.byml 
-- $appDir/config/data/$planetName/Light_Kit_Admin_Generator/$serviceName.generated.byml
+- $appDir/config/data/$planetDotName/Ling.Light_Kit_Admin_Generator/$serviceName.byml 
+- $appDir/config/data/$planetDotName/Ling.Light_Kit_Admin_Generator/$serviceName.generated.byml
 
 
 Note: to create the generated config file version, you can use the [Generate Light_Kit_Admin generator config file](#generate-light_kit_admin-generator-config-file) task.
@@ -245,34 +245,36 @@ Executing the lka generator alone can generate at most those files:
 - $appDir/
 ----- config/
 --------- data/
-------------- Light_Kit_Admin_MyPlanet/
------------------ bmenu/
---------------------- generated/
-------------------------- kit_admin_my_planet.admin_mainmenu_1.byml
------------------ kit/
---------------------- zeroadmin/
-------------------------- generated/
------------------------------ mpl_bottles_form.byml
------------------------------ mpl_bottles_list.byml
------------------ Light_ChloroformExtension/
+------------- MyGalaxy.Light_Kit_Admin_MyPlanet/
+----------------- Ling.Light_ChloroformExtension/
 --------------------- generated/
 ------------------------- kit_admin_my_planet.table_list.byml
------------------ Light_RealForm/
+----------------- Ling.Light_RealForm/
 --------------------- form/
 ------------------------- generated/
 ----------------------------- mpl_bottles.byml
------------------ Light_Realist/
+----------------- Ling.Light_Realist/
 --------------------- list/
 ------------------------- generated/
 ----------------------------- mpl_bottles.byml
+--------- open/
+------------- Ling.Light_Kit_Admin/
+----------------- lke/
+--------------------- pages/
+------------------------- MyGalaxy.Light_Kit_Admin_MyPlanet/
+----------------------------- generated/
+--------------------------------- lmp_xxx_form.byml
+--------------------------------- lmp_xxx_list.byml
 ----- universe/
---------- Ling/
+--------- MyGalaxy/
 ------------- Light_Kit_Admin_MyPlanet/
 ----------------- Controller/                                
 --------------------- Generated/
 ------------------------- Base/
 ----------------------------- RealGenController.php
 ------------------------- MplBottlesController.php
+----------------- Light_PlanetInstaller/                                
+--------------------- LightKitAdminMyPlanetPlanetInstaller.php                                    
 ``` 
 
 Which files are generated precisely depends on your **lka generator config**, especially the following options:
@@ -291,13 +293,13 @@ So our task will create at most all the following, depending on the **lka genera
 - $appDir/
 ----- config/
 --------- data/
-------------- Light_Kit_Admin_MyPlanet/
------------------ Light_Kit_Admin/
+------------- MyGalaxy.Light_Kit_Admin_MyPlanet/
+----------------- Ling.Light_Kit_Admin/
 --------------------- lka-options.generated.byml
------------------ Light_MicroPermission/
+----------------- Ling.Light_MicroPermission/
 --------------------- kit_admin_my_planet.profile.generated.byml
 ----- universe/
---------- Ling/
+--------- MyGalaxy/
 ------------- Light_Kit_Admin_MyPlanet/
 ----------------- ControllerHub/
 --------------------- Generated/
@@ -331,13 +333,6 @@ This task assumes that a few properties exist in the lka generator config file, 
 For the service hooks details, the following hooks are potentially added:
 
 ```yaml
-$bmenu.methods_collection:
-    -
-        method: addDefaultItemByFile
-        args:
-            menu_type: admin_main_menu
-            file: ${app_dir}/config/data/Light_Kit_Admin_XXX/bmenu/generated/kit_admin_xxx.admin_mainmenu_1.byml
-
 $chloroform_extension.methods_collection:
     -
         method: registerTableListConfigurationHandler
@@ -348,7 +343,7 @@ $chloroform_extension.methods_collection:
                 methods:
                     setConfigurationFile:
                         files:
-                            - ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_ChloroformExtension/generated/kit_admin_xxx.table_list.byml
+                            - ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Ling.Light_ChloroformExtension/generated/kit_admin_xxx.table_list.byml
 
 
 
@@ -380,13 +375,13 @@ $kit_admin.methods_collection:
                 instance: Ling\Light_Kit_Admin_XXX\LightKitAdminPlugin\Generated\LightKitAdminXXXLkaPlugin
                 methods:
                     setOptionsFile:
-                        file: ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_Kit_Admin/lka-options.generated.byml
+                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Light_Kit_Admin/lka-options.generated.byml
 
 $micro_permission.methods_collection:
     -
         method: registerMicroPermissionsByProfile
         args:
-            file: ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_MicroPermission/kit_admin_xxx.profile.generated.byml
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Ling.Light_MicroPermission/kit_admin_xxx.profile.generated.byml
 
 
 
@@ -399,7 +394,7 @@ $realform.methods_collection:
                 instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
                 methods:
                     setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_Realform
+                        dir: ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Light_Realform
 
                 
                 
@@ -408,7 +403,7 @@ $realform.methods_collection:
 
 Those hooks are added depending on the **lka generator config** properties:
 
-- bmenu hook is added if **use_menu** is true 
+
 - chloroform_extension hook is added if **use_form** is true 
 - controller_hub hook is added if **use_controller** is true 
 - crud hook is added if **use_form** is true
@@ -607,12 +602,12 @@ This task will create a controller in (only if the file doesn't exist yet):
 
 Will create a kit widget config nugget in (using a HelloWorldWidget):
 
-- {app}/config/data/{pluginName}/kit/zeroadmin/generated/{serviceName}_mainpage.byml
+- {app}/config/data/{pluginName}/Ling.Light_Kit/zeroadmin/generated/{serviceName}_mainpage.byml
 
 
 Will create a bmenu config nugget in:
 
-- {app}/config/data/{pluginName}/bmenu/generated/{serviceName}.admin_mainmenu-usermainpage.byml
+- {app}/config/data/{pluginName}/Ling.Light_BMenu/generated/{serviceName}.admin_mainmenu-usermainpage.byml
 
 
 Will update the service config file to update the bmenu, in:
@@ -635,7 +630,7 @@ With:
  
  
 Note: it's assumed that the zeroadmin theme of lka will be used, with a parent layout variable
-of: **Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base**.
+of: **Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base**.
  
  
  

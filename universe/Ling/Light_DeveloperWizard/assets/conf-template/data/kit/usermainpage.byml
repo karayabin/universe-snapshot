@@ -6,7 +6,7 @@ zones:
             name: hello_world
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\HelloWorldWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/HelloWorldWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/HelloWorldWidget
             template: default.php
             vars: []
                 text: hello world

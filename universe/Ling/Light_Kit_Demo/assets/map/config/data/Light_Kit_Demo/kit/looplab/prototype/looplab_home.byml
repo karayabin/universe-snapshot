@@ -1,0 +1,48 @@
+label: LoopLab main page
+layout: templates/Ling.Light_Kit_Demo/layouts/looplab/prototype/looplab_main_layout.php
+layout_vars: []
+
+title: LoopLab one page theme
+description: <
+    This is the LoopLab one page theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: looplab_main_nav
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_main_nav.php
+        -
+            name: looplab_two_columns_signup_form
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_signup_form.php
+        -
+            name: looplab_monochrome_header
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_monochrome_header.php
+        -
+            name: looplab_two_columns_teaser
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_teaser.php
+        -
+            name: looplab_monochrome_header
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_monochrome_header-passion.php
+        -
+            name: looplab_two_columns_teaser
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_teaser-passion.php
+
+        -
+            name: looplab_monochrome_header
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_monochrome_header-share.php
+        -
+            name: looplab_two_columns_teaser
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_teaser-share.php
+        -
+            name: looplab_footer_with_contact_us_button
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php

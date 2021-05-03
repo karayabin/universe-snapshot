@@ -190,8 +190,6 @@ class LightDbSynchronizerService
         try {
 
 
-
-
             $this->logDebug("--clean--");
             $this->logDebug("Starting synchronization with createFile \"$createFile\".");
 
@@ -203,7 +201,6 @@ class LightDbSynchronizerService
 
 
             $renamedItems = $this->getRenamedItems($createFileContent);
-
 
 
             $scope = $options['scope'] ?? [];
@@ -750,7 +747,6 @@ class LightDbSynchronizerService
                     }
 
 
-
                 }
             } else {
                 $this->logError("Cannot detect whether the `$table` table is empty. The fetch count statement failed.");
@@ -782,7 +778,7 @@ class LightDbSynchronizerService
             $this->logDebug("Executing $statementLabel: " . PHP_EOL . "--" . PHP_EOL . $stmt . PHP_EOL . "--" . PHP_EOL);
             $db->executeStatement($stmt);
         } catch (\Exception $e) {
-            $this->logError("Statement failed, exception was caught with message: " . $e->getMessage());
+            $this->logError("Statement failed. An exception was caught with message: " . $e->getMessage() . ". The statement was: --" . PHP_EOL . $stmt . PHP_EOL . "--" . PHP_EOL);
         }
     }
 

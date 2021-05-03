@@ -1,0 +1,5 @@
+https://github.com/lingtalfi/UrlSmuggler/blob/master/README.md
+https://github.com/lingtalfi/UrlSmuggler/blob/master/doc/api/Ling/UrlSmuggler/UrlSmugglerTool/smuggle.md
+https://github.com/lingtalfi/UrlSmuggler/blob/master/doc/api/Ling/UrlSmuggler/UrlSmugglerTool/unsmuggle.md
+https://github.com/lingtalfi/UrlSmuggler/blob/master/doc/api/Ling/UrlSmuggler/UrlSmugglerTool.md
+https://github.com/lingtalfi/UrlSmuggler/blob/master/doc/api/Ling/UrlSmuggler.md

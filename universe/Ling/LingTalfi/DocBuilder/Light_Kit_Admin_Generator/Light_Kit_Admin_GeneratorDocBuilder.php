@@ -149,7 +149,7 @@ class Light_Kit_Admin_GeneratorDocBuilder
                 "generate method" => $api . '/Ling/Light_RealGenerator/Service/LightRealGeneratorService/generate.md',
                 "realist" => 'https://github.com/lingtalfi/Light_Realist',
                 "realform" => 'https://github.com/lingtalfi/Light_Realform',
-                "open admin data type" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types',
+                "open admin data type" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types',
                 "getGenericTagsByTable method" => 'https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getGenericTagsByTable.md',
             ],
             /**

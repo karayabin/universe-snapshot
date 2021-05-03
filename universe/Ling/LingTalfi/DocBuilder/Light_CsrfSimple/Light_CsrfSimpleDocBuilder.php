@@ -149,6 +149,8 @@ class Light_CsrfSimpleDocBuilder
                 "ValidatorConfig object" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorConfig.md",
                 "conception notes" => $doc . "/pages/conception-notes.md",
                 "events page" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
+                "chloroform conception notes" =>  "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md",
+                "getFormattedValue section in the Chloroform conception notes" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-getformattedvalue-method",
             ],
             /**
              * An array of external classes to url.

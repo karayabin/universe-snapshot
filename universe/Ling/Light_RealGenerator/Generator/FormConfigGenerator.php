@@ -124,6 +124,7 @@ class FormConfigGenerator extends BaseConfigGenerator
         $arr = [];
 
 
+        $galaxyName = $this->getKeyValue('variables.galaxyName', true);
         $pluginName = $this->getKeyValue('plugin_name');
         $globalIgnoreColumns = $this->getKeyValue("ignore_columns.$table", false, []);
         $ignoreColumns = $this->getKeyValue("form.ignore_columns.$table", false, []);
@@ -152,7 +153,7 @@ class FormConfigGenerator extends BaseConfigGenerator
             "related_links" => $relatedLinks,
         ];
         $arr['_vars'] = [
-            'nuggetId' => $pluginName . ':generated/' . $table,
+            'nuggetId' => $galaxyName . "." . $pluginName . ':generated/' . $table,
         ];
         $arr['rendering'] = $rendering;
 

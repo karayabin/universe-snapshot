@@ -7,7 +7,7 @@ LightUserDataService::onUserGroupCreate
 
 
 
-LightUserDataService::onUserGroupCreate — Listener for the [Light_Database.on_lud_user_group_create event](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md).
+LightUserDataService::onUserGroupCreate — Listener for the [Ling.Light_Database.on_lud_user_group_create event](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightUserDataService::onUserGroupCreate](https://github.com/lingtalfi/Li
 
 
 
-Listener for the [Light_Database.on_lud_user_group_create event](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light_Database.on_lud_user_group_create event](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md).
 
 
 

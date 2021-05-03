@@ -4,7 +4,7 @@
 
 The LightKitAdminLoginNotifierLkaPlugin class
 ================
-2020-11-30 --> 2021-03-05
+2020-11-30 --> 2021-03-23
 
 
 

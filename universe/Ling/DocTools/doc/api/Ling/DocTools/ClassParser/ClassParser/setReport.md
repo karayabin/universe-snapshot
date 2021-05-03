@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ClassParser::setReport](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L665-L668)
+See the source code for method [ClassParser::setReport](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L668-L671)
 
 
 See Also

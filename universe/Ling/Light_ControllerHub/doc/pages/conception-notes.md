@@ -1,14 +1,58 @@
 Light_ControllerHub conception notes
 ======================
-2019-10-28
+2019-10-28 -> 2021-04-01
 
+
+
+
+The main idea of this service is to allow users to call controllers methods dynamically.
+
+
+
+We provide two ways:
+
+
+- the practical way (modern)
+- the secured way (old)
+
+
+The practical way (modern)
+----------
+2021-04-01
+
+
+With this method, you can execute any light controller's (non-static) method of an app.
+
+In order to do this, call our controller's render method with the following parameter:
+
+
+- execute: $className->$method
+
+
+With:
+
+- $className: the [bsr-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) name of the class.
+        For instance: Ling\Light_Kit_Admin_Kit_Editor\Controller\Editor\LkeEditorController
+- $methodName: the method to execute
+
+
+Note that in order to execute the controller, we use the **controller helper** from light under the hood, which means you can use the **$request** argument in your controller method, which will
+receive the http request instance.
+
+
+
+
+
+The secured way (old)
+-----------
+2019-10-28 -> 2021-04-01
 
 
 
 Routes in the light framework is a precious resource.
 It can potentially use regex, which is slow and eats up memory.
 
-So, if you are in the process of creating a auto-admin generator for instance,
+So, if you are in the process of creating an auto-admin generator for instance,
 then rather than generate one route per item, you might want to think about alternate solutions first.
 
 
@@ -56,7 +100,6 @@ idea about how to handle the routing:
     - ...?: open to new ideas...
     
   
-
 
 
 

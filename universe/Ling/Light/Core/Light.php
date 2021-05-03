@@ -75,43 +75,43 @@ class Light
      * This property holds the applicationDir for this instance.
      * This is the root directory containing the application.
      *
-     * @var string
+     * @var string | null
      */
-    protected $applicationDir;
+    protected ?string $applicationDir;
 
     /**
      * This property holds the routes for this instance.
      * @var array
      */
-    protected $routes;
+    protected array $routes;
 
     /**
      * This property holds the debug for this instance.
      * @var bool = false
      */
-    protected $debug;
+    protected bool $debug;
 
     /**
      * This property holds the service container for this instance.
      * @var LightServiceContainerInterface|null
      */
-    protected $container;
+    protected ?LightServiceContainerInterface $container;
 
 
     /**
      * This property holds the settings for this instance.
      * @var array
      */
-    protected $settings;
+    protected array $settings;
 
     /**
      * This property holds the httpRequest for this instance.
      *
      * This variable is only available after the run method or initialize method is called.
      *
-     * @var HttpRequestInterface
+     * @var HttpRequestInterface | null
      */
-    protected $httpRequest;
+    protected ?HttpRequestInterface $httpRequest;
 
 
     /**
@@ -121,14 +121,14 @@ class Light
      *
      * @var array|false|null
      */
-    protected $matchingRoute;
+    protected mixed $matchingRoute;
 
 
     /**
      * This property holds the isInitialized for this instance.
      * @var bool=false
      */
-    private $isInitialized;
+    private bool $isInitialized;
 
 
     /**
@@ -351,6 +351,7 @@ class Light
         $container = $this->getContainer();
         $container->setLight($this);
 
+
         if ($container->has("events")) {
             /**
              * @var $events LightEventsService
@@ -362,7 +363,7 @@ class Light
             $data = LightEvent::createByContainer($container);
 
 
-            $events->dispatch('Light.initialize_1', $data);
+            $events->dispatch('Ling.Light.initialize_1', $data);
 //            $events->dispatch('Light.initialize_2', $data);
 //            $events->dispatch('Light.initialize_3', $data);
         }
@@ -375,6 +376,7 @@ class Light
     public function run()
     {
         $container = $this->getContainer();
+        $container->setLight($this);
 
 
         try {
@@ -382,12 +384,6 @@ class Light
             $response = null;
             $route = null;
             $events = null;
-            if ($container->has("events")) {
-                /**
-                 * @var $events LightEventsService
-                 */
-                $events = $container->get('events');
-            }
 
 
             //--------------------------------------------
@@ -401,6 +397,13 @@ class Light
             $httpRequest = $this->httpRequest;
 
 
+            if ($container->has("events")) {
+
+                /**
+                 * @var $events LightEventsService
+                 */
+                $events = $container->get('events');
+            }
 
 
             //--------------------------------------------
@@ -443,16 +446,17 @@ class Light
 
                         if (false !== $route) {
 
-                            if ($container->has("events")) {
+                            if (null !== $events) {
                                 $event = LightEvent::createByContainer($this->container);
                                 $event->setVar("route", $route);
-                                $events->dispatch('Light.on_route_found', $event);
+                                $events->dispatch('Ling.Light.on_route_found', $event);
                             }
 
 
                             $response = ControllerHelper::executeController($route['controller'], $this);
                         } else {
-                            throw LightException::create("No route matches", "404");
+                            $url = $this->httpRequest->getUri();
+                            throw LightException::create("No route matches for url $url.", "404");
                         }
 
 
@@ -470,11 +474,11 @@ class Light
 
             $wasHandled = false;
 
-            if (true === $container->has('events')) {
+            if (null !== $events) {
                 $data = LightEvent::createByContainer($container);
                 $data->setVar('exception', $e);
 
-                $events->dispatch("Light.on_exception_caught", $data);
+                $events->dispatch("Ling.Light.on_exception_caught", $data);
 
                 // some plugins can change the exception
                 $e = $data->getVar('exception');
@@ -490,13 +494,13 @@ class Light
             if (false === $wasHandled) {
 
 
-                if (true === $container->has('events')) {
+                if (null !== $events) {
                     /**
                      * This event is just used for logging (i.e. no fallback response possible...).
                      */
                     $data = LightEvent::createByContainer($container);
                     $data->setVar('exception', $e);
-                    $events->dispatch("Light.on_unhandled_exception_caught", $data);
+                    $events->dispatch("Ling.Light.on_unhandled_exception_caught", $data);
                 }
 
 
@@ -523,13 +527,13 @@ class Light
             //--------------------------------------------
             // END ROUTINE
             //--------------------------------------------
-            if ($container->has("events")) {
+            if (null !== $events) {
                 if (null === $route || false === $route) {
                     $route = false;
                 }
                 $data = LightEvent::createByContainer($container);
                 $data->setVar('route', $route);
-                $events->dispatch("Light.end_routine", $data);
+                $events->dispatch("Ling.Light.end_routine", $data);
             }
 
 

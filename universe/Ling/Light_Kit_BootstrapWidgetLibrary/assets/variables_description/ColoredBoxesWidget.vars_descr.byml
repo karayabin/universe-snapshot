@@ -80,7 +80,7 @@ example: <
     type: picasso
     active: true
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ColoredBoxesWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ColoredBoxesWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ColoredBoxesWidget
     template: default.php
     vars:
         attr:

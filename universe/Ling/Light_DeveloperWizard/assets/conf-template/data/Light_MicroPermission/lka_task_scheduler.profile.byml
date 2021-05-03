@@ -1,3 +1,3 @@
-Light_TaskScheduler.admin:
-    - tables.lts_task_schedule.create
+Ling.Light_TaskScheduler.admin:
+    - store.lts_task_schedule.create
 

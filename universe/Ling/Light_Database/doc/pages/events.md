@@ -1,6 +1,6 @@
 Light_Database events
 ===============
-2019-12-16
+2019-12-16 -> 2021-03-09
 
 
 
@@ -8,7 +8,7 @@ Light_Database events
 Light_Database provides the following [events](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md):
 
 
-- Light_Database.on_$table_$action: triggered from the LightDatabasePdoWrapper->onSuccess method
+- **Ling.Light_Database.on_$table_$action**: triggered from the LightDatabasePdoWrapper->onSuccess method
     when a "database status changing" operation is triggered and executed successfully.
     With:
     - $table: the table name

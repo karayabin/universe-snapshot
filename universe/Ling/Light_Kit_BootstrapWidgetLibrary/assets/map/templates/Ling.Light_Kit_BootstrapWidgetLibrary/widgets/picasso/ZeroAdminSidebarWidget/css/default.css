@@ -1,0 +1,65 @@
+body.sidebar-show .sidebar {
+  margin-left: 0; }
+body.sidebar-hide .sidebar {
+  margin-left: -240px; }
+
+.sidebar {
+  position: fixed;
+  width: 240px;
+  height: calc(100vh - 50px);
+  margin-left: -240px;
+  z-index: 1024;
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  padding: 0;
+  color: #fff;
+  background: #262D33;
+  transition: margin-left 0.24s;
+  overflow-y: auto; }
+  .sidebar i {
+    margin-right: 7px; }
+  .sidebar a[data-toggle="collapse"] {
+    position: relative; }
+  .sidebar .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%); }
+  .sidebar [aria-expanded="false"]::after {
+    transition: transform 0.24s;
+    transform: rotate(-90deg); }
+  .sidebar [aria-expanded="true"]::after {
+    transition: transform 0.24s;
+    transform: rotate(0deg); }
+  .sidebar a[aria-expanded="true"], .sidebar a.active {
+    color: #fff;
+    background: #315472; }
+  .sidebar ul.collapse.show {
+    /**
+    * Fix bootstrap tour css conflict (having .collapse=display:none)
+     */
+    display: block; }
+  .sidebar ul li a {
+    padding: 10px;
+    font-size: 1em;
+    display: block;
+    color: #e0e0e0;
+    text-decoration: none;
+    border-left: 2px solid transparent; }
+  .sidebar ul li a:hover {
+    background: #414d58;
+    border-left: 2px solid #608ab3; }
+  .sidebar ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important; }
+  .sidebar ul ul ul a {
+    padding-left: 50px !important; }
+  .sidebar .active {
+    background-color: #072433; }
+  @media (min-width: 992px) {
+    .sidebar {
+      margin-left: 0; } }
+
+/*# sourceMappingURL=default.css.map */

@@ -4,7 +4,7 @@
 
 The LightRealistService class
 ================
-2019-08-12 --> 2021-03-05
+2019-08-12 --> 2021-04-09
 
 
 
@@ -61,7 +61,6 @@ class <span class="pl-k">LightRealistService</span>  {
 - Properties
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
     - protected string [$baseDir](#property-baseDir) ;
-    - protected [Ling\ParametrizedSqlQuery\ParametrizedSqlQueryUtil](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil.md) [$parametrizedSqlQuery](#property-parametrizedSqlQuery) ;
     - protected [Ling\Light_Realist\Rendering\RealistListItemRendererInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListItemRendererInterface.md) [$listItemRenderer](#property-listItemRenderer) ;
     - protected [Ling\Light_Realist\ActionHandler\LightRealistActionHandlerInterface[]](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface.md) [$actionHandlers](#property-actionHandlers) ;
     - protected [Ling\Light_Realist\ListActionHandler\LightRealistListActionHandlerInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistListActionHandlerInterface.md) [$listActionHandler](#property-listActionHandler) ;
@@ -115,16 +114,10 @@ Properties
     
     
 
-- <span id="property-parametrizedSqlQuery"><b>parametrizedSqlQuery</b></span>
-
-    This property holds the parametrizedSqlQuery for this instance.
-    
-    
-
 - <span id="property-listItemRenderer"><b>listItemRenderer</b></span>
 
     The list item renderer.
-    See more details in the [list item renderer page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md).
+    See more details in the [list item renderer page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-item-renderer.md).
     
     
 
@@ -138,7 +131,7 @@ Properties
 - <span id="property-listActionHandler"><b>listActionHandler</b></span>
 
     The LightRealistListActionHandlerInterface instance used to handle the list actions.
-    See the [realist list actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md) document for more details.
+    See the [realist list actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-actions.md) document for more details.
     
     
 
@@ -199,7 +192,7 @@ Methods
 - [LightRealistService::getDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/getDynamicInjectionHandler.md) &ndash; or throws an exception if it's not there.
 - [LightRealistService::checkCsrfToken](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/checkCsrfToken.md) &ndash; Checks whether the csrf token is valid, throws an exception if that's not the case.
 - [LightRealistService::prepareGenericActionItem](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/prepareGenericActionItem.md) &ndash; Converts the given item into a [generic action item](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md) in expanded form.
-- [LightRealistService::prepareListItemGroupActions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/prepareListItemGroupActions.md) &ndash; Parses the given list action items (aka [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item)) and turns them into [generic action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md).
+- [LightRealistService::prepareListItemGroupActions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/prepareListItemGroupActions.md) &ndash; Parses the given list action items (aka [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item)) and turns them into [generic action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/generic-action-item.md).
 
 
 

@@ -2,7 +2,7 @@
  * Realist Tag Transfer Js.
  *
  * For some explanations, see the implementation notes in:
- * - https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-tag-transfer-js-implementation-notes.md
+ * - https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/realist-tag-transfer-js-implementation-notes.md
  */
 if ("undefined" === typeof window.RealistTagTransfer) {
 

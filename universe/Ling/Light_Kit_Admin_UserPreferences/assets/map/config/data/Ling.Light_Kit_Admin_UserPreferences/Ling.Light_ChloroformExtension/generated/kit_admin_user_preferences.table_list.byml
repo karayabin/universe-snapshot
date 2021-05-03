@@ -1,0 +1,7 @@
+lud_user.id: 
+    fields: id as value, concat(id, '. ', pseudo) as label
+    table: lud_user
+    column: id
+    search_column: concat(id, '. ', pseudo)
+    csrf_token: true
+    micro_permission: tables.lud_user.read

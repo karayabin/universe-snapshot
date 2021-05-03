@@ -69,7 +69,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [JumboExploder::explode](https://github.com/lingtalfi/JumboExploder/blob/master/JumboExploder.php#L37-L150)
+See the source code for method [JumboExploder::explode](https://github.com/lingtalfi/JumboExploder/blob/master/JumboExploder.php#L37-L156)
 
 
 See Also

@@ -7,6 +7,7 @@ namespace Ling\CheapLogger;
 use Ling\ArrayToString\ArrayToStringTool;
 use Ling\Bat\DebugTool;
 use Ling\Bat\ExceptionTool;
+use Ling\Bat\FileSystemTool;
 use Ling\Bat\FileTool;
 
 /**
@@ -37,6 +38,18 @@ class CheapLogger
             $msg = self::getLogMessage($args);
         }
         FileTool::append($msg, self::$path);
+    }
+
+
+    /**
+     * Deletes the log file, then recreate it and logs the given argument(s) in it.
+     *
+     * @param mixed ...$args
+     */
+    public static function logg(...$args)
+    {
+        FileSystemTool::remove(self::$path);
+        self::log(...$args);
     }
 
 

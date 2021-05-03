@@ -22,7 +22,7 @@ public [BaseRealistListItemRenderer::setPropertyType](https://github.com/lingtal
 
 
 Binds a type to the given property name.
-See more info in the explanations of the [list item renderer documentation](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md).
+See more info in the explanations of the [list item renderer documentation](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-item-renderer.md).
 
 
 

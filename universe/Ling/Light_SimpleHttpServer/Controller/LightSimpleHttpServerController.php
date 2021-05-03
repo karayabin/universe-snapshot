@@ -12,7 +12,7 @@ use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_SimpleHttpServer\Exception\LightSimpleHttpServerException;
-use Ling\Light_SimpleHttpServer\Service\LightHttpErrorService;
+use Ling\Light_SimpleHttpServer\Service\LightSimpleHttpServerService;
 
 
 /**
@@ -61,7 +61,7 @@ abstract class LightSimpleHttpServerController extends LightController
 
 
             /**
-             * @var $he LightHttpErrorService
+             * @var $he LightSimpleHttpServerService
              */
             $he = $this->getContainer()->get("http_error");
             $noLogHttpStatusCodes = $he->getNotLoggedHttpStatusCodes();
@@ -75,7 +75,7 @@ abstract class LightSimpleHttpServerController extends LightController
                 $events = $this->getContainer()->get("events");
                 $data = LightEvent::createByContainer($this->getContainer());
                 $data->setVar('exception', $e);
-                $events->dispatch("Light_SimpleHttpServer.on_controller_exception_caught", $data);
+                $events->dispatch("Ling.Light_SimpleHttpServer.on_controller_exception_caught", $data);
             }
 
 

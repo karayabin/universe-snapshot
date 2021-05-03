@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TesTable1Controller::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/TesTable1Controller.php#L24-L31)
+See the source code for method [TesTable1Controller::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/TesTable1Controller.php#L24-L34)
 
 
 See Also

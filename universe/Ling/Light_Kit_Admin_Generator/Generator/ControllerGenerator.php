@@ -3,11 +3,10 @@
 
 namespace Ling\Light_Kit_Admin_Generator\Generator;
 
-use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\CaseTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\StringTool;
-use Ling\Light_Kit_Admin\Controller\RealAdminPageController;
+use Ling\Light_Kit_Admin_Generator\Exception\LightKitAdminGeneratorException;
 
 /**
  * The ControllerGenerator class.
@@ -34,6 +33,19 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
     public function generate(array $config)
     {
         $this->setConfig($config);
+
+        $variables = $config['variables'] ?? [];
+        $planetName = $variables['plugin'] ?? null;
+        $galaxyName = $variables['galaxyName'] ?? null;
+
+        if (null === $planetName) {
+            throw new LightKitAdminGeneratorException("This generator only works when the \"variables.plugin\" variable is set.");
+        }
+        if (null === $galaxyName) {
+            throw new LightKitAdminGeneratorException("This generator only works when the \"variables.galaxyName\" variable is set.");
+        }
+
+
         $tables = $this->getTables();
 
         $appDir = $this->container->getApplicationDir();
@@ -57,13 +69,12 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
         $tplListConf = file_get_contents(__DIR__ . "/../assets/models/kit_page_conf/list.byml");
         //--------------------------------------------
 
-        $requestDeclarationIdFmt = $controllerVars['realist_request_declaration_id_format'] ?? 'Light_Kit_Admin:generated/{table}';
-        $listPageFmt = $controllerVars['list_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_list';
-        $formIdentifierFmt = $controllerVars['form_identifier_format'] ?? 'Light_Kit_Admin:generated/{table}';
-        $formPageFmt = $controllerVars['form_page_format'] ?? 'Light_Kit_Admin/kit/zeroadmin/generated/{table}_form';
-        $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml';
-        $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? 'config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml';
-
+        $requestDeclarationIdFmt = $controllerVars['realist_request_declaration_id_format'] ?? 'Ling.Light_Kit_Admin:generated/{table}';
+        $listPageFmt = $controllerVars['list_page_format'] ?? $galaxyName . '.' . $planetName . '/generated/{table}_list';
+        $formIdentifierFmt = $controllerVars['form_identifier_format'] ?? 'Ling.Light_Kit_Admin:generated/{table}';
+        $formPageFmt = $controllerVars['form_page_format'] ?? 'Ling.Light_Kit_Admin/Ling.Light_Kit/zeroadmin/generated/{table}_form';
+        $formConfigPathFmt = $controllerVars['form_config_path_format'] ?? "config/open/Ling.Light_Kit_Admin/lke/pages/$galaxyName.$planetName/generated/{table}_form.byml";
+        $listConfigPathFmt = $controllerVars['list_config_path_format'] ?? "config/open/Ling.Light_Kit_Admin/lke/pages/$galaxyName.$planetName/generated/{table}_list.byml";
 
 
         foreach ($tables as $table) {
@@ -187,8 +198,10 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
                 // put the related links first, as they can use the following tags, this is just for form though (lazy me...)
 //                '{relatedLinks}' => $sRelatedLinks,
                 '{tableLabel}' => $tableLabel,
+                '{tablePlural}' => StringTool::getPlural($tableLabel),
                 '{TableLabel}' => $TableLabel,
                 '{Table}' => $Table,
+                '{planetDotName}' => $galaxyName . "." . $planetName,
             ];
 
 

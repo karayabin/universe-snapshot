@@ -1,6 +1,6 @@
 Light_PrerouteHub
 ===========
-2019-07-18 -> 2021-03-05
+2019-07-18 -> 2021-03-15
 
 
 
@@ -78,6 +78,10 @@ An runner must implement the [LightPrerouteHubRunnerInterface](https://github.co
 
 History Log
 =============
+
+- 1.0.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.0.3 -- 2021-03-05
 

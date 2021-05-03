@@ -139,7 +139,7 @@ example: <
     name: glozzom_showcase_carousel
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ShowCaseCarouselWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ShowCaseCarouselWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ShowCaseCarouselWidget
     template: default.php
     vars:
         attr:

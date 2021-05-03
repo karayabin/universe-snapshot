@@ -58,7 +58,7 @@ example: <
     type: picasso
     active: true
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSidebarAvatarWithActionButtonsWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarAvatarWithActionButtonsWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarAvatarWithActionButtonsWidget
     template: default.php
     vars: 
         title: Your Avatar

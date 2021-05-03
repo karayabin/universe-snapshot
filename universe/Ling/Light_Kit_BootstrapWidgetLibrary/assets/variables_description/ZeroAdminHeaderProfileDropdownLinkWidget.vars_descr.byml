@@ -77,7 +77,7 @@ example: <
     name: zeroadmin_header_icon_link_profile_dropdown
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderProfileDropdownLinkWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderProfileDropdownLinkWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderProfileDropdownLinkWidget
     template: default.php
     vars: 
         attr: 

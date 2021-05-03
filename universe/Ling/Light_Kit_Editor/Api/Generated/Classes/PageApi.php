@@ -376,6 +376,15 @@ class PageApi extends CustomLightKitEditorBaseApi implements PageApiInterface
 
 
 
+    /**
+     * @implementation
+     */
+    public function deletePageBySiteId(int $siteId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "site_id" => $siteId,
+        ]);
+    }
 
 
     //--------------------------------------------

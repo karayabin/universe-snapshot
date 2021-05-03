@@ -1,6 +1,6 @@
 Light_MicroPermission
 ===========
-2019-09-26 -> 2021-03-05
+2019-09-26 -> 2021-03-15
 
 
 
@@ -74,6 +74,10 @@ micro_permission:
 
 History Log
 =============
+
+- 3.0.8 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 3.0.7 -- 2021-03-05
 

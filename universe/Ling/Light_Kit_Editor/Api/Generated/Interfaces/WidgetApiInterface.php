@@ -94,6 +94,22 @@ interface WidgetApiInterface
      */
     public function getWidgetById(int $id, $default = null, bool $throwNotFoundEx = false);
 
+    /**
+     * Returns the widget row identified by the given identifier.
+     *
+     * If the row is not found, this method's return depends on the throwNotFoundEx flag:
+     * - if true, the method throws an exception
+     * - if false, the method returns the given default value
+     *
+     *
+     * @param string $identifier
+     * @param mixed $default = null
+     * @param bool $throwNotFoundEx = false
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getWidgetByIdentifier(string $identifier, $default = null, bool $throwNotFoundEx = false);
+
 
 
     /**
@@ -173,8 +189,68 @@ interface WidgetApiInterface
     public function getWidgetsKey2Value(string $key, string $value, $where, array $markers = []);
 
 
+    /**
+     * Returns the id of the lke_widget table.
+     *
+     * If the row is not found, this method's return depends on the throwNotFoundEx flag:
+     * - if true, the method throws an exception
+     * - if false, the method returns the given default value
+     *
+     * @param string $identifier
+     * @param null $default
+     * @param bool $throwNotFoundEx
+     * @return string|mixed
+     */
+    public function getWidgetIdByIdentifier(string $identifier, $default = null, bool $throwNotFoundEx = false);
 
 
+
+    /**
+     * Returns the rows of the lke_widget table bound to the given block id.
+     * @param string $blockId
+     * @return array
+     */
+    public function getWidgetsByBlockId(string $blockId): array;
+
+    /**
+     * Returns the rows of the lke_widget table bound to the given block identifier.
+     * @param string $blockIdentifier
+     * @return array
+     */
+    public function getWidgetsByBlockIdentifier(string $blockIdentifier): array;
+
+
+
+    /**
+     * Returns an array of lke_widget.id bound to the given block id.
+     * @param string $blockId
+     * @return array
+     */
+    public function getWidgetIdsByBlockId(string $blockId): array;
+
+
+    /**
+     * Returns an array of lke_widget.id bound to the given block identifier.
+     * @param string $blockIdentifier
+     * @return array
+     */
+    public function getWidgetIdsByBlockIdentifier(string $blockIdentifier): array;
+
+
+    /**
+     * Returns an array of lke_widget.identifier bound to the given block id.
+     * @param string $blockId
+     * @return array
+     */
+    public function getWidgetIdentifiersByBlockId(string $blockId): array;
+
+
+    /**
+     * Returns an array of lke_widget.identifier bound to the given block identifier.
+     * @param string $blockIdentifier
+     * @return array
+     */
+    public function getWidgetIdentifiersByBlockIdentifier(string $blockIdentifier): array;
 
 
 
@@ -200,6 +276,19 @@ interface WidgetApiInterface
      * @throws \Exception
      */
     public function updateWidgetById(int $id, array $widget, array $extraWhere = [], array $markers = []);
+
+
+    /**
+     * Updates the widget row identified by the given identifier.
+     *
+     * @param string $identifier
+     * @param array $widget
+     * @param array $extraWhere
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateWidgetByIdentifier(string $identifier, array $widget, array $extraWhere = [], array $markers = []);
 
 
 
@@ -240,6 +329,15 @@ interface WidgetApiInterface
      */
     public function deleteWidgetById(int $id);
 
+    /**
+     * Deletes the widget identified by the given identifier.
+     *
+     * @param string $identifier
+     * @return void
+     * @throws \Exception
+     */
+    public function deleteWidgetByIdentifier(string $identifier);
+
 
 
     /**
@@ -250,6 +348,15 @@ interface WidgetApiInterface
      * @throws \Exception
      */
     public function deleteWidgetByIds(array $ids);
+
+    /**
+     * Deletes the widget rows identified by the given identifiers.
+     *
+     * @param array $identifiers
+     * @return void
+     * @throws \Exception
+     */
+    public function deleteWidgetByIdentifiers(array $identifiers);
 
 
 

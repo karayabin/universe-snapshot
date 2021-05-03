@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AdminPageController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L34-L37)
+See the source code for method [AdminPageController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L32-L35)
 
 
 See Also

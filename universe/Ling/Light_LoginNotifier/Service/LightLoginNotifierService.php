@@ -69,14 +69,14 @@ class LightLoginNotifierService extends LightLingStandardService02
 
         if (true === $sendToUser) {
             $email = $user->getEmail();
-            $mailer->send("Light_LoginNotifier/on_login_usermessage", [$email], $options);
+            $mailer->send("Ling.Light_LoginNotifier/on_login_usermessage", [$email], $options);
         }
 
         if (null !== $sendToAdmin) {
             if (false === is_array($sendToAdmin)) {
                 $sendToAdmin = [$sendToAdmin];
             }
-            $mailer->send("Light_LoginNotifier/on_login_adminmessage", $sendToAdmin, $options);
+            $mailer->send("Ling.Light_LoginNotifier/on_login_adminmessage", $sendToAdmin, $options);
         }
 
         if (true === $recordToDb) {

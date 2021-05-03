@@ -6,6 +6,7 @@ namespace Ling\Light_PlanetInstaller\CliTools\Command;
 use Exception;
 use Ling\Bat\CaseTool;
 use Ling\Bat\ClassTool;
+use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Command\CommandInterface;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
@@ -171,6 +172,17 @@ abstract class LightPlanetInstallerBaseCommand implements CommandInterface, Ligh
         if (false === is_dir($uniDir)) {
             $output->write("<warning>Warning: no universe directory found, you're probably not inside a light app directory. Aborting (this is a safety measure).</warning>." . PHP_EOL);
             return false;
+        }
+        $bigBang = $uniDir . '/bigbang.php';
+        $bigBangUrl = "https://raw.githubusercontent.com/karayabin/universe-snapshot/master/universe/bigbang.php";
+        if (false === is_file($bigBang)) {
+            $content = file_get_contents($bigBangUrl);
+            if (false !== $content) {
+                FileSystemTool::mkfile($bigBang, $content);
+            } else {
+                $output->write("<warning>Warning: no bigbang.php script found in the universe directory. Aborting (this is a safety measure). Note: you can find the bigbang.php script in $bigBangUrl.</warning>." . PHP_EOL);
+                return false;
+            }
         }
         return true;
     }

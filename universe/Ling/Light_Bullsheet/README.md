@@ -1,6 +1,6 @@
 Light_Bullsheet
 ===========
-2019-08-14 -> 2021-03-05
+2019-08-14 -> 2021-03-15
 
 
 
@@ -121,6 +121,10 @@ $bull->generateRows("Light_UserDatabase.lud_user", 50);
 History Log
 =============
 
+- 1.1.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.1.3 -- 2021-03-05
 
     - update README.md, add install alternative

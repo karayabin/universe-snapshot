@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/JFormCollect/blob/master/README.md
+https://github.com/lingtalfi/JFormCollect/blob/master/doc/api/Ling/JFormCollect.md

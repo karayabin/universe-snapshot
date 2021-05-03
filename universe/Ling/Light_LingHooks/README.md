@@ -1,6 +1,6 @@
 Light_LingHooks
 ===========
-2020-08-17 -> 2021-03-05
+2020-08-17 -> 2021-03-22
 
 
 
@@ -70,6 +70,14 @@ ling_hooks:
 
 History Log
 =============
+
+- 1.0.5 -- 2021-03-22
+
+    - adapt api to work with Ling.Light_Events:1.10.0
+  
+- 1.0.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.0.3 -- 2021-03-05
 

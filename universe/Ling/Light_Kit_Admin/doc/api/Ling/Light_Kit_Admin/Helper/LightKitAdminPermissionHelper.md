@@ -4,7 +4,7 @@
 
 The LightKitAdminPermissionHelper class
 ================
-2019-05-17 --> 2021-03-05
+2019-05-17 --> 2021-05-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Kit_Admin\Helper\LightKitAdminPermissionHelpe
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper.md)<br>Next class: [BaseLightKitAdminPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin.md)<br>
+Previous class: [LightKitAdminHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper.md)<br>Next class: [JimToolboxItemBaseHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemBaseHandler.md)<br>

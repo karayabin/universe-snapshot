@@ -91,7 +91,7 @@ class LoginFormController extends LightKitAdminController
                 //--------------------------------------------
                 // HOOKS
                 //--------------------------------------------
-                LightEventsHelper::dispatchEvent($this->getContainer(), "Light_Kit_Admin.on_user_successful_connexion", [
+                LightEventsHelper::dispatchEvent($this->getContainer(), "Ling.Light_Kit_Admin.on_user_successful_connexion", [
                     'user' => $user,
                 ]);
 
@@ -162,6 +162,6 @@ class LoginFormController extends LightKitAdminController
         }
 
 
-        return $this->renderPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_login', [], $updator);
+        return $this->renderPage('Ling.Light_Kit_Admin/login', [], $updator);
     }
 }

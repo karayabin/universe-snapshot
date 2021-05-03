@@ -1,0 +1,3 @@
+db_synchronizer: 
+    scope: []
+    scope_use_prefix: true

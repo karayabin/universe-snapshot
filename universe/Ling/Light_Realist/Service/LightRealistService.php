@@ -4,7 +4,6 @@
 namespace Ling\Light_Realist\Service;
 
 
-use Ling\ArrayToString\ArrayToStringTool;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\BDotTool;
 use Ling\Bat\SmartCodeTool;
@@ -12,10 +11,10 @@ use Ling\Light\Helper\LightHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
-use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Nugget\Service\LightNuggetService;
 use Ling\Light_Realist\ActionHandler\LightRealistActionHandlerInterface;
-use Ling\Light_Realist\DeveloperVariableProvider\DeveloperVariableProviderInterface;
+use Ling\Light_Realist\DuelistEngine\DuelistEngineInterface;
+use Ling\Light_Realist\DuelistEngine\MysqlDuelistEngine;
 use Ling\Light_Realist\DynamicInjection\RealistDynamicInjectionHandlerInterface;
 use Ling\Light_Realist\Exception\LightRealistException;
 use Ling\Light_Realist\Helper\DuelistHelper;
@@ -27,7 +26,6 @@ use Ling\Light_Realist\Tool\LightRealistTool;
 use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserManager\Service\LightUserManagerService;
 use Ling\ParametrizedSqlQuery\Helper\ParametrizedSqlQueryHelper;
-use Ling\ParametrizedSqlQuery\ParametrizedSqlQueryUtil;
 
 /**
  * The LightRealistService class.
@@ -89,11 +87,6 @@ class LightRealistService
      */
     protected $baseDir;
 
-    /**
-     * This property holds the parametrizedSqlQuery for this instance.
-     * @var ParametrizedSqlQueryUtil
-     */
-    protected $parametrizedSqlQuery;
 
     /**
      * The list item renderer.
@@ -166,7 +159,7 @@ class LightRealistService
     {
         $this->container = null;
         $this->baseDir = "/tmp";
-        $this->parametrizedSqlQuery = new ParametrizedSqlQueryUtil();
+
         $this->listItemRenderer = null;
         $this->actionHandlers = [];
         $this->listActionHandler = null;
@@ -229,9 +222,11 @@ class LightRealistService
     public function executeRequestById(string $requestId, array $params = [], array $options = []): array
     {
 
-        $tags = $params['tags'] ?? [];
 
+        $tags = $params['tags'] ?? [];
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
+
+
         $table = DuelistHelper::getRawTableNameByRequestDeclaration($requestDeclaration);
         $showQueryErrorDebug = $requestDeclaration['query_error_show_debug_info'] ?? false;
         $ric = null;
@@ -265,65 +260,41 @@ class LightRealistService
         if (array_key_exists("duelist", $requestDeclaration)) {
 
             $duelistDeclaration = $requestDeclaration['duelist'];
+            $engine = $duelistDeclaration['engine'] ?? null;
             $ric = $duelistDeclaration['ric'];
 
 
-            // adding developer variables if any
-            if (array_key_exists("developer_variables", $duelistDeclaration)) {
-                $developerVars = $duelistDeclaration['developer_variables'];
-                $res = LightHelper::executeMethod($developerVars, $this->container);
-                $vars = [];
-                if (is_array($res)) {
-                    $vars = $res;
-                } elseif ($res instanceof DeveloperVariableProviderInterface) {
-                    $vars = $res->getVariables($requestId);
-                } else {
-                    $type = gettype($res);
-                    $this->error("Unknown developer_variables result: an array or an instance of DeveloperVariableProviderInterface was expected, $type given.");
-                }
-
-                $this->parametrizedSqlQuery->setDeveloperVariables($vars);
-            }
-
-
-            $sqlQuery = $this->parametrizedSqlQuery->getSqlQuery($duelistDeclaration, $tags);
-            $markers = $sqlQuery->getMarkers();
-
-            $stmt = $sqlQuery->getSqlQuery();
-            $countStmt = $sqlQuery->getCountSqlQuery();
-
-
             /**
-             * @var $db LightDatabasePdoWrapper
+             * default duelist engine.
              */
-            $db = $this->container->get("database");
-
-            try {
-
-
-                $rows = $db->fetchAll($stmt, $markers);
-                $countRow = $db->fetch($countStmt, $markers);
-
-
-            } catch (\Exception $e) {
-
-                $sMarkers = nl2br(ArrayToStringTool::toPhpArray($markers));
-
-                if (false === $showQueryErrorDebug) {
-                    $debugMsg = $e->getMessage();
-                } else {
-
-                    // sometimes it's easier to have the stmt displayed too, when debugging
-                    $debugMsg = "<ul>
-<li><b>Query</b>: $stmt</li>
-<li><b>Markers</b>: $sMarkers</li>
-<li><b>Error</b>: {$e->getMessage()}</li>
-</ul>
-";
+            if (null === $engine) {
+                $duelistEngine = new MysqlDuelistEngine();
+                if (true === $showQueryErrorDebug) {
+                    $duelistEngine->setUseDebug(true);
                 }
-
-                throw new LightRealistException($debugMsg);
+            } else {
+                $duelistEngine = LightHelper::executeMethod($engine, $this->container);
+                if (false === ($duelistEngine instanceof DuelistEngineInterface)) {
+                    $type = gettype($engine);
+                    $this->error("Duelist engine must be an instance of DuelistEngineInterface, $type given.");
+                }
             }
+
+
+            if ($duelistEngine instanceof LightServiceContainerAwareInterface) {
+                $duelistEngine->setContainer($this->container);
+            }
+
+            $engineResult = $duelistEngine->getRowsInfo($requestId, $duelistDeclaration, $tags);
+            if (false === $engineResult) {
+                throw new LightRealistException($duelistEngine->getError());
+            }
+
+            $rows = $engineResult['rows'];
+            $nbTotalRows = $engineResult['nbTotalRows'];
+            $limit = $engineResult['limit'];
+            $debugInfo = $engineResult['debugInfo'];
+
 
         } else {
             $this->error("Don't know yet how to proceed with this type of request declaration.");
@@ -400,9 +371,6 @@ class LightRealistService
         }
 
 
-        // adding extra info to the output
-        $limit = $sqlQuery->getLimit();
-        $nbTotalRows = (int)current($countRow);
         $currentPageFirst = 0;
         $currentPageLast = $nbTotalRows;
         $nbItemsPerPage = $nbTotalRows;
@@ -436,8 +404,8 @@ class LightRealistService
             'page' => $page,
             'rows' => $rows, //
             'rows_html' => $rowsHtml,
-            'sql_query' => $stmt,
-            'markers' => $markers,
+            'sql_query' => $debugInfo['stmt']??'',
+            'markers' => $debugInfo['markers']??[],
         ];
 
 
@@ -600,6 +568,7 @@ class LightRealistService
 
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
 
+
         $rendering = $requestDeclaration['rendering'] ?? [];
         $listRendererConf = $rendering['list_renderer'] ?? [];
         $listRendererClass = $listRendererConf['class'] ?? null;
@@ -720,7 +689,7 @@ class LightRealistService
              * @var $nug LightNuggetService
              */
             $nug = $this->container->get("nugget");
-            $ret = $nug->getNugget($requestId, "Light_Realist/list");
+            $ret = $nug->getNugget($requestId, "Ling.Light_Realist/list");
 
 
             // dynamic injection phase

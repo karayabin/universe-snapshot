@@ -54,6 +54,102 @@ History Log
 =============
 
 
+- 1.0.106 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.105 -- 2021-05-01
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.104 -- 2021-05-01
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.103 -- 2021-04-06
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.102 -- 2021-03-23
+
+    - wizard: update boilerplate for Ling.CheapLogger.
+
+- 1.0.101 -- 2021-03-23
+
+    - wizard: update boilerplate for Ling.CheapLogger.
+
+- 1.0.100 -- 2021-03-22
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.99 -- 2021-03-22
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.98 -- 2021-03-22
+
+    - wizard: update boilerplate for Ling.SectionComment.
+
+- 1.0.97 -- 2021-03-19
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.96 -- 2021-03-19
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.95 -- 2021-03-19
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.94 -- 2021-03-18
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.93 -- 2021-03-18
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.92 -- 2021-03-18
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.91 -- 2021-03-18
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.90 -- 2021-03-15
+
+    - wizard: update boilerplate for Ling.Light_PluginInstaller.
+
+- 1.0.89 -- 2021-03-15
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.88 -- 2021-03-15
+
+    - wizard: update boilerplate for Ling.Light_Logger.
+
+- 1.0.87 -- 2021-03-15
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.86 -- 2021-03-15
+
+    - wizard: update boilerplate for Ling.Light_Cli.
+
+- 1.0.85 -- 2021-03-09
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.84 -- 2021-03-08
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.83 -- 2021-03-08
+
+    - wizard: update boilerplate for Ling.Light.
+
 - 1.0.82 -- 2021-03-08
 
     - wizard: update boilerplate for Ling.TokenFun.

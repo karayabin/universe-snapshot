@@ -143,7 +143,7 @@ So for instance if pluginA is installed, it has two options (**is_premium** and 
 that plugin A figures out which set of option is the most common (for instance is_premium=0 and has_monday_coupon=0),
 and binds them to all existing user groups (thus populating the **user_group_has_plugin_options** table).
 
-In parallel of this, we recommend that this plugin also listens to the **Light_Database.on_lud_user_group_create** event
+In parallel of this, we recommend that this plugin also listens to the **Ling.Light_Database.on_lud_user_group_create** event
 provided by the [Light_Database plugin](https://github.com/lingtalfi/Light_Database), to be consistent and add the same set of default options to the newly created user groups.  
 
 
@@ -183,10 +183,10 @@ If you're a plugin author, our recommendation/suggestion is:
 
 - if you create an entry in plugin_option:
     - bind it to all existing user groups upon installation
-    - listen to the [Light_Database.on_lud_user_group_create](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md) event and bind it then too
+    - listen to the [Ling.Light_Database.on_lud_user_group_create](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md) event and bind it then too
 - if you create data in the user.extra column:
     - bind it to all existing users upon installation
-    - listen to the **Light_UserDatabase.on_new_user_before** event and bind it then too
+    - listen to the **Ling.Light_UserDatabase.on_new_user_before** event and bind it then too
 
 
     
@@ -204,7 +204,7 @@ information stored in the database.
 
 Now to store the data in the extra field of the **user** table, plugins can use this event of ours:
 
-- Light_UserDatabase.on_new_user_before
+- Ling.Light_UserDatabase.on_new_user_before
 
 See more about this events in [our events page](https://github.com/lingtalfi/Light_UserDatabase/blob/master/personal/mydoc/pages/events.md).
 

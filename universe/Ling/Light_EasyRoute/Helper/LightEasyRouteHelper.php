@@ -18,12 +18,12 @@ class LightEasyRouteHelper
      * See the @page(Light_EasyRoute conception notes) for more details.
      *
      * @param string $appDir
-     * @param string $subscriberPluginName
+     * @param string $subscriberPluginDotName
      * @throws \Exception
      */
-    public static function copyRoutesFromPluginToMaster(string $appDir, string $subscriberPluginName)
+    public static function copyRoutesFromPluginToMaster(string $appDir, string $subscriberPluginDotName)
     {
-        $pluginFile = $appDir . "/config/data/$subscriberPluginName/Light_EasyRoute/routes.byml";
+        $pluginFile = $appDir . "/config/data/$subscriberPluginDotName/Ling.Light_EasyRoute/routes.byml";
         if (true === file_exists($pluginFile)) {
             $arr = BabyYamlUtil::readFile($pluginFile);
 
@@ -48,6 +48,6 @@ class LightEasyRouteHelper
      */
     public static function getMasterPath(string $appDir): string
     {
-        return $appDir . "/config/open/Light_EasyRoute/routes.byml";;
+        return $appDir . "/config/open/Ling.Light_EasyRoute/routes.byml";;
     }
 }

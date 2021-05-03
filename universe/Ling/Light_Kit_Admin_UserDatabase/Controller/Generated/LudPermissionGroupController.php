@@ -23,11 +23,14 @@ class LudPermissionGroupController extends RealAdminPageController
      */
     public function renderList()
     {
-        return $this->renderAdminPage('Light_Kit_Admin_UserDatabase/kit/zeroadmin/generated/lud_permission_group_list', [], PageConfUpdator::create()->updateWidget("body.light_realist", [
-            'vars' => [
-                'request_declaration_id' => 'Light_Kit_Admin_UserDatabase:generated/lud_permission_group',
+
+        return $this->renderAdminPage('Ling.Light_Kit_Admin_UserDatabase/generated/lud_permission_group_list', [
+            'widgetVariables' => [
+                "body.light_realist" => [
+                    'request_declaration_id' => 'Ling.Light_Kit_Admin_UserDatabase:generated/lud_permission_group',
+                ],
             ],
-        ]));
+        ]);
     }
 
 
@@ -39,7 +42,7 @@ class LudPermissionGroupController extends RealAdminPageController
      */
     public function renderForm()
     {
-        $realformId = "Light_Kit_Admin_UserDatabase:generated/lud_permission_group";
+        $realformId = "Ling.Light_Kit_Admin_UserDatabase:generated/lud_permission_group";
         $nugget = [];
         $res = $this->processForm($realformId, $nugget);
 
@@ -52,11 +55,13 @@ class LudPermissionGroupController extends RealAdminPageController
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        return $this->renderAdminPage('Light_Kit_Admin_UserDatabase/kit/zeroadmin/generated/lud_permission_group_form', [
-            "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
-            "form" => $form,
-        ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
-            'vars' => $nugget["rendering"],
-        ]));
+        $vars = $nugget["rendering"] ?? [];
+        $vars['form'] = $form;
+
+        return $this->renderAdminPage('Ling.Light_Kit_Admin_UserDatabase/generated/lud_permission_group_form', [
+            'widgetVariables' => [
+                "body.lka_chloroform" => $vars,
+            ],
+        ]);
     }
 }

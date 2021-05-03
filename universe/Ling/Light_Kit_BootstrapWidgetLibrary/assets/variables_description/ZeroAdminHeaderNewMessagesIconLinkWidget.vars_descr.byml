@@ -65,7 +65,7 @@ example: <
     name: zeroadmin_header_icon_link_new_messages
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderNewMessagesIconLinkWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewMessagesIconLinkWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewMessagesIconLinkWidget
     template: default.php
     vars: 
         icon: fas fa-envelope

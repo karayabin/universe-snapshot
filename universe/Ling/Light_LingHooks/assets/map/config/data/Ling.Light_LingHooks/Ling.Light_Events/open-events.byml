@@ -1,0 +1,3 @@
+Ling.Light_Database.on_lun_user_notification_create:
+    - @ling_hooks->onUserNotificationSendQuickMailAlert(data)
+

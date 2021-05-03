@@ -1,6 +1,6 @@
 LingTalfi
 ===========
-2019-03-13 -> 2021-03-08
+2019-03-13 -> 2021-03-22
 
 
 
@@ -38,6 +38,22 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.23.20 -- 2021-03-22
+
+    - remove PackLightPluginCommand packing path for packing Ling.Light_Events open events 
+  
+- 1.23.19 -- 2021-03-18
+
+    - fix PackLightPluginCommand not packing Ling.Light_Events open events correctly 
+  
+- 1.23.18 -- 2021-03-18
+
+    - update PackLightPluginCommand, change some eco-structure's planetNames to dotNames 
+
+- 1.23.17 -- 2021-03-08
+
+    - update PackLightPluginCommand, now copies the Light_Kit_Admin/lke pages if any in the assets/map 
+  
 - 1.23.16 -- 2021-03-08
 
     - update InitializePlanetCommand command, now use new README.md template, with lt install snippet
@@ -190,7 +206,7 @@ History Log
     
 - 1.9.0 -- 2019-04-26
 
-    - update Kaos packlightmap command, now repatriates config/kit/pages/$LightPlugin directory
+    - update Kaos packlightmap command, now repatriates config/Ling.Light_Kit/pages/$LightPlugin directory
 
 - 1.8.0 -- 2019-04-25
 

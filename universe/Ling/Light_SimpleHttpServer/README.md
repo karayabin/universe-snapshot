@@ -1,6 +1,6 @@
 Light_SimpleHttpServer
 ===========
-2020-10-30 -> 2021-03-05
+2020-10-30 -> 2021-03-22
 
 
 
@@ -33,11 +33,11 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [Light_HttpError api](https://github.com/lingtalfi/Light_HttpError/blob/master/doc/api/Ling/Light_HttpError.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [Light_HttpError api](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_HttpError.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Services](#services)
 - Pages
-    - [Conception notes](https://github.com/lingtalfi/Light_HttpError/blob/master/doc/pages/conception-notes.md)
-    - [Events](https://github.com/lingtalfi/Light_HttpError/blob/master/doc/pages/events.md)
+    - [Conception notes](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/pages/conception-notes.md)
+    - [Events](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/pages/events.md)
 
 
 
@@ -72,6 +72,14 @@ simple_http_server:
 
 History Log
 =============
+
+- 1.0.9 -- 2021-03-22
+
+    - fix events not namespaced correctly
+  
+- 1.0.8 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.0.7 -- 2021-03-05
 

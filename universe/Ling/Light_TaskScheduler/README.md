@@ -1,6 +1,6 @@
 Light_TaskScheduler
 ===========
-2020-07-27 -> 2021-03-05
+2020-07-27 -> 2021-03-15
 
 
 
@@ -107,6 +107,10 @@ $logger.methods_collection:
 
 History Log
 =============
+
+- 1.1.8 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.1.7 -- 2021-03-05
 

@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/PaginationHelper/blob/master/README.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/PaginationHelperTool/slice.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/PaginationHelperTool.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper.md

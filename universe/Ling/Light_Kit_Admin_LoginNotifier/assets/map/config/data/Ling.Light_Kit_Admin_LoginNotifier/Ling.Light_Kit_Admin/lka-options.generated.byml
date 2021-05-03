@@ -1,0 +1,5 @@
+multipleFormEditor:
+    prefixes:
+        lln:
+            realform_identifier: Ling.Light_Kit_Admin_LoginNotifier.generated/{table}
+            kit_page: Ling.Light_Kit_Admin_LoginNotifier/generated/{table}_form

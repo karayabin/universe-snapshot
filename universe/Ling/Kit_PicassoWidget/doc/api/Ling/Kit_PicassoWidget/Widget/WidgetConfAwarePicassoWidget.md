@@ -4,7 +4,7 @@
 
 The WidgetConfAwarePicassoWidget class
 ================
-2019-04-24 --> 2021-03-05
+2019-04-24 --> 2021-04-15
 
 
 

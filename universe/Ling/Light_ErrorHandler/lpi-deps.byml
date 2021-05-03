@@ -42,3 +42,8 @@
     - Ling:Bat:1.308+
     - Ling:Light:0.69.30+
     - Ling:Light_Logger:1.11.5+
+
+1.0.9: 
+    - Ling:Bat:1.308+
+    - Ling:Light:0.70.0+
+    - Ling:Light_Logger:1.11.6+

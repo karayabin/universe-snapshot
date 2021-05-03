@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBMenuService::__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L92-L98)
+See the source code for method [LightBMenuService::__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L54-L58)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightBMenuService](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService.md) class.
 
-Next method: [getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md)<br>
+Next method: [setContainer](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/setContainer.md)<br>
 

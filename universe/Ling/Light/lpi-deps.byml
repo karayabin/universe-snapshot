@@ -1187,3 +1187,47 @@
     - Ling:ParenthesisMirrorParser:1.0.3+
     - Ling:PhpUploadFileFix:1.0.3+
     - Ling:SicTools:1.6.4+
+
+0.69.31: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:CheapLogger:1.0.4+
+    - Ling:DirScanner:1.13.5+
+    - Ling:Light_Events:1.9.7+
+    - Ling:Octopus:1.4.4+
+    - Ling:ParenthesisMirrorParser:1.0.4+
+    - Ling:PhpUploadFileFix:1.0.4+
+    - Ling:SicTools:1.6.5+
+
+0.69.32: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:CheapLogger:1.0.4+
+    - Ling:DirScanner:1.13.5+
+    - Ling:Light_Events:1.9.7+
+    - Ling:Octopus:1.4.4+
+    - Ling:ParenthesisMirrorParser:1.0.4+
+    - Ling:PhpUploadFileFix:1.0.4+
+    - Ling:SicTools:1.6.5+
+
+0.70.0: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:CheapLogger:1.0.4+
+    - Ling:DirScanner:1.13.5+
+    - Ling:Light_Events:1.9.7+
+    - Ling:Octopus:1.4.4+
+    - Ling:ParenthesisMirrorParser:1.0.4+
+    - Ling:PhpUploadFileFix:1.0.4+
+    - Ling:SicTools:1.6.5+
+
+0.70.1: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.309+
+    - Ling:CheapLogger:1.0.4+
+    - Ling:DirScanner:1.13.5+
+    - Ling:Light_Events:1.9.8+
+    - Ling:Octopus:1.4.4+
+    - Ling:ParenthesisMirrorParser:1.0.4+
+    - Ling:PhpUploadFileFix:1.0.4+
+    - Ling:SicTools:1.6.5+

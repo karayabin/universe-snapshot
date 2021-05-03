@@ -7,7 +7,7 @@ LightReverseRouterService::initialize
 
 
 
-LightReverseRouterService::initialize — Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightReverseRouterService::initialize — Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightReverseRouterService::initialize](https://github.com/lingtalfi/Ligh
 
 
 
-Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 It stores the routes attached to the light instance.
 
 

@@ -7,7 +7,7 @@ LightEndRoutineDebuggerHandler::handle
 
 
 
-LightEndRoutineDebuggerHandler::handle — Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightEndRoutineDebuggerHandler::handle — Listener for the [Ling.Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightEndRoutineDebuggerHandler::handle](https://github.com/lingtalfi/Lig
 
 
 
-Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 Writes some debug variables into a file.
 Both the debug variables and the file are defined in the service configuration.

@@ -1,0 +1,5 @@
+breeze_generator:
+    instance: Ling\Light_BreezeGenerator\Service\LightBreezeGeneratorService
+    methods:
+        setContainer:
+            container: @container()

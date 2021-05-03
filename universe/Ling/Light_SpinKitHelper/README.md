@@ -1,6 +1,6 @@
 Light_SpinKitHelper
 ===========
-2019-08-29 -> 2021-03-05
+2019-08-29 -> 2021-03-15
 
 
 
@@ -152,6 +152,10 @@ Spinkit js library is here: https://tobiasahlin.com/spinkit/
 
 History Log
 =============
+
+- 1.0.7 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.0.6 -- 2021-03-05
 

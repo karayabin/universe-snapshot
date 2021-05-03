@@ -28,6 +28,13 @@ abstract class LightDeveloperWizardCommonProcess extends LightDeveloperWizardBas
 
 
     /**
+     * This property holds the mustBeLight for this instance.
+     * @var bool
+     */
+    protected bool $mustBeLight;
+
+
+    /**
      * @overrides
      */
     public function __construct()
@@ -35,6 +42,7 @@ abstract class LightDeveloperWizardCommonProcess extends LightDeveloperWizardBas
         parent::__construct();
         $this->container = null;
         $this->util = null;
+        $this->mustBeLight = true;
     }
 
 
@@ -61,8 +69,10 @@ abstract class LightDeveloperWizardCommonProcess extends LightDeveloperWizardBas
         $this->util = $util;
 
 
-        if (false === $this->isLightPlanet($planetName)) {
-            $this->setDisabledReason("The planet name doesn't start with the \"Light_\" prefix.");
+        if (true === $this->mustBeLight) {
+            if (false === $this->isLightPlanet($planetName)) {
+                $this->setDisabledReason("The planet name doesn't start with the \"Light_\" prefix.");
+            }
         }
     }
 }

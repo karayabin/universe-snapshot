@@ -1,0 +1,8 @@
+-
+    id: kit_admin_user_data-file_manager
+    icon: ""
+    text: User File Manager
+    route: lka_userdata_route-user_file_manager
+    children: []
+    _right: Ling.Light_UserData.user
+

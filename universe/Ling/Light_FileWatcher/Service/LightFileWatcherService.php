@@ -114,7 +114,7 @@ class LightFileWatcherService
 
 
     /**
-     * Method called in response to @page(the Light.initialize_1 event).
+     * Method called in response to @page(the Ling.Light.initialize_1 event).
      *
      * It will seek for monitored files changes.
      * And for every file that has actually changed, we re-install the plugin owning that file.

@@ -1,6 +1,7 @@
 https://github.com/lingtalfi/Light_Events/blob/master/README.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Exception/LightEventsException.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/dispatchEvent.md
+https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/registerOpenEventByPlanet.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface/process.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface.md

@@ -135,7 +135,7 @@ example: <
     type: picasso
     active: true
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeContactFormWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeContactFormWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeContactFormWidget
     template: default.php
     vars:
         attr:

@@ -42,7 +42,7 @@ class LightCsrfSimpleService
 
 
     /**
-     * This is a callable to execute when the **Light.on_route_found** event is fired.
+     * This is a callable to execute when the **Ling.Light.on_route_found** event is fired.
      * See the @page(events page) for more details.
      *
      * It calls the regenerate method if the page is a non-ajax page.
@@ -104,7 +104,7 @@ class LightCsrfSimpleService
         $events = $this->container->get('events');
         $event = LightEvent::createByContainer($this->container);
         $event->setVar("token", $_SESSION[$this->sessionName]);
-        $events->dispatch("Light_CsrfSimple.on_csrf_token_regenerated", $event);
+        $events->dispatch("Ling.Light_CsrfSimple.on_csrf_token_regenerated", $event);
     }
 
 

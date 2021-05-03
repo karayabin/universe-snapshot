@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LudUserGroupController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/LudUserGroupController.php#L40-L61)
+See the source code for method [LudUserGroupController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/LudUserGroupController.php#L43-L66)
 
 
 See Also

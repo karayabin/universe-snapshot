@@ -4,7 +4,7 @@
 
 The LightKitCssFileGenerator class
 ================
-2019-04-25 --> 2021-03-05
+2019-04-25 --> 2021-04-09
 
 
 
@@ -92,4 +92,4 @@ See the source code of [Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
 
 SeeAlso
 ==============
-Next class: [LightKitException](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Exception/LightKitException.md)<br>
+Previous class: [ThemeTransformer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/ConfigurationTransformer/ThemeTransformer.md)<br>Next class: [LightKitException](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Exception/LightKitException.md)<br>

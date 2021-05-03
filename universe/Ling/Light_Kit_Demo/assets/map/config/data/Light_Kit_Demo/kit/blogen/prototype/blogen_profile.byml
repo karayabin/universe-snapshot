@@ -1,0 +1,39 @@
+label: Blogen profile
+layout: templates/Ling.Light_Kit_Demo/layouts/blogen/prototype/blogen_two_columns_layout.php
+layout_vars: []
+
+title: Blogen Profile
+description: <
+    This is the blogen profile from the Blogen theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    top_zone:
+        -
+            name: blogen_navbar
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/blogen/blogen_navbar.php
+        -
+            name: blogen_monochrome_icon_header-profile
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/blogen/blogen_monochrome_icon_header-profile.php
+        -
+            name: blogen_header_with_back_link_and_action_buttons-profile
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/blogen/blogen_header_with_back_link_and_action_buttons-profile.php
+    main_column:
+        -
+            name: blogen_form-profile
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/blogen/blogen_form-profile.php
+    sidebar:
+        -
+            name: blogen_sidebar_avatar_with_action_buttons
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/blogen/blogen_sidebar_avatar_with_action_buttons.php
+
+    bottom_zone:
+        -
+            name: blogen_footer
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/blogen/blogen_footer.php

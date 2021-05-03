@@ -61,7 +61,7 @@ example: <
     name: blogen_sidebar_icon_cards
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSidebarIconCardsWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarIconCardsWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarIconCardsWidget
     template: default.php
     vars: 
         cards: 

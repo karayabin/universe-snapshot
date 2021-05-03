@@ -729,3 +729,71 @@
     - Ling:SimpleCurl:1.0.6+
     - Ling:Uni2:1.9.12+
     - Ling:UniverseTools:1.22.31+
+
+1.23.17: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:CliTools:1.10.26+
+    - Ling:DirScanner:1.13.5+
+    - Ling:DocTools:1.14.9+
+    - Ling:Kit_PicassoWidget:1.30.4+
+    - Ling:Kwin:1.0.5+
+    - Ling:Light:0.69.30+
+    - Ling:Light_DbSynchronizer:1.2.14+
+    - Ling:Light_PlanetInstaller:1.0.19+
+    - Ling:Light_PluginInstaller:2.0.18+
+    - Ling:PlanetSitemap:1.0.5+
+    - Ling:SimpleCurl:1.0.6+
+    - Ling:Uni2:1.9.12+
+    - Ling:UniverseTools:1.22.31+
+
+1.23.18: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.309+
+    - Ling:CliTools:1.10.26+
+    - Ling:DirScanner:1.13.5+
+    - Ling:DocTools:1.14.9+
+    - Ling:Kit_PicassoWidget:1.30.4+
+    - Ling:Kwin:1.0.5+
+    - Ling:Light:0.70.1+
+    - Ling:Light_DbSynchronizer:1.2.15+
+    - Ling:Light_PlanetInstaller:1.0.20+
+    - Ling:Light_PluginInstaller:2.0.19+
+    - Ling:PlanetSitemap:1.0.5+
+    - Ling:SimpleCurl:1.0.6+
+    - Ling:Uni2:1.9.12+
+    - Ling:UniverseTools:1.22.32+
+
+1.23.19: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.309+
+    - Ling:CliTools:1.10.26+
+    - Ling:DirScanner:1.13.5+
+    - Ling:DocTools:1.14.9+
+    - Ling:Kit_PicassoWidget:1.30.4+
+    - Ling:Kwin:1.0.5+
+    - Ling:Light:0.70.1+
+    - Ling:Light_DbSynchronizer:1.2.15+
+    - Ling:Light_PlanetInstaller:1.0.20+
+    - Ling:Light_PluginInstaller:2.0.19+
+    - Ling:PlanetSitemap:1.0.5+
+    - Ling:SimpleCurl:1.0.6+
+    - Ling:Uni2:1.9.12+
+    - Ling:UniverseTools:1.22.32+
+
+1.23.20: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.31+
+    - Ling:CliTools:1.10.26+
+    - Ling:DirScanner:1.13.5+
+    - Ling:DocTools:1.14.9+
+    - Ling:Kit_PicassoWidget:1.30.4+
+    - Ling:Kwin:1.0.5+
+    - Ling:Light:0.70.1+
+    - Ling:Light_DbSynchronizer:1.2.15+
+    - Ling:Light_PlanetInstaller:1.0.20+
+    - Ling:Light_PluginInstaller:2.0.19+
+    - Ling:PlanetSitemap:1.0.5+
+    - Ling:SimpleCurl:1.0.6+
+    - Ling:Uni2:1.9.12+
+    - Ling:UniverseTools:1.22.32+

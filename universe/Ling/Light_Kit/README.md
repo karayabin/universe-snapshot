@@ -1,6 +1,6 @@
 Light_Kit
 ===========
-2019-04-25 -> 2021-03-05
+2019-04-25 -> 2021-04-09
 
 
 
@@ -64,7 +64,7 @@ So basically, you delegate the rendering logic to the kit service provided by th
 
 How does it work?
 ==========
-
+2019-04-25 -> 2021-04-08
 
 Here is the service file provided by Light_Kit.
 
@@ -74,63 +74,64 @@ You don't have to change anything, but I will explain it anyway just in case:
 
 ```yaml
 kit:
-  instance: Ling\Light_Kit\Service\LightKitService
-  methods:
-    configure:
-      settings:
-        application_dir: ${app_dir}
-    setConfStorage:
-      -
-        instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
-        methods:
-          setRootDir:
-            rootDir: ${app_dir}/config/data
-    setContainer:
-      container: @container()
+    instance: Ling\Light_Kit\Service\LightKitService
+    methods:
+        configure:
+            settings:
+                application_dir: ${app_dir}
+        setConfStorage:
+            -
+                instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
+                methods:
+                    setRootDir:
+                        rootDir: ${app_dir}/config/data
+        setContainer:
+            container: @container()
 
-  methods_collection:
-    -
-      method: addPageConfigurationTransformer
-      args:
+    methods_collection:
         -
-          instance: Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableTransformer
-    -
-      method: addPageConfigurationTransformer
-      args:
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\ConfigurationTransformer\DynamicVariableTransformer
         -
-          instance: Ling\Light_Kit\PageConfigurationTransformer\LightExecuteNotationResolver
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\ConfigurationTransformer\LightExecuteNotationResolver
 
 
-    -
-      method: registerWidgetHandler
-      args:
-        - picasso
         -
-          instance: Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
-          constructor_args:
-            options:
-              showCssNuggetHeaders: true
-              showJsNuggetHeaders: true
-          methods:
-            setWidgetBaseDir:
-              dir: ${app_dir}
-    -
-      method: registerWidgetHandler
-      args:
-        - prototype
+            method: registerWidgetHandler
+            args:
+                - picasso
+                -
+                    instance: Ling\Light_Kit\WidgetHandler\LightKitPicassoWidgetHandler
+                    constructor_args:
+                        options:
+                            showCssNuggetHeaders: true
+                            showJsNuggetHeaders: true
+                    methods:
+                        setWidgetBaseDir:
+                            dir: ${app_dir}
+                        setContainer:
+                            container: @container()
         -
-          instance: Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
-          methods:
-            setRootDir:
-              appDir: ${app_dir}
+            method: registerWidgetHandler
+            args:
+                - prototype
+                -
+                    instance: Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
+                    methods:
+                        setRootDir:
+                            appDir: ${app_dir}
 
 
 kit_css_file_generator:
-  instance: Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
-  constructor_args:
-    rootDir: ${app_dir}/www
-    format: css/tmp/$identifier-compiled-widgets.css
-
+    instance: Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
+    constructor_args:
+        rootDir: ${app_dir}/www
+        format: css/tmp/$identifier-compiled-widgets.css
 ```
 
 Note: this file is injected automatically in your light app when you import the planet.
@@ -210,7 +211,7 @@ So for instance we have this kind of structure:
 
 ```txt
 - config/data/
------ Light_Plugin_One/kit/
+----- Light_Plugin_One/Ling.Light_Kit/
 --------- page_one.byml
 --------- page_two.byml
 ----- Light_Plugin_Two/data_for_kit/
@@ -235,7 +236,7 @@ So for instance for the **page_one** page of the **Light_Plugin_one** plugin, we
 
 ```txt
 - config/data/
------ Light_Plugin_One/kit/
+----- Light_Plugin_One/Ling.Light_Kit/
 --------- page_one.byml
 --------- page_one/
 ------------- Light_Plugin_ABC.byml
@@ -254,6 +255,8 @@ How exactly the files are merged is defined inside the [BabyYamlConfStorage](htt
 
 Calling a page from your Light controller
 ===========
+2019-04-25
+
 
 So now that we know where the pages are located, we can simply call them from our Light controllers.
 
@@ -271,6 +274,8 @@ $light->registerRoute("/", function (LightServiceContainerInterface $service) {
  
 The html_page_copilot service
 ============
+2019-04-25
+
 
 All participants of the Light_Kit rendering framework can use the [**html_page_copilot** service](https://github.com/lingtalfi/Light_HtmlPageCopilot)
 to access the htmlPageCopilot instance (and inject their assets on the main page). 
@@ -287,6 +292,31 @@ to access the htmlPageCopilot instance (and inject their assets on the main page
 
 History Log
 =============
+
+- 1.18.1 -- 2021-04-09
+
+    - fix wrong service conf snippet in the README.md 
+  
+- 1.18.0 -- 2021-04-09
+
+    - rename PageConfigurationTransformer to ConfigurationTransformer 
+  
+- 1.17.10 -- 2021-04-08
+
+    - add LightKitPageRenderer->renderPage pageConf option, add own picasso widget handler
+  
+- 1.17.9 -- 2021-04-01
+
+    - add widget coordinates comment in conception notes, fix missing docTool pages
+  
+- 1.17.8 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.17.7 -- 2021-03-12
+
+    - add ThemeTransformer class
+    - update LightKitPageRenderer->renderPage method signature 
 
 - 1.17.6 -- 2021-03-05
 
@@ -330,7 +360,7 @@ History Log
     
 - 1.13.0 -- 2019-11-07
 
-    - update LightKitPageRenderer, now dispatches the Light_Kit.on_page_conf_ready event
+    - update LightKitPageRenderer, now dispatches the Ling.Light_Kit.on_page_conf_ready event
     
 - 1.12.2 -- 2019-10-29
 
@@ -350,7 +380,7 @@ History Log
     
 - 1.10.0 -- 2019-08-13
 
-    - change default config path to config/data/Light_Kit/pages
+    - change default config path to config/data/Ling.Light_Kit/pages
     
 - 1.9.0 -- 2019-08-09
 

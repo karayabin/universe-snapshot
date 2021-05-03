@@ -109,9 +109,9 @@ class CreateLkaUserMainPageList extends CreateLkaUserMainPage
      */
     public function render()
     {
-        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
+        $parentLayout = "Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base";
         $title = "' . $humanName . ' main page";
-        $page = "' . $planet . '/kit/zeroadmin/generated/' . $serviceName . '_mainpage";
+        $page = "' . $planet . '/Ling.Light_Kit/zeroadmin/generated/' . $serviceName . '_mainpage";
 
         return $this->renderAdminPage($page, [
             "parent_layout" => $parentLayout,
@@ -152,7 +152,7 @@ class CreateLkaUserMainPageList extends CreateLkaUserMainPage
         // CALL THE PARENT METHOD...
         //--------------------------------------------
         $options['createController'] = false;
-        $options['kit_page_tpl'] = __DIR__ . "/../../../assets/conf-template/data/kit/usermainpage_list.byml";
+        $options['kit_page_tpl'] = __DIR__ . "/../../../assets/conf-template/data/Ling.Light_Kit/usermainpage_list.byml";
         parent::doExecute($options);
 
 

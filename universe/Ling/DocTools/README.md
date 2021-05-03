@@ -1,10 +1,10 @@
 DocTools
 ===========
-2019-02-19 -> 2021-03-05
+2019-02-19 -> 2021-03-23
 
 
 
-A tool to help creating consistent documentation.
+A tool to help create a consistent documentation.
 
 DocTools was created in order to speed up the process of creating a documentation of (php) oop code.
 
@@ -685,6 +685,10 @@ History Log
 =============
 
 
+- 1.14.10 -- 2021-03-23
+
+    - fix MethodHelper::getMethodSignature not handling variadic parameters correctly
+  
 - 1.14.9 -- 2021-03-05
 
     - update README.md, add install alternative

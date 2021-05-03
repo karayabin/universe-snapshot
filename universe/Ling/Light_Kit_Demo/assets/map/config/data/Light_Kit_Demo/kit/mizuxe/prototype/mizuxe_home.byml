@@ -1,0 +1,44 @@
+label: Mizuxe main page
+layout: templates/Ling.Light_Kit_Demo/layouts/mizuxe/prototype/mizuxe_main_layout.php
+layout_vars: []
+
+title: Mizuxe one page theme
+description: <
+    This is the Mizuxe one page theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: mizuxe_large_main_nav_with_logo
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_large_main_nav_with_logo.php
+        -
+            name: mizuxe_two_columns_teaser
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_two_columns_teaser.php
+        -
+            name: mizuxe_newsletter_signup_header
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_newsletter_signup_header.php
+        -
+            name: mizuxe_four_columns_card_teaser
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_four_columns_card_teaser.php
+        -
+            name: mizuxe_one_column_accordion_teaser
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_one_column_accordion_teaser.php
+        -
+            name: mizuxe_four_columns_our_staff_header
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_four_columns_our_staff_header.php
+
+        -
+            name: mizuxe_one_column_contact_form
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_one_column_contact_form.php
+        -
+            name: mizuxe_right_aligned_monochrome_footer
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_right_aligned_monochrome_footer.php

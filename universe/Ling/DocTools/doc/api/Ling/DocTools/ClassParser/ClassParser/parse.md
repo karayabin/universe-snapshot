@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ClassParser::parse](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L140-L638)
+See the source code for method [ClassParser::parse](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L140-L641)
 
 
 See Also

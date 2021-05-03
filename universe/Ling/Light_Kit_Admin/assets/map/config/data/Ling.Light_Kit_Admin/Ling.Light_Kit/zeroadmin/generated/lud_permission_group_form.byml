@@ -1,0 +1,18 @@
+_parent: ${parent_layout}
+title: Permission group Form
+zones:
+    body:
+        -
+            name: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Ling.Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: default.php
+            vars: []
+                title: Permission group
+                form: ${form}
+                related_links: 
+                    -
+                        text: See the list of "Permission group" items
+                        url: ::(@reverse_router->getUrl( lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudPermissionGroupController} ))::
+                        icon: fas fa-plus-circle

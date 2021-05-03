@@ -1,0 +1,10 @@
+kit_editor:
+    instance: Ling\Light_Kit_Editor\Service\LightKitEditorService
+    methods:
+        setContainer:
+            container: @container()
+
+
+
+
+

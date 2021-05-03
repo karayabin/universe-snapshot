@@ -4,7 +4,7 @@
 
 The ControllerGenerator class
 ================
-2019-11-06 --> 2021-03-05
+2019-11-06 --> 2021-03-15
 
 
 
@@ -97,4 +97,4 @@ See the source code of [Ling\Light_Kit_Admin_Generator\Generator\ControllerGener
 
 SeeAlso
 ==============
-Next class: [LightKitAdminListConfigGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/LightKitAdminListConfigGenerator.md)<br>
+Previous class: [LightKitAdminGeneratorException](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Exception/LightKitAdminGeneratorException.md)<br>Next class: [LightKitAdminListConfigGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/LightKitAdminListConfigGenerator.md)<br>

@@ -1,6 +1,6 @@
 Light_PluginInstaller
 ===========
-2020-02-07 -> 2021-03-05
+2020-02-07 -> 2021-03-15
 
 A plugin installer service for [Light](https://github.com/lingtalfi/Light) applications.
 
@@ -78,6 +78,10 @@ $logger.methods_collection:
 
 History Log
 =============
+
+- 2.0.19 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 2.0.18 -- 2021-03-05
 

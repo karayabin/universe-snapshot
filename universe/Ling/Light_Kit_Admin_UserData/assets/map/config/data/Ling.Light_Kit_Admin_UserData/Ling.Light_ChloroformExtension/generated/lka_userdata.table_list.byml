@@ -1,0 +1,23 @@
+lud_user.id: 
+    fields: id as value, concat(id, '. ', pseudo) as label
+    table: lud_user
+    column: id
+    search_column: concat(id, '. ', pseudo)
+    csrf_token: true
+    micro_permission: tables.lud_user.read
+
+luda_resource.id: 
+    fields: id as value, concat(id, '. ', resource_identifier) as label
+    table: luda_resource
+    column: id
+    search_column: concat(id, '. ', resource_identifier)
+    csrf_token: true
+    micro_permission: tables.luda_resource.read
+
+luda_tag.id: 
+    fields: id as value, concat(id, '. ', name) as label
+    table: luda_tag
+    column: id
+    search_column: concat(id, '. ', name)
+    csrf_token: true
+    micro_permission: tables.luda_tag.read

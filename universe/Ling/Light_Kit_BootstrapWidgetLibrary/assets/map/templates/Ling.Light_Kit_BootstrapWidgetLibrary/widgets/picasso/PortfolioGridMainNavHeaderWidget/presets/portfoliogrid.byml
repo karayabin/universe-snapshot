@@ -1,0 +1,56 @@
+name: portfoliogrid_main_nav_header
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridMainNavHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridMainNavHeaderWidget
+template: default.php
+vars:
+    attr:
+        id: main-header
+
+    use_accordion: true
+    photo_url: /plugins/Light_Kit_Demo/portfoliogrid/img/person1.jpg
+    photo_alt: John Doe
+    name: John Doe
+    social_icons:
+        -
+            url: http://twitter.com
+            icon: fab fa-twitter
+
+        -
+            url: http://facebook.com
+            icon: fab fa-facebook
+
+        -
+            url: http://instagram.com
+            icon: fab fa-instagram
+
+        -
+            url: http://github.com
+            icon: fab fa-github
+
+
+    role: Experienced Full Stack Web Developer
+    links:
+        -
+            label: Home
+            icon: fas fa-home fa-2x d-block
+            url: "#home"
+            class: bg-primary
+
+        -
+            label: Resume
+            icon: fas fa-graduation-cap fa-2x d-block
+            url: "#resume"
+            class: bg-success
+
+        -
+            label: Work
+            icon: fas fa-folder-open fa-2x d-block
+            url: "#work"
+            class: bg-warning
+
+        -
+            label: Contact
+            icon: fas fa-envelope fa-2x d-block
+            url: "#contact"
+            class: bg-danger

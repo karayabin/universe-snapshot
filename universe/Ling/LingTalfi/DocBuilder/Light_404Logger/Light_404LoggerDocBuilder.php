@@ -77,6 +77,8 @@ class Light_404LoggerDocBuilder
             "reportIgnore" => [
                 "Ling\Light_Logger\Listener\LightFileLoggerListener",
                 "Ling\Light_Logger\Listener\BaseLoggerListener",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -145,7 +147,7 @@ class Light_404LoggerDocBuilder
                 "Light_404Logger conception notes" => $doc . '/pages/conception-notes.md',
                 "Bat\ConvertTool::convertHumanSizeToBytes" => 'https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes',
                 "LightFileLoggerListener" => 'https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener.md',
-                "Light.on_unhandled_exception_caught event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "Ling.Light.on_unhandled_exception_caught event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
                 "the Light_Logger service" => 'https://github.com/lingtalfi/Light_Logger',
             ],
             /**
@@ -160,6 +162,11 @@ class Light_404LoggerDocBuilder
             "externalClass2Url" => [
                 "Ling\Light_Logger\Listener\LightFileLoggerListener" => "https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener.md",
                 "Ling\Light_Logger\Listener\LightLoggerListenerInterface" => "https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

@@ -4,7 +4,7 @@
 
 The Light class
 ================
-2019-04-09 --> 2021-03-05
+2019-04-09 --> 2021-03-18
 
 
 
@@ -61,12 +61,12 @@ Class synopsis
 class <span class="pl-k">Light</span>  {
 
 - Properties
-    - protected string [$applicationDir](#property-applicationDir) ;
+    - protected string|null [$applicationDir](#property-applicationDir) ;
     - protected array [$routes](#property-routes) ;
     - protected bool [$debug](#property-debug) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)|null [$container](#property-container) ;
     - protected array [$settings](#property-settings) ;
-    - protected [Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) [$httpRequest](#property-httpRequest) ;
+    - protected [Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md)|null [$httpRequest](#property-httpRequest) ;
     - protected array|false|null [$matchingRoute](#property-matchingRoute) ;
     - private bool [$isInitialized](#property-isInitialized) ;
 

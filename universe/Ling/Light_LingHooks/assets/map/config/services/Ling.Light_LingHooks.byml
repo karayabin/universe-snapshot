@@ -1,0 +1,11 @@
+ling_hooks:
+    instance: Ling\Light_LingHooks\Service\LightLingHooksService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: []
+
+
+
+

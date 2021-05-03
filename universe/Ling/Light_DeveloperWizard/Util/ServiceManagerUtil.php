@@ -355,7 +355,7 @@ class ServiceManagerUtil
      */
     public function getBasicServiceConfigPath(): string
     {
-        return $this->container->getApplicationDir() . "/config/services/$this->planet.byml";
+        return $this->container->getApplicationDir() . "/config/services/$this->galaxy.$this->planet.byml";
     }
 
 

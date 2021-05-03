@@ -1,0 +1,6 @@
+Light_AjaxFileUploadManager:
+    routes:
+        afup_route-ajax_file_upload_manager:
+            pattern: /ajax_file_upload_manager
+            controller: Ling\Light_AjaxFileUploadManager\Controller\FileUploadController->uploader
+            is_ajax: true

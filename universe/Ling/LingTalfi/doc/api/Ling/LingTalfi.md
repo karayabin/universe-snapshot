@@ -1,6 +1,6 @@
 Ling/LingTalfi
 ================
-2019-03-13 --> 2021-03-08
+2019-03-13 --> 2021-03-22
 
 
 
@@ -278,6 +278,8 @@ Table of contents
     - [ProjectInfoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the ProjectInfo planet.
 - [RealistDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Realist/RealistDocBuilder.md) &ndash; The RealistDocBuilder class.
     - [RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Realist/RealistDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Realist planet.
+- [SectionCommentDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SectionComment/SectionCommentDocBuilder.md) &ndash; The SectionCommentDocBuilder class.
+    - [SectionCommentDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SectionComment/SectionCommentDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the SectionComment planet.
 - [Select2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Select2/Select2DocBuilder.md) &ndash; The Select2DocBuilder class.
     - [Select2DocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Select2/Select2DocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Select2 planet.
 - [SicToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SicTools/SicToolsDocBuilder.md) &ndash; The SicToolsDocBuilder class.

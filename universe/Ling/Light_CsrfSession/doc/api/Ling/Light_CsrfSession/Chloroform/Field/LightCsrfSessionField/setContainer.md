@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightCsrfSessionField::setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/setContainer.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : [LightCsrfSessionField](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField.md)
+public [LightCsrfSessionField::setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : [LightCsrfSessionField](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField.md)
 
 
 
@@ -49,7 +49,7 @@ Returns [LightCsrfSessionField](https://github.com/lingtalfi/Light_CsrfSession/b
 
 Source Code
 ===========
-See the source code for method [LightCsrfSessionField::setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/Chloroform/Field/LightCsrfSessionField.php#L51-L55)
+See the source code for method [LightCsrfSessionField::setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/Chloroform/Field/LightCsrfSessionField.php#L54-L58)
 
 
 See Also

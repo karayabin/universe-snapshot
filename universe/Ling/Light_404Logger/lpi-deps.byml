@@ -17,3 +17,31 @@
     - Ling:Bat:1.308+
     - Ling:Light:0.69.30+
     - Ling:Light_Logger:1.11.5+
+
+1.0.4: 
+    - Ling:Bat:1.308+
+    - Ling:Light:0.70.0+
+    - Ling:Light_Logger:1.11.6+
+
+1.0.5: 
+    - Ling:Bat:1.308+
+    - Ling:Light:0.70.0+
+    - Ling:Light_Logger:1.11.6+
+
+1.0.6: 
+    - Ling:Bat:1.309+
+    - Ling:Light:0.70.1+
+    - Ling:Light_Logger:1.11.7+
+
+1.0.7: 
+    - Ling:Bat:1.309+
+    - Ling:Light:0.70.1+
+    - Ling:Light_Logger:1.11.7+
+
+1.0.8: 
+    - Ling:Bat:1.31+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_Events:1.10.0+
+    - Ling:Light_Logger:1.11.7+
+    - Ling:Light_PlanetInstaller:1.0.20+

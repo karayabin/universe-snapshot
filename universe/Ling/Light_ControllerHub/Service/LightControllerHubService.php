@@ -129,7 +129,7 @@ class LightControllerHubService
         /**
          * Note: as you can see for now it's a hardcoded value.
          * The problem is that this value must be synced with the value inside the
-         * /the_app/config/data/Light_ControllerHub/Light_EasyRoute/lch_routes.byml file,
+         * /the_app/config/data/Ling.Light_ControllerHub/Light_EasyRoute/lch_routes.byml file,
          * otherwise things will break.
          *
          * As for now, I didn't't implement a mechanism to do the sync automatically (didn't need

@@ -15,7 +15,7 @@ $bmenu.methods_collection:
         method: addDefaultItemByFile
         args:
             menu_type: admin_main_menu
-            file: ${app_dir}/config/data/Light_Kit_Admin_XXX/bmenu/generated/kit_admin_xxx.admin_mainmenu_1.byml
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Ling.Light_BMenu/generated/kit_admin_xxx.admin_mainmenu_1.byml
 
 $chloroform_extension.methods_collection:
     -
@@ -27,7 +27,7 @@ $chloroform_extension.methods_collection:
                 methods:
                     setConfigurationFile:
                         files:
-                            - ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_ChloroformExtension/generated/kit_admin_xxx.table_list.byml
+                            - ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Ling.Light_ChloroformExtension/generated/kit_admin_xxx.table_list.byml
 
 
 
@@ -59,13 +59,13 @@ $kit_admin.methods_collection:
                 instance: Ling\Light_Kit_Admin_XXX\LightKitAdminPlugin\Generated\LightKitAdminXXXLkaPlugin
                 methods:
                     setOptionsFile:
-                        file: ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_Kit_Admin/lka-options.generated.byml
+                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Light_Kit_Admin/lka-options.generated.byml
 
 $micro_permission.methods_collection:
     -
         method: registerMicroPermissionsByProfile
         args:
-            file: ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_MicroPermission/kit_admin_xxx.profile.generated.byml
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Ling.Light_MicroPermission/kit_admin_xxx.profile.generated.byml
 
 
 $plugin_installer.methods_collection:
@@ -86,7 +86,7 @@ $realform.methods_collection:
                 instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
                 methods:
                     setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin_XXX/Light_Realform
+                        dir: ${app_dir}/config/data/Ling.Light_Kit_Admin_XXX/Light_Realform
 
 $realist.methods_collection:
     -

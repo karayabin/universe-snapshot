@@ -75,7 +75,7 @@ example: <
     name: portfoliogrid_three_columns_card_info
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridThreeColumnsCardInfoWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridThreeColumnsCardInfoWidget
     template: default.php
     vars: 
         attr: 

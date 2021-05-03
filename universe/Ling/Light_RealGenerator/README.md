@@ -1,6 +1,6 @@
 Light_RealGenerator
 ===========
-2019-10-24 -> 2021-03-05
+2019-10-24 -> 2021-03-15
 
 
 
@@ -84,7 +84,7 @@ How to use
 
 ```php
 
-$file = $appDir . '/config/data/Light_Kit_Admin/Light_RealGenerator/jindemo.byml';
+$file = $appDir . '/config/data/Ling.Light_Kit_Admin/Light_RealGenerator/jindemo.byml';
 az($container->get("real_generator")->generate($file));
 ```
 
@@ -103,6 +103,10 @@ Related
 History Log
 =============
 
+
+- 1.31.17 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.31.16 -- 2021-03-05
 

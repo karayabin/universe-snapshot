@@ -4,6 +4,7 @@
 namespace Ling\Light_Kit_Editor\Storage;
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\ArrayTool;
 use Ling\Bat\FileSystemTool;
 
 /**
@@ -49,8 +50,36 @@ class LightKitEditorBabyYamlStorage extends LightKitEditorAbstractStorage
      */
     public function addPage(string $pageName, array $pageConf = [])
     {
-        a("adding page $pageName", $pageConf);
+
+
+        $arr = ArrayTool::superimpose($pageConf, [
+            'label' => '',
+            'layout' => '',
+            'layout_vars' => '',
+            'title' => '',
+            'description' => '',
+            'bodyClass' => $pageConf['bodyclass'] ?? '',
+        ]);
+        $arr['identifier'] = $pageName;
+        $arr['zones'] = [];
+
+        $identifier = $this->sanitizePath($arr['identifier']);
+        $file = $this->rootDir . "/pages/" . $identifier . ".byml";
+        BabyYamlUtil::writeFile($arr, $file);
     }
+
+
+    /**
+     * @implementation
+     */
+    public function addBlock(string $identifier)
+    {
+        $arr = [];
+        $identifier = $this->sanitizePath($identifier);
+        $file = $this->rootDir . "/blocks/" . $identifier . ".byml";
+        BabyYamlUtil::writeFile($arr, $file);
+    }
+
 
     /**
      * @implementation
@@ -113,26 +142,39 @@ class LightKitEditorBabyYamlStorage extends LightKitEditorAbstractStorage
      */
     private function resolveZoneAlias(string $str): array|false
     {
-        if (true === str_starts_with($str, 'z$:')) {
-            $zoneId = trim(substr($str, 3));
-            return $this->getWidgetsByZone($zoneId);
+        if (true === str_starts_with($str, 'b$:')) {
+            $blockId = trim(substr($str, 3));
+            return $this->getWidgetsByBlock($blockId);
         }
         return false;
     }
 
     /**
      * Returns the widgets array for the given zone id.
-     * @param string $zoneId
+     * @param string $blockId
      * @return array
      */
-    private function getWidgetsByZone(string $zoneId): array
+    private function getWidgetsByBlock(string $blockId): array
     {
         $arr = [];
-        $zoneFile = $this->rootDir . "/zones/$zoneId.byml";
+        $zoneFile = $this->rootDir . "/blocks/$blockId.byml";
         if (true === file_exists($zoneFile)) {
             $arr = BabyYamlUtil::readFile($zoneFile);
         }
         return $arr;
+    }
+
+
+    /**
+     * Returns the sanitized version of the given path.
+     * We basically remove any parent escalation string (..)
+     *
+     * @param string $path
+     * @return string
+     */
+    private function sanitizePath(string $path): string
+    {
+        return FileSystemTool::removeTraversalDots($path);
     }
 
 }

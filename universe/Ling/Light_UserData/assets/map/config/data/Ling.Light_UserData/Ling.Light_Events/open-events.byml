@@ -1,0 +1,3 @@
+Ling.Light_Database.on_lud_user_group_create:
+    - @user_data->onUserGroupCreate(data)
+

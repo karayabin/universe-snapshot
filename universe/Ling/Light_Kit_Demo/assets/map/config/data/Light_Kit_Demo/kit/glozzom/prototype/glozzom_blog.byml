@@ -1,0 +1,27 @@
+label: Glozzom blog page
+layout: templates/Ling.Light_Kit_Demo/layouts/glozzom/prototype/glozzom_main_layout.php
+layout_vars: []
+
+title: Glozzom blog
+description: <
+    This is the blog page of the Glozzom multiple pages theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: glozzom_main_nav
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/glozzom/glozzom_main_nav.php
+        -
+            name: glozzom_parallax_header-blog
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/glozzom/glozzom_parallax_header-blog.php
+        -
+            name: glozzom_three_columns_blog_cards
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/glozzom/glozzom_three_columns_blog_cards.php
+        -
+            name: glozzom_simple_copyright_footer
+            type: prototype
+            template: templates/Ling.Light_Kit_Demo/widgets/prototype/glozzom/glozzom_simple_copyright_footer.php

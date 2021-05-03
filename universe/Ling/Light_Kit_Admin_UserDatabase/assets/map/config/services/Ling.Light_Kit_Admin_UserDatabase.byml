@@ -1,0 +1,34 @@
+kit_admin_user_database: 
+    instance: Ling\Light_Kit_Admin_UserDatabase\Service\LightKitAdminUserDatabaseService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+    
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$micro_permission.methods_collection: 
+    - 
+        method: registerMicroPermissionsByProfile
+        args: 
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserDatabase/Ling.Light_MicroPermission/kit_admin_user_database.profile.generated.byml
+        
+    
+
+$kit_admin.methods_collection: 
+    - 
+        method: registerPlugin
+        args: 
+            pluginName: Light_Kit_Admin_UserDatabase
+            plugin: 
+                instance: Ling\Light_Kit_Admin_UserDatabase\LightKitAdminPlugin\Generated\LightKitAdminUserDatabaseLkaPlugin
+                methods: 
+                    setOptionsFile: 
+                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserDatabase/Ling.Light_Kit_Admin/lka-options.generated.byml
+                    
+                
+            
+        
+    

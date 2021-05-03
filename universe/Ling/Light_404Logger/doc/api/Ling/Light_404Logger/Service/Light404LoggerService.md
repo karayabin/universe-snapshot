@@ -4,7 +4,7 @@
 
 The Light404LoggerService class
 ================
-2019-12-12 --> 2021-03-05
+2019-12-12 --> 2021-03-22
 
 
 
@@ -37,7 +37,7 @@ class <span class="pl-k">Light404LoggerService</span>  {
 Methods
 ==============
 
-- [Light404LoggerService::onExceptionCaught](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Service/Light404LoggerService/onExceptionCaught.md) &ndash; The callable used to react to the [Light.on_unhandled_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+- [Light404LoggerService::onExceptionCaught](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Service/Light404LoggerService/onExceptionCaught.md) &ndash; The callable used to react to the [Ling.Light.on_unhandled_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 

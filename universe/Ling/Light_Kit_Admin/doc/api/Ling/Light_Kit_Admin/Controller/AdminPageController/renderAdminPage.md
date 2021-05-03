@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md)(string $page, ?$params = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+public [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md)(string $page, ?array $options = []) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
@@ -28,7 +28,9 @@ if she is not connected yet.
 
 Example of page values:
 
-- Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/lup_user_preference_list
+- Light_Kit_Admin_UserPreferences/Ling.Light_Kit/zeroadmin/generated/lup_user_preference_list
+
+Options are directly forwarded to [the LightKitPageRenderer->renderPage method](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md).
 
 
 
@@ -41,11 +43,7 @@ Parameters
 
     
 
-- params
-
-    
-
-- updator
+- options
 
     
 
@@ -69,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L63-L77)
+See the source code for method [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L60-L80)
 
 
 See Also

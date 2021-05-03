@@ -1,6 +1,6 @@
 Open vs close service registration
 ===============
-2021-02-22
+2021-02-22 -> 2021-03-09
 
 
 
@@ -25,7 +25,7 @@ Both have pros and cons, but usually the **open** approach is better for perform
 
 The close registration
 -----------
-2021-02-22
+2021-02-22 -> 2021-03-09
 
 With the **close registration system**, the **provider service** provides a **registration method**.
 
@@ -44,13 +44,13 @@ So, for instance if we have a quick peak at the cached container's content, we c
 ```php
     protected function easy_route()  {
         $s0 = new Ling\Light_EasyRoute\Service\LightEasyRouteService();
-        $s0->registerBundleFile('config/data/Light_AjaxFileUploadManager/Light_EasyRoute/afup_routes.byml');
-        $s0->registerBundleFile('config/data/Light_AjaxHandler/Light_EasyRoute/lah_routes.byml');
-        $s0->registerBundleFile('config/data/Light_ControllerHub/Light_EasyRoute/lch_routes.byml');
-        $s0->registerBundleFile('config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml');
-        $s0->registerBundleFile('config/data/Light_Kit_Admin_UserData/Light_EasyRoute/lka_userdata_routes.byml');
-        $s0->registerBundleFile('config/data/Light_Kit_Admin_UserDatabase/Light_EasyRoute/lka_userdatabase_routes.byml');
-        $s0->registerBundleFile('config/data/Light_UserData/Light_EasyRoute/luda_routes.byml');
+        $s0->registerBundleFile('config/data/Ling.Light_AjaxFileUploadManager/Light_EasyRoute/afup_routes.byml');
+        $s0->registerBundleFile('config/data/Ling.Light_AjaxHandler/Light_EasyRoute/lah_routes.byml');
+        $s0->registerBundleFile('config/data/Ling.Light_ControllerHub/Light_EasyRoute/lch_routes.byml');
+        $s0->registerBundleFile('config/data/Ling.Light_Kit_Admin/Ling.Light_EasyRoute/lka_routes.byml');
+        $s0->registerBundleFile('config/data/Ling.Light_Kit_Admin_UserData/Light_EasyRoute/lka_userdata_routes.byml');
+        $s0->registerBundleFile('config/data/Ling.Light_Kit_Admin_UserDatabase/Light_EasyRoute/lka_userdatabase_routes.byml');
+        $s0->registerBundleFile('config/data/Ling.Light_UserData/Light_EasyRoute/luda_routes.byml');
         
         return $s0;
     }
@@ -122,18 +122,18 @@ Another benefit of this approach is that now, it's possible to use the late regi
 
 In other words, the **provider service** has the option to only instantiate what it really needs.
 
-An example of this is the **Light_Event** service, which dispatches application events to listeners.
+An example of this is the **Ling.Light_Event** service, which dispatches application events to listeners.
 
-The **Light_Event** service basically allow the listeners (aka the subscriber plugins) to listen to an event by 
+The **Ling.Light_Event** service basically allow the listeners (aka the subscriber plugins) to listen to an event by 
 creating a [babyYaml](https://github.com/lingtalfi/BabyYaml) file in a directory named after the listened event.
 
-So for instance, if a third-party plugin is named **Light_Abc** wants to register to the **Light_Database.on_lun_user_notification_create** event,
+So for instance, if a third-party plugin is named **Ling.Light_Abc** wants to register to the **Ling.Ling.Light_Database.on_lun_user_notification_create** event,
 it can create a file like in:
 
-- open/Light_Events/Light_Database.on_lun_user_notification_create/Light_Abc.byml
+- open/Ling.Light_Events/Ling.Ling.Light_Database.on_lun_user_notification_create/Ling.Light_Abc.byml
 
-The content of the file is defined by the **Light_Events** plugin, but the main idea is that now
-the **Light_Events** plugin will only call the listener's callback when needed, and the Light_Abc didn't spend any static registration call.
+The content of the file is defined by the **Ling.Light_Events** plugin, but the main idea is that now
+the **Ling.Light_Events** plugin will only call the listener's callback when needed, and the **Ling.Light_Abc** plugin didn't spend any static registration call.
 
 
 Yet another benefit of this "open" approach is that the maintainer can now easily hack the system by creating/updating those files.

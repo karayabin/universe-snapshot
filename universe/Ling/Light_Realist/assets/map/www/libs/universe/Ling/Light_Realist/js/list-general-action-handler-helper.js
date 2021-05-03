@@ -75,7 +75,7 @@ if ('undefined' === typeof ListGeneralActionHandlerHelper) {
             jContainer: null,
             /**
              * An array of list general action items.
-             * The structure of each item is defined in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).
+             * The structure of each item is defined in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/list-action-handler-conception-notes.md).
              */
             listGeneralActionItems: [],
         };

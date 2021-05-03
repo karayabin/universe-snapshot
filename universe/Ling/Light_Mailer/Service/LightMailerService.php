@@ -421,7 +421,7 @@ class LightMailerService
              * @var $events LightEventsService
              */
             $events = $this->container->get("events");
-            $events->dispatch("Light_Mailer.on_mail_sent", $event);
+            $events->dispatch("Ling.Light_Mailer.on_mail_sent", $event);
         }
         return $numSent;
     }

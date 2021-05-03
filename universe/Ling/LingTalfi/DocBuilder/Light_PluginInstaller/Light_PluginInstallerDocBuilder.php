@@ -142,7 +142,7 @@ class Light_PluginInstallerDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Light_PluginInstaller conception notes" => $doc . '/pages/conception-notes.md',
-                "the Light.initialize_1 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
+                "the Ling.Light.initialize_1 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
                 "where conditions" => "https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions",
                 "create file" => "https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/pages/conception-notes.md#create-file",
                 "planet dot name" => "https://github.com/karayabin/universe-snapshot#the-planet-dot-name",

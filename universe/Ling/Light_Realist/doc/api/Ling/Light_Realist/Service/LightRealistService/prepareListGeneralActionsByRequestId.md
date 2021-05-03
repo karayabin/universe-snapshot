@@ -23,15 +23,15 @@ public [LightRealistService::prepareListGeneralActionsByRequestId](https://githu
 
 Returns the prepared "action items" array representing the "general actions" for the list identified by the given requestId.
 
-For more information about "action items", see the [realist action items document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md).
-For more information about "general actions", see the [realist list-actions document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md).
+For more information about "action items", see the [realist action items document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/action-items.md).
+For more information about "general actions", see the [realist list-actions document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-actions.md).
 
 By default, we use the "generic action item" format, which is explained in the "request declaration",
 using the "list_item_group_actions" property.
 
 
-See more about that format in the [realist generic action item section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md#generic-action-item).
-See the [request declaration document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/request-declaration.md) for more details.
+See more about that format in the [realist generic action item section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/action-items.md#generic-action-item).
+See the [request declaration document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/request-declaration.md) for more details.
 
 
 
@@ -64,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::prepareListGeneralActionsByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L678-L693)
+See the source code for method [LightRealistService::prepareListGeneralActionsByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L647-L662)
 
 
 See Also

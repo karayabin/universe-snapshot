@@ -138,7 +138,7 @@ if ('undefined' === typeof ListActionHandlerHelper) {
             jContainer: null,
             /**
              * An array of list action leaves (aka items without children).
-             * The structure of each item is defined in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).
+             * The structure of each item is defined in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/list-action-handler-conception-notes.md).
              */
             listActionLeaves: [],
             /**

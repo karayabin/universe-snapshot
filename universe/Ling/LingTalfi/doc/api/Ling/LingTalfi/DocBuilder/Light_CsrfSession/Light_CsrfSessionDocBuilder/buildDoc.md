@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_CsrfSessionDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_CsrfSession/Light_CsrfSessionDocBuilder.php#L45-L206)
+See the source code for method [Light_CsrfSessionDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_CsrfSession/Light_CsrfSessionDocBuilder.php#L45-L222)
 
 
 See Also

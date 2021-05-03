@@ -7,7 +7,6 @@ namespace Ling\Light_Events\Service;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\DebugTool;
 use Ling\CliTools\Formatter\BashtmlFormatter;
-use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Light\Helper\LightHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
@@ -151,31 +150,25 @@ class LightEventsService
 
 
         //--------------------------------------------
-        // DYNAMIC CALLS
+        // OPEN REGISTERED LISTENERS
         //--------------------------------------------
-        $dir = $this->container->getApplicationDir() . "/config/dynamic/Light_Events/$event";
-        if (is_dir($dir)) {
-            $originId = null;
-            $files = YorgDirScannerTool::getFilesWithExtension($dir, 'byml', false, false);
-            foreach ($files as $path) {
-                $events = BabyYamlUtil::readFile($path);
-                foreach ($events as $expr) {
-                    $res = LightHelper::executeMethod($expr, $this->container, [
-                        "argReplace" => [
-                            'event' => $event,
-                            'data' => $data,
-                            'dynamicPath' => $path,
-                        ],
-                    ]);
+        $eventFile = $this->container->getApplicationDir() . "/config/open/Ling.Light_Events/events/$event.byml";
+        if (is_file($eventFile)) {
+            $events = BabyYamlUtil::readFile($eventFile);
+            foreach ($events as $expr) {
+                $res = LightHelper::executeMethod($expr, $this->container, [
+                    "argReplace" => [
+                        'event' => $event,
+                        'data' => $data,
+                        'dynamicPath' => $eventFile,
+                    ],
+                ]);
 
-                    if (self::STOP_PROPAGATION === $res) {
-                        break 2;
-                    }
+                if (self::STOP_PROPAGATION === $res) {
+                    break;
                 }
             }
-
         }
-
 
     }
 

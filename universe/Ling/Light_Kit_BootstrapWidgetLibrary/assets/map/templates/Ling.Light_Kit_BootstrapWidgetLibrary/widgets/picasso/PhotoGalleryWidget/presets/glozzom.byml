@@ -1,0 +1,36 @@
+name: photo_gallery
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PhotoGalleryWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PhotoGalleryWidget
+template: default.php
+vars:
+    attr:
+        id: gallery
+        class: py-5
+    title: Photo Gallery
+    title_class: text-center
+    title_level: 1
+    text: Check out our photos
+    text_class: text-center
+    column_class: col-md-4
+    nb_photos_per_row: 3
+    photos:
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-1.jpg
+            alt: photo-1
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-2.jpg
+            alt: photo-2
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-3.jpg
+            alt: photo-3
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-4.jpg
+            alt: photo-4
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-5.jpg
+            alt: photo-5
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-6.jpg
+            alt: photo-6

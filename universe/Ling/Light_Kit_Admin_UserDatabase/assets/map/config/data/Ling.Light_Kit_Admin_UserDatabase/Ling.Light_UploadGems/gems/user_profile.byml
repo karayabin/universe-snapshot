@@ -1,0 +1,44 @@
+name: []
+
+
+name_validation:
+    maxFileNameLength: 64
+    allowSlashInFilename: false
+    extensions:
+        - png
+        - jpeg
+        - jpg
+        - gif
+        - md
+
+chunk_validation:
+    mimeType:
+        - image/png
+        - image/jpg
+        - image/gif
+        - text/plain
+
+
+
+validation:
+    maxFileSize: 2M
+config:
+    canonicalName: avatar
+    acceptKeepOriginal: true
+    files:
+        -
+            path: {directory}/{filename}
+#            path: images/{filename}
+#            path: images/boris.png
+            nickname: default
+            is_source: true
+        -
+            path: images/tarte/{filename}
+            nickname: tarte
+        -
+            path: images/pin/michel-24x24.png
+            nickname: michel
+            imageTransformer: resize(800, 800)
+        -
+            path: p/{filename}
+            nickname: paul

@@ -1,6 +1,6 @@
 Bootstrap Widget Library
 =============
-2019-05-01 -> 2021-03-05
+2019-05-01 -> 2021-04-15
 
 
 
@@ -27,6 +27,7 @@ Summary
 - [ColoredBoxesWidget](#coloredboxeswidget)
 - [ContactFormAndCompanyInfoWidget](#contactformandcompanyinfowidget)
 - [FooterWithButtonWidget](#footerwithbuttonwidget)
+- [FreeContentWidget](#freecontentwidget)
 - [GlozzomPricingTableWidget](#glozzompricingtablewidget)
 - [GlozzomTwoColumnsTeaserWidget](#glozzomtwocolumnsteaserwidget)
 - [HelloWorldWidget](#helloworldwidget)
@@ -129,7 +130,7 @@ name: blog_cards
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogCardsWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogCardsWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogCardsWidget
 template: default.php
 vars:
     attr:
@@ -331,7 +332,7 @@ BlogenAdminTableWidget configuration example
 name: blogen_admin_table
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenAdminTableWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenAdminTableWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenAdminTableWidget
 template: default.php
 vars:
     attr:
@@ -576,7 +577,7 @@ BlogenFormWidget configuration example
 name: blogen_form
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenFormWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenFormWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenFormWidget
 template: default.php
 vars:
     attr:
@@ -802,7 +803,7 @@ BlogenHeaderWithActionButtonsWidget configuration example
 name: blogen_header_with_action_buttons
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenHeaderWithActionButtonsWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenHeaderWithActionButtonsWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenHeaderWithActionButtonsWidget
 template: default.php
 vars:
     attr:
@@ -973,7 +974,7 @@ BlogenHeaderWithModalActionButtonsWidget configuration example
 name: blogen_header_with_modal_action_buttons
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenHeaderWithModalActionButtonsWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenHeaderWithModalActionButtonsWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenHeaderWithModalActionButtonsWidget
 template: default.php
 vars:
     attr:
@@ -1236,7 +1237,7 @@ BlogenIconHeaderWidget configuration example
 name: blogen_icon_header
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenIconHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenIconHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenIconHeaderWidget
 template: default.php
 vars:
     attr:
@@ -1313,7 +1314,7 @@ BlogenSearchHeaderWidget configuration example
 name: blogen_search_header
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSearchHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSearchHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSearchHeaderWidget
 template: default.php
 vars:
     attr:
@@ -1424,7 +1425,7 @@ name: blogen_sidebar_avatar_with_action_buttons
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSidebarAvatarWithActionButtonsWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarAvatarWithActionButtonsWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarAvatarWithActionButtonsWidget
 template: default.php
 vars:
     title: Your Avatar
@@ -1543,7 +1544,7 @@ BlogenSidebarIconCardsWidget configuration example
 name: blogen_sidebar_icon_cards
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSidebarIconCardsWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarIconCardsWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarIconCardsWidget
 template: default.php
 vars:
     cards:
@@ -1677,7 +1678,7 @@ ChloroformWidget configuration example
 name: chloroform
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ChloroformWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ChloroformWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ChloroformWidget
 template: default.php
 vars:
     title: User Settings
@@ -1754,7 +1755,7 @@ name: colored_boxes
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ColoredBoxesWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ColoredBoxesWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ColoredBoxesWidget
 template: default.php
 vars:
     attr:
@@ -1950,7 +1951,7 @@ name: contact_form_and_company_info
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ContactFormAndCompanyInfoWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ContactFormAndCompanyInfoWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ContactFormAndCompanyInfoWidget
 template: default.php
 vars:
     attr:
@@ -2133,7 +2134,7 @@ name: footer_with_button
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\FooterWithButtonWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/FooterWithButtonWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/FooterWithButtonWidget
 template: default.php
 vars:
     attr:
@@ -2177,6 +2178,69 @@ FooterWithButtonWidget variables description
     - **default_value**: 
     - **description**: The text of the button. If empty, will not be displayed.
     - **example**: Download Resume
+
+
+
+
+
+
+
+FreeContentWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#freecontentwidget-screenshots)
+- [Templates and skins](#freecontentwidget-templates-and-skins)
+- [Example](#freecontentwidget-configuration-example)
+- [Variables descriptions](#freecontentwidget-variables-description)
+
+
+
+FreeContentWidget is a bootstrap widget that displays whatever content you pass to it.
+
+
+
+
+
+FreeContentWidget screenshots
+----------
+
+
+
+
+
+FreeContentWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: 
+- **Presets**: 
+
+
+FreeContentWidget configuration example
+----------------
+
+```yaml
+name: free
+type: picasso
+id: page1-body-free
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\FreeContentWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/FreeContentWidget
+template: default.php
+vars:
+    content: ok
+```
+
+
+
+FreeContentWidget variables description
+-----------
+
+- **content**
+    - **type**: string
+    - **default_value**: ok
+    - **description**: todo: here
+    - **example**: ok
 
 
 
@@ -2250,7 +2314,7 @@ name: glozzom_pricing_table
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\GlozzomPricingTableWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/GlozzomPricingTableWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/GlozzomPricingTableWidget
 template: default.php
 vars:
     attr:
@@ -2487,7 +2551,7 @@ name: glozzom_two_columns_teaser
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\GlozzomTwoColumnsTeaserWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/GlozzomTwoColumnsTeaserWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/GlozzomTwoColumnsTeaserWidget
 template: default.php
 vars:
     attr:
@@ -2597,7 +2661,7 @@ HelloWorldWidget configuration example
 name: hello_world
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\HelloWorldWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/HelloWorldWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/HelloWorldWidget
 template: default.php
 vars:
     text: hello world
@@ -2673,7 +2737,7 @@ name: icon_teaser
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\IconTeaserWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget
 template: default.php
 vars:
     attr:
@@ -2799,7 +2863,7 @@ LightRealistWidget configuration example
 name: light_realist
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LightRealistWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LightRealistWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LightRealistWidget
 template: default.php
 vars:
     request_declaration_id: Light_Kit_Admin:lud_user
@@ -2887,7 +2951,7 @@ LoopLabFooterWithContactUseButtonWidget configuration example
 name: looplab_footer_with_contact_us_button
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabFooterWithContactUseButtonWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabFooterWithContactUseButtonWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabFooterWithContactUseButtonWidget
 template: default.php
 vars:
     attr:
@@ -3058,7 +3122,7 @@ LoopLabMonoChromeHeaderWidget configuration example
 name: looplab_monochrome_header
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabMonoChromeHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
 template: default.php
 skin: looplab-dark
 vars:
@@ -3196,7 +3260,7 @@ LoopLabTwoColumnsSignupFormWidget configuration example
 name: looplab_two_columns_signup_form
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsSignupFormWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsSignupFormWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsSignupFormWidget
 template: default.php
 vars:
     attr:
@@ -3401,7 +3465,7 @@ LoopLabTwoColumnsTeaserWidget configuration example
 name: looplab_two_columns_teaser
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsTeaserWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
 template: default.php
 vars:
     attr:
@@ -3542,7 +3606,7 @@ Image 1: MainNavWidget-01.png<br>![Screenshot MainNavWidget-01.png](https://ling
 MainNavWidget templates, skins, presets
 -----------
 - **Templates**: default.php
-- **Skins**: glozzom.css, glozzom.scss, looplab-nav.css, mizuxe-nav.css, mizuxe-nav.scss
+- **Skins**: glozzom.css, looplab-nav.css, mizuxe-nav.css
 - **Presets**: glozzom.byml, looplab.byml, mizuxe.byml
 
 
@@ -3553,7 +3617,7 @@ MainNavWidget configuration example
 name: main_nav
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
 template: default.php
 skin: looplab-nav
 vars:
@@ -3766,7 +3830,7 @@ name: mizuxe_one_column_contact_form
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeContactFormWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeContactFormWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeContactFormWidget
 template: default.php
 vars:
     attr:
@@ -3981,7 +4045,7 @@ name: mizuxe_four_columns_our_staff_header
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeFourColumnsOurStaffWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeFourColumnsOurStaffWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeFourColumnsOurStaffWidget
 template: default.php
 vars:
     attr:
@@ -4222,7 +4286,7 @@ name: mizuxe_newsletter_signup_header
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeNewsletterSignupHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeNewsletterSignupHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeNewsletterSignupHeaderWidget
 template: default.php
 vars:
     attr:
@@ -4358,7 +4422,7 @@ name: mizuxe_two_columns_teaser
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeTwoColumnsTeaserWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeTwoColumnsTeaserWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeTwoColumnsTeaserWidget
 template: default.php
 vars:
     attr:
@@ -4534,7 +4598,7 @@ name: newsletter_header
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\NewsletterHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/NewsletterHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/NewsletterHeaderWidget
 template: default.php
 vars:
     attr:
@@ -4663,7 +4727,7 @@ name: one_column_accordion
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\OneColumnAccordionWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/OneColumnAccordionWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/OneColumnAccordionWidget
 template: default.php
 vars:
     attr:
@@ -4852,7 +4916,7 @@ name: parallax_header
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ParallaxHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWidget
 template: default.php
 vars:
     attr:
@@ -4964,7 +5028,7 @@ name: parallax_header_with_video_trigger
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ParallaxHeaderWithVideoTriggerWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWithVideoTriggerWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWithVideoTriggerWidget
 template: default.php
 vars:
     attr:
@@ -5090,7 +5154,7 @@ name: people_grid
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PeopleGridWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PeopleGridWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PeopleGridWidget
 template: default.php
 vars:
     attr:
@@ -5248,7 +5312,7 @@ name: photo_gallery
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PhotoGalleryWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PhotoGalleryWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PhotoGalleryWidget
 template: default.php
 vars:
     attr:
@@ -5393,7 +5457,7 @@ PortfolioGridHeaderWithDescriptionWidget configuration example
 name: portfoliogrid_header_with_description
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
 template: default.php
 vars:
     attr:
@@ -5487,7 +5551,7 @@ PortfolioGridMainNavHeaderWidget configuration example
 name: portfoliogrid_main_nav_header
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridMainNavHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridMainNavHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridMainNavHeaderWidget
 template: default.php
 vars:
     attr:
@@ -5681,7 +5745,7 @@ PortfolioGridThreeColumnsCardInfoWidget configuration example
 name: portfoliogrid_three_columns_card_info
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridThreeColumnsCardInfoWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridThreeColumnsCardInfoWidget
 template: default.php
 vars:
     attr:
@@ -5850,7 +5914,7 @@ ProgressBarWidget configuration example
 name: progress_bar
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ProgressBarWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ProgressBarWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ProgressBarWidget
 template: default.php
 vars:
     attr:
@@ -6002,7 +6066,7 @@ ShowCaseCarouselWidget configuration example
 name: glozzom_showcase_carousel
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ShowCaseCarouselWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ShowCaseCarouselWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ShowCaseCarouselWidget
 template: default.php
 vars:
     attr:
@@ -6213,7 +6277,7 @@ name: simple_footer
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\SimpleFooterWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SimpleFooterWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SimpleFooterWidget
 template: default.php
 vars:
     attr:
@@ -6336,7 +6400,7 @@ name: slick_testimonial_carousel
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\SlickTestimonialCarouselWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SlickTestimonialCarouselWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SlickTestimonialCarouselWidget
 template: default.php
 vars:
     attr:
@@ -6456,7 +6520,7 @@ name: two_columns_accordion
 type: picasso
 active: true
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\TwoColumnsAccordionWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/TwoColumnsAccordionWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/TwoColumnsAccordionWidget
 template: default.php
 vars:
     attr:
@@ -6632,7 +6696,7 @@ Image 2: ZeroAdminBigNotificationWidget.png<br>![Screenshot ZeroAdminBigNotifica
 ZeroAdminBigNotificationWidget templates, skins, presets
 -----------
 - **Templates**: default.php
-- **Skins**: default.css, default.scss
+- **Skins**: default.css
 - **Presets**: 
 
 
@@ -6643,7 +6707,7 @@ ZeroAdminBigNotificationWidget configuration example
 name: zeroadmin_bignotification
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminBigNotificationWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminBigNotificationWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminBigNotificationWidget
 template: default.php
 vars:
     container_class: big-notif-warning
@@ -6730,7 +6794,7 @@ Image 2: zeroadmin-breadcrumb-widget.png<br>![Screenshot zeroadmin-breadcrumb-wi
 ZeroAdminBreadcrumbWidget templates, skins, presets
 -----------
 - **Templates**: default.php
-- **Skins**: default.css, default.scss
+- **Skins**: default.css
 - **Presets**: 
 
 
@@ -6741,7 +6805,7 @@ ZeroAdminBreadcrumbWidget configuration example
 name: zeroadmin_breadcrumb
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminBreadcrumbWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminBreadcrumbWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminBreadcrumbWidget
 template: default.php
 vars:
     first_element_text: Home
@@ -6861,7 +6925,7 @@ Image 1: ZeroAdminForgottenPasswordWidget.png<br>![Screenshot ZeroAdminForgotten
 ZeroAdminForgottenPasswordWidget templates, skins, presets
 -----------
 - **Templates**: default.php
-- **Skins**: default.css, default.scss
+- **Skins**: default.css
 - **Presets**: 
 
 
@@ -6872,7 +6936,7 @@ ZeroAdminForgottenPasswordWidget configuration example
 name: zeroadmin_forgotten_password
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminForgottenPasswordWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminForgottenPasswordWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminForgottenPasswordWidget
 template: default.php
 vars:
     formMethod: post
@@ -7031,7 +7095,7 @@ ZeroAdminHeaderNewMessagesIconLinkWidget configuration example
 name: zeroadmin_header_icon_link_new_messages
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderNewMessagesIconLinkWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewMessagesIconLinkWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewMessagesIconLinkWidget
 template: default.php
 vars:
     icon: fas fa-envelope
@@ -7146,7 +7210,7 @@ ZeroAdminHeaderNewNotificationsIconLinkWidget configuration example
 name: zeroadmin_header_icon_link_new_notifications
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderNewNotificationsIconLinkWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewNotificationsIconLinkWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewNotificationsIconLinkWidget
 template: default.php
 vars:
     icon: fas fa-bell
@@ -7254,7 +7318,7 @@ ZeroAdminHeaderProfileDropdownLinkWidget configuration example
 name: zeroadmin_header_icon_link_profile_dropdown
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderProfileDropdownLinkWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderProfileDropdownLinkWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderProfileDropdownLinkWidget
 template: default.php
 vars:
     attr:
@@ -7396,7 +7460,7 @@ Image 1: zeroadmin_header.png<br>![Screenshot zeroadmin_header.png](https://ling
 ZeroAdminHeaderWidget templates, skins, presets
 -----------
 - **Templates**: default.php
-- **Skins**: default.css, default.scss
+- **Skins**: default.css
 - **Presets**: 
 
 
@@ -7407,7 +7471,7 @@ ZeroAdminHeaderWidget configuration example
 name: zeroadmin_header
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderWidget
 template: default.php
 vars:
     attr:
@@ -7539,7 +7603,7 @@ Image 2: ZeroAdminLoginFormWidget2.png<br>![Screenshot ZeroAdminLoginFormWidget2
 ZeroAdminLoginFormWidget templates, skins, presets
 -----------
 - **Templates**: default.php
-- **Skins**: default.css, default.scss
+- **Skins**: default.css
 - **Presets**: 
 
 
@@ -7550,7 +7614,7 @@ ZeroAdminLoginFormWidget configuration example
 name: zeroadmin_login_form
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminLoginFormWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminLoginFormWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminLoginFormWidget
 template: default.php
 vars:
     form_method: post
@@ -7792,7 +7856,7 @@ ZeroAdminNotificationAlertWidget configuration example
 name: zeroadmin_notification_alert
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationAlertWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationAlertWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationAlertWidget
 template: default.php
 vars:
     alert_class: alert-primary
@@ -7886,7 +7950,7 @@ ZeroAdminNotificationToastWidget configuration example
 name: zeroadmin_notification_toast
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationToastWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationToastWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationToastWidget
 template: default.php
 vars:
     title: Bootstrap
@@ -7996,7 +8060,7 @@ Image 2: zeroadmin-sidebar-widget.png<br>![Screenshot zeroadmin-sidebar-widget.p
 ZeroAdminSidebarWidget templates, skins, presets
 -----------
 - **Templates**: default.php
-- **Skins**: default.css, default.scss
+- **Skins**: default.css
 - **Presets**: 
 
 
@@ -8007,7 +8071,7 @@ ZeroAdminSidebarWidget configuration example
 name: zeroadmin_sidebar
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminSidebarWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminSidebarWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminSidebarWidget
 template: default.php
 vars:
     attr:
@@ -8572,7 +8636,7 @@ ZeroAdminStatSummaryIconWidget configuration example
 name: zeroadmin_statsummaryicon
 type: picasso
 className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminStatSummaryIconWidget
-widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminStatSummaryIconWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminStatSummaryIconWidget
 template: default.php
 vars:
     card_column_class: col-sm-6 col-xl-3 mb-3

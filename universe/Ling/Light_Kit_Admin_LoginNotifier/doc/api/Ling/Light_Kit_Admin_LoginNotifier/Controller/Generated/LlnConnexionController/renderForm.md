@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LlnConnexionController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/Controller/Generated/LlnConnexionController.php#L40-L61)
+See the source code for method [LlnConnexionController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/Controller/Generated/LlnConnexionController.php#L43-L66)
 
 
 See Also

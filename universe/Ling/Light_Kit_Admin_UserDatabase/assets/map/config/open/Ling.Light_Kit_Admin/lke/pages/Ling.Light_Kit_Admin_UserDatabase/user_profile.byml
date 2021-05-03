@@ -1,0 +1,31 @@
+title: Light Kit Admin User Profile
+layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+description: <
+    The light kit admin user profile page let you update/check your profile information.
+>
+
+zones:
+    notifications: b$:Ling.Light_Kit_Admin/notifications_default
+    toasts: b$:Ling.Light_Kit_Admin/toasts_default
+    sub_header: b$:Ling.Light_Kit_Admin/sub_header_default
+    header: b$:Ling.Light_Kit_Admin/header_default
+    sidebar: b$:Ling.Light_Kit_Admin/sidebar_default
+    body:
+        - b$:Ling.Light_Kit_Admin/body_default
+        -
+            id: user_profile_form
+            name: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Ling.Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: default.php
+            template: user/user_profile.php
+            vars: []
+                title: User Profile
+                form: ${form}
+                show_rights: true
+                is_root: ${is_root}
+                rights: ${rights}
+
+
+    footer: b$:Ling.Light_Kit_Admin/footer_default

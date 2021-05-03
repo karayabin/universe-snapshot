@@ -202,6 +202,8 @@ kit_admin_vars:
 ```
 
 
+Note: to access those vars from the php code, you can use a third-party plugin such as [Light_Vars](https://github.com/lingtalfi/Light_Vars).
+
 
 
 

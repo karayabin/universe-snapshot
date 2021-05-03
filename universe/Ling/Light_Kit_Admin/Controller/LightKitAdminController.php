@@ -10,10 +10,11 @@ use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService;
-use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
+use Ling\Light_Kit\ConfigurationTransformer\ThemeTransformer;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
@@ -24,6 +25,7 @@ use Ling\Light_Kit_Editor\Storage\LightKitEditorDatabaseStorage;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserManager\Service\LightUserManagerService;
+use Ling\Light_Vars\Service\LightVarsService;
 
 
 /**
@@ -120,16 +122,15 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 
     /**
      * Renders the given page using the @page(kit service).
+     * Options are directly forwarded to @page(the LightKitPageRenderer->renderPage method).
      *
      * @param string $page
-     * @param array $dynamicVariables
-     * @param PageConfUpdator $updator
-     *
+     * @param array $options
      * @return HttpResponseInterface
      * @throws \Exception
      *
      */
-    public function renderPage(string $page, array $dynamicVariables = [], PageConfUpdator $updator = null): HttpResponseInterface
+    public function renderPage(string $page, array $options = []): HttpResponseInterface
     {
 
 
@@ -139,25 +140,9 @@ class LightKitAdminController extends LightController implements RouteAwareContr
          * changing the reference call).
          *
          */
-        $dynamicVariables['lka_parent_layout'] = 'Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base'; // for now we set it from here, doesn't matter, it's internal
+//        $dynamicVariables['lka_parent_layout'] = 'Ling.Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base'; // for now we set it from here, doesn't matter, it's internal
 
 
-        /**
-         * @var $copilot LightHtmlPageCopilotService
-         */
-        $copilot = $this->getContainer()->get("html_page_copilot");
-        $copilot->registerLibrary("lka_environment", [
-            "/libs/universe/Ling/JBee/bee.js",
-            "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-environment.js",
-            "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-init.js",
-        ]);
-
-        /**
-         * postForm is used by light kit admin environment (i.e. it's a dependency of lka)
-         */
-        $copilot->registerLibrary("postForm", [
-            "/libs/universe/Ling/JPostForm/post-form.js",
-        ]);
 
 
         $kit = $this->getKitPageRendererInstance();
@@ -172,10 +157,10 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $data->setLight($this->getLight());
         $data->setHttpRequest($this->getLight()->getHttpRequest());
         $data->setVar("page", $page);
-        $events->dispatch('Light_Kit_Admin.on_page_rendered_before', $data);
+        $events->dispatch('Ling.Light_Kit_Admin.on_page_rendered_before', $data);
 
 
-        return new HttpResponse($kit->renderPage($page, $dynamicVariables, $updator));
+        return new HttpResponse($kit->renderPage($page, $options));
     }
 
 
@@ -206,6 +191,23 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     protected function getRedirectResponseByRoute(string $route, array $urlParams = [])
     {
         return $this->getKitAdmin()->getRedirectResponseByRoute($route, $urlParams);
+    }
+
+
+    /**
+     * Returns a response using the Ling.Light_AjaxHandler handler under the hood.
+     *
+     * @param callable $callable
+     * @return HttpResponseInterface
+     */
+    protected function alcpResponse(callable $callable): HttpResponseInterface
+    {
+
+        /**
+         * @var $ah LightAjaxHandlerService
+         */
+        $ah = $this->getContainer()->get("ajax_handler");
+        return $ah->handleViaCallable($callable);
     }
 
 
@@ -300,18 +302,28 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $engine = new LightKitEditorEngine();
 
 
-        if (false && 'babyYaml') {
+        if ('babyYaml') {
             $storage = new LightKitEditorBabyYamlStorage();
-            $storage->setRootDir($appDir . "/config/open/Light_Kit_Admin/lke");
+            $storage->setRootDir($appDir . "/config/open/Ling.Light_Kit_Admin/lke");
         } elseif ("database") {
             $storage = new LightKitEditorDatabaseStorage();
         }
-
-
+        $storage->setContainer($this->getContainer());
         $engine->setStorage($storage);
 
 
         $kit->setConfStorage($engine);
+
+
+        /**
+         * @var $va LightVarsService
+         */
+        $va = $this->getContainer()->get("vars");
+
+        $theme = $va->getVar("kit_admin_vars.theme", "Ling.Light_Kit_Admin/zeroadmin");
+        $themeTransformer = new ThemeTransformer();
+        $themeTransformer->setTheme($theme);
+        $kit->addPageConfigurationTransformer($themeTransformer);
 
 
         return $kit;

@@ -13,25 +13,7 @@ use Ling\Kit\WidgetHandler\WidgetHandlerInterface;
  * The KitPageRenderer class.
  *
  *
- * The configuration for a given page looks like this:
- *
- * ```yaml
- *
- * label: $pageLabel               # The human name for the page. It is used in error messages.
- * layout: $layoutRelPath          # The relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit.
- * layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
- * zones:
- *     $zoneName:                  # note: the zone name is called from the layout file
- *         -
- *             name: $widgetName       # the widget name
- *             type: $widgetType       # the widget type
- *             ?active: $bool          # whether to use the widget, defaults to true
- *             ...                     # any other configuration value that you want
- *
- * ```
- *
- *
- * See more details in the @page(page configuration array) document.
+ * The configuration for a given page is defined in the @page(page configuration array) document.
  *
  *
  *
@@ -236,15 +218,19 @@ class KitPageRenderer implements KitPageRendererInterface
         $copilot = $this->getHtmlPageCopilot();
 
 
-
         if (null !== $this->pageConf) {
             if (null !== $this->layoutRootDir) {
 
-                $pageLabel = $this->pageConf['label'];
+                $pageLabel = $this->pageConf['label'] ?? $this->pageConf['title'] ?? null;
+                if (null === $pageLabel) {
+                    throw new KitException("pageLabel not set, please define either a title or a label for your page.");
+                }
+
+
                 $layout = $this->layoutRootDir . "/" . $this->pageConf['layout'];
 
 
-                if (is_file($layout)){
+                if (is_file($layout)) {
 
 
                     /**
@@ -253,14 +239,17 @@ class KitPageRenderer implements KitPageRendererInterface
                      * way that she defined the title and/or the description.
                      *
                      */
-                    if (array_key_exists("title", $this->pageConf)) {
+                    if (true === array_key_exists("title", $this->pageConf)) {
                         $copilot->setTitle($this->pageConf['title']);
                     }
-                    if (array_key_exists("description", $this->pageConf)) {
+                    if (true === array_key_exists("description", $this->pageConf)) {
                         $copilot->setDescription($this->pageConf['description']);
                     }
-                    if (array_key_exists("bodyClass", $this->pageConf)) {
-                        $copilot->addBodyTagClass($this->pageConf['bodyClass']);
+                    if (
+                        true === array_key_exists("body_class", $this->pageConf) &&
+                        false === empty($this->pageConf["body_class"])
+                    ) {
+                        $copilot->addBodyTagClass($this->pageConf['body_class']);
                     }
 
 
@@ -299,8 +288,11 @@ class KitPageRenderer implements KitPageRendererInterface
     public function printZone(string $zoneName)
     {
         if (null !== $this->pageConf) {
-            $pageLabel = $this->pageConf['label'];
 
+            $pageLabel = $this->pageConf['label'] ?? $this->pageConf['title'] ?? null;
+            if (null === $pageLabel) {
+                throw new KitException("pageLabel not set, please define either a title or a label for your page.");
+            }
 
             /**
              * This case occurs when a kit page renderer aware widget tries
@@ -363,13 +355,48 @@ class KitPageRenderer implements KitPageRendererInterface
     protected function captureZone(string $zoneName, array $widgets)
     {
         $copilot = $this->getHtmlPageCopilot();
-        $pageLabel = $this->pageConf['label'];
+        $pageLabel = $this->pageConf['label'] ?? $this->pageConf['title'] ?? null;
+        if (null === $pageLabel) {
+            throw new KitException("pageLabel not set, please define either a title or a label for your page.");
+        }
+
+
         if (false === array_key_exists($zoneName, $this->zones)) {
 
-
+            $debugArray = [
+                "page" => $pageLabel,
+                "zone" => $zoneName,
+            ];
             $this->widgetsCount[$zoneName] = count($widgets);
 
 
+            //--------------------------------------------
+            // PROCESS PHASE
+            //--------------------------------------------
+            foreach ($widgets as $k => $widgetConf) {
+                $active = $widgetConf['active'] ?? true;
+                if (true === $active) {
+                    $type = $widgetConf['type'];
+                    if (array_key_exists($type, $this->widgetHandlers)) {
+                        $handler = $this->widgetHandlers[$type];
+                        if ($handler instanceof KitPageRendererAwareInterface) {
+                            $handler->setKitPageRenderer($this);
+                            $handler->process($widgetConf, $debugArray);
+                            $widgets[$k] = $widgetConf;
+                        }
+
+
+                    } else {
+                        $widgetName = $widgetConf['name'];
+                        throw new KitException("This widget type is not handled: $type, for widget $widgetName in page $pageLabel.");
+                    }
+
+                }
+            }
+
+            //--------------------------------------------
+            // RENDERING PHASE
+            //--------------------------------------------
             // capture the zone html code in s
             $s = '';
 
@@ -405,17 +432,12 @@ class KitPageRenderer implements KitPageRendererInterface
                             $handler->setKitPageRenderer($this);
                         }
 
-                        $debugArray = [
-                            "page" => $pageLabel,
-                            "zone" => $zoneName,
-                        ];
-
 
                         if (true === $this->strictMode) {
-                            $htmlCode = $handler->handle($widgetConf, $copilot, $debugArray);
+                            $htmlCode = $handler->render($widgetConf, $copilot, $debugArray);
                         } else {
                             try {
-                                $htmlCode = $handler->handle($widgetConf, $copilot, $debugArray);
+                                $htmlCode = $handler->render($widgetConf, $copilot, $debugArray);
                             } catch (\Exception $e) {
                                 if (null !== $this->errorHandler) {
                                     $htmlCode = call_user_func($this->errorHandler, $e, $widgetConf, $debugArray);

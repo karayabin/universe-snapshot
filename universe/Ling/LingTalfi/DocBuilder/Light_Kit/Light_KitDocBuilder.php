@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_Kit;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -75,6 +76,8 @@ class Light_KitDocBuilder
              */
             "reportIgnore" => [
                 "Ling\Kit\PageRenderer\KitPageRenderer",
+                "Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler",
+
             ],
             /**
              * Your project start date.
@@ -145,6 +148,9 @@ class Light_KitDocBuilder
                 "conception notes about the page updator" => 'https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#page-conf-updator',
                 "ams algorithm documentation" => 'https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive',
                 "LightHelper::executeMethod" => 'https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeMethod.md',
+                "widget variables system" => 'https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#widget-variables-system',
+                "widget coordinates" => 'https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#widget-coordinates',
+                "HtmlPageCopilot documentation" => 'https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md',
             ],
             /**
              * An array of external classes to url.
@@ -168,6 +174,10 @@ class Light_KitDocBuilder
                 "Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
                 "Ling\Kit\PageRenderer\KitPageRendererInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md",
+                "Ling\Kit_PicassoWidget\Exception\PicassoWidgetException" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Exception/PicassoWidgetException.md",
+                "Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler.md",
+                "Ling\Kit\PageRenderer\KitPageRendererAwareInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md",
+
             ],
         ];
 
@@ -203,6 +213,10 @@ class Light_KitDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
+
+
 
         if ('cli' !== php_sapi_name()) {
 

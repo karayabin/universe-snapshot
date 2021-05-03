@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RealAdminPageController::processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/RealAdminPageController.php#L86-L108)
+See the source code for method [RealAdminPageController::processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/RealAdminPageController.php#L86-L110)
 
 
 See Also

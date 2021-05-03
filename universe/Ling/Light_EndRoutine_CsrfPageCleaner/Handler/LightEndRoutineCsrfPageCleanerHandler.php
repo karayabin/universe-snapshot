@@ -41,7 +41,7 @@ class LightEndRoutineCsrfPageCleanerHandler implements LightServiceContainerAwar
 
 
     /**
-     * Listener for the @page(Light.end_routine event).
+     * Listener for the @page(Ling.Light.end_routine event).
      *
      * It will delete the unused page tokens on non ajax pages.
      *

@@ -44,7 +44,7 @@ class LightPrettyErrorService
 
 
     /**
-     * This method is a callable to execute when the @page(Light.on_exception_caught event) is triggered.
+     * This method is a callable to execute when the @page(Ling.Light.on_exception_caught event) is triggered.
      * It will basically try to return a prettier exception response (rather than the awful default debugging blank screen).
      *
      * @param LightEvent $event
@@ -70,7 +70,7 @@ class LightPrettyErrorService
                  * @var $templateEngine UniversalTemplateEngineInterface
                  */
                 $templateEngine = $container->get("zephyr_template");
-                $res = $templateEngine->render("templates/Light_PrettyError/error_pages/404.html", []);
+                $res = $templateEngine->render("templates/Ling.Light_PrettyError/error_pages/404.html", []);
                 if (false !== $res) {
                     $event->setVar('httpResponse', $res);
 

@@ -36,7 +36,10 @@ class BaseLightKitAdminPlugin implements LightKitAdminPluginInterface
      */
     public function getPluginOptions(): array
     {
-        return BabyYamlUtil::readFile($this->optionsFile);
+        if (null !== $this->optionsFile) {
+            return BabyYamlUtil::readFile($this->optionsFile);
+        }
+        return [];
     }
 
     //--------------------------------------------

@@ -1,0 +1,19 @@
+exception_handler:
+    instance: Ling\Light_ExceptionHandler\Service\LightExceptionHandlerService
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: exception
+            listener:
+                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/exceptions/{date}.txt

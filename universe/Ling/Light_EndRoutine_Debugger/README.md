@@ -1,6 +1,6 @@
 Light_EndRoutine_Debugger
 ===========
-2019-09-20 -> 2021-03-05
+2019-09-20 -> 2021-03-15
 
 
 
@@ -55,7 +55,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.end_routine
+            events: Ling.Light.end_routine
             listener:
                 instance: Ling\Light_EndRoutine_Debugger\Handler\LightEndRoutineDebuggerHandler
                 methods:
@@ -87,6 +87,10 @@ Related
 History Log
 =============
 
+- 1.2.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
 - 1.2.4 -- 2021-03-05
 
     - update README.md, add install alternative
@@ -105,7 +109,7 @@ History Log
     
 - 1.2.0 -- 2019-12-19
 
-    - update LightEndRoutineDebuggerHandler to accommodate Light.end_routine event instead of the end_routine service
+    - update LightEndRoutineDebuggerHandler to accommodate Ling.Light.end_routine event instead of the end_routine service
     
 - 1.1.0 -- 2019-09-23
 

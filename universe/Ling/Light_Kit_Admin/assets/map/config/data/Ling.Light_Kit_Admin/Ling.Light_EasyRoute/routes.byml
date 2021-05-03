@@ -1,0 +1,324 @@
+Light_Kit_Admin:
+    prefix: ${kit_admin_vars.route_prefix}
+    routes:
+        lka_route-home:
+            pattern: /
+            controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+        lka_route-login:
+            pattern: /login
+            controller: Ling\Light_Kit_Admin\Controller\LoginFormController->render
+        lka_route-logout:
+            pattern: /logout
+            controller: Ling\Light_Kit_Admin\Controller\LogoutController->render
+        lka_route-forbidden_page:
+            pattern: /forbidden
+            controller: Ling\Light_Kit_Admin\Controller\ForbiddenController->render
+        lka_route-tool_multiple_form_edit:
+            pattern: /tool/multiple-form-edit
+            controller: Ling\Light_Kit_Admin\Controller\Tools\RealformMultipleEditController->render
+        lka_route-forgotten_password:
+            pattern: /forgotten-password
+            controller: Ling\Light_Kit_Admin\Controller\ForgottenPasswordController->render
+
+
+        # --------------------------------------
+        #   todo
+        # --------------------------------------
+        lka_route-pages-m-inbox:
+            pattern: /pages/m-inbox
+            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+
+
+
+
+#        lka_route-dashboard:
+#            pattern: /dashboard
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-typography:
+#            pattern: /typography
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-tables:
+#            pattern: /tables
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-widgets:
+#            pattern: /widgets
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-alerts:
+#            pattern: /components/alerts
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-badges:
+#            pattern: /components/badges
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-breadcrumb:
+#            pattern: /components/breadcrumb
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-buttons:
+#            pattern: /components/buttons
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-button-group:
+#            pattern: /components/button-group
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-cards:
+#            pattern: /components/cards
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-carousel:
+#            pattern: /components/carousel
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-collapse:
+#            pattern: /components/collapse
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-dropdowns:
+#            pattern: /components/dropdowns
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-forms:
+#            pattern: /components/forms
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-input-group:
+#            pattern: /components/input-group
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-jumbotron:
+#            pattern: /components/jumbotron
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-list-group:
+#            pattern: /components/list-group
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-modal:
+#            pattern: /components/modal
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-navs:
+#            pattern: /components/navs
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-navbar:
+#            pattern: /components/navbar
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-pagination:
+#            pattern: /components/pagination
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-popovers:
+#            pattern: /components/popovers
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-progress:
+#            pattern: /components/progress
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-scrollspy:
+#            pattern: /components/scrollspy
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-spinners:
+#            pattern: /components/spinners
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-toasts:
+#            pattern: /components/toasts
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-components-tooltips:
+#            pattern: /components/tooltips
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-animate:
+#            pattern: /plugins/animate
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-aos:
+#            pattern: /plugins/aos
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-bootstrap-duallistbox:
+#            pattern: /plugins/bootstrap-duallistbox
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-bootstrap-responsive-tabs:
+#            pattern: /plugins/bootstrap-responsive-tabs
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-bootstrap-social:
+#            pattern: /plugins/bootstrap-social
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-bootstrap-touchspin:
+#            pattern: /plugins/bootstrap-touchspin
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-bootstrap-tour:
+#            pattern: /plugins/bootstrap-tour
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-cleave:
+#            pattern: /plugins/cleave
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-clockpicker:
+#            pattern: /plugins/clockpicker
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-cropper:
+#            pattern: /plugins/cropper
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-datatables:
+#            pattern: /plugins/datatables
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-dropzone:
+#            pattern: /plugins/dropzone
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-full-calendar:
+#            pattern: /plugins/full-calendar
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-googlemap:
+#            pattern: /plugins/googlemap
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-ion-range-slider:
+#            pattern: /plugins/ion-range-slider
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-jquery-countdown:
+#            pattern: /plugins/jquery-countdown
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-jquery-ui-sortable:
+#            pattern: /plugins/jquery-ui-sortable
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-jscookie:
+#            pattern: /plugins/jscookie
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-jstree:
+#            pattern: /plugins/jstree
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-knob:
+#            pattern: /plugins/knob
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-ladda:
+#            pattern: /plugins/ladda
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-lightbox-ekko:
+#            pattern: /plugins/lightbox-ekko
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-lightpick:
+#            pattern: /plugins/lightpick
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-magnify:
+#            pattern: /plugins/magnify
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-nestable2:
+#            pattern: /plugins/nestable2
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-plotly:
+#            pattern: /plugins/plotly
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-owl-carousel:
+#            pattern: /plugins/owl-carousel
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-pretty-checkbox:
+#            pattern: /plugins/pretty-checkbox
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-prism:
+#            pattern: /plugins/prism
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-select2:
+#            pattern: /plugins/select2
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-slick:
+#            pattern: /plugins/slick
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-spectrum:
+#            pattern: /plugins/spectrum
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-spinkit:
+#            pattern: /plugins/spinkit
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-starrr:
+#            pattern: /plugins/starrr
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-summernote:
+#            pattern: /plugins/summernote
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-plugins-switchery:
+#            pattern: /plugins/switchery
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-b-404:
+#            pattern: /pages/b-404
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-b-faq:
+#            pattern: /pages/b-faq
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-b-forgot-password:
+#            pattern: /pages/b-forgot-password
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-b-landpage:
+#            pattern: /pages/b-landpage
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-b-login:
+#            pattern: /pages/b-login
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-b-register:
+#            pattern: /pages/b-register
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-b-settings:
+#            pattern: /pages/b-settings
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-e-admin-products-list:
+#            pattern: /pages/e-admin-products-list
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-e-cart:
+#            pattern: /pages/e-cart
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-e-invoice:
+#            pattern: /pages/e-invoice
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-e-product:
+#            pattern: /pages/e-product
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-e-product-edit:
+#            pattern: /pages/e-product-edit
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-e-products-list:
+#            pattern: /pages/e-products-list
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-chat:
+#            pattern: /pages/m-chat
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-compose:
+#            pattern: /pages/m-compose
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-email-templates:
+#            pattern: /pages/m-email-templates
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-email-template-action-email:
+#            pattern: /pages/m-email-template-action-email
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-email-template-billing:
+#            pattern: /pages/m-email-template-billing
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-email-template-email-alert:
+#            pattern: /pages/m-email-template-email-alert
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-forum:
+#            pattern: /pages/m-forum
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-m-message:
+#            pattern: /pages/m-message
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-contacts:
+#            pattern: /pages/u-contacts
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-filemanager:
+#            pattern: /pages/u-filemanager
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-issue-tracker:
+#            pattern: /pages/u-issue-tracker
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-profile:
+#            pattern: /pages/u-profile
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-project-detail:
+#            pattern: /pages/u-project-detail
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-project-list:
+#            pattern: /pages/u-project-list
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-teams:
+#            pattern: /pages/u-teams
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-timeline:
+#            pattern: /pages/u-timeline
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-u-vote-list:
+#            pattern: /pages/u-vote-list
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-w-page-configure:
+#            pattern: /pages/w-page-configure
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-pages-w-page-edit:
+#            pattern: /pages/w-page-edit
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-snippets-sidebar:
+#            pattern: /snippets/sidebar
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+#        lka_route-snippets-right-sidebar:
+#            pattern: /snippets/right-sidebar
+#            controller: controller: Ling\Light_Kit_Admin\Controller\DashboardController->render

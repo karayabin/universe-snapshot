@@ -465,7 +465,6 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
     protected function printJavascript()
     {
 
-
         $contentRowStartIndex = 1;
         if ($this->isWidgetEnabled("neck_filters")) {
             $contentRowStartIndex = 2;
@@ -524,6 +523,8 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                     var ajaxHandlerUrl = "<?php echo $ajaxHandlerUrl; ?>";
 
 
+
+
                     var ricHelper = new RicAdminTableHelper({
                         jContainer: jTable,
                         serverUri: ajaxHandlerUrl,
@@ -579,6 +580,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                     }
 
                     var rthStarted = false;
+
 
 
                     var oathOptions = $.extend({

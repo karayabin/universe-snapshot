@@ -4,7 +4,7 @@
 
 The LightCsrfSimpleService class
 ================
-2019-11-07 --> 2021-03-05
+2019-11-07 --> 2021-03-15
 
 
 
@@ -66,7 +66,7 @@ Methods
 ==============
 
 - [LightCsrfSimpleService::__construct](https://github.com/lingtalfi/Light_CsrfSimple/blob/master/doc/api/Ling/Light_CsrfSimple/Service/LightCsrfSimpleService/__construct.md) &ndash; Builds the LightCsrfSimpleService instance.
-- [LightCsrfSimpleService::onRouteFound](https://github.com/lingtalfi/Light_CsrfSimple/blob/master/doc/api/Ling/Light_CsrfSimple/Service/LightCsrfSimpleService/onRouteFound.md) &ndash; This is a callable to execute when the **Light.on_route_found** event is fired.
+- [LightCsrfSimpleService::onRouteFound](https://github.com/lingtalfi/Light_CsrfSimple/blob/master/doc/api/Ling/Light_CsrfSimple/Service/LightCsrfSimpleService/onRouteFound.md) &ndash; This is a callable to execute when the **Ling.Light.on_route_found** event is fired.
 - [LightCsrfSimpleService::getToken](https://github.com/lingtalfi/Light_CsrfSimple/blob/master/doc/api/Ling/Light_CsrfSimple/Service/LightCsrfSimpleService/getToken.md) &ndash; Returns the csrf token value stored in the new slot.
 - [LightCsrfSimpleService::getOldToken](https://github.com/lingtalfi/Light_CsrfSimple/blob/master/doc/api/Ling/Light_CsrfSimple/Service/LightCsrfSimpleService/getOldToken.md) &ndash; Returns the csrf token value stored in the old slot.
 - [LightCsrfSimpleService::regenerate](https://github.com/lingtalfi/Light_CsrfSimple/blob/master/doc/api/Ling/Light_CsrfSimple/Service/LightCsrfSimpleService/regenerate.md) &ndash; Regenerates a new token, and moves the replaced token to the old slot.

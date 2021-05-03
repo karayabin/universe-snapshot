@@ -85,8 +85,8 @@ class CreateLkaUserMainPage extends LightDeveloperWizardCommonProcess
      */
     public function render()
     {
-        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
-        $page = "' . $planet . '/kit/zeroadmin/generated/' . $serviceName . '_mainpage";
+        $parentLayout = "Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base";
+        $page = "' . $planet . '/Ling.Light_Kit/zeroadmin/generated/' . $serviceName . '_mainpage";
 
         return $this->renderAdminPage($page, [
             "text" => "' . $humanName . ' hello world",
@@ -124,14 +124,14 @@ class CreateLkaUserMainPage extends LightDeveloperWizardCommonProcess
         // KIT PAGE CONFIG
         //--------------------------------------------
 
-        $tpl = $options["kit_page_tpl"] ?? __DIR__ . "/../../../assets/conf-template/data/kit/usermainpage.byml";
+        $tpl = $options["kit_page_tpl"] ?? __DIR__ . "/../../../assets/conf-template/data/Ling.Light_Kit/usermainpage.byml";
         $content = file_get_contents($tpl);
         $content = str_replace([
             'pluginHuman',
         ], [
             $humanName,
         ], $content);
-        $dst = $this->container->getApplicationDir() . "/config/data/$planet/kit/zeroadmin/generated/${serviceName}_mainpage.byml";
+        $dst = $this->container->getApplicationDir() . "/config/data/$planet/Ling.Light_Kit/zeroadmin/generated/${serviceName}_mainpage.byml";
         $symbol = $this->getSymbolicPath($dst);
         $this->infoMessage("Creating the kit admin page nugget in \"$symbol\".");
         FileSystemTool::mkfile($dst, $content);
@@ -140,7 +140,7 @@ class CreateLkaUserMainPage extends LightDeveloperWizardCommonProcess
         //--------------------------------------------
         // BMENU NUGGET
         //--------------------------------------------
-        $tpl = __DIR__ . "/../../../assets/conf-template/data/bmenu/user-mainpage.byml";
+        $tpl = __DIR__ . "/../../../assets/conf-template/data/Ling.Light_BMenu/user-mainpage.byml";
         $content = file_get_contents($tpl);
         $content = str_replace([
             'Light_Kit_Admin_XXX',
@@ -153,7 +153,7 @@ class CreateLkaUserMainPage extends LightDeveloperWizardCommonProcess
             $serviceName,
             $humanName,
         ], $content);
-        $dst = $this->container->getApplicationDir() . "/config/data/$planet/bmenu/generated/$serviceName.admin_mainmenu-usermainpage.byml";
+        $dst = $this->container->getApplicationDir() . "/config/data/$planet/Ling.Light_BMenu/generated/$serviceName.admin_mainmenu-usermainpage.byml";
         $symbol = $this->getSymbolicPath($dst);
         $this->infoMessage("Creating the bmenu nugget in \"$symbol\".");
         FileSystemTool::mkfile($dst, $content);
@@ -162,7 +162,7 @@ class CreateLkaUserMainPage extends LightDeveloperWizardCommonProcess
         //--------------------------------------------
         // UPDATE SERVICE CONFIG FILE
         //--------------------------------------------
-        $file = '${app_dir}/config/data/' . $planet . '/bmenu/generated/' . $serviceName . '.admin_mainmenu-usermainpage.byml';
+        $file = '${app_dir}/config/data/' . $planet . '/Ling.Light_BMenu/generated/' . $serviceName . '.admin_mainmenu-usermainpage.byml';
         $this->addServiceConfigHook('bmenu', [
             'method' => 'addDirectItemsByFileAndParentPath',
             'args' => [

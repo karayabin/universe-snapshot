@@ -124,7 +124,7 @@ variables:
 
 # ...
 list:
-    target_dir: {app_dir}/config/data/!{plugin}/Light_Realist/generated
+    target_dir: {app_dir}/config/data/!{galaxy}.!{plugin}/Light_Realist/generated
 # ...
 
 ```

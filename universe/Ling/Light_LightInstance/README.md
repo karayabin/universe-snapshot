@@ -71,7 +71,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.initialize_1
+            events: Ling.Light.initialize_1
             listener:
                 instance: @service(light_instance)
                 callable_method: initialize

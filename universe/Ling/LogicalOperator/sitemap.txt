@@ -1,0 +1,5 @@
+https://github.com/lingtalfi/LogicalOperator/blob/master/README.md
+https://github.com/lingtalfi/LogicalOperator/blob/master/doc/api/Ling/LogicalOperator/Tool/LogicalOperatorExpressionEvaluatorTool/resolve.md
+https://github.com/lingtalfi/LogicalOperator/blob/master/doc/api/Ling/LogicalOperator/Tool/LogicalOperatorExpressionEvaluatorTool.md
+https://github.com/lingtalfi/LogicalOperator/blob/master/doc/api/Ling/LogicalOperator.md
+https://github.com/lingtalfi/LogicalOperator/blob/master/doc/pages/conception-notes.md

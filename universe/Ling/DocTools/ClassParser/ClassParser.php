@@ -401,6 +401,7 @@ class ClassParser implements ClassParserInterface
             $signature = $this->getMethodSignature($method);
 
 
+
             //--------------------------------------------
             // RETURN TYPE
             //--------------------------------------------
@@ -489,6 +490,8 @@ class ClassParser implements ClassParserInterface
                 });
                 $returnType = implode("|", $types);
             }
+
+
 
             $oMethod = new MethodInfo();
             $oMethod->setComment($comment);
@@ -727,8 +730,6 @@ class ClassParser implements ClassParserInterface
         $this->_expandReflectionClass = $this->_reflectionClass;
 
 
-
-
         $includeReferences = [];
         if ("method" === $elementType) {
             /**
@@ -737,7 +738,6 @@ class ClassParser implements ClassParserInterface
             $resolved = false;
             $rawComment = $this->expandIncludes($rawComment, $resolved, $includeReferences);
         }
-
 
 
         //--------------------------------------------

@@ -215,7 +215,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
             $dispatcher = $this->container->get('events');
             $event = LightEvent::createByContainer($this->container);
             $event->setVar('userInfo', $array);
-            $dispatcher->dispatch('Light_UserDatabase.on_new_user_before', $event);
+            $dispatcher->dispatch('Ling.Light_UserDatabase.on_new_user_before', $event);
             $array = $event->getVar('userInfo');
         }
 

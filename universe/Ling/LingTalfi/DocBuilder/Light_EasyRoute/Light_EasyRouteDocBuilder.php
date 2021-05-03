@@ -141,7 +141,7 @@ class Light_EasyRouteDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-                "Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "Ling.Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
                 "Light_EasyRoute conception notes" => 'https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/pages/conception-notes.md',
             ],
             /**

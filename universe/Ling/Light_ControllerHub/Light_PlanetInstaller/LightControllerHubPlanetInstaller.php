@@ -23,8 +23,8 @@ class LightControllerHubPlanetInstaller extends LightBasePlanetInstaller
     {
 
 
-        $output->write("Light_ControllerHub: copying Light_EasyRoute routes to master...");
-        LightEasyRouteHelper::copyRoutesFromPluginToMaster($appDir, "Light_ControllerHub");
+        $output->write("Ling.Light_ControllerHub: copying Ling.Light_EasyRoute routes to master...");
+        LightEasyRouteHelper::copyRoutesFromPluginToMaster($appDir, "Ling.Light_ControllerHub");
         $output->write("<success>ok.</success>" . PHP_EOL);
     }
 

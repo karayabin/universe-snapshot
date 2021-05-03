@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RealformMultipleEditController::getProperty](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/RealformMultipleEditController.php#L592-L599)
+See the source code for method [RealformMultipleEditController::getProperty](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/RealformMultipleEditController.php#L593-L600)
 
 
 See Also

@@ -57,6 +57,7 @@ class PageConfUpdator
      */
     public function update(array &$pageConf)
     {
+
         if ($this->mergeArray) {
             $pageConf = array_replace_recursive($pageConf, $this->mergeArray);
         }

@@ -1,0 +1,43 @@
+database:
+    instance: Ling\Light_Database\Service\LightDatabaseService
+    methods:
+        init:
+            settings: []
+        setOptions:
+            options:
+                devMode: true
+                queryLog: true
+                queryLogTrackSource: true
+                queryLogFormatting:
+                    query: white:bgBlack
+                    error: white:bgRed
+        setContainer:
+            container: @container()
+
+
+# example of settings
+#$database.methods.init.settings:
+#    pdo_database: my_database
+#    pdo_user: my_user
+#    pdo_pass: my_pass
+#    pdo_options:
+#        persistent: true
+#        errmode: exception
+#        initCommand: SET NAMES 'UTF8'
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: database
+            listener:
+                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/sql/{date}.txt

@@ -23,11 +23,14 @@ class TheController extends TheBaseController
      */
     public function renderList()
     {
-        return $this->renderAdminPage('{list_page}', [], PageConfUpdator::create()->updateWidget("body.light_realist", [
-            'vars' => [
-                'request_declaration_id' => '{request_declaration_id}',
+
+        return $this->renderAdminPage('{list_page}', [
+            'widgetVariables' => [
+                "body.light_realist" => [
+                    'request_declaration_id' => '{request_declaration_id}',
+                ],
             ],
-        ]));
+        ]);
     }
 
 
@@ -52,11 +55,13 @@ class TheController extends TheBaseController
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
+        $vars = $nugget["rendering"] ?? [];
+        $vars['form'] = $form;
+
         return $this->renderAdminPage('{form_page}', [
-            "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
-            "form" => $form,
-        ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
-            'vars' => $nugget["rendering"],
-        ]));
+            'widgetVariables' => [
+                "body.lka_chloroform" => $vars,
+            ],
+        ]);
     }
 }

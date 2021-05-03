@@ -1,0 +1,6 @@
+Light_UserData:
+    routes:
+        luda_route-web_access:
+            pattern: /user-data
+            controller: Ling\Light_UserData\Controller\LightUserDataController->render
+            is_ajax: true

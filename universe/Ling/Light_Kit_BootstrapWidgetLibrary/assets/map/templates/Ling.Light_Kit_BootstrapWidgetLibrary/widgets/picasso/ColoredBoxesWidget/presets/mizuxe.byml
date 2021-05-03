@@ -1,0 +1,43 @@
+name: colored_boxes
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ColoredBoxesWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ColoredBoxesWidget
+template: default.php
+vars:
+    attr:
+        class: py-5
+    column_class: col-md-3
+    boxes:
+        -
+            class: border-primary mb-resp
+            text_align: center
+            title: Be Better
+            title_class: text-primary
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: text-muted
+            icon: ""
+        -
+            class: bg-primary mb-resp text-white
+            text_align: center
+            title: Be Smarter
+            title_class: ""
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: ""
+            icon: ""
+        -
+            class: border-primary mb-resp
+            text_align: center
+            title: Be Faster
+            title_class: text-primary
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: text-muted
+            icon: ""
+        -
+            class: bg-primary mb-resp text-white
+            text_align: center
+            title: Be Stronger
+            title_class: ""
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: ""
+            icon: ""

@@ -1,0 +1,36 @@
+name: mizuxe_large_main_nav_with_logo
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+template: default.php
+skin: mizuxe-nav
+vars:
+    attr:
+        class: navbar-light fixed-top py-4 mizuxe-nav
+        id: main-nav
+    use_scrollspy: true
+    use_smooth_scrolling: true
+    title: Mizuxe
+    fixed_top: true
+    title_url: /
+    title_logo:
+        url: /plugins/Light_Kit_Demo/mizuxe/img/mlogo.png
+        width: 50
+        height: 50
+        alt: Mizuxe logo
+    expand_size: md
+    links:
+        -
+            text: Home
+            url: "#home"
+        -
+            text: About
+            url: "#about"
+
+        -
+            text: Meet The Authors
+            url: "#authors"
+        -
+            text: Contact
+            url: "#contact"
+    links_align_right: true

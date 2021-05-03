@@ -16,12 +16,24 @@ Description
 ================
 
 
-public [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md)(string $pageName, ?array $dynamicVariables = [], ?[Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md) $pageConfUpdator = null) : string
+public [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md)(string $pageName, ?array $options = []) : string
 
 
 
 
 Renders the given page.
+
+Available options are:
+
+- widgetVariables: array. An array of [widget coordinates](https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#widget-coordinates) => widgetConf variables. Use this array to override the "vars" entry of widget(s) configuration.
+- widgetConf: array. An array of [widget coordinates](https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#widget-coordinates) => widgetConf. Use this array to override one or more widget's configuration.
+- pageConf: array=false. The kit page conf. If you already have the config, you can use it directly.
+
+- dynamicVariables: array. An array of variables to use to pass to the confStorage object and/or the transformers objects, if they need it.
+- pageConfUpdator: PageConfUpdator = null. If defined, its transform method will be called first, before the transformer objects.
+
+
+More about [widget coordinates](https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#widget-coordinates).
 
 
 
@@ -34,11 +46,7 @@ Parameters
 
     
 
-- dynamicVariables
-
-    
-
-- pageConfUpdator
+- options
 
     
 
@@ -62,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L141-L211)
+See the source code for method [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L155-L254)
 
 
 See Also

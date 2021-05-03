@@ -4,7 +4,7 @@
 
 The LightExceptionHandlerService class
 ================
-2019-11-11 --> 2021-03-05
+2019-11-11 --> 2021-03-22
 
 
 
@@ -50,3 +50,6 @@ See the source code of [Ling\Light_ExceptionHandler\Service\LightExceptionHandle
 
 
 
+SeeAlso
+==============
+Previous class: [LightExceptionHandlerPlanetInstaller](https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Light_PlanetInstaller/LightExceptionHandlerPlanetInstaller.md)<br>

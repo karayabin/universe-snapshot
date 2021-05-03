@@ -1,0 +1,6 @@
+ajax_handler:
+    instance: Ling\Light_AjaxHandler\Service\LightAjaxHandlerService
+    methods:
+        setContainer:
+            container: @container()
+

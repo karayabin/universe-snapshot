@@ -1,0 +1,44 @@
+name: photo_gallery
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PhotoGalleryWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PhotoGalleryWidget
+template: no-container.php
+js: default
+vars:
+    attr:
+        id: gallery
+        class: py-5 card card-body
+    title: What Have I Built?
+    title_level: 3
+    title_class: ""
+    text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores expedita laborum mollitia nam non voluptates.
+    text_class: ""
+    column_class: col-md-3
+    nb_photos_per_row: 4
+    row_class: no-gutters
+    photos:
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-1.jpg
+            alt: photo-1
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-2.jpg
+            alt: photo-2
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-3.jpg
+            alt: photo-3
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-4.jpg
+            alt: photo-4
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-5.jpg
+            alt: photo-5
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-6.jpg
+            alt: photo-6
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-7.jpg
+            alt: photo-7
+        -
+            url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-8.jpg
+            alt: photo-8

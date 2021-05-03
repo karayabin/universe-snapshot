@@ -7,7 +7,7 @@ LightEasyRouteService::initialize
 
 
 
-LightEasyRouteService::initialize — Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightEasyRouteService::initialize — Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightEasyRouteService::initialize](https://github.com/lingtalfi/Light_Ea
 
 
 
-Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 It will register all the routes from the files registered by other plugins.
 
 

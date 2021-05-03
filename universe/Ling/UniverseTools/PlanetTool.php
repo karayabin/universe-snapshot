@@ -370,7 +370,7 @@ class PlanetTool
      * @param string $className
      * @return array|false
      */
-    public static function getGalaxyPlanetByClassName(string $className)
+    public static function getGalaxyPlanetByClassName(string $className): array|false
     {
         $p = explode("\\", $className);
         if (count($p) > 2) {
@@ -380,6 +380,24 @@ class PlanetTool
             ];
         }
         return false;
+    }
+
+
+    /**
+     * Returns the page(planet dot name) from the given class name.
+     *
+     *
+     * @param string $className
+     * @return string
+     * @throws \Exception
+     */
+    public static function getPlanetDotNameByClassName(string $className): string
+    {
+        $p = explode("\\", $className);
+        if (count($p) >= 2) {
+            return $p[0] . "." . $p[1];
+        }
+        throw new UniverseToolsException("PlanetTool::getPlanetDotNameByClassName: Unexpected class name: $className.");
     }
 
 

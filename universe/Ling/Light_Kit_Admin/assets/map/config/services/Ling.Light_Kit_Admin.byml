@@ -1,0 +1,130 @@
+kit_admin:
+    instance: Ling\Light_Kit_Admin\Service\LightKitAdminService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options:
+                lang: eng
+                login:
+                    # Used by LoginFormController to redirect the user after a successful connection on the login form.
+                    on_success_route: lka_route-home
+                    # Used by ProtectedPageController to redirect a non valid user.
+                    # Used by LogoutController to redirect a valid user after a disconnect.
+                    login_route: lka_route-login
+                access_denied:
+                    access_denied_route: lka_route-forbidden_page
+                notifications:
+                    # alert|toast
+                    default_type: alert
+#        setUserRowOwnershipManager:
+#            manager:
+#                instance: Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager
+
+
+
+kit_admin_vars:
+    route_prefix: /admin
+    theme: Ling.Light_Kit_Admin/zeroadmin
+
+
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$vars.methods_collection:
+    -
+        method: setVar
+        args:
+            key: kit_admin_vars
+            value: ${kit_admin_vars}
+
+
+$ajax_handler.methods_collection:
+    -
+        method: registerHandler
+        args:
+            id: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\AjaxHandler\LightKitAdminAjaxHandler
+
+
+$bmenu.methods_collection:
+    -
+        method: addMenuModifier
+        args:
+            modifier:
+                instance: Ling\Light_Kit_Admin\Light_BMenu\MenuModifier\LightKitAdminBMenuModifier
+
+$bullsheet.methods_collection:
+    -
+        method: registerBullsheeter
+        args:
+            identifier: Light_Kit_Admin.default
+            bullsheeter:
+                instance: Ling\Light_Kit_Admin\Bullsheet\LightKitAdminGeneralBullsheeter
+
+
+
+
+
+#$controller_hub.methods_collection:
+#    -
+#        method: registerHandler
+#        args:
+#            plugin: Light_Kit_Admin
+#            handler:
+#                instance: Ling\Light_Kit_Admin\ControllerHub\LightKitAdminControllerHubHandler
+#                methods:
+#                    setContainer:
+#                        container: @container()
+
+
+
+
+$kit.methods_collection:
+    -
+        method: addPageConfigurationTransformer
+        args:
+            -
+                instance: Ling\Light_Kit_Admin\ConfigurationTransformer\LightKitAdminConfigurationTransformer
+
+$micro_permission.methods_collection:
+    -
+        method: registerMicroPermissionsByProfile
+        args:
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml
+
+
+
+
+
+
+$realist.methods_collection:
+    -
+        method: registerListRenderer
+        args:
+            identifier: Ling.Light_Kit_Admin
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
+    -
+        method: registerListItemRenderer
+        args:
+            identifier: Ling.Light_Kit_Admin
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
+
+
+
+
+
+# --------------------------------------
+# vars
+# --------------------------------------
+$user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Ling/Light_Kit_Admin/img/avatars2
+
+
+
+

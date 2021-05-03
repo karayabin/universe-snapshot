@@ -7,7 +7,7 @@ LightEndRoutineCsrfPageCleanerHandler::handle
 
 
 
-LightEndRoutineCsrfPageCleanerHandler::handle — Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightEndRoutineCsrfPageCleanerHandler::handle — Listener for the [Ling.Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightEndRoutineCsrfPageCleanerHandler::handle](https://github.com/lingta
 
 
 
-Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 It will delete the unused page tokens on non ajax pages.
 

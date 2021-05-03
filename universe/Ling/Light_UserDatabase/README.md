@@ -1,6 +1,6 @@
 Light_UserDatabase
 ===========
-2019-07-19 -> 2021-03-05
+2019-07-19 -> 2021-03-15
 
 
 
@@ -83,7 +83,7 @@ user_database_vars:
 #    instance: Ling\Light_UserDatabase\BabyYamlLightWebsiteUserDatabase
 #    methods:
 #        setFile:
-#            file: ${app_dir}/config/data/Light_UserDatabase/database.byml
+#            file: ${app_dir}/config/data/Ling.Light_UserDatabase/database.byml
 #        setContainer:
 #            container: @container()
 
@@ -95,7 +95,7 @@ $breeze_generator.methods_collection:
         method: addConfigurationEntryByFile
         args:
             key: lud
-            file: ${app_dir}/config/data/Light_UserDatabase/Light_BreezeGenerator/lud.byml
+            file: ${app_dir}/config/data/Ling.Light_UserDatabase/Ling.Light_BreezeGenerator/lud.byml
 
 
 
@@ -144,7 +144,7 @@ $table_prefix_info.methods_collection:
 #                instance: Ling\Light_UserDatabase\UserRowOwnership\LightUserDatabaseRowInspector
 #                methods:
 #                    setHandledTablesFile:
-#                        file: ${app_dir}/config/data/Light_UserDatabase/Light_UserRowOwnership/handled_tables.byml
+#                        file: ${app_dir}/config/data/Ling.Light_UserDatabase/Ling.Light_UserRowOwnership/handled_tables.byml
 ```
 
 
@@ -161,6 +161,10 @@ Related
 
 History Log
 =============  
+
+- 1.31.15 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.31.14 -- 2021-03-05
 
@@ -353,7 +357,7 @@ History Log
     
 - 1.14.0 -- 2019-12-16
 
-    - add Light_UserDatabase.on_new_user_before event
+    - add Ling.Light_UserDatabase.on_new_user_before event
     
 - 1.13.0 -- 2019-12-16
 

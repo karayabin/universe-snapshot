@@ -1,0 +1,5 @@
+controller_hub:
+    instance: Ling\Light_ControllerHub\Service\LightControllerHubService
+    methods:
+        setContainer:
+            container: @container()

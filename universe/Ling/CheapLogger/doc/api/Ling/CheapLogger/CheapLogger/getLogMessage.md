@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CheapLogger::getLogMessage](https://github.com/lingtalfi/CheapLogger/blob/master/CheapLogger.php#L49-L59)
+See the source code for method [CheapLogger::getLogMessage](https://github.com/lingtalfi/CheapLogger/blob/master/CheapLogger.php#L62-L72)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [CheapLogger](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger.md) class.
 
-Previous method: [log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md)<br>
+Previous method: [logg](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/logg.md)<br>
 

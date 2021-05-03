@@ -1,6 +1,6 @@
 Light_Kit_Demo
 ===========
-2019-04-25 -> 2021-03-05
+2019-04-25 -> 2021-03-09
 
 
 
@@ -119,11 +119,11 @@ Those files are copy/pasted in the application as is.
 If we take the LoopLab demo for instance, the structure looks like this:
 
 
-- [config/data/Light_Kit_Demo/kit/looplab/prototype/looplab_home.byml](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/config/data/Light_Kit_Demo/kit/looplab/prototype/looplab_home.byml)
-- [templates/Light_Kit_Demo/layouts/prototype/looplab_main_layout.php](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/templates/Light_Kit_Demo/layouts/looplab/prototype/looplab_main_layout.php)
-- [templates/Light_Kit_Demo/widgets/prototype/looplab/](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Light_Kit_Demo/widgets/prototype/looplab)
-- [templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php)
-- [www/plugins/Light_Kit_Demo/looplab](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/www/plugins/Light_Kit_Demo/looplab)
+- [config/data/Ling.Light_Kit_Demo/Ling.Light_Kit/looplab/prototype/looplab_home.byml](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/config/data/Ling.Light_Kit_Demo/Ling.Light_Kit/looplab/prototype/looplab_home.byml)
+- [templates/Ling.Light_Kit_Demo/layouts/prototype/looplab_main_layout.php](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/templates/Ling.Light_Kit_Demo/layouts/looplab/prototype/looplab_main_layout.php)
+- [templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Ling.Light_Kit_Demo/widgets/prototype/looplab)
+- [templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/templates/Ling.Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php)
+- [www/libs/universe/Ling/Light_Kit_Demo/looplab](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/www/libs/universe/Ling/Light_Kit_Demo/looplab)
 
 
 
@@ -139,9 +139,9 @@ Then the layout (looplab_main_layout.php) is the skeleton of the page. We can se
 is one of the most useful method to use in a layout, allowing us to print a zone (group of widgets).
 
 
-Then the **templates/Light_Kit_Demo/widgets/prototype/looplab** directory contains all the prototype widgets used for the LoopLab theme.
+Then the **templates/Ling.Light_Kit_Demo/widgets/prototype/looplab** directory contains all the prototype widgets used for the LoopLab theme.
  
-And last but not least the **www/plugins/Light_Kit_Demo/looplab** directory contains all the assets used for the LoopLab theme.
+And last but not least the **www/libs/universe/Ling/Light_Kit_Demo/looplab** directory contains all the assets used for the LoopLab theme.
 
 
 On the server side, I just use regular Light code, here is my code for the looplab demo:
@@ -174,7 +174,7 @@ $light->setContainer($container);
 
 
 $light->registerRoute("/Light_Kit_Demo", function (LightServiceContainerInterface $service) {
-    return $service->get("kit")->renderPage('Light_Kit_Demo/kit/looplab/prototype/looplab_home');
+    return $service->get("kit")->renderPage('Light_Kit_Demo/Ling.Light_Kit/looplab/prototype/looplab_home');
 });
 $light->run();
 
@@ -198,16 +198,16 @@ Let's create the [LoopLab theme](http://lingtalfi/Light_Kit_Demo?site=looplab) u
 Before we start, let's say that all picasso widgets used for all demos can be found in the [Light_Kit_BootstrapWidgetLibrary repository](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary).
 
 
-- [web assets](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/assets/map/www/plugins/Light_Kit_BootstrapWidgetLibrary)
-- [widget directories](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/assets/map/templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso)
+- [web assets](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/assets/map/www/libs/universe/Ling/Light_Kit_BootstrapWidgetLibrary)
+- [widget directories](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/assets/map/templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso)
 - [widget classes](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/Widget/Picasso)
 - [widget descriptions](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md)
 
 
 The only thing that is not there is the page configuration files and the layouts, which are stored inside the **Light_Kit_Demo** repository (this repository):
 
-- [page configuration files](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/config/data/Light_Kit_Demo/kit)
-- [layouts](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Light_Kit_Demo/layouts)
+- [page configuration files](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/config/data/Ling.Light_Kit_Demo/kit)
+- [layouts](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Ling.Light_Kit_Demo/layouts)
 
 
 And so that being said, let's go over one example, and from that you should be able to work you way around for all demos (it's the same pattern every time).
@@ -267,7 +267,7 @@ $light->setContainer($container);
 
 
 $light->registerRoute("/Light_Kit_Demo", function (LightServiceContainerInterface $service) {
-    return $service->get("kit")->renderPage('Light_Kit_Demo/kit/looplab/looplab_home');
+    return $service->get("kit")->renderPage('Light_Kit_Demo/Ling.Light_Kit/looplab/looplab_home');
 });
 $light->run();
 
@@ -373,10 +373,10 @@ The page configuration is very important for various reasons:
 It's basically where the pages are created.
 
 
-Back to our demo: from the **index.php**, we call the **Light_Kit_Demo/kit/looplab/looplab_home** page.
+Back to our demo: from the **index.php**, we call the **Light_Kit_Demo/Ling.Light_Kit/looplab/looplab_home** page.
 
 Now because of our kit service configuration (the **rootDir** property from the previous section in particular, remember?), the page configuration path 
-resolves to **${app_dir}/config/data/Light_Kit_Demo/kit/looplab/looplab_home.byml**.
+resolves to **${app_dir}/config/data/Ling.Light_Kit_Demo/Ling.Light_Kit/looplab/looplab_home.byml**.
 
 
 What follows is the content of that file:
@@ -384,7 +384,7 @@ What follows is the content of that file:
 
 ```yaml
 label: LoopLab main page
-layout: templates/Light_Kit_Demo/layouts/looplab/looplab_main_layout.php
+layout: templates/Ling.Light_Kit_Demo/layouts/looplab/looplab_main_layout.php
 layout_vars: []
 
 title: LoopLab one page theme
@@ -398,7 +398,7 @@ zones:
             name: main_nav
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
             template: default.php
             skin: looplab-nav
             vars:
@@ -431,7 +431,7 @@ zones:
             name: looplab_two_columns_signup_form
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsSignupFormWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsSignupFormWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsSignupFormWidget
             template: default.php
             vars:
                 attr:
@@ -477,7 +477,7 @@ zones:
             name: looplab_monochrome_header
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabMonoChromeHeaderWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
             template: default.php
             skin: looplab-dark
             vars:
@@ -495,7 +495,7 @@ zones:
             name: looplab_two_columns_teaser
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsTeaserWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
             template: default.php
             vars:
                 attr:
@@ -517,7 +517,7 @@ zones:
             name: looplab_monochrome_header
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabMonoChromeHeaderWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
             template: default.php
             vars:
                 attr:
@@ -532,7 +532,7 @@ zones:
             name: looplab_two_columns_teaser
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsTeaserWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
             template: default.php
             skin: looplab-dark
             vars:
@@ -555,7 +555,7 @@ zones:
             name: looplab_monochrome_header
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabMonoChromeHeaderWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
             template: default.php
             vars:
                 attr:
@@ -571,7 +571,7 @@ zones:
             name: looplab_two_columns_teaser
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsTeaserWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
             template: default.php
             vars:
                 attr:
@@ -595,7 +595,7 @@ zones:
             name: looplab_footer_with_contact_us_button
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabFooterWithContactUseButtonWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabFooterWithContactUseButtonWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabFooterWithContactUseButtonWidget
             template: default.php
             vars:
                 attr:
@@ -656,7 +656,7 @@ The layout page
 
 The layout used by the LoopLab home page has the following content.
 
-- you can find the layouts for all the themes in the [layout directory of this repository](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Light_Kit_Demo/layouts)
+- you can find the layouts for all the themes in the [layout directory of this repository](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Ling.Light_Kit_Demo/layouts)
 
 ```php
 <?php
@@ -789,6 +789,14 @@ Good luck!
 
 History Log
 =============
+
+- 1.2.5 -- 2021-03-09
+
+    - update README to reflect path change from Ling.Light_Kit_BootstrapWidgetLibrary
+  
+- 1.2.4 -- 2021-03-09
+
+    - rename templates dir to Ling.Light_Kit_Demo, moved www/plugins assets to www/libs/universe dir
 
 - 1.2.3 -- 2021-03-05
 

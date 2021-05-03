@@ -1,6 +1,6 @@
 Light_Cli
 ===========
-2021-01-07 -> 2021-03-05
+2021-01-07 -> 2021-03-15
 
 
 A command line interface for the light framework.
@@ -75,6 +75,10 @@ cli:
 History Log
 =============
 
+- 1.0.22 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.0.21 -- 2021-03-05
 
     - update README.md, add install alternative

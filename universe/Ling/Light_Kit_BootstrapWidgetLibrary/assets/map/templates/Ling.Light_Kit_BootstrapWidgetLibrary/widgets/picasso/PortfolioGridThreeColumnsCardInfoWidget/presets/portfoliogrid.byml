@@ -1,0 +1,57 @@
+name: portfoliogrid_three_columns_card_info
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridThreeColumnsCardInfoWidget
+template: default.php
+vars:
+    attr:
+        class: py-5
+
+    title: Where Have I Worked?
+    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nihil quasi qui, quibusdam similique voluptatem?
+    cards:
+        -
+            title: Devmasters
+            description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+            features:
+                -
+                    class: p-2 mb-3 bg-dark text-white
+                    text: Position: Full Stack Developer
+
+                -
+                    class: p-2 mb-3 bg-dark text-white
+                    text: Phone: (444) 444-4444
+
+
+            footer_text: Dates: 2015 - 2018
+
+        -
+            title: 123 Designs
+            description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+            features:
+                -
+                    class: p-2 mb-3 bg-dark text-white
+                    text: Position: Web Designer
+
+                -
+                    class: p-2 mb-3 bg-dark text-white
+                    text: Phone: (222) 222-2222
+
+
+            footer_text: Dates: 2013 - 2015
+
+        -
+            title: Web Designer Pros
+            description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+            features:
+                -
+                    class: p-2 mb-3 bg-dark text-white
+                    text: Position: Web Designer
+
+                -
+                    class: p-2 mb-3 bg-dark text-white
+                    text: Phone: (333) 333-3333
+
+
+            footer_text: Dates: 2010 - 2013
+

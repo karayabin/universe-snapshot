@@ -6,7 +6,6 @@ namespace Ling\Light_Kit_Admin\Controller;
 
 use Ling\Bat\ArrayTool;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 
 /**
  * The AdminPageController class.
@@ -27,7 +26,6 @@ class AdminPageController extends LightKitAdminController
 {
 
 
-
     /**
      * @overrides
      */
@@ -45,24 +43,23 @@ class AdminPageController extends LightKitAdminController
      *
      * Example of page values:
      *
-     * - Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/lup_user_preference_list
+     * - Light_Kit_Admin_UserPreferences/Ling.Light_Kit/zeroadmin/generated/lup_user_preference_list
      *
-     *
+     * Options are directly forwarded to @page(the LightKitPageRenderer->renderPage method).
      *
      *
      *
      * @param string $page
-     * @param array $params
-     * @param PageConfUpdator|null $updator
+     * @param array $options
      *
      *
      * @return HttpResponseInterface
      * @throws \Exception
      *
      */
-    public function renderAdminPage(string $page, $params = [], PageConfUpdator $updator = null): HttpResponseInterface
+    public function renderAdminPage(string $page, array $options = []): HttpResponseInterface
     {
-        $response = $this->checkRight('Light_Kit_Admin.user');
+        $response = $this->checkRight('Ling.Light_Kit_Admin.user');
 
 
         if (null !== $response) {
@@ -70,9 +67,15 @@ class AdminPageController extends LightKitAdminController
         }
 
 
+        //--------------------------------------------
+        // ADDING THE USER DYNAMIC VARIABLE
+        //--------------------------------------------
         $user = $this->getUser();
         $user = ArrayTool::objectToArray($user);
-        $params['user'] = $user;
-        return $this->renderPage($page, $params, $updator);
+        $dynamicVariables = $options['dynamicVariables'] ?? [];
+        $dynamicVariables['user'] = $user;
+        $options['dynamicVariables'] = $dynamicVariables;
+
+        return $this->renderPage($page, $options);
     }
 }

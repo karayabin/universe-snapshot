@@ -39,3 +39,45 @@
     - Ling:Light_ControllerHub:1.2.12+
     - Ling:Light_Kit:1.17.6+
     - Ling:Light_Kit_Admin:0.12.24+
+
+1.0.7: 
+    - Ling:Light:0.69.32+
+    - Ling:Light_ControllerHub:1.2.12+
+    - Ling:Light_Kit:1.17.6+
+    - Ling:Light_Kit_Admin:0.12.25+
+
+1.0.8: 
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.26+
+
+1.0.9: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.26+
+    - Ling:Light_PlanetInstaller:1.0.20+
+
+1.0.10: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.26+
+    - Ling:Light_PlanetInstaller:1.0.20+
+
+1.0.11: 
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.27+
+
+1.0.12: 
+    - Ling:Light:0.70.1+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.33+

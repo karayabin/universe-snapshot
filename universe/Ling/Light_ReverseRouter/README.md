@@ -1,6 +1,6 @@
 Light_ReverseRouter
 ===========
-2019-04-10 -> 2021-03-05
+2019-04-10 -> 2021-03-15
 
 
 
@@ -58,7 +58,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.initialize_1
+            events: Ling.Light.initialize_1
             listener:
                 instance: @service(reverse_router)
                 callable_method: initialize
@@ -84,6 +84,10 @@ The **initializer** service is provided by the [Light_Initializer planet](https:
 
 History Log
 =============
+
+- 1.11.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.11.4 -- 2021-03-05
 
@@ -115,7 +119,7 @@ History Log
     
 - 1.8.0 -- 2019-11-11
 
-    - add redirecting handler for Light.on_exception_caught event 
+    - add redirecting handler for Ling.Light.on_exception_caught event 
     
 - 1.7.2 -- 2019-09-17
 

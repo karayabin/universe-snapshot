@@ -1,6 +1,6 @@
 Light_Events
 ===========
-2019-10-31 -> 2021-03-05
+2019-10-31 -> 2021-03-22
 
 
 
@@ -86,6 +86,30 @@ $logger.methods_collection:
 
 History Log
 =============
+
+- 1.10.2 -- 2021-03-22
+
+    - fix service not triggering open registration system correctly 
+  
+- 1.10.1 -- 2021-03-22
+
+    - update open registration system documentation 
+  
+- 1.10.0 -- 2021-03-19
+
+    - update open registration system, now use one file per event 
+  
+- 1.9.10 -- 2021-03-19
+
+    - fix open event system using wrong directory 
+  
+- 1.9.9 -- 2021-03-18
+
+    - update conception notes
+  
+- 1.9.8 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.9.7 -- 2021-03-05
 

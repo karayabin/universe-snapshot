@@ -1,6 +1,6 @@
 Light_404Logger
 ===========
-2019-12-12 -> 2021-03-05
+2019-12-12 -> 2021-03-22
 
 
 
@@ -66,16 +66,6 @@ _404_logger:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$events.methods_collection:
-    -
-        method: registerListener
-        args:
-            events:
-                - Light.on_unhandled_exception_caught
-            listener:
-                instance: @service(_404_logger)
-                callable_method: onExceptionCaught
-
 $logger.methods_collection:
     -
         method: addListener
@@ -110,6 +100,26 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.0.8 -- 2021-03-22
+
+    - adapt api to work with Ling.Light_Events:1.10.0
+  
+- 1.0.7 -- 2021-03-19
+
+    - fix open events now in the events directory
+  
+- 1.0.6 -- 2021-03-18
+
+    - switch to Ling.Light_Events' open registration system
+
+- 1.0.5 -- 2021-03-15
+
+    - fix README.md indentation typo in the service snippet 
+  
+- 1.0.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.0.3 -- 2021-03-05
 
     - update README.md, add install alternative

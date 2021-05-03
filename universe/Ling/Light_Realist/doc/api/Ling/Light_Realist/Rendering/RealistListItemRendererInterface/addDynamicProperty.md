@@ -23,7 +23,7 @@ abstract public [RealistListItemRendererInterface::addDynamicProperty](https://g
 
 Adds a dynamic column.
 
-See the [dynamic properties of the list item renderer page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md#dynamic-properties) for more info.
+See the [dynamic properties of the list item renderer page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-item-renderer.md#dynamic-properties) for more info.
 
 
 

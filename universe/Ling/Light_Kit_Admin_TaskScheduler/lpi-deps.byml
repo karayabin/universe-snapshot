@@ -132,3 +132,63 @@
     - Ling:Light_Kit:1.17.6+
     - Ling:Light_Kit_Admin:0.12.24+
     - Ling:Light_Realform:2.0.8+
+
+1.5.9: 
+    - Ling:Bat:1.308+
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.69.32+
+    - Ling:Light_ControllerHub:1.2.12+
+    - Ling:Light_Kit:1.17.6+
+    - Ling:Light_Kit_Admin:0.12.25+
+    - Ling:Light_Realform:2.0.9+
+
+1.5.10: 
+    - Ling:Bat:1.308+
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.26+
+    - Ling:Light_Realform:2.0.9+
+
+1.5.11: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Chloroform:1.36.7+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.26+
+    - Ling:Light_PlanetInstaller:1.0.20+
+    - Ling:Light_Realform:2.0.10+
+
+1.5.12: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Chloroform:1.36.7+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.26+
+    - Ling:Light_PlanetInstaller:1.0.20+
+    - Ling:Light_Realform:2.0.10+
+
+1.5.13: 
+    - Ling:Bat:1.309+
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.70.0+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.27+
+    - Ling:Light_Realform:2.0.10+
+
+1.5.14: 
+    - Ling:Bat:1.31+
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.70.1+
+    - Ling:Light_ControllerHub:1.2.14+
+    - Ling:Light_Kit:1.17.7+
+    - Ling:Light_Kit_Admin:0.12.33+
+    - Ling:Light_Realform:2.0.11+

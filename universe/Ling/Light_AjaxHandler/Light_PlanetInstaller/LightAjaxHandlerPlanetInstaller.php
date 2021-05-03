@@ -23,8 +23,8 @@ class LightAjaxHandlerPlanetInstaller extends LightBasePlanetInstaller
     {
 
 
-        $output->write("Light_AjaxHandler: copying Light_EasyRoute routes to master...");
-        LightEasyRouteHelper::copyRoutesFromPluginToMaster($appDir, "Light_AjaxHandler");
+        $output->write("Ling.Light_AjaxHandler: copying Ling.Light_EasyRoute routes to master...");
+        LightEasyRouteHelper::copyRoutesFromPluginToMaster($appDir, "Ling.Light_AjaxHandler");
         $output->write("<success>ok.</success>" . PHP_EOL);
     }
 

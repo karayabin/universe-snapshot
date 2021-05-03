@@ -85,6 +85,8 @@ class Light_UserDataDocBuilder
                 "Ling\Light_SimpleHttpServer\Controller\LightSimpleHttpServerController",
                 "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
                 "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -160,7 +162,7 @@ class Light_UserDataDocBuilder
                 "light events page" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
                 "ling standard object methods" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
                 "Light_PluginInstaller conception notes" => 'https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md',
-                "Light_Database.on_lud_user_group_create event" => 'https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md',
+                "Ling.Light_Database.on_lud_user_group_create event" => 'https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md',
                 "the original file section in the conception notes" => $doc . '/pages/conception-notes.md#the-original-file',
                 "Light_UserData permissions document" => $doc . '/pages/permissions.md',
                 "alcp response" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md",
@@ -228,6 +230,8 @@ class Light_UserDataDocBuilder
                 "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller.md",
                 "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
                 "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md",
 
             ],
         ];

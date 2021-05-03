@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08 -> 2021-03-05
+2019-02-08 -> 2021-03-18
 
 
 
@@ -43,6 +43,10 @@ Summary
 History Log
 ==============
 
+- 1.22.32 -- 2021-03-18
+
+    - add PlanetTool::getPlanetDotNameByClassName method
+  
 - 1.22.31 -- 2021-03-05
 
     - add StandardReadmeUtil->updateDate method

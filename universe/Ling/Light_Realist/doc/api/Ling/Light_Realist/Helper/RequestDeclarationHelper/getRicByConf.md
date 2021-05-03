@@ -24,7 +24,7 @@ public static [RequestDeclarationHelper::getRicByConf](https://github.com/lingta
 Returns the ric from the given request declaration.
 Throws an exception if the ric is not defined.
 
-See more details in the [realist request declaration page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/request-declaration.md).
+See more details in the [realist request declaration page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/request-declaration.md).
 
 
 

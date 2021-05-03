@@ -4,7 +4,7 @@
 
 The LightPlanetInstallerException class
 ================
-2020-12-08 --> 2021-03-05
+2020-12-08 --> 2021-05-03
 
 
 

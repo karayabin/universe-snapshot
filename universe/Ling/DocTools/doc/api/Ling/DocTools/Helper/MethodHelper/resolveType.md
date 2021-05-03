@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MethodHelper::resolveType](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php#L228-L260)
+See the source code for method [MethodHelper::resolveType](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php#L232-L264)
 
 
 See Also

@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LudaTagController::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaTagController.php#L24-L31)
+See the source code for method [LudaTagController::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaTagController.php#L24-L34)
 
 
 See Also

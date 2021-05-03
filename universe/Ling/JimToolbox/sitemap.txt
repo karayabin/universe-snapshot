@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/JimToolbox/blob/master/README.md
+https://github.com/lingtalfi/JimToolbox/blob/master/doc/api/Ling/JimToolbox.md
+https://github.com/lingtalfi/JimToolbox/blob/master/doc/pages/conception-notes.md

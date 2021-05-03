@@ -22,7 +22,7 @@ public [LightRealistService::setListActionHandler](https://github.com/lingtalfi/
 
 
 Sets the list action handler.
-See the [realist action handler section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/realist-protagonists.md#the-action-handler) for more details.
+See the [realist action handler section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-protagonists.md#the-action-handler) for more details.
 
 
 
@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealistService::setListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L539-L545)
+See the source code for method [LightRealistService::setListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L507-L513)
 
 
 See Also

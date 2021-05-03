@@ -1,0 +1,36 @@
+name: progress_bar
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ProgressBarWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ProgressBarWidget
+template: default.php
+vars:
+    attr:
+        class: py-5
+
+    title: Welcome To My Page
+    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+    progress_bars:
+        -
+            text: HTML 5
+            percent: 100
+            class: bg-success
+
+        -
+            text: CSS 3
+            percent: 100
+            class: bg-success
+
+        -
+            text: JavaScript
+            percent: 90
+            class: bg-success
+
+        -
+            text: PHP
+            percent: 80
+            class: bg-success
+
+        -
+            text: Python
+            percent: 70
+            class: bg-success

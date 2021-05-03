@@ -7,6 +7,7 @@ namespace Ling\ParametrizedSqlQuery;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\StringTool;
+use Ling\CheapLogger\CheapLogger;
 use Ling\ParametrizedSqlQuery\Exception\ParametrizedSqlQueryException;
 use Ling\ParametrizedSqlQuery\Helper\ParametrizedSqlQueryHelper;
 use Ling\SqlQuery\SqlQuery;
@@ -172,6 +173,9 @@ class ParametrizedSqlQueryUtil
      */
     public function getSqlQuery(array $requestDeclaration, array $tags = []): SqlQuery
     {
+
+
+
         $this->_markers = [];
 
         $query = new SqlQuery();

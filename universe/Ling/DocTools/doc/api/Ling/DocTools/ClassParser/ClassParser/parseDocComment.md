@@ -69,7 +69,7 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 Source Code
 ===========
-See the source code for method [ClassParser::parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L725-L886)
+See the source code for method [ClassParser::parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L728-L886)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The PackLightPluginCommand class
 ================
-2019-03-13 --> 2021-03-08
+2019-03-13 --> 2021-03-22
 
 
 
@@ -28,7 +28,7 @@ the current working directory should be the light plugin directory/planet).
 It copies the following, based on a plugin named Light_MyPlugin (for instance):
 
 - $app/config/services/Light_MyPlugin.byml
-- $app/config/kit/pages/Light_MyPlugin/
+- $app/config/Ling.Light_Kit/pages/Light_MyPlugin/
 - $app/templates/Light_MyPlugin/
 - $app/www/plugins/Light_MyPlugin/
 

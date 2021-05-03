@@ -25,7 +25,7 @@ use Ling\DirScanner\YorgDirScannerTool;
  * It copies the following, based on a plugin named Light_MyPlugin (for instance):
  *
  * - $app/config/services/Light_MyPlugin.byml
- * - $app/config/kit/pages/Light_MyPlugin/
+ * - $app/config/Ling.Light_Kit/pages/Light_MyPlugin/
  * - $app/templates/Light_MyPlugin/
  * - $app/www/plugins/Light_MyPlugin/
  *
@@ -80,22 +80,21 @@ class PackLightPluginCommand extends KaosGenericCommand
             $this->_mapDir = $mapDir;
 
             $items = [
-                "config/services/$pluginName.byml",
-                "config/data/$pluginName",
-                "templates/$pluginName",
-                "templates/Light_Mailer/$pluginName",
-                "www/plugins/$pluginName",
+                "config/services/$galaxyName.$pluginName.byml",
+                "config/data/$galaxyName.$pluginName",
+                "templates/$galaxyName.$pluginName",
+                "templates/Ling.Light_Mailer/$galaxyName.$pluginName",
                 "www/libs/universe/$galaxyName/$pluginName",
                 "scripts/$galaxyName/$pluginName",
+                "config/open/Ling.Light_Kit_Admin/lke/layouts/$galaxyName.$pluginName",
+                "config/open/Ling.Light_Kit_Admin/lke/pages/$galaxyName.$pluginName",
+                "config/open/Ling.Light_Kit_Admin/lke/zones/$galaxyName.$pluginName",
             ];
-
-
-
-
 
             foreach ($items as $relPath) {
                 $this->copyItem($relPath, $output, $indentLevel + 1);
             }
+
 
         } else {
             H::error(H::i($indentLevel) . "Option a missing (application path)." . PHP_EOL, $output);

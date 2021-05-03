@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_UserDataDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_UserData/Light_UserDataDocBuilder.php#L45-L276)
+See the source code for method [Light_UserDataDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_UserData/Light_UserDataDocBuilder.php#L45-L280)
 
 
 See Also

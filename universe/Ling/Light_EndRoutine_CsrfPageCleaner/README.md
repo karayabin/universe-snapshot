@@ -70,7 +70,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.end_routine
+            events: Ling.Light.end_routine
             listener:
                 instance: Ling\Light_EndRoutine_CsrfPageCleaner\Handler\LightEndRoutineCsrfPageCleanerHandler
                 methods:
@@ -109,7 +109,7 @@ History Log
 
 - 1.4.0 -- 2019-19-19
 
-    - update LightEndRoutineCsrfPageCleanerHandler to accommodate Light.end_routine event instead of the end_routine service
+    - update LightEndRoutineCsrfPageCleanerHandler to accommodate Ling.Light.end_routine event instead of the end_routine service
     
 - 1.3.1 -- 2019-10-01
 

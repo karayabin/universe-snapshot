@@ -1,0 +1,56 @@
+label: Light Kit Admin Login Page
+layout: templates/Ling.Light_Kit_Admin/layouts/zeroadmin/zeroadmin_standalone_layout.php
+layout_vars:
+    page_one_id: page_one
+    page_two_id: page_two
+    page_three_id: page_three
+    page_four_id: page_four
+    opened_page: four
+
+
+title: Light Kit Admin Login Page
+description: <
+    This is the gui admin provided by the Light_Kit_Admin plugin (from the Light framework), using the zeroadmin theme by ling talfi
+>
+
+zones:
+    body:
+        -
+            name: zeroadmin_login_form
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminLoginFormWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminLoginFormWidget
+            template: default.php
+            vars:
+                form_method: post
+                form_action: ""
+                title: Login
+                subtitle: Sign In to your account
+                hidden_var: zeroadmin_login_form
+                field_username:
+                    icon: fas fa-user
+                    name: username
+                    label: Username
+                    value: ""
+                field_password:
+                    icon: fas fa-lock
+                    name: password
+                    label: Password
+                    value: ""
+                field_remember_me:
+                    name: remember_me
+                    label: Remember me
+                error_no_match_show: false
+                error_no_match_body: <strong>Nope!</strong> The provided credentials don't match an user in our database.
+                btn_submit:
+                    class: btn btn-primary px-4
+                    text: Login
+                use_link_forgot_password: true
+                use_remember_me: true
+                link_forgot_password:
+                    link: ::(@reverse_router->getUrl(lka_route-forgotten_password))::
+                    text: Forgot password?
+
+
+
+

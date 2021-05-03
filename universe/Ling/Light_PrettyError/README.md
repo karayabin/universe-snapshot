@@ -1,6 +1,6 @@
 Light_PrettyError
 ===========
-2019-04-05 -> 2021-03-05
+2019-04-05 -> 2021-03-22
 
 
 
@@ -51,18 +51,6 @@ pretty_error:
 
 
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-$events.methods_collection:
-    -
-        method: registerListener
-        args:
-            event: Light.on_exception_caught
-            listener:
-                instance: @service(pretty_error)
-                callable_method: onLightExceptionCaught
-
 ```
 
 Basically, those services will improve the visual appearance for:
@@ -90,6 +78,26 @@ And will basically provide aesthetically pleasing templates for those errors.
 History Log
 =============
     
+
+- 1.5.10 -- 2021-03-22
+
+    - adapt api to work with Ling.Light_Events:1.10.0
+  
+- 1.5.9 -- 2021-03-19
+
+    - fix open events not in the "events" directory
+
+- 1.5.8 -- 2021-03-18
+
+    - switch to Ling.Light_Events' open registration system
+  
+- 1.5.7 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.5.6 -- 2021-03-09
+
+    - rename templates dir to Ling.Light_PrettyError
 
 - 1.5.5 -- 2021-03-05
 

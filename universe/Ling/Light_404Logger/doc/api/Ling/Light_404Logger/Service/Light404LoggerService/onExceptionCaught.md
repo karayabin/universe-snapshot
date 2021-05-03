@@ -7,7 +7,7 @@ Light404LoggerService::onExceptionCaught
 
 
 
-Light404LoggerService::onExceptionCaught — The callable used to react to the [Light.on_unhandled_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Light404LoggerService::onExceptionCaught — The callable used to react to the [Ling.Light.on_unhandled_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [Light404LoggerService::onExceptionCaught](https://github.com/lingtalfi/L
 
 
 
-The callable used to react to the [Light.on_unhandled_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+The callable used to react to the [Ling.Light.on_unhandled_exception_caught event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 It will internally dispatch a logger message on the 404 channel,
 using [the Light_Logger service](https://github.com/lingtalfi/Light_Logger), and we treat that message using a logger listener (Light404LoggerListener).

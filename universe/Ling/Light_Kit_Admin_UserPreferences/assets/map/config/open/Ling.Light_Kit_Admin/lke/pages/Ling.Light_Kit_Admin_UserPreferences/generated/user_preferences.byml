@@ -1,0 +1,30 @@
+label: User preferences form
+layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+layout_vars: []
+
+title: User preferences form
+description: <
+    Manage your preferences. This page was provided by the Light_Kit_Admin_UserPreferences plugin.
+>
+
+
+zones:
+    notifications: b$:Ling.Light_Kit_Admin/notifications_default
+    toasts: b$:Ling.Light_Kit_Admin/toasts_default
+    sub_header: b$:Ling.Light_Kit_Admin/sub_header_default
+    header: b$:Ling.Light_Kit_Admin/header_default
+    sidebar: b$:Ling.Light_Kit_Admin/sidebar_default
+    body:
+        - b$:Ling.Light_Kit_Admin/body_default
+        -
+            name: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Ling.Light_Kit_Admin_UserPreferences/widgets/picasso/LightKitAdminChloroformWidget
+            template: user-mainpage.php
+            vars: []
+                title: User preferences
+                form: ${form}
+                plugin2Rows: ${plugin2Rows}
+
+    footer: b$:Ling.Light_Kit_Admin/footer_default

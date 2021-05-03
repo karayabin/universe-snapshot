@@ -1,6 +1,6 @@
 Light_PasswordProtector
 ===========
-2019-08-07 -> 2021-03-05
+2019-08-07 -> 2021-03-15
 
 
 
@@ -66,6 +66,10 @@ password_protector:
 
 History Log
 =============
+
+- 1.0.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.0.4 -- 2021-03-05
 

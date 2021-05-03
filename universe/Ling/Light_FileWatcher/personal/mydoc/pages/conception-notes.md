@@ -63,7 +63,7 @@ How this tool works
 
 
 We keep track of a hash of the files that plugin authors give us to monitor.
-Then on every page refresh (using the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md)),
+Then on every page refresh (using the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md)),
 we compare the current hash of the file to the one that we stored.
 
 A difference in the hashes indicates a change in a file, and in that case we trigger the callback that the 

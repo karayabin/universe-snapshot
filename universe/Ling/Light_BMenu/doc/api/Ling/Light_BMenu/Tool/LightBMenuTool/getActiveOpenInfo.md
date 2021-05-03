@@ -57,7 +57,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightBMenuTool::getActiveOpenInfo](https://github.com/lingtalfi/Light_BMenu/blob/master/Tool/LightBMenuTool.php#L29-L49)
+See the source code for method [LightBMenuTool::getActiveOpenInfo](https://github.com/lingtalfi/Light_BMenu/blob/master/Tool/LightBMenuTool.php#L49-L69)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [LightBMenuTool](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool.md) class.
 
-Next method: [menuItemIsActive](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool/menuItemIsActive.md)<br>
+Previous method: [toAssociative](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool/toAssociative.md)<br>Next method: [menuItemIsActive](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool/menuItemIsActive.md)<br>
 

@@ -4,7 +4,7 @@
  * This tool helps you implement the open-admin-table protocol in your gui.
  *
  * See the implementation notes in
- * https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-helper-implementation-notes.md
+ * https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-helper-implementation-notes.md
  *
  *
  *
@@ -388,9 +388,14 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 var $this = this;
 
 
-                /**
-                 * Fix pagination inconsistencies first
-                 */
+                //----------------------------------------
+                // FIX PAGINATION INCONSISTENCIES
+                //----------------------------------------
+                var resetPagination = false;
+
+                var jPagination = this.getModuleContainer("pagination");
+                var currentPage = jPagination.find('[data-rtt-variable="page"]').attr('data-rtt-value');
+
                 if (
                     true === $this.nippFlag &&
                     null !== this.nbTotalRows &&
@@ -398,20 +403,29 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                     var jNumberOfItemsPerPage = this.getModuleContainer("number_of_items_per_page");
                     if (jNumberOfItemsPerPage) {
                         var newValue = jNumberOfItemsPerPage.find(".oath-nipp-selector").val();
-                        var jPagination = this.getModuleContainer("pagination");
-                        var currentPage = jPagination.find('[data-rtt-variable="page"]').attr('data-rtt-value');
-
                         var newOffset = parseInt(currentPage) * parseInt(newValue);
                         if (newOffset > this.nbTotalRows) {
-                            /**
-                             * I put this to 1, seems solid, but we could use another heuristic.
-                             */
-                            jPagination.find('[data-rtt-variable="page"]').attr('data-rtt-value', 1);
+                            resetPagination = true;
                         }
                     }
                 }
 
 
+                if (currentPage > 1 && (
+                    'neck_filters' === moduleName
+                )) {
+                    resetPagination = true;
+                }
+
+
+                if (true === resetPagination) {
+                    jPagination.find('[data-rtt-variable="page"]').attr('data-rtt-value', 1);
+                }
+
+
+                //----------------------------------------
+                //
+                //----------------------------------------
                 var realist = new RealistTagTransfer({
                     jContainer: this.jContainer
                 });
@@ -983,7 +997,7 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
         window.OpenAdminTableHelper._defaults = {
             service_url: '/ajax-handler',
-            handler: 'Light_Realist',
+            handler: 'Ling.Light_Realist',
             action: 'realist-request',
             request_id: 'none',
             csrf_token: 'your_csrf_token_value',

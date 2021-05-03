@@ -1,0 +1,23 @@
+
+.kit-bwl-parallax_header_with_video_trigger {
+    position: relative;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+
+}
+
+
+.kit-bwl-parallax_header_with_video_trigger a {
+    color: white;
+}
+
+
+.kit-bwl-parallax_header_with_video_trigger .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,82 @@
+_vars: 
+    nuggetId: Ling.Light_Kit_Admin_UserDatabase:generated/lud_permission_group_has_permission
+
+rendering: 
+    title: Permission group has permission form
+    related_links: 
+        - 
+            text: "See the list of \"Permission group has permission\" items"
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserDatabase, controller: Generated/LudPermissionGroupHasPermissionController}))::
+            icon: fas fa-plus-circle
+        
+    
+
+ric: 
+    - permission_group_id
+    - permission_id
+
+feeder: null
+storage_id: lud_permission_group_has_permission
+success_messages: 
+    create: The item has been successfully stored in the database
+    update: The item has been successfully updated in the database, with ric {sRic}
+
+security: []
+chloroform: 
+    id: realgen-lud_permission_group_has_permission
+    fields: 
+        permission_group_id: 
+            label: Permission group id
+            type: table_list
+            validators: 
+                required: []
+            
+            nullable: false
+            tableListDirectiveId: %{nuggetId}:chloroform.fields.permission_group_id.tableListConf
+            tableListConf: 
+                sql: select id as value, concat(id, '. ', name) as label from lud_permission_group
+                column: id
+                search_column: concat(id, '. ', name)
+                renderAs: adapt
+                threshold: 200
+                security: 
+                    any: 
+                        micro_permission: store.lud_permission_group.read
+                        permission: Ling.Light_Kit_Admin.admin
+                    
+                    all: []
+                
+            
+        
+        permission_id: 
+            label: Permission id
+            type: table_list
+            validators: 
+                required: []
+            
+            nullable: false
+            tableListDirectiveId: %{nuggetId}:chloroform.fields.permission_id.tableListConf
+            tableListConf: 
+                sql: select id as value, concat(id, '. ', name) as label from lud_permission
+                column: id
+                search_column: concat(id, '. ', name)
+                renderAs: adapt
+                threshold: 200
+                security: 
+                    any: 
+                        micro_permission: store.lud_permission.read
+                        permission: Ling.Light_Kit_Admin.admin
+                    
+                    all: []
+                
+            
+            mode: multiplier
+            multiplier: 
+                enabled: true
+                pivot: permission_group_id
+            
+        
+    
+
+success_handler: 
+    class: defaultDbHandler

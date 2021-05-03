@@ -7,7 +7,7 @@ LightCsrfSimpleService::onRouteFound
 
 
 
-LightCsrfSimpleService::onRouteFound — This is a callable to execute when the **Light.on_route_found** event is fired.
+LightCsrfSimpleService::onRouteFound — This is a callable to execute when the **Ling.Light.on_route_found** event is fired.
 
 
 
@@ -21,7 +21,7 @@ public [LightCsrfSimpleService::onRouteFound](https://github.com/lingtalfi/Light
 
 
 
-This is a callable to execute when the **Light.on_route_found** event is fired.
+This is a callable to execute when the **Ling.Light.on_route_found** event is fired.
 See the [events page](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md) for more details.
 
 It calls the regenerate method if the page is a non-ajax page.

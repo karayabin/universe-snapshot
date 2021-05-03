@@ -10,31 +10,31 @@ In **Light_Kit_Admin** (lka), the permission system is based on [micro-permissio
 
 We provide the following [permission groups](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md):
 
-- **Light_Kit_Admin.admin**
-- **Light_Kit_Admin.user**
+- **Ling.Light_Kit_Admin.admin**
+- **Ling.Light_Kit_Admin.user**
 
 
-The **Light_Kit_Admin.admin** permission group contains the following [permissions](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md):
+The **Ling.Light_Kit_Admin.admin** permission group contains the following [permissions](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md):
 
-- Light_Kit_Admin.admin
-- Light_Kit_Admin.user 
+- Ling.Light_Kit_Admin.admin
+- Ling.Light_Kit_Admin.user 
 
-Note: yes, there is a **Light_Kit_Admin.admin** permission, and a **Light_Kit_Admin.admin** permission group. They are different things, although they have a similar name.
-
-
-The **Light_Kit_Admin.user** permission group contains the following permissions:
-- Light_Kit_Admin.user 
+Note: yes, there is a **Ling.Light_Kit_Admin.admin** permission, and a **Ling.Light_Kit_Admin.admin** permission group. They are different things, although they have a similar name.
 
 
+The **Ling.Light_Kit_Admin.user** permission group contains the following permissions:
+- Ling.Light_Kit_Admin.user 
 
-The **Light_Kit_Admin.admin** permission contains the following micro-permissions:
+
+
+The **Ling.Light_Kit_Admin.admin** permission contains the following micro-permissions:
 
 - store
 
 Which basically means the admin can do whatever he wants with the database.
 
 
-The **Light_Kit_Admin.user** permission doesn't contain any micro-permissions. 
+The **Ling.Light_Kit_Admin.user** permission doesn't contain any micro-permissions. 
 This basically means that by default the lka user can't alter the database.
 
     
@@ -49,7 +49,7 @@ We recommend that plugin authors implement the following guidelines as their per
 
 
 First, use the lka permission groups at your advantage. So if your plugin only needs a super-admin, you're already covered,
-just connect as any user which owns the **Light_Kit_Admin.admin** permission group, as this permission group is allowed to alter anything in the database.
+just connect as any user which owns the **Ling.Light_Kit_Admin.admin** permission group, as this permission group is allowed to alter anything in the database.
 
 
 Secondly, let the admin do their job. The main idea being that we don't know in advance the needs of an admin.
@@ -62,8 +62,8 @@ Create two permissions:
 - Light_Kit_Admin_YourPlugin.user
 
 
-Assign **Light_Kit_Admin_YourPlugin.admin** to our **Light_Kit_Admin.admin** permission group,
-and assign **Light_Kit_Admin_YourPlugin.user** to both our **Light_Kit_Admin.admin** and **Light_Kit_Admin.user** permission groups.
+Assign **Light_Kit_Admin_YourPlugin.admin** to our **Ling.Light_Kit_Admin.admin** permission group,
+and assign **Light_Kit_Admin_YourPlugin.user** to both our **Ling.Light_Kit_Admin.admin** and **Ling.Light_Kit_Admin.user** permission groups.
 
 For **Light_Kit_Admin_YourPlugin.admin**, add the **store.$table** micro-permission for every table your plugin handles. 
 For **Light_Kit_Admin_YourPlugin.user**, don't add any micro-permission. 

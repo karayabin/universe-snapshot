@@ -4,7 +4,7 @@
 
 The LightEasyRouteHelper class
 ================
-2019-08-21 --> 2021-03-05
+2019-08-21 --> 2021-03-15
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">LightEasyRouteHelper</span>  {
 
 - Methods
-    - public static [copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPluginName) : void
+    - public static [copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPluginDotName) : void
     - public static [getMasterPath](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/getMasterPath.md)(string $appDir) : string
 
 }

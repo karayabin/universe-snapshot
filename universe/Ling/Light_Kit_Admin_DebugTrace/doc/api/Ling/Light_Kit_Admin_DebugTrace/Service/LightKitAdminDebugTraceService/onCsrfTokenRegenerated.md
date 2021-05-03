@@ -7,7 +7,7 @@ LightKitAdminDebugTraceService::onCsrfTokenRegenerated
 
 
 
-LightKitAdminDebugTraceService::onCsrfTokenRegenerated — Callable for the Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
+LightKitAdminDebugTraceService::onCsrfTokenRegenerated — Callable for the Ling.Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
 
 
 
@@ -21,7 +21,7 @@ public [LightKitAdminDebugTraceService::onCsrfTokenRegenerated](https://github.c
 
 
 
-Callable for the Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
+Callable for the Ling.Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
 
 
 
@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminDebugTraceService::onCsrfTokenRegenerated](https://github.com/lingtalfi/Light_Kit_Admin_DebugTrace/blob/master/Service/LightKitAdminDebugTraceService.php#L175-L181)
+See the source code for method [LightKitAdminDebugTraceService::onCsrfTokenRegenerated](https://github.com/lingtalfi/Light_Kit_Admin_DebugTrace/blob/master/Service/LightKitAdminDebugTraceService.php#L177-L183)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPluginName) : void
+public static [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPluginDotName) : void
 
 
 
@@ -35,7 +35,7 @@ Parameters
 
     
 
-- subscriberPluginName
+- subscriberPluginDotName
 
     
 

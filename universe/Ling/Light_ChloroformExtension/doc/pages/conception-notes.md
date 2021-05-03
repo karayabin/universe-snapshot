@@ -150,7 +150,7 @@ threshold: 200
 
 security:
     any:
-        permission: Light_Kit_Admin.admin
+        permission: Ling.Light_Kit_Admin.admin
         micro_permission: store.lud_user.read
     all:
 

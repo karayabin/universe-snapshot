@@ -14,6 +14,6 @@ It basically just creates the pages that allow administration of the light userd
 
 We don't create any new permissions, we just reuse the one created by kit admin:
 
-- Light_Kit_Admin.user (cannot interact with our pages)
-- Light_Kit_Admin.admin (which can do everything with our pages) 
+- Ling.Light_Kit_Admin.user (cannot interact with our pages)
+- Ling.Light_Kit_Admin.admin (which can do everything with our pages) 
 

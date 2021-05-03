@@ -150,13 +150,16 @@ class MethodHelper
         //--------------------------------------------
         $s .= '(';
         $i = 0;
+
+
         foreach ($reflectionMethod->getParameters() as $parameter) {
+
             if ($i++ > 0) {
                 $s .= ', ';
             }
 
 
-            if (true === $parameter->isOptional()) {
+            if (true === $parameter->isOptional() && false === $parameter->isVariadic()) {
                 $s .= '?';
             }
 
@@ -167,16 +170,17 @@ class MethodHelper
 
                 $s .= self::resolveType($type, $generatedItems2Url, $method, $parameter, $report);
                 $s .= ' ';
-
-
-                if (true === $parameter->isPassedByReference()) {
-                    $s .= '&';
-                }
-
-                if (true === $parameter->isVariadic()) {
-                    $s .= '...';
-                }
             }
+
+
+            if (true === $parameter->isPassedByReference()) {
+                $s .= '&';
+            }
+
+            if (true === $parameter->isVariadic()) {
+                $s .= '...';
+            }
+
 
             $s .= '$' . $parameter->getName();
 

@@ -1,6 +1,6 @@
 [
   {
-    "thumb_src": "/plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-2.jpg",
+    "thumb_src": "/libs/universe/Ling/Light_Kit_Admin/zeroadmin/img/avatars/photo-2.jpg",
     "sender": "Athena Morris",
     "recipient": "Shankar Madrid",
     "datetime": "2019-05-31 09:18:00",
@@ -8,7 +8,7 @@
     "route": "/pages/u-profile"
   },
   {
-    "thumb_src": "/plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-1.jpg",
+    "thumb_src": "/libs/universe/Ling/Light_Kit_Admin/zeroadmin/img/avatars/photo-1.jpg",
     "sender": "Shankar Madrid",
     "recipient": "Athena Morris",
     "datetime": "2019-05-31 07:55:00",

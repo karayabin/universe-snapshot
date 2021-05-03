@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [RealformMultipleEditController::getConfByRealformId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/RealformMultipleEditController.php#L608-L618)
+See the source code for method [RealformMultipleEditController::getConfByRealformId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/RealformMultipleEditController.php#L609-L619)
 
 
 See Also

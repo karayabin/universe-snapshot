@@ -8,8 +8,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         //----------------------------------------
         $('body').on('click.Light_Kit_Admin', ".acplink", function (e) {
 
-            var jTarget = $(e.target); // assuming jTarget has class .acplink
+            var jTarget = $(this); // assuming jTarget has class .acplink
+
             var data = AcpHepHelper.getHepParameters(jTarget);
+
 
             /**
              * Extra functionality for lka acplinks only.

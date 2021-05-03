@@ -29,3 +29,29 @@
 1.2.4: 
     - Ling:Light:0.69.30+
     - Ling:Light_Logger:1.11.5+
+
+1.2.5: 
+    - Ling:Light:0.70.0+
+    - Ling:Light_Logger:1.11.6+
+
+1.2.6: 
+    - Ling:Light:0.70.1+
+    - Ling:Light_Logger:1.11.7+
+
+1.2.7: 
+    - Ling:Light:0.70.1+
+    - Ling:Light_Logger:1.11.7+
+
+1.2.8: 
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_Events:1.10.0+
+    - Ling:Light_Logger:1.11.7+
+    - Ling:Light_PlanetInstaller:1.0.20+
+
+1.2.9: 
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.70.1+
+    - Ling:Light_Events:1.10.0+
+    - Ling:Light_Logger:1.11.7+
+    - Ling:Light_PlanetInstaller:1.0.20+

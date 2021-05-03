@@ -41,10 +41,10 @@ The micro-permission system basically consists of a map of micro-permission name
 Something like this:
 
 - tables.lud_user.create:
-    - Light_Kit_Admin.admin
+    - Ling.Light_Kit_Admin.admin
 - tables.lud_user.read:
-    - Light_Kit_Admin.admin
-    - Light_Kit_Admin.user
+    - Ling.Light_Kit_Admin.admin
+    - Ling.Light_Kit_Admin.user
     - PluginABC.permission123
 - my_micro_permission_456:
     - my_permission_789

@@ -157,7 +157,7 @@ class Light_UserDatabaseDocBuilder
                 "permissions conception notes" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
                 "user permissions" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
                 "LightWebsiteUserDatabaseInterface class" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface.md",
-                "Light.initialize_1 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
+                "Ling.Light.initialize_1 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
                 "Light_PluginInstaller conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
                 "Light_FileWatcher conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
                 "Light_FileWatcher plugin" => "https://github.com/lingtalfi/Light_FileWatcher",

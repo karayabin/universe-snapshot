@@ -4,7 +4,7 @@
 
 The LightKitAdminUserPreferencesPluginInstaller class
 ================
-2020-08-13 --> 2021-03-05
+2020-08-13 --> 2021-03-23
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_Kit_Admin_UserPreferences\Light_PluginInstall
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserPreferencesControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_ControllerHub/Generated/LightKitAdminUserPreferencesControllerHubHandler.md)<br>Next class: [LightKitAdminUserPreferencesService](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Service/LightKitAdminUserPreferencesService.md)<br>
+Previous class: [LightKitAdminUserPreferencesPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_PlanetInstaller/LightKitAdminUserPreferencesPlanetInstaller.md)<br>Next class: [LightKitAdminUserPreferencesService](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Service/LightKitAdminUserPreferencesService.md)<br>

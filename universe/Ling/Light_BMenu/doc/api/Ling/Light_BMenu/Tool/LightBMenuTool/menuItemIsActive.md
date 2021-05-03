@@ -65,7 +65,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightBMenuTool::menuItemIsActive](https://github.com/lingtalfi/Light_BMenu/blob/master/Tool/LightBMenuTool.php#L73-L79)
+See the source code for method [LightBMenuTool::menuItemIsActive](https://github.com/lingtalfi/Light_BMenu/blob/master/Tool/LightBMenuTool.php#L93-L99)
 
 
 See Also

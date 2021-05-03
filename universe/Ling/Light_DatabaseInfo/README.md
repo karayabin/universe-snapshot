@@ -1,6 +1,6 @@
 Light_DatabaseInfo
 ===========
-2019-09-12 -> 2021-03-05
+2019-09-12 -> 2021-03-15
 
 
 
@@ -71,6 +71,10 @@ database_info:
 History Log
 =============
 
+
+- 1.12.6 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.12.5 -- 2021-03-05
 

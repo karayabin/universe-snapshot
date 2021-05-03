@@ -1,6 +1,6 @@
 Ling/Light_CsrfSession
 ================
-2019-11-27 --> 2021-03-05
+2019-11-27 --> 2021-03-15
 
 
 
@@ -8,7 +8,7 @@ Ling/Light_CsrfSession
 Table of contents
 ===========
 
-- [LightCsrfSessionField](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField.md) &ndash; The LightCsrfSessionField class
+- [LightCsrfSessionField](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField.md) &ndash; The LightCsrfSessionField class.
     - [LightCsrfSessionField::__construct](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/__construct.md) &ndash; Builds the AbstractField instance.
     - [LightCsrfSessionField::getValue](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/getValue.md) &ndash; Returns the value of the field.
     - [LightCsrfSessionField::setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/setContainer.md) &ndash; Sets the container.
@@ -21,7 +21,7 @@ Table of contents
     - AbstractField::getFormattedValue &ndash; Returns the formatted value of this field.
     - AbstractField::getFallbackValue &ndash; Returns the fallback value, which defaults to null.
     - AbstractField::toArray &ndash; Returns the array representation of the field.
-    - AbstractField::hasVeryImportantData &ndash; Returns whether this field contains very important data.
+    - AbstractField::hasVeryImportantData &ndash; Returns whether this field contains [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
     - AbstractField::getDataTransformer &ndash; Returns the data transformer of this field if any, or null otherwise.
     - AbstractField::setDataTransformer &ndash; Sets the dataTransformer for this field.
     - AbstractField::setProperties &ndash; Sets the properties of this field.
@@ -31,7 +31,7 @@ Table of contents
     - AbstractField::setLabel &ndash; Sets the label.
     - AbstractField::setHint &ndash; Sets the hint.
     - AbstractField::setErrorName &ndash; Sets the errorName.
-    - AbstractField::setHasVeryImportantData &ndash; Sets whether this field has very important data.
+    - AbstractField::setHasVeryImportantData &ndash; Sets whether this field has [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
 - [LightCsrfSessionValidator](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator.md) &ndash; The LightCsrfSessionValidator class.
     - [LightCsrfSessionValidator::__construct](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator/__construct.md) &ndash; Builds the AbstractValidator instance.
     - [LightCsrfSessionValidator::test](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator/test.md) &ndash; of the validator.

@@ -1,0 +1,6 @@
+Light_Kit_Editor:
+    prefix: null
+    routes:
+        lke_route-website:
+            pattern: /kit
+            controller: Ling\Light_Kit_Editor\Controller\LkeWebsiteController->render

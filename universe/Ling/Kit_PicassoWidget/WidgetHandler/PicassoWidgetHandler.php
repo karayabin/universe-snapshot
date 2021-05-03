@@ -9,6 +9,8 @@ use Ling\Kit\PageRenderer\KitPageRendererInterface;
 use Ling\Kit\WidgetHandler\WidgetHandlerInterface;
 use Ling\Kit_PicassoWidget\Exception\PicassoWidgetException;
 use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
+use Ling\Light_Kit\ConfigurationTransformer\ConfigurationTransformerInterface;
+use Ling\Light_Kit\ConfigurationTransformer\PageConfigurationTransformerInterface;
 
 
 /**
@@ -158,7 +160,36 @@ class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwa
     /**
      * @implementation
      */
-    public function handle(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string
+    public function process(array &$widgetConf, array $debug): void
+    {
+        if (array_key_exists("className", $widgetConf)) {
+            $className = $widgetConf['className'];
+
+            try {
+                $class = new \ReflectionClass($className);
+                $widgetDir = $this->getWidgetDir($widgetConf, $class);
+                $brainFile = $widgetDir . "/brain/brain.php";
+                if (true === file_exists($brainFile)) {
+                    $vars = $widgetConf['vars'] ?? [];
+                    $this->processBrainFile($brainFile, $vars);
+                    $widgetConf['vars'] = $vars;
+                }
+
+
+            } catch (\ReflectionException) {
+                $this->error("Cannot instantiate class $className.", $widgetConf, $debug);
+            }
+        } else {
+            $this->error("Config error: the className is missing.", $widgetConf, $debug);
+        }
+
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function render(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string
     {
         if (array_key_exists("className", $widgetConf)) {
             if (array_key_exists("template", $widgetConf)) {
@@ -199,16 +230,7 @@ class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwa
                         //--------------------------------------------
                         // FINDING THE WIDGET DIR
                         //--------------------------------------------
-                        if (array_key_exists("widgetDir", $widgetConf)) {
-                            $widgetDir = $widgetConf['widgetDir'];
-                            if ('/' !== substr($widgetDir, 0, 1)) {
-                                $widgetDir = $this->widgetBaseDir . "/" . $widgetDir;
-                            }
-                        } else {
-                            $file = $class->getFileName();
-                            $dir = dirname($file);
-                            $widgetDir = $dir . "/widget";
-                        }
+                        $widgetDir = $this->getWidgetDir($widgetConf, $class);
 
 
                         $templateFileName = str_replace('..', '', $template); // preventing escalating the filesystem
@@ -267,7 +289,7 @@ class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwa
                             //--------------------------------------------
                             // REGISTERING CSS NUGGETS (CODE BLOCKS)
                             //--------------------------------------------
-                            if (array_key_exists("skin", $widgetConf)) {
+                            if (array_key_exists("skin", $widgetConf) && false === empty($widgetConf['skin'])) {
                                 $skin = $widgetConf['skin'];
                             } else {
                                 $skin = $templateName;
@@ -335,5 +357,49 @@ class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwa
         $zone = $debug['zone'];
         $page = $debug['page'];
         throw new PicassoWidgetException($msg . " Widget \"$name\", zone \"$zone\", page \"$page\".");
+    }
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the widget dir.
+     *
+     *
+     * @param array $widgetConf
+     * @param \ReflectionClass $class
+     * @return string
+     */
+    private function getWidgetDir(array $widgetConf, \ReflectionClass $class): string
+    {
+        if (array_key_exists("widgetDir", $widgetConf)) {
+            $widgetDir = $widgetConf['widgetDir'];
+            if ('/' !== substr($widgetDir, 0, 1)) {
+                $widgetDir = $this->widgetBaseDir . "/" . $widgetDir;
+            }
+        } else {
+            $file = $class->getFileName();
+            $dir = dirname($file);
+            $widgetDir = $dir . "/widget";
+        }
+        return $widgetDir;
+    }
+
+
+    /**
+     * Process the brain file.
+     *
+     * Note: The brain file can access the widget variables via **$vars**, and the current instance via **$this**.
+     *
+     *
+     * @param string $file
+     * @param array $vars
+     */
+    private function processBrainFile(string $file, array &$vars)
+    {
+        require_once $file;
     }
 }

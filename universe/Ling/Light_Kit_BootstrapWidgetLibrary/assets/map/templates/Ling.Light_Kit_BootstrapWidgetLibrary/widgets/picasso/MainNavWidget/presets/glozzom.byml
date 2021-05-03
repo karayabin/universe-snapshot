@@ -1,0 +1,32 @@
+name: main_nav
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+template: default.php
+skin: glozzom
+vars:
+    attr:
+        id: main-nav
+        class: navbar-dark bg-dark skin-glozzom
+    title: Glozzom
+    fixed_top: false
+    title_url: /
+    expand_size: sm
+    links:
+        -
+            text: Home
+            url: "?page=home"
+            active: true
+        -
+            text: About
+            url: "?page=about"
+        -
+            text: Services
+            url: "?page=services"
+        -
+            text: Blog
+            url: "?page=blog"
+        -
+            text: Contact
+            url: "?page=contact"
+    links_align_right: true

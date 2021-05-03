@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-03-05
+2019-05-17 --> 2021-05-02
 
 
 
@@ -12,17 +12,6 @@ Table of contents
     - BaseLightAjaxHandler::handle &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
     - ContainerAwareLightAjaxHandler::__construct &ndash; Builds the ContainerAwareLightAjaxHandler instance.
     - ContainerAwareLightAjaxHandler::setContainer &ndash; Sets the light service container interface.
-- [LightKitAdminBMenuHost](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost.md) &ndash; The LightKitAdminBMenuHost class.
-    - [LightKitAdminBMenuHost::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/__construct.md) &ndash; Builds the LightKitAdminBMenuHost instance.
-    - [LightKitAdminBMenuHost::prepareBaseMenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/prepareBaseMenu.md) &ndash; Injects the base menu structure in the given menu.
-    - [LightKitAdminBMenuHost::onMenuCompiled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/onMenuCompiled.md) &ndash; This method is called after the menu has been compiled.
-    - [LightKitAdminBMenuHost::setBaseDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/setBaseDir.md) &ndash; Sets the baseDir.
-    - [LightKitAdminBMenuHost::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/setContainer.md) &ndash; Sets the container.
-    - LightBMenuAbstractHost::getMenuStructureId &ndash; Returns the menu structure id for this host.
-    - LightBMenuAbstractHost::injectDefaultItems &ndash; Inject menu items in the given menu structure.
-    - LightBMenuAbstractHost::setMenuType &ndash; Sets the menu type.
-    - LightBMenuAbstractHost::setMenuStructureId &ndash; Sets the menuStructureId.
-    - LightBMenuAbstractHost::setDefaultItemsParentPath &ndash; Sets the defaultItemsParentPath.
 - [LightKitAdminGeneralBullsheeter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Bullsheet/LightKitAdminGeneralBullsheeter.md) &ndash; The LightKitAdminGeneralBullsheeter class.
     - [LightKitAdminGeneralBullsheeter::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Bullsheet/LightKitAdminGeneralBullsheeter/__construct.md) &ndash; Builds the LightKitAdminGeneralBullsheeter instance.
     - [LightKitAdminGeneralBullsheeter::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Bullsheet/LightKitAdminGeneralBullsheeter/setContainer.md) &ndash; Sets the light service container interface.
@@ -58,6 +47,10 @@ Table of contents
     - [LightKitAdminChloroformRendererUtil::renderHiddenCommonFields](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroformRendererUtil/renderHiddenCommonFields.md) &ndash; Prints the csrf control and form id key control.
     - [LightKitAdminChloroformRendererUtil::renderNotifications](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroformRendererUtil/renderNotifications.md) &ndash; by the light kit admin gui.
     - [LightKitAdminChloroformRendererUtil::renderErrorsSummary](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroformRendererUtil/renderErrorsSummary.md) &ndash; Prints a summary of errors if any, or nothing if there is no error.
+- [LightKitAdminConfigurationTransformer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/ConfigurationTransformer/LightKitAdminConfigurationTransformer.md) &ndash; The LightKitAdminConfigurationTransformer class.
+    - [LightKitAdminConfigurationTransformer::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/ConfigurationTransformer/LightKitAdminConfigurationTransformer/__construct.md) &ndash; Builds the LightKitAdminPageConfigurationTransformer instance.
+    - [LightKitAdminConfigurationTransformer::transform](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/ConfigurationTransformer/LightKitAdminConfigurationTransformer/transform.md) &ndash; Transforms the given configuration array in place.
+    - [LightKitAdminConfigurationTransformer::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/ConfigurationTransformer/LightKitAdminConfigurationTransformer/setContainer.md) &ndash; Sets the light service container interface.
 - [PermissionController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Admin/PermissionController.md) &ndash; The PermissionController class.
     - [PermissionController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Admin/PermissionController/render.md) &ndash; Renders the admin's permission list.
     - [AdminPageController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/__construct.md) &ndash; Builds the LightController instance.
@@ -92,6 +85,14 @@ Table of contents
 - [ForgottenPasswordController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController.md) &ndash; The ForgottenPasswordController class.
     - [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController/render.md) &ndash; Renders the forgot password page and returns the result.
     - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
+    - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
+    - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
+    - LightController::setLight &ndash; Sets the light instance.
+- [LkaJimToolboxController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/JimToolbox/LkaJimToolboxController.md) &ndash; The LkaJimToolboxController class.
+    - [LkaJimToolboxController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/JimToolbox/LkaJimToolboxController/render.md) &ndash; Renders an [acp response](https://github.com/lingtalfi/AjaxCommunicationProtocol) containing the pane body and title information.
+    - [AdminPageController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/__construct.md) &ndash; Builds the LightController instance.
+    - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
     - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
@@ -171,16 +172,36 @@ Table of contents
     - [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLkaPlanetNameByPlanet.md) &ndash; Returns the lka planet name correspongind to the given $planet.
 - [LightKitAdminPermissionHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper.md) &ndash; The LightKitAdminPermissionHelper class.
     - [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Binds the permissions of the given basePluginName to the main lka permission groups.
+- [JimToolboxItemBaseHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemBaseHandler.md) &ndash; The JimToolboxItemBaseHandler class.
+    - [JimToolboxItemBaseHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemBaseHandler/__construct.md) &ndash; Builds the JimToolboxItemBaseHandler instance.
+    - [JimToolboxItemBaseHandler::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemBaseHandler/setContainer.md) &ndash; Sets the light service container interface.
+    - [JimToolboxItemHandlerInterface::getPaneBody](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemHandlerInterface/getPaneBody.md) &ndash; Returns the pane body.
+    - [JimToolboxItemHandlerInterface::getPaneTitle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemHandlerInterface/getPaneTitle.md) &ndash; Returns the title or the pane.
+- [JimToolboxItemHandlerInterface](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemHandlerInterface.md) &ndash; The JimToolboxItemHandler interface.
+    - [JimToolboxItemHandlerInterface::getPaneBody](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemHandlerInterface/getPaneBody.md) &ndash; Returns the pane body.
+    - [JimToolboxItemHandlerInterface::getPaneTitle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemHandlerInterface/getPaneTitle.md) &ndash; Returns the title or the pane.
 - [BaseLightKitAdminPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin.md) &ndash; The BaseLightKitAdminPlugin class.
     - [BaseLightKitAdminPlugin::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin/__construct.md) &ndash; Builds the BaseLightKitAdminPlugin instance.
     - [BaseLightKitAdminPlugin::getPluginOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin/getPluginOptions.md) &ndash; Returns the options of this kit admin plugin.
     - [BaseLightKitAdminPlugin::setOptionsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin/setOptionsFile.md) &ndash; Sets the file.
 - [LightKitAdminPluginInterface](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md) &ndash; The LightKitAdminPluginInterface interface.
     - [LightKitAdminPluginInterface::getPluginOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface/getPluginOptions.md) &ndash; Returns the options of this kit admin plugin.
+- [LightKitAdminBMenuModifier](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier.md) &ndash; The LightKitAdminBMenuModifier class.
+    - [LightKitAdminBMenuModifier::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier/__construct.md) &ndash; Builds the LightKitAdminBMenuHost instance.
+    - [LightKitAdminBMenuModifier::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier/setContainer.md) &ndash; Sets the container.
+    - [LightKitAdminBMenuModifier::updateItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier/updateItems.md) &ndash; Update the items of the menu.
+- [LightKitAdminBMenuRegistrationUtil](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.md) &ndash; The LightKitAdminBMenuRegistrationUtil class.
+    - [LightKitAdminBMenuRegistrationUtil::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/__construct.md) &ndash; Builds the LightKitAdminBMenuRegistrationUtil instance.
+    - [LightKitAdminBMenuRegistrationUtil::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/setContainer.md) &ndash; Sets the container.
+    - [LightKitAdminBMenuRegistrationUtil::writeItemsToMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/writeItemsToMainMenuSection.md) &ndash; Adds menu items in a section of the admin main menu.
 - [LightKitAdminControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler.md) &ndash; The LightKitAdminControllerHubHandler class.
     - [LightKitAdminControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
+- [LightKitAdminBasePlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.md) &ndash; The LightKitAdminBasePlanetInstaller class.
+    - [LightKitAdminBasePlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller.md) &ndash; The LightKitAdminPlanetInstaller class.
     - [LightKitAdminPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
@@ -201,6 +222,11 @@ Table of contents
     - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
     - LightUserDatabaseBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
     - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
+- [LightKitAdminEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler.md) &ndash; The LightKitAdminEditorRealformSuccessHandler class.
+    - [LightKitAdminEditorRealformSuccessHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler/__construct.md) &ndash; Builds the LightKitAdminEditorRealformSuccessHandler instance.
+    - LightKitEditorRealformSuccessHandler::setEngineType &ndash; Sets the engineType.
+    - LightKitEditorRealformSuccessHandler::setContainer &ndash; Sets the light service container interface.
+    - LightKitEditorRealformSuccessHandler::execute &ndash; Process the given data, and throws an exception if something unexpected happens.
 - [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md) &ndash; The LightKitAdminNotification class.
     - [LightKitAdminNotification::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/__construct.md) &ndash; Builds the LightKitAdminNotification instance.
     - [LightKitAdminNotification::createSuccess](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/createSuccess.md) &ndash; Creates a notification instance of type success and returns it.
@@ -217,11 +243,6 @@ Table of contents
     - [LightKitAdminNotification::getTitle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/getTitle.md) &ndash; Returns the title of this instance.
     - [LightKitAdminNotification::getBody](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/getBody.md) &ndash; Returns the body of this instance.
     - [LightKitAdminNotification::getCssClass](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/getCssClass.md) &ndash; Returns the cssClass of this instance.
-- [LightKitAdminPageConfigurationTransformer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/PageConfigurationTransformer/LightKitAdminPageConfigurationTransformer.md) &ndash; The LightKitAdminPageConfigurationTransformer class.
-    - [LightKitAdminPageConfigurationTransformer::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/PageConfigurationTransformer/LightKitAdminPageConfigurationTransformer/__construct.md) &ndash; Builds the LightKitAdminPageConfigurationTransformer instance.
-    - [LightKitAdminPageConfigurationTransformer::transform](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/PageConfigurationTransformer/LightKitAdminPageConfigurationTransformer/transform.md) &ndash; Transforms the given page configuration array in place.
-    - [LightKitAdminPageConfigurationTransformer::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/PageConfigurationTransformer/LightKitAdminPageConfigurationTransformer/setContainer.md) &ndash; Sets the light service container interface.
-- [LightKitAdminRealformHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realform/Handler/LightKitAdminRealformHandler.md) &ndash; The LightKitAdminRealformHandler class.
 - [LightKitAdminListActionHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler.md) &ndash; The LightKitAdminListActionHandler class.
     - [LightKitAdminListActionHandler::doWeShowTrigger](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/doWeShowTrigger.md) &ndash; Returns whether we should display the trigger of the action identified by actionId to the current user.
     - [LightKitAdminListActionHandler::prepareListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/prepareListAction.md) &ndash; Prepares the given listAction for the given actionId.
@@ -279,7 +300,11 @@ Table of contents
     - [LightKitAdminService::getRedirectResponseByRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getRedirectResponseByRoute.md) &ndash; Creates and returns an HttpRedirectResponse, based on the given arguments.
     - [LightKitAdminService::onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onLightExceptionCaught.md) &ndash; The onLightExceptionCaught method
     - [LightKitAdminService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onWebsiteUserLogin.md) &ndash; This method is called by default when a website user logs in.
+    - [LightKitAdminService::getDuelistEngine](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDuelistEngine.md) &ndash; Returns a [duelist engine](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface.md) instance.
+    - [LightKitAdminService::getKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getKitEditorRealformSuccessHandler.md) &ndash; Returns the kit editor's realform' success handler instance.
     - [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md) &ndash; Allows lka plugins to register their services to some plugins in a dynamic way.
+    - [LightKitAdminService::getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItems.md) &ndash; Returns the array of jim toolbox items.
+    - [LightKitAdminService::registerJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerJimToolboxItem.md) &ndash; Registers a jim toolbox item.
 - [LightKitAdminStandardServicePlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin.md) &ndash; The LightKitAdminStandardServicePlugin class.
     - [LightKitAdminStandardServicePlugin::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/__construct.md) &ndash; Builds the LightLingStandardService01 instance.
     - [LightKitAdminStandardServicePlugin::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/setContainer.md) &ndash; Sets the container.
@@ -304,13 +329,18 @@ Dependencies
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
+- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [FontAwesome](https://github.com/lingtalfi/FontAwesome)
 - [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
+- [JAcpHep](https://github.com/lingtalfi/JAcpHep)
 - [JBee](https://github.com/lingtalfi/JBee)
+- [JFormCollect](https://github.com/lingtalfi/JFormCollect)
 - [JPostForm](https://github.com/lingtalfi/JPostForm)
+- [JRadioHide](https://github.com/lingtalfi/JRadioHide)
+- [JSelectHide](https://github.com/lingtalfi/JSelectHide)
 - [Jquery](https://github.com/lingtalfi/Jquery)
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 - [Light](https://github.com/lingtalfi/Light)
@@ -334,7 +364,6 @@ Dependencies
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
 - [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
 - [Light_Realist](https://github.com/lingtalfi/Light_Realist)
 - [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
@@ -346,6 +375,7 @@ Dependencies
 - [PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools)
+- [UrlSmuggler](https://github.com/lingtalfi/UrlSmuggler)
 - [WiseTool](https://github.com/lingtalfi/WiseTool)
 
 

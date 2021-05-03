@@ -1,7 +1,10 @@
 dependencies: 
     Ling: 
+        - CliTools
         - Light
+        - Light_Events
         - Light_Logger
+        - Light_PlanetInstaller
     
 
 post_install: 

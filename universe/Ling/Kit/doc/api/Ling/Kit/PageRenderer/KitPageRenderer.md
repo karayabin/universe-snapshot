@@ -4,7 +4,7 @@
 
 The KitPageRenderer class
 ================
-2019-04-24 --> 2021-03-05
+2019-04-24 --> 2021-04-09
 
 
 
@@ -17,25 +17,7 @@ Introduction
 The KitPageRenderer class.
 
 
-The configuration for a given page looks like this:
-
-```yaml
-
-label: $pageLabel               # The human name for the page. It is used in error messages.
-layout: $layoutRelPath          # The relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit.
-layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
-zones:
-    $zoneName:                  # note: the zone name is called from the layout file
-        -
-            name: $widgetName       # the widget name
-            type: $widgetType       # the widget type
-            ?active: $bool          # whether to use the widget, defaults to true
-            ...                     # any other configuration value that you want
-
-```
-
-
-See more details in the [page configuration array](https://github.com/lingtalfi/Kit/blob/master/README.md#the-kit-configuration-array) document.
+The configuration for a given page is defined in the [page configuration array](https://github.com/lingtalfi/Kit/blob/master/README.md#the-kit-configuration-array) document.
 
 
 

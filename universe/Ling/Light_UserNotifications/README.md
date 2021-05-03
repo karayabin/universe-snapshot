@@ -1,6 +1,6 @@
 Light_UserNotifications
 ===========
-2020-08-17 -> 2021-03-05
+2020-08-17 -> 2021-03-15
 
 
 
@@ -69,6 +69,10 @@ user_notifications:
 
 History Log
 =============
+
+- 1.0.9 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.0.8 -- 2021-03-05
 

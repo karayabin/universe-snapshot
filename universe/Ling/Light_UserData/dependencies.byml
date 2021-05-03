@@ -3,10 +3,13 @@ dependencies:
         - BabyYaml
         - Bat
         - Chloroform
+        - CliTools
         - ExceptionCodes
         - Light
         - Light_AjaxHandler
         - Light_Database
+        - Light_Events
+        - Light_PlanetInstaller
         - Light_Realform
         - Light_ReverseRouter
         - Light_SimpleHttpServer

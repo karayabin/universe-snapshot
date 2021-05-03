@@ -23,11 +23,14 @@ class LtsTaskScheduleController extends RealAdminPageController
      */
     public function renderList()
     {
-        return $this->renderAdminPage('Light_Kit_Admin_TaskScheduler/kit/zeroadmin/generated/lts_task_schedule_list', [], PageConfUpdator::create()->updateWidget("body.light_realist", [
-            'vars' => [
-                'request_declaration_id' => 'Light_Kit_Admin_TaskScheduler:generated/lts_task_schedule',
+
+        return $this->renderAdminPage('Ling.Light_Kit_Admin_TaskScheduler/generated/lts_task_schedule_list', [
+            'widgetVariables' => [
+                "body.light_realist" => [
+                    'request_declaration_id' => 'Ling.Light_Kit_Admin_TaskScheduler:generated/lts_task_schedule',
+                ],
             ],
-        ]));
+        ]);
     }
 
 
@@ -39,7 +42,7 @@ class LtsTaskScheduleController extends RealAdminPageController
      */
     public function renderForm()
     {
-        $realformId = "Light_Kit_Admin_TaskScheduler:generated/lts_task_schedule";
+        $realformId = "Ling.Light_Kit_Admin_TaskScheduler:generated/lts_task_schedule";
         $nugget = [];
         $res = $this->processForm($realformId, $nugget);
 
@@ -52,11 +55,13 @@ class LtsTaskScheduleController extends RealAdminPageController
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        return $this->renderAdminPage('Light_Kit_Admin_TaskScheduler/kit/zeroadmin/generated/lts_task_schedule_form', [
-            "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
-            "form" => $form,
-        ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
-            'vars' => $nugget["rendering"],
-        ]));
+        $vars = $nugget["rendering"] ?? [];
+        $vars['form'] = $form;
+
+        return $this->renderAdminPage('Ling.Light_Kit_Admin_TaskScheduler/generated/lts_task_schedule_form', [
+            'widgetVariables' => [
+                "body.lka_chloroform" => $vars,
+            ],
+        ]);
     }
 }

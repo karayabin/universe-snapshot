@@ -4,7 +4,7 @@
 
 The WidgetHandlerInterface class
 ================
-2019-04-24 --> 2021-03-05
+2019-04-24 --> 2021-04-09
 
 
 
@@ -25,7 +25,8 @@ Class synopsis
 abstract class <span class="pl-k">WidgetHandlerInterface</span>  {
 
 - Methods
-    - abstract public [handle](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/handle.md)(array $widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, array $debug) : string
+    - abstract public [process](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/process.md)(array &$widgetConf, array $debug) : void
+    - abstract public [render](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/render.md)(array $widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, array $debug) : string
 
 }
 
@@ -37,7 +38,8 @@ abstract class <span class="pl-k">WidgetHandlerInterface</span>  {
 Methods
 ==============
 
-- [WidgetHandlerInterface::handle](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/handle.md) &ndash; Returns the html code of the widget, according to the widget configuration.
+- [WidgetHandlerInterface::process](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/process.md) &ndash; Process the widget.
+- [WidgetHandlerInterface::render](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/render.md) &ndash; Returns the html code of the widget, according to the widget configuration.
 
 
 

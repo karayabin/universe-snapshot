@@ -1,0 +1,5 @@
+bmenu:
+    instance: Ling\Light_BMenu\Service\LightBMenuService
+    methods:
+        setContainer:
+            container: @container()

@@ -1,6 +1,6 @@
 JumboExploder
 ===========
-2020-06-09 -> 2021-03-05
+2020-06-09 -> 2021-04-06
 
 
 
@@ -43,6 +43,10 @@ Summary
 History Log
 =============
 
+- 1.0.4 -- 2021-04-06
+
+    - fix JumboExploder->explode stopping iteration when "0" is encountered
+  
 - 1.0.3 -- 2021-03-05
 
     - update README.md, add install alternative

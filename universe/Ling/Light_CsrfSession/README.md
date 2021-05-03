@@ -1,6 +1,6 @@
 Light_CsrfSession
 ===========
-2019-11-27 -> 2021-03-05
+2019-11-27 -> 2021-03-15
 
 
 
@@ -70,6 +70,10 @@ Related
 History Log
 =============
 
+- 1.0.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.0.4 -- 2021-03-05
 
     - update README.md, add install alternative

@@ -4,7 +4,7 @@
 
 The LightBMenuService class
 ================
-2019-08-08 --> 2021-03-05
+2019-08-08 --> 2021-03-18
 
 
 
@@ -39,20 +39,15 @@ Class synopsis
 class <span class="pl-k">LightBMenuService</span>  {
 
 - Properties
-    - protected [Ling\Light_BMenu\Host\LightBMenuHostInterface[]](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface.md) [$hosts](#property-hosts) ;
-    - protected array [$directInjectors](#property-directInjectors) ;
-    - protected array [$directItems](#property-directItems) ;
-    - protected array [$defaultItems](#property-defaultItems) ;
+    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)|null [$container](#property-container) ;
+    - private [Ling\Light_BMenu\MenuModifier\MenuModifierInterface[]](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/MenuModifier/MenuModifierInterface.md) [$menuModifiers](#property-menuModifiers) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/__construct.md)() : void
-    - public [getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md)(string $menuType) : array
-    - public [registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md)(string $menuType, [Ling\Light_BMenu\Host\LightBMenuHostInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface.md) $host) : void
-    - public [addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md)(string $menuType, $injector) : void
-    - public [addDirectItemsByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFile.md)(string $menuType, string $file) : void
-    - public [addDirectItemsByFileAndParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFileAndParentPath.md)(string $menuType, string $file, string $parentPath) : void
-    - public [addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItem.md)(string $menuType, array $item) : void
-    - public [addDefaultItemByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItemByFile.md)(string $menuType, string $path) : void
+    - public [setContainer](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - public [addMenuModifier](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addMenuModifier.md)([Ling\Light_BMenu\MenuModifier\MenuModifierInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/MenuModifier/MenuModifierInterface.md) $modifier) : void
+    - public [getMenusBaseDir](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getMenusBaseDir.md)() : string
+    - public [getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md)(string $menuName) : array
 
 }
 
@@ -62,50 +57,15 @@ class <span class="pl-k">LightBMenuService</span>  {
 Properties
 =============
 
-- <span id="property-hosts"><b>hosts</b></span>
+- <span id="property-container"><b>container</b></span>
 
-    This property holds the host for this instance.
-    
-    Array of menuType => LightBMenuHostInterface instance
+    This property holds the container for this instance.
     
     
 
-- <span id="property-directInjectors"><b>directInjectors</b></span>
+- <span id="property-menuModifiers"><b>menuModifiers</b></span>
 
-    This property holds the directInjectors for this instance.
-    
-    It's an array of menuType => directInjectors.
-    
-    With:
-    - menuType: string, the menu type (see [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details)
-    - directInjectors: BMenuDirectInjectorInterface[]|callable[], an array of direct injectors,
-             each of which being either a BMenuDirectInjectorInterface instance, or a
-             php callable which take two arguments: the menuStructureId and the LightBMenu instance.
-    
-    
-
-- <span id="property-directItems"><b>directItems</b></span>
-
-    This property holds the directItems for this instance.
-    
-    It's an array of menuType => menuPath2Items,
-    
-    with menuPath2Items: array of [bdot](https://github.com/karayabin/universe-snapshot/blob/master/universe/Ling/Bat/doc/bdot-notation.md) menuPath to menu items
-    
-    
-
-- <span id="property-defaultItems"><b>defaultItems</b></span>
-
-    This property holds the defaultItems for this instance.
-    
-    An array of menuType => defaultItems.
-    
-    With:
-    - menuType: string, the menu type (see [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details)
-    - defaultItems: an array of menu items
-    
-    
-    See the [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details.
+    This property holds the menuModifiers for this instance.
     
     
 
@@ -115,13 +75,10 @@ Methods
 ==============
 
 - [LightBMenuService::__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/__construct.md) &ndash; Builds the LightBMenuService instance.
-- [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md) &ndash; Returns the computed menu items identified by the given $menuType.
-- [LightBMenuService::registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md) &ndash; Registers a host.
-- [LightBMenuService::addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md) &ndash; Adds a direct injector to menu identified by $menuType.
-- [LightBMenuService::addDirectItemsByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFile.md) &ndash; Add direct items to this instance.
-- [LightBMenuService::addDirectItemsByFileAndParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFileAndParentPath.md) &ndash; Add direct items to this instance.
-- [LightBMenuService::addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItem.md) &ndash; Adds a default item to the menu identified by $menuType.
-- [LightBMenuService::addDefaultItemByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItemByFile.md) &ndash; Adds a default item stored in $path, to the menu identified by $menuType.
+- [LightBMenuService::setContainer](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/setContainer.md) &ndash; Sets the container.
+- [LightBMenuService::addMenuModifier](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addMenuModifier.md) &ndash; Adds a menu modifier to the service instance.
+- [LightBMenuService::getMenusBaseDir](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getMenusBaseDir.md) &ndash; Returns the path to the directory containing all the menus.
+- [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md) &ndash; Returns the computed menu items for the given menu name.
 
 
 
@@ -136,4 +93,4 @@ See the source code of [Ling\Light_BMenu\Service\LightBMenuService](https://gith
 
 SeeAlso
 ==============
-Previous class: [LightBMenu](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Menu/LightBMenu.md)<br>Next class: [LightBMenuTool](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool.md)<br>
+Previous class: [MenuModifierInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/MenuModifier/MenuModifierInterface.md)<br>Next class: [LightBMenuTool](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool.md)<br>

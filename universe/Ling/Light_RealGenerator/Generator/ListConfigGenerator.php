@@ -71,6 +71,14 @@ class ListConfigGenerator extends BaseConfigGenerator
      */
     protected function getFileContent(string $table): string
     {
+        $varArray = $this->getKeyValue("variables", false, []);
+        if (false === array_key_exists("galaxyName", $varArray)) {
+            throw new LightRealGeneratorException("The \"variables.galaxyName\" was not defined.");
+        }
+
+
+        $galaxy = $varArray['galaxyName'];
+
 
         $this->_aliases = [];
         $this->_colAliases = [];
@@ -121,18 +129,16 @@ class ListConfigGenerator extends BaseConfigGenerator
         $main['_vars'] = [
             "table" => $table,
             "plugin" => $pluginName,
+            "galaxy" => $galaxy,
+
         ];
+        $main['planetId'] = '%{galaxy}/%{plugin}';
 
 
-        $varArray = $this->getKeyValue("variables", false, []);
-        if (array_key_exists("galaxyName", $varArray)) {
-            $main['planetId'] = '%{galaxyName}/%{plugin}';
-        }
 
 
         $duelist = [];
         $duelist['table'] = '%{table}';
-
 
         $ignoreColumns = array_unique(array_merge($globalIgnoreColumns, $ignoreColumns));
         $colToCross = [];
@@ -413,7 +419,7 @@ class ListConfigGenerator extends BaseConfigGenerator
                     'action_id' => "realist-edit_rows",
                     'text' => "Edit",
                     'icon' => "fas fa-edit",
-                    'realform_id' => '%{plugin}:generated/%{table}',
+                    'realform_id' => '%{galaxy}.%{plugin}:generated/%{table}',
                 ],
                 [
                     'text' => "Share",

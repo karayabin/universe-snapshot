@@ -33,8 +33,8 @@ class LightKitAdminUserPreferencesUserMainPageController extends AdminPageContro
      */
     public function render()
     {
-        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
-        $page = "Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/kit_admin_user_preferences_mainpage";
+        $parentLayout = "Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base";
+        $page = "Ling.Light_Kit_Admin_UserPreferences/user_preferences";
 
 
 

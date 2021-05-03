@@ -44,8 +44,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $menuItemIconParent = $this->getKeyValue("menu.item_icon_parent", false, "fas fa-bars");
         $menuItemPrefixParent = $this->getKeyValue("menu.item_prefix_parent", false, "lka_gen");
         $menuItemPrefixChild = $this->getKeyValue("menu.item_prefix_child", false, "lkagen_id");
-        $menuItemPlugin = $this->getKeyValue("menu.item_plugin", false, "Light_Kit_Admin");
-        $menuItemDefaultRight = $this->getKeyValue("menu.item_default_right", false, "Light_Kit_Admin.user");
+        $menuItemPlugin = $this->getKeyValue("menu.item_plugin", false, "Ling.Light_Kit_Admin");
+        $menuItemDefaultRight = $this->getKeyValue("menu.item_default_right", false, "Ling.Ling.Light_Kit_Admin.user");
 
         $bundle = [
             "prefixes" => $prefixes,

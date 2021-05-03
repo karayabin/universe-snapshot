@@ -7,7 +7,7 @@ LightRealistService::prepareListItemGroupActions
 
 
 
-LightRealistService::prepareListItemGroupActions — Parses the given list action items (aka [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item)) and turns them into [generic action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md).
+LightRealistService::prepareListItemGroupActions — Parses the given list action items (aka [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item)) and turns them into [generic action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/generic-action-item.md).
 
 
 
@@ -21,7 +21,7 @@ private [LightRealistService::prepareListItemGroupActions](https://github.com/li
 
 
 
-Parses the given list action items (aka [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item)) and turns them into [generic action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md).
+Parses the given list action items (aka [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item)) and turns them into [generic action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/generic-action-item.md).
 If a generic action item is discarded, it won't appear in the resulting list.
 
 
@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::prepareListItemGroupActions](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L964-L983)
+See the source code for method [LightRealistService::prepareListItemGroupActions](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L933-L952)
 
 
 See Also

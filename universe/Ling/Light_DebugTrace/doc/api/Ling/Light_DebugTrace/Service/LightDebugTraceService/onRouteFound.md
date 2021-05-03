@@ -7,7 +7,7 @@ LightDebugTraceService::onRouteFound
 
 
 
-LightDebugTraceService::onRouteFound — Callable for the Light.on_route_found event provided by [the Light framework](https://github.com/lingtalfi/Light).
+LightDebugTraceService::onRouteFound — Callable for the Ling.Light.on_route_found event provided by [the Light framework](https://github.com/lingtalfi/Light).
 
 
 
@@ -21,7 +21,7 @@ public [LightDebugTraceService::onRouteFound](https://github.com/lingtalfi/Light
 
 
 
-Callable for the Light.on_route_found event provided by [the Light framework](https://github.com/lingtalfi/Light).
+Callable for the Ling.Light.on_route_found event provided by [the Light framework](https://github.com/lingtalfi/Light).
 
 
 

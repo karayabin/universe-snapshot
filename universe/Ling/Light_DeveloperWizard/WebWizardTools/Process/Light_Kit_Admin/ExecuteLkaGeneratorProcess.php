@@ -56,11 +56,12 @@ class ExecuteLkaGeneratorProcess extends LightKitAdminBaseProcess
         if (true === empty($this->getDisabledReason())) {
 
             $planet = $this->getContextVar("planet");
+            $galaxy = $this->getContextVar("galaxy");
             $appDir = $this->container->getApplicationDir();
             $serviceName = LightNamesAndPathHelper::getServiceName($planet);
 
-            $lkaGenConfigPath = $appDir . "/config/data/$planet/Light_Kit_Admin_Generator/$serviceName.byml";
-            $lkaGenConfigPath2 = $appDir . "/config/data/$planet/Light_Kit_Admin_Generator/$serviceName.generated.byml";
+            $lkaGenConfigPath = $appDir . "/config/data/$galaxy.$planet/Ling.Light_Kit_Admin_Generator/$serviceName.byml";
+            $lkaGenConfigPath2 = $appDir . "/config/data/$galaxy.$planet/Ling.Light_Kit_Admin_Generator/$serviceName.generated.byml";
 
 
             if (false === file_exists($lkaGenConfigPath)) {

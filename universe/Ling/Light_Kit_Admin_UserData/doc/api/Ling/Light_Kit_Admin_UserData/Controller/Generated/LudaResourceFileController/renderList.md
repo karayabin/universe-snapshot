@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LudaResourceFileController::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaResourceFileController.php#L24-L31)
+See the source code for method [LudaResourceFileController::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaResourceFileController.php#L24-L34)
 
 
 See Also

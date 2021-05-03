@@ -1,0 +1,5 @@
+multipleFormEditor:
+    prefixes:
+        lup:
+            realform_identifier: Ling.Light_Kit_Admin_UserPreferences.generated/{table}
+            kit_page: Ling.Light_Kit_Admin_UserPreferences/generated/{table}_form

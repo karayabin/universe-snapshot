@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_Generator
 ================
-2019-11-06 --> 2021-03-05
+2019-11-06 --> 2021-03-15
 
 
 
@@ -8,6 +8,7 @@ Ling/Light_Kit_Admin_Generator
 Table of contents
 ===========
 
+- [LightKitAdminGeneratorException](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Exception/LightKitAdminGeneratorException.md) &ndash; The LightKitAdminGeneratorException class.
 - [ControllerGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/ControllerGenerator.md) &ndash; The ControllerGenerator class.
     - [ControllerGenerator::generate](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/ControllerGenerator/generate.md) &ndash; Generates the controller classes according to the given [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md).
     - BaseConfigGenerator::__construct &ndash; Builds the ListConfigGenerator instance.

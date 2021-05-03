@@ -1,5 +1,7 @@
 https://github.com/lingtalfi/Light_404Logger/blob/master/README.md
 https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Exception/Light404LoggerException.md
+https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller/onMapCopyAfter.md
+https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller.md
 https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Logger/Light404LoggerListener/__construct.md
 https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Logger/Light404LoggerListener/configure.md
 https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Logger/Light404LoggerListener/executeFilters.md

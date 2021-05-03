@@ -1,0 +1,34 @@
+realist:
+    instance: Ling\Light_Realist\Service\LightRealistService
+    methods:
+        setContainer:
+            container: @container()
+        setBaseDir:
+            dir: ${app_dir}
+        registerDynamicInjectionHandler:
+            identifier: Ling.Light_Realist
+            handler:
+                instance: Ling\Light_Realist\DynamicInjection\LightRealistDynamicInjectionHandler
+
+realist_action_handler:
+    instance: Ling\Light_Realist\Service\LightRealistService
+    methods:
+        setContainer:
+            container: @container()
+        setBaseDir:
+            dir: ${app_dir}
+
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$ajax_handler.methods_collection:
+    -
+        method: registerHandler
+        args:
+            id: Ling.Light_Realist
+            handler:
+                instance: Ling\Light_Realist\AjaxHandler\LightRealistAjaxHandler
+

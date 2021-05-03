@@ -46,3 +46,10 @@
     - Ling:Bat:1.308+
     - Ling:Light:0.69.30+
     - Ling:Light_Logger:1.11.5+
+
+1.2.5: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Light:0.70.0+
+    - Ling:Light_Logger:1.11.6+

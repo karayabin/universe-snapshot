@@ -1,0 +1,33 @@
+label: Light Kit Admin Forbidden Page
+layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+vars:
+    theme: $t
+layout_vars: []
+
+title: Light Kit Admin Forbidden Page
+description: <
+    This is the forbidden page of light kit admin.
+>
+
+zones:
+    notifications: b$:Ling.Light_Kit_Admin/notifications_default
+    toasts: b$:Ling.Light_Kit_Admin/toasts_default
+    sub_header: b$:Ling.Light_Kit_Admin/sub_header_default
+    header: b$:Ling.Light_Kit_Admin/header_default
+    sidebar: b$:Ling.Light_Kit_Admin/sidebar_default
+    body:
+        - b$:Ling.Light_Kit_Admin/body_default
+        -
+            name: zeroadmin_bignotification
+            id: zeroadmin_bignotification
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminBigNotificationWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminBigNotificationWidget
+            template: default.php
+            vars:
+                container_class: big-notif-warning
+                icon: far fa-grimace
+                title: Oops!
+                text: You don't have the right to access this page.
+    footer: b$:Ling.Light_Kit_Admin/footer_default
+    

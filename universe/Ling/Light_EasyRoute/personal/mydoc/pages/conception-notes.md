@@ -1,6 +1,6 @@
 Light_EasyRoute, conception notes
 =================
-2019-08-21 -> 2021-02-25
+2019-08-21 -> 2021-03-09
 
 
 Plugins sometimes need to register their own routes.
@@ -32,7 +32,7 @@ Following these steps will add your plugin's routes to the [master route declara
 
 The plugin's routes declaration file 
 ------------
-2021-02-23 -> 2021-02-25
+2021-02-23 -> 2021-03-09
 
 
 The plugin's routes declaration file has a structure similar to this:
@@ -75,7 +75,12 @@ Each bundle has the following entries:
 
 The plugin file's location must be at:
 
-- config/data/$PluginName/Light_EasyRoute/routes.byml
+- config/data/$PluginDotName/Light_EasyRoute/routes.byml
+
+
+With:
+
+- **$PluginDotName**: the [plugin's dot name](https://github.com/karayabin/universe-snapshot#the-planet-dot-name)
 
 
 
@@ -101,7 +106,7 @@ We reckon that urls shouldn't generally end with a "slash" character, and so by 
 
 The master route declaration file
 ---------
-2021-02-23
+2021-02-23 -> 2021-03-09
 
 
 
@@ -118,7 +123,7 @@ which just merges the content of their route declaration file into the master fi
 
 The master's file location will be at:
 
-- config/open/Light_EasyRoute/routes.byml
+- config/open/Ling.Light_EasyRoute/routes.byml
 
 
 

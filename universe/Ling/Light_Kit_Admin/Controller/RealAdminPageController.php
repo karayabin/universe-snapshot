@@ -91,6 +91,8 @@ abstract class RealAdminPageController extends AdminPageController
          * @var $rf LightRealformService
          */
         $rf = $this->getContainer()->get("realform");
+
+
         $realformResult = $rf->executeRealform($realformIdentifier);
         $nugget = $realformResult->getNugget();
         $form = $realformResult->getChloroform();

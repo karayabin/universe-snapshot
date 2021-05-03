@@ -1,6 +1,6 @@
 UrlFriendlyListHelper
 ==========================
-2015-11-04 -> 2021-03-05
+2015-11-04 -> 2021-03-25
 
 
 
@@ -769,6 +769,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.1.4 -- 2021-03-25
+
+    - fix typo in MysqlPdoItemGenerator
+  
 - 1.1.3 -- 2021-03-05
 
     - update README.md, add install alternative

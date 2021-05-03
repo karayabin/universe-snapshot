@@ -111,7 +111,7 @@ list:
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/!{plugin}/Light_Realist/list/generated
+    target_dir: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_Realist/list/generated
 
     # The title of the list, defaults to:
     # - {Label} list
@@ -127,7 +127,7 @@ list:
 
 
     # Whether to use the cross columns on foreign keys
-    # See more about cross columns in https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+    # See more about cross columns in https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/crossed-column.md
     use_cross_columns: true
 
     # A string representing how to display the foreign key in the cross column.
@@ -143,8 +143,8 @@ list:
     # which is a built-in transformer provided by Light_Realist.
     # This is used to create a link out of the cross column.
     #
-    # See more about the column transformer in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#types-the-column-transformers
-    # See more about the cross columns in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+    # See more about the column transformer in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/realist-conception-notes.md#types-the-column-transformers
+    # See more about the cross columns in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/crossed-column.md
     #
     # In particular, the url_params.controller value is generated from this option.
     # See the BaseRealistRowsRenderer implementation for more details: https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer.md
@@ -215,7 +215,7 @@ list:
             - password
     # This array let you override the default column types.
     # It's an array of table => types, with types being an array of columnName => type.
-    # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+    # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
     # This is used to generate the rendering.open_admin_table.data_types setting in the config file.
     #
     ?open_admin_table_column_types:
@@ -326,7 +326,7 @@ list:
     related_links:
         -
             text: Add new "{label}" item
-            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller, m:f})
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller, m:f})
             icon: fas fa-plus-circle
 
 # This section defines the behaviour of the form configuration file generator
@@ -358,7 +358,7 @@ form:
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/!{plugin}/Light_Realform/form/generated
+    target_dir: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_Realform/form/generated
 
 
     # This array let you ignore/skip columns that you want to exclude from the generated form config file.
@@ -455,7 +455,7 @@ form:
             # See the [Light_Nugget baked in security system](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#a-baked-in-security-system-for-nugget-users) for more details.
             table_list_security:
                 any:
-                    permission: Light_Kit_Admin.admin
+                    permission: Ling.Light_Kit_Admin.admin
 
 
     # An array of table => notRequiredFields, with notRequiredFields being an array of the fields for which you don't
@@ -502,7 +502,7 @@ menu:
     # The target_file is the path of the file to generate.
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_file: {app_dir}/config/data/!{plugin}/bmenu/generated/!{shortName}.admin_mainmenu_1.byml
+    target_file: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_BMenu/generated/admin_main_menu.byml
 
 
 
@@ -553,11 +553,11 @@ menu:
     # Define a right to assign by default to each table starting with a certain prefix.
     # It's an array of prefix: right.
     # Note: the value defined here can be overridden with the "items" option (see below).
-    # Note2: the default right value used by the generator on any menu item is "Light_Kit_Admin.user".
+    # Note2: the default right value used by the generator on any menu item is "Ling.Light_Kit_Admin.user".
     prefix_to_rights:
         # Note: in this case, the Light_Database doesn't provide any permission group, so we use
         # the permissions provided by light kit admin
-        !{prefix}: Light_Kit_Admin.user
+        !{prefix}: Ling.Light_Kit_Admin.admin
 
 
     # An array of has keyword => has label.
@@ -652,39 +652,39 @@ controller: []
         # The realist request declaration id to call from the controller.
         # This setting should synced with the list.target_dir setting in this file.
         # The default value is:
-        #   Light_Kit_Admin:generated/{table}
-        realist_request_declaration_id_format: '!{plugin}:generated/{table}'
+        #   Ling.Light_Kit_Admin:generated/{table}
+        realist_request_declaration_id_format: '!{galaxyName}.!{plugin}:generated/{table}'
 
         # The kit page to call when rendering the list
         # The default value is:
-        #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_list
-        list_page_format: '!{plugin}/kit/zeroadmin/generated/{table}_list'
+        #   !{galaxyName}.!{plugin}/generated/{table}_list
+        list_page_format: '!{galaxyName}.!{plugin}/generated/{table}_list'
 
         # The form identifier to call to process the form when the form page is rendered
         # The default value is:
-        #   Light_Kit_Admin.generated/{table}
-        form_identifier_format: '!{plugin}:generated/{table}'
+        #   Ling.Light_Kit_Admin.generated/{table}
+        form_identifier_format: '!{galaxyName}.!{plugin}:generated/{table}'
 
         # The kit page to call when rendering the form
         # The default value is:
-        #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_form
-        form_page_format: '!{plugin}/kit/zeroadmin/generated/{table}_form'
+        #   !{galaxyName}.!{galaxyName}.!{plugin}/generated/{table}_form
+        form_page_format: '!{galaxyName}.!{plugin}/generated/{table}_form'
 
         # The relative path from the app dir to the form configuration file
-        # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml
+        # Defaults to: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
         # The following extra tags are available:
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        form_config_path_format: config/data/!{plugin}/kit/zeroadmin/generated/{table}_form.byml
+        form_config_path_format: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
 
         # The relative path from the app dir to the list configuration file
-        # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml
+        # Defaults to: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
         # The following extra tags are available:
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        list_config_path_format: config/data/!{plugin}/kit/zeroadmin/generated/{table}_list.byml
+        list_config_path_format: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
 
         # An array of related links to add to all the generated form kit page conf.
         # The default value is basically the array below, except that the plugin is replaced with Light_Kit_Admin.
@@ -733,7 +733,7 @@ controller: []
 #        ?route_prefix: lkagen_route
 #
 #        # The target file is where to create the routes
-#        target_file: {app_dir}/config/data/Light_Kit_Admin/Light_EasyRoute/lkagen_routes.byml
+#        target_file: {app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_EasyRoute/lkagen_routes.byml
 #
 #
 #        # The pattern for the list route

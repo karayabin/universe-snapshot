@@ -4,7 +4,7 @@
 
 The ClassSynopsisWidget class
 ================
-2019-02-21 --> 2021-03-05
+2019-02-21 --> 2021-03-23
 
 
 
@@ -53,7 +53,7 @@ class <span class="pl-k">ClassSynopsisWidget</span> extends [Widget](https://git
     - protected [getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getClassUrl.md)(ReflectionClass $class, ?$hint = null) : false | string
     - protected [addConstantLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addConstantLine.md)(string &$s, ReflectionClassConstant $constant, ?bool $showDeclaringClass = false) : void
     - protected [addPropertyLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addPropertyLine.md)(string &$s, [Ling\DocTools\Info\PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md) $property, ?bool $showDeclaringClass = false) : void
-    - protected [addMethodLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addMethodLine.md)($s, [Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, ?$showDeclaringClass = false) : void
+    - protected [addMethodLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addMethodLine.md)(&$s, [Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, ?$showDeclaringClass = false) : void
     - protected [getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getConstantVisibility.md)(ReflectionClassConstant $constant) : string
     - protected [getSectionTitle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getSectionTitle.md)(string $title) : string
     - protected [getElementIndentedDash](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getElementIndentedDash.md)() : string

@@ -4,7 +4,7 @@
 
 The LightUserDataPluginInstaller class
 ================
-2019-09-27 --> 2021-03-05
+2019-09-27 --> 2021-03-22
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_UserData\Light_PluginInstaller\LightUserDataP
 
 SeeAlso
 ==============
-Previous class: [LightUserDataHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Helper/LightUserDataHelper.md)<br>Next class: [LightUserDataRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md)<br>
+Previous class: [LightUserDataPlanetInstaller](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller.md)<br>Next class: [LightUserDataRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md)<br>

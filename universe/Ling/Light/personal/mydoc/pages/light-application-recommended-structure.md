@@ -1,6 +1,6 @@
 Light application recommended structure
 =============
-2019-04-09 -> 2021-02-22
+2019-04-09 -> 2021-03-09
 
 
 
@@ -19,21 +19,21 @@ The filesystem structure looks like this:
         # The "services" directory contains the "service configuration files".
         # See more details in the service container document: https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-service-container.md
         /services:                          
-            # an example of service config file for a plugin named Light_MyPlugin  
-            - Light_MyPlugin.byml           
+            # an example of service config file for a the Ling.Light_MyPlugin plugin  
+            - Ling.Light_MyPlugin.byml           
 
         # The "data" directory contains the plugin private configuration.
         # See the config data directory section for more details: https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md#the-config-data-directory
         /data:                              
-            # an example of configuration data directory for a plugin named Light_MyPlugin 
-            /Light_MyPlugin:
+            # an example of configuration data directory for the Ling.Light_MyPlugin plugin 
+            /Ling.Light_MyPlugin:
                 
         # The "open" directory is reserved for dynamic plugins intercommunication. 
         # For more details, read https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md.
         /open:                           
 
-            # this directory will contain all messages destined to the Light_MyPlugin plugin 
-            /Light_MyPlugin:                
+            # this directory will contain all messages destined to the Ling.Light_MyPlugin plugin 
+            /Ling.Light_MyPlugin:                
                 - ...
 
     # A directory containing scripts organized by galaxy/planet            
@@ -53,8 +53,8 @@ The filesystem structure looks like this:
         
     # a directory containing templates of the light plugins, and/or templates in general
     /templates:                             
-        # the directory containing templates for the Light_MyPlugin plugin 
-        /Light_MyPlugin:                    
+        # the directory containing templates for the Ling.Light_MyPlugin plugin 
+        /Ling.Light_MyPlugin:                    
             - ...
 
     # the web root directory (www stands for generic "world wide web" expression, not for the specific www domain name)
@@ -103,7 +103,7 @@ See more details in the [service container document](https://github.com/lingtalf
 
 The config data directory
 ---------
-2020-11-10
+2020-11-10 -> 2021-03-09
 
 
 The **config/data** directory is reserved for plugins private configuration.
@@ -111,32 +111,32 @@ The **config/data** directory is reserved for plugins private configuration.
 This means that the application maintainer shouldn't modify the content of this directory: it's reserved for the plugin author only.
 
 A plugin stores its private configuration in a directory named after itself.
-So for instance a plugin named **Light_AAA** will store its private configuration in the following directory:
+So for instance a plugin named **Ling.Light_AAA** will store its private configuration in the following directory:
 
-- config/data/Light_AAA
+- config/data/Ling.Light_AAA
 
 
 Oftentimes, a plugin will use other plugins.
 
-For instance, plugin **Light_AAA** might use a menu service provided by the plugin **Light_BBB**.
+For instance, plugin **Ling.Light_AAA** might use a menu service provided by the plugin **Ling.Light_BBB**.
 
-When that's the case, plugin **Light_AAA** needs to define the name and colors of the menu items (for instance).
+When that's the case, plugin **Ling.Light_AAA** needs to define the name and colors of the menu items (for instance).
 
 This is generally done by using [nuggets](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/nomenclature.md#nugget)
 stored in [babyYaml](https://github.com/lingtalfi/BabyYaml) files.
 
 
-So for instance, if plugin **Light_AAA** uses the services provided by plugin **Light_BBB** and **Light_CCC**, the data structure would look like this:
+So for instance, if plugin **Ling.Light_AAA** uses the services provided by plugin **Ling.Light_BBB** and **Ling.Light_CCC**, the data structure would look like this:
 
 
 ```yaml
 /app:
     /config:
         /data:
-            /Light_AAA:
-                /Light_BBB:
+            /Ling.Light_AAA:
+                /Ling.Light_BBB:
                     - my-apple-conf.byml
-                /Light_CCC:
+                /Ling.Light_CCC:
                     - some-banana-conf.byml
 ``` 
 

@@ -1,0 +1,38 @@
+_vars: 
+    nuggetId: Ling.Light_Kit_Admin_UserDatabase:generated/lud_user_group
+
+rendering: 
+    title: User group form
+    related_links: 
+        - 
+            text: "See the list of \"User group\" items"
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserDatabase, controller: Generated/LudUserGroupController}))::
+            icon: fas fa-plus-circle
+        
+    
+
+ric: 
+    - id
+
+feeder: null
+storage_id: lud_user_group
+success_messages: 
+    create: The item has been successfully stored in the database
+    update: The item has been successfully updated in the database, with ric {sRic}
+
+security: []
+chloroform: 
+    id: realgen-lud_user_group
+    fields: 
+        name: 
+            label: Name
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+    
+
+success_handler: 
+    class: defaultDbHandler

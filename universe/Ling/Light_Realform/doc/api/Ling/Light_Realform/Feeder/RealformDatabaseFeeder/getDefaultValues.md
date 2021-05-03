@@ -23,7 +23,7 @@ public [RealformDatabaseFeeder::getDefaultValues](https://github.com/lingtalfi/L
 
 Returns the default values of the form.
 
-For more details about the params, see the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md).
+For more details about the params, see the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes.md).
 
 
 

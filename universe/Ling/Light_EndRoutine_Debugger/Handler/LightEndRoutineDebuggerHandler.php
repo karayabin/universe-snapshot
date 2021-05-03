@@ -66,7 +66,7 @@ class LightEndRoutineDebuggerHandler implements LightServiceContainerAwareInterf
 
 
     /**
-     * Listener for the @page(Light.end_routine event).
+     * Listener for the @page(Ling.Light.end_routine event).
      *
      * Writes some debug variables into a file.
      * Both the debug variables and the file are defined in the service configuration.

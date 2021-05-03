@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_DebugTraceDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_DebugTrace/Light_DebugTraceDocBuilder.php#L45-L213)
+See the source code for method [Light_DebugTraceDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_DebugTrace/Light_DebugTraceDocBuilder.php#L45-L217)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_DatabaseUtils
 ===========
-2019-10-01 -> 2021-03-05
+2019-10-01 -> 2021-03-15
 
 
 
@@ -97,6 +97,10 @@ INSERT INTO `lud_user` (`id`, `identifier`, `pseudo`, `password`, `avatar_url`, 
 History Log
 =============
 
+- 1.1.10 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.1.9 -- 2021-03-05
 
     - update README.md, add install alternative

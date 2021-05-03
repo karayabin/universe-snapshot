@@ -1,6 +1,9 @@
 dependencies: 
     Ling: 
+        - CliTools
         - Light
+        - Light_Events
+        - Light_PlanetInstaller
         - Light_QuickMailAlert
     
 

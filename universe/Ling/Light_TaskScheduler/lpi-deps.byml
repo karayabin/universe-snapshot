@@ -64,3 +64,11 @@
     - Ling:Light_LingStandardService:1.6.9+
     - Ling:Light_UserDatabase:1.31.13+
     - Ling:SimplePdoWrapper:1.30.16+
+
+1.1.8: 
+    - Ling:Bat:1.308+
+    - Ling:Light:0.70.0+
+    - Ling:Light_Database:1.14.16+
+    - Ling:Light_LingStandardService:1.6.9+
+    - Ling:Light_UserDatabase:1.31.14+
+    - Ling:SimplePdoWrapper:1.30.17+

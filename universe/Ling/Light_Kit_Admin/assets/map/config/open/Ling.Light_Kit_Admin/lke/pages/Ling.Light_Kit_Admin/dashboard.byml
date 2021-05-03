@@ -1,0 +1,76 @@
+label: Light Kit Admin Dashboard
+layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+vars:
+    theme: $t
+layout_vars:
+    page_one_id: page_one
+    page_two_id: page_two
+    page_three_id: page_three
+    page_four_id: page_four
+    opened_page: four
+
+
+title: Light Kit Admin Dashboard
+description: <
+    Welcome to the light kit admin dashboard.
+>
+
+
+zones:
+    notifications: b$:Ling.Light_Kit_Admin/notifications_default
+    toasts: b$:Ling.Light_Kit_Admin/toasts_default
+    sub_header: b$:Ling.Light_Kit_Admin/sub_header_default
+    header: b$:Ling.Light_Kit_Admin/header_default
+    sidebar: b$:Ling.Light_Kit_Admin/sidebar_default
+    body:
+        - b$:Ling.Light_Kit_Admin/body_default
+        -
+            name: zeroadmin_statsummaryicon
+            type: picasso
+            id: w8
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminStatSummaryIconWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminStatSummaryIconWidget
+            template: default.php
+            vars:
+                card_column_class: col-sm-6 col-xl-3 mb-3
+                cards:
+                    -
+                        icon: fas fa-cart-arrow-down bg-blue fa-2x
+                        value: 1678
+                        value_class: text-blue
+                        text: Orders
+
+                    -
+                        icon: fas fa-user-friends bg-yellow fa-2x
+                        value: 78443
+                        value_class: text-yellow
+                        text: Users
+                    -
+                        icon: fas fa-dollar-sign bg-red fa-2x
+                        value: $12.700,88
+                        value_class: text-red
+                        text: Revenue
+                    -
+                        icon: fas fa-car bg-green fa-2x
+                        value: 654449
+                        value_class: text-green
+                        text: Visits
+        -
+            name: zeroadmin_herograph
+            type: picasso
+            id: w9
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeroGraphWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeroGraphWidget
+            template: default.php
+            _descr: <
+                ZeroAdminHeroGraphWidget is a bootstrap 4 widget to display a line graph. See the dashboard of the zeroadmin theme (https://www.templatemonster.com/admin-templates/zero-admin-template-82792.html)
+                for a concrete example.
+
+                We can add as many lines as we want.
+                Each line has the following:
+                - the numeric data (two arrays x and y corresponding to the values on the x and y axes)
+
+            >
+            vars: []
+
+    footer: b$:Ling.Light_Kit_Admin/footer_default

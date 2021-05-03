@@ -112,10 +112,11 @@ abstract class GenerateBreezeBaseProcess extends LightDeveloperWizardBaseProcess
             $container = $this->getContextVar("container");
             $appDir = $container->getApplicationDir();
             $planet = $this->getContextVar("planet");
+            $galaxy = $this->getContextVar("galaxy");
             $planetDir = $this->getContextVar("planetDir");
             $createFile = $this->getContextVar("createFile");
             $tablePrefix = DeveloperWizardGenericHelper::getTablePrefix($planetDir, $createFile);
-            $this->genConfigPath = $appDir . "/config/data/$planet/Light_BreezeGenerator/$tablePrefix.generated.byml";
+            $this->genConfigPath = $appDir . "/config/data/$galaxy.$planet/Ling.Light_BreezeGenerator/$tablePrefix.generated.byml";
         }
         return $this->genConfigPath;
     }

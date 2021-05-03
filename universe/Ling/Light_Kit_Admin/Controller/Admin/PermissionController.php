@@ -24,6 +24,6 @@ class PermissionController extends AdminPageController
         /**
          * Todo: I want to inject default values to the list...
          */
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/admin/permission_list');
+        return $this->renderAdminPage('Light_Kit_Admin/Ling.Light_Kit/zeroadmin/admin/permission_list');
     }
 }

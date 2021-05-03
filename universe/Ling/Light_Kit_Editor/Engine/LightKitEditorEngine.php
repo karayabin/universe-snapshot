@@ -24,12 +24,6 @@ class LightKitEditorEngine implements ConfStorageInterface
     private ?LightKitEditorStorageInterface $storage;
 
 
-    /**
-     * This property holds the errors for this instance.
-     * @var array
-     */
-    private array $errors;
-
 
     /**
      * Builds the LightKitEditorEngine instance.
@@ -37,7 +31,6 @@ class LightKitEditorEngine implements ConfStorageInterface
     public function __construct()
     {
         $this->storage = null;
-        $this->errors = [];
     }
 
     /**
@@ -68,7 +61,7 @@ class LightKitEditorEngine implements ConfStorageInterface
      */
     public function getErrors(): array
     {
-        return $this->errors;
+        return $this->storage->getErrors();
     }
 
 

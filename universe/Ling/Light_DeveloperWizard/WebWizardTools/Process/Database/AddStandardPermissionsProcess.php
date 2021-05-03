@@ -49,19 +49,20 @@ class AddStandardPermissionsProcess extends LightDeveloperWizardBaseProcess
          * @var $container LightServiceContainerInterface
          */
         $container = $this->getContextVar("container");
+        $galaxy = $this->getContextVar("galaxy");
         $planet = $this->getContextVar("planet");
         if (true === $container->has("user_database")) {
             $pluginName = $planet;
             $permissionApi = $container->get("user_database")->getFactory()->getPermissionApi();
 
-            $this->infoMessage("Adding standard permissions (in lud_permission) for plugin $pluginName.");
-            $this->traceMessage("adding \"$pluginName.admin\" and \"$pluginName.user\" permissions to table \"lud_permission\".");
+            $this->infoMessage("Adding standard permissions (in lud_permission) for plugin $galaxy.$pluginName.");
+            $this->traceMessage("adding \"$galaxy.$pluginName.admin\" and \"$galaxy.$pluginName.user\" permissions to table \"lud_permission\".");
             $permissionApi->insertPermissions([
                 [
-                    "name" => "$pluginName.admin",
+                    "name" => "$galaxy.$pluginName.admin",
                 ],
                 [
-                    "name" => "$pluginName.user",
+                    "name" => "$galaxy.$pluginName.user",
                 ],
             ]);
 

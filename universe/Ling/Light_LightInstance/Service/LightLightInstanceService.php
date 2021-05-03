@@ -45,7 +45,7 @@ class LightLightInstanceService
 
 
     /**
-     * Listener for the @page(Light.initialize_1 event).
+     * Listener for the @page(Ling.Light.initialize_1 event).
      * It stores the light instance and the http request instance for other plugins to use.
      *
      * @param LightEvent $event

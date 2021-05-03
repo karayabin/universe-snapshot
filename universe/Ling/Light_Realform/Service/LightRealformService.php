@@ -20,6 +20,7 @@ use Ling\Chloroform\Validator\PasswordConfirmValidator;
 use Ling\Chloroform\Validator\PasswordValidator;
 use Ling\Chloroform\Validator\ValidatorInterface;
 use Ling\Light\Events\LightEvent;
+use Ling\Light\Helper\LightHelper;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
@@ -86,7 +87,7 @@ class LightRealformService
          * @var $nug LightNuggetService
          */
         $nug = $this->container->get("nugget");
-        return $nug->getNugget($nuggetId, "Light_Realform/form");
+        return $nug->getNugget($nuggetId, "Ling.Light_Realform/form");
     }
 
 
@@ -102,7 +103,7 @@ class LightRealformService
          * @var $nug LightNuggetService
          */
         $nug = $this->container->get("nugget");
-        return $nug->getNuggetDirective($nuggetDirectiveId, "Light_Realform/form");
+        return $nug->getNuggetDirective($nuggetDirectiveId, "Ling.Light_Realform/form");
     }
 
 
@@ -200,6 +201,7 @@ class LightRealformService
     {
 
         $realformResult = new RealformResult();
+
 
         $nugget = $this->getNugget($nuggetId);
         $realformResult->setNugget($nugget);
@@ -508,7 +510,7 @@ class LightRealformService
     /**
      * Performs the "Form handling system A" routine.
      *
-     * https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md#form-handling-system-a
+     * https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes.md#form-handling-system-a
      *
      *
      *
@@ -652,7 +654,7 @@ class LightRealformService
                          * rather than the host plugin, because it would be more practical for plugins
                          * like Light_ExceptionHandler (which dispatching below is mainly intended to) to deal with.
                          */
-                        $events->dispatch("Light_RealGenerator.on_realform_exception_caught", $data);
+                        $events->dispatch("Ling.Light_RealGenerator.on_realform_exception_caught", $data);
                     }
 
 
@@ -778,13 +780,21 @@ class LightRealformService
 
 
         $successHandler = null;
-        if (array_key_exists('class', $successHandlerConf)) {
+        if (true === array_key_exists("len", $successHandlerConf)) {
+            $lenExpression = $successHandlerConf['len'];
+            $successHandler = LightHelper::executeMethod($lenExpression, $this->container);
+        }
+        elseif (array_key_exists('class', $successHandlerConf)) {
             $className = $successHandlerConf['class'];
             if ('defaultDbHandler' === $className) {
                 $successHandler = new ToDatabaseSuccessHandler();
             } else {
                 $successHandler = new $successHandlerConf['class'];
             }
+        }
+
+
+        if (null !== $successHandler) {
 
 
             if (false === $successHandler instanceof RealformSuccessHandlerInterface) {
@@ -796,10 +806,8 @@ class LightRealformService
             }
 
 
-        }
 
 
-        if (null !== $successHandler) {
             $successOptions = $successHandlerConf['params'] ?? [];
             $successOptions = array_merge($successOptions, [
                 "storageId" => $nugget['storage_id'] ?? null,

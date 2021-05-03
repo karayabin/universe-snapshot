@@ -1,6 +1,6 @@
 Light_AjaxHandler
 ===========
-2019-09-19 -> 2021-03-05
+2019-09-19 -> 2021-04-06
 
 
 
@@ -74,6 +74,31 @@ ajax_handler:
 History Log
 =============
 
+- 2.2.2 -- 2021-04-06
+  
+    - update service->handleViaCallable, the callable can now throw a ClientErrorException exception
+  
+- 2.2.1 -- 2021-04-02
+  
+    - fix service->handleViaCallable using incorrect reference to container
+  
+- 2.2.0 -- 2021-04-01
+  
+    - update service, renamed handle to handleViaRegisteredHandlers
+    - add service->handleViaCallable method to share our logic with 3rd party plugins  
+  
+- 2.1.9 -- 2021-03-15
+  
+    - update planet to adapt Ling.Light:0.70.0
+  
+- 2.1.8 -- 2021-03-09
+  
+    - update planet to adapt Ling.Light:0.70.0, the config/data part (2nd try)
+  
+- 2.1.7 -- 2021-03-09
+
+    - update planet to adapt Ling.Light:0.70.0, the config/data part
+  
 - 2.1.6 -- 2021-03-05
 
     - update README.md, add install alternative
@@ -124,7 +149,7 @@ History Log
     
 - 1.7.0 -- 2019-11-11
 
-    - add Light_AjaxHandler.on_handle_exception_caught event
+    - add Ling.Light_AjaxHandler.on_handle_exception_caught event
     
 - 1.6.0 -- 2019-09-30
 

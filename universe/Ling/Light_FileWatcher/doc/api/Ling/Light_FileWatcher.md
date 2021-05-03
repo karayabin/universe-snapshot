@@ -1,6 +1,6 @@
 Ling/Light_FileWatcher
 ================
-2020-06-25 --> 2021-03-05
+2020-06-25 --> 2021-03-15
 
 
 
@@ -14,7 +14,7 @@ Table of contents
     - [LightFileWatcherService::setContainer](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/setContainer.md) &ndash; Sets the container.
     - [LightFileWatcherService::setOptions](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/setOptions.md) &ndash; Sets the options.
     - [LightFileWatcherService::setMonitorFile](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/setMonitorFile.md) &ndash; Sets the monitorFile.
-    - [LightFileWatcherService::onInitialize](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/onInitialize.md) &ndash; Method called in response to [the Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+    - [LightFileWatcherService::onInitialize](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/onInitialize.md) &ndash; Method called in response to [the Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
     - [LightFileWatcherService::registerCallable](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/registerCallable.md) &ndash; Registers the callable to be executed when the file, which absolute path is given, is updated.
     - [LightFileWatcherService::debugLog](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/debugLog.md) &ndash; Sends a message to the log, if the useDebug options is true (or do nothing otherwise).
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealAdminPageController::setOnSuccessIframeSignal](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/RealAdminPageController.php#L116-L119)
+See the source code for method [RealAdminPageController::setOnSuccessIframeSignal](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/RealAdminPageController.php#L118-L121)
 
 
 See Also

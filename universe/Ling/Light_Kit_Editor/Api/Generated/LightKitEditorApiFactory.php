@@ -8,14 +8,16 @@ use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomWidgetApi;
 use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomWidgetApiInterface;
-use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomZoneApi;
-use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomZoneApiInterface;
-use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomZoneHasWidgetApi;
-use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomZoneHasWidgetApiInterface;
+use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomBlockApi;
+use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomBlockApiInterface;
+use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomSiteApi;
+use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomSiteApiInterface;
 use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomPageApi;
 use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomPageApiInterface;
-use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomPageHasZoneApi;
-use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomPageHasZoneApiInterface;
+use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomBlockHasWidgetApi;
+use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomBlockHasWidgetApiInterface;
+use Ling\Light_Kit_Editor\Api\Custom\Classes\CustomPageHasBlockApi;
+use Ling\Light_Kit_Editor\Api\Custom\Interfaces\CustomPageHasBlockApiInterface;
 
 
 
@@ -63,26 +65,26 @@ class LightKitEditorApiFactory
     }
 
     /**
-     * Returns a CustomZoneApiInterface.
+     * Returns a CustomBlockApiInterface.
      *
-     * @return CustomZoneApiInterface
+     * @return CustomBlockApiInterface
      */
-    public function getZoneApi(): CustomZoneApiInterface
+    public function getBlockApi(): CustomBlockApiInterface
     {
-        $o = new CustomZoneApi();
+        $o = new CustomBlockApi();
         $o->setPdoWrapper($this->pdoWrapper);
         $o->setContainer($this->container);
         return $o;
     }
 
     /**
-     * Returns a CustomZoneHasWidgetApiInterface.
+     * Returns a CustomSiteApiInterface.
      *
-     * @return CustomZoneHasWidgetApiInterface
+     * @return CustomSiteApiInterface
      */
-    public function getZoneHasWidgetApi(): CustomZoneHasWidgetApiInterface
+    public function getSiteApi(): CustomSiteApiInterface
     {
-        $o = new CustomZoneHasWidgetApi();
+        $o = new CustomSiteApi();
         $o->setPdoWrapper($this->pdoWrapper);
         $o->setContainer($this->container);
         return $o;
@@ -102,13 +104,26 @@ class LightKitEditorApiFactory
     }
 
     /**
-     * Returns a CustomPageHasZoneApiInterface.
+     * Returns a CustomBlockHasWidgetApiInterface.
      *
-     * @return CustomPageHasZoneApiInterface
+     * @return CustomBlockHasWidgetApiInterface
      */
-    public function getPageHasZoneApi(): CustomPageHasZoneApiInterface
+    public function getBlockHasWidgetApi(): CustomBlockHasWidgetApiInterface
     {
-        $o = new CustomPageHasZoneApi();
+        $o = new CustomBlockHasWidgetApi();
+        $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
+        return $o;
+    }
+
+    /**
+     * Returns a CustomPageHasBlockApiInterface.
+     *
+     * @return CustomPageHasBlockApiInterface
+     */
+    public function getPageHasBlockApi(): CustomPageHasBlockApiInterface
+    {
+        $o = new CustomPageHasBlockApi();
         $o->setPdoWrapper($this->pdoWrapper);
         $o->setContainer($this->container);
         return $o;

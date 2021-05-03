@@ -4,7 +4,7 @@
 
 The LightCsrfSessionField class
 ================
-2019-11-27 --> 2021-03-05
+2019-11-27 --> 2021-03-15
 
 
 
@@ -14,7 +14,7 @@ The LightCsrfSessionField class
 Introduction
 ============
 
-
+The LightCsrfSessionField class.
 
 
 
@@ -22,10 +22,10 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightCsrfSessionField</span> extends HiddenField implements FieldInterface {
+class <span class="pl-k">LightCsrfSessionField</span> extends [HiddenField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField.md) implements [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) {
 
 - Properties
-    - protected Ling\Light\ServiceContainer\LightServiceContainerInterface [$container](#property-container) ;
+    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
 
 - Inherited properties
     - protected string [AbstractField::$id](#property-id) ;
@@ -35,20 +35,20 @@ class <span class="pl-k">LightCsrfSessionField</span> extends HiddenField implem
     - protected mixed|null [AbstractField::$value](#property-value) ;
     - protected mixed|null [AbstractField::$fallbackValue](#property-fallbackValue) ;
     - protected array [AbstractField::$errors](#property-errors) ;
-    - protected Ling\Chloroform\Validator\ValidatorInterface[] [AbstractField::$validators](#property-validators) ;
+    - protected [Ling\Chloroform\Validator\ValidatorInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) [AbstractField::$validators](#property-validators) ;
     - protected array [AbstractField::$properties](#property-properties) ;
     - protected bool [AbstractField::$hasVeryImportantData](#property-hasVeryImportantData) ;
-    - protected Ling\Chloroform\DataTransformer\DataTransformerInterface [AbstractField::$dataTransformer](#property-dataTransformer) ;
+    - protected [Ling\Chloroform\DataTransformer\DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) [AbstractField::$dataTransformer](#property-dataTransformer) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/__construct.md)(?array $properties = []) : void
     - public [getValue](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/getValue.md)() : mixed
-    - public [setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/setContainer.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : [LightCsrfSessionField](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField.md)
+    - public [setContainer](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : [LightCsrfSessionField](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Field/LightCsrfSessionField.md)
 
 - Inherited methods
-    - public static HiddenField::create(string $id, ?array $properties = []) : Ling\Chloroform\Field\HiddenField
+    - public static HiddenField::create(string $id, ?array $properties = []) : [HiddenField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField.md)
     - public AbstractField::getId() : string
-    - public AbstractField::addValidator(Ling\Chloroform\Validator\ValidatorInterface $validator) : mixed
+    - public AbstractField::addValidator([Ling\Chloroform\Validator\ValidatorInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) $validator) : mixed
     - public AbstractField::validates($value) : bool
     - public AbstractField::getErrors() : array
     - public AbstractField::setValue($value) : Ling\Chloroform\Field\AbstractField
@@ -56,8 +56,8 @@ class <span class="pl-k">LightCsrfSessionField</span> extends HiddenField implem
     - public AbstractField::getFallbackValue() : mixed
     - public AbstractField::toArray() : array
     - public AbstractField::hasVeryImportantData() : bool
-    - public AbstractField::getDataTransformer() : Ling\Chloroform\DataTransformer\DataTransformerInterface | null
-    - public AbstractField::setDataTransformer(Ling\Chloroform\DataTransformer\DataTransformerInterface $dataTransformer) : Ling\Chloroform\Field\FieldInterface
+    - public AbstractField::getDataTransformer() : [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) | null
+    - public AbstractField::setDataTransformer([Ling\Chloroform\DataTransformer\DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) $dataTransformer) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
     - public AbstractField::setProperties(array $properties) : void
     - public AbstractField::setProperty(string $name, $value) : void
     - public AbstractField::setId(string $id) : Ling\Chloroform\Field\AbstractField
@@ -174,7 +174,7 @@ Methods
 - AbstractField::getFormattedValue &ndash; Returns the formatted value of this field.
 - AbstractField::getFallbackValue &ndash; Returns the fallback value, which defaults to null.
 - AbstractField::toArray &ndash; Returns the array representation of the field.
-- AbstractField::hasVeryImportantData &ndash; Returns whether this field contains very important data.
+- AbstractField::hasVeryImportantData &ndash; Returns whether this field contains [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
 - AbstractField::getDataTransformer &ndash; Returns the data transformer of this field if any, or null otherwise.
 - AbstractField::setDataTransformer &ndash; Sets the dataTransformer for this field.
 - AbstractField::setProperties &ndash; Sets the properties of this field.
@@ -184,7 +184,7 @@ Methods
 - AbstractField::setLabel &ndash; Sets the label.
 - AbstractField::setHint &ndash; Sets the hint.
 - AbstractField::setErrorName &ndash; Sets the errorName.
-- AbstractField::setHasVeryImportantData &ndash; Sets whether this field has very important data.
+- AbstractField::setHasVeryImportantData &ndash; Sets whether this field has [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
 - AbstractField::addError &ndash; Adds an error message to this instance.
 
 

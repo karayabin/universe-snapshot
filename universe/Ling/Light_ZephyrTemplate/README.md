@@ -1,6 +1,6 @@
 Light_ZephyrTemplate
 ===========
-2019-04-09 -> 2021-03-05
+2019-04-09 -> 2021-03-15
 
 
 
@@ -63,6 +63,10 @@ The **template** service can be used to render html using the [zephyr template e
 
 History Log
 =============
+
+- 1.2.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.2.3 -- 2021-03-05
 

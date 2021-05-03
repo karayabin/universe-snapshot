@@ -27,7 +27,7 @@ example: <
     name: chloroform
     type: picasso
     className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ChloroformWidget
-    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ChloroformWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ChloroformWidget
     template: default.php
     vars: 
         title: User Settings

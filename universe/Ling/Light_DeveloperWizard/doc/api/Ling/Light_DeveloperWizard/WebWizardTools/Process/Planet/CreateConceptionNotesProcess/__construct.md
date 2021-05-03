@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CreateConceptionNotesProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Planet/CreateConceptionNotesProcess.php#L20-L26)
+See the source code for method [CreateConceptionNotesProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Planet/CreateConceptionNotesProcess.php#L20-L27)
 
 
 See Also

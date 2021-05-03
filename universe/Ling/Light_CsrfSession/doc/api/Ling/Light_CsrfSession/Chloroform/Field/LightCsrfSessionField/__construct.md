@@ -67,7 +67,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightCsrfSessionField::__construct](https://github.com/lingtalfi/Light_CsrfSession/blob/master/Chloroform/Field/LightCsrfSessionField.php#L23-L27)
+See the source code for method [LightCsrfSessionField::__construct](https://github.com/lingtalfi/Light_CsrfSession/blob/master/Chloroform/Field/LightCsrfSessionField.php#L26-L30)
 
 
 See Also

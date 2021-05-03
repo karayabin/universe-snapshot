@@ -1,11 +1,24 @@
 Light execute notation
 =============
-2020-08-14 -> 2020-12-03
+2020-08-14 -> 2021-03-23
 
 
 
 
 The **light execute notation** allows for plugin authors to use a syntax to call methods from php classes and/or light services.
+
+
+Examples:
+
+
+- @kit_editor->getDuelistEngine()
+- @zobruk->getTail(hello, [apple, banana])
+- \Ling\Planet007\Util035::exampleStaticMethod()
+- \Ling\Planet007\Util035->nonStaticExampleMethod222(yoshimitsu)
+
+
+
+
 
 
 The notation must have one of the following format:
@@ -33,6 +46,14 @@ With:
 
 Note: if the class (i.e. not a service) needs to be instantiated, we just call the class constructor without arguments.
 
+
+
+
+A tool to interpret this notation is:
+
+- [The LightHelper::executeMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeMethod.md)
+
+See the [related tools](#related-tools) section for more tools.
 
 
 

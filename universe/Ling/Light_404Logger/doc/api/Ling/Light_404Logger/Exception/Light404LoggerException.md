@@ -4,7 +4,7 @@
 
 The Light404LoggerException class
 ================
-2019-12-12 --> 2021-03-05
+2019-12-12 --> 2021-03-22
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_404Logger\Exception\Light404LoggerException](
 
 SeeAlso
 ==============
-Next class: [Light404LoggerListener](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Logger/Light404LoggerListener.md)<br>
+Next class: [Light404LoggerPlanetInstaller](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller.md)<br>

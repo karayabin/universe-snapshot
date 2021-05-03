@@ -27,8 +27,8 @@ The basePluginName is the name of the [light kit admin' source plugin](https://g
 
 
 Note: the main lka permission groups are:
-- Light_Kit_Admin.admin
-- Light_Kit_Admin.user
+- Ling.Light_Kit_Admin.admin
+- Ling.Light_Kit_Admin.user
 
 
 

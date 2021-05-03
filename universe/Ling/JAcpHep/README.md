@@ -1,6 +1,6 @@
 JAcpHep
 ===========
-2019-09-23 -> 2021-03-05
+2019-09-23 -> 2021-05-01
 
 
 
@@ -32,7 +32,7 @@ Note: JAcpHep implements the [universe assets](https://github.com/lingtalfi/Nota
 
 What is it?
 ==============
-
+2019-09-23
 
 This tool helps handling [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol)
 and [hep](https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md).
@@ -43,11 +43,11 @@ and [hep](https://github.com/lingtalfi/NotationFan/blob/master/html-element-para
 
 How to use
 ==========
-
+2019-09-23 -> 2021-05-01
 
 The methods are (all static):
 
-- post ( url, data, successHandler, errorHandler )
+- post ( url, data, successHandler, errorHandler, options )
 - error ( errMsg )
 - getHepParameters ( jElement )
 
@@ -83,6 +83,18 @@ var hepParams = AcpHepHelper.getHepParameters(jMyObject);
 History Log
 =============
 
+- 1.2.7 -- 2021-05-01
+
+    - add AcpHepHelper.post httpErrorHandler option
+  
+- 1.2.6 -- 2021-05-01
+
+    - fix AcpHepHelper.post throws error if options not defined
+  
+- 1.2.5 -- 2021-04-02
+
+    - update AcpHepHelper.post, now accepts options map
+  
 - 1.2.4 -- 2021-03-05
 
     - update README.md, add install alternative

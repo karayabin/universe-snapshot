@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BaseLightKitAdminPlugin::setOptionsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/LightKitAdminPlugin/BaseLightKitAdminPlugin.php#L50-L53)
+See the source code for method [BaseLightKitAdminPlugin::setOptionsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/LightKitAdminPlugin/BaseLightKitAdminPlugin.php#L53-L56)
 
 
 See Also

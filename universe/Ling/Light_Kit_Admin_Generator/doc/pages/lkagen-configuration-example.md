@@ -1,11 +1,9 @@
 Configuration example
 ------------------
-2019-11-06 -> 2020-09-24
+2019-11-06 -> 2021-03-15
 
 
-Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin itself.
-
-We also refer to it as the **configuration block**.
+Below is an example of what a typical lka config file looks like.
 
 The comments in it are part of this plugin documentation.
 
@@ -13,29 +11,37 @@ The comments in it are part of this plugin documentation.
 
 
 ```yaml
-# Use this to define your custom variables that you can re-use later in this same configuration.
-# To use a variable you've defined here, use the !{variableName} notation
-variables: 
-    plugin: Light_Kit_Admin
 
 
+# --------------------------------------
+# YOUR TYPICAL PLUGIN CONFIGURATION
+# --------------------------------------
+# just configure the variables section, should work fine for most cases
+# --------------------------------------
+variables:
+    plugin: Light_Kit_Admin_TaskScheduler
+    menuName: Task scheduler
+    galaxyName: Ling
+    shortName: kit_admin_task_scheduler
+    prefix: lts
+    tables:
+        - lts_task_schedule
+    createFile: {app_dir}/universe/Ling/Light_TaskScheduler/assets/fixtures/create-structure.sql
 
-# This is optional. Under the hood, the real generator uses the Light_Database plugin to interact with the database,
-# and so the default value will be the one defined by the Light_Database plugin.
-?database_name: jindemo
+
 
 # The plugin name is used in various places, including:
 # - as a prefix of the rendering.list_general_actions.action_id (list)
 # - as a prefix of the rendering.list_action_groups.action_id (list)
 # - as the plugin name in rendering.list_renderer.identifier (list)
 # - as the plugin name in plugin (described in the miscellaneous "section" of the realist conception notes)
-# - as the micro permission plugin name for the on_success_handler (form) of type database
 plugin_name: !{plugin}
+
 
 
 # The path to a create file, see the use_create_file directive for more info
 # The {app_dir} tag will be replaced with the absolute path to the application directory.
-create_file: /path/to/the/create_file.sql
+create_file: !{createFile}
 
 # Whether or not to use the "create file" defined with the create_file directive.
 # If true, the generators will use the info from the create file to do their things.
@@ -45,14 +51,14 @@ create_file: /path/to/the/create_file.sql
 use_create_file: true
 
 
-
 # This section defines the table to generate configuration files for.
 # It's composed of two sections: add and remove.
 tables:
     # In the add section, you specify the tables you want to add.
     # This entry accepts either a string (for just one table) or an array.
     # The special value "*" (asterisk) represent all tables.
-    add: *
+    add: !{tables}
+    #        add: *
     # In the remove section, you specify the tables you want to remove (i.e. the tables
     # for which you don't want to generate a configuration file).
     # This entry accepts either a string (for just one table) or an array.
@@ -65,14 +71,25 @@ tables:
 # It's like a namespace for tables if you will.
 # The prefixes, or the table name without prefix are information that might be used by other parts of this generator.
 table_prefixes:
-    - luda
-    - lud
+    - !{prefix}
+
+# Array. Optional. Defaults to the example below. Defines a has table detection mechanism that can be used by the other
+# sections of this file.
+has_tables:
+    # Array. Optional. Defaults to an array containing one entry with value="has".
+    # This array defines which values trigger the detection of a has table.
+    # The detection of a has table is triggered if the expression composed of the keyword surrounded with underscores
+    # is contained in the table name.
+    keywords:
+        - has
+
 
 # This array let you ignore/skip columns that you want to exclude from both the list and form generated config files.
 # It's an array of table => columnNames, with columnNames being an array of column names.
-?ignore_columns:
-    lud_user:
-        - password
+?ignore_columns: []
+#        lud_user:
+#            - password
+
 
 # Bool=true. Whether to generate lists
 use_list: true
@@ -87,6 +104,7 @@ use_menu: true
 use_controller: true
 
 
+
 # This section defines the behaviour of the list configuration file generator.
 # The term generic tags, used in some of the definitions below, refers to the following array:
 # - {label}, the human name derived from the table name (using internal heuristics)
@@ -99,23 +117,16 @@ list:
 
     # The name of the plugin who handles the list actions. By default, it's the plugin name defined with the
     # plugin_name option (at the root level of this file).
-    ?list_action_groups_plugin_name: Light_Kit_Admin
+    list_action_groups_plugin_name: Light_Kit_Admin
 
     # The name of the plugin who handles the list general actions. By default, it's the plugin name defined with the
     # plugin_name option (at the root level of this file).
-    ?list_general_actions_plugin_name: Light_Kit_Admin
+    list_general_actions_plugin_name: Light_Kit_Admin
 
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/!{plugin}/Light_Realist/list/generated
-
-
-    # the base name of the files to generate
-    # the default value is {table}.byml
-    # the available tags are:
-    # - {table}: the name of the table used to generate this list nugget
-    target_basename: {table}.byml
+    target_dir: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_Realist/list/generated
 
     # The title of the list, defaults to:
     # - {Label} list
@@ -123,10 +134,11 @@ list:
     # dynamic values.
     title: {Label} list
 
-
     # When executing the stmt request and there is an error: whether to show the query/markers information along with the
     # error message (true), or just display the error message (false, by default)
-    ?query_error_show_debug_info: false
+    query_error_show_debug_info: true
+
+
 
 
     # Whether to use the cross columns on foreign keys
@@ -159,9 +171,9 @@ list:
     cross_column_hub_link_controller_format: Generated/{Table}Controller
 
     # An array of tablePrefix => pluginName, used to generate the plugin parameter of the in the built-in Light_Realist.hub_link column transformer for cross columns.
-    # By default it's an empty array, which means the current plugin will be always used.
+    # By default it's an empty array.
     cross_column_hub_link_table_prefix_2_plugin: []
-        lud: Light_Kit_Admin
+    #            lud: !{plugin}
 
 
 
@@ -176,6 +188,7 @@ list:
     # More info about representatives in https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/pages/conception-notes.md#the-representative-column
     common_representative_matches:
         - pseudo
+
 
     # Whether to use the action column (added to every row). Defaults to true.
     ?use_action_column: true
@@ -197,15 +210,15 @@ list:
     ?column_checkbox_name: checkbox
 
     # The label for the checkbox column (only if use_checkbox_column=true). Defaults to "Checkbox".
-    ?column_checkbox_label: "Checkbox"
+    ?column_checkbox_label: Checkbox
 
     # The name of the class to use as the action handler.
-    # The default value is: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler 
-    action_handler_class: "Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler"
+    # The default value is: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
+    action_handler_class: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
 
     # The name of the class to use as the list renderer.
-    # The default value is: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer 
-    list_renderer_class: "Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer"
+    # The default value is: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
+    list_renderer_class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
 
 
 
@@ -245,7 +258,7 @@ list:
     # The generic_tags (defined in the list option at the root level) are available.
     rows_renderer_type_aliases:
         img100:
-            type: image
+            type: Light_Realist.image
             width: 100
 
     # Defines rows renderer types to add to every generated list configuration file.
@@ -258,12 +271,54 @@ list:
     rows_renderer_types_general:
         avatar_url: $img100
         _action:
-            type: lka-edit_link_hub
-            text: Edit
-            url_params:
-                controller: Generated/{TableClass}Controller
-                m: f
-        _checkbox: checkbox
+            type: my_action
+            type: Light_Realist.mixer
+            separator: &nbsp;
+            items:
+                -
+                    type: Light_Realist.hub_link
+                    text: Edit
+                    url_params_add_ric: true
+                    url_params:
+                        plugin: !{galaxyName}/!{plugin}
+                        controller: Generated/{TableClass}Controller
+                        m: f
+                    icon: fas fa-edit
+
+                -
+                    type: Light_Kit_Admin.list_action
+                    text: Delete
+                    action_id: realist-delete_rows
+                    include_ric: true
+                    confirmExecute:
+                        text: Are you sure you want to delete this row?
+                        loader: true
+                    params:
+                        table: {table}
+                    icon: fas fa-trash-alt
+
+
+                -
+                    type: Light_Kit_Admin.list_action
+                    text: Duplicate row
+                    action_id: realist-duplicate_row
+                    confirmExecute:
+                        text: Are you sure you want to duplicate this row?
+                        loader: true
+
+                    include_ric: true
+                    icon: far fa-copy
+                -
+                    type: Light_Kit_Admin.list_action
+                    confirmExecute:
+                        text: Are you sure you want to duplicate this entity?
+                        loader: true
+                    text: Duplicate entity
+                    action_id: realist-duplicate_row_deep
+                    include_ric: true
+                    icon: far fa-clone
+
+        _checkbox: Light_Realist.checkbox
 
     # Defines rows renderer types to add for a specific table.
     # It has precedence over the rows_renderer_type_general option.
@@ -285,8 +340,8 @@ list:
     # In the property values, you can use the generic tags (described in the list section comment).
     related_links:
         -
-            text: Add new {label}
-            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{plugin}, controller: Generated/{TableClass}Controller, m:f})
+            text: Add new "{label}" item
+            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller, m:f})
             icon: fas fa-plus-circle
 
 # This section defines the behaviour of the form configuration file generator
@@ -298,10 +353,27 @@ form:
     # dynamic values.
     title: {Label} form
 
+    # Whether to create a link to the corresponding list.
+    # The default value is true.
+    # This property is provided by Light_Kit_Admin_Generator (i.e. not in Light_RealGenerator).
+    use_link_to_list: true
+
+    # An array, empty by default, which can contain the row restriction to apply. The possible options are:
+    # - read
+    # - update
+    #
+    # Note: regular forms usually delegate the process of the form info to the RealformSuccessHandlerInterface,
+    # which uses its own row restriction (see the on_success_handler property in this section for more details).
+    # The "update" option here applies for potential external tools, such as an external multiple rows form editor for instance.
+    #
+    row_restriction: []
+        - read
+        - update
+
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/!{plugin}/Light_Realform/form/generated
+    target_dir: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_Realform/form/generated
 
 
     # This array let you ignore/skip columns that you want to exclude from the generated form config file.
@@ -310,6 +382,28 @@ form:
     ?ignore_columns:
         lud_user:
             - password
+
+    # Overrides the default form handler class (which defaults to a plain Chloroform instance) for all tables,
+    # unless a more specific override has been defined with the form_handler_class_specific option (in
+    # which case the more specific override is used).
+    # It's a string representing the class to use.
+    ?form_handler_class_general: My\Class
+    # Overrides the default form handler class (which defaults to a plain Chloroform instance) for a given table.
+    # It's an array of table => class.
+    ?form_handler_class_specific:
+        lud_user: My\Specific\Class
+
+    # An array of variables that we can use in some parts of the form generator configuration:
+    # - fields
+    # - fields_merge_aliases
+    # - fields_merge_specific
+    # The variable notation is: {variable}.
+    # Apart from the variables defined here, we also provide the following dynamic variables:
+    # - table: the name of the current table
+    # - field: the name of the current field (or empty string if not available)
+    variables:
+        plugin_prefix: !{shortName}
+
 
     # Overrides completely or partially the fields items.
     # It's an array of table => fieldItems, with fieldItems being an array of fieldName => fieldItem.
@@ -334,17 +428,17 @@ form:
     # The values of the partialFieldItem can use variables (aka tags).
     # The notation for a variable is defined in the variables section (see the variables section for more info).
     # The available variables are also defined there.
-    fields_merge_aliases:
-        ajax1:
-            type: ajaxFileBox
-            maxFile: 1
-            maxFileSize: null
-            mimeType: null
-            postParams:
-                id: {plugin_prefix}-{table}-{field}
-                csrf_token: REALGEN(crsf, realGen-ajaxform-{table}-{field})
-            validators:
-                validUserDataUrl: []
+    fields_merge_aliases: []
+    #            ajax1:
+    #                type: ajaxFileBox
+    #                maxFile: 1
+    #                maxFileSize: null
+    #                mimeType: null
+    #                postParams:
+    #                    id: {plugin_prefix}-{table}-{field}
+    #                    csrf_token: REALGEN(crsf, realGen-ajaxform-{table}-{field})
+    #                validators:
+    #                    validUserDataUrl: []
 
     # Use this array to merge a field item with custom defined properties, based on a specific table and field.
     # It's an array of table => items,
@@ -353,10 +447,11 @@ form:
     # - an array of one ore more field items entries to merge with the target field item
     # - or an alias to such an array. To use an alias, prefix the alias name with the dollar symbol ($).
     # For more info about aliases, see the field_merge_aliases section.
-    fields_merge_specific:
-        lud_user:
-            avatar_url: $ajax1
-
+    fields_merge_specific: []
+    #            lud_user:
+    #                avatar_url: $ajax1
+    #                password:
+    #                    type: password
 
     # An array to handle some special fields automatically.
     # It's an array of section => parameters.
@@ -371,19 +466,19 @@ form:
             # When true, if a field is a foreign key we will generate the configuration for a table list field (https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/pages/conception-notes.md#tablelistfield).
             use_table_list: true
 
-
             # Array, the security directive to use with the table list(s).
             # See the [Light_Nugget baked in security system](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#a-baked-in-security-system-for-nugget-users) for more details.
             table_list_security:
                 any:
-                    permission: Light_Kit_Admin.admin
+                    permission: Ling.Light_Kit_Admin.admin
 
 
     # An array of table => notRequiredFields, with notRequiredFields being an array of the fields for which you don't
     # want a required validator to be set automatically.
-    ?not_required:
-        lud_user:
-            - pseudo
+    not_required: []
+    #            lud_user:
+    #                - extra
+    #                - avatar_url
 
     # Array, defines how the on_success_handler section (of the realform config file) is generated.
     ?on_success_handler:
@@ -391,8 +486,6 @@ form:
         # The available values are:
         # - database
         type: database
-        # More options, depending on the success handler type
-        ?options: []
 
     # Bool. Optional. Defaults to true.
     # Whether to use the multiplier mode on has tables.
@@ -415,9 +508,8 @@ form:
     related_links:
         -
             text: See the list of "{Label}" items
-            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{plugin}, controller: Generated/{TableClass}Controller}))::
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller}))::
             icon: fas fa-plus-circle
-
 
 # This section defines the behaviour of the menu configuration file generator
 # Note: the generator for this section also uses the route_prefix information found in the route section of this file.
@@ -425,7 +517,10 @@ menu:
     # The target_file is the path of the file to generate.
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_file: {app_dir}/config/data/!{plugin}/bmenu/main_menu/generated/lka_mainmenu_generated_1.byml
+    target_file: {app_dir}/config/data/!{galaxyName}.!{plugin}/Ling.Light_BMenu/generated/!{shortName}.admin_mainmenu_1.byml
+
+
+
 
     # The menu generator can operate in two different modes, which affects how the menu configuration is generated.
     # By default (i.e. mode=default), the menu generator assumes that you want to generate menu configs for plugin
@@ -441,6 +536,8 @@ menu:
     mode: default
 
 
+
+
     # By default, we generate routes using the controller_hub service (to avoid having too many routes).
     # The string below represents the controller url parameter (see the controller hub service documentation for
     # more info: https://github.com/lingtalfi/Light_ControllerHub).
@@ -453,37 +550,29 @@ menu:
 
 
     # Whether to group the menu items by table prefix. Defaults to true.
-    ?group_by_prefix: true
+    group_by_prefix: true
 
-    # The prefix for the id of the menu item of type parent, default to "lka_gen"
-    ?item_prefix_parent: lka_gen
-
-    # The prefix for the id of the menu item of type child (aka leaf), default to "lkagen_id"
-    ?item_prefix_child: lkagen_id
-
-    # The name of the plugin used to handle the link to the menu item
+    item_icon_parent: fas fa-puzzle-piece
+    item_prefix_parent: !{shortName}
+    item_prefix_child: !{shortName}
     item_plugin: !{plugin}
-
-    # The default right assigned to that menu item.
-    # This is overridden by the "prefix_to_rights" option if set (see below for more details).
-    ?item_default_right: !{plugin}.user        
-    
-
+    ?item_default_right: !{plugin}.user
 
     # An array of prefix => label.
     # The prefixes are stripped from the table name to create human readable labels.
     # The prefixes are also used to group the menu items together (if group_by_prefix=true).
     # The labels are used only if group_by_prefix=true, and represent the label to display on the parent menu item.
-    ?prefixes:
-        luda: Plugin A
-        lud: Plugin B
+    prefixes:
+          !{prefix}: !{menuName}
 
     # Define a right to assign by default to each table starting with a certain prefix.
     # It's an array of prefix: right.
     # Note: the value defined here can be overridden with the "items" option (see below).
-    # Note2: the default right value used by the generator on any menu item is "Light_Kit_Admin.user".
-    ?prefix_to_rights:
-        lud: !{plugin}.user
+    # Note2: the default right value used by the generator on any menu item is "Ling.Light_Kit_Admin.user".
+    prefix_to_rights:
+      # Note: in this case, the Light_Database doesn't provide any permission group, so we use
+        # the permissions provided by light kit admin
+          !{prefix}: Ling.Light_Kit_Admin.user
 
 
     # An array of has keyword => has label.
@@ -495,7 +584,7 @@ menu:
     # Note: it's allowed to have the same has keyword multiple times in the same table name.
     # So for instance table1_has_table2_has_table3 will become the label: Table1/Table2/Table3 (by default).
     # However, combining different keywords in the same table name is not implemented (yet).
-    ?has_keywords:
+    has_keywords:
         has: /
 
     # Override completely or partially the default items on a per-table basis.
@@ -578,40 +667,51 @@ controller: []
         # The realist request declaration id to call from the controller.
         # This setting should synced with the list.target_dir setting in this file.
         # The default value is:
-        #   Light_Kit_Admin:generated/{table}
-        realist_request_declaration_id_format: '!{plugin}:generated/{table}'
+        #   Ling.Light_Kit_Admin:generated/{table}
+        realist_request_declaration_id_format: '!{galaxyName}.!{plugin}:generated/{table}'
 
         # The kit page to call when rendering the list
         # The default value is:
-        #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_list
-        list_page_format: '!{plugin}/kit/zeroadmin/generated/{table}_list'
+        #   !{galaxyName}.!{plugin}/generated/{table}_list
+        list_page_format: '!{galaxyName}.!{plugin}/generated/{table}_list'
 
         # The form identifier to call to process the form when the form page is rendered
         # The default value is:
-        #   Light_Kit_Admin.generated/{table}
-        form_identifier_format: '!{plugin}:generated/{table}'
+        #   Ling.Light_Kit_Admin.generated/{table}
+        form_identifier_format: '!{galaxyName}.!{plugin}:generated/{table}'
 
         # The kit page to call when rendering the form
         # The default value is:
-        #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_form
-        form_page_format: '!{plugin}/kit/zeroadmin/generated/{table}_form'
+        #   !{galaxyName}.!{galaxyName}.!{plugin}/generated/{table}_form
+        form_page_format: '!{galaxyName}.!{plugin}/generated/{table}_form'
 
         # The relative path from the app dir to the form configuration file
-        # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml
+        # Defaults to: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
         # The following extra tags are available:
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        form_config_path_format: config/data/!{plugin}/kit/zeroadmin/generated/{table}_form.byml
+        form_config_path_format: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
 
         # The relative path from the app dir to the list configuration file
-        # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml
+        # Defaults to: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
         # The following extra tags are available:
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        list_config_path_format: config/data/!{plugin}/kit/zeroadmin/generated/{table}_list.byml
+        list_config_path_format: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
 
+        # An array of related links to add to all the generated form kit page conf.
+        # The default value is basically the array below, except that the plugin is replaced with Light_Kit_Admin.
+        # The following extra tags are available:
+        #   - tableLabel
+        #   - TableLabel
+        #   - Table
+        form_page_related_links:
+            -
+                text: See the list of "{TableLabel}" items
+                url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{Table}Controller}))::
+                icon: fas fa-plus-circle
 
 
     # Bool, whether to generate the custom controllers.
@@ -619,21 +719,18 @@ controller: []
     ?use_custom_controller: true
 
     # The class name of the controller to generate.
-    controller_classname: Ling\!{plugin}\Controller\Generated\{Table}Controller
+    controller_classname: !{galaxyName}\!{plugin}\Controller\Generated\{Table}Controller
 
     # The class name of the custom controller to generate.
     # This is mandatory only if the use_custom_controller setting is set to true.
-    ?custom_controller_classname: Ling\!{plugin}\Controller\Generated\Custom\Custom{Table}Controller
+    ?custom_controller_classname: !{galaxyName}\!{plugin}\Controller\Generated\Custom\Custom{Table}Controller
 
     # The class name of the base controller to generate.
     base_controller_classname: Ling\Light_Kit_Admin\Controller\RealAdminPageController
 
     # The class name of the parent controller, which all other classes derive from.
-    parent_controller: Ling\!{plugin}\Controller\AdminPageController
+    parent_controller: !{galaxyName}\Light_Kit_Admin\Controller\AdminPageController
 
-    # Whether to create a link to the corresponding list
-    # The default value is true
-    ?use_link_to_list: true
 
 
 
@@ -651,7 +748,7 @@ controller: []
 #        ?route_prefix: lkagen_route
 #
 #        # The target file is where to create the routes
-#        target_file: {app_dir}/config/data/!{plugin}/Light_EasyRoute/lkagen_routes.byml
+#        target_file: {app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_EasyRoute/lkagen_routes.byml
 #
 #
 #        # The pattern for the list route
@@ -678,6 +775,7 @@ controller: []
 #        # The controller method to use for the form route
 #        # The default value is render.
 #        method_form: render
+
 
 
 

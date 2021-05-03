@@ -21,6 +21,6 @@ class DashboardController extends AdminPageController
      */
     public function render()
     {
-        return $this->renderAdminPage('dashboard');
+        return $this->renderAdminPage('Ling.Light_Kit_Admin/dashboard');
     }
 }

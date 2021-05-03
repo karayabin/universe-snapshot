@@ -2,6 +2,7 @@ dependencies:
     Ling: 
         - ArrayToString
         - Bat
+        - CheapLogger
         - JAcpHep
         - JResponsiveTableHelper
         - JRicAdminTableHelper

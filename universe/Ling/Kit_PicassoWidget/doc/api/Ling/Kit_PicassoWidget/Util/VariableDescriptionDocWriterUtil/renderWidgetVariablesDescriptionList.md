@@ -32,7 +32,7 @@ Parameters
 
 - vars
 
-    The vars property of the widget variables description array.
+    The vars property of [the widget variables description array](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/widget-variables-description.md).
 
 
 Return values

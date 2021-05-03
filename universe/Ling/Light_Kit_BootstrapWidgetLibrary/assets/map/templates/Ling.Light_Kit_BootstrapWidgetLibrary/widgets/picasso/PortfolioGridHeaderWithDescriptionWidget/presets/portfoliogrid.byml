@@ -1,0 +1,11 @@
+name: portfoliogrid_header_with_description
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+template: default.php
+vars:
+    attr:
+        class: bg-primary text-white py-5
+
+    title: Welcome To My Page
+    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?

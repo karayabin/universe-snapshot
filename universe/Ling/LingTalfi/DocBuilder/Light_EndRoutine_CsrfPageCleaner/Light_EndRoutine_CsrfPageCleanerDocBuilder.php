@@ -141,7 +141,7 @@ class Light_EndRoutine_CsrfPageCleanerDocBuilder
              */
             "keyWord2UrlMap" => [
                 "csrf tool page cleaning system" => 'https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md',
-                "Light.end_routine event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
+                "Ling.Light.end_routine event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
             ],
             /**
              * An array of external classes to url.

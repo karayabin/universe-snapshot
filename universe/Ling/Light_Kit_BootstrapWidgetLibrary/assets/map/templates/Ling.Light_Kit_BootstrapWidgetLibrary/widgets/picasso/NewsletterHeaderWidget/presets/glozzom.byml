@@ -1,0 +1,27 @@
+name: newsletter_header
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\NewsletterHeaderWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/NewsletterHeaderWidget
+template: default.php
+vars:
+    attr:
+        id: newsletter
+        class: text-center p-5 bg-dark text-white
+
+    title: Sign Up For Our Newsletter
+    text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias aliquam amet eaque laudantium officia optio quas tempora voluptatum.
+    fields:
+        -
+            type: text
+            label: Enter Name
+            name: name
+
+        -
+            type: email
+            label: Enter Email
+            name: email
+
+
+    btn_class: btn btn-primary mb-2
+    btn_text: Submit

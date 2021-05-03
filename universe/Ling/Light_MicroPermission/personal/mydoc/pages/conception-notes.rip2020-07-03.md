@@ -39,10 +39,10 @@ The micro-permission system basically consists of a map of micro-permission name
 Something like this:
 
 - tables.lud_user.create:
-    - Light_Kit_Admin.admin
+    - Ling.Light_Kit_Admin.admin
 - tables.lud_user.read:
-    - Light_Kit_Admin.admin
-    - Light_Kit_Admin.user
+    - Ling.Light_Kit_Admin.admin
+    - Ling.Light_Kit_Admin.user
     - PluginABC.permission123
 - my_micro_permission_456:
     - my_permission_789
@@ -99,8 +99,8 @@ To understand that, let's distinguish between two kinds of plugins:
 
 An example of plugin who creates its own permissions is **Light_Kit_Admin**, which creates permissions such as:
 
-- Light_Kit_Admin.user
-- Light_Kit_Admin.admin
+- Ling.Light_Kit_Admin.user
+- Ling.Light_Kit_Admin.admin
 
 
 An example of plugin who doesn't create its own permission is [Light_UserData](https://github.com/lingtalfi/Light_UserData).

@@ -1,78 +1,44 @@
 Light Ajax Handler, conception notes
 ===================
-2019-09-19 -> 2020-04-10
+2019-09-19 -> 2021-04-01
 
 
-
-There is a potential plethora of plugins that will be created for the light framework.
-
-Observing that some plugins create their own services, which includes the creation of a controller,
-and a new route that points to that controller, I can only fear that we will end up with 
-a plethora of routes.
-
-That's not a good thing.
+A lot of plugins use ajax requests.
 
 
-I propose to use only one entry point for all ajax services, alike there is only one entry point
-(aka front controller) for the main application.
+Our service:
 
-
-Plugins who adhere my point of view can use the **Light_AjaxHandler** plugin, and subscribe to 
-its service in order to reduce the number of routes being created.
-
-Plus, some of the behaviour might be factorized (meaning development time saved), as we might see.
-
-
-
-So, the main idea is:
-
-- this plugin provides the only route for all ajax services.
-    The route url will be for instance: **/light-ajax-handler**
-    
-    
-Then we will use the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol)
-as the base of our communication, since it has been proved very flexible.
-
-
-
-I thought this document would be longer, but that's pretty much all I have to say for now.
-
-Time for me to implement that idea!
-    
- 
-
-
-Implementation notes
------------
-2020-04-10
-
-
-In order to do so, all operations are ruled by the [ajax light communication protocol](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md).
-
-In order to help the **handlers** do their job, I'll provide some helpers along the way.
+- provides a single route to handle any ajax requests you want (so that you don't need to create one route per request)
+- provides the [alcp](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md) protocol to standardize the ajax communication
+- provides some helpers so that it's easy to implement an ajax end point in your app 
 
 
 
 
 
-    
-    
-The print idea
-===============
-2019-09-24
+
+Overview
+=========
+2021-04-01
 
 
-Today I came across the case where it would have been practical to just make the server display some html content instead of returning
-a json array as defined in the ajax communication protocol.
-
-For this reason, the Light Ajax Handler will allow a special notation for the response:
-
-- type: print    
-- content: some html...
+There are basically two approaches to use our service.
 
 
-This will bypass the ajax communication protocol and just print the given content as is.
+The first approach is to use your controller (i.e. Controller/LightAjaxHandlerController), which is always located at the same url (/ajax-handler by default).
+
+This is done by creating an ajaxHandler class, then registering it via our service.
 
 
+In the handler, you pass two parameters:
+
+- handler
+- action
+
+
+See more details in the [alcp](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md) document.
+
+
+The second approach is to use our handler manually (via LightAjaxHandlerService->handleViaCallable).
 
 

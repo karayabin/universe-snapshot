@@ -1,0 +1,5 @@
+Ling.Light_Kit_Admin.on_user_successful_connexion:
+    - @kit_admin->onWebsiteUserLogin(data)
+
+Ling.Light.on_exception_caught:
+    - @kit_admin->onLightExceptionCaught(data)

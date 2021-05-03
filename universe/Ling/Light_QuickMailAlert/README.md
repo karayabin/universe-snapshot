@@ -1,6 +1,6 @@
 Light_QuickMailAlert
 ===========
-2020-08-14 -> 2021-03-05
+2020-08-14 -> 2021-03-15
 
 
 
@@ -61,7 +61,7 @@ quick_mail_alert:
         setGroups:
             groups:
                 admin:
-                    template: Light_QuickMailAlert/mail/admin_alert
+                    template: Ling.Light_QuickMailAlert/admin_alert
                     recipients:
                         - the_admin@gmail.com
 
@@ -78,6 +78,14 @@ quick_mail_alert:
 History Log
 =============
 
+- 1.1.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.1.4 -- 2021-03-09
+
+    - update planet to adapt last Ling.Light_Mailer change
+  
 - 1.1.3 -- 2021-03-05
 
     - update README.md, add install alternative

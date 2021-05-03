@@ -1,0 +1,14 @@
+.kit-bwl-two_columns_accordion .card {
+    border: #444;
+}
+
+.kit-bwl-two_columns_accordion a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.kit-bwl-two_columns_accordion .card-body, .kit-bwl-two_columns_accordion .card-header {
+    background: #333;
+}
+

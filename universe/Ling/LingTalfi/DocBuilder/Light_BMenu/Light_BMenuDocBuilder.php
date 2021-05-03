@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_BMenu;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -157,6 +158,8 @@ class Light_BMenuDocBuilder
             "externalClass2Url" => [
                 "Ling\DotMenu\Exception\DotMenuException" => "https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/Exception/DotMenuException.md",
                 "Ling\DotMenu\DotMenu" => "https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+
             ],
         ];
 
@@ -192,6 +195,7 @@ class Light_BMenuDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

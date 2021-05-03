@@ -148,6 +148,7 @@ class Kit_PicassoWidgetDocBuilder
                 "the widget configuration array" => 'https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array',
                 "page configuration array" => 'https://github.com/lingtalfi/Kit#the-kit-configuration-array',
                 "widget directories" => 'https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-file-structure',
+                "the widget variables description array" => 'https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/widget-variables-description.md',
             ],
             /**
              * An array of external classes to url.

@@ -23,7 +23,7 @@ public static [DuelistHelper::getRawTableNameByRequestDeclaration](https://githu
 
 Returns the raw table name from the given request declaration.
 
-See the [realist request declaration page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/request-declaration.md) for more details.
+See the [realist request declaration page](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/request-declaration.md) for more details.
 
 
 

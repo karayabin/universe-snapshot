@@ -4,7 +4,7 @@
 
 The LightDebugTraceService class
 ================
-2020-06-25 --> 2021-03-05
+2020-06-25 --> 2021-03-22
 
 
 
@@ -99,10 +99,10 @@ Methods
 ==============
 
 - [LightDebugTraceService::__construct](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/__construct.md) &ndash; Builds the LightKitAdminDebugTraceService instance.
-- [LightDebugTraceService::initialize](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/initialize.md) &ndash; Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
-- [LightDebugTraceService::onRouteFound](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/onRouteFound.md) &ndash; Callable for the Light.on_route_found event provided by [the Light framework](https://github.com/lingtalfi/Light).
-- [LightDebugTraceService::onCsrfTokenRegenerated](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/onCsrfTokenRegenerated.md) &ndash; Callable for the Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
-- [LightDebugTraceService::onEndRoutine](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/onEndRoutine.md) &ndash; Callable for [the Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+- [LightDebugTraceService::initialize](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/initialize.md) &ndash; Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+- [LightDebugTraceService::onRouteFound](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/onRouteFound.md) &ndash; Callable for the Ling.Light.on_route_found event provided by [the Light framework](https://github.com/lingtalfi/Light).
+- [LightDebugTraceService::onCsrfTokenRegenerated](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/onCsrfTokenRegenerated.md) &ndash; Callable for the Ling.Light_CsrfSimple.on_csrf_token_regenerated event provided by [the Light_CsrfSimple plugin](Light_CsrfSimple).
+- [LightDebugTraceService::onEndRoutine](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/onEndRoutine.md) &ndash; Callable for [the Ling.Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 - [LightDebugTraceService::setContainer](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/setContainer.md) &ndash; Sets the container.
 - [LightDebugTraceService::setTargetFile](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/setTargetFile.md) &ndash; Sets the targetFile.
 - [LightDebugTraceService::setTargetDir](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService/setTargetDir.md) &ndash; Sets the targetDir.
@@ -123,3 +123,6 @@ See the source code of [Ling\Light_DebugTrace\Service\LightDebugTraceService](ht
 
 
 
+SeeAlso
+==============
+Previous class: [LightDebugTracePlanetInstaller](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Light_PlanetInstaller/LightDebugTracePlanetInstaller.md)<br>

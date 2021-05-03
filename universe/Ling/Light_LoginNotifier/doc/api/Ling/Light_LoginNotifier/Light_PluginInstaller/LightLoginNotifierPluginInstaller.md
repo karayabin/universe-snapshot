@@ -4,7 +4,7 @@
 
 The LightLoginNotifierPluginInstaller class
 ================
-2020-11-27 --> 2021-03-05
+2020-11-27 --> 2021-03-15
 
 
 

@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-03-05
+2015-10-07 --> 2021-05-01
 
 
 
@@ -90,6 +90,23 @@ Tools       |       Description
 
 History Log
 ------------------
+
+- 1.312 -- 2021-05-01
+
+    - add ClassTool::instantiateIfImplements method
+
+- 1.311 -- 2021-04-06
+
+    - add StringTool::getUniqueDuplicatedName method
+
+- 1.310 -- 2021-03-19
+
+    - fix FileTool::insert prepending blank line when nbLine is 1
+  
+- 1.309 -- 2021-03-18
+
+    - fix ArrayTool::arrayMergeReplaceRecursive trying to merge array with string
+    - update ClassTool::getReflectionClass signature, added return types
 
 - 1.308 -- 2021-03-05
 

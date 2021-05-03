@@ -1,6 +1,6 @@
 Light_Kit_Admin_DebugTrace
 ===========
-2019-11-07 -> 2021-03-05
+2019-11-07 -> 2021-05-02
 
 
 
@@ -68,6 +68,7 @@ kit_admin_debugtrace:
                     - /user-data
                     - /ajax-handler
                     - /css/tmp/
+                    - /browser-sync/
 
 
 # --------------------------------------
@@ -77,42 +78,35 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            event: Light.on_route_found
+            event: Ling.Light.on_route_found
             listener:
                 instance: @service(kit_admin_debugtrace)
                 callable_method: onRouteFound
     -
         method: registerListener
         args:
-            event: Light_Kit_Admin.on_page_rendered_before
+            event: Ling.Light_Kit_Admin.on_page_rendered_before
             listener:
                 instance: @service(kit_admin_debugtrace)
                 callable_method: onPageRenderedBefore
     -
         method: registerListener
         args:
-            event: Light_Kit.on_page_conf_ready
+            event: Ling.Light_Kit.on_page_conf_ready
             listener:
                 instance: @service(kit_admin_debugtrace)
                 callable_method: onKitPageConfReady
     -
         method: registerListener
         args:
-            event: Light_CsrfSimple.on_csrf_token_regenerated
-            listener:
-                instance: @service(kit_admin_debugtrace)
-                callable_method: onCsrfTokenRegenerated
-    -
-        method: registerListener
-        args:
-            event: Light.initialize_1
+            event: Ling.Light.initialize_1
             listener:
                 instance: @service(kit_admin_debugtrace)
                 callable_method: initialize
     -
         method: registerListener
         args:
-            event: Light.end_routine
+            event: Ling.Light.end_routine
             listener:
                 instance: @service(kit_admin_debugtrace)
                 callable_method: onEndRoutine
@@ -126,6 +120,34 @@ $events.methods_collection:
 History Log
 =============
 
+- 1.6.14 -- 2021-05-02
+
+    - fix service->onKitPageConfReady returning erroneous widgetFile property (missing templates part)
+  
+- 1.6.13 -- 2021-05-02
+
+    - add service->getTargetDirFilePathByUri method
+  
+- 1.6.12 -- 2021-05-02
+
+    - fix service->resetFile method not resetting files in the target directory
+  
+- 1.6.11 -- 2021-03-22
+
+    - adapt api to work with Ling.Light_Events:1.10.0
+  
+- 1.6.10 -- 2021-03-19
+
+    - switch some listeners to Ling.Light_Events' open registration system
+  
+- 1.6.9 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.6.8 -- 2021-03-09
+
+    - update planet to adapt Ling.Light_Kit_Admin:0.12.25
+  
 - 1.6.7 -- 2021-03-05
 
     - update README.md, add install alternative

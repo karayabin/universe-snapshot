@@ -22,7 +22,7 @@ public [LightRealistService::getActionHandlerByRequestId](https://github.com/lin
 
 
 Returns the action handler for the given request id.
-See more in the [realist action handler section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/realist-protagonists.md#the-action-handler).
+See more in the [realist action handler section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-protagonists.md#the-action-handler).
 
 
 
@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::getActionHandlerByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L568-L587)
+See the source code for method [LightRealistService::getActionHandlerByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L536-L555)
 
 
 See Also

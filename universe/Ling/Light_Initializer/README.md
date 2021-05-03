@@ -1,6 +1,6 @@
 Light_Initializer
 ===========
-2019-04-05 -> 2021-03-05
+2019-04-05 -> 2021-03-15
 
 
 
@@ -79,6 +79,10 @@ See more in the [initializer conception notes](https://github.com/lingtalfi/Ligh
 
 History Log
 =============
+
+- 1.3.4 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 1.3.3 -- 2021-03-05
 

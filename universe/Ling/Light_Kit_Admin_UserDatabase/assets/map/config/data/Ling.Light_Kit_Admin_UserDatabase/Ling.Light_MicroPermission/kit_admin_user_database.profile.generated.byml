@@ -1,0 +1,12 @@
+Ling.Light_UserDatabase.admin:
+    - store.lud_user_group
+    - store.lud_user
+    - store.lud_permission_group
+    - store.lud_permission
+    - store.lud_user_has_permission_group
+    - store.lud_permission_group_has_permission
+    - store.lud_plugin_option
+    - store.lud_user_group_has_plugin_option
+    - store.tes_table1
+
+

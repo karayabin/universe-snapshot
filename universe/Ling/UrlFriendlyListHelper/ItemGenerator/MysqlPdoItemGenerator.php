@@ -82,7 +82,6 @@ class MysqlPdoItemGenerator extends ItemGenerator
             }
         }
 
-        a($sql);
         return QuickPdo::fetchAll($sql, $markers);
     }
 

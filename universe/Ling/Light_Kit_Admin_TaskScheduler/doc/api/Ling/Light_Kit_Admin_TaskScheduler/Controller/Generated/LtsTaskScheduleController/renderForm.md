@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LtsTaskScheduleController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/Controller/Generated/LtsTaskScheduleController.php#L40-L61)
+See the source code for method [LtsTaskScheduleController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/Controller/Generated/LtsTaskScheduleController.php#L43-L66)
 
 
 See Also

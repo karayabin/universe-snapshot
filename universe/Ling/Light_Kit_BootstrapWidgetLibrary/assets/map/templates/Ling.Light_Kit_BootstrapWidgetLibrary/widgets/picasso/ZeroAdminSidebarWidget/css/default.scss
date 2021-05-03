@@ -1,0 +1,134 @@
+$header_height: 50px;
+$sidebar_width: 240px;
+$sidebar_bg_color: #262D33;
+$sidebar_active_ul_bg_color: #315472;
+$sidebar_active_ul_color: #fff;
+$sidebar_active_li_bg_color: #072433;
+$sidebar_link_hover_bg_color: #414d58;
+$sidebar_link_color: #e0e0e0;
+$sidebar_link_indent_one: 30px;
+$sidebar_link_indent_two: 50px;
+$sidebar_border_left_color: #608ab3;
+
+
+$transition_speed: 0.24s;
+
+
+$break_point_sm: 576px;
+$break_point_md: 768px;
+$break_point_lg: 992px;
+$break_point_xl: 1200px;
+
+
+body {
+
+  &.sidebar-show {
+    .sidebar {
+      margin-left: 0;
+    }
+  }
+
+  &.sidebar-hide {
+    .sidebar {
+      margin-left: -$sidebar_width;
+    }
+  }
+}
+
+
+.sidebar {
+  position: fixed;
+  width: $sidebar_width;
+  height: calc(100vh - #{$header_height});
+  margin-left: -$sidebar_width;
+
+  z-index: 1024;
+
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  padding: 0;
+  color: #fff;
+  background: $sidebar_bg_color;
+  transition: margin-left $transition_speed;
+  overflow-y: auto;
+
+
+  i {
+    margin-right: 7px;
+  }
+
+  a[data-toggle="collapse"] {
+    position: relative;
+  }
+
+  .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+
+  [aria-expanded="false"]::after {
+    transition: transform $transition_speed;
+    transform: rotate(-90deg);
+
+  }
+
+  [aria-expanded="true"]::after {
+    transition: transform $transition_speed;
+    transform: rotate(0deg);
+
+  }
+
+  a[aria-expanded="true"], a.active {
+    color: $sidebar_active_ul_color;
+    background: $sidebar_active_ul_bg_color;
+  }
+
+
+  ul.collapse.show {
+    /**
+    * Fix bootstrap tour css conflict (having .collapse=display:none)
+     */
+    display: block;
+  }
+
+
+  ul li a {
+    padding: 10px;
+    font-size: 1em;
+    display: block;
+    color: $sidebar_link_color;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+
+  }
+
+  ul li a:hover {
+    background: $sidebar_link_hover_bg_color;
+    border-left: 2px solid $sidebar_border_left_color;
+  }
+
+
+  ul ul a {
+    font-size: 0.9em !important;
+    padding-left: $sidebar_link_indent_one !important;
+  }
+
+  ul ul ul a {
+    padding-left: $sidebar_link_indent_two !important;
+  }
+
+  .active {
+    background-color: $sidebar_active_li_bg_color;
+  }
+
+
+  @media (min-width: $break_point_lg) {
+    margin-left: 0;
+  }
+
+}

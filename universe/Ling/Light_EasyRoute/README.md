@@ -1,6 +1,6 @@
 Light_EasyRoute
 ===========
-2019-08-21 -> 2021-03-05
+2019-08-21 -> 2021-03-15
 
 
 
@@ -65,7 +65,7 @@ $events.methods_collection:
   -
     method: registerListener
     args:
-      events: Light.initialize_1
+      events: Ling.Light.initialize_1
       listener:
         instance: @service(easy_route)
         callable_method: initialize
@@ -85,6 +85,14 @@ See the conception notes for more details.
 History Log
 =============
 
+- 1.3.7 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.3.6 -- 2021-03-09
+
+    - update planet to adapt Ling.Light recommended app structure
+  
 - 1.3.5 -- 2021-03-05
 
     - update README.md, add install alternative

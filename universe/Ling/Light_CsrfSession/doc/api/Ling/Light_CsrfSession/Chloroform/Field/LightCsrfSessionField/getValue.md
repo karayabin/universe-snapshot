@@ -46,7 +46,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightCsrfSessionField::getValue](https://github.com/lingtalfi/Light_CsrfSession/blob/master/Chloroform/Field/LightCsrfSessionField.php#L33-L40)
+See the source code for method [LightCsrfSessionField::getValue](https://github.com/lingtalfi/Light_CsrfSession/blob/master/Chloroform/Field/LightCsrfSessionField.php#L36-L43)
 
 
 See Also

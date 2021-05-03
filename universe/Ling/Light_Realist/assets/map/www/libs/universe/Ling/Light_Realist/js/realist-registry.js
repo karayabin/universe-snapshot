@@ -2,7 +2,7 @@
  * Realist Registry
  * 2019-09-25 -> 2020-09-03
  *
- * https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-registry-js.md
+ * https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/realist-registry-js.md
  *
  *
  */

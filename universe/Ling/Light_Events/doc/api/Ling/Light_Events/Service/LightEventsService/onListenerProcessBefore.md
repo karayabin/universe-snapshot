@@ -60,7 +60,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEventsService::onListenerProcessBefore](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L260-L287)
+See the source code for method [LightEventsService::onListenerProcessBefore](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L253-L280)
 
 
 See Also

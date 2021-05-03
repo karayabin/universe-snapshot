@@ -1,0 +1,23 @@
+name: looplab_two_columns_teaser
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsTeaserWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
+template: default.php
+vars:
+    attr:
+        class: bg-light text-muted py-5
+    img_on_left: true
+    img_rounded: true
+    img_src: /plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/share-section1.jpg
+    img_alt: Share What You Create
+    img_top_margin: 0px
+    teaser_title: Share What You Create
+    teaser_title_level: 3
+    teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
+    teaser_items:
+        -
+            icon: fas fa-check fa-2x
+            text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi distinctio iusto, perspiciatis mollitia natus harum?
+        -
+            icon: fas fa-check fa-2x
+            text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi distinctio iusto, perspiciatis mollitia natus harum?

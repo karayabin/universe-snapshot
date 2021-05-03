@@ -66,7 +66,7 @@ Also, implementation wise, this plugin uses the following php functions:
 
 
 
-We call Those functions during the initialization phase of the Light instance (the **Light.initialize_1** event).
+We call Those functions during the initialization phase of the Light instance (the **Ling.Light.initialize_1** event).
 
 
 

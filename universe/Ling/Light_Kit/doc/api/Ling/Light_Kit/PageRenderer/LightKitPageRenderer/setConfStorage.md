@@ -49,7 +49,7 @@ Returns [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/maste
 
 Source Code
 ===========
-See the source code for method [LightKitPageRenderer::setConfStorage](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L79-L83)
+See the source code for method [LightKitPageRenderer::setConfStorage](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L80-L84)
 
 
 See Also

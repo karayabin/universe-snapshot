@@ -57,7 +57,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [JumboExploder::lookahead](https://github.com/lingtalfi/JumboExploder/blob/master/JumboExploder.php#L161-L176)
+See the source code for method [JumboExploder::lookahead](https://github.com/lingtalfi/JumboExploder/blob/master/JumboExploder.php#L167-L182)
 
 
 See Also

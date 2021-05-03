@@ -1,6 +1,6 @@
 Light_LoginNotifier
 ===========
-2020-11-30 -> 2021-03-05
+2020-11-30 -> 2021-03-15
 
 
 
@@ -74,6 +74,14 @@ login_notifier:
 History Log
 =============
 
+- 1.0.10 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.0.9 -- 2021-03-09
+
+    - update planet to adapt new Ling.Light_Mailer 
+  
 - 1.0.8 -- 2021-03-05
 
     - update README.md, add install alternative

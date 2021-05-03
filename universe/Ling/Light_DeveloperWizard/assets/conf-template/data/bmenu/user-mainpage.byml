@@ -7,6 +7,6 @@
         plugin: Light_Kit_Admin_XXX
         controller: Custom/LightKitAdminXXXUserMainPageController
 
-    _right: Light_Kit_Admin.user
+    _right: Ling.Light_Kit_Admin.user
     children: []
 

@@ -141,7 +141,7 @@ class LightUserDataService
 
 
     /**
-     * Listener for the @page(Light_Database.on_lud_user_group_create event).
+     * Listener for the @page(Ling.Light_Database.on_lud_user_group_create event).
      *
      * @param LightEvent $event
      * @throws \Exception

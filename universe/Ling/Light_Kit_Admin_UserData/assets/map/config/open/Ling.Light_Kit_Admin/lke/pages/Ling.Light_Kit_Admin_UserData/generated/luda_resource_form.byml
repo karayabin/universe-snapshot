@@ -1,0 +1,32 @@
+title: Resource: insert a new resource
+description: <
+    This form let you create a new resource. This page was provided by the Ling.Light_Kit_Admin_UserData plugin.
+>
+
+
+layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+layout_vars: []
+
+
+
+zones:
+    notifications: b$:Ling.Light_Kit_Admin/notifications_default
+    toasts: b$:Ling.Light_Kit_Admin/toasts_default
+    sub_header: b$:Ling.Light_Kit_Admin/sub_header_default
+    header: b$:Ling.Light_Kit_Admin/header_default
+    sidebar: b$:Ling.Light_Kit_Admin/sidebar_default
+    body:
+        - b$:Ling.Light_Kit_Admin/body_default
+        -
+            name: lka_chloroform
+            id: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Ling.Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: default.php
+            vars: []
+                title: ${rendering.title}
+                form: ${form}
+                related_links: ${rendering.related_links}
+
+    footer: b$:Ling.Light_Kit_Admin/footer_default

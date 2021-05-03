@@ -4,7 +4,7 @@
 
 The LightKitAdminListActionHandler class
 ================
-2019-05-17 --> 2021-03-05
+2019-05-17 --> 2021-05-02
 
 
 
@@ -79,7 +79,7 @@ Methods
 - [LightKitAdminListActionHandler::executeSaveTableListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeSaveTableListGeneralAction.md) &ndash; Saves the table data in the form of inserts statements, and put the resulting sql file in the user assets.
 - [LightKitAdminListActionHandler::executeLoadTableListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeLoadTableListGeneralAction.md) &ndash; which we assume are mostly insert statements.
 - [LightKitAdminListActionHandler::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/error.md) &ndash; Throws an error message.
-- [LightKitAdminListActionHandler::getInRicsTags](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getInRicsTags.md) &ndash; Returns an array containing one [in_rics tag](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist-conception-notes.md#in_rics) per item in the given rics array.
+- [LightKitAdminListActionHandler::getInRicsTags](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getInRicsTags.md) &ndash; Returns an array containing one [in_rics tag](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/duelist-conception-notes.md#in_rics) per item in the given rics array.
 - [LightKitAdminListActionHandler::getWhereByRics](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getWhereByRics.md) &ndash; rics.
 - [LightKitAdminListActionHandler::executeFetchAllRequestByActionId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeFetchAllRequestByActionId.md) &ndash; Returns the result of the LightRealistService->executeRequestById method.
 - [LightKitAdminListActionHandler::getParam](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getParam.md) &ndash; Returns the value of the parameter  which name is given, from the given params array.
@@ -107,4 +107,4 @@ See the source code of [Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitA
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminRealformHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realform/Handler/LightKitAdminRealformHandler.md)<br>Next class: [LightKitAdminRealistListItemRenderer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistListItemRenderer.md)<br>
+Previous class: [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md)<br>Next class: [LightKitAdminRealistListItemRenderer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistListItemRenderer.md)<br>

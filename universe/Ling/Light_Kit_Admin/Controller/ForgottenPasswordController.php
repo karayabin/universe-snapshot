@@ -96,7 +96,7 @@ class ForgottenPasswordController extends LightKitAdminController
                          * @var $mailer LightMailerService
                          */
                         $mailer = $this->getContainer()->get("mailer");
-                        $mailer->send("Light_Kit_Admin/new_password", [$matchingUser['email']], [
+                        $mailer->send("Ling.Light_Kit_Admin/new_password", [$matchingUser['email']], [
                             'vars' => [
                                 'datetime' => date('Y-m-d H:i:s'),
                                 'user_identifier' => $matchingUser['identifier'],
@@ -117,7 +117,7 @@ class ForgottenPasswordController extends LightKitAdminController
         }
 
 
-        return $this->renderPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_forgotten_password', [
+        return $this->renderPage('Ling.Light_Kit_Admin/forgotten_password', [
             "inputEmailError" => $error,
             "inputEmailValue" => $email,
             "hasMultipleAccounts" => $hasMultipleAccounts,

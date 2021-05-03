@@ -1,0 +1,85 @@
+_vars: 
+    nuggetId: Ling.Light_Kit_Admin_UserData:generated/luda_resource
+
+rendering: 
+    title: Resource form
+    related_links: 
+        - 
+            text: "See the list of \"Resource\" items"
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserData, controller: Generated/LudaResourceController}))::
+            icon: fas fa-plus-circle
+        
+    
+
+ric: 
+    - id
+
+feeder: null
+storage_id: luda_resource
+success_messages: 
+    create: The item has been successfully stored in the database
+    update: The item has been successfully updated in the database, with ric {sRic}
+
+security: []
+chloroform: 
+    id: realgen-luda_resource
+    fields: 
+        lud_user_id: 
+            label: Lud user id
+            type: table_list
+            validators: 
+                required: []
+            
+            nullable: false
+            tableListDirectiveId: %{nuggetId}:chloroform.fields.lud_user_id.tableListConf
+            tableListConf: 
+                sql: select id as value, concat(id, '. ', pseudo) as label from lud_user
+                column: id
+                search_column: concat(id, '. ', pseudo)
+                renderAs: adapt
+                threshold: 200
+                security: 
+                    any: 
+                        micro_permission: store.lud_user.read
+                        permission: Ling.Light_Kit_Admin.admin
+                    
+                    all: []
+                
+            
+        
+        canonical: 
+            label: Canonical
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        is_private: 
+            label: Is private
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        date_creation: 
+            label: Date creation
+            type: datetime
+            validators: 
+                requiredDatetime: []
+            
+            nullable: false
+        
+        date_last_update: 
+            label: Date last update
+            type: datetime
+            validators: 
+                requiredDatetime: []
+            
+            nullable: false
+        
+    
+
+success_handler: 
+    class: defaultDbHandler

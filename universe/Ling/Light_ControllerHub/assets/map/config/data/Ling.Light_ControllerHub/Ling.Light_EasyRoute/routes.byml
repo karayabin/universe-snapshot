@@ -1,0 +1,6 @@
+Light_ControllerHub:
+    routes:
+        lch_route-hub:
+            pattern: /hub
+            controller: Ling\Light_ControllerHub\Controller\LightControllerHubController->render
+

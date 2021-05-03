@@ -1,6 +1,6 @@
 Light_Kit_Admin generator
 ================
-2019-10-24 -> 2020-06-30
+2019-10-24 -> 2021-03-09
 
 
 The light kit admin generator (lka generator) is a generator for the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin.
@@ -49,7 +49,7 @@ $bmenu.methods_collection:
                     setContainer:
                         container: @container()
                     setBaseDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/bmenu
+                        dir: ${app_dir}/config/data/Ling.Light_Kit_Admin/bmenu
                     setMenuStructureId:
                         id: lka_mainmenu_1
                     setDefaultItemsParentPath:

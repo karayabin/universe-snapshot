@@ -22,7 +22,7 @@ class UserFileManagerController extends AdminPageController
     public function render()
     {
 
-        $page = 'Light_Kit_Admin_UserData/kit/zeroadmin/file_manager';
+        $page = 'Light_Kit_Admin_UserData/Ling.Light_Kit/zeroadmin/file_manager';
         return $this->renderAdminPage($page, []);
     }
 

@@ -23,8 +23,8 @@ public [OpenAdminTableBaseRealistListRenderer::setListItemGroupActions](https://
 
 Sets the "actions items" representing the "list item group actions" for this list.
 
-See more details in the [realist action-items document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md),
-and the [realist list-actions document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md).
+See more details in the [realist action-items document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/action-items.md),
+and the [realist list-actions document](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-actions.md).
 
 
 

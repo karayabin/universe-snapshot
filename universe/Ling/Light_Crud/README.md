@@ -1,6 +1,6 @@
 Light_Crud
 ===========
-2019-11-28 -> 2021-03-05
+2019-11-28 -> 2021-03-15
 
 
 
@@ -55,6 +55,18 @@ crud:
     methods:
         setContainer:
             container: @container()
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$ajax_handler.methods_collection:
+    -
+        method: registerHandler
+        args:
+            id: Light_Crud
+            handler:
+                instance: Ling\Light_Crud\AjaxHandler\LightCrudAjaxHandler
 ```
 
 
@@ -64,6 +76,10 @@ crud:
 History Log
 =============
 
+- 2.0.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 2.0.4 -- 2021-03-05
 
     - update README.md, add install alternative

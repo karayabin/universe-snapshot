@@ -4,7 +4,7 @@
 
 The DeveloperVariableProviderInterface class
 ================
-2019-08-12 --> 2021-03-05
+2019-08-12 --> 2021-04-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Realist\DeveloperVariableProvider\DeveloperVa
 
 SeeAlso
 ==============
-Previous class: [LightRealistAjaxHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler.md)<br>Next class: [ContainerAwareRealistDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/ContainerAwareRealistDynamicInjectionHandler.md)<br>
+Previous class: [LightRealistAjaxHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler.md)<br>Next class: [DuelistEngineInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface.md)<br>

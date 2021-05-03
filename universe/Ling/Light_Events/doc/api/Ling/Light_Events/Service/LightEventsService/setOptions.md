@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEventsService::setOptions](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L237-L240)
+See the source code for method [LightEventsService::setOptions](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L230-L233)
 
 
 See Also

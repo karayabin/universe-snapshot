@@ -4,7 +4,7 @@
 
 The LightLingHooksService class
 ================
-2020-08-17 --> 2021-03-05
+2020-08-17 --> 2021-03-22
 
 
 
@@ -101,4 +101,4 @@ See the source code of [Ling\Light_LingHooks\Service\LightLingHooksService](http
 
 SeeAlso
 ==============
-Previous class: [LightLingHooksException](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Exception/LightLingHooksException.md)<br>
+Previous class: [LightLingHooksPlanetInstaller](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Light_PlanetInstaller/LightLingHooksPlanetInstaller.md)<br>

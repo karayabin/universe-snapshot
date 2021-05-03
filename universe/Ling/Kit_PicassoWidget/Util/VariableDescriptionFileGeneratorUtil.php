@@ -44,30 +44,33 @@ class VariableDescriptionFileGeneratorUtil
         $zones = $conf['zones'];
         $processed = [];
         foreach ($zones as $zone) {
-            foreach ($zone as $widgetConf) {
-                if ('picasso' === $widgetConf['type']) {
-                    $p = explode('\\', $widgetConf['className']);
-                    $className = array_pop($p);
+            if (true === is_array($zone)) {
+
+                foreach ($zone as $widgetConf) {
+                    if ('picasso' === $widgetConf['type']) {
+                        $p = explode('\\', $widgetConf['className']);
+                        $className = array_pop($p);
 
 
-                    if (false === in_array($className, $processed, true)) {
+                        if (false === in_array($className, $processed, true)) {
 
 
-                        $sVars = $this->renderVars($widgetConf['vars']);
-                        $sExample = $this->renderExample($widgetConf);
+                            $sVars = $this->renderVars($widgetConf['vars']);
+                            $sExample = $this->renderExample($widgetConf);
 
-                        $content = str_replace([
-                            '${widgetClassName}',
-                            '${vars}',
-                            '${example}',
-                        ], [
-                            $className,
-                            $sVars,
-                            $sExample,
-                        ], $originalContent);
-                        $outputFile = $outputDir . "/$className.vars_descr.prototype.byml";
-                        FileSystemTool::mkfile($outputFile, $content);
-                        $processed[] = $className;
+                            $content = str_replace([
+                                '${widgetClassName}',
+                                '${vars}',
+                                '${example}',
+                            ], [
+                                $className,
+                                $sVars,
+                                $sExample,
+                            ], $originalContent);
+                            $outputFile = $outputDir . "/$className.vars_descr.prototype.byml";
+                            FileSystemTool::mkfile($outputFile, $content);
+                            $processed[] = $className;
+                        }
                     }
                 }
             }

@@ -322,3 +322,16 @@
     - Ling:Light_Realform:2.0.8+
     - Ling:SimplePdoWrapper:1.30.16+
     - Ling:SqlWizard:1.13.7+
+
+1.6.14: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.70.0+
+    - Ling:Light_AjaxHandler:2.1.9+
+    - Ling:Light_CsrfSession:1.0.4+
+    - Ling:Light_Database:1.14.15+
+    - Ling:Light_MicroPermission:3.0.7+
+    - Ling:Light_Nugget:1.3.8+
+    - Ling:Light_Realform:2.0.9+
+    - Ling:SimplePdoWrapper:1.30.17+
+    - Ling:SqlWizard:1.13.8+

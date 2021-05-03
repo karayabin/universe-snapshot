@@ -14,7 +14,7 @@ class Light404LoggerService
 {
 
     /**
-     * The callable used to react to the @page(Light.on_unhandled_exception_caught event).
+     * The callable used to react to the @page(Ling.Light.on_unhandled_exception_caught event).
      *
      * It will internally dispatch a logger message on the 404 channel,
      * using @page(the Light_Logger service), and we treat that message using a logger listener (Light404LoggerListener).

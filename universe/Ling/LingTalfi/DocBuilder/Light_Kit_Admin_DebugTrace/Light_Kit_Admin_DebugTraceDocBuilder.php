@@ -75,7 +75,8 @@ class Light_Kit_Admin_DebugTraceDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -145,8 +146,8 @@ class Light_Kit_Admin_DebugTraceDocBuilder
                 "the Light_Kit_Admin plugin" => 'https://github.com/lingtalfi/Light_Kit_Admin',
                 "the Light_Kit plugin" => 'https://github.com/lingtalfi/Light_Kit',
                 "the Light_CsrfSimple plugin" => 'Light_CsrfSimple',
-                "Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
-                "the Light.end_routine event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "Ling.Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "the Ling.Light.end_routine event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
             ],
             /**
              * An array of external classes to url.
@@ -160,6 +161,9 @@ class Light_Kit_Admin_DebugTraceDocBuilder
             "externalClass2Url" => [
                 "Ling\Light_Initializer\Initializer\LightInitializerInterface" => "https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md",
 
             ],
             "ignoreFilesStartingWith" => [

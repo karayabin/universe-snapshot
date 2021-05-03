@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [KitPageRenderer::registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L202-L205)
+See the source code for method [KitPageRenderer::registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L184-L187)
 
 
 See Also

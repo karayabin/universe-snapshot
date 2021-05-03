@@ -142,7 +142,7 @@ class Light_FileWatcherDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Light_FileWatcher conception notes" => $doc . '/pages/conception-notes.md',
-                "the Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "the Ling.Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
             ],
             /**
              * An array of external classes to url.

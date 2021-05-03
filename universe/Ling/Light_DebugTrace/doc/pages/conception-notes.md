@@ -146,11 +146,11 @@ route:
     is_ajax: false
 
 events: 
-    - Light.initialize_1
-    - Light.on_route_found
-    - Light_Kit_Admin.on_page_rendered_before
-    - Light_Kit.on_page_conf_ready
-    - Light.end_routine
+    - Ling.Light.initialize_1
+    - Ling.Light.on_route_found
+    - Ling.Light_Kit_Admin.on_page_rendered_before
+    - Ling.Light_Kit.on_page_conf_ready
+    - Ling.Light.end_routine
 
 session: 
     light_csrf_session: 7b852cb458906dcbcc2efa51e71c5fca

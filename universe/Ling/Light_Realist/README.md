@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2021-03-05
+2019-08-09 -> 2021-04-09
 
 
 
@@ -65,7 +65,7 @@ realist:
         setBaseDir:
             dir: ${app_dir}
         registerDynamicInjectionHandler:
-            identifier: Light_Realist
+            identifier: Ling.Light_Realist
             handler:
                 instance: Ling\Light_Realist\DynamicInjection\LightRealistDynamicInjectionHandler
 
@@ -87,7 +87,7 @@ $ajax_handler.methods_collection:
     -
         method: registerHandler
         args:
-            id: Light_Realist
+            id: Ling.Light_Realist
             handler:
                 instance: Ling\Light_Realist\AjaxHandler\LightRealistAjaxHandler
 
@@ -107,6 +107,19 @@ Related
 
 History Log
 =============
+
+- 2.0.16 -- 2021-04-09
+  
+    - update realist tag transfer documentation
+    - fix open-admin-table-helper.js not resetting pagination correctly in some cases
+  
+- 2.0.15 -- 2021-03-23
+
+    - update api, change Light_Realist identifiers to Ling.Light_Realist
+  
+- 2.0.14 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 2.0.13 -- 2021-03-05
 

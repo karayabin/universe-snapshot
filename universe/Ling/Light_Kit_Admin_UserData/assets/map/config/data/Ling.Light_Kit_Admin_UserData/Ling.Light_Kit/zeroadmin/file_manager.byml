@@ -1,0 +1,10 @@
+_parent: ${lka_parent_layout}
+zones:
+    body:
+        -
+            name: zeroadmin_lka_user_data_filemanager
+            type: picasso
+            className: Ling\Light_Kit_Admin_UserData\Light_Kit\Widget\Picasso\LkaUserDataFileManagerWidget
+            widgetDir: templates/Ling.Light_Kit_Admin_UserData/widgets/picasso/LkaUserDataFileManagerWidget
+            template: default.php
+            vars: []

@@ -1,0 +1,13 @@
+_parent: Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base
+title: User preference List
+zones:
+    body:
+        -
+            name: light_realist
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LightRealistWidget
+            widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LightRealistWidget
+            template: default.php
+            vars:
+                request_declaration_id: null
+                renderer: null

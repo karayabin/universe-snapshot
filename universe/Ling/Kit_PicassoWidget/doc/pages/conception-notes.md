@@ -1,27 +1,115 @@
 Conception notes 
 ========
+2019-04-24 -> 2021-04-09
+
+
+
+
+* [Intro](#intro)
+* [The Picasso widget array](#the-picasso-widget-array)
+* [Going deeper with widgets: the picasso widget](#going-deeper-with-widgets-the-picasso-widget)
+    * [Using the widget brain](#using-the-widget-brain)
+    * [Using js files](#using-js-files)
+    * [Using css decorator files](#using-css-decorator-files)
+* [Skins](#skins)
+    * [A concrete skin example](#a-concrete-skin-example)
+* [Dynamic nuggets](#dynamic-nuggets)
+* [Presets](#presets)
+    * [Aliases](#aliases)
+    * [Caching](#caching)
+    * [Passing dynamic data down the pipe](#passing-dynamic-data-down-the-pipe)
+
+
+
+
+Intro
+--------
+2021-04-08
+
+
+Picasso is an implementation of the [kit system](https://github.com/lingtalfi/Kit),
+where a widget is encapsulated in a class and a well-defined file structure.
+
+
+
+
+
+
+
+The Picasso widget array
+----------
 2019-04-24
 
 
 
-* [Going deeper with widgets: the picasso widget](#going-deeper-with-widgets-the-picasso-widget)
-    * [A planet can provide multiple widgets](#a-planet-can-provide-multiple-widgets)
-    * [Using templates](#using-templates)
-    * [Using js files](#using-js-files)
-    * [Using css decorator files](#using-css-decorator-files)
-    * [The picasso widget configuration array](#the-picasso-widget-configuration-array)
-* [The variables description idea](#the-variables-description-idea)
-* [The css skin idea](#the-css-skin-idea)
-* [Dynamic nuggets](#dynamic-nuggets)
-* [Presets](#presets)
-* [Aliases](#aliases)
-* [Caching](#caching)
-* [Passing dynamic data down the pipe](#passing-dynamic-data-down-the-pipe)
+So, here is the configuration array for the picasso widget:
+
+```yaml
+className: $theClassName        # for instance Ling\MyFirstPicassoWidget\MyFirstPicassoWidget 
+?widgetDir: $widgetDir          # absolute path to the widget directory. If not set, the widget directory is a directory named "widget" found next to the file containing the widget class.
+                                # If set, and the path is relative (i.e. not starting with a slash),
+                                # then the path is relative to the widgetBaseDir (set using the setWidgetBaseDir method of the PicassoWidgetHandler class)
+template: $templateName         # for instance: default.php, or prototype.php. This is the path to the template file, relative to the $widgetDir/templates directory
+
+
+# The css skin to use. 
+# If the skin property doesn't exist, it defaults to the template name. 
+# If it's defined, it indicates which skin to use.
+# If null, this means use no skin at all (the user probably wants to take care of the css by herself)
+?skin: null  
+
+
+# The js init file to use. 
+# If not defined, it defaults to the template name. 
+# If it's defined, it indicates the js init file to use.
+# If null, this means use no js init file at all (the user probably wants to take care of the js by herself)
+?js: null  
+?vars:                          # An array of variables to pass to the template
+    my_value: 667 
+    ?attr:                          # An array of html attributes to add to the widget's outer tag
+        id: my_id
+        class: my_class my_class2
+        data-example-value: 668
+
+``` 
+
+
+Note: this merges with the widget array defined in the [kit configuration array](https://github.com/lingtalfi/Kit#the-kit-configuration-array).
+
+
+Reminder: to use the Picasso widget, don't forget to add the type property:
+
+```yaml
+type: picasso
+```
+
+And to register the PicassoWidgetHandler:
+
+
+```php
+$kit = new KitPageRenderer();
+// ...
+$kit->registerWidgetHandler('picasso', new PicassoWidgetHandler());
+// ...
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 Going deeper with widgets: the picasso widget
 ----------------
+2019-04-24 -> 2021-04-08
+
 
 Now as I said [earlier](https://github.com/lingtalfi/Kit/blob/master/doc/pages/conception-notes.md), a widget configuration depends on the widget.
 I will create an implementation that corresponds to my needs, and I will name it Picasso, after the painter of the same name (don't ask me why),
@@ -47,13 +135,22 @@ and is located right next to the php class, with the following structure:
 --------- default.css       # can be any name, but it's the same name as a template
 --------- default.css.php   # use this instead of default.css to turn the file into a dynamic css nugget
 ----- presets/              # the (widget configuration) built-in presets for this widget.  
---------- preset_one.byml   # an example preset file  
+--------- preset_one.byml   # an example preset file
+----- brain/brain.php       # the file to handle the logic of the widget, if any (see the kit concept of processing for more details: https://github.com/lingtalfi/Kit/blob/master/doc/pages/conception-notes.md#rendering-a-widget)
+  
 ```
 
 
-Note: the widget directory could also be placed elsewhere, which would be useful in a plugin oriented application, so
-that the plugins can copy the **widget** dir in the application scope, so that the maintainer of the app can modify those
-files by hand without having to modify the plugin itself (for instance).
+Note: the **widget** directory can be placed anywhere using the **widgetDir** directive of the widget configuration array.
+
+
+Notes:
+- because of this design, a planet can provide multiple Picasso widgets.
+- the **js** directory contains any [js code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-jsCodeBlocks) that you want to inject in your html page.
+- the files contained in the **js-init** directory must have the same name than the template being used (with the **.js** or **.js.php** extension instead). If the **.js.php** extension is used, it's [dynamic nugget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/conception-notes.md#dynamic-nuggets).
+- the **css** directory contains any [css code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-cssCodeBlocks) that you want to inject in an external css stylesheet.
+- the files contained in the **css** directory must have the same name than the template being used (with the **.css** or **.css.php** extension instead). If the **.css.php** extension is used, it's [dynamic nugget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/conception-notes.md#dynamic-nuggets).
+
 
 
 
@@ -65,24 +162,54 @@ So the main ideas here are:
 - the use of css decorator files
 
 
-###  A planet can provide multiple widgets
-
-When I say planet, I mean any container really, but the planet is a container.
-And so the idea is that since we don't have the widget directory at the root of the planet (or container), the planet
-can provide multiple widgets (not only one). 
 
 
+### Using the widget brain
+2021-04-09
 
-### Using templates
 
-I decided to use templates for two reasons:
+The widget brain (aka brain) is a php file called before the widget is rendered.
+
+It's basically our implementation of the **process phase** described in the [kit widgets rendering section](https://github.com/lingtalfi/Kit/blob/master/doc/pages/conception-notes.md#rendering-a-widget).
+
+
+It's just a php file in which you have access to the **$vars** variable, which represents the widget variables (the **vars** part of the widget conf array).
+
+You can update this array directly to prepare your widget for rendering.
+
+The **brain** is called by the widget handler instance.
+
+In other words, the **$this** variable is also available, which might be useful in some cases.
+
+For instance, if you're using the [Light framework](https://github.com/lingtalfi/Light), then you probably are using the [Light_Kit](https://github.com/lingtalfi/Light_Kit) version of kit.
+In this case, the widget handler is the **LightKitPicassoWidgetHandler** instance (by default), which gives you (at least) the following method:
+
+- getContainer(): to access the service container
+
+Tip: if you are using the **light framework** and have an IDE with autocompletion, like phpStorm for instance, we recommend using a snippet like this at the top of your **brain file**:
+
+
+```php 
+/**
+ * @var $this LightKitPicassoWidgetHandler
+ */
  
-- it's easy to switch from a template to another.
-- I personally like the prototyping approach for creating websites, where you first inject the html from a template, 
-        and then make it dynamic using php code injection, and so starting by creating a prototype template (by copy-pasting
-        from the original template model) is a methodology that I promote. 
+```
+
+This will provide you autocompletion for the **$this** variable in the rest of the brain file.
+
+
+
+
+
+
+
+
+
 
 ### Using js files
+2019-04-24
+
 
 In the picasso approach, we like to put js scripts at the end of the html page, just before the closing body tag.
 In there, we also put the js code for the widgets that need such initialization code.
@@ -102,6 +229,7 @@ This will turn your file into a [dynamic nugget](#dynamic-nuggets).
 
 
 ### Using css decorator files
+2019-04-24
 
 A widget template might have specific needs in terms of css.
 
@@ -124,97 +252,12 @@ This will turn your file into a [dynamic nugget](#dynamic-nuggets).
 
 
 
-### The picasso widget configuration array
-
-So, here is the configuration array for the picasso widget:
-
-```yaml
-className: $theClassName        # for instance Ling\MyFirstPicassoWidget\MyFirstPicassoWidget 
-?widgetDir: $widgetDir          # absolute path to the widget directory. If not set, the widget directory is a directory named "widget" found next to the file containing the widget class.
-                                # If set, and the path is relative (i.e. not starting with a slash),
-                                # then the path is relative to the widgetBaseDir (set using the setWidgetBaseDir method of the PicassoWidgetHandler class)
-template: $templateName         # for instance: default.php, or prototype.php. This is the path to the template file, relative to the $widgetDir/templates directory
-
-# The css skin to use. 
-# If the skin property doesn't exist, it defaults to the template name. 
-# If it's defined, it indicates which skin to use.
-# If null, this means use no skin at all (the user probably wants to take care of the css by herself)
-?skin: null   
-# The js init file to use. 
-# If not defined, it defaults to the template name. 
-# If it's defined, it indicates the js init file to use.
-# If null, this means use no js init file at all (the user probably wants to take care of the js by herself)
-?js: null                        
-?vars:                          # An array of variables to pass to the template
-    my_value: 667  
-    ?attr:                          # An array of html attributes to add to the widget's outer tag
-        id: my_id
-        class: my_class my_class2
-        data-example-value: 668
-
-``` 
-
-
-Again: I could drop the file extension in the name, to save us four characters per widget configuration array,
-but I believe it's not worth it. 
-Because today I use php extension, but I don't know about tomorrow.
 
 
 
-Now since Picasso is the first widget system, I believe I will include it with Kit, so that the newbie user doesn't have to
-fetch for a Picasso planet when she doesn't even know about kit (hopefully this is not a design flaw right there).
-Actually you know what, I won't include it in Kit, because Kit is already complex enough by itself.
-
-
-
-2019-04-30: I've just added the attr property. I believe it should not be included in the (front) vars. 
-
-attr is more a cosmetic thing, and hence it's part of the widget root configuration properties.
-The attr parameter was originally implemented to facilitate the implementation of the website-builder system, as
-described in my [conception notes](https://github.com/lingtalfi/Light_Kit_WebsiteBuilder/blob/master/doc/pages/conception-notes.md).
-
-
-
-
-The variables description idea
-----------------
-2019-04-30
-
-I was creating my first Picasso widget for the Light_Kit_BootstrapWidgetLibrary (MainNavWidget), and I thought
-about this idea of creating a variable description file, which would basically be a file describing the vars of the widget
-(accessible via the vars property of [the widget configuration array](https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array)).
-
-The file looks like this:
-
-
-```yaml
-
-```
-
-What's the purpose of that file:
-
-- first, I thought that I could use it as a documentation for myself (like a memory), since the file has a structure, it's a first step towards
-    a minimum level of consistency throughout all the widgets I will every build
-- then expanding on this idea, I thought that I could use it to generate the documentation (using my doc builder tools in the LingTalfi planet...),
-    which would concretely make all the widget documentation consistent all the sudden.
-- also, I thought that I could generate some admin files: I plan to create an admin website for my kit based apps, like a wordpress backend,
-        and so I anticipated that this admin would work based on some files describing the types of gui necessary to update the vars,
-        basically those files would be used to generate the admin forms for each widget,
-        and so with those var description files, I could generate a sort of blue print (yet to be completed manually), to save a lot of time too.
-        Note: I'm not 100% sure how the admin would work though, that's just a speculation at the moment, but I still consider this as an argument
-        as to justify the creation of those variable description files.
-             
-              
-     
-
-
-This discussion led to the official [widget variables description page](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/widget-variables-description.md).
-
-
-
-The css skin idea
+Skins
 ------------
-2019-05-02
+2019-05-02 -> 2021-04-08
 
 
 The idea behind a css skin is that for a given template, we can choose from different stylesheets.
@@ -228,6 +271,73 @@ Skins are located under the **$widgetDir/css** directory.
 
 Sometimes, the user prefers to not use any css skin, for instance because she uses a general stylesheet coding for the whole theme
 (including all pages and widgets). In that case, she can just set the skin to null, to disable it.
+
+
+### A concrete skin example
+
+2019-04-24 -> 2021-04-08
+
+
+In picasso, a skin is basically a style based on css.
+
+
+
+To use a skin, we recommend the following approach:
+
+- add the skin to your widget configuration, AND as a css class as well.
+- then create your skin file, using the skin css class to write your rules
+
+
+Here is an example widget configuration array using the **looplab-dark** skin that I want to create:
+
+```yaml
+
+# ...
+-
+    name: looplab_monochrome_header
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabMonoChromeHeaderWidget
+    widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
+    template: default.php
+    skin: looplab-dark
+    vars:
+        attr:
+            class: looplab-dark
+        title: Explore
+        text: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente doloribus ut iure itaque quibusdam rem accusantium deserunt reprehenderit sunt minus.
+        button_url: '#'
+        button_class: btn btn-outline-secondary
+        button_text: Find Out More
+```
+
+
+Notice that I've written my **looplab-dark** skin in two different locations:
+
+- **skin**, to indicate that I want to include the skin file (named **looplab-dark.css** or **looplab-dark.css.php** in the **widget** dir)
+- **vars.attr.class**, to simply add the **looplab-dark** css class to my widget's container tag
+
+
+Then, in my widget dir (in this case: **templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget**),
+I create my skin file: **css/looplab-dark.css**, with the following content (for instance):
+
+
+```css
+.kit-bwl-monochrome_header.looplab-dark {
+    background: #333;
+    color: #fff;
+}
+```
+
+Note: the **kit-bwl-monochrome_header** is hardcoded in the template, so I can always rely on it.
+
+By combining the widget's default class and the skin class, I can apply style on a widget instance basis rather than on a widget type.
+In other words, I can add the **looplab_monochrome_header** widget multiple times in my page, each time with a different skin.
+
+
+
+
+
+
 
 
 

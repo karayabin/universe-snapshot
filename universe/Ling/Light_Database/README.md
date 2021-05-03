@@ -1,6 +1,6 @@
 Light_Database
 ===========
-2019-07-22 -> 2021-03-05
+2019-07-22 -> 2021-03-22
 
 
 
@@ -94,17 +94,6 @@ database:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$events.methods_collection:
-    -
-        method: registerListener
-        args:
-            events:
-                - Light.on_exception_caught
-            listener:
-                instance: @service(database)
-                callable_method: onExceptionCaught
-
-
 $logger.methods_collection:
     -
         method: addListener
@@ -130,6 +119,22 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.14.19 -- 2021-03-22
+
+    - adapt api to work with Ling.Light_Events:1.10.0
+  
+- 1.14.18 -- 2021-03-19
+
+    - fix open events not in the "events" directory
+  
+- 1.14.17 -- 2021-03-18
+
+    - switch to Ling.Light_Events' open registration system
+
+- 1.14.16 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.14.15 -- 2021-03-05
 
     - update README.md, add install alternative

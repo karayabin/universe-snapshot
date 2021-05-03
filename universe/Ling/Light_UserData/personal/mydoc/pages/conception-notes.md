@@ -1,6 +1,6 @@
 Light_UserData, conception notes
 =====================
-2019-09-27 -> 2020-11-09
+2019-09-27 -> 2021-03-09
 
 
 
@@ -416,14 +416,14 @@ See my older conception notes where we used the vfs system, if you want to reimp
 
 Accessing the user files from the browser
 -----------
-2020-10-06 -> 2020-11-05
+2020-10-06 -> 2021-03-09
 
 
 We also provide a web entry point to access the user files.
 
 
 
-The access url is: **/user-data** (defined in /app/config/data/Light_UserData/Light_EasyRoute/luda_routes.byml),
+The access url is: **/user-data** (defined in /app/config/data/Ling.Light_UserData/Ling.Light_EasyRoute/luda_routes.byml),
 and it has the following parameters:
 
 - id: mandatory, string. The [resource identifier](#the-resource-identifier) of the file to access.

@@ -82,7 +82,7 @@ class LightDebugTraceService
     //
     //--------------------------------------------
     /**
-     * Listener for the @page(Light.initialize_1 event).
+     * Listener for the @page(Ling.Light.initialize_1 event).
      * It will write information about the http request and the csrf token into the debug trace file.
      *
      *
@@ -137,7 +137,7 @@ class LightDebugTraceService
 
 
     /**
-     * Callable for the Light.on_route_found event provided by @page(the Light framework).
+     * Callable for the Ling.Light.on_route_found event provided by @page(the Light framework).
      *
      * @param LightEvent $event
      * @param string $eventName
@@ -154,7 +154,7 @@ class LightDebugTraceService
 
 
     /**
-     * Callable for the Light_CsrfSimple.on_csrf_token_regenerated event provided by @page(the Light_CsrfSimple plugin).
+     * Callable for the Ling.Light_CsrfSimple.on_csrf_token_regenerated event provided by @page(the Light_CsrfSimple plugin).
      *
      * @param LightEvent $event
      * @param string $eventName
@@ -171,7 +171,7 @@ class LightDebugTraceService
 
 
     /**
-     * Callable for @page(the Light.end_routine event).
+     * Callable for @page(the Ling.Light.end_routine event).
      * @param LightEvent $event
      * @throws \Exception
      */

@@ -158,6 +158,26 @@ class WidgetApi extends CustomLightKitEditorBaseApi implements WidgetApiInterfac
     }
 
 
+    /**
+     * @implementation
+     */
+    public function getWidgetByIdentifier(string $identifier, $default = null, bool $throwNotFoundEx = false)
+    {
+        $ret = $this->pdoWrapper->fetch("select * from `$this->table` where identifier=:identifier", [
+            "identifier" => $identifier,
+
+        ]);
+        if (false === $ret) {
+            if (true === $throwNotFoundEx) {
+                throw new \RuntimeException("Row not found with identifier=$identifier.");
+            } else {
+                $ret = $default;
+            }
+        }
+        return $ret;
+    }
+
+
 
 
     /**
@@ -234,9 +254,123 @@ class WidgetApi extends CustomLightKitEditorBaseApi implements WidgetApiInterfac
     }
 
 
+    /**
+     * @implementation
+     */
+    public function getWidgetIdByIdentifier(string $identifier, $default = null, bool $throwNotFoundEx = false)
+    {
+        $ret = $this->pdoWrapper->fetch("select id from `$this->table` where identifier=:identifier", [
+            "identifier" => $identifier,
+
+
+        ], \PDO::FETCH_COLUMN);
+        if (false === $ret) {
+            if (true === $throwNotFoundEx) {
+                throw new \RuntimeException("Row not found with identifier=$identifier.");
+            } else {
+                $ret = $default;
+            }
+        }
+        return $ret;
+    }
 
 
 
+
+
+    /**
+     * @implementation
+     */
+    public function getWidgetsByBlockId(string $blockId): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.* from `$this->table` a
+        inner join lke_block_has_widget h on h.widget_id=a.id
+        where h.block_id=:block_id
+
+
+        ", [
+            ":block_id" => $blockId,
+        ]);
+    }
+
+    /**
+     * @implementation
+     */
+    public function getWidgetsByBlockIdentifier(string $blockIdentifier): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.* from `$this->table` a
+        inner join lke_block_has_widget h on h.widget_id=a.id
+        where h.block_id=:block_id
+
+
+        ", [
+            ":block_identifier" => $blockIdentifier,
+        ]);
+    }
+
+
+
+    /**
+     * @implementation
+     */
+    public function getWidgetIdsByBlockId(string $blockId): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.id from `$this->table` a
+        inner join lke_block_has_widget h on h.widget_id=a.id
+        inner join lke_block b on b.id=h.block_id
+        where b.id=:block_id
+        ", [
+            ":block_id" => $blockId,
+        ], \PDO::FETCH_COLUMN);
+    }
+
+    /**
+     * @implementation
+     */
+    public function getWidgetIdsByBlockIdentifier(string $blockIdentifier): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.id from `$this->table` a
+        inner join lke_block_has_widget h on h.widget_id=a.id
+        inner join lke_block b on b.id=h.block_id
+        where b.identifier=:block_identifier
+        ", [
+            ":block_identifier" => $blockIdentifier,
+        ], \PDO::FETCH_COLUMN);
+    }
+
+    /**
+     * @implementation
+     */
+    public function getWidgetIdentifiersByBlockId(string $blockId): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.identifier from `$this->table` a
+        inner join lke_block_has_widget h on h.widget_id=a.id
+        inner join lke_block b on b.id=h.block_id
+        where b.id=:block_id
+        ", [
+            ":block_id" => $blockId,
+        ], \PDO::FETCH_COLUMN);
+    }
+
+    /**
+     * @implementation
+     */
+    public function getWidgetIdentifiersByBlockIdentifier(string $blockIdentifier): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.identifier from `$this->table` a
+        inner join lke_block_has_widget h on h.widget_id=a.id
+        inner join lke_block b on b.id=h.block_id
+        where b.identifier=:block_identifier
+        ", [
+            ":block_identifier" => $blockIdentifier,
+        ], \PDO::FETCH_COLUMN);
+    }
 
 
 
@@ -255,6 +389,17 @@ class WidgetApi extends CustomLightKitEditorBaseApi implements WidgetApiInterfac
     {
         $this->pdoWrapper->update($this->table, $widget, array_merge([
             "id" => $id,
+
+        ], $extraWhere), $markers);
+    }
+
+    /**
+     * @implementation
+     */
+    public function updateWidgetByIdentifier(string $identifier, array $widget, array $extraWhere = [], array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $widget, array_merge([
+            "identifier" => $identifier,
 
         ], $extraWhere), $markers);
     }
@@ -291,6 +436,17 @@ class WidgetApi extends CustomLightKitEditorBaseApi implements WidgetApiInterfac
         ]);
     }
 
+    /**
+     * @implementation
+     */
+    public function deleteWidgetByIdentifier(string $identifier)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "identifier" => $identifier,
+
+        ]);
+    }
+
 
 
     /**
@@ -299,6 +455,14 @@ class WidgetApi extends CustomLightKitEditorBaseApi implements WidgetApiInterfac
     public function deleteWidgetByIds(array $ids)
     {
         $this->pdoWrapper->delete($this->table, Where::inst()->key("id")->in($ids));
+    }
+
+    /**
+     * @implementation
+     */
+    public function deleteWidgetByIdentifiers(array $identifiers)
+    {
+        $this->pdoWrapper->delete($this->table, Where::inst()->key("identifier")->in($identifiers));
     }
 
 

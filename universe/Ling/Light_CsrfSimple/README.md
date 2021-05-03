@@ -1,6 +1,6 @@
 Light_CsrfSimple
 ===========
-2019-11-07 -> 2021-03-05
+2019-11-07 -> 2021-03-15
 
 
 
@@ -75,7 +75,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            event: Light.on_route_found
+            event: Ling.Light.on_route_found
             listener:
                 instance: @service(csrf_simple)
                 callable_method: onRouteFound
@@ -98,6 +98,10 @@ Related
 History Log
 =============
 
+- 1.2.5 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.2.4 -- 2021-03-05
 
     - update README.md, add install alternative
@@ -120,11 +124,11 @@ History Log
 
 - 1.1.1 -- 2019-11-08
 
-    - fix functional typo, event Light_CsrfSimple.on_csrf_token_regenerated not dispatched
+    - fix functional typo, event Ling.Light_CsrfSimple.on_csrf_token_regenerated not dispatched
     
 - 1.1.0 -- 2019-11-08
 
-    - add event Light_CsrfSimple.on_csrf_token_regenerated
+    - add event Ling.Light_CsrfSimple.on_csrf_token_regenerated
     
 - 1.0.0 -- 2019-11-07
 

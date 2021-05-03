@@ -141,7 +141,7 @@ class Light_EndRoutine_DebuggerDocBuilder
              */
             "keyWord2UrlMap" => [
                 "logger" => "https://github.com/lingtalfi/Light_Logger",
-                "Light.end_routine event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
+                "Ling.Light.end_routine event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
             ],
             /**
              * An array of external classes to url.

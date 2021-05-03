@@ -7,7 +7,7 @@ LightDebugTraceService::initialize
 
 
 
-LightDebugTraceService::initialize — Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightDebugTraceService::initialize — Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightDebugTraceService::initialize](https://github.com/lingtalfi/Light_D
 
 
 
-Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 It will write information about the http request and the csrf token into the debug trace file.
 
 

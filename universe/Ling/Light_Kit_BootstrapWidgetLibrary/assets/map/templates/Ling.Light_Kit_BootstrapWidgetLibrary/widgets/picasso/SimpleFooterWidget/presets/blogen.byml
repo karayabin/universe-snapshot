@@ -1,0 +1,14 @@
+name: simple_footer
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\SimpleFooterWidget
+widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SimpleFooterWidget
+template: default.php
+vars:
+    attr:
+        id: main-footer
+        class: bg-dark text-white mt-5 p-5
+
+    text_align: center
+    text_class: lead
+    text: Copyright &copy; $year Blogen

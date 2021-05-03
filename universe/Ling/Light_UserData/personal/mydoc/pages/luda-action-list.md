@@ -93,7 +93,7 @@ which basically allows you to store the user uploads outside the web root direct
 The configuration excerpt below comes from the Light_Kit_Admin (currently in development as I write those lines):
 
 ```yaml
-# /my_app/config/data/Light_Kit_Admin/Light_AjaxFileUploadManager/main.byml
+# /my_app/config/data/Ling.Light_Kit_Admin/Ling.Light_AjaxFileUploadManager/main.byml
 items:
     lka_user_profile:
         csrf_token: true

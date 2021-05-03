@@ -23,7 +23,7 @@ public [LightRealistService::getStandardDeveloperVariables](https://github.com/l
 
 Returns an array of standard developer variables.
 
-See the [duelist developer variables concept](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist.md#providing-developer-variables) for more info.
+See the [duelist developer variables concept](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/duelist.md#providing-developer-variables) for more info.
 
 This particular array contains the following variables:
 - user_id, this assumes a valid LightWebsiteUser, see the [Light_User planet](https://github.com/lingtalfi/Light_User) for more info
@@ -51,7 +51,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightRealistService::getStandardDeveloperVariables](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L467-L484)
+See the source code for method [LightRealistService::getStandardDeveloperVariables](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L435-L452)
 
 
 See Also

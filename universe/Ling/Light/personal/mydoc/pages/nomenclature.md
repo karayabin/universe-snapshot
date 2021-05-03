@@ -1,6 +1,6 @@
 Nomenclature
 =============
-2020-08-21 -> 2020-11-10
+2020-08-21 -> 2021-03-08
 
 
 
@@ -8,6 +8,7 @@ Summary
 -----------
 
 - [Ajax nugget](#ajax-nugget)
+- [Eco structure](#eco-structure)
 - [Nugget](#nugget)
 - [Provider service, subscriber service](#provider-service-subscriber-service)
 
@@ -30,6 +31,17 @@ Often, the provider service uses the [ajax handler](https://github.com/lingtalfi
 
 Related: [nugget](#nugget).
 
+
+
+Eco-structure
+----------
+2021-03-08
+
+
+An **eco-structure** is a structure built collectively by third party plugins.
+
+
+ 
 
 
 Nugget

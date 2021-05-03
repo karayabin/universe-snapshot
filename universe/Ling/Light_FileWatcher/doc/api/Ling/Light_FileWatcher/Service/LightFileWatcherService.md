@@ -4,7 +4,7 @@
 
 The LightFileWatcherService class
 ================
-2020-06-25 --> 2021-03-05
+2020-06-25 --> 2021-03-15
 
 
 
@@ -106,7 +106,7 @@ Methods
 - [LightFileWatcherService::setContainer](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/setContainer.md) &ndash; Sets the container.
 - [LightFileWatcherService::setOptions](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/setOptions.md) &ndash; Sets the options.
 - [LightFileWatcherService::setMonitorFile](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/setMonitorFile.md) &ndash; Sets the monitorFile.
-- [LightFileWatcherService::onInitialize](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/onInitialize.md) &ndash; Method called in response to [the Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+- [LightFileWatcherService::onInitialize](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/onInitialize.md) &ndash; Method called in response to [the Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 - [LightFileWatcherService::registerCallable](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/registerCallable.md) &ndash; Registers the callable to be executed when the file, which absolute path is given, is updated.
 - [LightFileWatcherService::createMonitorFile](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/createMonitorFile.md) &ndash; Creates the monitor file.
 - [LightFileWatcherService::monitorFiles](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/monitorFiles.md) &ndash; Monitor the files, and trigger the user's callback when a file change is detected.

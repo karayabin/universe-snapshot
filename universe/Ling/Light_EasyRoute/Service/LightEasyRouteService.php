@@ -56,7 +56,7 @@ class LightEasyRouteService
 
 
     /**
-     * Listener for the @page(Light.initialize_1 event).
+     * Listener for the @page(Ling.Light.initialize_1 event).
      * It will register all the routes from the files registered by other plugins.
      *
      *

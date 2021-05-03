@@ -7,7 +7,7 @@ LightKitAdminDebugTraceService::onPageRenderedBefore
 
 
 
-LightKitAdminDebugTraceService::onPageRenderedBefore — Callable for the Light_Kit_Admin.on_page_rendered_before event provided by [the Light_Kit_Admin plugin](https://github.com/lingtalfi/Light_Kit_Admin).
+LightKitAdminDebugTraceService::onPageRenderedBefore — Callable for the Ling.Light_Kit_Admin.on_page_rendered_before event provided by [the Light_Kit_Admin plugin](https://github.com/lingtalfi/Light_Kit_Admin).
 
 
 
@@ -21,7 +21,7 @@ public [LightKitAdminDebugTraceService::onPageRenderedBefore](https://github.com
 
 
 
-Callable for the Light_Kit_Admin.on_page_rendered_before event provided by [the Light_Kit_Admin plugin](https://github.com/lingtalfi/Light_Kit_Admin).
+Callable for the Ling.Light_Kit_Admin.on_page_rendered_before event provided by [the Light_Kit_Admin plugin](https://github.com/lingtalfi/Light_Kit_Admin).
 
 
 
@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminDebugTraceService::onPageRenderedBefore](https://github.com/lingtalfi/Light_Kit_Admin_DebugTrace/blob/master/Service/LightKitAdminDebugTraceService.php#L159-L165)
+See the source code for method [LightKitAdminDebugTraceService::onPageRenderedBefore](https://github.com/lingtalfi/Light_Kit_Admin_DebugTrace/blob/master/Service/LightKitAdminDebugTraceService.php#L161-L167)
 
 
 See Also

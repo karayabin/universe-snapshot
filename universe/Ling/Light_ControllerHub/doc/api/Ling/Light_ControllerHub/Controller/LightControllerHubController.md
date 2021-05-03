@@ -4,7 +4,7 @@
 
 The LightControllerHubController class
 ================
-2019-10-28 --> 2021-03-05
+2019-10-28 --> 2021-04-01
 
 
 
@@ -29,6 +29,7 @@ class <span class="pl-k">LightControllerHubController</span> extends [LightContr
 
 - Methods
     - public [render](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Controller/LightControllerHubController/render.md)() : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+    - private [error](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Controller/LightControllerHubController/error.md)(string $msg, ?int $code = null) : void
 
 - Inherited methods
     - public LightController::__construct() : void
@@ -49,6 +50,7 @@ Methods
 ==============
 
 - [LightControllerHubController::render](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Controller/LightControllerHubController/render.md) &ndash; Understands the incoming http request an returns the appropriate HttpResponseInterface.
+- [LightControllerHubController::error](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Controller/LightControllerHubController/error.md) &ndash; Throws an exception.
 - LightController::__construct &ndash; Builds the LightController instance.
 - LightController::setLight &ndash; Sets the light instance.
 - LightController::getLight &ndash; Returns the light application.

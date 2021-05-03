@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [KitPageRenderer::__construct](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L139-L150)
+See the source code for method [KitPageRenderer::__construct](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L121-L132)
 
 
 See Also

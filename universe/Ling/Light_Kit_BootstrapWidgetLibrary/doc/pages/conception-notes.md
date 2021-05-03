@@ -134,10 +134,10 @@ Integration in a Light application
 
 
 Following the [Light application recommended structure](https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recommended-structure.md),
-it makes sense to put our widget templates in the **$app/templates/Light_Kit_BootstrapWidgetLibrary** directory.
+it makes sense to put our widget templates in the **$app/templates/Ling.Light_Kit_BootstrapWidgetLibrary** directory.
 
 Our library will probably only use [Picasso widgets](https://github.com/lingtalfi/Kit_PicassoWidget),
-and so for the sake of simplicity, we will put all our "widget" directory structure in the **$app/templates/Light_Kit_BootstrapWidgetLibrary** directory,
+and so for the sake of simplicity, we will put all our "widget" directory structure in the **$app/templates/Ling.Light_Kit_BootstrapWidgetLibrary** directory,
 rather than trying to separate the "widget" directory files in perhaps more semantically accurate locations.
 
 
@@ -160,7 +160,7 @@ And so the widget classes will be located in this planet's repository, in:
 
 And, the "widget" directories will be copied to the light app in:
 
-- templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget for instance (so this directory IS the widget dir)
+- templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget for instance (so this directory IS the widget dir)
 
 
 

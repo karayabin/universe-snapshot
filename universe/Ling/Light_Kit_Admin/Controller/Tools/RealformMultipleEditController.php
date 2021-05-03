@@ -17,7 +17,6 @@ use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
-use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_Nugget\Service\LightNuggetService;
@@ -139,19 +138,21 @@ class RealformMultipleEditController extends AdminPageController
 
         $conf = $this->getConfByRealformId($realformIdentifier);
 
+
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/tools/basic-form', [
-//        return $this->renderAdminPage($page, [
-            "page_title" => 'User notification Form',
-            "form_title" => $conf['rendering']['title'],
-            "related_links" => $conf['rendering']['related_links'],
-            "form" => $form,
-            "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
-        ], PageConfUpdator::create()->updateWidget('body.lka_chloroform', function (&$conf) {
-            $conf['vars']['title'] .= ' (multiple edit)';
-        }));
+        return $this->renderAdminPage('Ling.Light_Kit_Admin/tools/multiple-edit-form', [
+            "widgetVariables" => [
+                "body.lka_chloroform" => [
+                    "page_title" => 'User notification Form',
+                    "form_title" => $conf['rendering']['title'],
+                    "related_links" => $conf['rendering']['related_links'],
+                    "form" => $form,
+                    "title" => "Light Kit Admin multiple edit form",
+                ],
+            ],
+        ]);
     }
 
 
@@ -568,7 +569,7 @@ class RealformMultipleEditController extends AdminPageController
              * rather than the host plugin, because it would be more practical for plugins
              * like Light_ExceptionHandler (which dispatching below is mainly intended to) to deal with.
              */
-            $events->dispatch("Light_RealGenerator.on_realform_exception_caught", $data);
+            $events->dispatch("Ling.Light_RealGenerator.on_realform_exception_caught", $data);
         }
 
 

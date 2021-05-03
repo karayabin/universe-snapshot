@@ -316,4 +316,10 @@ interface PageApiInterface
 
 
 
+    /**
+     * Deletes the page rows having the given site id.
+     * @param int $siteId
+     */
+    public function deletePageBySiteId(int $siteId);
+
 }

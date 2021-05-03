@@ -49,7 +49,7 @@ Returns string | null.
 
 Source Code
 ===========
-See the source code for method [LightRealformService::getMultiplierByNugget](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L885-L899)
+See the source code for method [LightRealformService::getMultiplierByNugget](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L886-L900)
 
 
 See Also

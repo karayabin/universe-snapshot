@@ -4,7 +4,7 @@
 
 The LightTaskSchedulerPluginInstaller class
 ================
-2020-06-30 --> 2021-03-05
+2020-06-30 --> 2021-03-15
 
 
 

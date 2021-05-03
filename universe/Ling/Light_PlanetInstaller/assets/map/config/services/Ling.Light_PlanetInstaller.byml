@@ -1,0 +1,23 @@
+planet_installer:
+    instance: Ling\Light_PlanetInstaller\Service\LightPlanetInstallerService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: []
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$cli.methods_collection:
+    -
+        method: registerCliApp
+        args:
+            appId: lpi
+            app:
+                instance: Ling\Light_PlanetInstaller\CliTools\Program\LightPlanetInstallerApplication
+
+
+
+

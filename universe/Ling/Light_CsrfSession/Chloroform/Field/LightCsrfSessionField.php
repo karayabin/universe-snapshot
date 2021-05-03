@@ -8,6 +8,9 @@ use Ling\Chloroform\Field\HiddenField;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 
+/**
+ * The LightCsrfSessionField class.
+ */
 class LightCsrfSessionField extends HiddenField
 {
     /**

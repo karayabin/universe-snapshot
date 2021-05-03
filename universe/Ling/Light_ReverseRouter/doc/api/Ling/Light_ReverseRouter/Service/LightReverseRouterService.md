@@ -4,7 +4,7 @@
 
 The LightReverseRouterService class
 ================
-2019-04-10 --> 2021-03-05
+2019-04-10 --> 2021-03-15
 
 
 
@@ -63,7 +63,7 @@ Methods
 ==============
 
 - [LightReverseRouterService::__construct](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/doc/api/Ling/Light_ReverseRouter/Service/LightReverseRouterService/__construct.md) &ndash; Builds the ReverseRouter instance.
-- [LightReverseRouterService::initialize](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/doc/api/Ling/Light_ReverseRouter/Service/LightReverseRouterService/initialize.md) &ndash; Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+- [LightReverseRouterService::initialize](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/doc/api/Ling/Light_ReverseRouter/Service/LightReverseRouterService/initialize.md) &ndash; Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 - [LightReverseRouterService::getUrl](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/doc/api/Ling/Light_ReverseRouter/Service/LightReverseRouterService/getUrl.md) &ndash; Returns the url corresponding to the given route name and url parameters.
 
 

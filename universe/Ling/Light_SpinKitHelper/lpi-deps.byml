@@ -32,3 +32,8 @@
     - Ling:Bat:1.308+
     - Ling:HtmlPageTools:2.2.3+
     - Ling:Light:0.69.30+
+
+1.0.7: 
+    - Ling:Bat:1.308+
+    - Ling:HtmlPageTools:2.2.3+
+    - Ling:Light:0.70.0+

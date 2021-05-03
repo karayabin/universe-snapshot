@@ -4,7 +4,7 @@
 
 The LightBMenu class
 ================
-2019-08-08 --> 2021-03-05
+2019-08-08 --> 2021-03-18
 
 
 
@@ -72,4 +72,4 @@ See the source code of [Ling\Light_BMenu\Menu\LightBMenu](https://github.com/lin
 
 SeeAlso
 ==============
-Previous class: [LightBMenuHostInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface.md)<br>Next class: [LightBMenuService](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService.md)<br>
+Previous class: [LightBMenuException](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Exception/LightBMenuException.md)<br>Next class: [MenuModifierInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/MenuModifier/MenuModifierInterface.md)<br>

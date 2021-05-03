@@ -90,7 +90,7 @@ class FileUploadController extends LightController
                 $events = $this->getContainer()->get("events");
                 $data = LightEvent::createByContainer($this->getContainer());
                 $data->setVar('exception', $e);
-                $events->dispatch("Light_AjaxFileUploadManager.on_controller_exception_caught", $data);
+                $events->dispatch("Ling.Light_AjaxFileUploadManager.on_controller_exception_caught", $data);
 
 
             }

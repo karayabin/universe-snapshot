@@ -4,7 +4,7 @@
 
 The LightDeveloperWizardCommonProcess class
 ================
-2020-06-30 --> 2021-03-05
+2020-06-30 --> 2021-04-15
 
 
 
@@ -27,6 +27,7 @@ abstract class <span class="pl-k">LightDeveloperWizardCommonProcess</span> exten
 - Properties
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
     - protected [Ling\Light_DeveloperWizard\Util\ServiceManagerUtil](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil.md) [$util](#property-util) ;
+    - protected bool [$mustBeLight](#property-mustBeLight) ;
 
 - Inherited properties
     - protected [Ling\WebWizardTools\Report\WebWizardToolsReport](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport.md) [WebWizardToolsProcess::$report](#property-report) ;
@@ -102,6 +103,12 @@ Properties
 - <span id="property-util"><b>util</b></span>
 
     This property holds the util for this instance.
+    
+    
+
+- <span id="property-mustBeLight"><b>mustBeLight</b></span>
+
+    This property holds the mustBeLight for this instance.
     
     
 

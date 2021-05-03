@@ -48,7 +48,7 @@ class JumboExploder
 
 
         $it = new JumboExploderCharIterator();
-        $it->setString($s);;
+        $it->setString($s);
         $current = '';
         $inScope = false;
         $scopeEnd = null;
@@ -56,7 +56,10 @@ class JumboExploder
         $scopeEndLen = 1;
         $scopeEscapeChar = null;
         $scopeEscapeCharActive = false;
-        while ($c = $it->next()) {
+
+        while (null !== ($c = $it->next())) {
+
+
 
             if (false === $inScope) {
 
@@ -115,7 +118,10 @@ class JumboExploder
                     $current .= $c;
                 }
             } else {
+
+
                 if (true === $scopeEscapeCharActive) {
+
                     $scopeEscapeCharActive = false;
                     $current .= $c;
                     continue;

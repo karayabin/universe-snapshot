@@ -4,7 +4,7 @@
 
 The ExecuteLkaGeneratorProcess class
 ================
-2020-06-30 --> 2021-03-05
+2020-06-30 --> 2021-04-15
 
 
 
@@ -31,6 +31,7 @@ class <span class="pl-k">ExecuteLkaGeneratorProcess</span> extends [LightKitAdmi
     - protected bool [LightKitAdminBaseProcess::$checkCreateFileExists](#property-checkCreateFileExists) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [LightDeveloperWizardCommonProcess::$container](#property-container) ;
     - protected [Ling\Light_DeveloperWizard\Util\ServiceManagerUtil](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil.md) [LightDeveloperWizardCommonProcess::$util](#property-util) ;
+    - protected bool [LightDeveloperWizardCommonProcess::$mustBeLight](#property-mustBeLight) ;
     - protected [Ling\WebWizardTools\Report\WebWizardToolsReport](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport.md) [WebWizardToolsProcess::$report](#property-report) ;
     - protected [Ling\WebWizardTools\Controls\WebWizardToolsControl[]](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Controls/WebWizardToolsControl.md) [WebWizardToolsProcess::$controls](#property-controls) ;
     - protected string [WebWizardToolsProcess::$name](#property-name) ;
@@ -129,6 +130,12 @@ Properties
 - <span id="property-util"><b>util</b></span>
 
     This property holds the util for this instance.
+    
+    
+
+- <span id="property-mustBeLight"><b>mustBeLight</b></span>
+
+    This property holds the mustBeLight for this instance.
     
     
 

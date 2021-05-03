@@ -1,6 +1,6 @@
 Light_Kit_Admin_LoginNotifier
 ===========
-2020-11-30 -> 2021-03-05
+2020-11-30 -> 2021-03-23
 
 
 
@@ -58,19 +58,12 @@ kit_admin_login_notifier:
 
 # --------------------------------------
 # hooks
-# --------------------------------------        
-    
-
-$bmenu.methods_collection: 
+# --------------------------------------
+$micro_permission.methods_collection: 
     - 
-        method: addDirectItemsByFileAndParentPath
+        method: registerMicroPermissionsByProfile
         args: 
-            menu_type: admin_main_menu
-            file: ${app_dir}/config/data/Light_Kit_Admin_LoginNotifier/bmenu/generated/kit_admin_login_notifier.admin_mainmenu_1.byml
-            path: lka-admin
-        
-    
-
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_LoginNotifier/Ling.Light_MicroPermission/kit_admin_login_notifier.profile.generated.byml
         
     
 
@@ -83,18 +76,10 @@ $kit_admin.methods_collection:
                 instance: Ling\Light_Kit_Admin_LoginNotifier\LightKitAdminPlugin\Generated\LightKitAdminLoginNotifierLkaPlugin
                 methods: 
                     setOptionsFile: 
-                        file: ${app_dir}/config/data/Light_Kit_Admin_LoginNotifier/Light_Kit_Admin/lka-options.generated.byml
+                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_LoginNotifier/Ling.Light_Kit_Admin/lka-options.generated.byml
                     
                 
             
-        
-    
-
-$micro_permission.methods_collection: 
-    - 
-        method: registerMicroPermissionsByProfile
-        args: 
-            file: ${app_dir}/config/data/Light_Kit_Admin_LoginNotifier/Light_MicroPermission/kit_admin_login_notifier.profile.generated.byml
         
     
 
@@ -105,6 +90,30 @@ $micro_permission.methods_collection:
 History Log
 =============
 
+- 1.0.12 -- 2021-03-23
+
+    - adapt api to Ling.Light_Realist:2.0.15
+  
+- 1.0.11 -- 2021-03-18
+
+    - fix service config using undesirable bmenu snippet
+  
+- 1.0.10 -- 2021-03-18
+
+    - fix bmenu items not requiring admin rights
+  
+- 1.0.9 -- 2021-03-18
+
+    - update planet to adapt Ling.Light_BMenu:2.0.0
+  
+- 1.0.8 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+
+- 1.0.7 -- 2021-03-09
+
+    - update planet to adapt Ling.Light_Kit_Admin:0.12.25
+  
 - 1.0.6 -- 2021-03-05
 
     - update README.md, add install alternative

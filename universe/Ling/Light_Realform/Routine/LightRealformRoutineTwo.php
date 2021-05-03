@@ -439,7 +439,7 @@ class LightRealformRoutineTwo
              * rather than the host plugin, because it would be more practical for plugins
              * like Light_ExceptionHandler (which dispatching below is mainly intended to) to deal with.
              */
-            $events->dispatch("Light_RealGenerator.on_realform_exception_caught", $data);
+            $events->dispatch("Ling.Light_RealGenerator.on_realform_exception_caught", $data);
         }
 
 

@@ -24,7 +24,7 @@ public [LightRealformService::getChloroformByConfiguration](https://github.com/l
 Returns the chloroform instance based on the given configuration.
 The fields defined in the configuration will ba added to the form instance.
 
-More info in the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md).
+More info in the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes.md).
 
 
 

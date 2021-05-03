@@ -44,7 +44,7 @@ class LightReverseRouterService
 
 
     /**
-     * Listener for the @page(Light.initialize_1 event).
+     * Listener for the @page(Ling.Light.initialize_1 event).
      * It stores the routes attached to the light instance.
      *
      * @param LightEvent $event

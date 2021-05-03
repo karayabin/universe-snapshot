@@ -11,7 +11,7 @@ Copy/paste/adapt **/myapp/universe/Ling/Light_Kit_Admin/Controller/DashboardCont
 To render a layout using kit (recommended technique):
 
 - Use **renderPage** will just render the layout
-- Use **renderAdminPage** will render the layout, and check that the user has the **Light_Kit_Admin.user** permission.
+- Use **renderAdminPage** will render the layout, and check that the user has the **Ling.Light_Kit_Admin.user** permission.
 
 
 
@@ -26,9 +26,9 @@ from the **/myapp/config/** dir.
 
 So for instance:
 
-```Light_Kit_Admin/kit/zeroadmin/zeroadmin_login``` will be configured from 
+```Light_Kit_Admin/Ling.Light_Kit/zeroadmin/zeroadmin_login``` will be configured from 
 
-**/myapp/config/data/Light_Kit_Admin/kit/zeroadmin/zeroadmin_login.byml**
+**/myapp/config/data/Ling.Light_Kit_Admin/Ling.Light_Kit/zeroadmin/zeroadmin_login.byml**
 
 
 

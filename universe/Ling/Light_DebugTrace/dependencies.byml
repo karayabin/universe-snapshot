@@ -2,10 +2,12 @@ dependencies:
     Ling: 
         - BabyYaml
         - Bat
+        - CliTools
         - Light
         - Light_CsrfSession
         - Light_CsrfSimple
         - Light_Events
+        - Light_PlanetInstaller
     
 
 post_install: 

@@ -7,6 +7,7 @@ namespace Ling\Light_Database\Light_PlanetInstaller;
 use Ling\CliTools\Helper\QuestionHelper;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light\Helper\ZFileHelper;
+use Ling\Light_Events\Helper\LightEventsHelper;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 
 
@@ -23,6 +24,10 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller
     public function onMapCopyAfter(string $appDir, OutputInterface $output): void
     {
 
+
+        //--------------------------------------------
+        // ZZZ FILE
+        //--------------------------------------------
         $propKey = '$database\.methods\.init\.settings';
         if (false === ZFileHelper::hasProp($this->container, $propKey)) {
 
@@ -47,6 +52,19 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller
             $zPath = ZFileHelper::getZPath($this->container);
             $output->write("<success>The Light_Database custom conf has been updated (in $zPath)</success>" . PHP_EOL);
         }
+
+
+
+
+        $planetDotName = "Ling.Light_Database";
+        //--------------------------------------------
+        // events
+        //--------------------------------------------
+        $output->write("$planetDotName: registering open events...");
+        LightEventsHelper::registerOpenEventByPlanet($this->container, $planetDotName);
+        $output->write("<success>ok.</success>" . PHP_EOL);
+
+
 
     }
 

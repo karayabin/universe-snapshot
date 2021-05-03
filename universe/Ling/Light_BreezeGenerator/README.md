@@ -1,6 +1,6 @@
 Light_BreezeGenerator
 ===========
-2019-09-11 -> 2021-03-05
+2019-09-11 -> 2021-03-15
 
 
 
@@ -70,6 +70,10 @@ breeze_generator:
 History Log
 =============
 
+- 1.29.13 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
+  
 - 1.29.12 -- 2021-03-05
 
     - update README.md, add install alternative
