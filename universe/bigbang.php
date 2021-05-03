@@ -1,7 +1,7 @@
 <?php
 
 //------------------------------------------------------------------------------/
-// THIS IS BIG BANG SCRIPT FOR A JIN (aka modern uni) APP, from whence the universe can be used
+// THIS IS THE BIG BANG SCRIPT FOR THE UNIVERSE FRAMEWORK
 //------------------------------------------------------------------------------/
 use Ling\BumbleBee\Autoload\ButineurAutoloader;
 
@@ -19,13 +19,14 @@ ButineurAutoloader::getInst()->start();
 
 
 
+// uncomment below if you use composer
 //--------------------------------------------
 // COMPOSER PLUGIN
 //--------------------------------------------
-$composerFile = __DIR__ . "/../vendor/autoload.php";
-if (file_exists($composerFile)) {
-    require_once $composerFile;
-}
+// $composerFile = __DIR__ . "/../vendor/autoload.php";
+// if (file_exists($composerFile)) {
+//     require_once $composerFile;
+// }
 
 
 

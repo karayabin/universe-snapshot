@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2021-03-08
+2015-10-14 --> 2021-05-03
 
 
 
@@ -66,7 +66,7 @@ If you're new to the universe, the simplest way of testing it is probably to dow
 
 How to use?
 -----------
-2015-10-14
+2015-10-14 -> 2021-05-03
 
 
 Now that you've successfully installed the universe in your application, you can start using its planets.
@@ -101,7 +101,7 @@ az(ConvertTool::convertHumanSizeToBytes("2M"));
 
 ```
 
-As you can see, all we need to do to use the universe is include the **bigbang.php** script.
+As you can see, all we need to do to use the universe is include the [bigbang.php](https://raw.githubusercontent.com/karayabin/universe-snapshot/master/universe/bigbang.php) script.
 
 More details about the **bigbang.php** script and the hopefully mysterious **az** function in the
 [Big bang: the beginning of the universe](#big-bang-the-beginning-of-the-universe) section, later in this document.
@@ -131,10 +131,10 @@ The next step is to explore the [universe's planets](https://github.com/karayabi
 
 Big bang: the beginning of the universe
 -----------------------------------------
-2015-10-14
+2015-10-14 -> 2021-05-03
 
 
-The universe started with a big bang...
+The universe started with a [big bang](https://raw.githubusercontent.com/karayabin/universe-snapshot/master/universe/bigbang.php)...
 
 ...and so does the universe framework.
 
