@@ -18,16 +18,17 @@ if (is_dir($classDir)) {
 ButineurAutoloader::getInst()->start();
 
 
+const UNIVERSE_BANG_PATH = __FILE__;
 
-// uncomment below if you use composer
+
+
 //--------------------------------------------
 // COMPOSER PLUGIN
 //--------------------------------------------
-// $composerFile = __DIR__ . "/../vendor/autoload.php";
-// if (file_exists($composerFile)) {
-//     require_once $composerFile;
-// }
-
+$composerFile = __DIR__ . "/../vendor/autoload.php";
+if (file_exists($composerFile)) {
+    require_once $composerFile;
+}
 
 
 //------------------------------------------------------------------------------/
