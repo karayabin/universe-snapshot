@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CreateServiceProcess::createBasicConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/CreateServiceProcess.php#L155-L191)
+See the source code for method [CreateServiceProcess::createBasicConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/CreateServiceProcess.php#L156-L192)
 
 
 See Also

@@ -31,7 +31,6 @@ Each item has the following format:
 Available options are:
 - universeDir: string, the location of the universe directory. This is where the dependencies are searched for.
      By default it's the directory two parents above the given planet directory.
-- versionPlus: bool=true, whether to add the plus symbol at the end of the version number for each item.
 
 
 
@@ -68,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LpiDepsFileHelper::getDependencyListByPlanetDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiDepsFileHelper.php#L203-L224)
+See the source code for method [LpiDepsFileHelper::getDependencyListByPlanetDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiDepsFileHelper.php#L102-L121)
 
 
 See Also
@@ -76,5 +75,5 @@ See Also
 
 The [LpiDepsFileHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiDepsFileHelper.md) class.
 
-Previous method: [getLpiDepsByLocation](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiDepsFileHelper/getLpiDepsByLocation.md)<br>Next method: [createLpiDepsFileByPlanetDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiDepsFileHelper/createLpiDepsFileByPlanetDir.md)<br>
+Previous method: [updateLpiDepsByPlanetDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiDepsFileHelper/updateLpiDepsByPlanetDir.md)<br>Next method: [createLpiDepsFileByPlanetDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiDepsFileHelper/createLpiDepsFileByPlanetDir.md)<br>
 

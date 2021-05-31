@@ -4,7 +4,7 @@
 
 The LingTalfiDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\LingTalfi\LingTalfiDocBuilder]
 
 SeeAlso
 ==============
-Previous class: [Light_ZouUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZouUploader/Light_ZouUploaderDocBuilder.md)<br>Next class: [MysqlCreateTableUtilDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder.md)<br>
+Previous class: [Light_ZouUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZouUploader/Light_ZouUploaderDocBuilder.md)<br>Next class: [LogicalOperatorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LogicalOperator/LogicalOperatorDocBuilder.md)<br>

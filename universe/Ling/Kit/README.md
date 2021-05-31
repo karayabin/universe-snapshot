@@ -52,6 +52,10 @@ Related
 History Log
 =============
 
+- 1.14.2 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.14.1 -- 2021-04-09
 
     - add vars property in the kit page array

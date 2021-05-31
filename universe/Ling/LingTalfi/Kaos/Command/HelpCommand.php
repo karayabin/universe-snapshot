@@ -34,6 +34,7 @@ class HelpCommand extends KaosGenericCommand
         $push = $this->n('push');
         $pushUni = $this->n('pushuni');
         $help = $this->n('help');
+        $updsd = $this->n('updsd');
 
 
         $output->write("<$format>" . str_repeat('=', 25) . "</$format>" . PHP_EOL);
@@ -86,6 +87,11 @@ class HelpCommand extends KaosGenericCommand
 
 
         $output->write("- $pushUni: recreates the <b>universe-snapshot</b> directory and pushes it to <b>github.com</b>." . PHP_EOL);
+
+
+        $output->write("- $updsd \$planetDotName: commits the subscribers of the given <b>planetDotName</b>." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-app=\$appDir") . ": the app dir in which to find the planet. By detault, it's <b>/komin/jin_site_demo</b>." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("f") . ": If set, forces the commit of the subscribers, even if their version number didn't change." . PHP_EOL);
 
 
         $output->write("- $help: displays this help message." . PHP_EOL);

@@ -76,19 +76,16 @@ interface LpiImporterInterface
     public function getAllVersions(string $planetIdentifier): array;
 
     /**
-     * Returns the array of dependencies for the given planet and version.
+     * Returns the array of lpi dependencies for the given planet.
      *
-     * The returned array contains items, each of which has the following structure:
-     * - 0: planetDot
-     * - 1: versionExpr
+     * Throws a LpiIncompatibleException exception if the lpi deps file can't be found.
      *
      *
      * @param string $planetIdentifier
-     * @param string $version
      * @return array
      * @throws \Exception
      */
-    public function getDependencies(string $planetIdentifier, string $version): array;
+    public function getLpiDependencies(string $planetIdentifier): array;
 
     /**
      * Returns an array of planetDotNames corresponding to the uni style dependencies for the given planet identifier.

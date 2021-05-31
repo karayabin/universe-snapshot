@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerService::setOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L74-L77)
+See the source code for method [LightPlanetInstallerService::setOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L75-L78)
 
 
 See Also

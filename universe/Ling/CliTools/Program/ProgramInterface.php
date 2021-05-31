@@ -106,15 +106,19 @@ use Ling\CliTools\Output\OutputInterface;
  *
  *
  */
-interface ProgramInterface{
+interface ProgramInterface
+{
 
 
     /**
      * Starts the interactive program.
      *
+     * This method can return anything you want.
+     * We recommend however that if you return an int, it's the exit code, so that it's easier to interface it with other programs.
+     *
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return void
+     * @return mixed|void
      */
     public function run(InputInterface $input, OutputInterface $output);
 }

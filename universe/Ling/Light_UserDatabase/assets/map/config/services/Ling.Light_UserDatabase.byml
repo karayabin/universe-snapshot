@@ -1,0 +1,81 @@
+user_database:
+    instance: Ling\Light_UserDatabase\Service\LightUserDatabaseService
+    methods:
+        setContainer:
+            container: @container()
+        setPasswordProtector:
+            protector: @service(password_protector)
+
+
+
+user_database_vars:
+    bullsheeter_avatar_img_dir: /overrideme
+
+
+# babyYaml configuration example
+#user_database:
+#    instance: Ling\Light_UserDatabase\BabyYamlLightWebsiteUserDatabase
+#    methods:
+#        setFile:
+#            file: ${app_dir}/config/data/Ling.Light_UserDatabase/database.byml
+#        setContainer:
+#            container: @container()
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$breeze_generator.methods_collection:
+    -
+        method: addConfigurationEntryByFile
+        args:
+            key: lud
+            file: ${app_dir}/config/data/Ling.Light_UserDatabase/Ling.Light_BreezeGenerator/lud.byml
+
+
+
+$bullsheet.methods_collection:
+    -
+        method: registerBullsheeter
+        args:
+            identifier: Light_UserDatabase.lud_user
+            bullsheeter:
+                instance: Ling\Light_UserDatabase\Bullsheet\LightWebsiteUserDatabaseBullsheeter
+                methods:
+                    setApplicationDir:
+                        dir: ${app_dir}
+                    setAvatarImgDir:
+                        dir: ${user_database_vars.bullsheeter_avatar_img_dir}
+
+
+
+$file_watcher.methods_collection:
+    -
+        method: registerCallable
+        args:
+            path: ${app_dir}/universe/Ling/Light_UserDatabase/assets/fixtures/recreate-structure.sql
+            callable:
+                instance: @service(user_database)
+                callable_method: onCreateFileChange
+
+
+
+
+$table_prefix_info.methods_collection:
+    -
+        method: registerPrefixInfo
+        args:
+            prefix: lud
+            info:
+                planetId: Ling/Light_UserDatabase
+
+
+
+#$user_row_ownership.methods_collection:
+#    -
+#        method: registerRowInspector
+#        args:
+#            inspector:
+#                instance: Ling\Light_UserDatabase\UserRowOwnership\LightUserDatabaseRowInspector
+#                methods:
+#                    setHandledTablesFile:
+#                        file: ${app_dir}/config/data/Ling.Light_UserDatabase/Ling.Light_UserRowOwnership/handled_tables.byml

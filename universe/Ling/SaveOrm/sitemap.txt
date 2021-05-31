@@ -1,0 +1,6 @@
+https://github.com/lingtalfi/SaveOrm/blob/master/README.md
+https://github.com/lingtalfi/SaveOrm/blob/master/doc/generator.md
+https://github.com/lingtalfi/SaveOrm/blob/master/doc/object-manager.md
+https://github.com/lingtalfi/SaveOrm/blob/master/doc/save-2017-08-31.md
+https://github.com/lingtalfi/SaveOrm/blob/master/doc/save-orm.md
+https://github.com/lingtalfi/SaveOrm/blob/master/doc/save.md

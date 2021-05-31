@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [PlanetsCommand::getFlags](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/PlanetsCommand.php#L79-L87)
+See the source code for method [PlanetsCommand::getFlags](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/PlanetsCommand.php#L87-L95)
 
 
 See Also

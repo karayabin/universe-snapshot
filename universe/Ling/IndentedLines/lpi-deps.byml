@@ -1,39 +1,39 @@
 1.0.0: 
-    - Ling:Bate:1.0.2+
-    - Ling:Quoter:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:Bate:1.0.2
+    - Ling:Quoter:1.4.2
+    - Ling:Bat:1.293
 
 1.0.1: 
-    - Ling:Bate:1.0.2+
-    - Ling:Quoter:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:Bate:1.0.2
+    - Ling:Quoter:1.4.2
+    - Ling:Bat:1.293
 
 1.0.2: 
-    - Ling:Bate:1.0.2+
-    - Ling:Quoter:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:Bate:1.0.2
+    - Ling:Quoter:1.4.2
+    - Ling:Bat:1.293
 
 1.1.0: 
-    - Ling:Bate:1.0.2+
-    - Ling:Quoter:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:Bate:1.0.2
+    - Ling:Quoter:1.4.2
+    - Ling:Bat:1.293
 
 1.2.0: 
-    - Ling:Bate:1.0.2+
-    - Ling:Quoter:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:Bate:1.0.2
+    - Ling:Quoter:1.4.2
+    - Ling:Bat:1.293
 
 1.2.1: 
-    - Ling:Bate:1.0.2+
-    - Ling:Quoter:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:Bate:1.0.2
+    - Ling:Quoter:1.4.2
+    - Ling:Bat:1.293
 
 1.2.2: 
-    - Ling:Bate:1.0.2+
-    - Ling:Quoter:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:Bate:1.0.2
+    - Ling:Quoter:1.4.2
+    - Ling:Bat:1.293
 
 1.2.3: 
-    - Ling:Bat:1.308+
-    - Ling:Bate:1.0.3+
-    - Ling:Quoter:1.4.2+
+    - Ling:Bat:1.308
+    - Ling:Bate:1.0.3
+    - Ling:Quoter:1.4.2

@@ -1,6 +1,5 @@
 dependencies: 
     Ling: 
-        - QuickPdo
         - SqlQuery
     
 

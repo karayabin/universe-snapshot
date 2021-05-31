@@ -1,11 +1,13 @@
 1.0.0: 
-    - Ling:RowsGenerator:1.6.2+
+    - Ling:RowsGenerator:1.6.2
 
 1.0.1: 
-    - Ling:RowsGenerator:1.6.2+
+    - Ling:RowsGenerator:1.6.2
 
 1.0.2: 
-    - Ling:RowsGenerator:1.6.2+
+    - Ling:RowsGenerator:1.6.2
 
 1.0.3: 
-    - Ling:RowsGenerator:1.6.3+
+    - Ling:RowsGenerator:1.6.3
+
+1.0.4: []

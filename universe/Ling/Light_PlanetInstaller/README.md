@@ -1,6 +1,6 @@
 Light_PlanetInstaller
 ===========
-2020-12-08 -> 2021-05-03
+2020-12-08 -> 2021-05-31
 
 
 
@@ -71,6 +71,54 @@ planet_installer:
 History Log
 =============
 
+- 2.0.2 -- 2021-05-31
+
+    - fix Install command having 3 extra aliases
+  
+- 2.0.1 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 2.0.0 -- 2021-05-31
+
+    - new api
+  
+- 1.0.30 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_PluginInstaller (pushed by SubscribersUtil)
+
+- 1.0.29 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Logger (pushed by SubscribersUtil)
+
+- 1.0.28 -- 2021-05-03
+
+    - fix PlanetImportProcessUtil->updateApplicationByWishList post assets/map process not allowing handlers to ask questions to user
+  
+- 1.0.27 -- 2021-05-03
+
+    - fix typo in conception notes  
+  
+- 1.0.26 -- 2021-05-03
+
+    - fix command names not matching those written in documentation (deps -> dependency, tolink -> to_link, todir -> to_dir)  
+  
+- 1.0.25 -- 2021-05-03
+
+    - fix PlanetImportProcessUtil->updateApplicationByWishList typo
+  
+- 1.0.24 -- 2021-05-03
+
+    - fix PlanetImportProcessUtil->updateApplicationByWishList trying to logic install even if the light-cli script is not present
+  
+- 1.0.23 -- 2021-05-03
+
+    - fix LightPlanetInstallerBaseCommand->checkInsideAppDir not creating bigbang script (functional typo)
+  
+- 1.0.22 -- 2021-05-03
+
+    - update LightPlanetInstallerBaseCommand->checkInsideAppDir, now also creates the BumbleBee planet (required by bigbang) if not found already
+  
 - 1.0.21 -- 2021-05-03
 
     - update LightPlanetInstallerBaseCommand->checkInsideAppDir, now tries to create the bigbang.php file if not found

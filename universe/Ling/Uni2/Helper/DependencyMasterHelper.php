@@ -4,6 +4,7 @@
 namespace Ling\Uni2\Helper;
 
 
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\BDotTool;
 use Ling\Uni2\Exception\Uni2Exception;
 use Ling\UniverseTools\PlanetTool;
@@ -14,6 +15,23 @@ use Ling\UniverseTools\PlanetTool;
  */
 class DependencyMasterHelper
 {
+
+
+    /**
+     * Returns the dependency master content as an array, or false if a problem occurs.
+     *
+     * @return array|false
+     * @throws \Exception
+     */
+    public static function getDependencyMasterArrayFromWeb(): array|false
+    {
+        $url = "https://raw.githubusercontent.com/lingtalfi/universe-naive-importer/master/dependency-master.byml";
+        $c = file_get_contents($url);
+        if (false !== $c) {
+            return BabyYamlUtil::readBabyYamlString($c, ['numbersAsString' => true]);
+        }
+        return false;
+    }
 
 
     /**

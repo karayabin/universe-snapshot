@@ -6,7 +6,6 @@ namespace Ling\Light_PlanetInstaller\Helper;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
-use Ling\UniverseTools\LocalUniverseTool;
 
 /**
  * The LpiConfHelper class.
@@ -23,10 +22,10 @@ class LpiConfHelper
 
 
     /**
-     * Returns the path to the root dir (containing the global conf, lpi master etc...).
+     * Returns the path to the machine level root dir (containing the global conf for all Light_PlanetInstaller instances).
      * @return string
      */
-    public static function getCliRootDir(): string
+    public static function getRootDir(): string
     {
         return '/usr/local/share/universe/Ling/Light_PlanetInstaller';
     }
@@ -39,7 +38,7 @@ class LpiConfHelper
      */
     public static function getConfPath(): string
     {
-        return self::getCliRootDir() . "/conf.byml";
+        return self::getRootDir() . "/conf.byml";
     }
 
 
@@ -65,18 +64,6 @@ class LpiConfHelper
         return LpiConfHelper::getConfValue("handlers", $defaultHandlers);
     }
 
-
-    /**
-     * Returns the local_universe_has_last global conf value.
-     * @return bool
-     */
-    public static function getLocalUniverseHasLast(): bool
-    {
-        return self::getConfValue("local_universe_has_path", true);
-    }
-
-
-
     /**
      * Returns the path to the global directory.
      *
@@ -84,34 +71,9 @@ class LpiConfHelper
      */
     public static function getGlobalDirPath(): string
     {
-        $default = self::getCliRootDir() . "/planets";
+        $default = self::getRootDir() . "/planets";
         return self::getConfValue("global_dir_path", $default);
     }
-
-
-    /**
-     * Returns the path to the master lpi file.
-     *
-     * @return string
-     */
-    public static function getMasterFilePath(): string
-    {
-        $default = self::getCliRootDir() . "/lpi-master.byml";
-        return self::getConfValue("master_path", $default);
-    }
-
-
-    /**
-     * Returns the path to the master version file.
-     *
-     * @return string
-     */
-    public static function getMasterVersionFilePath(): string
-    {
-        $default = self::getCliRootDir() . "/lpi-master-version.byml";
-        return self::getConfValue("master_version_path", $default);
-    }
-
 
     //--------------------------------------------
     //

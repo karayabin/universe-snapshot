@@ -131,7 +131,7 @@ list:
 
 
     # Whether to use the cross columns on foreign keys
-    # See more about cross columns in https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+    # See more about cross columns in https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/crossed-column.md
     use_cross_columns: true
 
     # A string representing how to display the foreign key in the cross column.
@@ -147,8 +147,8 @@ list:
     # which is a built-in transformer provided by Light_Realist.
     # This is used to create a link out of the cross column.
     #
-    # See more about the column transformer in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#types-the-column-transformers
-    # See more about the cross columns in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md
+    # See more about the column transformer in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/realist-conception-notes.md#types-the-column-transformers
+    # See more about the cross columns in: https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/crossed-column.md
     #
     # In particular, the url_params.controller value is generated from this option.
     # See the BaseRealistRowsRenderer implementation for more details: https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer.md
@@ -219,7 +219,7 @@ list:
             - password
     # This array let you override the default column types.
     # It's an array of table => types, with types being an array of columnName => type.
-    # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+    # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
     # This is used to generate the rendering.open_admin_table.data_types setting in the config file.
     #
     ?open_admin_table_column_types:

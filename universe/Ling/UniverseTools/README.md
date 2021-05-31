@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08 -> 2021-03-18
+2019-02-08 -> 2021-05-28
 
 
 
@@ -43,6 +43,42 @@ Summary
 History Log
 ==============
 
+- 1.22.41 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.22.40 -- 2021-05-28
+
+  - add PlanetTool::getPlanetDotNamesByWorkingDir method 
+  
+- 1.22.39 -- 2021-05-25
+
+  - update bigbang script 
+  
+- 1.22.38 -- 2021-05-21
+
+  - fix MetaInfoTool potentially returning version as a float instead of a string 
+  
+- 1.22.37 -- 2021-05-17
+
+  - fix MetaInfoTool::getVersion, now converts floats into strings explicitly
+  
+- 1.22.36 -- 2021-05-12
+
+  - fix BangTool::bang method incorrect asset paths
+  
+- 1.22.35 -- 2021-05-12
+
+  - update MetaInfoTool::getVersion now returns null|string (will conflict with 1.22.29, but I don't remember why I did that so...)
+
+- 1.22.34 -- 2021-05-12
+
+    - add BangTool
+  
+- 1.22.33 -- 2021-05-11
+
+    - checkpoint commit
+  
 - 1.22.32 -- 2021-03-18
 
     - add PlanetTool::getPlanetDotNameByClassName method

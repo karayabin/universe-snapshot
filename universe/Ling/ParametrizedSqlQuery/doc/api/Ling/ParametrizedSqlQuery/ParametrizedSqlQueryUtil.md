@@ -4,7 +4,7 @@
 
 The ParametrizedSqlQueryUtil class
 ================
-2019-08-12 --> 2021-03-05
+2019-08-12 --> 2021-05-31
 
 
 
@@ -73,7 +73,7 @@ Properties
 - <span id="property-operators"><b>operators</b></span>
 
     This property holds the list of available operators (by default) for this instance.
-    This list is defined by [the open admin protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md).
+    This list is defined by [the open admin protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md).
     
     
 

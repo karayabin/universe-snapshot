@@ -17,6 +17,7 @@ if ('undefined' === typeof RadioHide) {
                 options = $.extend({
                     context: null,
                     openPane: null,
+                    changeAfter: function(){},
                 }, options);
 
 
@@ -40,6 +41,7 @@ if ('undefined' === typeof RadioHide) {
                     jPanes.each(function () {
                         if (openPane === $(this).attr('data-id')) {
                             $(this).show();
+                            options.changeAfter(openPane);
                         } else {
                             $(this).hide();
                         }
@@ -60,7 +62,7 @@ if ('undefined' === typeof RadioHide) {
                     //----------------------------------------
                     // LISTENING
                     //----------------------------------------
-                    jContext.on('click.radioHide', ".radio-hide", function () {
+                    jContext.off('click.radioHide').on('click.radioHide', ".radio-hide", function () {
                         var jTarget = $(this);
                         var targetPane = jTarget.attr("data-target");
                         jPanes.each(function () {
@@ -70,6 +72,8 @@ if ('undefined' === typeof RadioHide) {
                                 $(this).hide();
                             }
                         });
+
+                        options.changeAfter(targetPane);
                     });
                 } else {
                     throw new Error("No panes found in the the given context (this function then becomes useless). Aborting.");

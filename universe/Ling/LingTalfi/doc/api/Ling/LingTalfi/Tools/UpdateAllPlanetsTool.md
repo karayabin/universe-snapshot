@@ -4,7 +4,7 @@
 
 The UpdateAllPlanetsTool class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -25,7 +25,6 @@ Class synopsis
 class <span class="pl-k">UpdateAllPlanetsTool</span>  {
 
 - Methods
-    - public static [upgradePlanetsLpiDepsFileAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/upgradePlanetsLpiDepsFileAndCommit.md)(array $planets) : void
     - public static [recloneAll](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/recloneAll.md)() : void
     - public static [updateAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/updateAllPlanets.md)() : void
     - public static [alterLinks](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/alterLinks.md)() : void
@@ -41,7 +40,6 @@ class <span class="pl-k">UpdateAllPlanetsTool</span>  {
 Methods
 ==============
 
-- [UpdateAllPlanetsTool::upgradePlanetsLpiDepsFileAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/upgradePlanetsLpiDepsFileAndCommit.md) &ndash; Upgrades the given planet's lpi-deps file, and commit them.
 - [UpdateAllPlanetsTool::recloneAll](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/recloneAll.md) &ndash; you can use this method to "repair" that.
 - [UpdateAllPlanetsTool::updateAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/updateAllPlanets.md) &ndash; An old method I used to push all planets to github.
 - [UpdateAllPlanetsTool::alterLinks](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/alterLinks.md) &ndash; An old method I used to update links when when I introduced the galaxy concept into the universe.

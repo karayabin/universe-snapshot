@@ -54,7 +54,7 @@ The representative column
 2019-11-13
 
 
-While implementing the concept of [cross columns](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md) for this generator,
+While implementing the concept of [cross columns](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/crossed-column.md) for this generator,
 I was looking for a term to designate the name of the more descriptive column (to help the foreign key look less robotic),
 and I came up with the term representative column.
 

@@ -23,6 +23,8 @@ protected [LightCliApplication::onCommandNotFound](https://github.com/lingtalfi/
 
 Hook called if a command was not found.
 
+This method returns the "return status" to return to the unix command.
+
 By default, it throws an exception.
 
 Note: This method was written with the intent to be overridden by the user (i.e you should override this method in a sub-class).
@@ -65,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCliApplication::onCommandNotFound](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Program/LightCliApplication.php#L112-L228)
+See the source code for method [LightCliApplication::onCommandNotFound](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Program/LightCliApplication.php#L112-L231)
 
 
 See Also

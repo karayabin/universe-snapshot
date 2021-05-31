@@ -4,7 +4,7 @@
 
 The LightUserNotificationsPluginInstaller class
 ================
-2020-08-13 --> 2021-03-15
+2020-08-13 --> 2021-05-31
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_UserNotifications\Light_PluginInstaller\Light
 
 SeeAlso
 ==============
-Previous class: [LightUserNotificationsException](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Exception/LightUserNotificationsException.md)<br>Next class: [LightUserNotificationsService](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Service/LightUserNotificationsService.md)<br>
+Previous class: [LightUserNotificationsPlanetInstaller](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PlanetInstaller/LightUserNotificationsPlanetInstaller.md)<br>Next class: [LightUserNotificationsService](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Service/LightUserNotificationsService.md)<br>

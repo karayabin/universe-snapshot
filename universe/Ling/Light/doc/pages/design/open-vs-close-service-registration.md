@@ -1,6 +1,6 @@
 Open vs close service registration
 ===============
-2021-02-22 -> 2021-03-09
+2021-02-22 -> 2021-03-23
 
 
 
@@ -69,7 +69,7 @@ That's fine, but we've called the registration method 7 times. The open system o
 
 The open registration
 ------------
-2021-02-22
+2021-02-22 -> 2021-03-23
 
 
 With the open registration system, the **service provider** will not provide a registration method, but rather is going to use
@@ -148,6 +148,7 @@ That being said, both the closed and open approaches can co-exist together, it r
 
 
 
+An alternative to the **open registration system** is the [nugget registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/nugget-registration-system.md).
 
 
 

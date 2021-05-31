@@ -4,7 +4,7 @@
 
 The RealGenController class
 ================
-2020-08-13 --> 2021-03-23
+2020-08-13 --> 2021-05-31
 
 
 
@@ -48,6 +48,7 @@ abstract class <span class="pl-k">RealGenController</span> extends [AdminPageCon
     - public LightKitAdminController::renderPage(string $page, ?array $options = []) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - public LightKitAdminController::renderDefaultPage() : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - protected LightKitAdminController::getRedirectResponseByRoute(string $route, ?array $urlParams = []) : Ling\Light\Http\HttpRedirectResponse
+    - protected LightKitAdminController::alcpResponse(callable $callable) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - protected LightKitAdminController::checkRight(string $right) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) | null
     - protected LightKitAdminController::checkMicroPermission(string $microPermission) : void
     - protected LightKitAdminController::error(string $msg) : void
@@ -103,6 +104,7 @@ Methods
 - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
 - LightKitAdminController::renderDefaultPage &ndash; Renders the default page, and returns the corresponding http response.
 - LightKitAdminController::getRedirectResponseByRoute &ndash; Creates and returns an HttpRedirectResponse, based on the given arguments.
+- LightKitAdminController::alcpResponse &ndash; Returns a response using the Ling.Light_AjaxHandler handler under the hood.
 - LightKitAdminController::checkRight &ndash; Ensures that the current user is connected and has the right provided in the arguments.
 - LightKitAdminController::checkMicroPermission &ndash; redirects to the access_denied page.
 - LightKitAdminController::error &ndash; Throws an exception.

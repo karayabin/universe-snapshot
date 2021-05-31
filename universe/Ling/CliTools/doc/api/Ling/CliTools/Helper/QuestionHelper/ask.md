@@ -186,7 +186,7 @@ Alright, I won.
 
 Source Code
 ===========
-See the source code for method [QuestionHelper::ask](https://github.com/lingtalfi/CliTools/blob/master/Helper/QuestionHelper.php#L35-L46)
+See the source code for method [QuestionHelper::ask](https://github.com/lingtalfi/CliTools/blob/master/Helper/QuestionHelper.php#L36-L47)
 
 
 See Also
@@ -194,5 +194,5 @@ See Also
 
 The [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper.md) class.
 
-Next method: [askYesNo](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askYesNo.md)<br>
+Next method: [askClear](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askClear.md)<br>
 

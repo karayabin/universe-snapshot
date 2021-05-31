@@ -97,6 +97,10 @@ INSERT INTO `lud_user` (`id`, `identifier`, `pseudo`, `password`, `avatar_url`, 
 History Log
 =============
 
+- 1.1.11 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.1.10 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

@@ -4,7 +4,7 @@
 
 The LightDatabasePdoWrapper class
 ================
-2019-07-22 --> 2021-03-22
+2019-07-22 --> 2021-05-31
 
 
 
@@ -53,11 +53,11 @@ class <span class="pl-k">LightDatabasePdoWrapper</span> extends [SimplePdoWrappe
     - public SimplePdoWrapper::fetch($query, ?array $markers = [], ?$fetchStyle = null) : false | array
     - public SimplePdoWrapper::fetchAll($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : false | array
     - public SimplePdoWrapper::executeStatement($query) : false | int
-    - public static SimplePdoWrapper::addWhereSubStmt($stmt, array &$markers, $whereConds) : void
+    - public static SimplePdoWrapper::addWhereSubStmt(&$stmt, array &$markers, $whereConds) : void
     - protected SimplePdoWrapper::boot() : [PDO](https://www.php.net/manual/en/class.pdo.php) | null
     - protected SimplePdoWrapper::storeQueryObject($queryObject) : void
-    - protected static SimplePdoWrapper::addAssignmentListSubStmt($stmt, array &$markers, array $fields, ?$firstForm = false) : void
-    - protected SimplePdoWrapper::queryLog(string $type, ?$args) : void
+    - protected static SimplePdoWrapper::addAssignmentListSubStmt(&$stmt, array &$markers, array $fields, ?$firstForm = false) : void
+    - protected SimplePdoWrapper::queryLog(string $type, ...$args) : void
 
 }
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerService::setContainer](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L64-L67)
+See the source code for method [LightPlanetInstallerService::setContainer](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L65-L68)
 
 
 See Also

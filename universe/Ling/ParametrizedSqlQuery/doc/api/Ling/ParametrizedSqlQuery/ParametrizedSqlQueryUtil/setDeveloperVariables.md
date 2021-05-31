@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ParametrizedSqlQueryUtil::setDeveloperVariables](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L144-L147)
+See the source code for method [ParametrizedSqlQueryUtil::setDeveloperVariables](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L145-L148)
 
 
 See Also

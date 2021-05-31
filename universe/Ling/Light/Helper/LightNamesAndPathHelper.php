@@ -20,7 +20,6 @@ class LightNamesAndPathHelper
      * @return string
      * @throws \Exception
      */
-
     public static function getServiceName(string $planet): string
     {
         if (0 !== strpos($planet, 'Light_')) {
@@ -29,6 +28,13 @@ class LightNamesAndPathHelper
         $rest = substr($planet, 6);
         $rest = CaseTool::toHumanFlatCase($rest);
         $rest = CaseTool::toSnake($rest);
+
+
+        $firstChar = substr($rest, 0, 1);
+        if (is_numeric($firstChar)) {
+            $rest = "_" . $rest;
+        }
+
         return $rest;
     }
 

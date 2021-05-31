@@ -63,7 +63,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightCliCommandDocHelper::printCommandListDocByApp](https://github.com/lingtalfi/Light_Cli/blob/master/Helper/LightCliCommandDocHelper.php#L33-L60)
+See the source code for method [LightCliCommandDocHelper::printCommandListDocByApp](https://github.com/lingtalfi/Light_Cli/blob/master/Helper/LightCliCommandDocHelper.php#L33-L61)
 
 
 See Also

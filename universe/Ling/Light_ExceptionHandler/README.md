@@ -1,6 +1,6 @@
 Light_ExceptionHandler
 ===========
-2019-11-11 -> 2021-03-22
+2019-11-11 -> 2021-05-31
 
 
 
@@ -87,6 +87,30 @@ Related
 
 History Log
 =============
+
+- 1.2.15 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.2.14 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
+- 1.2.13 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Logger (pushed by SubscribersUtil)
+
+- 1.2.12 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.2.11 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.2.10 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
 
 - 1.2.9 -- 2021-03-22
 

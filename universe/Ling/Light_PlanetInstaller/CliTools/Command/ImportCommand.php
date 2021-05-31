@@ -6,7 +6,8 @@ namespace Ling\Light_PlanetInstaller\CliTools\Command;
 
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
-use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
+use Ling\Light_Cli\Helper\LightCliFormatHelper;
+use Ling\Light_PlanetInstaller\Util\ImportUtil;
 
 
 /**
@@ -17,19 +18,11 @@ class ImportCommand extends LightPlanetInstallerBaseCommand
 {
 
     /**
-     * The operation mode.
-     * Can be one of: import|install. Default is import.
-     * @var string
-     */
-    protected $operationMode;
-
-    /**
      * Builds the ImportCommand instance.
      */
     public function __construct()
     {
         parent::__construct();
-        $this->operationMode = "import";
     }
 
 
@@ -38,56 +31,79 @@ class ImportCommand extends LightPlanetInstallerBaseCommand
      */
     protected function doRun(InputInterface $input, OutputInterface $output)
     {
-
-
-        if (true === $this->checkInsideAppDir($output)) {
-
-
-            $planetDefinition = $input->getParameter(2);
-
-            $bernoni = $input->getOption("bernoni") ?? 'auto';
-            $keepBuild = $input->hasFlag("keep-build");
-            $useDebug = $input->hasFlag("d");
-            $doNotUpdateLpiFile = $input->hasFlag("n");
-            $force = $input->hasFlag("f");
-            $useSymlinks = $input->hasFlag("l");
-
-
-            $updateLpiFile = false;
-
-
-            $source = 'lpi';
-            if (null !== $planetDefinition) {
-                $source = $planetDefinition;
-                $updateLpiFile = true;
-            }
-
-            $virtualBin = [];
-            $this->application->updateApplicationByWishlist([
-                'mode' => $this->operationMode,
-                'force' => $force,
-                //
-                'source' => $source,
-                'keepBuild' => $keepBuild,
-                'useDebug' => $useDebug,
-                'bernoni' => $bernoni,
-                'symlinks' => $useSymlinks,
-            ], $virtualBin);
-
-
-            if (true === $updateLpiFile && false === $doNotUpdateLpiFile) {
-
-                $planetList = array_map(function ($v) {
-                    return $v . "+";
-                }, $virtualBin);
-                $output->write("Updating lpi file...");
-                $this->application->addPlanetListToLpiFile($planetList);
-                $output->write("<success>ok</success>." . PHP_EOL);
-            }
-        }
+        $this->doTheImport($input, $output);
+        return 0;
     }
 
 
+    /**
+     * Executes the import algorithm, and returns the "session dir" path.
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return string|false
+     */
+    protected function doTheImport(InputInterface $input, OutputInterface $output): string|false
+    {
+
+        if (true === $this->checkInsideAppDir($input, $output)) {
+
+
+            $planetDotName = $input->getParameter(2);
+            $versionNumber = $input->getParameter(3);
+
+            $appPath = $input->getOption("app");
+            $crm = $input->getOption("crm");
+            $tim = $input->getOption("tim");
+
+            $useDebug = $input->hasFlag("d");
+            $noSymlinks = $input->hasFlag("no-symlinks");
+            $noDeps = $input->hasFlag("no-deps");
+            $test = $input->hasFlag("test");
+            $force = $input->hasFlag("f");
+            $testBuildDir = $input->hasFlag("test-build-dir");
+
+
+            $possibleCrmValues = [
+                "ask",
+                "abort",
+                "keep",
+                "replace",
+                "latest",
+                "earliest",
+            ];
+            if (null !== $crm && false === in_array($crm, $possibleCrmValues)) {
+                $output->write("<error>Invalid crm value: $crm. Possible values are: " . implode(", ", $possibleCrmValues) . ". Try again.</error>" . PHP_EOL);
+                return 1;
+            }
+
+
+//            $theoreticalImportMapPath = LpiHelper::getSelfTmpDir() . "/theoretical_maps/" . date('Y-m-d--H-i-s') . ".byml";
+
+
+            $importUtil = new ImportUtil();
+            $importUtil->setOutput($output);
+
+            if (true === $useDebug) {
+                $importUtil->setDebug(true);
+            }
+            return $importUtil->import($planetDotName, [
+                "version" => $versionNumber,
+                "app" => $appPath,
+                "crm" => $crm,
+                "tim" => $tim,
+                "sym" => !$noSymlinks,
+                "deps" => !$noDeps,
+                "test" => $test,
+                "testBuildDir" => $testBuildDir,
+                "force" => $force,
+            ]);
+
+        } else {
+            // output already handled by the checkInsideAppDir method, nothing to do.
+            exit(1);
+        }
+    }
 
     //--------------------------------------------
     // LightCliCommandInterface
@@ -97,11 +113,11 @@ class ImportCommand extends LightPlanetInstallerBaseCommand
      */
     public function getDescription(): string
     {
-        $concept = LpiFormatHelper::getConceptFmt();
-        $url = LpiFormatHelper::getUrlFmt();
-        $ret = "With no argument, reads the <$concept>lpi.byml</$concept> file and makes sure every planet defined in it is imported (along with its dependencies, recursively) in the host app." . PHP_EOL;
-        $ret .= "The <$concept>assets/map</$concept> (<$url>https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#the-planets-and-assetsmap</$url>)  are not copied." . PHP_EOL;
-        return $ret;
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+        return "
+ <$co>Imports</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-algorithm</$url>) a planet in your application.
+ ";
     }
 
     /**
@@ -109,75 +125,88 @@ class ImportCommand extends LightPlanetInstallerBaseCommand
      */
     public function getParameters(): array
     {
-        $concept = LpiFormatHelper::getConceptFmt();
-        $url = LpiFormatHelper::getUrlFmt();
-        $pmt = LpiFormatHelper::getCommandLineParameterFmt();
-
-
-        $desc = <<<EEE
-if defined, will <$concept>import</$concept> (<$url>https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary</$url>) 
-the given planet (and its dependencies recursively), without the <$concept>assets/map</$concept>,and update the <$concept>lpi.byml</$concept> file accordingly, using a plus symbol at the end of every newly imported planet's version number.
-  
-<$pmt>planetDefinition</$pmt> stands for: planetDotName(:versionExpression)?
-
-With:
-- planetDotName: the <$concept>planetDotName</$concept> (<$url>https://github.com/karayabin/universe-snapshot#the-planet-dot-name</$url>)
-- versionExpression: the <$concept>versionExpression</$concept> defaults to <b>last</b> if not defined
-EEE;
-
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
 
         return [
-            "planetDefinition" => [
-                $desc,
-                false
+            "planetDotName" => [
+                " the <$co>planetDotName</$co>(<$url>https://github.com/karayabin/universe-snapshot#the-planet-dot-name</$url>) of the planet to import.",
+                true,
+            ],
+            "version" => [
+                " the version of the planet to import. If null (by default), the planet will be imported in its latest version (this is called <$co>uni style mode</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#uni-style-vs-versioned-style</$url>))
+ ",
+                false,
             ],
         ];
     }
-
-
-    /**
-     * @overrides
-     */
-    public function getAliases(): array
-    {
-        return [
-            "import" => 'lpi import',
-        ];
-    }
-
 
     /**
      * @overrides
      */
     public function getOptions(): array
     {
-        $conceptFmt = LpiFormatHelper::getConceptFmt();
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
 
         return [
-            "bernoni" => [
-                'desc' => "Defines the mode to resolve <$conceptFmt>bernoni conflicts</$conceptFmt>.",
+            "app" => [
+                'desc' => " string. The path to the app in which to import the planet. By default, the current working directory (pwd) is assumed.",
                 'values' => [
-                    'auto' => "This is the default value. Bernoni conflicts will be resolved using the highest version number.",
-                    'manual' => "You will be prompted to choose which version to use every time a bernoni conflict occurs.",
+                ],
+            ],
+            "crm" => [
+                'desc' => " string=latest. The <$co>application conflict resolution mode</$co>(<$url>application-conflict-resolution-mode</$url>). The possible values are:
+ ",
+                'values' => [
+                    'ask' => " ask the user what to do",
+                    'abort' => " abort",
+                    'keep' => " keep the planet already existing in the app",
+                    'replace' => " replace the planet existing in the app with the upcoming planet",
+                    'latest' => " imports the planet only if its version number is higher than the version number of the planet existing in the app ",
+                    'earliest' => " imports the planet only if its version number is lower than the version number of the planet existing in the app",
+                ],
+            ],
+            "tim" => [
+                'desc' => " string. The path to a file containing the <$co>theoretical import map</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map</$url>) to use. If set, this will bypass the planetDotName argument passed to this command,
+ and the planets imported will be the ones defined in the <b>theoretical import map</b>. 
+",
+                'values' => [
                 ],
             ],
         ];
     }
-
 
     /**
      * @overrides
      */
     public function getFlags(): array
     {
-        $concept = LpiFormatHelper::getConceptFmt();
-        $pmt = LpiFormatHelper::getCommandLineParameterFmt();
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
         return [
-            "d" => "Whether to use <b>debug</b> mode. In <b>debug</b> mode, the display is more verbose and shows the debug and trace messages.",
-            "n" => "if set, doesn't update the <$concept>lpi file</$concept> when the <$pmt>planetDefinition</$pmt> parameter is defined",
-            "f" => "if set, forces the reimporting of the planet, even if it's already in your app",
-            "keep-build" => "if set, the <$concept>build directory</$concept> will not be automatically removed after a successful operation.",
-            "l" => "local, if set create symlinks to the local universe (when available) instead of copying the planet dir. This can save a lot of time.",
+            "d" => " if set, enables the debug mode, in which output is a bit more verbose",
+            "no-symlinks" => " if set, the import command will not try to use symlinks to import your planet. See the <$co>symlinks workflow discussion</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#alternate-universe-and-symlink-speed-up-your-workflow</$url>) for more information. ",
+            "no-deps" => " if set, the import command will only import the given planet, and will not try to import its dependencies (if any). ",
+            "test" => " if set, the import command will stop after creating and displaying the <$co>concrete import map</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map</$url>). In other words, nothing will be actually imported, but you will see the list of 
+ what would have been imported if you didn't add the test flag. ",
+            "f" => " if set, forces the reimporting of the planet, even if it's already in your app",
+            "test-build-dir" => " if set, the import command will stop after creating the build dir. In other words, nothing will be actually imported, but you will not only have the <$co>concrete import map</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map</$url>) created,
+ but also the <b>build dir</b>. See the <$co>import algorithm</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-algorithm</$url>) section for more info about the <b>build dir</b>.",
+        ];
+    }
+
+    /**
+     * @overrides
+     */
+    public function getAliases(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "import" => "lpi import",
         ];
     }
 

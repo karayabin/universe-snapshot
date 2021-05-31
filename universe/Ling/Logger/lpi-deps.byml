@@ -1,39 +1,42 @@
 1.0.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.1.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.2.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.2.1: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.2.2: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.3.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.4.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.4.1: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.4.2: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
 
 1.4.3: 
-    - Ling:ArrayToString:1.4.5+
-    - Ling:Bat:1.308+
+    - Ling:ArrayToString:1.4.5
+    - Ling:Bat:1.308
+
+1.4.4: 
+    - Ling:Bat:1.322

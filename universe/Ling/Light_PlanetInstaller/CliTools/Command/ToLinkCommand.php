@@ -26,39 +26,56 @@ class ToLinkCommand extends LightPlanetInstallerBaseCommand
     protected function doRun(InputInterface $input, OutputInterface $output)
     {
 
-
-        $verbose = $input->hasFlag("v");
-
-        $appDir = $this->application->getApplicationDirectory();
-        $uniDir = $appDir . "/universe";
-        $planetDirs = PlanetTool::getPlanetDirs($uniDir);
-        $localUniverse = LocalUniverseTool::getLocalUniversePath();
-        if (true === is_dir($localUniverse)) {
+        if (true === $this->checkInsideAppDir($input, $output)) {
 
 
-            foreach ($planetDirs as $planetDir) {
-                if (false === is_link($planetDir)) {
+            $verbose = true;
+
+            $appDir = getcwd();
+            $uniDir = $appDir . "/universe";
+            $planetDirs = PlanetTool::getPlanetDirs($uniDir);
+            $localUniverse = LocalUniverseTool::getLocalUniversePath();
+            if (true === is_dir($localUniverse)) {
+
+
+
+                $nbPlanets = count($planetDirs);
+                $x = 0;
+
+                foreach ($planetDirs as $planetDir) {
+                    $x++;
+                    $s = "$x/$nbPlanets";
+
+
 
                     $planetDotName = PlanetTool::getPlanetDotNameByPlanetDir($planetDir);
-                    $localPlanetDir = LocalUniverseTool::getPlanetDir($planetDotName);
-                    if (null !== $localPlanetDir) {
-                        FileSystemTool::remove($planetDir);
-                        symlink($localPlanetDir, $planetDir);
-                        if (true === $verbose) {
-                            $output->write("Creating link for <b>$planetDotName</b>." . PHP_EOL);
-                        }
 
-                    } else {
-                        $output->write("<warning>Planet <b>$planetDotName</b> not found in the local universe, skipping.</warning>" . PHP_EOL);
+
+
+                    if (false === is_link($planetDir)) {
+
+                        $localPlanetDir = LocalUniverseTool::getPlanetDir($planetDotName);
+                        if (null !== $localPlanetDir) {
+                            FileSystemTool::remove($planetDir);
+                            symlink($localPlanetDir, $planetDir);
+                            if (true === $verbose) {
+                                $output->write("$s: Creating link for <b:red>$planetDotName</b:red>." . PHP_EOL);
+                            }
+
+                        } else {
+                            $output->write("<warning>$s: Planet <b>$planetDotName</b> not found in the local universe, skipping.</warning>" . PHP_EOL);
+                        }
+                    }
+                    else{
+                        $output->write("$s: <b>$planetDotName</b> is already a link, skipping." . PHP_EOL);
                     }
                 }
+
+
+            } else {
+                $output->write("<warning>No local universe found, aborting.</warning>" . PHP_EOL);
             }
-
-
-        } else {
-            $output->write("<warning>No local universe found, skipping.</warning>" . PHP_EOL);
         }
-
 
     }
 
@@ -69,27 +86,21 @@ class ToLinkCommand extends LightPlanetInstallerBaseCommand
     /**
      * @overrides
      */
-    public function getDescription(): string
+    public function getName(): string
     {
-        $co = LightCliFormatHelper::getConceptFmt();
-        $url = LightCliFormatHelper::getUrlFmt();
-        return " converts all the planets of the current app to symlinks to the <$co>local universe</$co>(<$url>https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#local-universe</$url>).
- Beware, this command actually removes the existing planets before creating the symlinks.
- Note: if there is not corresponding planet in the <b>local universe</b>, the conversion is not done (and the planet not removed). 
- This command does the opposite of the <b>todir</b> command.";
+        return "tolink";
     }
 
     /**
      * @overrides
      */
-    public function getFlags(): array
+    public function getDescription(): string
     {
         $co = LightCliFormatHelper::getConceptFmt();
         $url = LightCliFormatHelper::getUrlFmt();
-
-        return [
-            "v" => " verbose, whether to use verbose mode",
-        ];
+        return "
+ Converts the planets of the app to symlinks (to the <$co>local universe</$co>(<$url>https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#local-universe</$url>)). See more details in the <$co>todir and tolink section</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#todir-and-tolink</$url>).
+ ";
     }
 
     /**
@@ -101,7 +112,7 @@ class ToLinkCommand extends LightPlanetInstallerBaseCommand
         $url = LightCliFormatHelper::getUrlFmt();
 
         return [
-            "tolink" => "lpi tolink",
+            "tolink " => "lpi tolink",
         ];
     }
 

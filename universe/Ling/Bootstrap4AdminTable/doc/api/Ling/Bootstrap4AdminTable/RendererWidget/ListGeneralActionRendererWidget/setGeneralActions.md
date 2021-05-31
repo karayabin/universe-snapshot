@@ -23,7 +23,7 @@ public [ListGeneralActionRendererWidget::setGeneralActions](https://github.com/l
 
 Sets the groups.
 
-It's an array of list general action items. See the [list general actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#list-general-actions) page for more details.
+It's an array of list general action items. See the [list general actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/realist-conception-notes.md#list-general-actions) page for more details.
 
 
 

@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::getWebsiteFile](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L325-L328)
+See the source code for method [LightKitEditorService::getWebsiteFile](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L352-L355)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The Bootstrap4AdminTableRenderer class
 ================
-2019-08-15 --> 2021-03-05
+2019-08-15 --> 2021-05-31
 
 
 
@@ -121,7 +121,7 @@ Properties
 
     This property holds the data types for this instance.
     It's an array of columnName => dataTypeIdentifier.
-    More info in the [open admin table protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md).
+    More info in the [open admin table protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md).
     
     
 
@@ -181,7 +181,7 @@ Properties
 - <span id="property-listItemGroupActions"><b>listItemGroupActions</b></span>
 
     This property holds the listItemGroupActions for this instance.
-    More details in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).
+    More details in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/list-action-handler-conception-notes.md).
     
     
 

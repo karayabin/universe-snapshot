@@ -1,15 +1,17 @@
 1.0.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:VariableToString:1.1.2+
+    - Ling:ArrayToString:1.4.2
+    - Ling:VariableToString:1.1.2
 
 1.0.1: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:VariableToString:1.1.2+
+    - Ling:ArrayToString:1.4.2
+    - Ling:VariableToString:1.1.2
 
 1.0.2: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:VariableToString:1.1.2+
+    - Ling:ArrayToString:1.4.2
+    - Ling:VariableToString:1.1.2
 
 1.0.3: 
-    - Ling:ArrayToString:1.4.5+
-    - Ling:VariableToString:1.1.2+
+    - Ling:ArrayToString:1.4.5
+    - Ling:VariableToString:1.1.2
+
+1.0.4: []

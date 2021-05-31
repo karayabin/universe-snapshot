@@ -62,5 +62,5 @@ See Also
 
 The [LightKitAdminService](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService.md) class.
 
-Previous method: [getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItems.md)<br>Next method: [getJimToolboxItemsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItemsFile.md)<br>
+Previous method: [getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItems.md)<br>Next method: [unregisterJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/unregisterJimToolboxItem.md)<br>
 

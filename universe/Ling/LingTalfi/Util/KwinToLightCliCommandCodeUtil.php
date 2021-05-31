@@ -19,6 +19,7 @@ class KwinToLightCliCommandCodeUtil
      *
      * Available options are:
      * - appId: string, the app id to use with aliases. Actually it's mandatory if an alias is described int the given string.
+     * - verbose: bool=false, whether to use a verbose version of the kwin parser.
      *
      *
      *
@@ -29,10 +30,13 @@ class KwinToLightCliCommandCodeUtil
     public function printCodeByKwin(string $str, array $options = [])
     {
         $appId = $options['appId'] ?? null;
+        $verbose = $options['verbose'] ?? false;
 
 
         $p = new KwinParser();
-        $arr = $p->parseString($str);
+        $arr = $p->parseString($str, [
+            'verbose' => $verbose,
+        ]);
 
 
         $arr = MiniMarkdownToBashtmlTranslator::convertArray($arr, [
@@ -130,6 +134,9 @@ EEE;
      */
     public function getOptions(): array
     {
+        \$co = LightCliFormatHelper::getConceptFmt();
+        \$url = LightCliFormatHelper::getUrlFmt();
+            
         return [
 EEE;
 

@@ -1,6 +1,6 @@
 CliTools
 ===========
-2019-02-22 -> 2021-03-05
+2019-02-22 -> 2021-05-25
 
 
 
@@ -78,6 +78,18 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
 
+- 1.10.29 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.10.28 -- 2021-05-25
+
+    - update api, ensure return status is passed correctly from the commands to the app
+  
+- 1.10.27 -- 2021-05-21
+
+    - add QuestionHelper::askClear method
+  
 - 1.10.26 -- 2021-03-05
 
     - update README.md, add install alternative

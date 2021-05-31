@@ -1,5 +1,7 @@
 title: Light Kit Admin User Profile
 layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+vars:
+    theme: $t
 description: <
     The light kit admin user profile page let you update/check your profile information.
 >

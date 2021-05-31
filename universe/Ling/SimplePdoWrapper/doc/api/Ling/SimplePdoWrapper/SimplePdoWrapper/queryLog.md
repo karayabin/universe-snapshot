@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [SimplePdoWrapper::queryLog](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/queryLog.md)(string $type, ?$args) : void
+protected [SimplePdoWrapper::queryLog](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/queryLog.md)(string $type, ...$args) : void
 
 
 

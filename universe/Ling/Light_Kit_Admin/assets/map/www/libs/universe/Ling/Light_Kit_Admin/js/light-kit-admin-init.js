@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     $(document).ready(function () {
 
+
+
+
+        //----------------------------------------
+        // BOOTSTRAP 4 TOOLTIPS
+        //----------------------------------------
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+
+
+
         //----------------------------------------
         // ENABLING ACP HELPER FOR ALL PAGES
         // note: if you want to add it on certain pages only, update LightKitAdminController,

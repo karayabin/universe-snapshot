@@ -4,7 +4,7 @@
 
 The DeployApplication class
 ================
-2019-04-03 --> 2021-03-05
+2019-04-03 --> 2021-05-31
 
 
 
@@ -67,7 +67,7 @@ class <span class="pl-k">DeployApplication</span> extends [Application](https://
     - public AbstractProgram::setLoggerChannel(string $loggerChannel) : void
     - public AbstractProgram::setErrorIsVerbose(bool $errorIsVerbose) : void
     - public AbstractProgram::setUseExitStatus(bool $useExitStatus) : void
-    - public AbstractProgram::run(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
+    - public AbstractProgram::run(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed | void
 
 }
 
@@ -175,7 +175,7 @@ Methods
 - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
 - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
 - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
-- AbstractProgram::run &ndash; Starts the interactive program.
+- AbstractProgram::run &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
 
 
 

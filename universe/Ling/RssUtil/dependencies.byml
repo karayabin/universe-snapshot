@@ -1,6 +1,2 @@
-dependencies: 
-    Ling: 
-        - MySimpleXmlElement
-    
-
+dependencies: []
 post_install: []

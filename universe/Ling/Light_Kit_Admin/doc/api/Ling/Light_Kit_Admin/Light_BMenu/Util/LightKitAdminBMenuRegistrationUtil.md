@@ -4,7 +4,7 @@
 
 The LightKitAdminBMenuRegistrationUtil class
 ================
-2019-05-17 --> 2021-05-02
+2019-05-17 --> 2021-05-31
 
 
 
@@ -31,6 +31,7 @@ class <span class="pl-k">LightKitAdminBMenuRegistrationUtil</span>  {
     - public [__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/__construct.md)() : void
     - public [setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [writeItemsToMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/writeItemsToMainMenuSection.md)(string $section, array $items) : void
+    - public [removeItemsFromMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/removeItemsFromMainMenuSection.md)(string $section, array $items) : void
     - private [error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/error.md)(string $msg, ?int $code = null) : void
 
 }
@@ -55,6 +56,7 @@ Methods
 - [LightKitAdminBMenuRegistrationUtil::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/__construct.md) &ndash; Builds the LightKitAdminBMenuRegistrationUtil instance.
 - [LightKitAdminBMenuRegistrationUtil::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/setContainer.md) &ndash; Sets the container.
 - [LightKitAdminBMenuRegistrationUtil::writeItemsToMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/writeItemsToMainMenuSection.md) &ndash; Adds menu items in a section of the admin main menu.
+- [LightKitAdminBMenuRegistrationUtil::removeItemsFromMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/removeItemsFromMainMenuSection.md) &ndash; Removes menu items from a section of the admin main menu.
 - [LightKitAdminBMenuRegistrationUtil::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/error.md) &ndash; Throws an exception.
 
 

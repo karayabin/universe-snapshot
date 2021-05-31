@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getJimToolboxItemsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L481-L485)
+See the source code for method [LightKitAdminService::getJimToolboxItemsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L511-L515)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightKitAdminService](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService.md) class.
 
-Previous method: [registerJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerJimToolboxItem.md)<br>
+Previous method: [unregisterJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/unregisterJimToolboxItem.md)<br>
 

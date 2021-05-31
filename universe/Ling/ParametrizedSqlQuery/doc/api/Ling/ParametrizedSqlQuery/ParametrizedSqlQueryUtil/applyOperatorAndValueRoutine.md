@@ -23,7 +23,7 @@ protected [ParametrizedSqlQueryUtil::applyOperatorAndValueRoutine](https://githu
 
 Applies the transformIfLike routine to the given expression.
 
-See [the routines section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist.md#routines) in the documentation for more info.
+See [the routines section](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/duelist.md#routines) in the documentation for more info.
 
 Note: the tags array might be updated.
 
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ParametrizedSqlQueryUtil::applyOperatorAndValueRoutine](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L671-L796)
+See the source code for method [ParametrizedSqlQueryUtil::applyOperatorAndValueRoutine](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L675-L800)
 
 
 See Also

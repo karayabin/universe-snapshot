@@ -470,6 +470,36 @@ class LightKitAdminService
     }
 
 
+    /**
+     * Unregisters a jim toolbox item, and returns whether the given key was actually registered.
+     *
+     * If the given key didn't exist, false is returned.
+     *
+     *
+     * See the @page(lka jim toolbox) document for more information.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function unregisterJimToolboxItem(string $key): bool
+    {
+        $found = false;
+        $file = $this->getJimToolboxItemsFile();
+        if (true === is_file($file)) {
+            $arr = BabyYamlUtil::readFile($file);
+        } else {
+            $arr = [];
+        }
+        if (true === array_key_exists($key, $arr)) {
+            unset($arr[$key]);
+            $found = true;
+        }
+
+        BabyYamlUtil::writeFile($arr, $file);
+        return $found;
+    }
+
+
 
     //--------------------------------------------
     //

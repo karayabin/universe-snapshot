@@ -1,31 +1,35 @@
 1.0.0: 
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:Kit:1.12.3+
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:Kit:1.12.3
 
 1.0.1: 
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:Kit:1.12.3+
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:Kit:1.12.3
 
 1.1.0: 
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:Kit:1.12.3+
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:Kit:1.12.3
 
 1.1.1: 
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:Kit:1.12.3+
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:Kit:1.12.3
 
 1.1.2: 
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:Kit:1.12.3+
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:Kit:1.12.3
 
 1.1.3: 
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.12.5+
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.12.5
 
 1.1.4: 
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.13.0+
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.13.0
 
 1.1.5: 
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.14.0+
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.14.0
+
+1.1.6: 
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit:1.14.2

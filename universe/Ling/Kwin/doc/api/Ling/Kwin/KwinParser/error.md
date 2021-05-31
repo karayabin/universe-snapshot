@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [KwinParser::error](https://github.com/lingtalfi/Kwin/blob/master/KwinParser.php#L192-L195)
+See the source code for method [KwinParser::error](https://github.com/lingtalfi/Kwin/blob/master/KwinParser.php#L271-L274)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [KwinParser](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/KwinParser.md) class.
 
-Previous method: [parseString](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/KwinParser/parseString.md)<br>
+Previous method: [debug](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/KwinParser/debug.md)<br>
 

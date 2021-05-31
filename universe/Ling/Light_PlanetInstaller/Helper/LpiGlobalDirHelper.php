@@ -16,34 +16,6 @@ use Ling\UniverseTools\PlanetTool;
 class LpiGlobalDirHelper
 {
 
-    /**
-     * Returns the highest version number of the given planet, as found in the global directory.
-     *
-     * @param string $planetDot
-     * @return string
-     * @throws Exception
-     */
-    public static function getGlobalDirPlanetHighestVersionNumber(string $planetDot): string
-    {
-        list($galaxy, $planet) = PlanetTool::extractPlanetDotName($planetDot);
-
-        $dir = LpiConfHelper::getGlobalDirPath();
-        $planetDir = $dir . "/$galaxy/$planet";
-        if (is_dir($planetDir)) {
-            $highest = "0";
-            $planetDirs = YorgDirScannerTool::getDirs($planetDir);
-            foreach ($planetDirs as $planetDir) {
-                $version = basename($planetDir);
-                if ($version > $highest) {
-                    $highest = $version;
-                }
-            }
-            return $highest;
-        } else {
-            throw new LightPlanetInstallerException("The global directory doesn't contain the planet $planetDot.");
-        }
-    }
-
 
     /**
      * Returns the version numbers available for the given planet (in the global dir repo), sorted by increasing value.

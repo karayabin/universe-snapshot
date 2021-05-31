@@ -4,7 +4,7 @@
 
 The SimplePdoWrapper class
 ================
-2019-07-22 --> 2021-03-05
+2019-07-22 --> 2021-05-31
 
 
 
@@ -45,12 +45,12 @@ class <span class="pl-k">SimplePdoWrapper</span> implements [SimplePdoWrapperInt
     - public [fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/fetch.md)($query, ?array $markers = [], ?$fetchStyle = null) : false | array
     - public [fetchAll](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/fetchAll.md)($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : false | array
     - public [executeStatement](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/executeStatement.md)($query) : false | int
-    - public static [addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addWhereSubStmt.md)($stmt, array &$markers, $whereConds) : void
+    - public static [addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addWhereSubStmt.md)(&$stmt, array &$markers, $whereConds) : void
     - protected [boot](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/boot.md)() : [PDO](https://www.php.net/manual/en/class.pdo.php) | null
     - protected [storeQueryObject](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/storeQueryObject.md)($queryObject) : void
     - protected [onSuccess](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/onSuccess.md)(string $type, string $table, string $query, array $arguments, ?$return = true) : void
-    - protected static [addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addAssignmentListSubStmt.md)($stmt, array &$markers, array $fields, ?$firstForm = false) : void
-    - protected [queryLog](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/queryLog.md)(string $type, ?$args) : void
+    - protected static [addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addAssignmentListSubStmt.md)(&$stmt, array &$markers, array $fields, ?$firstForm = false) : void
+    - protected [queryLog](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/queryLog.md)(string $type, ...$args) : void
     - private [handleException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/handleException.md)(Exception $e, ?array $markers = []) : void
 
 }

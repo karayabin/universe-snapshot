@@ -58,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBMenuRegistrationUtil::writeItemsToMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.php#L56-L101)
+See the source code for method [LightKitAdminBMenuRegistrationUtil::writeItemsToMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.php#L56-L100)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [LightKitAdminBMenuRegistrationUtil](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.md) class.
 
-Previous method: [setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/setContainer.md)<br>Next method: [error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/error.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/setContainer.md)<br>Next method: [removeItemsFromMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/removeItemsFromMainMenuSection.md)<br>
 

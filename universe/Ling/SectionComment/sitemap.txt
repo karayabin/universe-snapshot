@@ -7,6 +7,7 @@ https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComm
 https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/init.md
 https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/matchCommentLine.md
 https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/matchTitleLine.md
+https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/removeSection.md
 https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/setFile.md
 https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil.md
 https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/Exception/SectionCommentException.md

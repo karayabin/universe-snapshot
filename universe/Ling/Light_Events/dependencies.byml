@@ -3,9 +3,11 @@ dependencies:
         - BabyYaml
         - Bat
         - CliTools
+        - DirScanner
         - Light
         - Light_Logger
         - SectionComment
+        - UniverseTools
     
 
 post_install: 

@@ -65,39 +65,13 @@ class LightKitStoreService
     }
 
 
-
-    public function registerWebsiteFromDirectory(){
-
-    }
-
-
-    /**
-     * Throws an exception.
-     *
-     * @param string $msg
-     * @throws \Exception
-     */
-    private function error(string $msg)
+    public function registerWebsiteFromDirectory()
     {
-
         /**
-         * todo: here... update wiz generator to generate error below, not this one... (create basic service task)
-         * todo: here... update wiz generator to generate error below, not this one... (create basic service task)
-         * todo: here... update wiz generator to generate error below, not this one... (create basic service task)
-         * todo: here... update wiz generator to generate error below, not this one... (create basic service task)
-         * todo: here... update wiz generator to generate error below, not this one... (create basic service task)
-         * todo: here... update wiz generator to generate error below, not this one... (create basic service task)
+         * todo: here... is the method name correct?
+         * todo: here... is the method name correct?
+         * todo: here... is the method name correct?
          */
-
-
-        /**
-         * todo: then.. resume registerWebsiteFromDirectory...
-         * todo: then.. resume registerWebsiteFromDirectory...
-         * todo: then.. resume registerWebsiteFromDirectory...
-         * todo: then.. resume registerWebsiteFromDirectory...
-         */
-
-        throw new LightKitStoreException($msg);
     }
 
 
@@ -109,6 +83,6 @@ class LightKitStoreService
      */
     private function error(string $msg, int $code = null)
     {
-        throw new LingTalfiException(static::class . ": " . $msg, $code);
+        throw new LightKitStoreException(static::class . ": " . $msg, $code);
     }
 }

@@ -1,0 +1,12 @@
+zephyr_template:
+    instance: Ling\Light_ZephyrTemplate\LightZephyrTemplate
+    methods:
+        setDirectory:
+            root_dir: ${app_dir}
+
+
+
+
+
+
+

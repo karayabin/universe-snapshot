@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Realist/Light_RealistDocBuilder.php#L45-L257)
+See the source code for method [Light_RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Realist/Light_RealistDocBuilder.php#L45-L258)
 
 
 See Also

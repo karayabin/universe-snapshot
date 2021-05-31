@@ -1,6 +1,6 @@
 JFormCollect
 ===========
-2021-04-05
+2021-04-05 -> 2021-05-10
 
 
 
@@ -33,7 +33,7 @@ Or just download it and place it where you want otherwise.
 
 How to use
 ===========
-2021-04-05
+2021-04-05 -> 2021-05-10
 
 
 Add the **form-collect** css class to the controls you want to collect the data of.
@@ -42,6 +42,7 @@ Also, make sure they have a **name** html attribute.
 Note: so far, the recognized controls are:
 
 - input text
+- input password
 - select
 
 
@@ -75,6 +76,14 @@ The options you pass to the **collect** method are:
 History Log
 =============
 
+- 1.0.3 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.0.2 -- 2021-05-10
+
+    - add handling for password type
+    
 - 1.0.1 -- 2021-04-05
 
     - fix collect method not returning the map

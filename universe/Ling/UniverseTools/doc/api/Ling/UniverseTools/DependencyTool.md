@@ -4,7 +4,7 @@
 
 The DependencyTool class
 ================
-2019-02-26 --> 2021-03-18
+2019-02-26 --> 2021-05-31
 
 
 
@@ -73,4 +73,4 @@ See the source code of [Ling\UniverseTools\DependencyTool](https://github.com/li
 
 SeeAlso
 ==============
-Previous class: [AssetsMapTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool.md)<br>Next class: [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md)<br>
+Previous class: [BangTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/BangTool.md)<br>Next class: [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md)<br>

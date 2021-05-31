@@ -7,7 +7,7 @@ LightKitAdminHelper::getLkaPlanetNameByPlanet
 
 
 
-LightKitAdminHelper::getLkaPlanetNameByPlanet — Returns the lka planet name correspongind to the given $planet.
+LightKitAdminHelper::getLkaPlanetNameByPlanet — Returns the lka planet name corresponding to the given $planet.
 
 
 
@@ -21,7 +21,7 @@ public static [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com
 
 
 
-Returns the lka planet name correspongind to the given $planet.
+Returns the lka planet name corresponding to the given $planet.
 
 
 
@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Helper/LightKitAdminHelper.php#L19-L23)
+See the source code for method [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Helper/LightKitAdminHelper.php#L21-L25)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightKitAdminHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper.md) class.
 
-
+Next method: [getSourcePlanetDotNameByLkaPlanetDotName](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getSourcePlanetDotNameByLkaPlanetDotName.md)<br>
 

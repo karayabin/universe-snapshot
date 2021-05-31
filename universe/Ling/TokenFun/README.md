@@ -55,6 +55,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.11.8 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.11.7 -- 2021-03-08
 
     - add UseStatementsParser and bnb tests, update TokenFinderTool::getUseDependencies

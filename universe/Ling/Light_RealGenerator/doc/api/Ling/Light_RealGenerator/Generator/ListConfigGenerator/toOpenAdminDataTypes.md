@@ -7,7 +7,7 @@ ListConfigGenerator::toOpenAdminDataTypes
 
 
 
-ListConfigGenerator::toOpenAdminDataTypes — with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+ListConfigGenerator::toOpenAdminDataTypes — with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
 
 
 
@@ -22,7 +22,7 @@ protected [ListConfigGenerator::toOpenAdminDataTypes](https://github.com/lingtal
 
 
 Returns an array of columnName => openAdminDataType,
-with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
 
 The options are:
 - useCustomTypes: bool=true. Whether to use custom types defined in the configuration if available.

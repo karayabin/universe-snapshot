@@ -1,0 +1,11 @@
+table_prefix_info:
+    instance: Ling\Light_TablePrefixInfo\Service\LightTablePrefixInfoService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: []
+
+
+
+

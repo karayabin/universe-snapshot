@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [PlanetTool::getPlanetDotNameByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L265-L269)
+See the source code for method [PlanetTool::getPlanetDotNameByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L297-L301)
 
 
 See Also

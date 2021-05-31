@@ -1,8 +1,2 @@
-dependencies: 
-    Ling: 
-        - Bat
-        - BeeFramework
-        - ThumbnailTools
-    
-
+dependencies: []
 post_install: []

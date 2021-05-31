@@ -4,7 +4,7 @@
 
 The JQueryDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\JQuery\JQueryDocBuilder](https
 
 SeeAlso
 ==============
-Previous class: [JPostFormDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JPostForm/JPostFormDocBuilder.md)<br>Next class: [JSortableListsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JSortableLists/JSortableListsDocBuilder.md)<br>
+Previous class: [JPostFormDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JPostForm/JPostFormDocBuilder.md)<br>Next class: [JRadioHideDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JRadioHide/JRadioHideDocBuilder.md)<br>

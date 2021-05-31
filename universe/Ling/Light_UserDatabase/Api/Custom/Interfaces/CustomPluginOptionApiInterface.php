@@ -17,10 +17,11 @@ interface CustomPluginOptionApiInterface extends PluginOptionApiInterface
      * Note: remember that the category column's notation is: pluginName.categoryName.
      * See the @page(Light_UserDatabase conception notes) for more details.
      *
-     * @param string $pluginName
+     * @param string $planetDotName
      * @return void
      */
-    public function deletePluginOptionsByPluginName(string $pluginName);
+    public function deletePluginOptionsByPluginName(string $planetDotName);
+
 
 
     /**

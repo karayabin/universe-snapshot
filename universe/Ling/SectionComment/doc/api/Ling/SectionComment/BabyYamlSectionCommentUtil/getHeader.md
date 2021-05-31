@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::getHeader](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L306-L313)
+See the source code for method [BabyYamlSectionCommentUtil::getHeader](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L327-L334)
 
 
 See Also

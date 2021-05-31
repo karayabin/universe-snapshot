@@ -140,7 +140,7 @@ class LpiGithubImporter extends LpiBaseImporter
         $rawMetaInfoUrl = "https://raw.githubusercontent.com/$account/$planet/master/meta-info.byml";
         $version = MetaInfoTool::getVersionByUrl($rawMetaInfoUrl);
         if (null === $version) {
-            throw new LightPlanetInstallerException("Version not found for planet $planetIdentifier, are you sure it exists?");
+            throw new LightPlanetInstallerException("Version not defined for planet $planetIdentifier, are you sure it exists?");
         }
         return $version;
     }
@@ -148,12 +148,12 @@ class LpiGithubImporter extends LpiBaseImporter
     /**
      * @implementation
      */
-    public function getDependencies(string $planetIdentifier, string $version): array
+    public function getLpiDependencies(string $planetIdentifier): array
     {
         $account = $this->getConfigValue("account");
         list($galaxy, $planet) = PlanetTool::extractPlanetId($planetIdentifier);
         $url = "https://raw.githubusercontent.com/$account/$planet/master/lpi-deps.byml";
-        return LpiDepsFileHelper::getLpiDepsByLocation($url, $version);
+        return LpiDepsFileHelper::getLpiDepsContentByLocation($url);
     }
 
     /**

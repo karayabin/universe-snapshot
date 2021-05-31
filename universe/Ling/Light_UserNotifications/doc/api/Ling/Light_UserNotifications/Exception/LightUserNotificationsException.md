@@ -4,7 +4,7 @@
 
 The LightUserNotificationsException class
 ================
-2020-08-13 --> 2021-03-15
+2020-08-13 --> 2021-05-31
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserNotifications\Exception\LightUserNotifica
 
 SeeAlso
 ==============
-Previous class: [LightUserNotificationsApiFactory](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/LightUserNotificationsApiFactory.md)<br>Next class: [LightUserNotificationsPluginInstaller](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PluginInstaller/LightUserNotificationsPluginInstaller.md)<br>
+Previous class: [LightUserNotificationsApiFactory](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/LightUserNotificationsApiFactory.md)<br>Next class: [LightUserNotificationsPlanetInstaller](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PlanetInstaller/LightUserNotificationsPlanetInstaller.md)<br>

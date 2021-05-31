@@ -95,6 +95,18 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.1.7 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.1.6 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Logger (pushed by SubscribersUtil)
+
+- 1.1.5 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Logger (pushed by SubscribersUtil)
+
 - 1.1.4 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

@@ -4,7 +4,7 @@
 
 The Panda_HeadersDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Panda_Headers\Panda_HeadersDoc
 
 SeeAlso
 ==============
-Previous class: [MysqlCreateTableUtilDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder.md)<br>Next class: [ParametrizedSqlQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParametrizedSqlQuery/ParametrizedSqlQueryDocBuilder.md)<br>
+Previous class: [PaginationHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PaginationHelper/PaginationHelperDocBuilder.md)<br>Next class: [ParametrizedSqlQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParametrizedSqlQuery/ParametrizedSqlQueryDocBuilder.md)<br>

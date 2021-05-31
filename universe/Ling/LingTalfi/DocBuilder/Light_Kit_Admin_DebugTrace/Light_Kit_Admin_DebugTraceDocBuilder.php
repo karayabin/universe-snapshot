@@ -148,6 +148,7 @@ class Light_Kit_Admin_DebugTraceDocBuilder
                 "the Light_CsrfSimple plugin" => 'Light_CsrfSimple',
                 "Ling.Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
                 "the Ling.Light.end_routine event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -164,6 +165,8 @@ class Light_Kit_Admin_DebugTraceDocBuilder
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

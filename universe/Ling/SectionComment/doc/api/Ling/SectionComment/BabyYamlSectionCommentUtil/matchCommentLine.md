@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::matchCommentLine](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L278-L281)
+See the source code for method [BabyYamlSectionCommentUtil::matchCommentLine](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L299-L302)
 
 
 See Also

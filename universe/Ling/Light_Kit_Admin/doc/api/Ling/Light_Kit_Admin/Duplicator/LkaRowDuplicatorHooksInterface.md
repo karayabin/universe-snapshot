@@ -4,7 +4,7 @@
 
 The LkaRowDuplicatorHooksInterface class
 ================
-2019-05-17 --> 2021-05-02
+2019-05-17 --> 2021-05-31
 
 
 

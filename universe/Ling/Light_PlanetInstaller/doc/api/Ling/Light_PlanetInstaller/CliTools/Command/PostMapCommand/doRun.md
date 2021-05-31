@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PostMapCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/PostMapCommand.php#L25-L43)
+See the source code for method [PostMapCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/PostMapCommand.php#L24-L42)
 
 
 See Also

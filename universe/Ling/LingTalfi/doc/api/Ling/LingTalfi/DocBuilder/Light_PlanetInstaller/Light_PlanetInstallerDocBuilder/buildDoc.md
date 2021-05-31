@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_PlanetInstallerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_PlanetInstaller/Light_PlanetInstallerDocBuilder.php#L45-L226)
+See the source code for method [Light_PlanetInstallerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_PlanetInstaller/Light_PlanetInstallerDocBuilder.php#L45-L233)
 
 
 See Also

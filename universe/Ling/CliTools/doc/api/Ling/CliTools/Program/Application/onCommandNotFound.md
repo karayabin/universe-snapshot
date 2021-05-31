@@ -23,6 +23,8 @@ protected [Application::onCommandNotFound](https://github.com/lingtalfi/CliTools
 
 Hook called if a command was not found.
 
+This method returns the "return status" to return to the unix command.
+
 By default, it throws an exception.
 
 Note: This method was written with the intent to be overridden by the user (i.e you should override this method in a sub-class).
@@ -65,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Application::onCommandNotFound](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L141-L144)
+See the source code for method [Application::onCommandNotFound](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L146-L149)
 
 
 See Also

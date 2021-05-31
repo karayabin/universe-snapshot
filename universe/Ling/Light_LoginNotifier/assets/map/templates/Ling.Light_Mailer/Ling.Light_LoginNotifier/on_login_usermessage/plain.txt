@@ -1,0 +1,16 @@
+{template:header.txt}
+
+
+
+
+We send you this email as somebody successfully logged in your manager.
+
+   Client id  : {user_identifier}
+   Connexion ip      : {ip}
+   Connexion time  : {datetime}
+
+
+
+
+{template:footer.txt}
+

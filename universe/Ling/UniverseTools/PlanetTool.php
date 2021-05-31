@@ -20,6 +20,38 @@ class PlanetTool
 
 
     /**
+     * Returns the list of the planet dot names present in the given working dir.
+     * The working dir can be either of those:
+     *
+     * - universe dir
+     * - app dir (which contains the universe dir as a direct child)
+     *
+     *
+     * @param string $workingDir
+     * @return array
+     */
+    public static function getPlanetDotNamesByWorkingDir(string $workingDir): array
+    {
+        $ret = [];
+        $uniDir = null;
+        if ('universe' === basename($workingDir)) {
+            $uniDir = $workingDir;
+        } elseif (true === is_dir($workingDir . "/universe")) {
+            $uniDir = $workingDir . "/universe";
+        }
+
+        if (null !== $uniDir) {
+            $planetDirs = self::getPlanetDirs($uniDir);
+            foreach ($planetDirs as $planetDir) {
+                $ret[] = self::getPlanetDotNameByPlanetDir($planetDir);
+            }
+        }
+
+        return $ret;
+    }
+
+
+    /**
      * Returns the version number of the planet if found, or null otherwise.
      *
      * @param string $planetDir

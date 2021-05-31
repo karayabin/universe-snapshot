@@ -121,6 +121,10 @@ css/tachyons.css::eb5c7576c7adb08b06b8b71aa695c87ccb96e966
 History Log
 =============
 
+- 1.0.5 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.0.4 -- 2021-03-05
 
     - update README.md, add install alternative

@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UpgradeCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L91-L102)
+See the source code for method [UpgradeCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L123-L134)
 
 
 See Also
@@ -55,5 +55,5 @@ See Also
 
 The [UpgradeCommand](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/UpgradeCommand.md) class.
 
-Previous method: [getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/UpgradeCommand/getDescription.md)<br>Next method: [getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/UpgradeCommand/getAliases.md)<br>
+Previous method: [getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/UpgradeCommand/getDescription.md)<br>Next method: [getOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/UpgradeCommand/getOptions.md)<br>
 

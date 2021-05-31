@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [UniToolApplication::run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
+public [UniToolApplication::run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed | void
 
 
 
@@ -24,7 +24,13 @@ public [UniToolApplication::run](https://github.com/lingtalfi/Uni2/blob/master/d
 Parses general options.
 
 
+Executes the program, and returns the exit code, if defined by the concrete class.
+
+
 Starts the interactive program.
+
+This method can return anything you want.
+We recommend however that if you return an int, it's the exit code, so that it's easier to interface it with other programs.
 
 
 
@@ -45,7 +51,7 @@ Parameters
 Return values
 ================
 
-Returns void.
+Returns mixed | void.
 
 
 

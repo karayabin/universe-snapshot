@@ -31,6 +31,7 @@ use Ling\UniversalLogger\UniversalLoggerInterface;
  *
  *
  *
+ *
  */
 abstract class AbstractProgram implements ProgramInterface
 {
@@ -143,10 +144,13 @@ abstract class AbstractProgram implements ProgramInterface
 
 
     /**
+     * Executes the program, and returns the exit code, if defined by the concrete class.
+     *
      * @implementation
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
+
         try {
             $exitCode = $this->runProgram($input, $output);
         } catch (\Exception $e) {
@@ -169,6 +173,7 @@ abstract class AbstractProgram implements ProgramInterface
         if (true === $this->useExitStatus) {
             exit((int)$exitCode);
         }
+        return $exitCode;
     }
 
 

@@ -1,8 +1,2 @@
-dependencies: 
-    Ling: 
-        - ArrayToString
-        - Bat
-        - FormTools
-    
-
+dependencies: []
 post_install: []

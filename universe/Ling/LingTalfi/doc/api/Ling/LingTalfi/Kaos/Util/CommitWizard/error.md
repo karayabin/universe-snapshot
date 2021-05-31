@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [CommitWizard::error](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L166-L169)
+See the source code for method [CommitWizard::error](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L239-L242)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) class.
 
-Previous method: [msgSuccess](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/msgSuccess.md)<br>Next method: [execc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/execc.md)<br>
+Previous method: [msgSuccess](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/msgSuccess.md)<br>Next method: [getOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/getOutput.md)<br>
 

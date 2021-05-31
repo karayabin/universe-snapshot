@@ -54,7 +54,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MetaInfoTool::incrementVersion](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L107-L128)
+See the source code for method [MetaInfoTool::incrementVersion](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L120-L141)
 
 
 See Also

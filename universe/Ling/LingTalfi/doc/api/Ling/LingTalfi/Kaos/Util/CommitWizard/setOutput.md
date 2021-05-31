@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitWizard::setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L42-L45)
+See the source code for method [CommitWizard::setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L71-L74)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/__construct.md)<br>Next method: [commit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commit.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/__construct.md)<br>Next method: [commitListFromFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitListFromFile.md)<br>
 

@@ -1,29 +1,34 @@
 1.0.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
 
 1.0.1: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
 
 1.0.2: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
 
 1.0.3: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
 
 1.0.4: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
 
 1.0.5: 
-    - Ling:ArrayToString:1.4.5+
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.307+
+    - Ling:ArrayToString:1.4.5
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.307
+
+1.0.6: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.321

@@ -4,7 +4,7 @@
 
 The SortHooksAlphabeticallyProcess class
 ================
-2020-06-30 --> 2021-04-15
+2020-06-30 --> 2021-05-31
 
 
 
@@ -149,4 +149,4 @@ See the source code of [Ling\Light_DeveloperWizard\WebWizardTools\Process\Servic
 
 SeeAlso
 ==============
-Previous class: [AddPluginInstallerHookProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceConfig/AddPluginInstallerHookProcess.md)<br>Next class: [LightDeveloperWizardWebWizard](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/WebWizard/LightDeveloperWizardWebWizard.md)<br>
+Previous class: [AddPluginInstallerHookProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceConfig/AddPluginInstallerHookProcess.md)<br>Next class: [AddBootstrapWidgetLibraryWidgetProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Widget/AddBootstrapWidgetLibraryWidgetProcess.md)<br>

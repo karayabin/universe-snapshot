@@ -54,6 +54,298 @@ History Log
 =============
 
 
+- 1.0.179 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.178 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.177 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.UniversalLogger.
+
+- 1.0.176 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Uni2.
+
+- 1.0.175 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.TokenFun.
+
+- 1.0.174 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Tiphaine.
+
+- 1.0.173 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.SicTools.
+
+- 1.0.172 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.SectionComment.
+
+- 1.0.171 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.PhpUploadFileFix.
+
+- 1.0.170 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.ParenthesisMirrorParser.
+
+- 1.0.169 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Octopus.
+
+- 1.0.168 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.167 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light_Logger.
+
+- 1.0.166 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.165 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light_Cli.
+
+- 1.0.164 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.0.163 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.162 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Komin.
+
+- 1.0.161 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.DirScanner.
+
+- 1.0.160 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.CopyDir.
+
+- 1.0.159 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.CliTools.
+
+- 1.0.158 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.ClassCreator.
+
+- 1.0.157 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.ClassCooker.
+
+- 1.0.156 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.CheapLogger.
+
+- 1.0.155 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.BumbleBee.
+
+- 1.0.154 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.BeeFramework.
+
+- 1.0.153 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.152 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.BabyYaml.
+
+- 1.0.151 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.ArrayToString.
+
+- 1.0.150 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Uni2.
+
+- 1.0.149 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light_Cli.
+
+- 1.0.148 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.147 -- 2021-05-31
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.146 -- 2021-05-28
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.145 -- 2021-05-28
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.144 -- 2021-05-27
+
+    - wizard: update boilerplate for Ling.SectionComment.
+
+- 1.0.143 -- 2021-05-25
+
+    - wizard: update boilerplate for Ling.CliTools.
+
+- 1.0.142 -- 2021-05-25
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.141 -- 2021-05-21
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.140 -- 2021-05-21
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.139 -- 2021-05-21
+
+    - wizard: update boilerplate for Ling.BabyYaml.
+
+- 1.0.138 -- 2021-05-21
+
+    - wizard: update boilerplate for Ling.CliTools.
+
+- 1.0.137 -- 2021-05-20
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.136 -- 2021-05-20
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.135 -- 2021-05-18
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.134 -- 2021-05-18
+
+    - wizard: update boilerplate for Ling.BabyYaml.
+
+- 1.0.133 -- 2021-05-18
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.132 -- 2021-05-17
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.131 -- 2021-05-17
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.130 -- 2021-05-12
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.129 -- 2021-05-12
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.128 -- 2021-05-12
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.127 -- 2021-05-11
+
+    - wizard: update boilerplate for Ling.UniverseTools.
+
+- 1.0.126 -- 2021-05-06
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.125 -- 2021-05-06
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.124 -- 2021-05-06
+
+    - wizard: update boilerplate for Ling.Bat.
+
+- 1.0.123 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.122 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.121 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.120 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.119 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.118 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.117 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.116 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_Events.
+
+- 1.0.115 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.114 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PluginInstaller.
+
+- 1.0.113 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_Logger.
+
+- 1.0.112 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light.
+
+- 1.0.111 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.110 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.109 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.108 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
+- 1.0.107 -- 2021-05-03
+
+    - wizard: update boilerplate for Ling.Light_PlanetInstaller.
+
 - 1.0.106 -- 2021-05-03
 
     - wizard: update boilerplate for Ling.Light_PlanetInstaller.

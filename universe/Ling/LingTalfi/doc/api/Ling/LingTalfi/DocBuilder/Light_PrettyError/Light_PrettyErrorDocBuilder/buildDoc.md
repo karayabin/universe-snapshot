@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_PrettyErrorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder.php#L45-L210)
+See the source code for method [Light_PrettyErrorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder.php#L45-L212)
 
 
 See Also

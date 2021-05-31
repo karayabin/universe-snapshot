@@ -109,8 +109,11 @@ class LightCliApplication extends LightCliBaseApplication
     /**
      * @overrides
      */
-    protected function onCommandNotFound(string $commandAlias, InputInterface $input, OutputInterface $output)
+    protected function onCommandNotFound(string $commandAlias, InputInterface $input, OutputInterface $output): int
     {
+
+        $exitCode = 4;
+
         /**
          *
          * If this method is called, this means that none of our registered commands (aka specialExpression) match (in the __construct).
@@ -184,8 +187,7 @@ class LightCliApplication extends LightCliBaseApplication
                 $cmdArgv = CommandLineInputHelper::paramStringToArgv($cmdLineInput);
                 array_unshift($cmdArgv, "fake/command");
                 $newInput = new CommandLineInput($cmdArgv);
-                $this->onCommandNotFound($commandAlias, $newInput, $output);
-                return;
+                return $this->onCommandNotFound($commandAlias, $newInput, $output);
             }
 
         }
@@ -213,7 +215,7 @@ class LightCliApplication extends LightCliBaseApplication
                         'parameters' => $parameters,
                     ]);
 
-                    $app->run($proxyInput, $output);
+                    return $app->run($proxyInput, $output);
 
                 } else {
                     $output->write("<error>The application registered with appId=\"$appId\" must be implements ProgramInterface from <b>Ling.CliTools</b>.</error>" . PHP_EOL);
@@ -225,6 +227,7 @@ class LightCliApplication extends LightCliBaseApplication
         } else {
             $output->write("<error>No command or alias named \"$firstParam\" was found.</error>" . PHP_EOL);
         }
+        return $exitCode;
     }
 
 

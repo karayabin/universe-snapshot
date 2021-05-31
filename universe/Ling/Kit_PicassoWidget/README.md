@@ -54,6 +54,10 @@ Related
 History Log
 =============
 
+- 1.30.9 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.30.8 -- 2021-04-15
 
     - fix VariableDescriptionFileGeneratorUtil->generate assuming that zone is always array 

@@ -4,7 +4,7 @@
 
 The LightKitAdminHelper class
 ================
-2019-05-17 --> 2021-05-02
+2019-05-17 --> 2021-05-31
 
 
 
@@ -26,6 +26,7 @@ class <span class="pl-k">LightKitAdminHelper</span>  {
 
 - Methods
     - public static [getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLkaPlanetNameByPlanet.md)(string $planet) : string
+    - public static [getSourcePlanetDotNameByLkaPlanetDotName](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getSourcePlanetDotNameByLkaPlanetDotName.md)(string $lkaPlanetDotName) : string
 
 }
 
@@ -37,7 +38,8 @@ class <span class="pl-k">LightKitAdminHelper</span>  {
 Methods
 ==============
 
-- [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLkaPlanetNameByPlanet.md) &ndash; Returns the lka planet name correspongind to the given $planet.
+- [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLkaPlanetNameByPlanet.md) &ndash; Returns the lka planet name corresponding to the given $planet.
+- [LightKitAdminHelper::getSourcePlanetDotNameByLkaPlanetDotName](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getSourcePlanetDotNameByLkaPlanetDotName.md) &ndash; Returns the source planet name from the given lka planet name.
 
 
 

@@ -47,7 +47,15 @@ class PlanetsCommand extends LightCliDocCommand
                 $n++;
 
                 $version = MetaInfoTool::getVersion($planetDir);
-                $output->write("$galaxy.$planet: $version" . PHP_EOL);
+                if (true === is_link($planetDir)) {
+                    $target = readlink($planetDir);
+                    $sPrecision = "(link to <b>$target</b>)";
+                } else {
+                    $sPrecision = "(dir)";
+                }
+
+
+                $output->write("$galaxy.$planet: $version $sPrecision" . PHP_EOL);
             }
 
 

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CreateServiceProcess::createExceptionClass](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/CreateServiceProcess.php#L116-L149)
+See the source code for method [CreateServiceProcess::createExceptionClass](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/CreateServiceProcess.php#L117-L150)
 
 
 See Also

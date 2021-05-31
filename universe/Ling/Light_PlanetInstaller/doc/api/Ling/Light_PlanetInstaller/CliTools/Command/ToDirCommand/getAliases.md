@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ToDirCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToDirCommand.php#L102-L110)
+See the source code for method [ToDirCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToDirCommand.php#L108-L116)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [ToDirCommand](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/ToDirCommand.md) class.
 
-Previous method: [getFlags](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/ToDirCommand/getFlags.md)<br>
+Previous method: [getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/ToDirCommand/getDescription.md)<br>
 

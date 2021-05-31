@@ -23,7 +23,7 @@ abstract public [ToolbarRendererWidgetInterface::setGroups](https://github.com/l
 
 Sets the groups.
 
-It's an array of [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item).
+It's an array of [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/list-action-handler-conception-notes.md#the-toolbar-item).
 
 
 

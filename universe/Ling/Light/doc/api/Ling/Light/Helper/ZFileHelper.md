@@ -4,7 +4,7 @@
 
 The ZFileHelper class
 ================
-2019-04-09 --> 2021-03-18
+2019-04-09 --> 2021-05-31
 
 
 
@@ -25,9 +25,9 @@ Class synopsis
 class <span class="pl-k">ZFileHelper</span>  {
 
 - Methods
-    - public static [getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : string
-    - public static [setProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container, string $key, $value) : void
-    - public static [hasProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/hasProp.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container, string $key) : bool
+    - public static [getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md)(string $appDir) : string
+    - public static [setProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md)(string $appDir, string $key, $value) : void
+    - public static [hasProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/hasProp.md)(string $appDir, string $key) : bool
 
 }
 

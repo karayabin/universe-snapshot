@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::init](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L261-L269)
+See the source code for method [BabyYamlSectionCommentUtil::init](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L282-L290)
 
 
 See Also

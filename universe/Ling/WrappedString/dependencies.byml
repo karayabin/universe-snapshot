@@ -1,6 +1,2 @@
-dependencies: 
-    Ling: 
-        - Escaper
-    
-
+dependencies: []
 post_install: []

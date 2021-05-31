@@ -4,7 +4,7 @@
 
 The LightTaskSchedulerException class
 ================
-2020-06-30 --> 2021-03-15
+2020-06-30 --> 2021-05-31
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_TaskScheduler\Exception\LightTaskSchedulerExc
 
 SeeAlso
 ==============
-Previous class: [LightTaskSchedulerApiFactory](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/LightTaskSchedulerApiFactory.md)<br>Next class: [LightTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PluginInstaller/LightTaskSchedulerPluginInstaller.md)<br>
+Previous class: [LightTaskSchedulerApiFactory](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/LightTaskSchedulerApiFactory.md)<br>Next class: [LightTaskSchedulerPlanetInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PlanetInstaller/LightTaskSchedulerPlanetInstaller.md)<br>

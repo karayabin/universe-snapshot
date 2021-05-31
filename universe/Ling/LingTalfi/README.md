@@ -1,6 +1,6 @@
 LingTalfi
 ===========
-2019-03-13 -> 2021-03-22
+2019-03-13 -> 2021-05-31
 
 
 
@@ -37,6 +37,36 @@ Or just download it and place it where you want otherwise.
 
 History Log
 =============
+
+- 1.25.2 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.25.1 -- 2021-05-31
+
+    - update bigbang.php file (in light app boilerplate asset)
+    - update boilerplate, now depends on Uni2
+    - removed updsd command
+  
+- 1.25.0 -- 2021-05-11
+
+    - Update CommitWizard, add commitListFromFile method, commit's increment option now defaults to true
+
+- 1.24.2 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_PluginInstaller (pushed by SubscribersUtil)
+
+- 1.24.1 -- 2021-05-03
+
+    - add force option to updsd command
+  
+- 1.24.0 -- 2021-05-03
+
+    - Fix SubscribersUtil removing light assets (drastic error)
+  
+- 1.23.21 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_PluginInstaller (pushed by SubscribersUtil)
 
 - 1.23.20 -- 2021-03-22
 

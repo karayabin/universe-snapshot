@@ -51,6 +51,10 @@ So, if you don't understand what I'm trying to explain, this probably means that
 History Log
 ------------------
 
+- 1.7.4 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.7.3 -- 2021-03-05
 
     - update README.md, add install alternative

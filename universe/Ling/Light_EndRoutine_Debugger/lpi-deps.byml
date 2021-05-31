@@ -1,55 +1,76 @@
 1.0.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
 
 1.1.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
 
 1.2.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
 
 1.2.1: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
 
 1.2.2: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
 
 1.2.3: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:ArrayToString:1.4.2
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
 
 1.2.4: 
-    - Ling:ArrayToString:1.4.5+
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.308+
-    - Ling:Light:0.69.30+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:ArrayToString:1.4.5
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.308
+    - Ling:Light:0.69.30
+    - Ling:Light_Logger:1.11.5
 
 1.2.5: 
-    - Ling:ArrayToString:1.4.5+
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.308+
-    - Ling:Light:0.70.0+
-    - Ling:Light_Logger:1.11.6+
+    - Ling:ArrayToString:1.4.5
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.308
+    - Ling:Light:0.70.0
+    - Ling:Light_Logger:1.11.6
+
+1.2.6: 
+    - Ling:ArrayToString:1.4.5
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.312
+    - Ling:Light:0.70.2
+    - Ling:Light_Logger:1.11.8
+
+1.2.7: 
+    - Ling:ArrayToString:1.4.5
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.312
+    - Ling:Light:0.70.4
+    - Ling:Light_Logger:1.11.8
+
+1.2.8: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.322
+    - Ling:Light:0.70.6
+    - Ling:Light_Logger:1.11.8

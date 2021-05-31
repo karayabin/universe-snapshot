@@ -46,7 +46,7 @@ Returns [OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [CommitWizard::getOutput](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L202-L208)
+See the source code for method [CommitWizard::getOutput](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L250-L256)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) class.
 
-Previous method: [execc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/execc.md)<br>
+Previous method: [error](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/error.md)<br>Next method: [commitAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitAllPlanets.md)<br>
 

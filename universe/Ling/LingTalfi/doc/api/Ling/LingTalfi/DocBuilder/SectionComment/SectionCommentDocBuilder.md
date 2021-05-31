@@ -4,7 +4,7 @@
 
 The SectionCommentDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\SectionComment\SectionCommentD
 
 SeeAlso
 ==============
-Previous class: [RealistDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Realist/RealistDocBuilder.md)<br>Next class: [Select2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Select2/Select2DocBuilder.md)<br>
+Previous class: [RowsSortHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/RowsSortHelper/RowsSortHelperDocBuilder.md)<br>Next class: [Select2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Select2/Select2DocBuilder.md)<br>

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container, string $key, $value) : void
+public static [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md)(string $appDir, string $key, $value) : void
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- container
+- appDir
 
     
 
@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L35-L39)
+See the source code for method [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L34-L38)
 
 
 See Also

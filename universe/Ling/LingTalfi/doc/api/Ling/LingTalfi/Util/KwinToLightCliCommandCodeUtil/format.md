@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [KwinToLightCliCommandCodeUtil::format](https://github.com/lingtalfi/LingTalfi/blob/master/Util/KwinToLightCliCommandCodeUtil.php#L276-L281)
+See the source code for method [KwinToLightCliCommandCodeUtil::format](https://github.com/lingtalfi/LingTalfi/blob/master/Util/KwinToLightCliCommandCodeUtil.php#L283-L288)
 
 
 See Also

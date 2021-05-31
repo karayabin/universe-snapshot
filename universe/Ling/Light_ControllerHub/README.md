@@ -1,6 +1,6 @@
 Light_ControllerHub
 ===========
-2019-10-28 -> 2021-04-01
+2019-10-28 -> 2021-05-31
 
 
 
@@ -66,6 +66,23 @@ controller_hub:
 
 History Log
 =============
+
+- 1.3.4 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.3.3 -- 2021-05-31
+
+    - checkpoint commit
+  
+- 1.3.2 -- 2021-05-28
+
+    - update api to work with Light_PlanetInstaller 2.0.0 (not yet out)
+    - fix Bat floating point dependency in lpi-deps
+  
+- 1.3.1 -- 2021-05-11
+
+    - Update dependencies to Ling.Light_EasyRoute (pushed by SubscribersUtil)
 
 - 1.3.0 -- 2021-04-01
 

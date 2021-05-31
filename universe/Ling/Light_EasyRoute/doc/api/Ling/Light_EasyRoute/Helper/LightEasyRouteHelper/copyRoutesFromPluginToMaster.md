@@ -7,7 +7,7 @@ LightEasyRouteHelper::copyRoutesFromPluginToMaster
 
 
 
-LightEasyRouteHelper::copyRoutesFromPluginToMaster — Merges the plugin's route declaration file (if it exists) into the master.
+LightEasyRouteHelper::copyRoutesFromPluginToMaster — Merges the planet's route declaration file (if it exists) into the master.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public static [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPluginDotName) : void
+public static [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPlanetDotName) : void
 
 
 
 
-Merges the plugin's route declaration file (if it exists) into the master.
+Merges the planet's route declaration file (if it exists) into the master.
 See the [Light_EasyRoute conception notes](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/pages/conception-notes.md) for more details.
 
 
@@ -35,7 +35,7 @@ Parameters
 
     
 
-- subscriberPluginDotName
+- subscriberPlanetDotName
 
     
 
@@ -67,5 +67,5 @@ See Also
 
 The [LightEasyRouteHelper](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper.md) class.
 
-Next method: [getMasterPath](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/getMasterPath.md)<br>
+Next method: [removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/removeRoutesFromMaster.md)<br>
 

@@ -4,7 +4,7 @@
 
 The PushUniverseSnapshotCommand class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -68,4 +68,4 @@ See the source code of [Ling\LingTalfi\Kaos\Command\PushUniverseSnapshotCommand]
 
 SeeAlso
 ==============
-Previous class: [PushCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushCommand.md)<br>Next class: [UpdateSubscriberDependenciesCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/UpdateSubscriberDependenciesCommand.md)<br>
+Previous class: [PushCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushCommand.md)<br>Next class: [SyncDependencies](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/SyncDependencies.md)<br>

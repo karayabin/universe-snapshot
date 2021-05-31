@@ -4,7 +4,7 @@
 
 The HtmlPageToolsDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\HtmlPageTools\HtmlPageToolsDoc
 
 SeeAlso
 ==============
-Previous class: [HashMapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HashMap/HashMapDocBuilder.md)<br>Next class: [JBeeDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JBee/JBeeDocBuilder.md)<br>
+Previous class: [HashMapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HashMap/HashMapDocBuilder.md)<br>Next class: [InvoiceGeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/InvoiceGenerator/InvoiceGeneratorDocBuilder.md)<br>

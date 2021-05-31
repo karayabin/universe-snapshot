@@ -18,60 +18,70 @@ use Ling\Light_Cli\CliTools\Program\LightCliApplication;
  *
  */
 
-
 $currentDirectory = getcwd();
-$cliPath = "/usr/local/share";
-
-
+$standaloneApp = "/usr/local/share/universe/Ling/Light_Cli/light-app-standalone";
 
 //--------------------------------------------
-// FIND THE light-cli.php SCRIPT TO USE
+// find the bigbang script
 //--------------------------------------------
-$lightCliScript = $currentDirectory . "/scripts/Ling/Light_Cli/light-cli.php";
-if (false === file_exists($lightCliScript)) {
-    $lightCliScript2 = "$cliPath/universe/Ling/Light_Cli/light-app-standalone/scripts/Ling/Light_Cli/light-cli.php";
-    if (true === file_exists($lightCliScript2)) {
-        $lightCliScript = $lightCliScript2;
+$bigBangPath = $currentDirectory . "/universe/bigbang.php";
+$bigBangPathStandalone = $standaloneApp . "/universe/bigbang.php";
+if (false === file_exists($bigBangPath)) {
+    if (true === file_exists($bigBangPathStandalone)) {
+        $bigBangPath = $bigBangPathStandalone;
     } else {
-        echo "No light-cli.php script found. Searched locations were: " . PHP_EOL;
-        echo "- $lightCliScript" . PHP_EOL;
-        echo "- $lightCliScript2" . PHP_EOL;
+        echo "No bigbang.php script found. Searched locations were: " . PHP_EOL;
+        echo "- $bigBangPath" . PHP_EOL;
+        echo "- $bigBangPathStandalone" . PHP_EOL;
         exit;
     }
 }
 
 
+// /usr/local/share/universe/Ling/Light_Cli/light-app-standalone/scripts/Ling/Light/init.light.inc.php
+require_once $bigBangPath;
+
 
 //--------------------------------------------
-// FIND THE app.init.inc FILE TO USE
+// find the init light script
 //--------------------------------------------
 $appInit = $currentDirectory . "/scripts/Ling/Light/init.light.inc.php";
 if (false === file_exists($appInit)) {
-    $appInit2 = "$cliPath/universe/Ling/Light_Cli/light-app-standalone/scripts/Ling/Light/init.light.inc.php";
+    $appInit2 = "$standaloneApp/scripts/Ling/Light/init.light.inc.php";
     if (true === file_exists($appInit2)) {
         $appInit = $appInit2;
+        if ($bigBangPath !== $bigBangPathStandalone) {
+            /**
+             * In this case, the bigbang script called is the one from the target app,
+             * but the target app doesn't have the init light script, so we provide it from
+             * the standalone app.
+             * However, in case the target app doesn't have any class in it (for instance
+             * if it's empty/fresh), it will fail short when you call the light init script which
+             * requires the LightServiceContainerHelper class (for instance).
+             * Therefore, we tell the autoloader to also look into the standalone app, to avoid
+             * this kind of errors.
+             */
+            $butineur->addLocation($standaloneApp . "/universe"); // adding standalone universe, just in case the target app doesn't have all it needs
+        }
     } else {
-        echo "No init.light.inc.php file found. Searched locations were: " . PHP_EOL;
+        echo "No init light script found. Searched locations were: " . PHP_EOL;
         echo "- $appInit" . PHP_EOL;
         echo "- $appInit2" . PHP_EOL;
         exit;
     }
 }
 
-
-
-
-// /usr/local/share/universe/Ling/Light_Cli/light-app-standalone/scripts/Ling/Light/init.light.inc.php
 require_once $appInit;
-
 
 
 $input = new CommandLineInput();
 $output = new Output();
-
 $app = new LightCliApplication();
 $app->setContainer($container);
 $app->setErrorIsVerbose(true);
+$app->setUseExitStatus(true);
 $app->run($input, $output);
+
+
 
 

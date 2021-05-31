@@ -1,11 +1,13 @@
 1.0.0: 
-    - Ling:VariableToString:1.1.2+
+    - Ling:VariableToString:1.1.2
 
 1.0.1: 
-    - Ling:VariableToString:1.1.2+
+    - Ling:VariableToString:1.1.2
 
 1.0.2: 
-    - Ling:VariableToString:1.1.2+
+    - Ling:VariableToString:1.1.2
 
 1.0.3: 
-    - Ling:VariableToString:1.1.2+
+    - Ling:VariableToString:1.1.2
+
+1.0.4: []

@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [RowRestrictionHandlerInterface::checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ?$args) : void
+abstract public [RowRestrictionHandlerInterface::checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ...$args) : void
 
 
 

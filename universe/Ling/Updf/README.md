@@ -582,6 +582,10 @@ So if you write this code, notice the border=0.5 set on the table tag...
 History Log
 ------------------
 
+- 1.2.7 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.2.6 -- 2021-03-05
 
     - update README.md, add install alternative

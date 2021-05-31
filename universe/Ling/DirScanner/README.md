@@ -153,6 +153,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
 
+- 1.13.6 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.13.5 -- 2021-03-08
 
     - fix YorgDirScannerTool::getFilesWithExtension incorrectly finding file if its name matches the extension 

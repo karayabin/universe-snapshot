@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformService::getCurrentWebsiteUser](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L276-L290)
+See the source code for method [LightRealformService::getCurrentWebsiteUser](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L277-L291)
 
 
 See Also

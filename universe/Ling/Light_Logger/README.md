@@ -1,6 +1,6 @@
 Light_Logger
 ===========
-2019-08-01 -> 2021-03-15
+2019-08-01 -> 2021-05-03
 
 
 
@@ -102,6 +102,14 @@ logger:
 History Log
 =============
 
+- 1.11.9 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.11.8 -- 2021-05-03
+
+    - fake commit to test assets generation
+  
 - 1.11.7 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

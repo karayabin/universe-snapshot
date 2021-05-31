@@ -79,6 +79,8 @@ class Light_LoginNotifierDocBuilder
                 "Ling\Light_LingStandardService\Service\LightLingStandardService02",
                 "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
                 "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller",
+                "Ling\Light_UserDatabase\Light_PlanetInstaller\LightUserDatabaseBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -148,6 +150,7 @@ class Light_LoginNotifierDocBuilder
                 "ling standard object methods" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
                 "Light_PluginInstaller conception notes" => 'https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md',
                 "light standard permissions" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -169,6 +172,9 @@ class Light_LoginNotifierDocBuilder
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
                 "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
                 "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md",
+                "Ling\Light_UserDatabase\Light_PlanetInstaller\LightUserDatabaseBasePlanetInstaller" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit3HookInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

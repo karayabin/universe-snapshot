@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-01
+2015-10-07 --> 2021-05-28
 
 
 
@@ -91,6 +91,46 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.322 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.321 -- 2021-05-28
+
+    - fix 1.310 dependency missing from lpi-deps
+  
+- 1.320 -- 2021-05-20
+
+    - add ConsoleTool::clearLine, cursorUp, cursorDown, cursorLeft, cursorRight methods
+  
+- 1.319 -- 2021-05-20
+
+    - add FileSystemTool::getUniqueTimeStringedEntry method
+  
+- 1.318 -- 2021-05-18
+
+    - add FileSystemTool::getTimeString method
+  
+- 1.317 -- 2021-05-18
+
+    - update ConsoleTool::reset method, now uses a faster method
+  
+- 1.316 -- 2021-05-17
+
+    - update FileSystemTool::copyDir method, preservePerms parameter is now replaced with options parameter
+  
+- 1.315 -- 2021-05-06
+
+    - add ConvertTool::toPrice method
+
+- 1.314 -- 2021-05-06
+
+    - fix FileSystemTool::mkAutoRemovingTmpFile not always auto-removing file
+  
+- 1.313 -- 2021-05-06
+
+    - add FileSystemTool::mkAutoRemovingTmpFile method
+  
 - 1.312 -- 2021-05-01
 
     - add ClassTool::instantiateIfImplements method

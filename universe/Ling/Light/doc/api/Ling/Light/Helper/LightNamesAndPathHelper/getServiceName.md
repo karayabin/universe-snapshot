@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightNamesAndPathHelper::getServiceName](https://github.com/lingtalfi/Light/blob/master/Helper/LightNamesAndPathHelper.php#L24-L33)
+See the source code for method [LightNamesAndPathHelper::getServiceName](https://github.com/lingtalfi/Light/blob/master/Helper/LightNamesAndPathHelper.php#L23-L39)
 
 
 See Also

@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Application::onCommandInstantiated](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L125-L128)
+See the source code for method [Application::onCommandInstantiated](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L128-L131)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The ListConfigGenerator class
 ================
-2019-10-24 --> 2021-03-15
+2019-10-24 --> 2021-05-31
 
 
 
@@ -107,7 +107,7 @@ Methods
 - [ListConfigGenerator::generate](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/generate.md) &ndash; Generates the list configuration files according to the given [configuration block](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/pages/realgen-configuration-block.md).
 - [ListConfigGenerator::getFileContent](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/getFileContent.md) &ndash; Returns the content of the config file for the given table.
 - [ListConfigGenerator::getCrossColumnPluginName](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/getCrossColumnPluginName.md) &ndash; Returns the plugin to call for this cross column.
-- [ListConfigGenerator::toOpenAdminDataTypes](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/toOpenAdminDataTypes.md) &ndash; with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+- [ListConfigGenerator::toOpenAdminDataTypes](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/toOpenAdminDataTypes.md) &ndash; with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
 - [ListConfigGenerator::getOpenAdminDataTypeBySqlType](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/getOpenAdminDataTypeBySqlType.md) &ndash; Returns the openAdmin data type corresponding to the given sql type.
 - [ListConfigGenerator::createColumnLabels](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/createColumnLabels.md) &ndash; Returns an array of columnName => label.
 - [ListConfigGenerator::convertTypeAliases](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator/convertTypeAliases.md) &ndash; Transform the given types array in place, by replacing the alias notation ($alias) with the referenced values.

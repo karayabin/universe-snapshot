@@ -101,6 +101,10 @@ See more in the [conception notes](https://github.com/lingtalfi/GormanJsonDecode
 History Log
 =============
 
+- 1.1.5 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.1.4 -- 2021-03-05
 
     - update README.md, add install alternative

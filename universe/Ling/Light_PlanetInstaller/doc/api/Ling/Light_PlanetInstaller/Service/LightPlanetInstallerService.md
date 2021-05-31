@@ -4,7 +4,7 @@
 
 The LightPlanetInstallerService class
 ================
-2020-12-08 --> 2021-05-03
+2020-12-08 --> 2021-05-31
 
 
 
@@ -92,4 +92,4 @@ See the source code of [Ling\Light_PlanetInstaller\Service\LightPlanetInstallerS
 
 SeeAlso
 ==============
-Previous class: [LpiWebRepository](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiWebRepository.md)<br>Next class: [LpiRepositoryUtil](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Util/LpiRepositoryUtil.md)<br>
+Previous class: [LightPlanetInstallerInterface](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md)<br>Next class: [ImportUtil](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Util/ImportUtil.md)<br>

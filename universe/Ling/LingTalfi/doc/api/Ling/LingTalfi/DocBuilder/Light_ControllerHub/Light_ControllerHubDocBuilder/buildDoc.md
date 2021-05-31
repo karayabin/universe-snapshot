@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_ControllerHubDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ControllerHub/Light_ControllerHubDocBuilder.php#L45-L217)
+See the source code for method [Light_ControllerHubDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ControllerHub/Light_ControllerHubDocBuilder.php#L45-L218)
 
 
 See Also

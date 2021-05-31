@@ -4,7 +4,7 @@
 
 The LightKitAdminService class
 ================
-2019-05-17 --> 2021-05-02
+2019-05-17 --> 2021-05-31
 
 
 
@@ -56,6 +56,7 @@ class <span class="pl-k">LightKitAdminService</span>  {
     - public [lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md)(string $type, string $identifier) : void
     - public [getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItems.md)() : array
     - public [registerJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerJimToolboxItem.md)(string $key, array $item) : void
+    - public [unregisterJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/unregisterJimToolboxItem.md)(string $key) : bool
     - private [getJimToolboxItemsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItemsFile.md)() : string
 
 }
@@ -126,6 +127,7 @@ Methods
 - [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md) &ndash; Allows lka plugins to register their services to some plugins in a dynamic way.
 - [LightKitAdminService::getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItems.md) &ndash; Returns the array of jim toolbox items.
 - [LightKitAdminService::registerJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerJimToolboxItem.md) &ndash; Registers a jim toolbox item.
+- [LightKitAdminService::unregisterJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/unregisterJimToolboxItem.md) &ndash; Unregisters a jim toolbox item, and returns whether the given key was actually registered.
 - [LightKitAdminService::getJimToolboxItemsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItemsFile.md) &ndash; Returns the path to the jim toolbox items file.
 
 

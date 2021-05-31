@@ -68,11 +68,12 @@ class CreateServiceProcess extends LightDeveloperWizardCommonProcess
      * Throws an exception.
      *
      * @param string $msg
+     * @param int|null $code
      * @throws \Exception
      */
-    private function error(string $msg)
+    private function error(string $msg, int $code = null)
     {
-        throw new ' . $tightName . 'Exception($msg);
+        throw new ' . $tightName . 'Exception(static::class . ": " . $msg, $code);
     }
     
 ',

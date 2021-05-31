@@ -4,7 +4,7 @@
 
 The MiniMarkdownToBashtmlTranslator class
 ================
-2021-02-18 --> 2021-03-05
+2021-02-18 --> 2021-05-31
 
 
 

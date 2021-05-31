@@ -1,0 +1,2 @@
+initializer:
+    instance: Ling\Light_Initializer\Util\LightInitializerUtil

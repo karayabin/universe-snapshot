@@ -55,7 +55,7 @@ Returns false | string.
 
 Source Code
 ===========
-See the source code for method [DependencyMasterHelper::findGalaxyByPlanet](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L29-L39)
+See the source code for method [DependencyMasterHelper::findGalaxyByPlanet](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L47-L57)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [DependencyMasterHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper.md) class.
 
-Next method: [getGalaxies](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getGalaxies.md)<br>
+Previous method: [getDependencyMasterArrayFromWeb](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getDependencyMasterArrayFromWeb.md)<br>Next method: [getGalaxies](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getGalaxies.md)<br>
 

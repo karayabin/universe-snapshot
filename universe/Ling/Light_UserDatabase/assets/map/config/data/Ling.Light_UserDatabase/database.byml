@@ -1,0 +1,63 @@
+users: 
+    - 
+        id: 1
+        identifier: root
+        pseudo: root
+        password: $2y$10$0.aAsAzNOFhLjOqnzGddsuc3qnl6aHeLbupLJQj/fAzV1fSHeLpnO
+        avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
+        extra: []
+    
+
+tables: 
+    permission_group: 
+        - 
+            id: 1
+            name: root
+        
+    
+    permission: 
+        - 
+            id: 1
+            name: *
+        
+    
+    permission_group_has_permission: 
+        - 
+            permission_group_id: 1
+            permission_id: 1
+        
+    
+    user_has_permission_group: 
+        - 
+            user_id: 1
+            permission_group_id: 1
+        
+    
+
+config: 
+    constraints: 
+        permission: 
+            ric: 
+                - id
+            
+            auto_incremented_key: id
+        
+        permission_group: 
+            ric: 
+                - id
+            
+            auto_incremented_key: id
+        
+        permission_group_has_permission: 
+            ric: 
+                - permission_group_id
+                - permission_id
+            
+        
+        user_has_permission_group: 
+            ric: 
+                - user_id
+                - permission_group_id
+            
+        
+    

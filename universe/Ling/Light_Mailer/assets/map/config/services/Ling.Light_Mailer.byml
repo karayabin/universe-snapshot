@@ -1,0 +1,42 @@
+mailer:
+    instance: Ling\Light_Mailer\Service\LightMailerService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options:
+                useDebug: true              # default is false
+                useSendFailuresLog: true    # default is true
+        registerTemplatePartsDirectory:
+            alias: template
+            path: ${app_dir}/templates/app/mailer_template_parts
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: mailer.debug
+            listener:
+                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/mailer_debug.txt
+    -
+        method: addListener
+        args:
+            channels: mailer.send_failures
+            listener:
+                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/mailer_send_failures.txt
+
+
+

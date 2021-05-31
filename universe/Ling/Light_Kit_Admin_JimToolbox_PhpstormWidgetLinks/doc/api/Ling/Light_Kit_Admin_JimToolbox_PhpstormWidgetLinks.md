@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks
 ================
-2021-05-02 --> 2021-05-02
+2021-05-02 --> 2021-05-31
 
 
 
@@ -15,7 +15,8 @@ Table of contents
     - [PhpstormWidgetLinksToolbox::getPaneTitle](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_Kit_Admin/JimToolbox/PhpstormWidgetLinksToolbox/getPaneTitle.md) &ndash; Returns the title or the pane.
     - JimToolboxItemBaseHandler::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller.md) &ndash; The LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller class.
-    - [LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - [LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 

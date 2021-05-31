@@ -76,6 +76,14 @@ $ajax_handler.methods_collection:
 History Log
 =============
 
+- 2.0.7 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 2.0.6 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
 - 2.0.5 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

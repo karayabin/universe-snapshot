@@ -5,6 +5,7 @@ namespace Ling\Light_PlanetInstaller\Service;
 
 
 use Ling\Bat\ClassTool;
+use Ling\CheapLogger\CheapLogger;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;

@@ -80,6 +80,14 @@ See more in the [initializer conception notes](https://github.com/lingtalfi/Ligh
 History Log
 =============
 
+- 1.3.6 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.3.5 -- 2021-05-10
+
+    - Fix assets missing.
+
 - 1.3.4 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

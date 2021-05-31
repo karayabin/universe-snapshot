@@ -68,6 +68,7 @@ class AppBoilerplateUtil
         $planets = [
             "Ling.BumbleBee",
             "Ling.Light_Cli",
+            "Ling.Uni2",
             "Ling.Light_PlanetInstaller",
         ];
         $errors = [];

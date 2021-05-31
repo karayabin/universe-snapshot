@@ -2,6 +2,7 @@ dependencies:
     Ling: 
         - BabyYaml
         - Bat
+        - CheapLogger
         - SqlQuery
         - UniversalLogger
     

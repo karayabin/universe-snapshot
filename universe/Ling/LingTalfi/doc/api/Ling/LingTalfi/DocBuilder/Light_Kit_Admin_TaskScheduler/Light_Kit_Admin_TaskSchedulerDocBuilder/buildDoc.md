@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_Kit_Admin_TaskSchedulerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin_TaskSchedulerDocBuilder.php#L45-L256)
+See the source code for method [Light_Kit_Admin_TaskSchedulerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin_TaskSchedulerDocBuilder.php#L45-L260)
 
 
 See Also

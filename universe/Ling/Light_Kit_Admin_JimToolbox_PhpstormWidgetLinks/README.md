@@ -1,6 +1,6 @@
 Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks
 ===========
-2021-05-02
+2021-05-02 -> 2021-05-1
 
 
 Open widget template files directly in php storm.
@@ -57,6 +57,14 @@ Screenshots
 History Log
 =============
 
+- 1.0.2 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.0.1 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
 - 1.0.0 -- 2021-05-02
 
     - initial commit

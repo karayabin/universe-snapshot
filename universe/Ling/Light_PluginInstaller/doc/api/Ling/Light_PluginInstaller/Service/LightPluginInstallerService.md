@@ -4,7 +4,7 @@
 
 The LightPluginInstallerService class
 ================
-2020-02-07 --> 2021-03-15
+2020-02-07 --> 2021-05-31
 
 
 

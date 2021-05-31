@@ -112,6 +112,27 @@ class BabyYamlSectionCommentUtil
 
 
     /**
+     * Removes section(s) which title match the given title, and returns the number of removed sections.
+     *
+     * @param string $sectionTitle
+     * @return int
+     * @throws \Exception
+     */
+    public function removeSection(string $sectionTitle): int
+    {
+        $sectionsInfo = $this->getSectionsInfo();
+        $int = 0;
+        foreach ($sectionsInfo as $item) {
+            if ($sectionTitle === $item['title']) {
+                FileTool::cut($this->file, $item['start'], $item['end'], true);
+                $int++;
+            }
+        }
+        return $int;
+    }
+
+
+    /**
      * Returns an array of info about the sections found in the current file.
      * The returned array contains sectionItems, each of which:
      *

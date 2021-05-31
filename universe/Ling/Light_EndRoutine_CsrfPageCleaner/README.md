@@ -1,6 +1,6 @@
 Light_EndRoutine_CsrfPageCleaner
 ===========
-2019-09-19 -> 2021-03-05
+2019-09-19 -> 2021-05-11
 
 
 
@@ -11,6 +11,7 @@ An end routine for cleaning the csrf page tokens.
 This is a [Light framework plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
 
 
 Install
@@ -46,7 +47,7 @@ Summary
 What is it?
 --------------
 
-This tool helps implementing the [page security system of the csrf tools planet](https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md).
+This tool helps implement the [page security system of the csrf tools planet](https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md).
 
 Basically, we just clean the unused pages.
 
@@ -67,20 +68,14 @@ as we can see in the following example configuration:
 # hooks
 # --------------------------------------
 $events.methods_collection:
-    -
-        method: registerListener
-        args:
-            events: Ling.Light.end_routine
-            listener:
-                instance: Ling\Light_EndRoutine_CsrfPageCleaner\Handler\LightEndRoutineCsrfPageCleanerHandler
-                methods:
-                    setOptions:
-                        options:
-                            showSession: true
-                            sessionVars:
-                                - light_csrf_simple
-                            path: ${app_dir}/tmp/session-content.txt
-                callable_method: handle
+  -
+    method: registerListener
+    args:
+      events: Light.end_routine
+      listener:
+        instance: Ling\Light_EndRoutine_CsrfPageCleaner\Handler\LightEndRoutineCsrfPageCleanerHandler
+        callable_method: handle
+
 
 ```
 
@@ -94,6 +89,22 @@ Related
 
 History Log
 =============
+
+- 1.4.7 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.4.6 -- 2021-05-11
+
+    - fix call to undefined setOptions method
+  
+- 1.4.5 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
+- 1.4.4 -- 2021-05-10
+
+    - Fix assets missing.
 
 - 1.4.3 -- 2021-03-05
 

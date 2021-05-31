@@ -1,6 +1,6 @@
 Ling/Deploy
 ================
-2019-04-03 --> 2021-03-05
+2019-04-03 --> 2021-05-31
 
 
 
@@ -23,7 +23,7 @@ Table of contents
     - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
     - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
     - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
-    - AbstractProgram::run &ndash; Starts the interactive program.
+    - AbstractProgram::run &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
 - [AbstractBackupCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand.md) &ndash; The AbstractBackupCommand class.
     - [AbstractBackupCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
     - [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/createArchive.md) &ndash; and returns whether the zip creation was successful.

@@ -4,7 +4,7 @@
 
 The LightTaskSchedulerPluginInstaller class
 ================
-2020-06-30 --> 2021-03-15
+2020-06-30 --> 2021-05-31
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_TaskScheduler\Light_PluginInstaller\LightTask
 
 SeeAlso
 ==============
-Previous class: [LightTaskSchedulerException](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Exception/LightTaskSchedulerException.md)<br>Next class: [LightTaskSchedulerService](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Service/LightTaskSchedulerService.md)<br>
+Previous class: [LightTaskSchedulerPlanetInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PlanetInstaller/LightTaskSchedulerPlanetInstaller.md)<br>Next class: [LightTaskSchedulerService](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Service/LightTaskSchedulerService.md)<br>

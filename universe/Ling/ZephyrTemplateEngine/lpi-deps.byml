@@ -1,17 +1,20 @@
 1.0.0: 
-    - Ling:UniversalTemplateEngine:1.1.2+
+    - Ling:UniversalTemplateEngine:1.1.2
 
 1.1.0: 
-    - Ling:UniversalTemplateEngine:1.1.2+
+    - Ling:UniversalTemplateEngine:1.1.2
 
 1.1.2: 
-    - Ling:UniversalTemplateEngine:1.1.2+
+    - Ling:UniversalTemplateEngine:1.1.2
 
 1.1.3: 
-    - Ling:UniversalTemplateEngine:1.1.2+
+    - Ling:UniversalTemplateEngine:1.1.2
 
 1.1.4: 
-    - Ling:UniversalTemplateEngine:1.1.2+
+    - Ling:UniversalTemplateEngine:1.1.2
 
 1.1.5: 
-    - Ling:UniversalTemplateEngine:1.1.3+
+    - Ling:UniversalTemplateEngine:1.1.3
+
+1.1.6: 
+    - Ling:UniversalTemplateEngine:1.1.4

@@ -1,0 +1,48 @@
+task_scheduler: 
+    instance: Ling\Light_TaskScheduler\Service\LightTaskSchedulerService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+        setOptions: 
+            options: 
+                executionMode: lastOnly     # The default is lastOnly
+                useDebug: true              # The default is false
+            
+        
+    
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$logger.methods_collection: 
+    - 
+        method: addListener
+        args: 
+            channels: task_scheduler.error
+            listener: 
+                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                methods: 
+                    configure: 
+                        options: 
+                            file: ${app_dir}/log/task_scheduler_error.txt
+                        
+                    
+                
+            
+        
+    
+    - 
+        method: addListener
+        args: 
+            channels: task_scheduler.debug
+            listener: 
+                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                methods: 
+                    configure: 
+                        options: 
+                            file: ${app_dir}/log/task_scheduler_debug.txt
+                        
+                    
+
+    

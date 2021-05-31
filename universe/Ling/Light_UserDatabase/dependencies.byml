@@ -2,6 +2,7 @@ dependencies:
     Ling: 
         - ArrayToString
         - Bat
+        - CliTools
         - Light
         - Light_Bullsheet
         - Light_Database
@@ -9,10 +10,12 @@ dependencies:
         - Light_Events
         - Light_FileWatcher
         - Light_PasswordProtector
+        - Light_PlanetInstaller
         - Light_PluginInstaller
         - SimplePdoWrapper
         - SqlWizard
         - TinyBullsheeter
+        - UniverseTools
     
 
 post_install: 

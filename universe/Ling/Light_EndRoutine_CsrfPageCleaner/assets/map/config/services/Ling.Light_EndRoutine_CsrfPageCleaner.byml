@@ -1,0 +1,11 @@
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events: Light.end_routine
+            listener:
+                instance: Ling\Light_EndRoutine_CsrfPageCleaner\Handler\LightEndRoutineCsrfPageCleanerHandler
+                callable_method: handle

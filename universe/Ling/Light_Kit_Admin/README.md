@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-05-02
+2019-10-24 -> 2021-05-31
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -203,6 +203,30 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 
 History Log
 =============
+
+- 0.12.41 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 0.12.40 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
+- 0.12.39 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
+- 0.12.38 -- 2021-05-11
+
+    - Update dependencies to Ling.Light_EasyRoute (pushed by SubscribersUtil)
+
+- 0.12.37 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 0.12.36 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
 
 - 0.12.35 -- 2021-05-02
 

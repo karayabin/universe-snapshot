@@ -1,6 +1,6 @@
 Ling/Light_PrettyError
 ================
-2019-04-05 --> 2021-03-22
+2019-04-05 --> 2021-05-31
 
 
 
@@ -10,7 +10,8 @@ Table of contents
 
 - [LightPrettyErrorException](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Exception/LightPrettyErrorException.md) &ndash; The LightPrettyErrorException class.
 - [LightPrettyErrorPlanetInstaller](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Light_PlanetInstaller/LightPrettyErrorPlanetInstaller.md) &ndash; The LightPrettyErrorPlanetInstaller class.
-    - [LightPrettyErrorPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Light_PlanetInstaller/LightPrettyErrorPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - [LightPrettyErrorPlanetInstaller::init2](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Light_PlanetInstaller/LightPrettyErrorPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightPrettyErrorPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Light_PlanetInstaller/LightPrettyErrorPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightPrettyErrorService](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Service/LightPrettyErrorService.md) &ndash; The LightPrettyErrorService class.

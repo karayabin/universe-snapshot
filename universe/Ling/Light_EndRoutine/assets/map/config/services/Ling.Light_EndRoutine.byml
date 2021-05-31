@@ -1,0 +1,5 @@
+end_routine:
+    instance: Ling\Light_EndRoutine\Service\Light_EndRoutineService
+    methods:
+        setContainer:
+            container: @container()

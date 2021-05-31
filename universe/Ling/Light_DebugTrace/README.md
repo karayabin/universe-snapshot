@@ -1,6 +1,6 @@
 Light_DebugTrace
 ===========
-2020-06-25 -> 2021-03-22
+2020-06-25 -> 2021-05-31
 
 
 
@@ -101,6 +101,26 @@ $events.methods_collection:
 
 History Log
 =============
+
+- 1.1.1 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.1.0 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
+- 1.0.10 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.0.9 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.0.8 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
 
 - 1.0.7 -- 2021-03-22
 

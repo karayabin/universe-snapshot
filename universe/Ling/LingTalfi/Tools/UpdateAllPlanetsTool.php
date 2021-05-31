@@ -6,11 +6,7 @@ namespace Ling\LingTalfi\Tools;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\FileSystemTool;
-use Ling\CliTools\Output\Output;
 use Ling\DirScanner\YorgDirScannerTool;
-use Ling\Light_PlanetInstaller\Helper\LpiDepsFileHelper;
-use Ling\Light_PlanetInstaller\Helper\LpiHelper;
-use Ling\LingTalfi\Kaos\Util\CommitWizard;
 use Ling\UniverseTools\DependencyTool;
 use Ling\UniverseTools\MetaInfoTool;
 use Ling\UniverseTools\PlanetTool;
@@ -21,27 +17,6 @@ use Ling\UniverseTools\PlanetTool;
  */
 class UpdateAllPlanetsTool
 {
-
-
-    /**
-     * Upgrades the given planet's lpi-deps file, and commit them.
-     *
-     *
-     * @param array $planets
-     */
-    public static function upgradePlanetsLpiDepsFileAndCommit(array $planets)
-    {
-        $u = new CommitWizard();
-        $u->setOutput(new Output());
-        foreach ($planets as $planetDotName) {
-            a("processing $planetDotName");
-            $planetDir = "/myphp/universe/" . PlanetTool::getPlanetSlashNameByDotName($planetDotName);
-            $newVersion = MetaInfoTool::incrementVersion($planetDir);
-            LpiDepsFileHelper::updateLpiDepsByPlanetDir($planetDir);
-            $u->commit($planetDotName, "upgrade dependencies");
-        }
-
-    }
 
 
     /**

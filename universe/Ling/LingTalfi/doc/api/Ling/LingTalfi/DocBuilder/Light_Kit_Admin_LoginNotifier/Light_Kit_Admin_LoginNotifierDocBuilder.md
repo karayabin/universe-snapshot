@@ -4,7 +4,7 @@
 
 The Light_Kit_Admin_LoginNotifierDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Kit_Admin_LoginNotifier\
 
 SeeAlso
 ==============
-Previous class: [Light_Kit_Admin_GeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_Generator/Light_Kit_Admin_GeneratorDocBuilder.md)<br>Next class: [Light_Kit_Admin_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin_TaskSchedulerDocBuilder.md)<br>
+Previous class: [Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder.md)<br>Next class: [Light_Kit_Admin_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin_TaskSchedulerDocBuilder.md)<br>

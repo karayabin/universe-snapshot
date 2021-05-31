@@ -4,7 +4,7 @@
 
 The KwinToLightCliCommandCodeUtil class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\LingTalfi\Util\KwinToLightCliCommandCodeUtil](https
 
 SeeAlso
 ==============
-Previous class: [CommitUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil.md)<br>Next class: [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/ReadmeUtil.md)<br>
+Previous class: [AppBoilerplateUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil.md)<br>Next class: [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/ReadmeUtil.md)<br>

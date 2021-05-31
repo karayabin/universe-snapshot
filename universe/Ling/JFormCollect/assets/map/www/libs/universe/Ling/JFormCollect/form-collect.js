@@ -46,6 +46,7 @@ if ('undefined' === typeof FormCollect) {
 
                         switch (type) {
                             case 'text':
+                            case 'password':
                                 value = $(this).val();
                                 break;
                             case 'select-one':

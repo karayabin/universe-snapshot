@@ -4,7 +4,7 @@
 
 The SubscribersUtil class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-11
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">SubscribersUtil</span>  {
 
 - Methods
-    - public [updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil/updateSubscribersDependenciesAndCommit.md)(string $appDir, string $planetDot) : void
+    - public [updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil/updateSubscribersDependenciesAndCommit.md)(string $appDir, string $planetDot, ?array $options = []) : void
 
 }
 

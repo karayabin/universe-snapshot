@@ -1,6 +1,6 @@
 Ling/Light_LoginNotifier
 ================
-2020-11-27 --> 2021-03-15
+2020-11-27 --> 2021-05-31
 
 
 
@@ -101,6 +101,11 @@ Table of contents
     - [LightLoginNotifierApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/LightLoginNotifierApiFactory/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
     - [LightLoginNotifierApiFactory::setContainer](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/LightLoginNotifierApiFactory/setContainer.md) &ndash; Sets the container.
 - [LightLoginNotifierException](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Exception/LightLoginNotifierException.md) &ndash; The LightLoginNotifierException class.
+- [LightLoginNotifierPlanetInstaller](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PlanetInstaller/LightLoginNotifierPlanetInstaller.md) &ndash; The LightLoginNotifierPlanetInstaller class.
+    - LightUserDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
+    - LightUserDatabaseBasePlanetInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightUserDatabaseBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
 - [LightLoginNotifierPluginInstaller](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PluginInstaller/LightLoginNotifierPluginInstaller.md) &ndash; The LightLoginNotifierPluginInstaller class.
     - [LightLoginNotifierPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PluginInstaller/LightLoginNotifierPluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
     - LightUserDatabaseBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.

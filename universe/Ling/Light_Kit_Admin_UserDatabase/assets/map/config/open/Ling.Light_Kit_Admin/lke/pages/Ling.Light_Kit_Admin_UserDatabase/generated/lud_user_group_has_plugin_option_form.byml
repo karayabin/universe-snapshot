@@ -5,6 +5,8 @@ description: <
 
 
 layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+vars:
+    theme: $t
 layout_vars: []
 
 

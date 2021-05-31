@@ -4,7 +4,7 @@
 
 The LightKitAdminListConfigGenerator class
 ================
-2019-11-06 --> 2021-03-15
+2019-11-06 --> 2021-05-31
 
 
 
@@ -66,7 +66,7 @@ Methods
 - [LightKitAdminListConfigGenerator::getCrossColumnPluginName](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/LightKitAdminListConfigGenerator/getCrossColumnPluginName.md) &ndash; Returns the plugin to call for this cross column.
 - ListConfigGenerator::generate &ndash; Generates the list configuration files according to the given [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md).
 - ListConfigGenerator::getFileContent &ndash; Returns the content of the config file for the given table.
-- ListConfigGenerator::toOpenAdminDataTypes &ndash; with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+- ListConfigGenerator::toOpenAdminDataTypes &ndash; with openAdminDataType being an [open admin data type](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
 - ListConfigGenerator::getOpenAdminDataTypeBySqlType &ndash; Returns the openAdmin data type corresponding to the given sql type.
 - ListConfigGenerator::createColumnLabels &ndash; Returns an array of columnName => label.
 - ListConfigGenerator::convertTypeAliases &ndash; Transform the given types array in place, by replacing the alias notation ($alias) with the referenced values.

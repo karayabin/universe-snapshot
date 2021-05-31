@@ -50,7 +50,7 @@ class LightUserDataPluginInstaller extends LightUserDatabaseBasePluginInstaller
             $userDb = $this->container->get('user_database');
             $factory = $userDb->getFactory();
             $optionId = $factory->getPluginOptionApi()->insertPluginOption([
-                "category" => 'Light_UserData.MSC',
+                "category" => 'Ling.Light_UserData.MSC',
                 "name" => 'default',
                 "value" => '20M',
                 "description" => "The maximum storage capacity for the \"default\" user. Example: 20M, 50M, etc.",
@@ -76,7 +76,7 @@ class LightUserDataPluginInstaller extends LightUserDatabaseBasePluginInstaller
 
                 $api = $lud->getFactory();
                 $ids = $api->getUserGroupApi()->getAllIds();
-                $w = Where::inst()->key("category")->equals("Light_UserData.MSC")->and()->key("name")->equals("default");
+                $w = Where::inst()->key("category")->equals("Ling.Light_UserData.MSC")->and()->key("name")->equals("default");
                 $row = $api->getPluginOptionApi()->getPluginOption($w, [], null, true);
                 $pluginOptionId = $row['id'];
 

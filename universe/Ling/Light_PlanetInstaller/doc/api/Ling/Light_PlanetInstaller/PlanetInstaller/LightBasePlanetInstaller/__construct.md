@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBasePlanetInstaller::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightBasePlanetInstaller.php#L27-L30)
+See the source code for method [LightBasePlanetInstaller::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightBasePlanetInstaller.php#L26-L29)
 
 
 See Also

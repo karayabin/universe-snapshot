@@ -1,5 +1,7 @@
 https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/README.md
+https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Light_PlanetInstaller/LightExceptionHandlerPlanetInstaller/init2.md
 https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Light_PlanetInstaller/LightExceptionHandlerPlanetInstaller/onMapCopyAfter.md
+https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Light_PlanetInstaller/LightExceptionHandlerPlanetInstaller/undoInit2.md
 https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Light_PlanetInstaller/LightExceptionHandlerPlanetInstaller.md
 https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Service/LightExceptionHandlerService/onExceptionCaught.md
 https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Service/LightExceptionHandlerService.md

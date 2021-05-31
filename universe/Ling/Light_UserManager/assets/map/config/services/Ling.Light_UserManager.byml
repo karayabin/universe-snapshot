@@ -1,0 +1,20 @@
+user_manager:
+#    instance: Ling\Light_UserManager\UserManager\DevUserManager
+#    methods:
+#        setUser:
+#            user:
+#                instance: Ling\Light_User\AdamLightUser
+    instance: Ling\Light_UserManager\Service\LightUserManagerService
+    methods: []
+#        setUser:
+#            user:
+#                instance: Ling\Light_User\LightWebsiteUser
+#                methods:
+#                    setEmail:
+#                        email: lingtalfi@gmail.com
+#                    setAvatarUrl:
+#                        url: /plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-1.jpg
+#                    setPseudo:
+#                        pseudo: Ling
+#                    connect: []
+#                    disconnect: []

@@ -4,7 +4,7 @@
 
 The LpiGithubImporter class
 ================
-2020-12-08 --> 2021-05-03
+2020-12-08 --> 2021-05-31
 
 
 
@@ -39,7 +39,7 @@ class <span class="pl-k">LpiGithubImporter</span> extends [LpiBaseImporter](http
     - public [importItem](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/importItem.md)(string $planetIdentifier, string $version, string $dstDir, ?array &$warnings = []) : true | array
     - public [hasItem](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/hasItem.md)(string $planetIdentifier, string $version) : bool
     - public [getCurrentVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getCurrentVersion.md)(string $planetIdentifier) : string
-    - public [getDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getDependencies.md)(string $planetIdentifier, string $version) : array
+    - public [getLpiDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getLpiDependencies.md)(string $planetIdentifier) : array
     - public [getUniDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getUniDependencies.md)(string $planetIdentifier) : array
     - public [getAllVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getAllVersions.md)(string $planetIdentifier) : array
 
@@ -62,7 +62,7 @@ Methods
 - [LpiGithubImporter::importItem](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/importItem.md) &ndash; Imports the item described by the $planetIdentifier and $version to the $dstDir.
 - [LpiGithubImporter::hasItem](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/hasItem.md) &ndash; Returns whether there is planet with identifier $planetIdentifier in the given $version.
 - [LpiGithubImporter::getCurrentVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getCurrentVersion.md) &ndash; Returns the current version number of the planet which identifier is given.
-- [LpiGithubImporter::getDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getDependencies.md) &ndash; Returns the array of dependencies for the given planet and version.
+- [LpiGithubImporter::getLpiDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getLpiDependencies.md) &ndash; Returns the array of lpi dependencies for the given planet.
 - [LpiGithubImporter::getUniDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getUniDependencies.md) &ndash; Returns an array of planetDotNames corresponding to the uni style dependencies for the given planet identifier.
 - [LpiGithubImporter::getAllVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiGithubImporter/getAllVersions.md) &ndash; Returns an array of all available versions of the planet, sorted by increasing number.
 - [LpiBaseImporter::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Importer/LpiBaseImporter/__construct.md) &ndash; Builds the LpiGithubImporter instance.

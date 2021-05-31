@@ -1,0 +1,16 @@
+quick_mail_alert:
+    instance: Ling\Light_QuickMailAlert\Service\LightQuickMailAlertService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options:
+                appName: ${quick_mail_alert_vars.appName}
+
+
+# --------------------------------------
+# vars
+# --------------------------------------
+quick_mail_alert_vars:
+    appName: My App 01
+

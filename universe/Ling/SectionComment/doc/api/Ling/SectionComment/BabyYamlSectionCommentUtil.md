@@ -4,7 +4,7 @@
 
 The BabyYamlSectionCommentUtil class
 ================
-2021-03-19 --> 2021-03-22
+2021-03-19 --> 2021-05-31
 
 
 
@@ -35,6 +35,7 @@ class <span class="pl-k">BabyYamlSectionCommentUtil</span>  {
     - public [__construct](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/__construct.md)() : void
     - public [setFile](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/setFile.md)(string $file) : void
     - public [addSection](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/addSection.md)(string $title, string $content, ?array $options = []) : void
+    - public [removeSection](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/removeSection.md)(string $sectionTitle) : int
     - public [getSectionsInfo](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/getSectionsInfo.md)() : array
     - private [appendItem](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/appendItem.md)(array &$ret, array $item) : void
     - private [init](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/init.md)() : void
@@ -64,6 +65,7 @@ Methods
 - [BabyYamlSectionCommentUtil::__construct](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/__construct.md) &ndash; Builds the SectionCommentUtil instance.
 - [BabyYamlSectionCommentUtil::setFile](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/setFile.md) &ndash; Sets the file.
 - [BabyYamlSectionCommentUtil::addSection](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/addSection.md) &ndash; Adds or replaces a section to the current file.
+- [BabyYamlSectionCommentUtil::removeSection](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/removeSection.md) &ndash; Removes section(s) which title match the given title, and returns the number of removed sections.
 - [BabyYamlSectionCommentUtil::getSectionsInfo](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/getSectionsInfo.md) &ndash; Returns an array of info about the sections found in the current file.
 - [BabyYamlSectionCommentUtil::appendItem](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/appendItem.md) &ndash; Appends the given item to the ret array.
 - [BabyYamlSectionCommentUtil::init](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/init.md) &ndash; Makes sure the instance is configured properly.

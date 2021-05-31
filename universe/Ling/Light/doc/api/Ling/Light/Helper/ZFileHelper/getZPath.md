@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : string
+public static [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md)(string $appDir) : string
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- container
+- appDir
 
     
 
@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L22-L25)
+See the source code for method [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L21-L24)
 
 
 See Also

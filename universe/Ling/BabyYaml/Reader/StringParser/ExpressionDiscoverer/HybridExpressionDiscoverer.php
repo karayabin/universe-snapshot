@@ -29,6 +29,26 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
     protected $commentSymbol;
     protected $autoCast;
 
+
+    /**
+     * Whether to convert numbers (int, float) to strings.
+     * This happens before autoCast.
+     *
+     * @var bool
+     */
+    private bool $numbersAsString;
+
+
+    /**
+     * Whether to convert numbers (i.e. int, float) to strings.
+     * Note that this transformation occurs BEFORE the autoCast (see the autoCast option for more details).
+     *
+     * By default this is false.
+     *
+     * @var bool
+     */
+    private bool $numbersToString;
+
     public function __construct()
     {
         parent::__construct();
@@ -36,12 +56,25 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
         $this->commentSymbol = null;
         $this->commentSymbolLen = 0;
         $this->autoCast = true;
+        $this->numbersAsString = false;
     }
 
     public static function create()
     {
         return new static();
     }
+
+
+    /**
+     * Sets the numbersAsString property.
+     *
+     * @param bool $numbersAsString
+     */
+    public function setNumbersAsString(bool $numbersAsString)
+    {
+        $this->numbersAsString = $numbersAsString;
+    }
+
 
 
 
@@ -138,6 +171,12 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
     //------------------------------------------------------------------------------/
     protected function resolveValue($v)
     {
+        if (true === $this->numbersAsString) {
+            $v = trim($v);
+            if (is_numeric($v)) {
+                return $v;
+            }
+        }
         if (true === $this->autoCast) {
             return StringTool::autoCast($v);
         }

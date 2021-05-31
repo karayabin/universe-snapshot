@@ -42,6 +42,18 @@ class BabyYamlReader
 
 
     /**
+     * Sets the numbersAsString.
+     *
+     * @param bool $numbersAsString
+     */
+    public function setNumbersAsString(bool $numbersAsString)
+    {
+        $this->interpreter->setNumbersAsString($numbersAsString);
+
+    }
+
+
+    /**
      * @return array|false in case of failure.
      * @throws ParseErrorException
      *
@@ -52,7 +64,13 @@ class BabyYamlReader
     }
 
 
-    public function readFile($file)
+    /**
+     * Returns the babyYaml array from the given file.
+     *
+     * @param $file
+     * @return array
+     */
+    public function readFile($file): array
     {
         return $this->handleReadResult($this->builder->buildByFile($file));
     }
@@ -61,6 +79,18 @@ class BabyYamlReader
     //------------------------------------------------------------------------------/
     //
     //------------------------------------------------------------------------------/
+    /**
+     * Returns the babyYaml array for the given handle read result.
+     *
+     *
+     * Available options are:
+     * - numbersToString: bool=false. If true, the numbers (i.e. int, float) are returned as strings.
+     *
+     *
+     * @param $res
+     * @param array $options
+     * @return array
+     */
     protected function handleReadResult($res)
     {
         return $this->convertor->convert($res, $this->interpreter);

@@ -109,7 +109,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DependencyMasterHelper::getDependencyMapByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L154-L166)
+See the source code for method [DependencyMasterHelper::getDependencyMapByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L172-L184)
 
 
 See Also

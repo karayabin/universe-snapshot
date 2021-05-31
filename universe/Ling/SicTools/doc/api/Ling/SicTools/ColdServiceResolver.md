@@ -4,7 +4,7 @@
 
 The ColdServiceResolver class
 ================
-2019-04-25 --> 2021-03-05
+2019-04-25 --> 2021-05-31
 
 
 
@@ -39,7 +39,7 @@ class <span class="pl-k">ColdServiceResolver</span>  {
     - public [__construct](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/__construct.md)() : void
     - public [getServicePhpCode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/getServicePhpCode.md)(array $sicBlock) : false | string
     - protected [addServiceCode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/addServiceCode.md)(array $sicBlock) : string
-    - protected [resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveCustomNotation.md)($value, ?$isCustomNotation = false) : mixed
+    - protected [resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveCustomNotation.md)($value, ?&$isCustomNotation = false) : mixed
     - protected [addCodeBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/addCodeBlock.md)([Ling\SicTools\CodeBlock\CodeBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock.md) $codeBlock) : void
     - protected [encode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/encode.md)($expression) : string
     - protected [decode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/decode.md)(string $expression) : string

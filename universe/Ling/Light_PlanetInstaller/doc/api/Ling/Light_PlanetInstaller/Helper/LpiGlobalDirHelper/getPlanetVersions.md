@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LpiGlobalDirHelper::getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L56-L71)
+See the source code for method [LpiGlobalDirHelper::getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L28-L43)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LpiGlobalDirHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper.md) class.
 
-Previous method: [getGlobalDirPlanetHighestVersionNumber](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/getGlobalDirPlanetHighestVersionNumber.md)<br>Next method: [copyToGlobalDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/copyToGlobalDir.md)<br>
+Next method: [copyToGlobalDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/copyToGlobalDir.md)<br>
 

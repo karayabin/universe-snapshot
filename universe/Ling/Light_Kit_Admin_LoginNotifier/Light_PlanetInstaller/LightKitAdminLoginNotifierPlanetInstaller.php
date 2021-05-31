@@ -4,7 +4,6 @@
 namespace Ling\Light_Kit_Admin_LoginNotifier\Light_PlanetInstaller;
 
 
-
 use Ling\Light_Kit_Admin\Light_PlanetInstaller\LightKitAdminBasePlanetInstaller;
 
 /**
@@ -12,7 +11,6 @@ use Ling\Light_Kit_Admin\Light_PlanetInstaller\LightKitAdminBasePlanetInstaller;
  */
 class LightKitAdminLoginNotifierPlanetInstaller extends LightKitAdminBasePlanetInstaller
 {
-
 
 
 }

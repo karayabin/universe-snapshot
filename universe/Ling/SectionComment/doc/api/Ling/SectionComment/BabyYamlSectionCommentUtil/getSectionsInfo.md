@@ -57,7 +57,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::getSectionsInfo](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L127-L225)
+See the source code for method [BabyYamlSectionCommentUtil::getSectionsInfo](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L148-L246)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [BabyYamlSectionCommentUtil](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil.md) class.
 
-Previous method: [addSection](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/addSection.md)<br>Next method: [appendItem](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/appendItem.md)<br>
+Previous method: [removeSection](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/removeSection.md)<br>Next method: [appendItem](https://github.com/lingtalfi/SectionComment/blob/master/doc/api/Ling/SectionComment/BabyYamlSectionCommentUtil/appendItem.md)<br>
 

@@ -1,152 +1,172 @@
 1.0.0: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
-    - Ling:Light_UserPreferences:1.0.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
+    - Ling:Light_UserPreferences:1.0.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.1.0: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
-    - Ling:Light_UserPreferences:1.0.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
+    - Ling:Light_UserPreferences:1.0.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.2.0: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
-    - Ling:Light_UserPreferences:1.0.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
+    - Ling:Light_UserPreferences:1.0.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.2.1: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
-    - Ling:Light_UserPreferences:1.0.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
+    - Ling:Light_UserPreferences:1.0.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.2.2: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
-    - Ling:Light_UserPreferences:1.0.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
+    - Ling:Light_UserPreferences:1.0.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.2.3: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
-    - Ling:Light_UserPreferences:1.0.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
+    - Ling:Light_UserPreferences:1.0.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.2.4: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
-    - Ling:Light_UserPreferences:1.0.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
+    - Ling:Light_UserPreferences:1.0.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.2.5: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.8+
-    - Ling:Light_UserPreferences:1.0.5+
-    - Ling:Bat:1.302+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Realform:2.0.7+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:Light_ControllerHub:1.2.4+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.8
+    - Ling:Light_UserPreferences:1.0.5
+    - Ling:Bat:1.302
+    - Ling:Light:0.69.18
+    - Ling:Light_Realform:2.0.7
+    - Ling:Light_Kit:1.17.2
+    - Ling:Light_ControllerHub:1.2.4
 
 1.2.6: 
-    - Ling:Bat:1.308+
-    - Ling:Chloroform:1.36.7+
-    - Ling:Light:0.69.30+
-    - Ling:Light_ControllerHub:1.2.12+
-    - Ling:Light_Kit:1.17.6+
-    - Ling:Light_Kit_Admin:0.12.24+
-    - Ling:Light_Realform:2.0.8+
-    - Ling:Light_UserPreferences:1.0.7+
+    - Ling:Bat:1.308
+    - Ling:Chloroform:1.36.7
+    - Ling:Light:0.69.30
+    - Ling:Light_ControllerHub:1.2.12
+    - Ling:Light_Kit:1.17.6
+    - Ling:Light_Kit_Admin:0.12.24
+    - Ling:Light_Realform:2.0.8
+    - Ling:Light_UserPreferences:1.0.7
 
 1.2.7: 
-    - Ling:Bat:1.308+
-    - Ling:Chloroform:1.36.7+
-    - Ling:Light:0.69.32+
-    - Ling:Light_ControllerHub:1.2.12+
-    - Ling:Light_Kit:1.17.6+
-    - Ling:Light_Kit_Admin:0.12.24+
-    - Ling:Light_Realform:2.0.9+
-    - Ling:Light_UserPreferences:1.0.8+
+    - Ling:Bat:1.308
+    - Ling:Chloroform:1.36.7
+    - Ling:Light:0.69.32
+    - Ling:Light_ControllerHub:1.2.12
+    - Ling:Light_Kit:1.17.6
+    - Ling:Light_Kit_Admin:0.12.24
+    - Ling:Light_Realform:2.0.9
+    - Ling:Light_UserPreferences:1.0.8
 
 1.2.8: 
-    - Ling:Bat:1.308+
-    - Ling:Chloroform:1.36.7+
-    - Ling:Light:0.69.32+
-    - Ling:Light_ControllerHub:1.2.12+
-    - Ling:Light_Kit:1.17.6+
-    - Ling:Light_Kit_Admin:0.12.25+
-    - Ling:Light_Realform:2.0.9+
-    - Ling:Light_UserPreferences:1.0.8+
+    - Ling:Bat:1.308
+    - Ling:Chloroform:1.36.7
+    - Ling:Light:0.69.32
+    - Ling:Light_ControllerHub:1.2.12
+    - Ling:Light_Kit:1.17.6
+    - Ling:Light_Kit_Admin:0.12.25
+    - Ling:Light_Realform:2.0.9
+    - Ling:Light_UserPreferences:1.0.8
 
 1.2.9: 
-    - Ling:Bat:1.308+
-    - Ling:Chloroform:1.36.7+
-    - Ling:Light:0.70.0+
-    - Ling:Light_ControllerHub:1.2.14+
-    - Ling:Light_Kit:1.17.7+
-    - Ling:Light_Kit_Admin:0.12.26+
-    - Ling:Light_Realform:2.0.9+
-    - Ling:Light_UserPreferences:1.0.8+
+    - Ling:Bat:1.308
+    - Ling:Chloroform:1.36.7
+    - Ling:Light:0.70.0
+    - Ling:Light_ControllerHub:1.2.14
+    - Ling:Light_Kit:1.17.7
+    - Ling:Light_Kit_Admin:0.12.26
+    - Ling:Light_Realform:2.0.9
+    - Ling:Light_UserPreferences:1.0.8
 
 1.2.10: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.308+
-    - Ling:Chloroform:1.36.7+
-    - Ling:CliTools:1.10.26+
-    - Ling:Light:0.70.0+
-    - Ling:Light_ControllerHub:1.2.14+
-    - Ling:Light_Kit:1.17.7+
-    - Ling:Light_Kit_Admin:0.12.26+
-    - Ling:Light_PlanetInstaller:1.0.20+
-    - Ling:Light_Realform:2.0.10+
-    - Ling:Light_UserPreferences:1.0.9+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.308
+    - Ling:Chloroform:1.36.7
+    - Ling:CliTools:1.10.26
+    - Ling:Light:0.70.0
+    - Ling:Light_ControllerHub:1.2.14
+    - Ling:Light_Kit:1.17.7
+    - Ling:Light_Kit_Admin:0.12.26
+    - Ling:Light_PlanetInstaller:1.0.20
+    - Ling:Light_Realform:2.0.10
+    - Ling:Light_UserPreferences:1.0.9
 
 1.2.11: 
-    - Ling:Bat:1.309+
-    - Ling:Chloroform:1.36.7+
-    - Ling:Light:0.70.0+
-    - Ling:Light_ControllerHub:1.2.14+
-    - Ling:Light_Kit:1.17.7+
-    - Ling:Light_Kit_Admin:0.12.27+
-    - Ling:Light_Realform:2.0.10+
-    - Ling:Light_UserPreferences:1.0.9+
+    - Ling:Bat:1.309
+    - Ling:Chloroform:1.36.7
+    - Ling:Light:0.70.0
+    - Ling:Light_ControllerHub:1.2.14
+    - Ling:Light_Kit:1.17.7
+    - Ling:Light_Kit_Admin:0.12.27
+    - Ling:Light_Realform:2.0.10
+    - Ling:Light_UserPreferences:1.0.9
 
 1.2.12: 
-    - Ling:Bat:1.31+
-    - Ling:Chloroform:1.36.7+
-    - Ling:Light:0.70.1+
-    - Ling:Light_ControllerHub:1.2.14+
-    - Ling:Light_Kit:1.17.7+
-    - Ling:Light_Kit_Admin:0.12.33+
-    - Ling:Light_Realform:2.0.11+
-    - Ling:Light_UserPreferences:1.0.9+
+    - Ling:Bat:1.31
+    - Ling:Chloroform:1.36.7
+    - Ling:Light:0.70.1
+    - Ling:Light_ControllerHub:1.2.14
+    - Ling:Light_Kit:1.17.7
+    - Ling:Light_Kit_Admin:0.12.33
+    - Ling:Light_Realform:2.0.11
+    - Ling:Light_UserPreferences:1.0.9
+
+1.2.13: 
+    - Ling:Bat:1.321
+    - Ling:Chloroform:1.36.7
+    - Ling:Light:0.70.5
+    - Ling:Light_ControllerHub:1.3.3
+    - Ling:Light_Kit:1.18.3
+    - Ling:Light_Kit_Admin:0.12.40
+    - Ling:Light_Realform:2.0.15
+    - Ling:Light_UserPreferences:1.0.10
+
+1.2.14: 
+    - Ling:Bat:1.322
+    - Ling:Chloroform:1.36.8
+    - Ling:Light:0.70.6
+    - Ling:Light_ControllerHub:1.3.4
+    - Ling:Light_Kit:1.18.4
+    - Ling:Light_Kit_Admin:0.12.41
+    - Ling:Light_Realform:2.0.15
+    - Ling:Light_UserPreferences:1.0.11

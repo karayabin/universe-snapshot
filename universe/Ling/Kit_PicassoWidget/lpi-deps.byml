@@ -1,459 +1,469 @@
 1.0.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.1.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.2.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.3.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.4.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.5.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.6.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.7.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.8.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.9.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.10.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.11.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.12.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.13.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.14.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.14.1: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.15.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.16.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.17.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.18.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.18.1: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.19.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.20.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.20.1: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.21.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.22.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.23.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.24.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.25.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.26.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.26.1: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.26.2: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.26.3: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.27.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.28.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.28.1: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.29.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.30.0: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.30.1: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.30.2: 
-    - Ling:Kit:1.12.3+
-    - Ling:BabyYaml:1.7.5+
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Kit:1.17.2+
-    - Ling:HtmlPageTools:2.2.2+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:Kit:1.12.3
+    - Ling:BabyYaml:1.7.5
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Kit:1.17.2
+    - Ling:HtmlPageTools:2.2.2
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.30.3: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.308+
-    - Ling:DirScanner:1.13.4+
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.12.5+
-    - Ling:Light:0.69.29+
-    - Ling:Light_Kit:1.17.5+
-    - Ling:ZephyrTemplateEngine:1.1.4+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.308
+    - Ling:DirScanner:1.13.4
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.12.5
+    - Ling:Light:0.69.29
+    - Ling:Light_Kit:1.17.5
+    - Ling:ZephyrTemplateEngine:1.1.4
 
 1.30.4: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.308+
-    - Ling:DirScanner:1.13.5+
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.12.6+
-    - Ling:Light:0.69.30+
-    - Ling:Light_Kit:1.17.6+
-    - Ling:ZephyrTemplateEngine:1.1.5+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.308
+    - Ling:DirScanner:1.13.5
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.12.6
+    - Ling:Light:0.69.30
+    - Ling:Light_Kit:1.17.6
+    - Ling:ZephyrTemplateEngine:1.1.5
 
 1.30.5: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.311+
-    - Ling:DirScanner:1.13.5+
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.14.0+
-    - Ling:Light:0.70.1+
-    - Ling:Light_Kit:1.17.9+
-    - Ling:ZephyrTemplateEngine:1.1.5+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.311
+    - Ling:DirScanner:1.13.5
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.14.0
+    - Ling:Light:0.70.1
+    - Ling:Light_Kit:1.17.9
+    - Ling:ZephyrTemplateEngine:1.1.5
 
 1.30.6: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.311+
-    - Ling:DirScanner:1.13.5+
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.14.0+
-    - Ling:Light:0.70.1+
-    - Ling:Light_Kit:1.17.10+
-    - Ling:ZephyrTemplateEngine:1.1.5+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.311
+    - Ling:DirScanner:1.13.5
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.14.0
+    - Ling:Light:0.70.1
+    - Ling:Light_Kit:1.17.10
+    - Ling:ZephyrTemplateEngine:1.1.5
 
 1.30.7: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.311+
-    - Ling:DirScanner:1.13.5+
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.14.1+
-    - Ling:Light:0.70.1+
-    - Ling:Light_Kit:1.17.10+
-    - Ling:ZephyrTemplateEngine:1.1.5+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.311
+    - Ling:DirScanner:1.13.5
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.14.1
+    - Ling:Light:0.70.1
+    - Ling:Light_Kit:1.17.10
+    - Ling:ZephyrTemplateEngine:1.1.5
 
 1.30.8: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.311+
-    - Ling:DirScanner:1.13.5+
-    - Ling:HtmlPageTools:2.2.3+
-    - Ling:Kit:1.14.1+
-    - Ling:Light:0.70.1+
-    - Ling:Light_Kit:1.18.1+
-    - Ling:ZephyrTemplateEngine:1.1.5+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.311
+    - Ling:DirScanner:1.13.5
+    - Ling:HtmlPageTools:2.2.3
+    - Ling:Kit:1.14.1
+    - Ling:Light:0.70.1
+    - Ling:Light_Kit:1.18.1
+    - Ling:ZephyrTemplateEngine:1.1.5
+
+1.30.9: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.322
+    - Ling:DirScanner:1.13.6
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit:1.14.2
+    - Ling:Light:0.70.5
+    - Ling:Light_Kit:1.18.3
+    - Ling:ZephyrTemplateEngine:1.1.5

@@ -1,6 +1,6 @@
 Ling/Light_UserData
 ================
-2019-09-27 --> 2021-03-22
+2019-09-27 --> 2021-05-31
 
 
 
@@ -465,9 +465,12 @@ Table of contents
     - [LightUserDataHelper::extractResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Helper/LightUserDataHelper/extractResourceIdentifier.md) &ndash; Returns the components of the resourceIdentifier.
     - [LightUserDataHelper::implodeResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Helper/LightUserDataHelper/implodeResourceIdentifier.md) &ndash; Returns the resource identifier based on the given userId and canonical name of the resource.
 - [LightUserDataPlanetInstaller](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller.md) &ndash; The LightUserDataPlanetInstaller class.
-    - [LightUserDataPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
-    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
-    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
+    - [LightUserDataPlanetInstaller::init2](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightUserDataPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - [LightUserDataPlanetInstaller::init3](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/init3.md) &ndash; Executes the init 3 phase of the install command.
+    - [LightUserDataPlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/undoInit3.md) &ndash; Undoes the init 3 phase.
+    - LightUserDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
+    - LightUserDatabaseBasePlanetInstaller::setContainer &ndash; Sets the container.
 - [LightUserDataPluginInstaller](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller.md) &ndash; The LightUserDataPluginInstaller class.
     - [LightUserDataPluginInstaller::install](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/install.md) &ndash; Installs the plugin in the light application.
     - [LightUserDataPluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.

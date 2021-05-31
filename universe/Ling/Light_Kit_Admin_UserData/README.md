@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserData
 ===========
-2020-02-28 -> 2021-03-23
+2020-02-28 -> 2021-05-31
 
 
 
@@ -122,6 +122,18 @@ $kit_admin.methods_collection:
 History Log
 =============
 
+
+- 1.7.18 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.7.17 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+
+- 1.7.16 -- 2021-05-11
+
+    - Update dependencies to Ling.Light_EasyRoute (pushed by SubscribersUtil)
 
 - 1.7.15 -- 2021-03-23
 

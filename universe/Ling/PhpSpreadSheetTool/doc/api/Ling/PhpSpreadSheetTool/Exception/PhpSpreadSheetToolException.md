@@ -4,7 +4,7 @@
 
 The PhpSpreadSheetToolException class
 ================
-2019-10-08 --> 2021-03-05
+2019-10-08 --> 2021-05-31
 
 
 

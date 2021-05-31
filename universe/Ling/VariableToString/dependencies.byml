@@ -1,7 +1,2 @@
-dependencies: 
-    Ling: 
-        - ArrayToString
-        - ReflectionRepresentation
-    
-
+dependencies: []
 post_install: []

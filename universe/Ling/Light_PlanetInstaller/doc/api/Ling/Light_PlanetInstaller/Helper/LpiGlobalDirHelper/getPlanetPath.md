@@ -57,7 +57,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LpiGlobalDirHelper::getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L111-L114)
+See the source code for method [LpiGlobalDirHelper::getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L83-L86)
 
 
 See Also

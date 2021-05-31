@@ -16,12 +16,15 @@ Description
 ================
 
 
-abstract public [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface/run.md)([Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface.md) $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+abstract public [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface/run.md)([Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface.md) $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed | void
 
 
 
 
 Starts the interactive program.
+
+This method can return anything you want.
+We recommend however that if you return an int, it's the exit code, so that it's easier to interface it with other programs.
 
 
 
@@ -42,7 +45,7 @@ Parameters
 Return values
 ================
 
-Returns void.
+Returns mixed | void.
 
 
 
@@ -53,7 +56,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/Program/ProgramInterface.php#L119-L119)
+See the source code for method [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/Program/ProgramInterface.php#L123-L123)
 
 
 See Also

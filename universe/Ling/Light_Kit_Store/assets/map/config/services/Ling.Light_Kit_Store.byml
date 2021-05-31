@@ -1,0 +1,11 @@
+kit_store:
+    instance: Ling\Light_Kit_Store\Service\LightKitStoreService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: []
+
+
+
+

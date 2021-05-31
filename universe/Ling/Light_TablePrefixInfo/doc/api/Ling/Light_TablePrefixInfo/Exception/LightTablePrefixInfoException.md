@@ -4,7 +4,7 @@
 
 The LightTablePrefixInfoException class
 ================
-2020-12-01 --> 2021-03-15
+2020-12-01 --> 2021-05-31
 
 
 

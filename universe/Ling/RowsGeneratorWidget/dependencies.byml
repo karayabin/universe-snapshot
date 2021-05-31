@@ -1,6 +1,2 @@
-dependencies: 
-    Ling: 
-        - RowsGenerator
-    
-
+dependencies: []
 post_install: []

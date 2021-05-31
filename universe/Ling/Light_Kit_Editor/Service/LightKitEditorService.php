@@ -12,12 +12,7 @@ use Ling\Light_Kit\ConfigurationTransformer\ThemeTransformer;
 use Ling\Light_Kit\Service\LightKitService;
 use Ling\Light_Kit_Editor\Api\Custom\CustomLightKitEditorApiFactory;
 use Ling\Light_Kit_Editor\Exception\LightKitEditorException;
-use Ling\Light_Kit_Editor\Light_Realform\SuccessHandler\LightKitEditorRealformSuccessHandler;
-use Ling\Light_Kit_Editor\Light_Realist\DuelistEngine\LightKitEditorBabyYamlDuelistEngine;
 use Ling\Light_Kit_Editor\Storage\LkeMultiStorageApi;
-use Ling\Light_Realform\SuccessHandler\RealformSuccessHandlerInterface;
-use Ling\Light_Realist\DuelistEngine\DuelistEngineInterface;
-use Ling\Light_Vars\Service\LightVarsService;
 
 
 /**
@@ -162,9 +157,7 @@ class LightKitEditorService
         $kit->addPageConfigurationTransformer($themeTransformer);
 
 
-
 //az($page);
-
 
 
         return new HttpResponse($kit->renderPage($pageId, [
@@ -233,6 +226,37 @@ class LightKitEditorService
 
 
         $arr[] = $website;
+        BabyYamlUtil::writeFile($arr, $f);
+    }
+
+
+    /**
+     * Unregisters a website.
+     *
+     * See the @page(Light_Kit_Editor conception notes) for more details.
+     *
+     *
+     * @param string $websiteIdentifier
+     */
+    public function unregisterWebsite(string $websiteIdentifier)
+    {
+        $f = $this->getWebsiteFile();
+        if (true === is_file($f)) {
+            $arr = BabyYamlUtil::readFile($f);
+        } else {
+            $arr = [];
+        }
+
+
+        // duplicate?
+        foreach ($arr as $k => $item) {
+            $wId = $item['identifier'] ?? null;
+            if ($websiteIdentifier === $wId) {
+                unset($arr[$k]);
+            }
+        }
+
+
         BabyYamlUtil::writeFile($arr, $f);
     }
 

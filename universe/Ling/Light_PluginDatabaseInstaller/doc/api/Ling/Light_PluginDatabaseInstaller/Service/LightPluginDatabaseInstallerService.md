@@ -4,7 +4,7 @@
 
 The LightPluginDatabaseInstallerService class
 ================
-2019-09-11 --> 2021-03-05
+2019-09-11 --> 2021-05-03
 
 
 

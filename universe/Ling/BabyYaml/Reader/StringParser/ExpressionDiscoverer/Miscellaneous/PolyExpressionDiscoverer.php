@@ -6,6 +6,7 @@ namespace Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\Miscellaneous;
 use Ling\BabyYaml\Reader\StringIterator\StringIterator;
 use Ling\BabyYaml\Reader\StringIterator\StringIteratorInterface;
 use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\ExpressionDiscoverer;
+use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\ExpressionDiscovererInterface;
 use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\GreedyExpressionDiscovererInterface;
 use Ling\BabyYaml\Reader\StringParser\ExpressionDiscovererModel\ExpressionDiscovererModelInterface;
 use Ling\BabyYaml\Reader\StringParser\Validator\ContainerValidator;
@@ -20,26 +21,26 @@ use Ling\BabyYaml\Reader\StringParser\Validator\ValidatorInterface;
  *
  * This discoverer match only one expression by using zero, one or more discoverers.
  * It handles retro validation and comments.
- * 
+ *
  * For comments, you need to do extra work.
- * 
- * 
- * 
+ *
+ *
+ *
  * -----------------------------
  * The snippet below you can use to implement a common comment system
  * -----------------------------
- * 
+ *
  * $d = new PolyExpressionDiscoverer();
  * $d
  * ->setDiscoverers($disco)
  * ->setGreedyDiscoverersSymbols([' #'])
  * ->setValidatorSymbols([' #'])
  * ;
- * 
- * 
+ *
+ *
  * --- yoda said
- * 
- * 
+ *
+ *
  *
  */
 class PolyExpressionDiscoverer extends ExpressionDiscoverer
@@ -50,6 +51,7 @@ class PolyExpressionDiscoverer extends ExpressionDiscoverer
     private $validatorSymbols;
     private $greedyDiscoverersSymbols;
     private $notSignificantSymbols;
+
 
     public function __construct()
     {
@@ -62,9 +64,11 @@ class PolyExpressionDiscoverer extends ExpressionDiscoverer
             ' ' => 1,
             "\t" => 1,
         ];
-
-
     }
+
+
+
+
 
     //------------------------------------------------------------------------------/
     // IMPLEMENTS ExpressionDiscovererInterface
@@ -162,6 +166,19 @@ class PolyExpressionDiscoverer extends ExpressionDiscoverer
         return $this;
     }
 
+    /**
+     * Replaces the discoverer at a given index.
+     *
+     * Note: this assumes that you know exactly which discoverers are used in your instance.
+     *
+     * @param int $index
+     * @param ExpressionDiscovererInterface $discoverer
+     */
+    public function setDiscovererAt(int $index, ExpressionDiscovererInterface $discoverer)
+    {
+        $this->discoverers[$index] = $discoverer;
+    }
+
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
@@ -183,7 +200,7 @@ class PolyExpressionDiscoverer extends ExpressionDiscoverer
         $it->setPosition($nextPos);
         $this->skipNotSignificant($it);
         $nextSignificantP = $it->getPosition();
-        
+
         if (true === $validator->isValid($it->getString(), $pos, $lastPos, $nextSignificantP)) {
             $ret = true;
         }

@@ -149,6 +149,7 @@ class Light_Kit_EditorDocBuilder
                 "the updateRic definition in the Light_Realform conception notes" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md#the-updateric-concept",
                 "open tags" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md#the-updateric-concept",
                 "handy exception" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/handy-exception.md",
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -177,6 +178,8 @@ class Light_Kit_EditorDocBuilder
                 "Ling\Light_Realist\DuelistEngine\DuelistEngineInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface.md",
                 "Ling\Light_Kit_Editor\Light_Realist\DuelistEngine\?string" => "https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_Realist/DuelistEngine/?string.md",
                 "Ling\Light_Kit_Editor\Storage\?string" => "https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Storage/?string.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

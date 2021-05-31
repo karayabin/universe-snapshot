@@ -1,6 +1,6 @@
 Ling/Light_404Logger
 ================
-2019-12-12 --> 2021-03-22
+2019-12-12 --> 2021-05-31
 
 
 
@@ -10,7 +10,8 @@ Table of contents
 
 - [Light404LoggerException](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Exception/Light404LoggerException.md) &ndash; The Light404LoggerException class.
 - [Light404LoggerPlanetInstaller](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller.md) &ndash; The Light404LoggerPlanetInstaller class.
-    - [Light404LoggerPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - [Light404LoggerPlanetInstaller::init2](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [Light404LoggerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [Light404LoggerListener](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Logger/Light404LoggerListener.md) &ndash; The Light404LoggerListener class.

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitWizard::msg](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L135-L138)
+See the source code for method [CommitWizard::msg](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L208-L211)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) class.
 
-Previous method: [commitCurrentByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitCurrentByPlanetDir.md)<br>Next method: [msgError](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/msgError.md)<br>
+Previous method: [commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitByPlanetDir.md)<br>Next method: [msgError](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/msgError.md)<br>
 

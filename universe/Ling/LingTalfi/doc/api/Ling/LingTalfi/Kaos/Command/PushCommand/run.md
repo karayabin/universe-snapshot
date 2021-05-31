@@ -61,7 +61,7 @@ Other return value types might be added in the future
 
 Source Code
 ===========
-See the source code for method [PushCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PushCommand.php#L61-L438)
+See the source code for method [PushCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PushCommand.php#L61-L437)
 
 
 See Also

@@ -1,15 +1,17 @@
 1.0.0: 
-    - Ling:Bat:1.293+
-    - Ling:SitemapBuilderBox:1.0.2+
+    - Ling:Bat:1.293
+    - Ling:SitemapBuilderBox:1.0.2
 
 1.0.1: 
-    - Ling:Bat:1.293+
-    - Ling:SitemapBuilderBox:1.0.2+
+    - Ling:Bat:1.293
+    - Ling:SitemapBuilderBox:1.0.2
 
 1.0.2: 
-    - Ling:Bat:1.293+
-    - Ling:SitemapBuilderBox:1.0.2+
+    - Ling:Bat:1.293
+    - Ling:SitemapBuilderBox:1.0.2
 
 1.0.3: 
-    - Ling:Bat:1.308+
-    - Ling:SitemapBuilderBox:1.0.3+
+    - Ling:Bat:1.308
+    - Ling:SitemapBuilderBox:1.0.3
+
+1.0.4: []

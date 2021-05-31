@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataRowRestrictionHandler class
 ================
-2020-02-28 --> 2021-03-23
+2020-02-28 --> 2021-05-31
 
 
 
@@ -30,7 +30,7 @@ class <span class="pl-k">LightKitAdminUserDataRowRestrictionHandler</span> imple
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/__construct.md)() : void
     - public [setContainer](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public [checkRestriction](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ?$args) : void
+    - public [checkRestriction](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ...$args) : void
     - protected [checkValidWebsiteUser](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/checkValidWebsiteUser.md)(Ling\Light_User\LightUserInterface $user) : void
     - protected [error](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/error.md)(string $msg) : void
 

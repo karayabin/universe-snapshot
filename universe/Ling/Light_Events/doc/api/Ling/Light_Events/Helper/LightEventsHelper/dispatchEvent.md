@@ -59,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEventsHelper::dispatchEvent](https://github.com/lingtalfi/Light_Events/blob/master/Helper/LightEventsHelper.php#L29-L37)
+See the source code for method [LightEventsHelper::dispatchEvent](https://github.com/lingtalfi/Light_Events/blob/master/Helper/LightEventsHelper.php#L32-L40)
 
 
 See Also

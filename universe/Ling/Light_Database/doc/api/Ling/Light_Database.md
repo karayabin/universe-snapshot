@@ -1,6 +1,6 @@
 Ling/Light_Database
 ================
-2019-07-22 --> 2021-03-22
+2019-07-22 --> 2021-05-31
 
 
 
@@ -30,7 +30,10 @@ Table of contents
     - SimplePdoWrapper::executeStatement &ndash; Executes an SQL statement and returns the number of affected rows.
     - SimplePdoWrapper::addWhereSubStmt &ndash; defined in the comments of the SimplePdoWrapperInterface->update method.
 - [LightDatabasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller.md) &ndash; The LightDatabasePlanetInstaller class.
-    - [LightDatabasePlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - [LightDatabasePlanetInstaller::init1](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/init1.md) &ndash; Executes the init 1 phase of the install command.
+    - [LightDatabasePlanetInstaller::undoInit1](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/undoInit1.md) &ndash; Undoes the init 1 phase.
+    - [LightDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightDatabasePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightDatabaseService](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md) &ndash; The LightDatabaseService class.

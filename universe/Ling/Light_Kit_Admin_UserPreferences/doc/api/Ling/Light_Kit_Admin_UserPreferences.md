@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserPreferences
 ================
-2020-08-13 --> 2021-03-23
+2020-08-13 --> 2021-05-31
 
 
 
@@ -45,7 +45,10 @@ Table of contents
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminUserPreferencesPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_PlanetInstaller/LightKitAdminUserPreferencesPlanetInstaller.md) &ndash; The LightKitAdminUserPreferencesPlanetInstaller class.
-    - LightKitAdminBasePlanetInstaller::onMapCopyAfter &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightKitAdminBasePlanetInstaller::init2 &ndash; Executes the init 2 phase of the install command.
+    - LightKitAdminBasePlanetInstaller::undoInit2 &ndash; Undoes the init 2 phase.
+    - LightKitAdminBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightKitAdminBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminUserPreferencesPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_PluginInstaller/LightKitAdminUserPreferencesPluginInstaller.md) &ndash; The LightKitAdminUserPreferencesPluginInstaller class.

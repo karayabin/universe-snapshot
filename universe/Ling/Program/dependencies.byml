@@ -1,7 +1,2 @@
-dependencies: 
-    Ling: 
-        - CommandLineInput
-        - Output
-    
-
+dependencies: []
 post_install: []

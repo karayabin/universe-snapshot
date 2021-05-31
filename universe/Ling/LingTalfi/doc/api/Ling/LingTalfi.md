@@ -1,6 +1,6 @@
 Ling/LingTalfi
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -58,6 +58,8 @@ Table of contents
     - [HashMapDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HashMap/HashMapDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the HashMap planet.
 - [HtmlPageToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HtmlPageTools/HtmlPageToolsDocBuilder.md) &ndash; The HtmlPageToolsDocBuilder class.
     - [HtmlPageToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HtmlPageTools/HtmlPageToolsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the HtmlPageTools planet.
+- [InvoiceGeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/InvoiceGenerator/InvoiceGeneratorDocBuilder.md) &ndash; The InvoiceGeneratorDocBuilder class.
+    - [InvoiceGeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/InvoiceGenerator/InvoiceGeneratorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the InvoiceGenerator planet.
 - [JBeeDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JBee/JBeeDocBuilder.md) &ndash; The JBeeDocBuilder class.
     - [JBeeDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JBee/JBeeDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JBee planet.
 - [JBootstrapAutocompleteDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JBootstrapAutocomplete/JBootstrapAutocompleteDocBuilder.md) &ndash; The JBootstrapAutocompleteDocBuilder class.
@@ -66,12 +68,20 @@ Table of contents
     - [JCropperJsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JCropperJs/JCropperJsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JCropperJs planet.
 - [JFileUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JFileUploader/JFileUploaderDocBuilder.md) &ndash; The JFileUploaderDocBuilder class.
     - [JFileUploaderDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JFileUploader/JFileUploaderDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JFileUploader planet.
+- [JFormCollectDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JFormCollect/JFormCollectDocBuilder.md) &ndash; The JFormCollectDocBuilder class.
+    - [JFormCollectDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JFormCollect/JFormCollectDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JFormCollect planet.
 - [JPostFormDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JPostForm/JPostFormDocBuilder.md) &ndash; The JPostFormDocBuilder class.
     - [JPostFormDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JPostForm/JPostFormDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JPostForm planet.
 - [JQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JQuery/JQueryDocBuilder.md) &ndash; The JQueryDocBuilder class.
     - [JQueryDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JQuery/JQueryDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JQuery planet.
+- [JRadioHideDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JRadioHide/JRadioHideDocBuilder.md) &ndash; The JRadioHideDocBuilder class.
+    - [JRadioHideDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JRadioHide/JRadioHideDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JRadioHide planet.
+- [JSelectHideDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JSelectHide/JSelectHideDocBuilder.md) &ndash; The JSelectHideDocBuilder class.
+    - [JSelectHideDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JSelectHide/JSelectHideDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JSelectHide planet.
 - [JSortableListsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JSortableLists/JSortableListsDocBuilder.md) &ndash; The JSortableListsDocBuilder class.
     - [JSortableListsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JSortableLists/JSortableListsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JSortableLists planet.
+- [JimToolboxDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JimToolbox/JimToolboxDocBuilder.md) &ndash; The JimToolboxDocBuilder class.
+    - [JimToolboxDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JimToolbox/JimToolboxDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JimToolbox planet.
 - [JumboExploderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JumboExploder/JumboExploderDocBuilder.md) &ndash; The JumboExploderDocBuilder class.
     - [JumboExploderDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JumboExploder/JumboExploderDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the JumboExploder planet.
 - [KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit/KitDocBuilder.md) &ndash; The KitDocBuilder class.
@@ -162,6 +172,8 @@ Table of contents
     - [Light_Kit_Admin_DebugTraceDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_DebugTrace/Light_Kit_Admin_DebugTraceDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_DebugTrace planet.
 - [Light_Kit_Admin_GeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_Generator/Light_Kit_Admin_GeneratorDocBuilder.md) &ndash; The Light_Kit_Admin_GeneratorDocBuilder class.
     - [Light_Kit_Admin_GeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_Generator/Light_Kit_Admin_GeneratorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_Generator planet.
+- [Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder.md) &ndash; The Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder class.
+    - [Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks planet.
 - [Light_Kit_Admin_LoginNotifierDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_LoginNotifier/Light_Kit_Admin_LoginNotifierDocBuilder.md) &ndash; The Light_Kit_Admin_LoginNotifierDocBuilder class.
     - [Light_Kit_Admin_LoginNotifierDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_LoginNotifier/Light_Kit_Admin_LoginNotifierDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_LoginNotifier planet.
 - [Light_Kit_Admin_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin_TaskSchedulerDocBuilder.md) &ndash; The Light_Kit_Admin_TaskSchedulerDocBuilder class.
@@ -178,6 +190,8 @@ Table of contents
     - [Light_Kit_DemoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Demo planet.
 - [Light_Kit_EditorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Editor/Light_Kit_EditorDocBuilder.md) &ndash; The Light_Kit_EditorDocBuilder class.
     - [Light_Kit_EditorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Editor/Light_Kit_EditorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Editor planet.
+- [Light_Kit_StoreDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Store/Light_Kit_StoreDocBuilder.md) &ndash; The Light_Kit_StoreDocBuilder class.
+    - [Light_Kit_StoreDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Store/Light_Kit_StoreDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Store planet.
 - [Light_Kit_WebsiteBuilderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder.md) &ndash; The Light_Kit_WebsiteBuilderDocBuilder class.
     - [Light_Kit_WebsiteBuilderDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_WebsiteBuilder planet.
 - [Light_LightInstanceDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_LightInstance/Light_LightInstanceDocBuilder.md) &ndash; The Light_LightInstanceDocBuilder class.
@@ -256,8 +270,12 @@ Table of contents
     - [Light_ZouUploaderDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZouUploader/Light_ZouUploaderDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ZouUploader planet.
 - [LingTalfiDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder.md) &ndash; The LingTalfiDocBuilder class.
     - [LingTalfiDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the LingTalfi planet.
+- [LogicalOperatorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LogicalOperator/LogicalOperatorDocBuilder.md) &ndash; The LogicalOperatorDocBuilder class.
+    - [LogicalOperatorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LogicalOperator/LogicalOperatorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the LogicalOperator planet.
 - [MysqlCreateTableUtilDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder.md) &ndash; The MysqlCreateTableUtilDocBuilder class.
     - [MysqlCreateTableUtilDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the MysqlCreateTableUtil planet.
+- [PaginationHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PaginationHelper/PaginationHelperDocBuilder.md) &ndash; The PaginationHelperDocBuilder class.
+    - [PaginationHelperDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PaginationHelper/PaginationHelperDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the PaginationHelper planet.
 - [Panda_HeadersDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Panda_Headers/Panda_HeadersDocBuilder.md) &ndash; The Panda_HeadersDocBuilder class.
     - [Panda_HeadersDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Panda_Headers/Panda_HeadersDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Panda_Headers planet.
 - [ParametrizedSqlQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParametrizedSqlQuery/ParametrizedSqlQueryDocBuilder.md) &ndash; The ParametrizedSqlQueryDocBuilder class.
@@ -278,6 +296,8 @@ Table of contents
     - [ProjectInfoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the ProjectInfo planet.
 - [RealistDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Realist/RealistDocBuilder.md) &ndash; The RealistDocBuilder class.
     - [RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Realist/RealistDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Realist planet.
+- [RowsSortHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/RowsSortHelper/RowsSortHelperDocBuilder.md) &ndash; The RowsSortHelperDocBuilder class.
+    - [RowsSortHelperDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/RowsSortHelper/RowsSortHelperDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the RowsSortHelper planet.
 - [SectionCommentDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SectionComment/SectionCommentDocBuilder.md) &ndash; The SectionCommentDocBuilder class.
     - [SectionCommentDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SectionComment/SectionCommentDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the SectionComment planet.
 - [Select2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Select2/Select2DocBuilder.md) &ndash; The Select2DocBuilder class.
@@ -304,6 +324,8 @@ Table of contents
     - [Uni2DocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Uni2/Uni2DocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Uni2 planet.
 - [UniverseToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder.md) &ndash; The UniverseToolsDocBuilder class.
     - [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the UniverseTools planet.
+- [UrlSmugglerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UrlSmuggler/UrlSmugglerDocBuilder.md) &ndash; The UrlSmugglerDocBuilder class.
+    - [UrlSmugglerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UrlSmuggler/UrlSmugglerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the UrlSmuggler planet.
 - [WebBoxDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WebBox/WebBoxDocBuilder.md) &ndash; The WebBoxDocBuilder class.
     - [WebBoxDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WebBox/WebBoxDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the WebBox planet.
 - [WebWizardToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WebWizardTools/WebWizardToolsDocBuilder.md) &ndash; The WebWizardToolsDocBuilder class.
@@ -329,7 +351,7 @@ Table of contents
     - [AbstractProgram::setLoggerChannel](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLoggerChannel.md) &ndash; Sets the loggerChannel.
     - [AbstractProgram::setErrorIsVerbose](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setErrorIsVerbose.md) &ndash; Sets the errorIsVerbose.
     - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
-    - [AbstractProgram::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/run.md) &ndash; Starts the interactive program.
+    - [AbstractProgram::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/run.md) &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
 - [HelpCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand.md) &ndash; The HelpCommand class.
     - [HelpCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand/run.md) &ndash; Runs the command.
     - [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/__construct.md) &ndash; Builds the KaosGenericCommand instance.
@@ -358,8 +380,8 @@ Table of contents
     - [PushUniverseSnapshotCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushUniverseSnapshotCommand/run.md) &ndash; Runs the command.
     - [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/__construct.md) &ndash; Builds the KaosGenericCommand instance.
     - [KaosGenericCommand::setApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/setApplication.md) &ndash; Sets the application.
-- [UpdateSubscriberDependenciesCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/UpdateSubscriberDependenciesCommand.md) &ndash; The UpdateSubscriberDependenciesCommand class
-    - [UpdateSubscriberDependenciesCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/UpdateSubscriberDependenciesCommand/run.md) &ndash; Runs the command.
+- [SyncDependencies](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/SyncDependencies.md) &ndash; The SyncDependencies class.
+    - [SyncDependencies::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/SyncDependencies/run.md) &ndash; Runs the command.
     - [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/__construct.md) &ndash; Builds the KaosGenericCommand instance.
     - [KaosGenericCommand::setApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/setApplication.md) &ndash; Sets the application.
 - [KaosException](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Exception/KaosException.md) &ndash; The KaosException class.
@@ -368,8 +390,9 @@ Table of contents
 - [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) &ndash; The CommitWizard class.
     - [CommitWizard::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/__construct.md) &ndash; Builds the CommitWizard instance.
     - [CommitWizard::setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/setOutput.md) &ndash; Sets the output.
+    - [CommitWizard::commitListFromFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitListFromFile.md) &ndash; Commits all planets listed in the given file, with the given commit message.
     - [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commit.md) &ndash; Commits the given planet with the given message.
-    - [CommitWizard::commitCurrentByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitCurrentByPlanetDir.md) &ndash; Commits the given planet.
+    - [CommitWizard::commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitByPlanetDir.md) &ndash; Commits (and pushes to github.com) the given planet, using the actual last commit message from the readme's history log section.
 - [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil.md) &ndash; The ReadmeUtil class.
     - [ReadmeUtil::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/__construct.md) &ndash; Builds the ReadmeUtil instance.
     - [ReadmeUtil::setIsLight](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setIsLight.md) &ndash; Sets the isLight.
@@ -380,7 +403,6 @@ Table of contents
 - [PhpStormMetaHelper](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/PhpStormMeta/PhpStormMetaHelper.md) &ndash; The PhpStormMetaHelper class.
     - [PhpStormMetaHelper::getPhpStormMetaMapString](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/PhpStormMeta/PhpStormMetaHelper/getPhpStormMetaMapString.md) &ndash; $container->get("my_service")-> // phpstorm will autocomplete with the methods of that service...
 - [UpdateAllPlanetsTool](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool.md) &ndash; The UpdateAllPlanetsTool class.
-    - [UpdateAllPlanetsTool::upgradePlanetsLpiDepsFileAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/upgradePlanetsLpiDepsFileAndCommit.md) &ndash; Upgrades the given planet's lpi-deps file, and commit them.
     - [UpdateAllPlanetsTool::recloneAll](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/recloneAll.md) &ndash; you can use this method to "repair" that.
     - [UpdateAllPlanetsTool::updateAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/updateAllPlanets.md) &ndash; An old method I used to push all planets to github.
     - [UpdateAllPlanetsTool::alterLinks](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/alterLinks.md) &ndash; An old method I used to update links when when I introduced the galaxy concept into the universe.
@@ -390,9 +412,6 @@ Table of contents
     - [AppBoilerplateUtil::setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil/setOutput.md) &ndash; Sets the output.
     - [AppBoilerplateUtil::getBoilerplateDependencies](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil/getBoilerplateDependencies.md) &ndash; Returns the dependencies packed in the boilerplate.
     - [AppBoilerplateUtil::upgradeBoilerplate](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil/upgradeBoilerplate.md) &ndash; Upgrades the boilerplate for the Light_AppBoilerplate planet.
-- [CommitUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil.md) &ndash; The CommitUtil class.
-    - [CommitUtil::commitAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil/commitAllPlanets.md) &ndash; Commit all planets using the kpp routine.
-    - [CommitUtil::regularLingCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil/regularLingCommit.md) &ndash; This methods emulates what I normally do when I manually commit a planet.
 - [KwinToLightCliCommandCodeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/KwinToLightCliCommandCodeUtil.md) &ndash; The KwinToLightCliCommandCodeUtil class.
     - [KwinToLightCliCommandCodeUtil::printCodeByKwin](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/KwinToLightCliCommandCodeUtil/printCodeByKwin.md) &ndash; Prints the php code corresponding to the given kwin string.
 - [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/ReadmeUtil.md) &ndash; The ReadmeUtil class.
@@ -402,8 +421,6 @@ Table of contents
     - [ReadmeUtil::createBasicReadmeFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/createBasicReadmeFile.md) &ndash; was successful.
     - [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md) &ndash; Proxy to the standardReadmeUtil's getLatestVersionInfo method.
     - [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getErrors.md) &ndash; Returns the errors of this instance.
-- [SubscribersUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil.md) &ndash; The SubscribersUtil class.
-    - [SubscribersUtil::updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil/updateSubscribersDependenciesAndCommit.md) &ndash; Updates the planets which depend on the given planetDot.
 
 
 Dependencies

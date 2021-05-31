@@ -1,0 +1,18 @@
+easy_route:
+    instance: Ling\Light_EasyRoute\Service\LightEasyRouteService
+    methods:
+        setContainer:
+            container: @container()
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events: Ling.Light.initialize_1
+            listener:
+                instance: @service(easy_route)
+                callable_method: initialize

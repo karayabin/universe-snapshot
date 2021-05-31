@@ -100,12 +100,27 @@ class FileSystemTool
 
 
     /**
-     * Copies a directory to a given location.
+     * Copies a directory to a given location, and returns whether the operation was successful.
+     *
      *
      * Following php's philosophy of the copy function, if the destination file already exists, it will be overwritten.
+     *
+     * Available options are:
+     * - preservePerms: bool = false, whether to preserve permissions.
+     *
+     *
+     * @param string $src
+     * @param string $target
+     * @param array $options
+     * @param array $errors
+     * @return bool
+     * @throws \Exception
      */
-    public static function copyDir($src, $target, $preservePerms = false, &$errors = [])
+    public static function copyDir(string $src, string $target, array $options = [], array &$errors = [])
     {
+
+        $preservePerms = $options['preservePerms'] ?? false;
+
         $o = AuthorCopyDirUtil::create();
         $o->setPreservePerms($preservePerms);
         $ret = $o->copyDir($src, $target);
@@ -336,6 +351,89 @@ class FileSystemTool
 
 
     /**
+     * Returns a human friendly time string that can be used in a filename or directory name.
+     *
+     * It looks something like this by default:
+     *
+     * - 2021-05-18--16-53-10--63251500
+     *
+     *
+     * @param bool $useMicro
+     * @return string
+     */
+    public static function getTimeString(bool $useMicro = true): string
+    {
+        $s = date("Y-m-d--H-i-s");
+        if (true === $useMicro) {
+            $p = explode(' ', microtime());
+            $n = substr(array_shift($p), 2);
+            $s .= "--" . $n;
+        }
+        return $s;
+    }
+
+
+    /**
+     * Returns a unique entry path (in the given directory), based on time, which basename looks like this for a directory:
+     *
+     * - 2021-05-18--16-53-10--63251500-56
+     *
+     * Or like this for a file
+     *
+     * - 2021-05-18--16-53-10--63251500-56.txt
+     *
+     *
+     * The file flavour is returned only if the exension parameter is set.
+     *
+     *
+     *
+     * The dash separated components are the following (in order of appearance):
+     *
+     * - year
+     * - month
+     * - day
+     * - hour
+     * - minute
+     * - second
+     * - microsecond
+     * - number to ensure the file is unique (starts at 1 and is auto-incremented if necessary)
+     *
+     *
+     *
+     *
+     * @param string $dir
+     * @param string|null $extension
+     * @return string
+     */
+    public static function getUniqueTimeStringedEntry(string $dir, string $extension = null): string
+    {
+
+        $basePath = $dir . DIRECTORY_SEPARATOR . self::getTimeString() . "-1";
+        $filePath = $basePath;
+        if (null !== $extension) {
+            $filePath .= "." . $extension;
+        }
+        while (true === file_exists($filePath)) {
+            $fileName = basename($filePath);
+            if (null !== $extension) {
+                $q = explode(".", $fileName);
+                array_pop($q); // get temporarily rid of extension
+                $fileName = implode('.', $q);
+            }
+
+            $p = explode('-', $fileName);
+            $lastComponent = (int)array_pop($p);
+            $lastComponent++;
+            $filePath = $dir . DIRECTORY_SEPARATOR . implode('-', $p) . "-" . $lastComponent;
+            if (null !== $extension) {
+                $filePath .= "." . $extension;
+            }
+        }
+        return $filePath;
+    }
+
+
+    /**
      * Returns whether the given file and is under the given rootDir.
      * If the $checkFileExists is set, also checks whether the file exists.
      *
@@ -529,6 +627,23 @@ class FileSystemTool
             $path .= "." . $extension;
         }
         self::mkfile($path, $content);
+        return $path;
+    }
+
+
+    /**
+     * Returns the path to an auto-removing temporary file.
+     * The file is automatically removed when closed (for example, by calling fclose), or when the script ends.
+     *
+     *
+     * @return string
+     */
+    public static function mkAutoRemovingTmpFile(): string
+    {
+        $path = stream_get_meta_data(tmpfile())['uri'];
+        register_shutdown_function(function () use ($path) {
+            unlink($path);
+        });
         return $path;
     }
 

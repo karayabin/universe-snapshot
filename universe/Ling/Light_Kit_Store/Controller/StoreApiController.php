@@ -11,6 +11,10 @@ use Ling\Light\Http\HttpRequestInterface;
 
 /**
  * The StoreApiController class.
+ *
+ * All methods of this class are alcp ends for clients.
+ *
+ *
  */
 class StoreApiController extends LightController
 {
@@ -26,13 +30,26 @@ class StoreApiController extends LightController
     public function registerWebsite(HttpRequestInterface $request): HttpJsonResponse
     {
         /**
-         * todo: here...
-         * todo: here...
-         * todo: here...
-         * todo: here...
-         * todo: here...
+         * todo: here... open new window (kit_store), and continue implementing "install item process", see config/open/Ling.Light_Kit_Editor to resume ideas...
+         * todo: here... open new window (kit_store), and continue implementing "install item process", see config/open/Ling.Light_Kit_Editor to resume ideas...
+         * todo: here... open new window (kit_store), and continue implementing "install item process", see config/open/Ling.Light_Kit_Editor to resume ideas...
+         * todo: here... open new window (kit_store), and continue implementing "install item process", see config/open/Ling.Light_Kit_Editor to resume ideas...
          */
-        az($request);
+
+//        az($request);
+        return HttpJsonResponse::create([
+            "type" => "success",
+            "content" => "Boris à la plage",
+        ]);
+    }
+
+
+    public function signUp(HttpRequestInterface $request): HttpJsonResponse
+    {
+        return HttpJsonResponse::create([
+            "type" => "error",
+            "content" => "There is a problem with the database, please retry later",
+        ]);
     }
 
 }

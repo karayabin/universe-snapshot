@@ -1,6 +1,6 @@
 Task details
 =============
-2020-07-09 -> 2021-03-18
+2020-07-09 -> 2021-05-06
 
 
 
@@ -23,6 +23,7 @@ Task details
 - Planet
     - [Remove planet](#remove-planet)
     - [Create conception notes](#create-conception-notes)
+    - [Create exception class](#create-exception-class)
 - ServiceClass
     - [Add getFactory method](#add-getfactory-method)
     - [Add logDebug method](#add-logdebug-method)
@@ -518,6 +519,14 @@ With:
 
 - $planetIdentifier: the [planet identifier](https://github.com/karayabin/universe-snapshot#the-planet-identifier)
 
+
+
+Create exception class
+---------
+2021-05-06
+
+Creates an exception class for this planet, using my own conventions, which is basically taking the [compressed planet name](https://github.com/karayabin/universe-snapshot#the-compressed-planet-name)
+and adding the Exception suffix to it (and put the class in an Exception directory).
 
 
 

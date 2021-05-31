@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [UpgradeCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L79-L86)
+See the source code for method [UpgradeCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L109-L118)
 
 
 See Also

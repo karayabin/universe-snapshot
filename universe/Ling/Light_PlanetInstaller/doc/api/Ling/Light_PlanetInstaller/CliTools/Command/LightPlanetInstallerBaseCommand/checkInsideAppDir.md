@@ -7,7 +7,7 @@ LightPlanetInstallerBaseCommand::checkInsideAppDir
 
 
 
-LightPlanetInstallerBaseCommand::checkInsideAppDir — Returns whether the current dir is an application dir (containing an universe dir).
+LightPlanetInstallerBaseCommand::checkInsideAppDir — Returns whether the current working directory is a correct universe application (i.e.
 
 
 
@@ -16,12 +16,16 @@ Description
 ================
 
 
-protected [LightPlanetInstallerBaseCommand::checkInsideAppDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/LightPlanetInstallerBaseCommand/checkInsideAppDir.md)([Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : bool
+protected [LightPlanetInstallerBaseCommand::checkInsideAppDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/LightPlanetInstallerBaseCommand/checkInsideAppDir.md)(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : bool
 
 
 
 
-Returns whether the current dir is an application dir (containing an universe dir).
+Returns whether the current working directory is a correct universe application (i.e. containing an universe dir).
+
+This is a security measure to prevent you to accidentally install/import things at wrong places.
+
+If false is returned, an error message is also written to the output.
 
 
 
@@ -29,6 +33,10 @@ Returns whether the current dir is an application dir (containing an universe di
 Parameters
 ================
 
+
+- input
+
+    
 
 - output
 
@@ -49,7 +57,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerBaseCommand::checkInsideAppDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/LightPlanetInstallerBaseCommand.php#L169-L188)
+See the source code for method [LightPlanetInstallerBaseCommand::checkInsideAppDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/LightPlanetInstallerBaseCommand.php#L210-L226)
 
 
 See Also
@@ -57,5 +65,5 @@ See Also
 
 The [LightPlanetInstallerBaseCommand](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/LightPlanetInstallerBaseCommand.md) class.
 
-Previous method: [logError](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/LightPlanetInstallerBaseCommand/logError.md)<br>
+Previous method: [setApplication](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/LightPlanetInstallerBaseCommand/setApplication.md)<br>Next method: [writeError](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/LightPlanetInstallerBaseCommand/writeError.md)<br>
 

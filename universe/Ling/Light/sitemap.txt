@@ -283,6 +283,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/design/ajax-permission-philosophy.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/design/late-service-registration.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/design/nugget-registration-system.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/design/open-vs-close-service-registration.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/developer-memo.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md

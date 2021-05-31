@@ -61,6 +61,10 @@ $mandatoryOption = $myOptions->get("mandatoryOption", null, true); // this throw
 History Log
 ------------------
 
+- 1.1.4 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.1.3 -- 2021-03-05
 
     - update README.md, add install alternative

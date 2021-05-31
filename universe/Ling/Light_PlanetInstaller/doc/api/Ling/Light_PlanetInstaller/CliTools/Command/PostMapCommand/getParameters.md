@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [PostMapCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/PostMapCommand.php#L66-L77)
+See the source code for method [PostMapCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/PostMapCommand.php#L65-L76)
 
 
 See Also

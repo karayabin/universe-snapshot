@@ -1,49 +1,69 @@
 1.0.0: 
-    - Ling:ExceptionCodes:1.0.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Events:1.9.5+
+    - Ling:ExceptionCodes:1.0.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Events:1.9.5
 
 1.0.1: 
-    - Ling:ExceptionCodes:1.0.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Events:1.9.5+
+    - Ling:ExceptionCodes:1.0.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Events:1.9.5
 
 1.0.2: 
-    - Ling:ExceptionCodes:1.0.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Events:1.9.5+
+    - Ling:ExceptionCodes:1.0.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Events:1.9.5
 
 1.0.3: 
-    - Ling:ExceptionCodes:1.0.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Events:1.9.5+
+    - Ling:ExceptionCodes:1.0.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Events:1.9.5
 
 1.0.4: 
-    - Ling:ExceptionCodes:1.0.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Events:1.9.5+
+    - Ling:ExceptionCodes:1.0.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Events:1.9.5
 
 1.0.5: 
-    - Ling:ExceptionCodes:1.0.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Events:1.9.5+
+    - Ling:ExceptionCodes:1.0.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Events:1.9.5
 
 1.0.6: 
-    - Ling:ExceptionCodes:1.0.2+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Events:1.9.5+
+    - Ling:ExceptionCodes:1.0.2
+    - Ling:Light:0.69.18
+    - Ling:Light_Events:1.9.5
 
 1.0.7: 
-    - Ling:ExceptionCodes:1.0.3+
-    - Ling:Light:0.69.30+
-    - Ling:Light_Events:1.9.7+
+    - Ling:ExceptionCodes:1.0.3
+    - Ling:Light:0.69.30
+    - Ling:Light_Events:1.9.7
 
 1.0.8: 
-    - Ling:ExceptionCodes:1.0.3+
-    - Ling:Light:0.70.0+
-    - Ling:Light_Events:1.9.8+
+    - Ling:ExceptionCodes:1.0.3
+    - Ling:Light:0.70.0
+    - Ling:Light_Events:1.9.8
 
 1.0.9: 
-    - Ling:ExceptionCodes:1.0.3+
-    - Ling:Light:0.70.1+
-    - Ling:Light_Events:1.10.0+
+    - Ling:ExceptionCodes:1.0.3
+    - Ling:Light:0.70.1
+    - Ling:Light_Events:1.10.0
+
+1.0.10: 
+    - Ling:ExceptionCodes:1.0.3
+    - Ling:Light:0.70.2
+    - Ling:Light_Events:1.10.2
+
+1.0.11: 
+    - Ling:ExceptionCodes:1.0.3
+    - Ling:Light:0.70.3
+    - Ling:Light_Events:1.10.4
+
+1.0.12: 
+    - Ling:ExceptionCodes:1.0.3
+    - Ling:Light:0.70.4
+    - Ling:Light_Events:1.10.4
+
+1.0.13: 
+    - Ling:ExceptionCodes:1.0.4
+    - Ling:Light:0.70.6
+    - Ling:Light_Events:1.10.6

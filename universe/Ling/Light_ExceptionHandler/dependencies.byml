@@ -1,5 +1,6 @@
 dependencies: 
     Ling: 
+        - CheapLogger
         - CliTools
         - Light
         - Light_Events

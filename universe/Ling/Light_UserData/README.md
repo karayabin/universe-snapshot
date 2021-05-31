@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2021-03-22
+2019-09-27 -> 2021-05-31
 
 
 
@@ -132,6 +132,30 @@ $realform_handler_alias_helper.methods_collection:
 
 History Log
 =============
+
+- 1.19.20 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.19.19 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
+- 1.19.18 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
+- 1.19.17 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.19.16 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.19.15 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
 
 - 1.19.14 -- 2021-03-22
 

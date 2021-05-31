@@ -4,7 +4,7 @@
 
 The PlanetTool class
 ================
-2019-02-26 --> 2021-03-18
+2019-02-26 --> 2021-05-31
 
 
 
@@ -27,6 +27,7 @@ Class synopsis
 class <span class="pl-k">PlanetTool</span>  {
 
 - Methods
+    - public static [getPlanetDotNamesByWorkingDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetDotNamesByWorkingDir.md)(string $workingDir) : array
     - public static [getVersionByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getVersionByPlanetDir.md)(string $planetDir) : string | null
     - public static [exists](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/exists.md)(string $planetDotName, string $applicationDir) : bool
     - public static [getPlanetSlashNameByDotName](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetSlashNameByDotName.md)(string $planetDotName) : string
@@ -58,6 +59,7 @@ class <span class="pl-k">PlanetTool</span>  {
 Methods
 ==============
 
+- [PlanetTool::getPlanetDotNamesByWorkingDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetDotNamesByWorkingDir.md) &ndash; Returns the list of the planet dot names present in the given working dir.
 - [PlanetTool::getVersionByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getVersionByPlanetDir.md) &ndash; Returns the version number of the planet if found, or null otherwise.
 - [PlanetTool::exists](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/exists.md) &ndash; Returns whether the given planet exists in the given app.
 - [PlanetTool::getPlanetSlashNameByDotName](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetSlashNameByDotName.md) &ndash; Returns the [planet slash name](https://github.com/karayabin/universe-snapshot#the-planet-slash-name) from the given planet dot name.

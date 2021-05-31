@@ -1,293 +1,317 @@
 1.0.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.1.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.2.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.3.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.4.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.4.1: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.5.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.6.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.7.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.8.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.8.1: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 1.8.2: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.293+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.2+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.293
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.2
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.0: 
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.301+
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.301
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:Light_Logger:1.11.5
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.1: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:Light_UserDatabase:1.31.6+
-    - Ling:UniverseTools:1.22.6+
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.301+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:Light_UserDatabase:1.31.6
+    - Ling:UniverseTools:1.22.6
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.301
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.2: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:Light_UserDatabase:1.31.6+
-    - Ling:UniverseTools:1.22.6+
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.301+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:Light_UserDatabase:1.31.6
+    - Ling:UniverseTools:1.22.6
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.301
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.3: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:Light_UserDatabase:1.31.6+
-    - Ling:UniverseTools:1.22.9+
-    - Ling:ArrayToString:1.4.2+
-    - Ling:Bat:1.302+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:Light_UserDatabase:1.31.6
+    - Ling:UniverseTools:1.22.9
+    - Ling:ArrayToString:1.4.2
+    - Ling:Bat:1.302
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.4: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.9+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_UserDatabase:1.31.7+
-    - Ling:Bat:1.302+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.9
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_UserDatabase:1.31.7
+    - Ling:Bat:1.302
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.5: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.9+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_UserDatabase:1.31.7+
-    - Ling:Bat:1.302+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.9
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_UserDatabase:1.31.7
+    - Ling:Bat:1.302
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.6: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.9+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_UserDatabase:1.31.7+
-    - Ling:Bat:1.302+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.9
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_UserDatabase:1.31.7
+    - Ling:Bat:1.302
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.7: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.9+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_UserDatabase:1.31.7+
-    - Ling:Bat:1.302+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.9
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_UserDatabase:1.31.7
+    - Ling:Bat:1.302
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.8: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.9+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_UserDatabase:1.31.7+
-    - Ling:Bat:1.302+
-    - Ling:CliTools:1.10.19+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.18
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.9
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_UserDatabase:1.31.7
+    - Ling:Bat:1.302
+    - Ling:CliTools:1.10.19
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.9: 
-    - Ling:Light:0.69.21+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.14+
-    - Ling:Light_Database:1.14.11+
-    - Ling:Light_UserDatabase:1.31.8+
-    - Ling:Bat:1.303+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.21
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.14
+    - Ling:Light_Database:1.14.11
+    - Ling:Light_UserDatabase:1.31.8
+    - Ling:Bat:1.303
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.10: 
-    - Ling:Light:0.69.21+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.14+
-    - Ling:Bat:1.303+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:Light_Database:1.14.11+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.21
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.14
+    - Ling:Bat:1.303
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:Light_Database:1.14.11
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.11: 
-    - Ling:Light:0.69.21+
-    - Ling:Light_DbSynchronizer:1.2.6+
-    - Ling:UniverseTools:1.22.14+
-    - Ling:Bat:1.303+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light:0.69.21
+    - Ling:Light_DbSynchronizer:1.2.6
+    - Ling:UniverseTools:1.22.14
+    - Ling:Bat:1.303
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:SimplePdoWrapper:1.30.16
 
 2.0.12: 
-    - Ling:Bat:1.303+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:Light:0.69.21+
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:UniverseTools:1.22.14+
+    - Ling:Bat:1.303
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:Light:0.69.21
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:UniverseTools:1.22.14
 
 2.0.13: 
-    - Ling:Bat:1.305+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:Light:0.69.22+
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:UniverseTools:1.22.24+
+    - Ling:Bat:1.305
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:Light:0.69.22
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:UniverseTools:1.22.24
 
 2.0.15: 
-    - Ling:Bat:1.305+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:Light:0.69.26+
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:UniverseTools:1.22.26+
+    - Ling:Bat:1.305
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:Light:0.69.26
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:UniverseTools:1.22.26
 
 2.0.16: 
-    - Ling:Bat:1.305+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:Light:0.69.26+
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:UniverseTools:1.22.27+
+    - Ling:Bat:1.305
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:Light:0.69.26
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:UniverseTools:1.22.27
 
 2.0.17: 
-    - Ling:Bat:1.307+
-    - Ling:CliTools:1.10.25+
-    - Ling:CyclicChainDetector:1.1.1+
-    - Ling:Light:0.69.26+
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:UniverseTools:1.22.29+
+    - Ling:Bat:1.307
+    - Ling:CliTools:1.10.25
+    - Ling:CyclicChainDetector:1.1.1
+    - Ling:Light:0.69.26
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:UniverseTools:1.22.29
 
 2.0.18: 
-    - Ling:Bat:1.308+
-    - Ling:CliTools:1.10.26+
-    - Ling:CyclicChainDetector:1.1.2+
-    - Ling:Light:0.69.30+
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:UniverseTools:1.22.29+
+    - Ling:Bat:1.308
+    - Ling:CliTools:1.10.26
+    - Ling:CyclicChainDetector:1.1.2
+    - Ling:Light:0.69.30
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:UniverseTools:1.22.29
 
 2.0.19: 
-    - Ling:Bat:1.308+
-    - Ling:CliTools:1.10.26+
-    - Ling:CyclicChainDetector:1.1.2+
-    - Ling:Light:0.70.0+
-    - Ling:SimplePdoWrapper:1.30.17+
-    - Ling:UniverseTools:1.22.31+
+    - Ling:Bat:1.308
+    - Ling:CliTools:1.10.26
+    - Ling:CyclicChainDetector:1.1.2
+    - Ling:Light:0.70.0
+    - Ling:SimplePdoWrapper:1.30.17
+    - Ling:UniverseTools:1.22.31
+
+2.0.20: 
+    - Ling:Bat:1.312
+    - Ling:CliTools:1.10.26
+    - Ling:CyclicChainDetector:1.1.2
+    - Ling:Light:0.70.2
+    - Ling:SimplePdoWrapper:1.30.17
+    - Ling:UniverseTools:1.22.32
+
+2.0.21: 
+    - Ling:Bat:1.321
+    - Ling:CliTools:1.10.28
+    - Ling:CyclicChainDetector:1.1.2
+    - Ling:Light:0.70.5
+    - Ling:SimplePdoWrapper:1.30.17
+    - Ling:UniverseTools:1.22.40
+
+2.0.22: 
+    - Ling:Bat:1.322
+    - Ling:CliTools:1.10.29
+    - Ling:CyclicChainDetector:1.1.3
+    - Ling:Light:0.70.6
+    - Ling:SimplePdoWrapper:1.30.17
+    - Ling:UniverseTools:1.22.40

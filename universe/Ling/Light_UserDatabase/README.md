@@ -1,6 +1,6 @@
 Light_UserDatabase
 ===========
-2019-07-19 -> 2021-03-15
+2019-07-19 -> 2021-05-31
 
 
 
@@ -161,6 +161,34 @@ Related
 
 History Log
 =============  
+
+- 1.31.22 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.31.21 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
+- 1.31.20 -- 2021-05-10
+
+    - Update dependencies to Ling.Light_PasswordProtector (pushed by SubscribersUtil)
+
+- 1.31.19 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_PluginInstaller (pushed by SubscribersUtil)
+
+- 1.31.18 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.31.17 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.31.16 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
 
 - 1.31.15 -- 2021-03-15
 

@@ -5,9 +5,12 @@ namespace Ling\Light_Events\Helper;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Light\Events\LightEvent;
+use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\SectionComment\BabyYamlSectionCommentUtil;
+use Ling\UniverseTools\PlanetTool;
 
 
 /**
@@ -61,7 +64,6 @@ class LightEventsHelper
                 $destFile = $appDir . "/config/open/Ling.Light_Events/events/$eventName.byml";
 
 
-
                 $content = BabyYamlUtil::getBabyYamlString($listeners);
                 $util->setFile($destFile);
                 $util->addSection($planetDotName, $content);
@@ -69,6 +71,29 @@ class LightEventsHelper
 
             }
 
+        }
+    }
+
+
+    /**
+     * Removes open events.
+     *
+     * This method implements the @page(basic open events convention).
+     *
+     *
+     * @param LightServiceContainerInterface $container
+     * @param string $planetDotName
+     * @throws \Exception
+     */
+    public static function unregisterOpenEventByPlanet(LightServiceContainerInterface $container, string $planetDotName)
+    {
+        $appDir = $container->getApplicationDir();
+        $eventsOpenDir = $appDir . "/config/open/Ling.Light_Events/events";
+        $files = YorgDirScannerTool::getFilesWithExtension($eventsOpenDir, "byml"); // should it be recursive?
+        $util = new BabyYamlSectionCommentUtil();
+        foreach ($files as $file) {
+            $util->setFile($file);
+            $util->removeSection($planetDotName);
         }
     }
 

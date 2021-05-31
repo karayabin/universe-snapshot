@@ -61,7 +61,7 @@ Other return value types might be added in the future
 
 Source Code
 ===========
-See the source code for method [UpdateSubscriberDependenciesCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/UpdateSubscriberDependenciesCommand.php#L21-L34)
+See the source code for method [UpdateSubscriberDependenciesCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/UpdateSubscriberDependenciesCommand.php#L21-L37)
 
 
 See Also

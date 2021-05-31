@@ -4,8 +4,9 @@
 use Ling\Light\Helper\ServiceContainerHelper;
 
 
-
-require_once __DIR__ . "/../../../universe/bigbang.php"; // activate universe
+if (false === defined("UNIVERSE_BANG_PATH")) { // make sure we never include a bigbang more than once
+    require_once __DIR__ . "/../../../universe/bigbang.php"; // activate universe
+}
 
 
 date_default_timezone_set("Europe/Paris");
@@ -15,8 +16,6 @@ ini_set('session.cookie_secure', 1);
 
 
 $appDir = __DIR__ . "/../../../";
-
-
 
 
 $container = ServiceContainerHelper::getInstance($appDir, [

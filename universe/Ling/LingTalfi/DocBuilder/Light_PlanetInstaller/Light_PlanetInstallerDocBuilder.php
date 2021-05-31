@@ -149,7 +149,12 @@ class Light_PlanetInstallerDocBuilder
                 "planet dot name" => 'https://github.com/karayabin/universe-snapshot#the-planet-dot-name',
                 "classic log levels" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/classic-log-levels.md',
                 "local universe" => 'https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#local-universe',
-                "lpi-deps" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#the-lpibyml-file",
+                "lpi-deps" => $conception . "#the-lpi-deps-file",
+                "the lpi deps" => $conception . "#the-lpi-deps-file",
+                "bangs" => "https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/nomenclature.md#bang",
+                "concrete import map" => $conception . "#import-map",
+                "theoretical import map" => $conception . "#import-map",
+                "import map" => $conception . "#import-map",
             ],
             /**
              * An array of external classes to url.
@@ -173,6 +178,8 @@ class Light_PlanetInstallerDocBuilder
                 "Ling\Light_Cli\CliTools\Program\LightCliBaseApplication" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication.md",
                 "Ling\Light_Cli\CliTools\Program\LightCliApplicationInterface" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface.md",
                 "Ling\Light_PlanetInstaller\Util\array array" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Util/array array.md",
+                "Ling\Light_PlanetInstaller\Repository\LpiWebRepository" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiWebRepository.md",
+                "Ling\CliTools\Util\LoaderUtil" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/LoaderUtil.md",
 
             ],
             "ignoreFilesStartingWith" => [

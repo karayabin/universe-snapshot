@@ -1,0 +1,25 @@
+firewall:
+    instance: Ling\Light_Firewall\LightFirewallService
+    methods:
+        setModules:
+            modules: []
+            # firewall module example below
+            modules:
+                -
+                    domain: *
+                    domain_subtract_routes:
+                        - /pages/b-login
+                    condition:
+                        is_logged_in_equals: false
+                    action:
+                        redirect_to_route: /pages/b-login
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$preroute_hub.methods.setRunners.runners:
+    - @service(firewall)
+
+

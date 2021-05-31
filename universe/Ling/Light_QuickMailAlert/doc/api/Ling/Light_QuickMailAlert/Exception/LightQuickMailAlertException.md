@@ -4,7 +4,7 @@
 
 The LightQuickMailAlertException class
 ================
-2020-08-14 --> 2021-03-15
+2020-08-14 --> 2021-05-31
 
 
 

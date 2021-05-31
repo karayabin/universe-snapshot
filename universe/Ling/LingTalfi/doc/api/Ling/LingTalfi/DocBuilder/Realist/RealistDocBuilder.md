@@ -4,7 +4,7 @@
 
 The RealistDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Realist\RealistDocBuilder](htt
 
 SeeAlso
 ==============
-Previous class: [ProjectInfoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder.md)<br>Next class: [SectionCommentDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SectionComment/SectionCommentDocBuilder.md)<br>
+Previous class: [ProjectInfoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder.md)<br>Next class: [RowsSortHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/RowsSortHelper/RowsSortHelperDocBuilder.md)<br>

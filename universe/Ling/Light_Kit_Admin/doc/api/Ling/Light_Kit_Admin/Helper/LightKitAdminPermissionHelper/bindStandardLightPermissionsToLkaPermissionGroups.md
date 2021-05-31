@@ -7,7 +7,7 @@ LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups
 
 
 
-LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups — Binds the permissions of the given basePluginName to the main lka permission groups.
+LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups — Binds the permissions of the given $srcPlanetDotName to the main lka permission groups.
 
 
 
@@ -16,14 +16,14 @@ Description
 ================
 
 
-public static [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md)(Ling\Light_UserDatabase\Service\LightUserDatabaseService $userDb, string $basePluginName) : void
+public static [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md)(Ling\Light_UserDatabase\Service\LightUserDatabaseService $userDb, string $srcPlanetDotName) : void
 
 
 
 
-Binds the permissions of the given basePluginName to the main lka permission groups.
+Binds the permissions of the given $srcPlanetDotName to the main lka permission groups.
 
-The basePluginName is the name of the [light kit admin' source plugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md#light-kit-admin-source-and-port-plugin).
+The srcPlanetDotName is the name of the [light kit admin' source plugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md#light-kit-admin-source-and-port-plugin).
 
 
 Note: the main lka permission groups are:
@@ -41,7 +41,7 @@ Parameters
 
     
 
-- basePluginName
+- srcPlanetDotName
 
     
 
@@ -73,5 +73,5 @@ See Also
 
 The [LightKitAdminPermissionHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper.md) class.
 
-
+Next method: [unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/unbindStandardLightPermissionsToLkaPermissionGroups.md)<br>
 

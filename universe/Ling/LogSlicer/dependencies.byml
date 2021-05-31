@@ -1,6 +1,2 @@
-dependencies: 
-    Ling: 
-        - Bat
-    
-
+dependencies: []
 post_install: []

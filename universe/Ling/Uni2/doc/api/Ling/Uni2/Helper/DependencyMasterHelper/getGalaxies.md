@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [DependencyMasterHelper::getGalaxies](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L49-L53)
+See the source code for method [DependencyMasterHelper::getGalaxies](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L67-L71)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The AbstractOpenAdminTableRendererWidget class
 ================
-2019-08-15 --> 2021-03-05
+2019-08-15 --> 2021-05-31
 
 
 
@@ -16,9 +16,9 @@ Introduction
 
 The AbstractOpenAdminTableRendererWidget class.
 
-This class represents a [openAdminTable protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md) compatible widget.
+This class represents a [openAdminTable protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md) compatible widget.
 The js tool we are using is the open admin table helper.
-See [the open admin table helper implementation notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-helper-implementation-notes.md) for more details.
+See [the open admin table helper implementation notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-helper-implementation-notes.md) for more details.
 
 
 

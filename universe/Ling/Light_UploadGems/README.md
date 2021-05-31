@@ -64,6 +64,18 @@ upload_gems:
 History Log
 =============
 
+- 1.8.13 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.8.12 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
+- 1.8.11 -- 2021-05-10
+
+    - Fix assets missing.
+
 - 1.8.10 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

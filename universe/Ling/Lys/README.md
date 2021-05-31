@@ -469,6 +469,10 @@ Friends
 History Log
 ------------------
 
+- 3.2.4 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 3.2.3 -- 2021-03-05
 
     - update README.md, add install alternative

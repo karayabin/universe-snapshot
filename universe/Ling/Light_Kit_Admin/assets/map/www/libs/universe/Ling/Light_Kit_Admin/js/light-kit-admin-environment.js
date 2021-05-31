@@ -15,127 +15,45 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
         window.LightKitAdminEnvironment = {
 
 
+
+
             /**
-             * This method returns a function that you can use to quickly implement
-             * a gui based on alcp protocol.
-             *
-             *
-             *
-             * The idea with this method is this:
-             *
-             *
-             *        var controller = 'Ling\\Light_Kit_Admin_Kit_Editor\\Controller\\Editor\\LkeEditorController';
-             *        var execLink = window.LightKitAdminEnvironment.getHubExecLinkFunction(controller);
-             *
-             *
-             *        var jContext = $('#kit-lke-editor-container');
-             *        jContext.on('click.lke', '.lkeacp', function () {
-             *           execLink($(this), function (data) {
-             *               console.log("ok");
-             *           });
-             *           return false;
-             *       });
-             *
-             *
-             * And your link look something like this:
-             *
-             *
-             *        <a
-             *        class="lkeacp"
-             *        data-param-method="removeWebsite"
-             *        data-param-identifier="website 1"
-             *        href="#"><i class="fas fa-trash-alt text-primary"></i></a>
-             *
-             *
-             *
+             * Makes an alcp call to the given url, and executes the success callback in case of a successful response.
+             * This is more powerful than the regular alcpPost function, because it can handle the loader/spinner,
+             * which should be displayed for any ajax request.
              *
              *
              * Available options are:
              *
-             * - before: a callable to call before the request
-             * - after: a callable to call after the request, no matter which response type was returned
-             * - error: a callable to call when the request fails
+             * - error, callable|null, triggered when the alcp response is of type error.
+             * - before: callable, triggered before the request
+             * - after: callable, triggered after the request, no matter which response type was returned
+             * - loader: jqueryElement|null, the loader element to show/hide when the ajax request is fetched.
+             *      This will only work with the default "before" and "after" callbacks.
+             *      If you define the "before" and "after" callbacks, you need to handle the loader yourself.
+             * - post: map={}, a map of extra arguments to pass as $_POST to the ajax request.
              *
              *
              *
              *
-             * @param controllerClass
+             * @param url
+             * @param success
              * @param options
              * @returns {function(*=, *=): void}
              */
-            getHubExecLinkFunction: function (controllerClass, options) {
+            alcpCall: function (url, success, options) {
 
-                var before = options.before || function () {
-                };
-                var after = options.after || function () {
-                };
+                //----------------------------------------
+                // OPTIONS
+                //----------------------------------------
+                if ('undefined' === typeof options) {
+                    options = {};
+                }
                 var error = options.error || null;
-
-
-                var baseUrl = '/hub?execute=' + controllerClass + '->';
-                return function execLink(jTarget, success) {
-
-                    before();
-
-
-                    var params = window.AcpHepHelper.getHepParameters(jTarget);
-                    if ("method" in params) {
-                        var method = params.method;
-                        delete params.method;
-                        var url = baseUrl + method;
-                        LightKitAdminEnvironment.alcpPost(url, params, success, error, {
-                            after: after,
-                        });
-
-                    } else {
-                        LightKitAdminEnvironment.error("Missing data-param-method attribute.");
-                    }
-                };
-            },
-
-            /**
-             * A variation on the getHubExecLinkFunction function (above).
-             * This variation is more low level.
-             *
-             *
-             * The returned function accepts the following arguments:
-             *
-             * - success: a callable to execute when the server's alcp response is successful
-             * - options: a map of options:
-             *      - postParams: an array of extra data to send to the server via POST
-             *
-             *
-             * @param controllerClass
-             * @param method
-             * @param options
-             * @returns {function(*=, *=): void}
-             */
-            getHubExecuteFunction: function (controllerClass, method, options) {
-
-
-                var before = options.before || function () {
-                };
-                var after = options.after || function () {
-                };
-                var error = options.error || null;
-
-                var url = '/hub?execute=' + controllerClass + '->' + method;
-
-                return function execLink(success, fnOptions) {
-
-                    var postParams = fnOptions.postParams || {};
-                    before();
-                    LightKitAdminEnvironment.alcpPost(url, postParams, success, error, {
-                        after: after,
-                    });
-                };
-            },
-
-            getHubExecuteAjaxFunction: function (controllerClass, method, options) {
                 var loader = options.loader || null;
                 var before = options.before || function () {
                     if (null !== loader) {
-                        loader.removeClass('d-none');
+                        loader.removeClass('d-none'); // assuming the admin template uses bootstrap
                     }
 
                 };
@@ -144,9 +62,19 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                         loader.addClass('d-none');
                     }
                 };
-                options.before = before;
-                options.after = after;
-                return this.getHubExecuteFunction(controllerClass, method, options);
+                var postParams = options.post || {};
+
+
+
+
+                //----------------------------------------
+                // EXECUTION
+                //----------------------------------------
+                before();
+                LightKitAdminEnvironment.alcpPost(url, postParams, success, error, {
+                    after: after,
+                });
+
             },
 
             alcpPost: function (url, data, successCallback, errorCallback, options) {
@@ -154,7 +82,7 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                     'undefined' === typeof errorCallback ||
                     null === errorCallback
                 ) {
-                    errorCallback = function (errMsg) {
+                    errorCallback = function (errMsg, response) {
                         LightKitAdminEnvironment.toast("Error", errMsg, "error");
                     };
                 }

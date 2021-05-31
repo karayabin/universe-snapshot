@@ -62,5 +62,5 @@ See Also
 
 The [LpiWebHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper.md) class.
 
-Previous method: [getPlanetCurrentVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getPlanetCurrentVersion.md)<br>
+Previous method: [getPlanetCurrentVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getPlanetCurrentVersion.md)<br>Next method: [getLpiDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getLpiDependencies.md)<br>
 

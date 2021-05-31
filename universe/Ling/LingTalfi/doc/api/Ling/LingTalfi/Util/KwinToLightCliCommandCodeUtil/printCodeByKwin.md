@@ -25,6 +25,7 @@ Prints the php code corresponding to the given kwin string.
 
 Available options are:
 - appId: string, the app id to use with aliases. Actually it's mandatory if an alias is described int the given string.
+- verbose: bool=false, whether to use a verbose version of the kwin parser.
 
 
 
@@ -61,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [KwinToLightCliCommandCodeUtil::printCodeByKwin](https://github.com/lingtalfi/LingTalfi/blob/master/Util/KwinToLightCliCommandCodeUtil.php#L29-L260)
+See the source code for method [KwinToLightCliCommandCodeUtil::printCodeByKwin](https://github.com/lingtalfi/LingTalfi/blob/master/Util/KwinToLightCliCommandCodeUtil.php#L30-L267)
 
 
 See Also

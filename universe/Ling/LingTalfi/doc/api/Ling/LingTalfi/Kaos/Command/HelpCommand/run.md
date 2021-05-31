@@ -61,7 +61,7 @@ Other return value types might be added in the future
 
 Source Code
 ===========
-See the source code for method [HelpCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/HelpCommand.php#L26-L92)
+See the source code for method [HelpCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/HelpCommand.php#L26-L98)
 
 
 See Also

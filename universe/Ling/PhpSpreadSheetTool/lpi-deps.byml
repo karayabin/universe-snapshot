@@ -1,20 +1,23 @@
 1.0.0: 
-    - Ling:Bat:1.293+
+    - Ling:Bat:1.293
 
 1.0.1: 
-    - Ling:Bat:1.293+
+    - Ling:Bat:1.293
 
 1.0.2: 
-    - Ling:Bat:1.293+
+    - Ling:Bat:1.293
 
 1.0.3: 
-    - Ling:Bat:1.293+
+    - Ling:Bat:1.293
 
 1.0.4: 
-    - Ling:Bat:1.293+
+    - Ling:Bat:1.293
 
 1.0.5: 
-    - Ling:Bat:1.293+
+    - Ling:Bat:1.293
 
 1.0.6: 
-    - Ling:Bat:1.308+
+    - Ling:Bat:1.308
+
+1.0.7: 
+    - Ling:Bat:1.322

@@ -5,13 +5,13 @@ namespace Ling\LingTalfi\Kaos\Command;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\ClassTool;
 use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_PlanetInstaller\Helper\LpiDepsFileHelper;
-use Ling\Light_PlanetInstaller\Helper\LpiHelper;
 use Ling\LingTalfi\Kaos\Tool\PreferencesTool;
 use Ling\LingTalfi\Kaos\Util\CommitWizard;
 use Ling\LingTalfi\Kaos\Util\ReadmeUtil;
@@ -61,8 +61,11 @@ class PushCommand extends KaosGenericCommand
     public function run(InputInterface $input, OutputInterface $output)
     {
 
+
+
         $prefs = PreferencesTool::getPreferences();
         $docToolExtraLoaders = $prefs['docToolExtraLoaders'] ?? [];
+
 
 
         $indentLevel = $this->application->getBaseIndentLevel();
@@ -73,7 +76,6 @@ class PushCommand extends KaosGenericCommand
         $planetDir = $input->getOption('planet-dir');
         $applicationDir = $input->getOption('application');
         $noPacking = $input->hasFlag('n');
-
 
         if (null === $planetDir) {
             $planetDir = $this->application->getCurrentDirectory();
@@ -123,6 +125,8 @@ class PushCommand extends KaosGenericCommand
                     H::info(H::i($indentLevel + 1) . "Updating <b>meta-info.byml</b>...", $output);
                     $newVersionAvailable = true;
                     $metaInfo["version"] = $historyLogVersion;
+
+
                     $res = MetaInfoTool::writeInfo($planetDir, $metaInfo);
                     if (false === $res) {
                         $output->write('<error>oops</error>' . PHP_EOL);
@@ -138,7 +142,6 @@ class PushCommand extends KaosGenericCommand
 
                 if (false === $error) {
                     $mapDir = $planetDir . "/assets/map";
-
 
 
                     FileSystemTool::remove($mapDir);
@@ -222,25 +225,27 @@ class PushCommand extends KaosGenericCommand
                             //--------------------------------------------
                             if (true === $isLightPlugin) {
                                 $currentUniverseDir = dirname(dirname($currentPwd));
+
+
                                 $p = explode('/', $currentUniverseDir);
                                 $currentUniverseDirName = array_pop($p);
                                 if ('universe' === $currentUniverseDirName) {
 
-                                    $theAppDir = implode('/', $p);
 
                                     if (array_key_exists('map', $postInstall)) {
 
 
-                                        H::info(H::i($indentLevel + 1) . "Light plugin with map assets detected, calling <b>kaos packlightmap</b> command.", $output);
+                                        H::info(H::i($indentLevel + 1) . "Light plugin with map assets detected, calling <b>kaos packlightmap</b> command." . PHP_EOL, $output);
                                         $myInput = new ArrayInput();
                                         $myInput->setItems([
                                             ":packlightmap" => true,
-                                            "a" => $theAppDir,
+                                            "a" => $applicationDir,
                                         ]);
                                         $this->application->run($myInput, $output);
                                     }
                                 }
                             }
+
 
 
                             //--------------------------------------------
@@ -373,12 +378,6 @@ EEE;
                                     $planetDotName = $galaxyName . ".$planetName";
                                     if (true === in_array($planetDotName, $deps)) {
                                         $output->write("found hook to Light_AppBoilerplate." . PHP_EOL);
-
-                                        $hookPlanetDir = $uniDir . "/Ling/Light_AppBoilerplate";
-
-                                        H::info(H::i($indentLevel) . "Incrementing version number in meta-info.byml...", $output);
-                                        $newHookVersion = MetaInfoTool::incrementVersion($hookPlanetDir);
-                                        $output->write("-> $newHookVersion" . PHP_EOL);
 
 
 

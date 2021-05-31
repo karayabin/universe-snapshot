@@ -4,6 +4,7 @@
 namespace Ling\Light_PlanetInstaller\Helper;
 
 
+use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Cli\Helper\LightCliFormatHelper;
 
 /**
@@ -64,7 +65,6 @@ class LpiFormatHelper
     }
 
 
-
     /**
      * Returns the bashtml format for a banner.
      *
@@ -94,4 +94,5 @@ class LpiFormatHelper
     {
         return LightCliFormatHelper::getUrlFmt();
     }
+
 }

@@ -4,7 +4,7 @@
 
 The LightPlanetInstallerInterface class
 ================
-2020-12-08 --> 2021-05-03
+2020-12-08 --> 2021-05-31
 
 
 
@@ -22,10 +22,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">LightPlanetInstallerInterface</span>  {
-
-- Methods
-    - abstract public [onMapCopyAfter](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface/onMapCopyAfter.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+class <span class="pl-k">LightPlanetInstallerInterface</span>  {
 
 }
 
@@ -37,7 +34,6 @@ abstract class <span class="pl-k">LightPlanetInstallerInterface</span>  {
 Methods
 ==============
 
-- [LightPlanetInstallerInterface::onMapCopyAfter](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
 
 
 
@@ -52,4 +48,4 @@ See the source code of [Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetIn
 
 SeeAlso
 ==============
-Previous class: [LightBasePlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md)<br>Next class: [LpiApplicationRepository](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiApplicationRepository.md)<br>
+Previous class: [LightPlanetInstallerInit3HookInterface](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit3HookInterface.md)<br>Next class: [LightPlanetInstallerService](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Service/LightPlanetInstallerService.md)<br>

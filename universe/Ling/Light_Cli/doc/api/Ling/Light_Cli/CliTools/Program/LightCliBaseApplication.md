@@ -4,7 +4,7 @@
 
 The LightCliBaseApplication class
 ================
-2021-01-07 --> 2021-03-15
+2021-01-07 --> 2021-05-31
 
 
 
@@ -49,7 +49,7 @@ abstract class <span class="pl-k">LightCliBaseApplication</span> extends [Applic
     - public AbstractProgram::setLoggerChannel(string $loggerChannel) : void
     - public AbstractProgram::setErrorIsVerbose(bool $errorIsVerbose) : void
     - public AbstractProgram::setUseExitStatus(bool $useExitStatus) : void
-    - public AbstractProgram::run(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+    - public AbstractProgram::run(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed | void
     - abstract public [LightCliApplicationInterface::getAppId](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface/getAppId.md)() : string
 
 }
@@ -141,7 +141,7 @@ Methods
 - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
 - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
 - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
-- AbstractProgram::run &ndash; Starts the interactive program.
+- AbstractProgram::run &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
 - [LightCliApplicationInterface::getAppId](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface/getAppId.md) &ndash; Returns the appId of the application.
 
 

@@ -4,7 +4,7 @@
 
 The NewObjectTokenFinder class
 ================
-2020-07-28 --> 2021-03-08
+2020-07-28 --> 2021-05-31
 
 
 
@@ -41,7 +41,7 @@ class <span class="pl-k">NewObjectTokenFinder</span> extends [RecursiveTokenFind
 
 - Methods
     - public [find](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/NewObjectTokenFinder/find.md)(array $tokens) : array
-    - protected [parseParenthesis](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/NewObjectTokenFinder/parseParenthesis.md)([Ling\TokenFun\TokenArrayIterator\TokenArrayIteratorInterface](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIteratorInterface.md) $tai, $found, $start, $ret) : bool
+    - protected [parseParenthesis](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/NewObjectTokenFinder/parseParenthesis.md)([Ling\TokenFun\TokenArrayIterator\TokenArrayIteratorInterface](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIteratorInterface.md) $tai, &$found, &$start, &$ret) : bool
 
 - Inherited methods
     - public [RecursiveTokenFinder::__construct](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/RecursiveTokenFinder/__construct.md)() : void

@@ -399,6 +399,10 @@ and the generators will never delete or even touch them.
 History Log
 ------------------
 
+- 2.2.8 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 2.2.7 -- 2021-03-05
 
     - update README.md, add install alternative

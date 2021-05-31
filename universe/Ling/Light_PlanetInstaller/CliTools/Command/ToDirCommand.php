@@ -26,45 +26,57 @@ class ToDirCommand extends LightPlanetInstallerBaseCommand
     protected function doRun(InputInterface $input, OutputInterface $output)
     {
 
-
-        $verbose = $input->hasFlag("v");
-
-        $appDir = $this->application->getApplicationDirectory();
-        $uniDir = $appDir . "/universe";
-        $planetDirs = PlanetTool::getPlanetDirs($uniDir);
-        $localUniverse = LocalUniverseTool::getLocalUniversePath();
-        if (true === is_dir($localUniverse)) {
+        if (true === $this->checkInsideAppDir($input, $output)) {
 
 
-            foreach ($planetDirs as $planetDir) {
-                if (true === is_link($planetDir)) {
+            $verbose = true;
+
+            $appDir = getcwd();
+            $uniDir = $appDir . "/universe";
+            $planetDirs = PlanetTool::getPlanetDirs($uniDir);
+            $localUniverse = LocalUniverseTool::getLocalUniversePath();
+            if (true === is_dir($localUniverse)) {
+
+                $nbPlanets = count($planetDirs);
+                $x = 0;
+
+                foreach ($planetDirs as $planetDir) {
+                    $x++;
+                    $s = "$x/$nbPlanets";
 
 
                     $planetDotName = PlanetTool::getPlanetDotNameByPlanetDir($planetDir);
-                    $localPlanetDir = LocalUniverseTool::getPlanetDir($planetDotName);
-                    if (null !== $localPlanetDir) {
 
-                        if (true === $verbose) {
-                            $output->write("Copying $planetDotName from local universe to application." . PHP_EOL);
+
+                    if (true === is_link($planetDir)) {
+
+
+                        $localPlanetDir = LocalUniverseTool::getPlanetDir($planetDotName);
+                        if (null !== $localPlanetDir) {
+
+                            if (true === $verbose) {
+                                $output->write("$s: Copying <b:red>$planetDotName</b:red> from local universe to application." . PHP_EOL);
+                            }
+
+
+                            FileSystemTool::remove($planetDir);
+                            FileSystemTool::copyDir($localPlanetDir, $planetDir);
+
+
+                        } else {
+                            $output->write("<warning>$s: Planet <b>$planetDotName</b> not found in the local universe, skipping.</warning>" . PHP_EOL);
                         }
-
-
-                        FileSystemTool::remove($planetDir);
-                        FileSystemTool::copyDir($localPlanetDir, $planetDir);
-
-
                     } else {
-                        $output->write("<warning>Planet <b>$planetDotName</b> not found in the local universe, skipping.</warning>" . PHP_EOL);
+                        $output->write("$s: <b>$planetDotName</b> is already a dir, skipping." . PHP_EOL);
                     }
                 }
+
+
+            } else {
+                $output->write("<warning>No local universe found, aborting.</warning>" . PHP_EOL);
             }
 
-
-        } else {
-            $output->write("<warning>No local universe found, skipping.</warning>" . PHP_EOL);
         }
-
-
     }
 
     //--------------------------------------------
@@ -73,27 +85,21 @@ class ToDirCommand extends LightPlanetInstallerBaseCommand
     /**
      * @overrides
      */
-    public function getDescription(): string
+    public function getName(): string
     {
-        $co = LightCliFormatHelper::getConceptFmt();
-        $url = LightCliFormatHelper::getUrlFmt();
-        return " converts all the symlinks of the current app to real dirs.
- It does so by copying the real dirs from the <$co>local universe</$co>(<$url>https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#local-universe</$url>),
- and pasting them into the app.
- This command does the opposite of the <b>tolink</b> command. ";
+        return "todir";
     }
 
     /**
      * @overrides
      */
-    public function getFlags(): array
+    public function getDescription(): string
     {
         $co = LightCliFormatHelper::getConceptFmt();
         $url = LightCliFormatHelper::getUrlFmt();
-
-        return [
-            "v" => " verbose, whether to use verbose mode",
-        ];
+        return "
+ Converts the planets of the app to directories. See more details in the <$co>todir and tolink section</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#todir-and-tolink</$url>).
+ ";
     }
 
     /**
@@ -108,5 +114,6 @@ class ToDirCommand extends LightPlanetInstallerBaseCommand
             "todir" => "lpi todir",
         ];
     }
+
 
 }

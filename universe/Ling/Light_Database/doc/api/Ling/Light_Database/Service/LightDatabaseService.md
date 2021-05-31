@@ -4,7 +4,7 @@
 
 The LightDatabaseService class
 ================
-2019-07-22 --> 2021-03-22
+2019-07-22 --> 2021-05-31
 
 
 
@@ -40,7 +40,7 @@ class <span class="pl-k">LightDatabaseService</span> extends [LightDatabasePdoWr
     - public [setOptions](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/setOptions.md)(array $options) : void
     - public [getMysqlInfoUtil](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/getMysqlInfoUtil.md)() : [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md)
     - public [onExceptionCaught](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/onExceptionCaught.md)(Ling\Light\Events\LightEvent $event) : void
-    - protected [queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md)(string $type, ?$args) : void
+    - protected [queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md)(string $type, ...$args) : void
 
 - Inherited methods
     - public [LightDatabasePdoWrapper::init](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/init.md)(array $settings) : void
@@ -59,10 +59,10 @@ class <span class="pl-k">LightDatabaseService</span> extends [LightDatabasePdoWr
     - public SimplePdoWrapper::fetch($query, ?array $markers = [], ?$fetchStyle = null) : false | array
     - public SimplePdoWrapper::fetchAll($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : false | array
     - public SimplePdoWrapper::executeStatement($query) : false | int
-    - public static SimplePdoWrapper::addWhereSubStmt($stmt, array &$markers, $whereConds) : void
+    - public static SimplePdoWrapper::addWhereSubStmt(&$stmt, array &$markers, $whereConds) : void
     - protected SimplePdoWrapper::boot() : [PDO](https://www.php.net/manual/en/class.pdo.php) | null
     - protected SimplePdoWrapper::storeQueryObject($queryObject) : void
-    - protected static SimplePdoWrapper::addAssignmentListSubStmt($stmt, array &$markers, array $fields, ?$firstForm = false) : void
+    - protected static SimplePdoWrapper::addAssignmentListSubStmt(&$stmt, array &$markers, array $fields, ?$firstForm = false) : void
 
 }
 

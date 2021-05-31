@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBMenuRegistrationUtil::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.php#L119-L122)
+See the source code for method [LightKitAdminBMenuRegistrationUtil::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.php#L181-L184)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [LightKitAdminBMenuRegistrationUtil](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.md) class.
 
-Previous method: [writeItemsToMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/writeItemsToMainMenuSection.md)<br>
+Previous method: [removeItemsFromMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/removeItemsFromMainMenuSection.md)<br>
 

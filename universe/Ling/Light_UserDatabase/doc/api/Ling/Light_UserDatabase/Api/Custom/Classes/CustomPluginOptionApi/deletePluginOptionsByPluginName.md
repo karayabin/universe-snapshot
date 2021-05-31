@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CustomPluginOptionApi::deletePluginOptionsByPluginName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomPluginOptionApi/deletePluginOptionsByPluginName.md)(string $pluginName) : void
+public [CustomPluginOptionApi::deletePluginOptionsByPluginName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomPluginOptionApi/deletePluginOptionsByPluginName.md)(string $planetDotName) : void
 
 
 
@@ -33,7 +33,7 @@ Parameters
 ================
 
 
-- pluginName
+- planetDotName
 
     
 

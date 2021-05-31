@@ -4,7 +4,7 @@
 
 The HotServiceResolver class
 ================
-2019-04-25 --> 2021-03-05
+2019-04-25 --> 2021-05-31
 
 
 
@@ -35,7 +35,7 @@ class <span class="pl-k">HotServiceResolver</span>  {
 - Methods
     - public [__construct](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/__construct.md)() : void
     - public [getService](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/getService.md)(array $sicBlock) : false | object | array
-    - protected [resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveCustomNotation.md)($value, ?$isCustomNotation = false) : mixed
+    - protected [resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveCustomNotation.md)($value, ?&$isCustomNotation = false) : mixed
     - private [resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveArgs.md)(array $args) : array
 
 }

@@ -52,7 +52,7 @@ Returns [Chloroform](https://github.com/lingtalfi/Chloroform).
 
 Source Code
 ===========
-See the source code for method [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L120-L177)
+See the source code for method [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L121-L178)
 
 
 See Also

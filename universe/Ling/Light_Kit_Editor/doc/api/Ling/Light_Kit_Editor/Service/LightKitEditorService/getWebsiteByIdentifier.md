@@ -60,7 +60,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::getWebsiteByIdentifier](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L271-L288)
+See the source code for method [LightKitEditorService::getWebsiteByIdentifier](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L298-L315)
 
 
 See Also

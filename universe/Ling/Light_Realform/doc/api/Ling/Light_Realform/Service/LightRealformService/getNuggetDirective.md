@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightRealformService::getNuggetDirective](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L99-L106)
+See the source code for method [LightRealformService::getNuggetDirective](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L100-L107)
 
 
 See Also

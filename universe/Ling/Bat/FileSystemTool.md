@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2020-12-11
+2015-10-07 -> 2021-05-20
 
 
 
@@ -66,13 +66,19 @@ If you want to clear the symlink dir, set the $abortIfSymlink flag to false.
 
 copyDir
 -------------     
-2015-10-20
+2015-10-20 -> 2021-05-17
 
 ```php
-bool        copyDir ( str:srcDir, str:targetDir, bool:preservePerms = false, array:&errors = [] )
+bool        copyDir ( str:srcDir, str:targetDir, array:options = [], array:&errors = [] )
 ```
-     
-Copies a directory (recursively) to a given location.
+
+Copies a directory to a given location, and returns whether the operation was successful.
+
+
+Following php's philosophy of the copy function, if the destination file already exists, it will be overwritten.
+
+Available options are:
+- preservePerms: bool = false, whether to preserve permissions.
 
 
 copyFile
@@ -255,6 +261,59 @@ is not contained in (a children of) rootDir.
 
 
 
+
+getTimeString
+-----------
+2021-05-18
+
+
+string        getTimeString( bool:useMicro = true )
+
+
+Returns a human friendly time string that can be used in a filename or directory name.
+
+It looks something like this by default:
+
+- 2021-05-18--16-53-10--63251500
+
+
+
+getUniqueTimeStringedEntry
+-----------
+2021-05-20
+
+
+```php
+string        getUniqueTimeStringedEntry( str:dir, str:extension=null )
+```
+
+
+Returns a unique entry path (in the given directory), based on time, which basename looks like this for a directory:
+
+- 2021-05-18--16-53-10--63251500-56
+
+Or like this for a file
+
+- 2021-05-18--16-53-10--63251500-56.txt
+
+
+The file flavour is returned only if the exension parameter is set.
+
+
+
+The dash separated components are the following (in order of appearance):
+
+- year
+- month
+- day
+- hour
+- minute
+- second
+- microsecond
+- number to ensure the file is unique (starts at 1 and is auto-incremented if necessary)
+
+
+
 isDirectoryTraversalSafe
 -----------
 2019-10-16
@@ -302,6 +361,25 @@ A filename is considered valid only if all conditions below are fulfilled:
 - the filename is different than ".."
 - the filename doesn't start and/or end with a space
 - the filename doesn't contain one of the following characters: /?*:;{}\
+
+
+
+
+
+mkAutoRemovingTmpFile
+-------
+2021-05-06
+
+
+```php
+string    mkAutoRemovingTmpFile ()
+```
+
+
+Returns the path to an auto-removing temporary file.
+The file is automatically removed when closed (for example, by calling fclose), or when the script ends.
+
+
 
 
 

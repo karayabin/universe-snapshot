@@ -1,23 +1,27 @@
 1.0.0: 
-    - Ling:QuickPdo:2.41.3+
-    - Ling:Bat:1.293+
+    - Ling:QuickPdo:2.41.3
+    - Ling:Bat:1.293
 
 1.1.0: 
-    - Ling:QuickPdo:2.41.3+
-    - Ling:Bat:1.293+
+    - Ling:QuickPdo:2.41.3
+    - Ling:Bat:1.293
 
 1.1.1: 
-    - Ling:QuickPdo:2.41.3+
-    - Ling:Bat:1.293+
+    - Ling:QuickPdo:2.41.3
+    - Ling:Bat:1.293
 
 1.1.2: 
-    - Ling:QuickPdo:2.41.3+
-    - Ling:Bat:1.293+
+    - Ling:QuickPdo:2.41.3
+    - Ling:Bat:1.293
 
 1.1.3: 
-    - Ling:Bat:1.308+
-    - Ling:QuickPdo:2.41.4+
+    - Ling:Bat:1.308
+    - Ling:QuickPdo:2.41.4
 
 1.1.4: 
-    - Ling:Bat:1.31+
-    - Ling:QuickPdo:2.41.4+
+    - Ling:Bat:1.31
+    - Ling:QuickPdo:2.41.4
+
+1.1.5: 
+    - Ling:Bat:1.322
+    - Ling:QuickPdo:2.41.5

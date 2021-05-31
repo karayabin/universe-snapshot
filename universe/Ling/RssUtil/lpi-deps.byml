@@ -1,11 +1,13 @@
 1.0.0: 
-    - Ling:MySimpleXmlElement:1.1.2+
+    - Ling:MySimpleXmlElement:1.1.2
 
 1.0.1: 
-    - Ling:MySimpleXmlElement:1.1.2+
+    - Ling:MySimpleXmlElement:1.1.2
 
 1.0.2: 
-    - Ling:MySimpleXmlElement:1.1.2+
+    - Ling:MySimpleXmlElement:1.1.2
 
 1.0.3: 
-    - Ling:MySimpleXmlElement:1.1.3+
+    - Ling:MySimpleXmlElement:1.1.3
+
+1.0.4: []

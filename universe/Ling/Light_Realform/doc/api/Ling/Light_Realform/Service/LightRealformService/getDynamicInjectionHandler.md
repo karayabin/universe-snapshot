@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformService::getDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L243-L253)
+See the source code for method [LightRealformService::getDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L244-L254)
 
 
 See Also

@@ -7,19 +7,20 @@ namespace Ling\Light_Kit_Admin_DebugTrace\Light_PlanetInstaller;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Events\Helper\LightEventsHelper;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
+use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 
 
 /**
  * The LightKitAdminDebugTracePlanetInstaller class.
  */
-class LightKitAdminDebugTracePlanetInstaller extends LightBasePlanetInstaller
+class LightKitAdminDebugTracePlanetInstaller extends LightBasePlanetInstaller implements LightPlanetInstallerInit2HookInterface
 {
 
 
     /**
-     * @overrides
+     * @implementation
      */
-    public function onMapCopyAfter(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output): void
     {
         $planetDotName = "Ling.Light_Kit_Admin_DebugTrace";
         //--------------------------------------------
@@ -27,6 +28,23 @@ class LightKitAdminDebugTracePlanetInstaller extends LightBasePlanetInstaller
         //--------------------------------------------
         $output->write("$planetDotName: registering open events...");
         LightEventsHelper::registerOpenEventByPlanet($this->container, $planetDotName);
+        $output->write("<success>ok.</success>" . PHP_EOL);
+
+
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function undoInit2(string $appDir, OutputInterface $output): void
+    {
+        $planetDotName = "Ling.Light_Kit_Admin_DebugTrace";
+        //--------------------------------------------
+        // events
+        //--------------------------------------------
+        $output->write("$planetDotName: unregistering open events...");
+        LightEventsHelper::unregisterOpenEventByPlanet($this->container, $planetDotName);
         $output->write("<success>ok.</success>" . PHP_EOL);
 
 

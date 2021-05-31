@@ -1,6 +1,6 @@
 Light_Cli
 ===========
-2021-01-07 -> 2021-03-15
+2021-01-07 -> 2021-05-31
 
 
 A command line interface for the light framework.
@@ -75,6 +75,15 @@ cli:
 History Log
 =============
 
+- 1.0.24 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.0.23 -- 2021-05-31
+
+    - update light executable, and conception notes (more readable)
+    - planets command now differentiate between symlinks and dirs
+  
 - 1.0.22 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

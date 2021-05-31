@@ -1,6 +1,6 @@
 TheBar
 ======
-2015-11-03 -> 2021-04-06
+2015-11-03 -> 2021-05-31
 
 
 
@@ -66,6 +66,14 @@ uni import Ling/TheBar
 History Log
 ===============
 
+- 1.24.36 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.24.35 -- 2021-05-31
+
+    - update kwin notation document
+  
 - 1.24.34 -- 2021-04-06
 
     - add handy exception definition

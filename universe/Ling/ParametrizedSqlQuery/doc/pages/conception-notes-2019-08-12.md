@@ -239,7 +239,7 @@ The available routines are:
     
     Then the :operator_value marker needs to be transformed accordingly.
     By the way, the list of operators that we use is the one defined in the 
-    [realist's open admin table protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md).
+    [realist's open admin table protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md).
     However, notice how long it is to write all those tags. We don't want that, so instead we use a routine
     that alleviates most of the job for us.
     
@@ -347,7 +347,7 @@ want the user to type those weird percent and underscore chars), we can simply l
 LIKE, or %LIKE%, or LIKE%, or %LIKE for instance) via a select, and the operator will decide what wrapping
 we apply to the escaped user value.
 
-On the other hands, if we take the neck filters of the [open admin table protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md),
+On the other hands, if we take the neck filters of the [open admin table protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md),
 we can decide what we want to do:
 
 - either allow the user to use wildcards, in which case, we would not use auto-wrapping, and we would not escape the wildcards 

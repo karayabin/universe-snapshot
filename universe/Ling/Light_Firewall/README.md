@@ -96,6 +96,18 @@ Learn how to configure the firewall in the [conception notes](https://github.com
 History Log
 =============
 
+- 1.1.6 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.1.5 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
+- 1.1.4 -- 2021-05-10
+
+    - Fix assets missing.
+
 - 1.1.3 -- 2021-03-05
 
     - update README.md, add install alternative

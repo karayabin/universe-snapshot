@@ -1,6 +1,6 @@
 Ling/Light_Cli
 ================
-2021-01-07 --> 2021-03-15
+2021-01-07 --> 2021-05-31
 
 
 
@@ -101,7 +101,7 @@ Table of contents
     - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
     - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
     - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
-    - AbstractProgram::run &ndash; Starts the interactive program.
+    - AbstractProgram::run &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
 - [LightCliApplicationAwareInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationAwareInterface.md) &ndash; The LightCliApplicationAwareInterface interface.
     - [LightCliApplicationAwareInterface::setApplication](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationAwareInterface/setApplication.md) &ndash; Sets the application.
 - [LightCliApplicationInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface.md) &ndash; The LightCliApplicationInterface interface.
@@ -116,7 +116,7 @@ Table of contents
     - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
     - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
     - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
-    - AbstractProgram::run &ndash; Starts the interactive program.
+    - AbstractProgram::run &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
     - [LightCliApplicationInterface::getAppId](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface/getAppId.md) &ndash; Returns the appId of the application.
 - [LightCliCommandInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliCommandInterface.md) &ndash; The LightCliCommandInterface interface.
     - [LightCliCommandInterface::getName](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliCommandInterface/getName.md) &ndash; Returns the name of the command.

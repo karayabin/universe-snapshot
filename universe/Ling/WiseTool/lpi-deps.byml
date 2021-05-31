@@ -1,27 +1,31 @@
 1.0.0: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
 
 1.1.0: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
 
 1.1.1: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
 
 1.2.0: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
 
 1.2.1: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
 
 1.2.2: 
-    - Ling:Chloroform:1.36.6+
-    - Ling:Light_Kit_Admin:0.12.5+
+    - Ling:Chloroform:1.36.6
+    - Ling:Light_Kit_Admin:0.12.5
 
 1.2.3: 
-    - Ling:Chloroform:1.36.7+
-    - Ling:Light_Kit_Admin:0.12.24+
+    - Ling:Chloroform:1.36.7
+    - Ling:Light_Kit_Admin:0.12.24
+
+1.2.4: 
+    - Ling:Chloroform:1.36.8
+    - Ling:Light_Kit_Admin:0.12.41

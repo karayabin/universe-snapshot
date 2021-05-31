@@ -55,7 +55,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEventsHelper::registerOpenEventByPlanet](https://github.com/lingtalfi/Light_Events/blob/master/Helper/LightEventsHelper.php#L49-L73)
+See the source code for method [LightEventsHelper::registerOpenEventByPlanet](https://github.com/lingtalfi/Light_Events/blob/master/Helper/LightEventsHelper.php#L52-L75)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [LightEventsHelper](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper.md) class.
 
-Previous method: [dispatchEvent](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/dispatchEvent.md)<br>
+Previous method: [dispatchEvent](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/dispatchEvent.md)<br>Next method: [unregisterOpenEventByPlanet](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/unregisterOpenEventByPlanet.md)<br>
 

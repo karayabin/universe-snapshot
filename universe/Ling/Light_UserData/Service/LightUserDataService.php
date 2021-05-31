@@ -165,7 +165,7 @@ class LightUserDataService
 
 
             $pluginOptionId = $userDb->getFactory()->getPluginOptionApi()->getPluginOptionsColumn('id', [
-                "category" => "Light_UserData.MSC",
+                "category" => "Ling.Light_UserData.MSC",
                 "name" => "default",
             ], []);
 
@@ -254,7 +254,7 @@ class LightUserDataService
          */
         $udb = $this->container->get("user_database");
 
-        $option = $udb->getFactory()->getPluginOptionApi()->getOptionByCategoryAndUserId("Light_UserData.MSC", $userId);
+        $option = $udb->getFactory()->getPluginOptionApi()->getOptionByCategoryAndUserId("Ling.Light_UserData.MSC", $userId);
         return ConvertTool::convertHumanSizeToBytes($option['value']);
     }
 

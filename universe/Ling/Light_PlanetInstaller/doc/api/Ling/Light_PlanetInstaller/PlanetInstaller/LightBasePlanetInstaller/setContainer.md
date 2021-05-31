@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBasePlanetInstaller::setContainer](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightBasePlanetInstaller.php#L38-L41)
+See the source code for method [LightBasePlanetInstaller::setContainer](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightBasePlanetInstaller.php#L37-L40)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightBasePlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller/__construct.md)<br>Next method: [onMapCopyAfter](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller/onMapCopyAfter.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller/__construct.md)<br>
 

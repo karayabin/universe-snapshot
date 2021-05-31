@@ -16,13 +16,16 @@ Description
 ================
 
 
-public [SubscribersUtil::updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil/updateSubscribersDependenciesAndCommit.md)(string $appDir, string $planetDot) : void
+public [SubscribersUtil::updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil/updateSubscribersDependenciesAndCommit.md)(string $appDir, string $planetDot, ?array $options = []) : void
 
 
 
 
 Updates the planets which depend on the given planetDot.
 By update, I mean increment the version number and push them using my kpp shortcut.
+
+Available options are:
+- force: bool=false. If true, the subscribers planet will be commit no matter what.
 
 
 
@@ -36,6 +39,10 @@ Parameters
     
 
 - planetDot
+
+    
+
+- options
 
     
 
@@ -59,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SubscribersUtil::updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/Util/SubscribersUtil.php#L29-L61)
+See the source code for method [SubscribersUtil::updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/Util/SubscribersUtil.php#L32-L65)
 
 
 See Also

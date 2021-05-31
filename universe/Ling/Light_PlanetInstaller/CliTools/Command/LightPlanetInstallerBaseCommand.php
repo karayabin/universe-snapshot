@@ -3,17 +3,17 @@
 
 namespace Ling\Light_PlanetInstaller\CliTools\Command;
 
-use Exception;
 use Ling\Bat\CaseTool;
 use Ling\Bat\ClassTool;
-use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Command\CommandInterface;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Cli\CliTools\Program\LightCliCommandInterface;
+use Ling\Light_Logger\LightLoggerService;
 use Ling\Light_PlanetInstaller\CliTools\Program\LightPlanetInstallerApplication;
+use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
 
 /**
  * The LightPlanetInstallerBaseCommand class.
@@ -32,6 +32,13 @@ abstract class LightPlanetInstallerBaseCommand implements CommandInterface, Ligh
      * @var LightServiceContainerInterface
      */
     protected LightServiceContainerInterface $container;
+
+
+    /**
+     * This property holds the output for this instance.
+     * @var OutputInterface
+     */
+    private OutputInterface $output;
 
 
     /**
@@ -73,13 +80,34 @@ abstract class LightPlanetInstallerBaseCommand implements CommandInterface, Ligh
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-        $this->application->setCurrentOutput($output);
+        $this->output = $output;
         try {
-            return $this->doRun($input, $output);
+            $ret = $this->doRun($input, $output);
+            if (null === $ret) {
+                $ret = 0;
+            }
+            return $ret;
+
+
         } catch (\Exception $e) {
-            $this->application->logError($e);
+
+            $errorMsg = date("Y-m-d H:i:s") . " - " . $e;
+
+            if ($this->container->has('logger')) {
+                /**
+                 * @var $lg LightLoggerService
+                 */
+                $lg = $this->container->get("logger");
+                $lg->log($errorMsg, "lpi_error");
+            }
+
+            $output->write(PHP_EOL . '<error>' . $errorMsg . '</error>' . PHP_EOL);
+            return 12;
         }
     }
+
+
+
 
 
     //--------------------------------------------
@@ -135,6 +163,19 @@ abstract class LightPlanetInstallerBaseCommand implements CommandInterface, Ligh
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Writes a message to the output.
+     * @param string $message
+     */
+    public function write(string $message)
+    {
+        $this->output->write($message);
+    }
+
+
     /**
      * Sets the application.
      *
@@ -146,15 +187,6 @@ abstract class LightPlanetInstallerBaseCommand implements CommandInterface, Ligh
     }
 
 
-    /**
-     * Proxy to the application's logError method.
-     * @param string|Exception $error
-     *
-     */
-    public function logError(string|\Exception $error)
-    {
-        $this->application->logError($error);
-    }
 
 
 
@@ -162,28 +194,56 @@ abstract class LightPlanetInstallerBaseCommand implements CommandInterface, Ligh
     //
     //--------------------------------------------
     /**
-     * Returns whether the current dir is an application dir (containing an universe dir).
+     * Returns whether the current working directory is a correct universe application (i.e. containing an universe dir).
+     *
+     * This is a security measure to prevent you to accidentally install/import things at wrong places.
+     *
+     * If false is returned, an error message is also written to the output.
+     *
+     *
+     *
+     *
+     * @param InputInterface $input
      * @param OutputInterface $output
      * @return bool
      */
-    protected function checkInsideAppDir(OutputInterface $output): bool
+    protected function checkInsideAppDir(InputInterface $input, OutputInterface $output): bool
     {
-        $uniDir = $this->application->getApplicationDirectory() . "/universe";
-        if (false === is_dir($uniDir)) {
-            $output->write("<warning>Warning: no universe directory found, you're probably not inside a light app directory. Aborting (this is a safety measure).</warning>." . PHP_EOL);
+        $currentDirectory = getcwd();
+
+
+        $byPassUniverse = $input->hasFlag("u");
+
+
+        $uniDir = $currentDirectory . "/universe";
+        if (false === $byPassUniverse && false === is_dir($uniDir)) {
+            $output->write("<warning>Warning: no universe directory found, you're probably not inside a light app directory. Aborting (this is a safety measure).</warning>
+<info>Tip: use the -u flag to override this warning.</info>" . PHP_EOL
+            );
             return false;
         }
-        $bigBang = $uniDir . '/bigbang.php';
-        $bigBangUrl = "https://raw.githubusercontent.com/karayabin/universe-snapshot/master/universe/bigbang.php";
-        if (false === is_file($bigBang)) {
-            $content = file_get_contents($bigBangUrl);
-            if (false !== $content) {
-                FileSystemTool::mkfile($bigBang, $content);
-            } else {
-                $output->write("<warning>Warning: no bigbang.php script found in the universe directory. Aborting (this is a safety measure). Note: you can find the bigbang.php script in $bigBangUrl.</warning>." . PHP_EOL);
-                return false;
-            }
-        }
         return true;
+    }
+
+
+    /**
+     * Writes an error message to the output.
+     * @param string $message
+     */
+    protected function writeError(string $message)
+    {
+        $this->output->write('<error>' . $message . '</error>');
+    }
+
+    /**
+     * Throws an exception.
+     *
+     * @param string $msg
+     * @param int|null $code
+     * @throws \Exception
+     */
+    protected function error(string $msg, int $code = null)
+    {
+        throw new LightPlanetInstallerException(static::class . ": " . $msg, $code);
     }
 }

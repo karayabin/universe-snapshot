@@ -1,7 +1,2 @@
-dependencies: 
-    Ling: 
-        - ListParams
-        - QuickPdo
-    
-
+dependencies: []
 post_install: []

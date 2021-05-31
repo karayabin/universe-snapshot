@@ -1,0 +1,9 @@
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/README.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/api/Ling/InvoiceGenerator/Exception/InvoiceGeneratorException.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/api/Ling/InvoiceGenerator/InvoiceGenerator/captureTemplateContent.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/api/Ling/InvoiceGenerator/InvoiceGenerator/error.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/api/Ling/InvoiceGenerator/InvoiceGenerator/generate.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/api/Ling/InvoiceGenerator/InvoiceGenerator.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/api/Ling/InvoiceGenerator.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/pages/basic_store-classic.md
+https://github.com/lingtalfi/InvoiceGenerator/blob/master/doc/pages/conception-notes.md

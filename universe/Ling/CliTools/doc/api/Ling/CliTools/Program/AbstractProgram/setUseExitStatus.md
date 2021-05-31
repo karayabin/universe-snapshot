@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AbstractProgram::setUseExitStatus](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L139-L142)
+See the source code for method [AbstractProgram::setUseExitStatus](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L140-L143)
 
 
 See Also

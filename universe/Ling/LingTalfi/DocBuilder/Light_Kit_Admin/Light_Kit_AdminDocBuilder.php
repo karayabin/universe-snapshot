@@ -234,6 +234,7 @@ class Light_Kit_AdminDocBuilder
                 "duelist engine" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface.md",
                 "acp response" => "https://github.com/lingtalfi/AjaxCommunicationProtocol",
                 "lka jim toolbox" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-jim-toolbox.md",
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -324,6 +325,9 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_Realform\SuccessHandler\RealformSuccessHandlerInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface.md",
                 "Ling\Light_Kit_Admin\Light_Realform\SuccessHandler\?string" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_Realform/SuccessHandler/?string.md",
                 "Ling\Light_Realist\DuelistEngine\DuelistEngineInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit3HookInterface.md",
+                "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
 
             ],
         ];

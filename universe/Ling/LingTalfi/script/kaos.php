@@ -9,6 +9,7 @@ use Ling\LingTalfi\Kaos\Application\KaosApplication;
 require_once "/myphp/universe/bigbang.php"; // activate universe
 
 
+
 $input = new CommandLineInput();
 $output = new Output();
 

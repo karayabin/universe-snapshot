@@ -1,6 +1,6 @@
 Ling/Light_UserNotifications
 ================
-2020-08-13 --> 2021-03-15
+2020-08-13 --> 2021-05-31
 
 
 
@@ -105,6 +105,11 @@ Table of contents
     - [LightUserNotificationsApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/LightUserNotificationsApiFactory/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
     - [LightUserNotificationsApiFactory::setContainer](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/LightUserNotificationsApiFactory/setContainer.md) &ndash; Sets the container.
 - [LightUserNotificationsException](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Exception/LightUserNotificationsException.md) &ndash; The LightUserNotificationsException class.
+- [LightUserNotificationsPlanetInstaller](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PlanetInstaller/LightUserNotificationsPlanetInstaller.md) &ndash; The LightUserNotificationsPlanetInstaller class.
+    - LightUserDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
+    - LightUserDatabaseBasePlanetInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightUserDatabaseBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
 - [LightUserNotificationsPluginInstaller](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PluginInstaller/LightUserNotificationsPluginInstaller.md) &ndash; The LightUserNotificationsPluginInstaller class.
     - [LightUserNotificationsPluginInstaller::getDependencies](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PluginInstaller/LightUserNotificationsPluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
     - [LightUserNotificationsPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PluginInstaller/LightUserNotificationsPluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitAdminUserDataRowRestrictionHandler::checkRestriction](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ?$args) : void
+public [LightKitAdminUserDataRowRestrictionHandler::checkRestriction](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ...$args) : void
 
 
 

@@ -1,27 +1,27 @@
 1.0.0: 
-    - Ling:Bat:1.293+
-    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293
+    - Ling:BabyYaml:1.7.5
 
 1.1.0: 
-    - Ling:Bat:1.293+
-    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293
+    - Ling:BabyYaml:1.7.5
 
 1.1.1: 
-    - Ling:Bat:1.293+
-    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293
+    - Ling:BabyYaml:1.7.5
 
 1.2.0: 
-    - Ling:Bat:1.293+
-    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293
+    - Ling:BabyYaml:1.7.5
 
 1.2.1: 
-    - Ling:Bat:1.293+
-    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293
+    - Ling:BabyYaml:1.7.5
 
 1.2.2: 
-    - Ling:Bat:1.293+
-    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293
+    - Ling:BabyYaml:1.7.5
 
 1.2.3: 
-    - Ling:BabyYaml:1.7.8+
-    - Ling:Bat:1.308+
+    - Ling:BabyYaml:1.7.8
+    - Ling:Bat:1.308

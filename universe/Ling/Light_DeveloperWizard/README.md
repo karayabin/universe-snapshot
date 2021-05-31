@@ -1,6 +1,6 @@
 Light_DeveloperWizard
 ===========
-2020-06-30 -> 2021-04-15
+2020-06-30 -> 2021-05-06
 
 
 
@@ -68,6 +68,26 @@ developer_wizard:
 History Log
 =============
 
+
+- 1.28.28 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.28.27 -- 2021-05-06
+
+    - add create exception class task
+
+- 1.28.26 -- 2021-05-03
+
+    - update basic service task, now the error method uses an error message containing the containing class
+  
+- 1.28.25 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_PluginInstaller (pushed by SubscribersUtil)
+
+- 1.28.24 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_PluginInstaller (pushed by SubscribersUtil)
 
 - 1.28.23 -- 2021-04-15
 

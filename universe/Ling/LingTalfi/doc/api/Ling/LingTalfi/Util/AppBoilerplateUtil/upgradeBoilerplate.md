@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [AppBoilerplateUtil::upgradeBoilerplate](https://github.com/lingtalfi/LingTalfi/blob/master/Util/AppBoilerplateUtil.php#L90-L227)
+See the source code for method [AppBoilerplateUtil::upgradeBoilerplate](https://github.com/lingtalfi/LingTalfi/blob/master/Util/AppBoilerplateUtil.php#L91-L228)
 
 
 See Also

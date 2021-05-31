@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UpgradeCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L34-L71)
+See the source code for method [UpgradeCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L35-L102)
 
 
 See Also

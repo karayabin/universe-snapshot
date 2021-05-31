@@ -1,19 +1,22 @@
 1.0.0: 
-    - Ling:FormModel:1.5.2+
-    - Ling:QuickPdo:2.41.3+
-    - Ling:RowsGenerator:1.6.2+
+    - Ling:FormModel:1.5.2
+    - Ling:QuickPdo:2.41.3
+    - Ling:RowsGenerator:1.6.2
 
 1.0.1: 
-    - Ling:FormModel:1.5.2+
-    - Ling:QuickPdo:2.41.3+
-    - Ling:RowsGenerator:1.6.2+
+    - Ling:FormModel:1.5.2
+    - Ling:QuickPdo:2.41.3
+    - Ling:RowsGenerator:1.6.2
 
 1.0.2: 
-    - Ling:FormModel:1.5.2+
-    - Ling:QuickPdo:2.41.3+
-    - Ling:RowsGenerator:1.6.2+
+    - Ling:FormModel:1.5.2
+    - Ling:QuickPdo:2.41.3
+    - Ling:RowsGenerator:1.6.2
 
 1.0.3: 
-    - Ling:FormModel:1.5.3+
-    - Ling:QuickPdo:2.41.3+
-    - Ling:RowsGenerator:1.6.2+
+    - Ling:FormModel:1.5.3
+    - Ling:QuickPdo:2.41.3
+    - Ling:RowsGenerator:1.6.2
+
+1.0.4: 
+    - Ling:FormModel:1.5.3

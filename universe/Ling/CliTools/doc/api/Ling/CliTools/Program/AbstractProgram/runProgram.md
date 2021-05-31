@@ -56,7 +56,7 @@ Other return types are free to be interpreted as you see fit.
 
 Source Code
 ===========
-See the source code for method [AbstractProgram::runProgram](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L191-L191)
+See the source code for method [AbstractProgram::runProgram](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L196-L196)
 
 
 See Also

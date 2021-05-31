@@ -4,7 +4,7 @@
 
 The LpiGlobalDirHelper class
 ================
-2020-12-08 --> 2021-05-03
+2020-12-08 --> 2021-05-31
 
 
 
@@ -25,7 +25,6 @@ Class synopsis
 class <span class="pl-k">LpiGlobalDirHelper</span>  {
 
 - Methods
-    - public static [getGlobalDirPlanetHighestVersionNumber](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/getGlobalDirPlanetHighestVersionNumber.md)(string $planetDot) : string
     - public static [getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/getPlanetVersions.md)(string $planetDot) : array
     - public static [copyToGlobalDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/copyToGlobalDir.md)(string $galaxy, string $planet, string $realVersion, string $planetDir) : void
     - public static [globalDirHasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/globalDirHasPlanet.md)(string $planetDot, string $realVersion) : bool
@@ -41,7 +40,6 @@ class <span class="pl-k">LpiGlobalDirHelper</span>  {
 Methods
 ==============
 
-- [LpiGlobalDirHelper::getGlobalDirPlanetHighestVersionNumber](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/getGlobalDirPlanetHighestVersionNumber.md) &ndash; Returns the highest version number of the given planet, as found in the global directory.
 - [LpiGlobalDirHelper::getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/getPlanetVersions.md) &ndash; Returns the version numbers available for the given planet (in the global dir repo), sorted by increasing value.
 - [LpiGlobalDirHelper::copyToGlobalDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/copyToGlobalDir.md) &ndash; Copies the planetDir to the global dir.
 - [LpiGlobalDirHelper::globalDirHasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiGlobalDirHelper/globalDirHasPlanet.md) &ndash; Returns whether the global directory contains the planet identified by the given $planetDot, in the specified $realVersion.

@@ -4,7 +4,7 @@
 
 The CustomPluginOptionApi class
 ================
-2019-07-19 --> 2021-03-15
+2019-07-19 --> 2021-05-31
 
 
 
@@ -31,7 +31,7 @@ class <span class="pl-k">CustomPluginOptionApi</span> extends [PluginOptionApi](
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomPluginOptionApi/__construct.md)() : void
-    - public [deletePluginOptionsByPluginName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomPluginOptionApi/deletePluginOptionsByPluginName.md)(string $pluginName) : void
+    - public [deletePluginOptionsByPluginName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomPluginOptionApi/deletePluginOptionsByPluginName.md)(string $planetDotName) : void
     - public [getOptionByCategoryAndUserId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomPluginOptionApi/getOptionByCategoryAndUserId.md)(string $category, int $userId) : array
 
 - Inherited methods

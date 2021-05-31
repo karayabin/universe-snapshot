@@ -4,7 +4,7 @@
 
 The LightDeveloperWizardWebWizard class
 ================
-2020-06-30 --> 2021-04-15
+2020-06-30 --> 2021-05-31
 
 
 
@@ -169,4 +169,4 @@ See the source code of [Ling\Light_DeveloperWizard\WebWizardTools\WebWizard\Ligh
 
 SeeAlso
 ==============
-Previous class: [SortHooksAlphabeticallyProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceConfig/SortHooksAlphabeticallyProcess.md)<br>
+Previous class: [AddBootstrapWidgetLibraryWidgetProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Widget/AddBootstrapWidgetLibraryWidgetProcess.md)<br>

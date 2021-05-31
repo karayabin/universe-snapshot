@@ -790,6 +790,10 @@ Good luck!
 History Log
 =============
 
+- 1.2.6 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.2.5 -- 2021-03-09
 
     - update README to reflect path change from Ling.Light_Kit_BootstrapWidgetLibrary

@@ -1,23 +1,26 @@
 1.0.0: 
-    - Ling:Jquery:1.1.3+
+    - Ling:Jquery:1.1.3
 
 1.1.0: 
-    - Ling:Jquery:1.1.3+
+    - Ling:Jquery:1.1.3
 
 1.2.0: 
-    - Ling:Jquery:1.1.3+
+    - Ling:Jquery:1.1.3
 
 1.3.0: 
-    - Ling:Jquery:1.1.3+
+    - Ling:Jquery:1.1.3
 
 1.3.1: 
-    - Ling:Jquery:1.1.3+
+    - Ling:Jquery:1.1.3
 
 1.3.2: 
-    - Ling:Jquery:1.1.3+
+    - Ling:Jquery:1.1.3
 
 1.3.3: 
-    - Ling:Jquery:1.1.3+
+    - Ling:Jquery:1.1.3
 
 1.3.4: 
-    - Ling:Jquery:1.1.4+
+    - Ling:Jquery:1.1.4
+
+1.3.5: 
+    - Ling:Jquery:1.1.5

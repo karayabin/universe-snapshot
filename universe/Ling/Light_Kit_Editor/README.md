@@ -1,6 +1,6 @@
 Light_Kit_Editor
 ===========
-2021-03-08 -> 2021-04-09
+2021-03-08 -> 2021-05-31
 
 
 
@@ -67,6 +67,22 @@ kit_editor:
 
 History Log
 =============
+
+- 0.2.4 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 0.2.3 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
+- 0.2.2 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
+- 0.2.1 -- 2021-05-11
+
+    - Update dependencies to Ling.Light_EasyRoute (pushed by SubscribersUtil)
 
 - 0.2.0 -- 2021-04-09
 

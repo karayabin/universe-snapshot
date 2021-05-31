@@ -1,23 +1,25 @@
 1.0.0: 
-    - Ling:DirScanner:1.13.2+
-    - Ling:TokenFun:1.11.4+
+    - Ling:DirScanner:1.13.2
+    - Ling:TokenFun:1.11.4
 
 1.1.0: 
-    - Ling:DirScanner:1.13.2+
-    - Ling:TokenFun:1.11.4+
+    - Ling:DirScanner:1.13.2
+    - Ling:TokenFun:1.11.4
 
 1.2.0: 
-    - Ling:DirScanner:1.13.2+
-    - Ling:TokenFun:1.11.4+
+    - Ling:DirScanner:1.13.2
+    - Ling:TokenFun:1.11.4
 
 1.2.1: 
-    - Ling:DirScanner:1.13.2+
-    - Ling:TokenFun:1.11.4+
+    - Ling:DirScanner:1.13.2
+    - Ling:TokenFun:1.11.4
 
 1.2.2: 
-    - Ling:DirScanner:1.13.2+
-    - Ling:TokenFun:1.11.4+
+    - Ling:DirScanner:1.13.2
+    - Ling:TokenFun:1.11.4
 
 1.2.3: 
-    - Ling:DirScanner:1.13.4+
-    - Ling:TokenFun:1.11.5+
+    - Ling:DirScanner:1.13.4
+    - Ling:TokenFun:1.11.5
+
+1.2.4: []

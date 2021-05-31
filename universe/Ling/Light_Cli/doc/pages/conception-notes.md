@@ -1,29 +1,98 @@
 Light cli, conception notes
 ==========
-2021-01-05 -> 2021-02-26
+2021-01-05 -> 2021-05-24
 
 The major ideas behind **light cli** are:
 
-- creating only ONE script for all cli apps, instead of one script per cli app
-- having access to the light (initialized) instance, from the cli apps
-- a create app command
+ 
+
+- provide you with one executable (called **light** from now on) which you can use to manipulate all the light apps on your machine 
+- third party plugins can extend our **light** program by adding their own commands  
+- we provide some [basic commands](#usage-commands) to start with
+- our executable has access to the light (initialized) instance, which makes programming easier for light developers (because we can access to the container)
+
+
 
 Installation/basics
 ---------
-2021-01-05 -> 2021-02-12
+2021-01-05 -> 2021-05-24
 
-The installation process does the following:
 
-- install a **standalone light app** on your machine
-- install the **light-cli** executable on your machine
+There are two ways to install the **light** command on your machine:
 
-When you invoke the **light-cli** executable, it will try to use the **light app** you are in first. If you're not in a
-light app, it will use the **standalone light app** as a fallback.
+- the [automatic installation](#automatic-installation) (a one liner)
+- the [manual installation](#manual-installation) (is the exact description of what the automatic **install** does, but you do them manually)
 
-To complete the installation process, you can use either of the following techniques:
 
-- the automatic installation (a one liner)
-- the manual installation (is the exact description of what the automatic **install** does, but you do them manually)
+Regardless of the installation method you choose, it will do the following:
+
+- install a **standalone light app** on your machine (located in **/usr/local/share/universe/Ling/Light_Cli/light-app-standalone**)
+- install the **light-cli** executable on your machine (located in **/usr/local/share/universe/Ling/Light_Cli/light-app-standalone/universe/Ling/Light_Cli/bin/light-cli**)
+- make two aliases to the **light-cli** executable, so that it's easier to call from a terminal:
+    - light     (**/usr/local/bin/light**)
+    - lt        (**/usr/local/bin/lt**)
+    The two aliases work the same way, just use the one you want (by typing it directly in your terminal) to invoke our executable.
+            
+
+
+
+Once this is done, you can use our **light** executable/program to execute our [basic commands](#usage-commands), or some other commands from third-party authors.
+
+As a third-party author, your commands have access to the **light instance** (and therefore the container of the app).
+
+
+However, the **light instance** that you get depends on the current directory (pwd).
+
+See more in the [light executable script](#the-light-executable-script) section.
+
+
+
+
+
+
+The light executable script
+----------
+2021-05-24
+
+
+Our executable resides in **/usr/local/share/universe/Ling/Light_Cli/light-app-standalone/universe/Ling/Light_Cli/bin/light-cli**, and can be called via either of its two aliases:
+
+- light
+- lt
+
+
+The goal of the **light executable** is to initialize the light instance, and provide them to the rest of the code (i.e. the third-party authors commands' code, mainly)
+
+
+In order to initialize the light instance, we internally do this two-steps process:
+
+- call a [bigbang.php](https://raw.githubusercontent.com/karayabin/universe-snapshot/master/universe/bigbang.php) script to start the universe
+- call the **init light script** (located at **scripts/Ling/Light/init.light.inc.php**) provided by the [Light planet](https://github.com/lingtalfi/Light), and which provides the **light instance** (and container). 
+  
+
+The exact path of the **bigbang.php** script and the **init light script**  depend on your current working directory (given by the native pwd command).
+
+Basically, if you are inside a **light application** (which directory is **$appDir**) we try to use the files from the **light application** you are in.
+
+If you're not inside a **light application**, then we resort to the fallback files located in the **standalone light app** that was installed during the [installation process](#installationbasics).
+
+
+So, the possible paths for the **bigbang** script are:
+
+- **$appDir/universe/bigbang.php**                                                          (if your are inside a light application located at $appDir)
+- **/usr/local/share/universe/Ling/Light_Cli/light-app-standalone/universe/bigbang.php**    (by default, if you are not inside any light application)
+  
+Similarly, the possible paths for the **init light script** are:
+
+- **$appDir/scripts/Ling/Light/init.light.inc.php**                                                         (if your are inside a light application located at $appDir)
+- **/usr/local/share/universe/Ling/Light_Cli/light-app-standalone/scripts/Ling/Light/init.light.inc.php**    (by default, if you are not inside any light application)
+
+
+Note that with this system, it's likely that the **light executable** uses the **bigbang** script from your app, while using the **init light script** from
+the **standalone light app**. That's normal, and it's a design choice that actually solve some problems I had while conceiving third-party commands (i.e. the [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller) planet).
+
+
+
 
 ### automatic installation
 

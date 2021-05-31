@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UpgradeCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L25-L28)
+See the source code for method [UpgradeCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeCommand.php#L26-L29)
 
 
 See Also

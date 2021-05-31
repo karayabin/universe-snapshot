@@ -71,7 +71,6 @@ class LightKitAdminBMenuRegistrationUtil
         LightBMenuTool::toAssociative($items);
 
 
-
         switch ($section) {
             case "root":
                 foreach ($items as $id => $item) {
@@ -99,6 +98,69 @@ class LightKitAdminBMenuRegistrationUtil
         BabyYamlUtil::writeFile($arr, $file);
 
     }
+
+
+    /**
+     * Removes menu items from a section of the admin main menu.
+     *
+     * The section can be one of:
+     * - user, will remove the items from the "user" submenu
+     * - admin, will remove the items from the "admin" submenu
+     * - root, will remove the items from the root of the admin main menu
+     *
+     *
+     *
+     * @param string $section
+     * @param array $items
+     */
+    public function removeItemsFromMainMenuSection(string $section, array $items)
+    {
+
+        /**
+         * @var $bm LightBMenuService
+         */
+        $bm = $this->container->get("bmenu");
+        $file = $bm->getMenusBaseDir() . "/Ling.Light_Kit_Admin/admin_main_menu.byml";
+        if (true === file_exists($file)) {
+            $arr = BabyYamlUtil::readFile($file);
+        } else {
+            $arr = [];
+        }
+
+
+        LightBMenuTool::toAssociative($items);
+
+
+        switch ($section) {
+            case "root":
+                foreach ($items as $id => $item) {
+                    if (true === array_key_exists($id, $arr)) {
+                        unset($arr[$id]);
+                    }
+                }
+                break;
+            case "admin":
+            case "user":
+                $specialItem = $arr["lka-$section"] ?? null;
+                if (null === $specialItem) {
+                    $this->error("The lka-$section menu item was not found, make sure the Ling.Light_Kit_Admin plugin is installed first.");
+                }
+                foreach ($items as $id => $item) {
+                    if ($id === $item['id']) {
+                        unset($specialItem['children'][$id]);
+                    }
+                }
+                $arr["lka-$section"] = $specialItem;
+                break;
+            default:
+                throw new LightKitAdminException("Unknown menu section: $section. Aborting.");
+        }
+
+
+        BabyYamlUtil::writeFile($arr, $file);
+
+    }
+
 
 
 

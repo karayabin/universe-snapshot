@@ -1,8 +1,6 @@
 dependencies: 
     Ling: 
-        - Bat
-        - BeeFramework
-        - ThumbnailTools
+        - QuickPdo
     
 
 post_install: []

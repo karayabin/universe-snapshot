@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_LoginNotifier
 ================
-2020-11-30 --> 2021-03-23
+2020-11-30 --> 2021-05-31
 
 
 
@@ -28,7 +28,10 @@ Table of contents
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminLoginNotifierPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/doc/api/Ling/Light_Kit_Admin_LoginNotifier/Light_PlanetInstaller/LightKitAdminLoginNotifierPlanetInstaller.md) &ndash; The LightKitAdminLoginNotifierPlanetInstaller class.
-    - LightKitAdminBasePlanetInstaller::onMapCopyAfter &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightKitAdminBasePlanetInstaller::init2 &ndash; Executes the init 2 phase of the install command.
+    - LightKitAdminBasePlanetInstaller::undoInit2 &ndash; Undoes the init 2 phase.
+    - LightKitAdminBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightKitAdminBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminLoginNotifierPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/doc/api/Ling/Light_Kit_Admin_LoginNotifier/Light_PluginInstaller/LightKitAdminLoginNotifierPluginInstaller.md) &ndash; The LightKitAdminLoginNotifierPluginInstaller class.
@@ -51,5 +54,6 @@ Dependencies
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
+- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 
 

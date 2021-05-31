@@ -4,7 +4,7 @@
 
 The CustomPluginOptionApiInterface class
 ================
-2019-07-19 --> 2021-03-15
+2019-07-19 --> 2021-05-31
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 abstract class <span class="pl-k">CustomPluginOptionApiInterface</span> implements [PluginOptionApiInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PluginOptionApiInterface.md) {
 
 - Methods
-    - abstract public [deletePluginOptionsByPluginName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Interfaces/CustomPluginOptionApiInterface/deletePluginOptionsByPluginName.md)(string $pluginName) : void
+    - abstract public [deletePluginOptionsByPluginName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Interfaces/CustomPluginOptionApiInterface/deletePluginOptionsByPluginName.md)(string $planetDotName) : void
     - abstract public [getOptionByCategoryAndUserId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Interfaces/CustomPluginOptionApiInterface/getOptionByCategoryAndUserId.md)(string $category, int $userId) : array
 
 - Inherited methods

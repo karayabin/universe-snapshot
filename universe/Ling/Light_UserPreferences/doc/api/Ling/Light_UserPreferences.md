@@ -1,6 +1,6 @@
 Ling/Light_UserPreferences
 ================
-2020-07-31 --> 2021-03-15
+2020-07-31 --> 2021-05-31
 
 
 
@@ -107,6 +107,11 @@ Table of contents
     - [LightUserPreferencesApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/LightUserPreferencesApiFactory/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
     - [LightUserPreferencesApiFactory::setContainer](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/LightUserPreferencesApiFactory/setContainer.md) &ndash; Sets the container.
 - [LightUserPreferencesException](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Exception/LightUserPreferencesException.md) &ndash; The LightUserPreferencesException class.
+- [LightUserPreferencesPlanetInstaller](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Light_PlanetInstaller/LightUserPreferencesPlanetInstaller.md) &ndash; The LightUserPreferencesPlanetInstaller class.
+    - LightUserDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
+    - LightUserDatabaseBasePlanetInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightUserDatabaseBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
 - [LightUserPreferencesPluginInstaller](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Light_PluginInstaller/LightUserPreferencesPluginInstaller.md) &ndash; The LightUserPreferencesPluginInstaller class.
     - [LightUserPreferencesPluginInstaller::getDependencies](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Light_PluginInstaller/LightUserPreferencesPluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
     - [LightUserPreferencesPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Light_PluginInstaller/LightUserPreferencesPluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.

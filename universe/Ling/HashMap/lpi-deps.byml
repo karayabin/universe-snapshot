@@ -1,19 +1,23 @@
 1.0.0: 
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
 
 1.0.1: 
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
 
 1.0.2: 
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
 
 1.0.3: 
-    - Ling:Bat:1.293+
-    - Ling:DirScanner:1.13.2+
+    - Ling:Bat:1.293
+    - Ling:DirScanner:1.13.2
 
 1.0.4: 
-    - Ling:Bat:1.308+
-    - Ling:DirScanner:1.13.4+
+    - Ling:Bat:1.308
+    - Ling:DirScanner:1.13.4
+
+1.0.5: 
+    - Ling:Bat:1.322
+    - Ling:DirScanner:1.13.6

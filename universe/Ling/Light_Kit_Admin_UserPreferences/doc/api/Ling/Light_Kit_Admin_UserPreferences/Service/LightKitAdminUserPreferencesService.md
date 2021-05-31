@@ -4,7 +4,7 @@
 
 The LightKitAdminUserPreferencesService class
 ================
-2020-08-13 --> 2021-03-23
+2020-08-13 --> 2021-05-31
 
 
 

@@ -29,39 +29,28 @@ class LpiDepsFileHelper
 
 
     /**
-     * Returns an array containing @page(lpi-deps) info for the last version of the given planet.
      *
-     * The returned array has the following structure:
+     * Returns the content of the lpi deps file as an array.
      *
-     * - 0: real version number
-     * - 1: array of planetDotName => version expression
+     * Throws an LpiIncompatibleException exception the lpi deps file wasn't found at the given location.
      *
-     *
-     * Links: [version expression](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#version-expression).
+     * The location can be either an url or a filesystem path.
      *
      *
      *
      *
-     * @param string $planetDir
+     *
+     * @param string $location
      * @return array
+     * @throws \Exception
      */
-    public static function getLatestLpiDependenciesByPlanetDir(string $planetDir): array
+    public static function getLpiDepsContentByLocation(string $location)
     {
-        $lpiDepsFilePath = self::getLpiDepsFilePathByPlanetDir($planetDir);
-        if (false === file_exists($lpiDepsFilePath)) {
-            throw new LightPlanetInstallerException("No lpi-deps.byml file found in $lpiDepsFilePath.");
+        $content = file_get_contents($location);
+        if (false === $content) {
+            throw new LpiIncompatibleException("The lpi-deps.byml file was not found at \"$location\".");
         }
-
-
-        $data = BabyYamlUtil::readFile($lpiDepsFilePath);
-        $last = array_key_last($data);
-        $deps = array_pop($data);
-
-
-        return [
-            $last,
-            $deps,
-        ];
+        return BabyYamlUtil::readBabyYamlString($content);
     }
 
 
@@ -87,95 +76,6 @@ class LpiDepsFileHelper
     }
 
 
-
-
-
-    /**
-     * Takes the lpi-deps.byml file of the given source planet, and updates all dependencies of the given dstPlanetDotName found in it with the given version expression.
-     *
-     *
-     * @param string $srcPlanetDir
-     * @param string $dstPlanetDotName
-     * @param string $dstVersionExpr
-     */
-//    public static function updateDependency(string $srcPlanetDir, string $dstPlanetDotName, string $dstVersionExpr)
-//    {
-//        $lpiDepsFile = self::getLpiDepsFilePathByPlanetDir($srcPlanetDir);
-//        list($galaxy, $planet) = explode(".", $dstPlanetDotName);
-//        $content = file_get_contents($lpiDepsFile);
-//        if (false === $content) {
-//            throw new LpiIncompatibleException("The lpi-deps.byml file was not found at \"$lpiDepsFile\".");
-//        }
-//        $deps = BabyYamlUtil::readBabyYamlString($content);
-//
-//        foreach ($deps as $version => $items) {
-//            $found = false;
-//            foreach ($items as $k => $v) {
-//                if (true === str_starts_with($v, "$galaxy:$planet:")) {
-//                    $found = true;
-//                    $deps[$version][$k] = "$galaxy:$planet:$dstVersionExpr";
-//                }
-//            }
-//
-//            if (false === $found) {
-//                $deps[$version][] = "$galaxy:$planet:$dstVersionExpr";
-//            }
-//        }
-//
-//        BabyYamlUtil::writeFile($deps, $lpiDepsFile);
-//
-//    }
-
-
-    /**
-     *
-     * Returns the dependencies for the given version, found in the lpi-deps.byml file which location is given.
-     * The returned array items have the following structure:
-     *
-     * - 0: planetDot
-     * - 1: versionExpression
-     *
-     * Throws an exception if it can't return the array.
-     *
-     * The location can be either an url or a filesystem path.
-     *
-     *
-     *
-     *
-     *
-     * @param string $location
-     * @param string $version
-     * @return array
-     * @throws \Exception
-     */
-    public static function getLpiDepsByLocation(string $location, string $version)
-    {
-        $content = file_get_contents($location);
-        if (false === $content) {
-            throw new LpiIncompatibleException("The lpi-deps.byml file was not found at \"$location\".");
-        }
-        $deps = BabyYamlUtil::readBabyYamlString($content);
-
-
-        if (array_key_exists($version, $deps)) {
-            $depsUnprocessed = $deps[$version];
-            $ret = [];
-            foreach ($depsUnprocessed as $item) {
-                $p = explode(':', $item);
-                list($galaxy, $planet, $versionExpr) = $p;
-                $ret[] = [
-                    $galaxy . "." . $planet,
-                    $versionExpr,
-                ];
-            }
-            return $ret;
-        } else {
-            throw new LpiIncompatibleException("Version $version not found in the lpi-deps.byml file (at \"$location\").");
-        }
-    }
-
-
-
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -191,7 +91,6 @@ class LpiDepsFileHelper
      * Available options are:
      * - universeDir: string, the location of the universe directory. This is where the dependencies are searched for.
      *      By default it's the directory two parents above the given planet directory.
-     * - versionPlus: bool=true, whether to add the plus symbol at the end of the version number for each item.
      *
      * @param string $planetDir
      * @param array $options
@@ -204,7 +103,6 @@ class LpiDepsFileHelper
     {
         $deps = [];
         $uniDir = $options['universeDir'] ?? null;
-        $versionPlus = $options['versionPlus'] ?? true;
         if (null === $uniDir) {
             $uniDir = realpath($planetDir . "/../../");
             if ('universe' !== basename($uniDir)) {
@@ -217,8 +115,7 @@ class LpiDepsFileHelper
             list($galaxy, $planet) = $dependency;
             $depPlanetDir = $uniDir . "/$galaxy/$planet";
             $version = MetaInfoTool::getVersion($depPlanetDir);
-            $sPlus = (true === $versionPlus) ? '+' : '';
-            $deps[] = implode(':', [$galaxy, $planet, $version . $sPlus]);
+            $deps[] = implode(':', [$galaxy, $planet, $version]);
         }
         return $deps;
     }
@@ -250,7 +147,6 @@ class LpiDepsFileHelper
         $versionNumbers = StandardReadmeUtil::getReadmeVersionsByPlanetDir($planetDir);
         $deps = self::getDependencyListByPlanetDir($planetDir, [
             'universeDir' => $uniDir,
-            'versionPlus' => true,
         ]);
         foreach ($versionNumbers as $number) {
             $data[$number] = $deps;
@@ -258,4 +154,6 @@ class LpiDepsFileHelper
         BabyYamlUtil::writeFile($data, $lpiDepsFilePath);
 
     }
+
+
 }

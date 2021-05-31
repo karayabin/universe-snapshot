@@ -4,7 +4,7 @@
 
 The AssetsMapTool class
 ================
-2019-02-26 --> 2021-03-18
+2019-02-26 --> 2021-05-31
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\UniverseTools\AssetsMapTool](https://github.com/lin
 
 SeeAlso
 ==============
-Next class: [DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool.md)<br>
+Next class: [BangTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/BangTool.md)<br>

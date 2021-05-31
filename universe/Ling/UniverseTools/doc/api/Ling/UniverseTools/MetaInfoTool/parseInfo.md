@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/parseInfo.md)(string $planetDir) : array
+public static [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/parseInfo.md)(string $planetDir, ?array $options = []) : array
 
 
 
@@ -24,6 +24,14 @@ public static [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseToo
 Returns an array of the meta info found in the given planet.
 
 If no info is found (meta-info file not found for instance), the returned array will be empty.
+
+Available options are:
+
+- numbersAsString: bool=true. Whether to convert numbers (int and float) to strings.
+     This option is set to true by default, because some planets like Bat use a version number with two components only instead of three (i.e. 1.24, 1.25, ...).
+     The float to string conversion in php can lead to errors, such as version 1.320 interpreted as 1.32, which is unacceptable.
+     Since the meta-info.byml mainly contains the version information, it makes sense to have the numbersAsString set to true by default,
+     so that 1.320 becomes string 1.320 instead of float 1.32.
 
 
 
@@ -33,6 +41,10 @@ Parameters
 
 
 - planetDir
+
+    
+
+- options
 
     
 
@@ -51,7 +63,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L34-L44)
+See the source code for method [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L44-L55)
 
 
 See Also

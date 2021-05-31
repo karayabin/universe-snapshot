@@ -1,6 +1,6 @@
 Ling/Uni2
 ================
-2019-03-12 --> 2021-03-05
+2019-03-12 --> 2021-05-31
 
 
 
@@ -197,6 +197,7 @@ Table of contents
     - [ErrorSummary::displayErrorRecap](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/ErrorSummary/ErrorSummary/displayErrorRecap.md) &ndash; Writes the "error recap widget" to the given output.
 - [Uni2Exception](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Exception/Uni2Exception.md) &ndash; The Uni2Exception class.
 - [DependencyMasterHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper.md) &ndash; The DependencyMasterHelper class.
+    - [DependencyMasterHelper::getDependencyMasterArrayFromWeb](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getDependencyMasterArrayFromWeb.md) &ndash; Returns the dependency master content as an array, or false if a problem occurs.
     - [DependencyMasterHelper::findGalaxyByPlanet](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/findGalaxyByPlanet.md) &ndash; Returns the name of the galaxy to which belongs the given $planetName.
     - [DependencyMasterHelper::getGalaxies](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getGalaxies.md) &ndash; Returns the names of the galaxies present in the dependency master array.
     - [DependencyMasterHelper::getPlanetItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getPlanetItem.md) &ndash; or false otherwise (if the planet is not referenced in the dependency master array, or the planet name is invalid).

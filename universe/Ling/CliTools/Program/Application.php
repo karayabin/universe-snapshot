@@ -85,6 +85,7 @@ class Application extends AbstractProgram
      */
     protected function runProgram(InputInterface $input, OutputInterface $output)
     {
+        $ret = 0;
         $commandAlias = $input->getParameter(1);
         if (null === $commandAlias) {
             $commandAlias = $this->defaultCommandAlias;
@@ -100,7 +101,7 @@ class Application extends AbstractProgram
 
 
                     if ($instance instanceof CommandInterface) {
-                        return $instance->run($input, $output);
+                        $ret = $instance->run($input, $output);
                     } else {
                         throw new ApplicationException("The given instance is not a CliTools\Command\CommandInterface");
                     }
@@ -108,11 +109,13 @@ class Application extends AbstractProgram
                     throw new ApplicationException($e->getMessage());
                 }
             } else {
-                $this->onCommandNotFound($commandAlias, $input, $output);
+                $ret = $this->onCommandNotFound($commandAlias, $input, $output);
             }
         } else {
             throw new ApplicationException("The name of the command to execute was not found in the given command line.");
         }
+
+        return $ret;
     }
 
 
@@ -130,6 +133,8 @@ class Application extends AbstractProgram
     /**
      * Hook called if a command was not found.
      *
+     * This method returns the "return status" to return to the unix command.
+     *
      * By default, it throws an exception.
      *
      * @param string $commandAlias
@@ -138,7 +143,7 @@ class Application extends AbstractProgram
      * @throws \Exception
      * @overrideMe
      */
-    protected function onCommandNotFound(string $commandAlias, InputInterface $input, OutputInterface $output)
+    protected function onCommandNotFound(string $commandAlias, InputInterface $input, OutputInterface $output): int
     {
         throw new ApplicationException("Command $commandAlias not registered.");
     }

@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected static [SimplePdoWrapper::addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addAssignmentListSubStmt.md)($stmt, array &$markers, array $fields, ?$firstForm = false) : void
+protected static [SimplePdoWrapper::addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addAssignmentListSubStmt.md)(&$stmt, array &$markers, array $fields, ?$firstForm = false) : void
 
 
 

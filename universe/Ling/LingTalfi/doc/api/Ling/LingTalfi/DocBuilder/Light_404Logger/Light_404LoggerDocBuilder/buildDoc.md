@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_404LoggerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_404Logger/Light_404LoggerDocBuilder.php#L45-L220)
+See the source code for method [Light_404LoggerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_404Logger/Light_404LoggerDocBuilder.php#L45-L222)
 
 
 See Also

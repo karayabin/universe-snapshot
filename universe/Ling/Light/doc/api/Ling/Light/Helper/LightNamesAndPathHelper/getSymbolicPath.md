@@ -53,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightNamesAndPathHelper::getSymbolicPath](https://github.com/lingtalfi/Light/blob/master/Helper/LightNamesAndPathHelper.php#L43-L50)
+See the source code for method [LightNamesAndPathHelper::getSymbolicPath](https://github.com/lingtalfi/Light/blob/master/Helper/LightNamesAndPathHelper.php#L49-L56)
 
 
 See Also

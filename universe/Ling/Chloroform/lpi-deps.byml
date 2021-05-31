@@ -1,399 +1,404 @@
 1.0.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.1.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.2.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.3.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.4.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.4.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.4.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.5.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.3: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.4: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.5: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.6: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.7: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.8: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.6.9: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.7.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.8.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.8.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.8.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.8.3: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.8.4: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.9.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.10.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.11.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.12.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.12.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.13.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.13.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.14.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.14.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.14.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.15.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.16.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.17.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.17.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.17.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.18.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.19.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.19.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.19.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.19.3: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.20.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.20.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.20.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.21.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.22.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.23.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.23.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.23.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.23.3: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.24.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.24.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.25.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.26.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.27.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.28.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.29.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.30.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.31.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.32.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.32.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.33.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.33.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.34.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.34.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.34.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.34.3: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.35.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.35.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.0: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.1: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.2: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.3: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.4: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.5: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.6: 
-    - Ling:CSRFTools:1.5.3+
-    - Ling:Bat:1.293+
-    - Ling:PhpUploadFileFix:1.0.2+
+    - Ling:CSRFTools:1.5.3
+    - Ling:Bat:1.293
+    - Ling:PhpUploadFileFix:1.0.2
 
 1.36.7: 
-    - Ling:Bat:1.308+
-    - Ling:CSRFTools:1.5.4+
-    - Ling:PhpUploadFileFix:1.0.3+
+    - Ling:Bat:1.308
+    - Ling:CSRFTools:1.5.4
+    - Ling:PhpUploadFileFix:1.0.3
+
+1.36.8: 
+    - Ling:Bat:1.322
+    - Ling:CSRFTools:1.5.5
+    - Ling:PhpUploadFileFix:1.0.4

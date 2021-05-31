@@ -1,12 +1,25 @@
 Light_PluginInstaller
 ===========
-2020-02-07 -> 2021-03-15
+2020-02-07 -> 2021-05-31
+
+
+Deprecation notice
+--------
+warning, this planet is not really used anymore, it has been superseded by the [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller) planet.
+
+
+
 
 A plugin installer service for [Light](https://github.com/lingtalfi/Light) applications.
 
 This is a [Light plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+
 
 
 Install
@@ -79,6 +92,18 @@ $logger.methods_collection:
 History Log
 =============
 
+- 2.0.22 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 2.0.21 -- 2021-05-31
+
+    - add deprecation notice in the README.md
+  
+- 2.0.20 -- 2021-05-03
+
+    - fake commit to force assets generation
+  
 - 2.0.19 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

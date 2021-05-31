@@ -1,6 +1,6 @@
 Ling/ParametrizedSqlQuery
 ================
-2019-08-12 --> 2021-03-05
+2019-08-12 --> 2021-05-31
 
 
 
@@ -22,6 +22,7 @@ Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [SqlQuery](https://github.com/lingtalfi/SqlQuery)
 - [UniversalLogger](https://github.com/lingtalfi/UniversalLogger)
 

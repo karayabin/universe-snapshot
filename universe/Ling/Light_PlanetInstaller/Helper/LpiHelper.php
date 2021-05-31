@@ -3,8 +3,8 @@
 
 namespace Ling\Light_PlanetInstaller\Helper;
 
-use Ling\Bat\FileSystemTool;
-use Ling\UniverseTools\MetaInfoTool;
+
+use Ling\Bat\ClassTool;
 use Ling\UniverseTools\PlanetTool;
 
 /**
@@ -15,34 +15,57 @@ class LpiHelper
 
 
     /**
-     * Create a global dir planet for every planets listed in the given universe dir.
-     * The location of the global dir is the one defined in the global configuration.
+     * Returns a temporary directory used internally by this planet.
      *
-     * See the conception notes for more details.
+     * Note: this directory is not automatically deleted unless you reboot your machine (i.e. never on a server), you need to delete it manually.
      *
      *
-     * @param string $universeDir
-     * @param bool $debug
+     * @return string
      */
-    public static function createGlobalDirByUniverseDir(string $universeDir, bool $debug = false)
+    public static function getSelfTmpDir(): string
     {
-        $globalDir = LpiConfHelper::getGlobalDirPath();
-        $planetDirs = PlanetTool::getPlanetDirs($universeDir);
-        foreach ($planetDirs as $planetDir) {
-            $p = explode("/", $planetDir);
-            $planet = array_pop($p);
-            $galaxy = array_pop($p);
+        return "/tmp/universe/Ling/Light_PlanetInstaller";
+    }
+
+    /**
+     * Returns the location of the "session dirs" directory.
+     * @return string
+     */
+    public static function getSessionDirsPath(): string
+    {
+        return self::getSelfTmpDir() . "/session-dirs";
+    }
 
 
-            if (true === $debug) {
-                echo $planet . PHP_EOL;
-            }
+    /**
+     * Returns the path to the universe maps directory.
+     * @param string $appDir
+     * @return string
+     */
+    public static function getUniverseMapsDir(string $appDir): string
+    {
+        return $appDir . "/_universe_maps";
+    }
 
 
-            $version = MetaInfoTool::getVersion($planetDir);
-            $newPlanetDir = $globalDir . "/$galaxy/$planet/$version";
-            FileSystemTool::copyDir($planetDir, $newPlanetDir);
+    /**
+     * Returns the planet installer instance for the given planet, if it exists, or false otherwise.
+     *
+     *
+     * @param string $planetDotName
+     * @return object|false
+     */
+    public static function getPlanetInstallerInstance(string $planetDotName): object|false
+    {
+
+        list($galaxy, $planet) = PlanetTool::extractPlanetDotName($planetDotName);
+
+        $tightPlanet = PlanetTool::getTightPlanetName($planet);
+        $installerClass = "$galaxy\\$planet\\Light_PlanetInstaller\\${tightPlanet}PlanetInstaller";
+        if (true === ClassTool::isLoaded($installerClass)) {
+            return new $installerClass;
         }
+        return false;
     }
 
 

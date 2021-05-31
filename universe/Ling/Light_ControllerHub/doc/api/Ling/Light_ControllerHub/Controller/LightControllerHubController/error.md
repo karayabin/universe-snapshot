@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightControllerHubController::error](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Controller/LightControllerHubController.php#L84-L87)
+See the source code for method [LightControllerHubController::error](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Controller/LightControllerHubController.php#L81-L84)
 
 
 See Also

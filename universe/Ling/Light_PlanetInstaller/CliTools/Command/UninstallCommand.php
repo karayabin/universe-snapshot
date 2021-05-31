@@ -6,8 +6,9 @@ namespace Ling\Light_PlanetInstaller\CliTools\Command;
 
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Light_Cli\Helper\LightCliFormatHelper;
 use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
-use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
+use Ling\Light_PlanetInstaller\Util\UninstallUtil;
 
 
 /**
@@ -26,28 +27,28 @@ class UninstallCommand extends LightPlanetInstallerBaseCommand
 
 
         $planetDotName = $input->getParameter(2);
+        $appDir = $input->getOption("app", getcwd());
 
         if (null === $planetDotName) {
             $output->write("<error>The planetDotName parameter wasn't specified. Try again.</error>" . PHP_EOL);
-            return;
+            return 1;
         }
 
 
+        //--------------------------------------------
+        // UNINSTALL
+        //--------------------------------------------
+        $util = new UninstallUtil();
+        $util->setOutput($output);
+        $util->setContainer($this->container);
+        $util->uninstall($planetDotName, [
+            'app' => $appDir,
+        ]);
 
-        /**
-         * @var $pi LightPluginInstallerService
-         */
-        $pi = $this->container->get("plugin_installer");
 
-        if (true === $pi->isInstallable($planetDotName)) {
-            $output->write("Logic uninstalling planet $planetDotName...");
-            $pi->uninstall($planetDotName);
-            $output->write("<success>ok</success>" . PHP_EOL);
-        } else {
-            $output->write("This planet is not installable, skipping." . PHP_EOL);
-        }
+
+        return 0;
     }
-
 
 
     //--------------------------------------------
@@ -58,14 +59,11 @@ class UninstallCommand extends LightPlanetInstallerBaseCommand
      */
     public function getDescription(): string
     {
-
-        $url = LpiFormatHelper::getUrlFmt();
-        $concept = LpiFormatHelper::getConceptFmt();
-
-        $s = <<<EEE
-<$concept>logic uninstalls</$concept>(<$url>https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md#the-logic-uninstall-procedure</$url>) the plugin (if it's <$concept>uninstallable</$concept>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#the-difference-between-install-and-import</$url>))
-EEE;
-        return $s;
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+        return "
+ <$co>Uninstalls</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#uninstall-algorithm</$url>) a planet from your app.
+ ";
     }
 
     /**
@@ -73,25 +71,44 @@ EEE;
      */
     public function getParameters(): array
     {
-        $concept = LpiFormatHelper::getConceptFmt();
-        $url = LpiFormatHelper::getUrlFmt();
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
 
         return [
-            "planetDot" => [
-                "The <$concept>planetDotName</$concept> (<$url>https://github.com/karayabin/universe-snapshot#the-planet-dot-name</$url>) of the planet to <$concept>logic uninstall</$concept>.",
+            "planetDotName" => [
+                " the <$co>planetDotName</$co>(<$url>https://github.com/karayabin/universe-snapshot#the-planet-dot-name</$url>) of the planet to uninstall.",
                 true,
             ],
         ];
     }
 
+    /**
+     * @overrides
+     */
+    public function getOptions(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "app" => [
+                'desc' => " string. The path of the application where your planet is located. By default, the current working directory (pwd) is assumed.",
+                'values' => [
+                ],
+            ],
+        ];
+    }
 
     /**
      * @overrides
      */
     public function getAliases(): array
     {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
         return [
-            "uninstall" => 'lpi uninstall',
+            "uninstall" => "lpi uninstall",
         ];
     }
 

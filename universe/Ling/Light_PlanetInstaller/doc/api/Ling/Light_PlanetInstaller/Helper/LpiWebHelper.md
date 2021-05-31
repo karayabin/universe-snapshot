@@ -4,7 +4,7 @@
 
 The LpiWebHelper class
 ================
-2020-12-08 --> 2021-05-03
+2020-12-08 --> 2021-05-31
 
 
 
@@ -27,6 +27,7 @@ class <span class="pl-k">LpiWebHelper</span>  {
 - Methods
     - public static [getPlanetCurrentVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getPlanetCurrentVersion.md)(string $planetDot) : string
     - public static [getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getPlanetVersions.md)(string $planetDot) : array
+    - public static [getLpiDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getLpiDependencies.md)(string $planetDot) : array
 
 }
 
@@ -40,6 +41,7 @@ Methods
 
 - [LpiWebHelper::getPlanetCurrentVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getPlanetCurrentVersion.md) &ndash; Returns the current version number of the given planet, as found on the web.
 - [LpiWebHelper::getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getPlanetVersions.md) &ndash; Returns the version numbers available for the given planet (in the web repo), sorted by increasing value.
+- [LpiWebHelper::getLpiDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper/getLpiDependencies.md) &ndash; Returns the content of [the lpi deps](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#the-lpi-deps-file) file for the given planet.
 
 
 

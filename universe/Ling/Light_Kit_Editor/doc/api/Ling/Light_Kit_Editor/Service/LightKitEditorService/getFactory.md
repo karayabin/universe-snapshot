@@ -46,7 +46,7 @@ Returns [CustomLightKitEditorApiFactory](https://github.com/lingtalfi/Light_Kit_
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::getFactory](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L310-L318)
+See the source code for method [LightKitEditorService::getFactory](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L337-L345)
 
 
 See Also

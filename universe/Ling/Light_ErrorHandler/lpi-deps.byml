@@ -1,49 +1,64 @@
 1.0.0: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
+    - Ling:Bat:1.293
 
 1.0.1: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
+    - Ling:Bat:1.293
 
 1.0.2: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
+    - Ling:Bat:1.293
 
 1.0.3: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
+    - Ling:Bat:1.293
 
 1.0.4: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
+    - Ling:Bat:1.293
 
 1.0.5: 
-    - Ling:Light:0.69.18+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18
+    - Ling:Light_Logger:1.11.5
+    - Ling:Bat:1.293
 
 1.0.6: 
-    - Ling:Light:0.69.21+
-    - Ling:Light_Logger:1.11.5+
-    - Ling:Bat:1.304+
+    - Ling:Light:0.69.21
+    - Ling:Light_Logger:1.11.5
+    - Ling:Bat:1.304
 
 1.0.7: 
-    - Ling:Bat:1.305+
-    - Ling:Light:0.69.22+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:Bat:1.305
+    - Ling:Light:0.69.22
+    - Ling:Light_Logger:1.11.5
 
 1.0.8: 
-    - Ling:Bat:1.308+
-    - Ling:Light:0.69.30+
-    - Ling:Light_Logger:1.11.5+
+    - Ling:Bat:1.308
+    - Ling:Light:0.69.30
+    - Ling:Light_Logger:1.11.5
 
 1.0.9: 
-    - Ling:Bat:1.308+
-    - Ling:Light:0.70.0+
-    - Ling:Light_Logger:1.11.6+
+    - Ling:Bat:1.308
+    - Ling:Light:0.70.0
+    - Ling:Light_Logger:1.11.6
+
+1.0.10: 
+    - Ling:Bat:1.312
+    - Ling:Light:0.70.2
+    - Ling:Light_Logger:1.11.8
+
+1.0.11: 
+    - Ling:Bat:1.312
+    - Ling:Light:0.70.4
+    - Ling:Light_Logger:1.11.8
+
+1.0.12: 
+    - Ling:Bat:1.322
+    - Ling:Light:0.70.6
+    - Ling:Light_Logger:1.11.8

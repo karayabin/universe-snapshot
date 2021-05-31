@@ -1,99 +1,103 @@
 1.0.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.1.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.2.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.2.1: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.2.2: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.3.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.4.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.5.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.6.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.7.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.8.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.8.1: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.8.2: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.9.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.10.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.11.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.12.0: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.1: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.2: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.3: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.4: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.5: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.6: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.7: 
-    - Ling:SimplePdoWrapper:1.30.16+
-    - Ling:JumboExploder:1.0.2+
+    - Ling:SimplePdoWrapper:1.30.16
+    - Ling:JumboExploder:1.0.2
 
 1.13.8: 
-    - Ling:JumboExploder:1.0.3+
-    - Ling:SimplePdoWrapper:1.30.17+
+    - Ling:JumboExploder:1.0.3
+    - Ling:SimplePdoWrapper:1.30.17
+
+1.13.9: 
+    - Ling:JumboExploder:1.0.5
+    - Ling:SimplePdoWrapper:1.30.18

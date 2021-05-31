@@ -4,7 +4,7 @@
 
 The LightEasyRouteHelper class
 ================
-2019-08-21 --> 2021-03-15
+2019-08-21 --> 2021-05-31
 
 
 
@@ -25,7 +25,8 @@ Class synopsis
 class <span class="pl-k">LightEasyRouteHelper</span>  {
 
 - Methods
-    - public static [copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPluginDotName) : void
+    - public static [copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md)(string $appDir, string $subscriberPlanetDotName) : void
+    - public static [removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/removeRoutesFromMaster.md)(string $appDir, string $subscriberPlanetDotName) : void
     - public static [getMasterPath](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/getMasterPath.md)(string $appDir) : string
 
 }
@@ -38,7 +39,8 @@ class <span class="pl-k">LightEasyRouteHelper</span>  {
 Methods
 ==============
 
-- [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md) &ndash; Merges the plugin's route declaration file (if it exists) into the master.
+- [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/copyRoutesFromPluginToMaster.md) &ndash; Merges the planet's route declaration file (if it exists) into the master.
+- [LightEasyRouteHelper::removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/removeRoutesFromMaster.md) &ndash; Removes the planet's route declaration file (if it exists) into the master.
 - [LightEasyRouteHelper::getMasterPath](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/getMasterPath.md) &ndash; Returns the path to the routes master declaration file.
 
 

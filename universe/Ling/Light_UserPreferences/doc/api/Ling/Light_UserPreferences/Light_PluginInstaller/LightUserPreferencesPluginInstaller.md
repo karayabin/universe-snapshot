@@ -4,7 +4,7 @@
 
 The LightUserPreferencesPluginInstaller class
 ================
-2020-07-31 --> 2021-03-15
+2020-07-31 --> 2021-05-31
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_UserPreferences\Light_PluginInstaller\LightUs
 
 SeeAlso
 ==============
-Previous class: [LightUserPreferencesException](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Exception/LightUserPreferencesException.md)<br>Next class: [LightUserPreferencesService](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Service/LightUserPreferencesService.md)<br>
+Previous class: [LightUserPreferencesPlanetInstaller](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Light_PlanetInstaller/LightUserPreferencesPlanetInstaller.md)<br>Next class: [LightUserPreferencesService](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Service/LightUserPreferencesService.md)<br>

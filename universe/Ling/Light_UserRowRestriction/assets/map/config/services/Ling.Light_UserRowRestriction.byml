@@ -1,0 +1,10 @@
+user_row_restriction:
+    instance: Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService
+    methods:
+        setContainer:
+            container: @container()
+
+
+
+
+

@@ -34,6 +34,7 @@ class LightCliCommandDocHelper
     {
 
         $displayHeader = $options['displayHeader'] ?? true;
+        $verbose = $options['verbose']??false;
 
 
         if (true === $displayHeader) {
@@ -51,7 +52,7 @@ class LightCliCommandDocHelper
         $u = new LightCliCommandDocUtility();
         $u->printListByApp($cliApps, $output, [
             'filter' => null,
-            'verbose' => true,
+            'verbose' => $verbose,
             'displayIndexes' => false,
             'displayAliases' => false,
             'includeAppId' => false,

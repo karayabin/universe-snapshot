@@ -4,7 +4,7 @@
 
 The MysqlCreateTableUtilDocBuilder class
 ================
-2019-03-13 --> 2021-03-22
+2019-03-13 --> 2021-05-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\MysqlCreateTableUtil\MysqlCrea
 
 SeeAlso
 ==============
-Previous class: [LingTalfiDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder.md)<br>Next class: [Panda_HeadersDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Panda_Headers/Panda_HeadersDocBuilder.md)<br>
+Previous class: [LogicalOperatorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LogicalOperator/LogicalOperatorDocBuilder.md)<br>Next class: [PaginationHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PaginationHelper/PaginationHelperDocBuilder.md)<br>

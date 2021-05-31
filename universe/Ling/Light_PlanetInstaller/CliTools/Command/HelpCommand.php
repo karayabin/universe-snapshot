@@ -8,6 +8,7 @@ use Ling\Bat\ConsoleTool;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Cli\Helper\LightCliCommandDocHelper;
+use Ling\Light_Cli\Helper\LightCliFormatHelper;
 use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
 
 
@@ -31,8 +32,10 @@ class HelpCommand extends LightPlanetInstallerBaseCommand
 
         ConsoleTool::reset();
 
-        $format = LpiFormatHelper::getBannerFmt();
 
+        $verbose = $input->hasFlag("v");
+
+        $format = LpiFormatHelper::getBannerFmt();
 
 
         $output->write("<$format>" . str_repeat('=', 35) . "</$format>" . PHP_EOL);
@@ -50,22 +53,40 @@ class HelpCommand extends LightPlanetInstallerBaseCommand
 //        $output->write(H::j(1) . $this->o("indent=\$number") . ": sets the base indentation level used by most commands." . PHP_EOL);
 
 
-        LightCliCommandDocHelper::printCommandListDocByApp($this->application, $output);
+        LightCliCommandDocHelper::printCommandListDocByApp($this->application, $output, [
+            "verbose" => $verbose,
+        ]);
 
     }
-
-
 
 
     //--------------------------------------------
     // LightCliCommandInterface
     //--------------------------------------------
     /**
-     * @implementation
+     * @overrides
      */
     public function getDescription(): string
     {
-        return "Prints the help of the Light_PlanetInstaller cli.";
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+        return "
+ This command shows the help for the <b>Light_PlanetInstaller</b> planet.
+ ";
+    }
+
+    /**
+     * @overrides
+     */
+    public function getFlags(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "v" => " whether to display a verbose version of the help
+ ",
+        ];
     }
 
 

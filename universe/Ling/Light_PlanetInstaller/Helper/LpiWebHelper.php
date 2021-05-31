@@ -44,4 +44,21 @@ class LpiWebHelper
         return $importer->getAllVersions("$galaxy/$planet");
     }
 
+
+    /**
+     * Returns the content of @page(the lpi deps) file for the given planet.
+     *
+     * @param string $planetDot
+     * @return array
+     * @throws Exception
+     */
+    public static function getLpiDependencies(string $planetDot): array
+    {
+        list($galaxy, $planet) = PlanetTool::extractPlanetDotName($planetDot);
+
+        // looking for the exact version
+        $importer = LpiImporterHelper::getImporterByGalaxy($galaxy);
+        return $importer->getLpiDependencies(str_replace('.', '/', $planetDot));
+    }
+
 }

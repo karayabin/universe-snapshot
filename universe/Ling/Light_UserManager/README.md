@@ -88,6 +88,14 @@ Related
 History Log
 =============
 
+- 1.5.9 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.5.8 -- 2021-05-10
+
+    - Fix assets missing.
+
 - 1.5.7 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

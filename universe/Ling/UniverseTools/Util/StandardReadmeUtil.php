@@ -231,7 +231,7 @@ class StandardReadmeUtil
      *
      * Available options are:
      *
-     * - increment: bool=false, whether to increment the version number.
+     * - increment: bool=false, whether to increment the version number in the readme's "history log" section
      *
      *
      *

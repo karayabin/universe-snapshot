@@ -1,6 +1,6 @@
 Ling/Light_LingHooks
 ================
-2020-08-17 --> 2021-03-22
+2020-08-17 --> 2021-05-31
 
 
 
@@ -10,7 +10,8 @@ Table of contents
 
 - [LightLingHooksException](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Exception/LightLingHooksException.md) &ndash; The LightLingHooksException class.
 - [LightLingHooksPlanetInstaller](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Light_PlanetInstaller/LightLingHooksPlanetInstaller.md) &ndash; The LightLingHooksPlanetInstaller class.
-    - [LightLingHooksPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Light_PlanetInstaller/LightLingHooksPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - [LightLingHooksPlanetInstaller::init2](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Light_PlanetInstaller/LightLingHooksPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightLingHooksPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Light_PlanetInstaller/LightLingHooksPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightLingHooksService](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Service/LightLingHooksService.md) &ndash; The LightLingHooksService class.

@@ -4,7 +4,7 @@
 
 The MetaInfoTool class
 ================
-2019-02-26 --> 2021-03-18
+2019-02-26 --> 2021-05-31
 
 
 
@@ -29,7 +29,7 @@ Class synopsis
 class <span class="pl-k">MetaInfoTool</span>  {
 
 - Methods
-    - public static [parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/parseInfo.md)(string $planetDir) : array
+    - public static [parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/parseInfo.md)(string $planetDir, ?array $options = []) : array
     - public static [getVersionByUrl](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersionByUrl.md)($rawMetaInfoUrl) : string | null
     - public static [getVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersion.md)(string $planetDir) : string | null
     - public static [incrementVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/incrementVersion.md)(string $planetDir) : string

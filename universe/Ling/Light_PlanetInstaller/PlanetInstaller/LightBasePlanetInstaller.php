@@ -4,14 +4,13 @@
 namespace Ling\Light_PlanetInstaller\PlanetInstaller;
 
 
-use Ling\CliTools\Output\OutputInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
  * The LightBasePlanetInstaller interface.
  */
-class LightBasePlanetInstaller implements LightPlanetInstallerInterface, LightServiceContainerAwareInterface
+class LightBasePlanetInstaller implements LightServiceContainerAwareInterface
 {
 
 
@@ -38,18 +37,5 @@ class LightBasePlanetInstaller implements LightPlanetInstallerInterface, LightSe
     public function setContainer(LightServiceContainerInterface $container)
     {
         $this->container = $container;
-    }
-
-
-    //--------------------------------------------
-    // LightPlanetInstallerInterface
-    //--------------------------------------------
-    /**
-     * @implementation
-     * @overrideMe
-     */
-    public function onMapCopyAfter(string $appDir, OutputInterface $output): void
-    {
-
     }
 }

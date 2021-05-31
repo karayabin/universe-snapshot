@@ -1,6 +1,2 @@
-dependencies: 
-    Ling: 
-        - SequenceMatcher
-    
-
+dependencies: []
 post_install: []

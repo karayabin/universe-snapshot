@@ -4,7 +4,7 @@
 
 The LightUserDatabaseBasePluginInstaller class
 ================
-2019-07-19 --> 2021-03-15
+2019-07-19 --> 2021-05-31
 
 
 
@@ -127,4 +127,4 @@ See the source code of [Ling\Light_UserDatabase\Light_PluginInstaller\LightUserD
 
 SeeAlso
 ==============
-Previous class: [LightWebsiteUserDatabaseInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface.md)<br>Next class: [LightUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabasePluginInstaller.md)<br>
+Previous class: [LightUserDatabasePlanetInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabasePlanetInstaller.md)<br>Next class: [LightUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabasePluginInstaller.md)<br>

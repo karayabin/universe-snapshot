@@ -1,18 +1,26 @@
 1.0.0: 
-    - Ling:Bat:1.307+
+    - Ling:Bat:1.307
 
 1.0.1: 
-    - Ling:ArrayVariableResolver:1.2.3+
-    - Ling:Bat:1.307+
+    - Ling:ArrayVariableResolver:1.2.3
+    - Ling:Bat:1.307
 
 1.0.2: 
-    - Ling:ArrayVariableResolver:1.2.3+
-    - Ling:Bat:1.307+
+    - Ling:ArrayVariableResolver:1.2.3
+    - Ling:Bat:1.307
 
 1.0.3: 
-    - Ling:ArrayVariableResolver:1.2.4+
-    - Ling:Bat:1.308+
+    - Ling:ArrayVariableResolver:1.2.4
+    - Ling:Bat:1.308
 
 1.0.4: 
-    - Ling:ArrayVariableResolver:1.2.4+
-    - Ling:Bat:1.308+
+    - Ling:ArrayVariableResolver:1.2.4
+    - Ling:Bat:1.308
+
+1.0.5: 
+    - Ling:ArrayVariableResolver:1.2.4
+    - Ling:Bat:1.315
+
+1.0.6: 
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.322

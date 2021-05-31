@@ -1,29 +1,31 @@
 1.0.0: 
-    - Ling:Bat:1.293+
-    - Ling:BeeFramework:1.0.5+
-    - Ling:ThumbnailTools:1.3.3+
+    - Ling:Bat:1.293
+    - Ling:BeeFramework:1.0.5
+    - Ling:ThumbnailTools:1.3.3
 
 1.1.0: 
-    - Ling:Bat:1.293+
-    - Ling:BeeFramework:1.0.5+
-    - Ling:ThumbnailTools:1.3.3+
+    - Ling:Bat:1.293
+    - Ling:BeeFramework:1.0.5
+    - Ling:ThumbnailTools:1.3.3
 
 1.2.0: 
-    - Ling:Bat:1.293+
-    - Ling:BeeFramework:1.0.5+
-    - Ling:ThumbnailTools:1.3.3+
+    - Ling:Bat:1.293
+    - Ling:BeeFramework:1.0.5
+    - Ling:ThumbnailTools:1.3.3
 
 1.2.1: 
-    - Ling:Bat:1.293+
-    - Ling:BeeFramework:1.0.5+
-    - Ling:ThumbnailTools:1.3.3+
+    - Ling:Bat:1.293
+    - Ling:BeeFramework:1.0.5
+    - Ling:ThumbnailTools:1.3.3
 
 1.2.2: 
-    - Ling:Bat:1.293+
-    - Ling:BeeFramework:1.0.5+
-    - Ling:ThumbnailTools:1.3.3+
+    - Ling:Bat:1.293
+    - Ling:BeeFramework:1.0.5
+    - Ling:ThumbnailTools:1.3.3
 
 1.2.3: 
-    - Ling:Bat:1.308+
-    - Ling:BeeFramework:1.0.7+
-    - Ling:ThumbnailTools:1.3.3+
+    - Ling:Bat:1.308
+    - Ling:BeeFramework:1.0.7
+    - Ling:ThumbnailTools:1.3.3
+
+1.2.4: []

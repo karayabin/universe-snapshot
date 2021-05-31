@@ -26,9 +26,9 @@ class CustomPluginOptionApi extends PluginOptionApi implements CustomPluginOptio
     /**
      * @implementation
      */
-    public function deletePluginOptionsByPluginName(string $pluginName)
+    public function deletePluginOptionsByPluginName(string $planetDotName)
     {
-        $this->pdoWrapper->delete($this->table, Where::inst()->key("category")->startsWith($pluginName . "."));
+        $this->pdoWrapper->delete($this->table, Where::inst()->key("category")->startsWith($planetDotName . "."));
     }
 
     /**

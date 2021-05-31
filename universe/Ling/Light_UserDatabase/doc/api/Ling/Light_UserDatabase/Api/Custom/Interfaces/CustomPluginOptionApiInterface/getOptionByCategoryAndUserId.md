@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [CustomPluginOptionApiInterface::getOptionByCategoryAndUserId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Custom/Interfaces/CustomPluginOptionApiInterface.php#L34-L34)
+See the source code for method [CustomPluginOptionApiInterface::getOptionByCategoryAndUserId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Custom/Interfaces/CustomPluginOptionApiInterface.php#L35-L35)
 
 
 See Also

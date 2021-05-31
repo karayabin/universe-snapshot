@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [PlanetsCommand::getDescription](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/PlanetsCommand.php#L69-L74)
+See the source code for method [PlanetsCommand::getDescription](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/PlanetsCommand.php#L77-L82)
 
 
 See Also

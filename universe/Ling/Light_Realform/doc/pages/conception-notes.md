@@ -1,6 +1,6 @@
 Light_Realform, conception notes
 ==============
-2020-09-04 -> 2020-11-13
+2020-09-04 -> 2021-03-29
 
 
 The goal of the **Light_Realform** service is to help us create any **html form**.
@@ -92,7 +92,7 @@ At the core of our system, we use the [Chloroform planet](https://github.com/lin
 
 The configuration file
 -------------
-2020-09-07 -> 2020-10-01
+2020-09-07 -> 2021-03-29
 
 
 To access the configuration file, we use the [Light_Nugget planet](https://github.com/lingtalfi/Light_Nugget), with a relative path of "Light_Realform/form".
@@ -254,6 +254,8 @@ Our directives are the following:
                         
             
 - ?success_handler: array. Defines how to access and configure the **success handler**.
+    - len: string, the [light execute notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md), which must return an instance of our **RealformSuccessHandlerInterface**.
+        If defined, it has precedence over the class property.
     - class: string, the class to instantiate. It must be an instance of our **RealformSuccessHandlerInterface**.
         If your instance implements **LightServiceContainerAwareInterface**, it will be passed the container automatically.
         The special value "defaultDbHandler" is also accepted (instead of the full class), and resolves to our **ToDatabaseSuccessHandler** class.
@@ -267,6 +269,8 @@ Our directives are the following:
     
 
 ### A configuration file example
+2020-09-07
+
 
 ````yaml
 title: User notification form

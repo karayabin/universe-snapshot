@@ -16,12 +16,17 @@ Description
 ================
 
 
-public [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commit.md)(string $planetDotName, string $commitMessage) : void
+public [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commit.md)(string $planetDotName, string $commitMessage, ?array $options = []) : void
 
 
 
 
 Commits the given planet with the given message.
+
+Available options are:
+
+- increment: bool=true, whether to increment the version number in the readme's "history log" section
+- app: string=null, the path to the host application. If null, the value of the applicationPath property of this class will be used.
 
 
 
@@ -35,6 +40,10 @@ Parameters
     
 
 - commitMessage
+
+    
+
+- options
 
     
 
@@ -53,7 +62,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L55-L69)
+See the source code for method [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L124-L146)
 
 
 See Also
@@ -61,5 +70,5 @@ See Also
 
 The [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) class.
 
-Previous method: [setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/setOutput.md)<br>Next method: [commitCurrentByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitCurrentByPlanetDir.md)<br>
+Previous method: [commitListFromFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitListFromFile.md)<br>Next method: [commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitByPlanetDir.md)<br>
 

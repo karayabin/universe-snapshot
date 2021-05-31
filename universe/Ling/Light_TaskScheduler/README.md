@@ -1,6 +1,6 @@
 Light_TaskScheduler
 ===========
-2020-07-27 -> 2021-03-15
+2020-07-27 -> 2021-05-31
 
 
 
@@ -108,6 +108,14 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.1.10 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.1.9 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
 - 1.1.8 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0

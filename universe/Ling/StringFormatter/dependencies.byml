@@ -1,7 +1,2 @@
-dependencies: 
-    Ling: 
-        - ArrayToString
-        - VariableToString
-    
-
+dependencies: []
 post_install: []

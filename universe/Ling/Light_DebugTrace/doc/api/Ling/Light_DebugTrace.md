@@ -1,6 +1,6 @@
 Ling/Light_DebugTrace
 ================
-2020-06-25 --> 2021-03-22
+2020-06-25 --> 2021-05-31
 
 
 
@@ -9,7 +9,8 @@ Table of contents
 ===========
 
 - [LightDebugTracePlanetInstaller](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Light_PlanetInstaller/LightDebugTracePlanetInstaller.md) &ndash; The LightDebugTracePlanetInstaller class.
-    - [LightDebugTracePlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Light_PlanetInstaller/LightDebugTracePlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - [LightDebugTracePlanetInstaller::init2](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Light_PlanetInstaller/LightDebugTracePlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightDebugTracePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Light_PlanetInstaller/LightDebugTracePlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightDebugTraceService](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Service/LightDebugTraceService.md) &ndash; The LightDebugTraceService class.

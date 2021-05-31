@@ -49,7 +49,7 @@ Returns [LightPlanetInstallerInterface](https://github.com/lingtalfi/Light_Plane
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerService::getInstallerInstance](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L87-L105)
+See the source code for method [LightPlanetInstallerService::getInstallerInstance](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L88-L106)
 
 
 See Also

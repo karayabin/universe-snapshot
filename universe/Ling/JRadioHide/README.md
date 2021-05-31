@@ -1,6 +1,6 @@
 JRadioHide
 ===========
-2021-04-02 -> 2021-04-05
+2021-04-02 -> 2021-05-07
 
 A js tool to help hiding radio panes.
 
@@ -31,7 +31,7 @@ Or just download it and place it where you want otherwise.
 
 How does it work
 ========
-2021-04-02
+2021-04-02 -> 2021-05-07
 
 The idea is that you have some radio inputs, and each time you select one of them, it shows up, while its sibling become
 hidden.
@@ -112,6 +112,7 @@ The available options are:
 - openPane: string, the id of the pane which should be already opened when the page is displayed.
     By default, all panes will be hidden.
 
+- changeAfter: function, a callback to call after a radio button is changed. It receives the targetPane value (the data-target of the opened pane) as its first argument.
 
 
 
@@ -120,6 +121,26 @@ The available options are:
 History Log
 =============
 
+- 1.0.7 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.0.6 -- 2021-05-07
+  
+    - fix changeAfter callback not called when selected via openPane option
+    
+- 1.0.5 -- 2021-05-07
+  
+    - update changeAfter option, now receives targetPane as argument
+    
+- 1.0.4 -- 2021-05-07
+  
+    - add changeAfter option
+    
+- 1.0.3 -- 2021-05-07
+  
+    - fix radio input not unbinding jquery event before binding
+    
 - 1.0.2 -- 2021-04-05
   
     - fix radio input not synced with pane at init

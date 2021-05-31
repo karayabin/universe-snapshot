@@ -7,7 +7,7 @@ LightLightInstanceService::initialize
 
 
 
-LightLightInstanceService::initialize — Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+LightLightInstanceService::initialize — Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightLightInstanceService::initialize](https://github.com/lingtalfi/Ligh
 
 
 
-Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+Listener for the [Ling.Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 It stores the light instance and the http request instance for other plugins to use.
 
 

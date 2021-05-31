@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserData
 ================
-2020-02-28 --> 2021-03-23
+2020-02-28 --> 2021-05-31
 
 
 
@@ -98,7 +98,10 @@ Table of contents
 - [LightKitAdminUserDataDuplicator](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_Kit_Admin/Duplicator/LightKitAdminUserDataDuplicator.md) &ndash; The LightKitAdminUserDataDuplicator class.
     - [LightKitAdminUserDataDuplicator::onInsertAfter](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_Kit_Admin/Duplicator/LightKitAdminUserDataDuplicator/onInsertAfter.md) &ndash; Is executed after a row is duplicated.
 - [LightKitAdminUserDataPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller.md) &ndash; The LightKitAdminUserDataPlanetInstaller class.
-    - [LightKitAdminUserDataPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - [LightKitAdminUserDataPlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightKitAdminUserDataPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightKitAdminBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightKitAdminBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminUserDataPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PluginInstaller/LightKitAdminUserDataPluginInstaller.md) &ndash; The LightKitAdminUserDataPluginInstaller class.

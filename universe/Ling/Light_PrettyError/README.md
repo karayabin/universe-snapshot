@@ -1,6 +1,6 @@
 Light_PrettyError
 ===========
-2019-04-05 -> 2021-03-22
+2019-04-05 -> 2021-05-31
 
 
 
@@ -78,6 +78,26 @@ And will basically provide aesthetically pleasing templates for those errors.
 History Log
 =============
     
+
+- 1.5.15 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.5.14 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
+- 1.5.13 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.5.12 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
+
+- 1.5.11 -- 2021-05-03
+
+    - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
 
 - 1.5.10 -- 2021-03-22
 

@@ -4,11 +4,12 @@
 namespace Ling\Light_PlanetInstaller\CliTools\Command;
 
 
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\CliTools\Input\InputInterface;
-use Ling\CliTools\Input\WritableCommandLineInput;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Cli\Helper\LightCliFormatHelper;
-use Ling\Light_PlanetInstaller\Helper\LpiFileHelper;
+use Ling\Light_PlanetInstaller\Util\UpgradeUtil;
+use Ling\UniverseTools\PlanetTool;
 
 
 /**
@@ -33,43 +34,72 @@ class UpgradeCommand extends LightPlanetInstallerBaseCommand
      */
     protected function doRun(InputInterface $input, OutputInterface $output)
     {
-        $this->checkInsideAppDir($output);
+        $retCode = 0;
+        if (true === $this->checkInsideAppDir($input, $output)) {
 
 
-        $planetDotName = $input->getParameter(2);
+            $planetDotName = $input->getParameter(2);
+            $planetListFile = $input->getOption("list");
+
+            $doInstall = $input->hasFlag("install");
+            $useDebug = $input->hasFlag("d"); // proxy to the import util
+            $appDir = getcwd();
 
 
-        /**
-         * First rewrite lpi deps, then upgrade from lpi deps.
-         */
+            //--------------------------------------------
+            // DEFINING THE PLANETS TO UPGRADE
+            //--------------------------------------------
+            $planetDotNames = []; // planets to upgrade
+            if (
+                null === $planetDotName &&
+                null === $planetListFile
+            ) {
+                // all planets from the app
+                $planetDotNames = PlanetTool::getPlanetDotNamesByWorkingDir(getcwd());
 
-
-        try {
-
-
-            if (null !== $planetDotName) {
-                $sPlanet = "for planet <b>$planetDotName</b>.";
             } else {
-                $sPlanet = "for all planets.";
+                if (null !== $planetListFile) {
+                    if (true === is_file($planetListFile)) {
+                        $planetDotNames = BabyYamlUtil::readFile($planetListFile);
+                    } else {
+                        $output->write("<error>File not found: <b>$planetListFile</b></error>. Aborting." . PHP_EOL);
+                        $retCode = 3;
+                        goto end;
+                    }
+                }
+                if (null !== $planetDotName) {
+                    $planetDotNames[] = $planetDotName;
+                    $planetDotNames = array_unique($planetDotNames);
+                }
             }
-            $output->write("Upgrading application's lpi.byml file $sPlanet..." . PHP_EOL);
-            $appDir = $this->application->getApplicationDirectory();
-            LpiFileHelper::upgradeLpiPlanets($appDir, $planetDotName);
 
 
-            $output->write("Executing <b>import</b> command." . PHP_EOL);
-            $proxyInput = new WritableCommandLineInput();
-            $proxyInput->setParameters([
-                "import",
+            //--------------------------------------------
+            // UPGRADING THE PLANETS
+            //--------------------------------------------
+            $upgradeUtil = new UpgradeUtil();
+            $upgradeUtil->setOutput($output);
+            $upgradeUtil->setContainer($this->container);
+            $upgradeUtil->upgrade($appDir, $planetDotNames, [
+                'install' => $doInstall,
+                'useDebug' => $useDebug,
             ]);
-            $this->application->run($proxyInput, $output);
 
 
-        } catch (\Exception) {
-            $output->write("<error>upgrading failed. Aborting.</error>" . PHP_EOL);
+            $errorMessages = $upgradeUtil->getErrorMessages();
+            if (count($errorMessages) > 0) {
+                $output->write("<warning>Some errors occured during the upgrading process:</warning>" . PHP_EOL);
+                foreach ($errorMessages as $errorMessage) {
+                    $output->write("<error>$errorMessage</error>" . PHP_EOL);
+                }
+            } else {
+                $output->write("<green:bold>The upgrading process was executed successfully.</green:bold>" . PHP_EOL);
+            }
+
         }
+        end:
+        return $retCode;
     }
-
     //--------------------------------------------
     // LightCliCommandInterface
     //--------------------------------------------
@@ -80,9 +110,11 @@ class UpgradeCommand extends LightPlanetInstallerBaseCommand
     {
         $co = LightCliFormatHelper::getConceptFmt();
         $url = LightCliFormatHelper::getUrlFmt();
-        return " imports the latest version of the given planet, or all planets by default (if no parameter is passed).
- This command basically upgrades the <$co>lpi file</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#the-lpibyml-file</$url>) first, 
- then call the <$co>import command</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#usage-the-commands</$url>) without parameter.";
+        return "
+ <$co>Upgrades</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#upgrade-algorithm</$url>) a planet.
+ This command will upgrade any planet found in the <b>planets array</b>.
+ By default, if the <b>planets array</b> is empty, this command will upgrade all the planets of your app.
+ ";
     }
 
     /**
@@ -95,9 +127,40 @@ class UpgradeCommand extends LightPlanetInstallerBaseCommand
 
         return [
             "planetDotName" => [
-                " a specific <$co>planetDotName</$co>(<$url>https://github.com/karayabin/universe-snapshot#the-planet-dot-name</$url>) to upgrade",
+                " if set, adds the planet to the <b>planets array</b>.",
                 false,
             ],
+        ];
+    }
+
+    /**
+     * @overrides
+     */
+    public function getOptions(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "list" => [
+                'desc' => " string. The path to a babyYaml file listing planet names to add to the <b>planets array</b>.",
+                'values' => [
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @overrides
+     */
+    public function getFlags(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "install" => " if set, the upgrade process will include the <$co>install algorithm</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#install-algorithm</$url>).",
+            "d" => " if set, the output will be a bit more verbose. ",
         ];
     }
 

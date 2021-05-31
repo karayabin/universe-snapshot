@@ -1,39 +1,43 @@
 1.0.0: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.1.0: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.2.0: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.2.1: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.3.0: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.4.0: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.4.1: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.4.2: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.4.3: 
-    - Ling:SicTools:1.6.2+
-    - Ling:ClassCreator:1.0.3+
+    - Ling:SicTools:1.6.2
+    - Ling:ClassCreator:1.0.3
 
 1.4.4: 
-    - Ling:ClassCreator:1.0.4+
-    - Ling:SicTools:1.6.4+
+    - Ling:ClassCreator:1.0.4
+    - Ling:SicTools:1.6.4
+
+1.4.5: 
+    - Ling:ClassCreator:1.0.5
+    - Ling:SicTools:1.6.5

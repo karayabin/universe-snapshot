@@ -1,6 +1,6 @@
 Light_UserNotifications
 ===========
-2020-08-17 -> 2021-03-15
+2020-08-17 -> 2021-05-31
 
 
 
@@ -69,6 +69,14 @@ user_notifications:
 
 History Log
 =============
+
+- 1.0.11 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
+- 1.0.10 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
 
 - 1.0.9 -- 2021-03-15
 

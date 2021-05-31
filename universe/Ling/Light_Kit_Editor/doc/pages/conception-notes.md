@@ -66,7 +66,7 @@ We also introduce the notion of [theme](https://github.com/lingtalfi/Light_Kit_E
 
 The two engines
 ==========
-2021-03-11 -> 2021-03-12
+2021-03-11 -> 2021-05-04
 
 
 lke provides two different storages:
@@ -77,7 +77,7 @@ lke provides two different storages:
 
 The main api provides an abstraction for the storage layer, so that the methods are the same independently of which storage you choose.
 
-Which storage you choose is entirely up to you.
+The type of storage you choose is entirely up to you.
 
 
 
