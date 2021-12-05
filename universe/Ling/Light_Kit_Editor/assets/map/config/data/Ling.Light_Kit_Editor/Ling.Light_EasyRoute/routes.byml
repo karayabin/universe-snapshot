@@ -1,4 +1,4 @@
-Light_Kit_Editor:
+Ling.Light_Kit_Editor:
     prefix: null
     routes:
         lke_route-website:

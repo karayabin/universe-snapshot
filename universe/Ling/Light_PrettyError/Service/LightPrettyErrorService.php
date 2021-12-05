@@ -7,7 +7,7 @@ namespace Ling\Light_PrettyError\Service;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightException;
 use Ling\Light_PrettyError\Exception\LightPrettyErrorException;
-use Ling\UniversalTemplateEngine\UniversalTemplateEngineInterface;
+use Ling\Light_ZephyrTemplate\Service\LightZephyrTemplateService;
 use Whoops\Exception\Inspector;
 
 
@@ -16,7 +16,6 @@ use Whoops\Exception\Inspector;
  */
 class LightPrettyErrorService
 {
-
 
 
     /**
@@ -40,7 +39,6 @@ class LightPrettyErrorService
         $handler->handle();
         return ob_get_clean();
     }
-
 
 
     /**
@@ -67,7 +65,7 @@ class LightPrettyErrorService
             if ('404' === $errorCode) {
 
                 /**
-                 * @var $templateEngine UniversalTemplateEngineInterface
+                 * @var $templateEngine LightZephyrTemplateService
                  */
                 $templateEngine = $container->get("zephyr_template");
                 $res = $templateEngine->render("templates/Ling.Light_PrettyError/error_pages/404.html", []);

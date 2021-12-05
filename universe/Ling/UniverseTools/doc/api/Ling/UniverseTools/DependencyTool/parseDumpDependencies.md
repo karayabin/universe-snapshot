@@ -53,6 +53,7 @@ Parameters
     A reference to the configuration array created, which has the following structure:
 - dependencies: array of galaxyName => planets (list of planet names)
 - post_install: the given $postInstall array
+- ...other properties might be added.
 
 - postInstall
 
@@ -105,7 +106,7 @@ TokenFun: *
 
 Source Code
 ===========
-See the source code for method [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L130-L288)
+See the source code for method [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L131-L289)
 
 
 See Also

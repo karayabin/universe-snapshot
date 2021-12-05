@@ -77,6 +77,8 @@ class Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder
             "reportIgnore" => [
                 "Ling\Light_Kit_Admin\JimToolbox\JimToolboxItemBaseHandler",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+                "Ling\Light_JimToolbox\Item\JimToolboxItemBaseHandler",
+                "Ling\Light_Kit_JimToolbox_PhpstormWidgetLinks\JimToolbox\PhpstormWidgetLinksToolbox",
 
             ],
             /**
@@ -163,6 +165,9 @@ class Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+                "Ling\Light_JimToolbox\Item\JimToolboxItemBaseHandler" => "https://github.com/lingtalfi/Light_JimToolbox/blob/master/doc/api/Ling/Light_JimToolbox/Item/JimToolboxItemBaseHandler.md",
+                "Ling\Light_JimToolbox\Item\JimToolboxItemHandlerInterface" => "https://github.com/lingtalfi/Light_JimToolbox/blob/master/doc/api/Ling/Light_JimToolbox/Item/JimToolboxItemHandlerInterface.md",
+                "Ling\Light_Kit_JimToolbox_PhpstormWidgetLinks\JimToolbox\PhpstormWidgetLinksToolbox" => "https://github.com/lingtalfi/Light_Kit_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_JimToolbox_PhpstormWidgetLinks/JimToolbox/PhpstormWidgetLinksToolbox.md",
 
 
             ],

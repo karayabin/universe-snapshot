@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-28
+2015-10-07 -> 2021-08-10
 
 
 
@@ -64,18 +64,23 @@ Tools       |       Description
 [HashTool]( https://github.com/lingtalfi/Bat/blob/master/HashTool.md )          |                   Tools for the using hashes
 [HepTool]( https://github.com/lingtalfi/Bat/blob/master/HepTool.md )          |                   Tools for the using hep parameters
 [HttpTool]( https://github.com/lingtalfi/Bat/blob/master/HttpTool.md )          |                   Tools for the using http protocol
+[ImageTool]( https://github.com/lingtalfi/Bat/blob/master/ImageTool.md )          |                   Tools to help with images
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Use OsTool instead. LocalHostTool is unofficially deprecated.
 [MathTool](  https://github.com/lingtalfi/Bat/blob/master/MathTool.md )          |       Tools for math problems
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
+[MiniCsvTool](  https://github.com/lingtalfi/Bat/blob/master/MiniCsvTool.md )          |       Tool for working with mini csv strings
 [ObTool](  https://github.com/lingtalfi/Bat/blob/master/ObTool.md )          |          Tool for buffer manipulation
 [OsTool](  https://github.com/lingtalfi/Bat/blob/master/OsTool.md )          |          Tool aware of the OS.
 [PermTool](  https://github.com/lingtalfi/Bat/blob/master/PermTool.md )          |       Tool for permissions manipulation
+[PsvTool](  https://github.com/lingtalfi/Bat/blob/master/PsvTool.md )          |       Tool for manipulating psv
 [RandomTool]( https://github.com/lingtalfi/Bat/blob/master/RandomTool.md )          |       Tools for manipulating random numbers
 [SessionTool]( https://github.com/lingtalfi/Bat/blob/master/SessionTool.md )          |       Tools for session manipulation
 [ShortCodeTool]( https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md )          |       Tools for manipulating shortcodes
 [SmartCodeTool]( https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md )          |       Tools for manipulating smart codes
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
+[StopWatchTool]( https://github.com/lingtalfi/Bat/blob/master/StopWatchTool.md )          |       Tools for stopwatch related methods
 [TagTool]( https://github.com/lingtalfi/Bat/blob/master/TagTool.md )          |       Tools for helping with tags
+[TemplateTool]( https://github.com/lingtalfi/Bat/blob/master/TemplateTool.md )          |       Tools to help with templates
 [TimeTool]( https://github.com/lingtalfi/Bat/blob/master/TimeTool.md )          |       Tools for helping with time
 [UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
@@ -91,6 +96,76 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.339 -- 2021-08-10
+
+    - update LocalHostTool::getComposerPath, add one more path
+  
+- 1.338 -- 2021-07-22
+
+    - update StringTool::cutAtWordBoundary, add $more argument
+  
+- 1.337 -- 2021-07-22
+
+    - update StringTool::cutAtWordBoundary, add $ending argument
+  
+- 1.336 -- 2021-07-22
+
+    - add StringTool::cutAtWordBoundary method
+  
+- 1.335 -- 2021-07-18
+
+    - fix ImageTool::getDimensions not returning correct array keys
+  
+- 1.334 -- 2021-07-17
+
+    - add StopWatchTool class
+    - add ImageTool class
+  
+- 1.333 -- 2021-07-09
+
+    - add UriTool::getCurrentUri method
+  
+- 1.332 -- 2021-07-06
+
+    - add PsvTool::implode method
+  
+- 1.331 -- 2021-07-06
+
+    - add MiniCsvTool class
+  
+- 1.330 -- 2021-06-28
+
+    - add PsvTool class
+    - fix CaseTool::toSnake incorrectly trimming underscores
+  
+- 1.329 -- 2021-06-24
+
+    - add ConvertTool::toBoolean method
+
+- 1.328 -- 2021-06-22
+
+    - add UriTool::matchCurrentUrl method
+  
+- 1.327 -- 2021-06-21
+
+    - add StringTool::getSymbolicPath method
+
+- 1.326 -- 2021-06-21
+
+    - add TemplateTool class
+  
+- 1.325 -- 2021-06-21
+
+    - add StringTool::countCapitals method
+  
+- 1.324 -- 2021-06-15
+
+    - add LocalHostTool::getComposerPath method
+  
+- 1.323 -- 2021-06-03
+
+    - fix ExtendedReflectionClass not using latest token methods
+  
 - 1.322 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

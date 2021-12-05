@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_AjaxFileUploadManager;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -75,6 +76,8 @@ class Light_AjaxFileUploadManagerDocBuilder
              */
             "reportIgnore" => [
                 "Ling\Light\Controller\LightController",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -149,6 +152,7 @@ class Light_AjaxFileUploadManagerDocBuilder
                 "configuration item" => $doc . '/pages/configuration-files.md#the-configuration-item',
                 "configuration items" => $doc . '/pages/configuration-files.md#the-configuration-item',
                 "babyYaml" =>  'https://github.com/lingtalfi/BabyYaml',
+                "Light_PlanetInstaller conception notes" =>  'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -165,6 +169,10 @@ class Light_AjaxFileUploadManagerDocBuilder
                 "Ling\Light\Controller\LightControllerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md",
                 "Ling\Light\Core\Light" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+
             ],
         ];
 
@@ -200,6 +208,8 @@ class Light_AjaxFileUploadManagerDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\WiseTool;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -140,7 +141,7 @@ class WiseToolDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "Chloroform notification classes" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md",
             ],
             /**
              * An array of external classes to url.
@@ -152,7 +153,8 @@ class WiseToolDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\Chloroform\FormNotification\FormNotificationInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md",
+
             ],
         ];
 
@@ -188,6 +190,8 @@ class WiseToolDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

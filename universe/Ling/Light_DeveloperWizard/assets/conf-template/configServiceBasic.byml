@@ -9,9 +9,3 @@ kit_admin_xxx:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$plugin_installer.methods_collection:
-    -
-        method: registerPlugin
-        args:
-            plugin: Light_Kit_Admin_XXX
-            installer: @service(kit_admin_xxx)

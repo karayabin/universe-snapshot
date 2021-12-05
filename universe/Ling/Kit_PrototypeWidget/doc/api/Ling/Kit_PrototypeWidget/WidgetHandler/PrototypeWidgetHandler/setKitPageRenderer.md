@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PrototypeWidgetHandler::setKitPageRenderer](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php#L66-L69)
+See the source code for method [PrototypeWidgetHandler::setKitPageRenderer](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php#L74-L77)
 
 
 See Also

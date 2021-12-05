@@ -129,7 +129,7 @@ class VoidHttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getGetValue(string $key, bool $throwEx = true)
+    public function getGetValue(string $key, bool $throwEx = false)
     {
         return null;
     }
@@ -146,7 +146,7 @@ class VoidHttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getPostValue(string $key, bool $throwEx = true)
+    public function getPostValue(string $key, bool $throwEx = false)
     {
         return null;
     }
@@ -163,7 +163,7 @@ class VoidHttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getFilesValue(string $key, bool $throwEx = true)
+    public function getFilesValue(string $key, bool $throwEx = false)
     {
         return null;
     }
@@ -180,7 +180,7 @@ class VoidHttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getCookieValue(string $key, bool $throwEx = true)
+    public function getCookieValue(string $key, bool $throwEx = false)
     {
         return null;
     }

@@ -46,7 +46,7 @@ Returns static.
 
 Source Code
 ===========
-See the source code for method [OrderBy::inst](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L38-L41)
+See the source code for method [OrderBy::inst](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L45-L48)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/Light_Realform
 ================
-2019-10-21 --> 2021-05-31
+2019-10-21 --> 2021-06-03
 
 
 
@@ -31,6 +31,9 @@ Table of contents
 - [RealformHandlerAliasHelperInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/RealformHandlerAliasHelperInterface.md) &ndash; The RealformHandlerAliasHelperInterface interface.
     - [RealformHandlerAliasHelperInterface::getChloroformValidator](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/RealformHandlerAliasHelperInterface/getChloroformValidator.md) &ndash; Returns a configured validator instance, based on the given type and validatorConf array.
     - [RealformHandlerAliasHelperInterface::getDataTransformer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/RealformHandlerAliasHelperInterface/getDataTransformer.md) &ndash; Returns the data transformer instance based on the given alias and parameters.
+- [LightRealformConfigurationFileRegistrationHelper](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Helper/LightRealformConfigurationFileRegistrationHelper.md) &ndash; The LightRealformConfigurationFileRegistrationHelper class.
+    - [LightRealformConfigurationFileRegistrationHelper::registerConfigurationFileByDirectory](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Helper/LightRealformConfigurationFileRegistrationHelper/registerConfigurationFileByDirectory.md) &ndash; Registers the planet by copying the given dir content to the expected location.
+    - [LightRealformConfigurationFileRegistrationHelper::unregisterConfigurationFileByDirectory](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Helper/LightRealformConfigurationFileRegistrationHelper/unregisterConfigurationFileByDirectory.md) &ndash; Unregisters the planet by removing the given dir content from the expected location.
 - [RealformRendererInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Renderer/RealformRendererInterface.md) &ndash; The RealformRendererInterface interface.
 - [RealformResult](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult.md) &ndash; The RealformResult class.
     - [RealformResult::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/__construct.md) &ndash; Builds the RealformResult instance.
@@ -87,8 +90,13 @@ Table of contents
 Dependencies
 ============
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [ArrayVariableResolver](https://github.com/lingtalfi/ArrayVariableResolver)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
+- [CliTools](https://github.com/lingtalfi/CliTools)
+- [ConventionTools](https://github.com/lingtalfi/ConventionTools)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_ChloroformExtension](https://github.com/lingtalfi/Light_ChloroformExtension)
 - [Light_Crud](https://github.com/lingtalfi/Light_Crud)

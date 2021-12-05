@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DebugSessionDirCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L31-L34)
+See the source code for method [DebugSessionDirCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L30-L33)
 
 
 See Also

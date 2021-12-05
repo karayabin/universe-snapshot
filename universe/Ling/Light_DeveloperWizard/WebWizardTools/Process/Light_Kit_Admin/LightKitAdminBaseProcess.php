@@ -362,7 +362,7 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
             } else {
                 $this->infoMessage("Creating ControllerHub class in " . $this->getSymbolicPath($controllerHubClassPath));
 
-                $tpl = __DIR__ . "/../../../assets/class-templates/ControllerHub/LightKitAdminTaskSchedulerControllerHubHandler.php";
+                $tpl = __DIR__ . "/../../../assets/class-templates/ControllerHub/LightKitAdminTaskSchedulerControllerHubHandler.phptpl";
                 $tplContent = file_get_contents($tpl);
                 $tplContent = str_replace([
                     'namespace Ling\Light_Kit_Admin_TaskScheduler\ControllerHub;',
@@ -379,29 +379,34 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
         //--------------------------------------------
         // GENERATING LKA PLUGIN CLASS
         //--------------------------------------------
-        $lkaPluginClassPath = $planetDir . "/LightKitAdminPlugin/Generated/$tightName" . "LkaPlugin.php";
+        if (false === "deprecated") {
 
-        if (false === $recreateEverything && true === file_exists($lkaPluginClassPath)) {
-            $this->infoMessage("LkaPlugin class already found in " . $this->getSymbolicPath($lkaPluginClassPath));
-        } else {
-            $this->infoMessage("Creating LkaPlugin class in " . $this->getSymbolicPath($lkaPluginClassPath));
+            $lkaPluginClassPath = $planetDir . "/LightKitAdminPlugin/Generated/$tightName" . "LkaPlugin.php";
 
-            $tpl = __DIR__ . "/../../../assets/class-templates/Light_Kit_Admin/LightKitAdminTaskSchedulerLkaPlugin.phptemplate";
-            $tplContent = file_get_contents($tpl);
-            $tplContent = str_replace([
-                'namespace Ling\Light_Kit_Admin_TaskScheduler\LightKitAdminPlugin;',
-                'LightKitAdminTaskSchedulerLkaPlugin',
-            ], [
-                "namespace $galaxy\\$planet\LightKitAdminPlugin\Generated;",
-                $tightName . 'LkaPlugin',
-            ], $tplContent);
-            FileSystemTool::mkfile($lkaPluginClassPath, $tplContent);
+            if (false === $recreateEverything && true === file_exists($lkaPluginClassPath)) {
+                $this->infoMessage("LkaPlugin class already found in " . $this->getSymbolicPath($lkaPluginClassPath));
+            } else {
+                $this->infoMessage("Creating LkaPlugin class in " . $this->getSymbolicPath($lkaPluginClassPath));
+
+                $tpl = __DIR__ . "/../../../assets/class-templates/Light_Kit_Admin/LightKitAdminTaskSchedulerLkaPlugin.phptemplate";
+                $tplContent = file_get_contents($tpl);
+                $tplContent = str_replace([
+                    'namespace Ling\Light_Kit_Admin_TaskScheduler\LightKitAdminPlugin;',
+                    'LightKitAdminTaskSchedulerLkaPlugin',
+                ], [
+                    "namespace $galaxy\\$planet\LightKitAdminPlugin\Generated;",
+                    $tightName . 'LkaPlugin',
+                ], $tplContent);
+                FileSystemTool::mkfile($lkaPluginClassPath, $tplContent);
+            }
         }
-
 
         //--------------------------------------------
         // GENERATING LKA PLUGIN CONFIG DATA
         //--------------------------------------------
+        /**
+         * Should this be deprecated as well?
+         */
         if (true === $useForm) {
 
             $path = $appDir . "/config/data/$galaxy.$planet/Ling.Light_Kit_Admin/lka-options.generated.byml";
@@ -519,13 +524,15 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
                 $this->infoMessage("Creating planet installer class in <b>$planetInstallerClass</b>.");
                 $tpl = __DIR__ . "/../../../assets/class-templates/Light_Kit_Admin/LightKitAdminBasePlanetInstaller.phptemplate";
                 $content = file_get_contents($tpl);
-                $content=  str_replace([
+                $content = str_replace([
                     "theGalaxy",
                     "thePlanet",
+                    "theService",
                     "PlanetTightPlanetInstaller",
-                ],[
+                ], [
                     $galaxy,
                     $planet,
+                    $serviceName,
                     $planetInstallerTightName,
                 ], $content);
 
@@ -578,34 +585,41 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
 //            ]);
 
 
-            $this->addServiceConfigHook('kit_admin', [
-                'method' => 'registerPlugin',
-                'args' => [
-                    'pluginName' => $planet,
-                    'plugin' => [
-                        'instance' => "$galaxy\\$planet\\LightKitAdminPlugin\\Generated\\${tightName}LkaPlugin",
-                        'methods' => [
-                            'setOptionsFile' => [
-                                'file' => "\${app_dir}/config/data/$galaxy.$planet/Ling.Light_Kit_Admin/lka-options.generated.byml",
-                            ],
-                        ],
-                    ],
-                ],
-            ], [
-                'pluginName' => $planet,
-            ]);
+
+            /**
+             * deprecated as well
+             */
+//            $this->addServiceConfigHook('kit_admin', [
+//                'method' => 'registerPlugin',
+//                'args' => [
+//                    'pluginName' => $planet,
+//                    'plugin' => [
+//                        'instance' => "$galaxy\\$planet\\LightKitAdminPlugin\\Generated\\${tightName}LkaPlugin",
+//                        'methods' => [
+//                            'setOptionsFile' => [
+//                                'file' => "\${app_dir}/config/data/$galaxy.$planet/Ling.Light_Kit_Admin/lka-options.generated.byml",
+//                            ],
+//                        ],
+//                    ],
+//                ],
+//            ], [
+//                'pluginName' => $planet,
+//            ]);
 
         }
 
 
-        $this->addServiceConfigHook('micro_permission', [
-            'method' => 'registerMicroPermissionsByProfile',
-            'args' => [
-                'file' => "\${app_dir}/config/data/$galaxy.$planet/Ling.Light_MicroPermission/$serviceName.profile.generated.byml",
-            ],
-        ], [
-            'file' => "\${app_dir}/config/data/$galaxy.$planet/Ling.Light_MicroPermission/$serviceName.profile.generated.byml",
-        ]);
+        /**
+         * deprecated since Light_MicroPermission open registration system (v3.1.0)
+         */
+//        $this->addServiceConfigHook('micro_permission', [
+//            'method' => 'registerMicroPermissionsByProfile',
+//            'args' => [
+//                'file' => "\${app_dir}/config/data/$galaxy.$planet/Ling.Light_MicroPermission/$serviceName.profile.generated.byml",
+//            ],
+//        ], [
+//            'file' => "\${app_dir}/config/data/$galaxy.$planet/Ling.Light_MicroPermission/$serviceName.profile.generated.byml",
+//        ]);
 
 
     }

@@ -26,6 +26,7 @@ Uninstalls the given planet.
 Available options are:
 
 - app: string, the path to the app where the planet is located.
+- isUpgrade: bool=false, whether the calling process comes from the upgrade command.
 
 
 
@@ -57,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UninstallUtil::uninstall](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UninstallUtil.php#L72-L112)
+See the source code for method [UninstallUtil::uninstall](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UninstallUtil.php#L73-L116)
 
 
 See Also

@@ -6,7 +6,7 @@ namespace Ling\Light_ErrorHandler\Service;
 
 use Ling\Bat\ConvertTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 
 /**
  * The LightErrorHandlerService class.

@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2021-04-09
+2019-08-09 -> 2021-07-30
 
 
 
@@ -107,6 +107,22 @@ Related
 
 History Log
 =============
+
+- 2.1.3 -- 2021-07-30
+
+    - fix unwanted dependency to Ling.Light_Kit_Admin 
+
+- 2.1.2 -- 2021-06-01
+
+    - add RequestDeclarationHelper::unregisterRequestDeclarationsByDirectory method
+
+- 2.1.1 -- 2021-06-01
+
+    - add RequestDeclarationHelper::registerRequestDeclarationsByDirectory method
+  
+- 2.1.0 -- 2021-06-01
+
+    - replaced nugget system with open registration system (to fetch request declarations)
 
 - 2.0.18 -- 2021-05-31
 

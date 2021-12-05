@@ -1,0 +1,5 @@
+multipleFormEditor:
+    prefixes:
+        lun:
+            realform_identifier: Ling.Light_Kit_Admin_UserNotifications.generated/{table}
+            kit_page: Ling.Light_Kit_Admin_UserNotifications/generated/{table}_form

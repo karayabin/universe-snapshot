@@ -16,12 +16,14 @@ Description
 ================
 
 
-public [SimplePdoWrapper::fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/fetch.md)($query, ?array $markers = [], ?$fetchStyle = null) : false | array
+public [SimplePdoWrapper::fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/fetch.md)($query, ?array $markers = [], ?$fetchStyle = null) : array | string | false
 
 
 
 
 Executes the prepared statement and returns the fetched row, or false in case of failure.
+
+Note: strings can be returned if you use fetch styles such as \PDO::FETCH_COLUMN.
 
 
 
@@ -46,7 +48,7 @@ Parameters
 Return values
 ================
 
-Returns false | array.
+Returns array | string | false.
 
 
 

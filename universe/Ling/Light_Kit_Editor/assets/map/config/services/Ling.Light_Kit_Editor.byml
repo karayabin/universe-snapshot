@@ -3,6 +3,8 @@ kit_editor:
     methods:
         setContainer:
             container: @container()
+        setDefaultWebsiteIdentifier:
+            identifier: default
 
 
 

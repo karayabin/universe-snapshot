@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLingStandardService01::__construct](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardService01.php#L71-L75)
+See the source code for method [LightLingStandardService01::__construct](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardService01.php#L70-L74)
 
 
 See Also

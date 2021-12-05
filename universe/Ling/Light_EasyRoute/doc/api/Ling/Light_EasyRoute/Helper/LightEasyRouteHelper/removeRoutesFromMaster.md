@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightEasyRouteHelper::removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Helper/LightEasyRouteHelper.php#L50-L60)
+See the source code for method [LightEasyRouteHelper::removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Helper/LightEasyRouteHelper.php#L118-L128)
 
 
 See Also

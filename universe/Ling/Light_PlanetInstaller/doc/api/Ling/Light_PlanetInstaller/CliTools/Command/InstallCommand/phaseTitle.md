@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [InstallCommand::phaseTitle](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallCommand.php#L182-L185)
+See the source code for method [InstallCommand::phaseTitle](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallCommand.php#L198-L201)
 
 
 See Also

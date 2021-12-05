@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformService::error](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L881-L884)
+See the source code for method [LightRealformService::error](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L926-L929)
 
 
 See Also

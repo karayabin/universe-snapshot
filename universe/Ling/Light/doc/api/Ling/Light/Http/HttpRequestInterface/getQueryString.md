@@ -7,7 +7,7 @@ HttpRequestInterface::getQueryString
 
 
 
-HttpRequestInterface::getQueryString — Returns the queryString of the http request.
+HttpRequestInterface::getQueryString — Returns the url-decoded version of the queryString of the http request.
 
 
 
@@ -21,7 +21,7 @@ abstract public [HttpRequestInterface::getQueryString](https://github.com/lingta
 
 
 
-Returns the queryString of the http request.
+Returns the url-decoded version of the queryString of the http request.
 
 
 

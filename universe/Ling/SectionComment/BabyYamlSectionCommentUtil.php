@@ -81,6 +81,8 @@ class BabyYamlSectionCommentUtil
                     $thingToAdd = $this->getHeader($title);
                     $thingToAdd .= PHP_EOL;
                     $thingToAdd .= $content;
+                    $thingToAdd .= PHP_EOL;
+                    $thingToAdd .= PHP_EOL;
 
                     FileTool::cut($this->file, $info["start"], $info['end'], true);
                     FileTool::insert($info['start'], $thingToAdd, $this->file);
@@ -91,7 +93,6 @@ class BabyYamlSectionCommentUtil
 
             }
         }
-
 
         if (false === $sectionFound) {
             $currentContent = '';
@@ -105,6 +106,8 @@ class BabyYamlSectionCommentUtil
             $currentContent .= $this->getHeader($title);
             $currentContent .= PHP_EOL;
             $currentContent .= $content;
+            $currentContent .= PHP_EOL;
+            $currentContent .= PHP_EOL;
 
             FileSystemTool::mkfile($this->file, $currentContent);
         }

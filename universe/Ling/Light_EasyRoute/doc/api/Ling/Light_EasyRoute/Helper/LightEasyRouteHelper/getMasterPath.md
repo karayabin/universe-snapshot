@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightEasyRouteHelper::getMasterPath](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Helper/LightEasyRouteHelper.php#L70-L73)
+See the source code for method [LightEasyRouteHelper::getMasterPath](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Helper/LightEasyRouteHelper.php#L138-L141)
 
 
 See Also
@@ -58,5 +58,5 @@ See Also
 
 The [LightEasyRouteHelper](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper.md) class.
 
-Previous method: [removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/removeRoutesFromMaster.md)<br>
+Previous method: [removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/removeRoutesFromMaster.md)<br>Next method: [getMasterRelativePath](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/getMasterRelativePath.md)<br>
 

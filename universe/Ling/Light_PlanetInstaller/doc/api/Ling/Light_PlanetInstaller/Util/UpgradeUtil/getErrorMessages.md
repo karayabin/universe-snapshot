@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UpgradeUtil::getErrorMessages](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L84-L87)
+See the source code for method [UpgradeUtil::getErrorMessages](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L82-L85)
 
 
 See Also

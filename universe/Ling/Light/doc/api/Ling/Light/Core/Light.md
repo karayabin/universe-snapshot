@@ -4,7 +4,7 @@
 
 The Light class
 ================
-2019-04-09 --> 2021-05-31
+2019-04-09 --> 2021-07-30
 
 
 
@@ -80,10 +80,12 @@ class <span class="pl-k">Light</span>  {
     - public [getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getHttpRequest.md)() : [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md)
     - public [setHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setHttpRequest.md)([Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $httpRequest) : void
     - public [getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getMatchingRoute.md)() : array | false
+    - public [setMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setMatchingRoute.md)(array $matchingRoute) : void
     - public [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, $controller, ?string $name = null, ?array $route = []) : void
     - public [get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/get.md)(string $pattern, $controller, ?string $name = null, ?array $route = []) : void
     - public [initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md)(?[Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $httpRequest = null) : void
     - public [run](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md)() : void
+    - public [logError](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/logError.md)($msg) : void
     - protected [renderDebugPage](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md)(Exception $e) : string | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - protected [renderInternalServerErrorPage](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderInternalServerErrorPage.md)() : string | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
@@ -140,6 +142,16 @@ Properties
     When not available, it's null.
     When available, it's either the matching route array or false (if no route matches).
     
+    The matching route is basically the route leading to the controller that actually returns the http response.
+    This is generally a controller found by the router, but in some cases it could be something else.
+    For instance, in the case of a not found match, we could catch the "route not found" exception and return
+    our own response using another 404 controller (for instance). In that case, the 404 controller is the one
+    actually rendering the response, and therefore the matching route could be set to the route leading to
+    that 404 controller.
+    
+    Note that this idea about the matching route is experimental. It might change in the future.
+    For now we go with it.
+    
     
 
 - <span id="property-isInitialized"><b>isInitialized</b></span>
@@ -162,10 +174,12 @@ Methods
 - [Light::getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getHttpRequest.md) &ndash; Returns the httpRequest of this instance.
 - [Light::setHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setHttpRequest.md) &ndash; Sets the httpRequest.
 - [Light::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getMatchingRoute.md) &ndash; Returns the matching route array, or false if no route matched.
+- [Light::setMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setMatchingRoute.md) &ndash; Sets the matchingRoute.
 - [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md) &ndash; Registers a route item, as defined in [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
 - [Light::get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/get.md) &ndash; An alias for the registerRoute method.
 - [Light::initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md) &ndash; Triggers the initialize phase if set in the service container.
 - [Light::run](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md) &ndash; Runs the Light web application.
+- [Light::logError](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/logError.md) &ndash; Sends a log message to the logger service's error channel.
 - [Light::renderDebugPage](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md) &ndash; Renders (returns the html code of) the debug page.
 - [Light::renderInternalServerErrorPage](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderInternalServerErrorPage.md) &ndash; it should display an internal server error page with code 500.
 

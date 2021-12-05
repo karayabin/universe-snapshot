@@ -77,6 +77,7 @@ class Light_ErrorHandlerDocBuilder
             "reportIgnore" => [
                 "Ling\Light_Logger\Listener\LightFileLoggerListener",
                 "Ling\Light_Logger\Listener\BaseLoggerListener",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
 
             ],
             /**
@@ -145,6 +146,7 @@ class Light_ErrorHandlerDocBuilder
             "keyWord2UrlMap" => [
                 "Light_ErrorHandler conception notes" => $doc . '/pages/conception-notes.md',
                 "Bat\ConvertTool::convertHumanSizeToBytes" => 'https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -160,6 +162,9 @@ class Light_ErrorHandlerDocBuilder
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\Light_Logger\Listener\LightFileLoggerListener" => "https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener.md",
                 "Ling\Light_Logger\Listener\LightLoggerListenerInterface" => "https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
 
 
             ],

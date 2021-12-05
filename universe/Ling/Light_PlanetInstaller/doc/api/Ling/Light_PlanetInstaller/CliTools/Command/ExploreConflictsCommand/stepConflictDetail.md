@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ExploreConflictsCommand::stepConflictDetail](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L183-L269)
+See the source code for method [ExploreConflictsCommand::stepConflictDetail](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L182-L268)
 
 
 See Also

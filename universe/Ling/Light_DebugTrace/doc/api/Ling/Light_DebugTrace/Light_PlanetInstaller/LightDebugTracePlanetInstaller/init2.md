@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightDebugTracePlanetInstaller::init2](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Light_PlanetInstaller/LightDebugTracePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightDebugTracePlanetInstaller::init2](https://github.com/lingtalfi/Light_DebugTrace/blob/master/doc/api/Ling/Light_DebugTrace/Light_PlanetInstaller/LightDebugTracePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -37,6 +37,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 

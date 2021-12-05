@@ -4,7 +4,7 @@
 
 The JumboExploderDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\JumboExploder\JumboExploderDoc
 
 SeeAlso
 ==============
-Previous class: [JimToolboxDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JimToolbox/JimToolboxDocBuilder.md)<br>Next class: [KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit/KitDocBuilder.md)<br>
+Previous class: [JqZoomDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JqZoom/JqZoomDocBuilder.md)<br>Next class: [KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit/KitDocBuilder.md)<br>

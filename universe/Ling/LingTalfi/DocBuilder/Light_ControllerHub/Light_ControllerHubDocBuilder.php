@@ -144,6 +144,7 @@ class Light_ControllerHubDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Light_PlanetInstaller conception notes" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md",
+                "light philosophy page" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md",
             ],
             /**
              * An array of external classes to url.

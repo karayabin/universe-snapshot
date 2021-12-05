@@ -4,7 +4,7 @@
 
 The HttpRequestInterface class
 ================
-2019-04-09 --> 2021-05-31
+2019-04-09 --> 2021-07-30
 
 
 
@@ -39,13 +39,13 @@ abstract class <span class="pl-k">HttpRequestInterface</span>  {
     - abstract public [getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeaders.md)() : array
     - abstract public [getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeader.md)(string $header, ?$default = null) : string | mixed
     - abstract public [getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGet.md)() : array
-    - abstract public [getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGetValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - abstract public [getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGetValue.md)(string $key, ?bool $throwEx = false) : mixed
     - abstract public [getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPost.md)() : array
-    - abstract public [getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPostValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - abstract public [getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPostValue.md)(string $key, ?bool $throwEx = false) : mixed
     - abstract public [getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFiles.md)() : array
-    - abstract public [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFilesValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - abstract public [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFilesValue.md)(string $key, ?bool $throwEx = false) : mixed
     - abstract public [getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookie.md)() : array
-    - abstract public [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - abstract public [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md)(string $key, ?bool $throwEx = false) : mixed
 
 }
 
@@ -60,7 +60,7 @@ Methods
 - [HttpRequestInterface::getMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getMethod.md) &ndash; Returns the http method used for the request, in lower case.
 - [HttpRequestInterface::getUri](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getUri.md) &ndash; Returns the uri of the http request.
 - [HttpRequestInterface::getUriPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getUriPath.md) &ndash; Returns the uriPath of the http request.
-- [HttpRequestInterface::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getQueryString.md) &ndash; Returns the queryString of the http request.
+- [HttpRequestInterface::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getQueryString.md) &ndash; Returns the url-decoded version of the queryString of the http request.
 - [HttpRequestInterface::getQueryArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getQueryArgs.md) &ndash; Returns the array version of the query string of the http request.
 - [HttpRequestInterface::getTime](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getTime.md) &ndash; The time when the http request was created.
 - [HttpRequestInterface::getHost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHost.md) &ndash; Returns the host of the http request.

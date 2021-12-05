@@ -1,6 +1,6 @@
 Light Service Container
 ================
-2019-07-17 -> 2021-02-25
+2019-07-17 -> 2021-05-31
 
 
 
@@ -26,7 +26,7 @@ Configuration
 
 
 ### The configuration structure
-2019-07-17 -> 2021-02-09
+2019-07-17 -> 2021-05-31
 
 
 
@@ -40,8 +40,8 @@ The files are organized in a directory under the **config/services** of the appl
 ----- config/
 --------- services/
 ------------- ... (all configuration files here)
-------------- Light_Service_One.byml
-------------- Light_Service_Two.byml
+------------- GalaxyAlpha.Light_Service_One.byml
+------------- GalaxyAlpha.Light_Service_Two.byml
 ------------- _zzz.byml
 ------------- ... (all configuration files here)
 ```
@@ -60,9 +60,9 @@ The directories found inside the **config/services** are reserved for the [envir
 If your service needs extra configuration like data, use the **config/data** directory (see the [light application recommended structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md)) document for more details.
 
 
-By convention, if the service configuration file is brought by a third-party plugin, the configuration file
-has the same name as the plugin. So for instance if the plugin is **Light_ReverseRouter**, then the corresponding
-configuration file will be named **Light_ReverseRouter.byml**. 
+By convention, if the service configuration file is brought by a third-party plugin, the configuration file is named after the [planetDotName](https://github.com/karayabin/universe-snapshot#the-planet-dot-name) of the planet bringing it.
+So for instance if the planet is **Ling.Light_ReverseRouter**, then the corresponding
+configuration file will be named **Ling.Light_ReverseRouter.byml**. 
 
 
 
@@ -75,24 +75,6 @@ The service container configuration is basically the result of some array manipu
 The order in which configuration files are parsed is important, because the file **z.byml** will potentially override 
 the file **a.byml** (in case of conflicts).
 
-
-
-What about planets from other universes?
-------------
-2020-12-03
-
-
-If you look closely at the configuration structure of light, you'll notice that the galaxy name of the planets don't appear anywhere.
-
-The reason for that is that light comes from the **Ling** galaxy, which was the only galaxy at the time the light framework was created.
-
-As for now, we don't intend to rewrite the inner mechanisms of the light framework, because we like the way the framework works right now (i.e. implementing galaxies would mean
-longer names for every body).
-
-
-Planets from other galaxies can be used in the light framework, as long as all planet names don't conflict with each other.
-
-We believe that planet authors can make this work.
 
 
 
@@ -271,14 +253,38 @@ $user_data_vars.install_parent_plugin: Light_MyService
 
 
 
-
+Disabling/enabling services
+-------
+2021-05-31
  
+By convention, to disable a service, we add the **.dis** file extension at the end of the babyYaml file representing the service.
+
+
+Like this for instance:
+
+```txt
+- app_dir/
+----- config/
+--------- services/
+------------- Ling.Light_Service_One.byml.dis      
+```
+
+
+An enabled service is just a regular babyYaml file (i.e. with the .byml file extension), like this for instance:
+
+```txt
+- app_dir/
+----- config/
+--------- services/
+------------- Ling.Light_Service_One.byml
+```
 
 
 
-
-
-
+### Note for myself
+Some of my packing tools might commit a planet using the disabled version of the service, if no regular service file is provided.
+That's because I generally never want to commit a light planet without its service file.
+So, if I need to really exclude a service from being seen by my tools, I can just use another file extension (i.e. Ling.Light_Service_One.byml.alt, Ling.Light_Service_One.byml.whatever, ...).
 
 
    

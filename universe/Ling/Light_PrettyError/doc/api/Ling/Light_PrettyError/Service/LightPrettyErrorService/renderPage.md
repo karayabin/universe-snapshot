@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightPrettyErrorService::renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/Service/LightPrettyErrorService.php#L30-L42)
+See the source code for method [LightPrettyErrorService::renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/Service/LightPrettyErrorService.php#L29-L41)
 
 
 See Also

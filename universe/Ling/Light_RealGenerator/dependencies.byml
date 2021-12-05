@@ -3,9 +3,11 @@ dependencies:
         - ArrayVariableResolver
         - BabyYaml
         - Bat
+        - CliTools
         - Light
         - Light_DatabaseInfo
         - Light_Logger
+        - Light_PlanetInstaller
         - SqlWizard
     
 

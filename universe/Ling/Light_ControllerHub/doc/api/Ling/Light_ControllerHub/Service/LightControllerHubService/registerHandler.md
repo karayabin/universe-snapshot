@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightControllerHubService::registerHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L117-L120)
+See the source code for method [LightControllerHubService::registerHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L118-L121)
 
 
 See Also

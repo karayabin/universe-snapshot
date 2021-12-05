@@ -1,4 +1,12 @@
 https://github.com/lingtalfi/PaginationHelper/blob/master/README.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Exception/PaginationHelperException.md
 https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/PaginationHelperTool/slice.md
 https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/PaginationHelperTool.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/Amazon2021Paginator/__construct.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/Amazon2021Paginator/link.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/Amazon2021Paginator/render.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/Amazon2021Paginator/setProperties.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/Amazon2021Paginator.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/PaginatorInterface/render.md
+https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/PaginatorInterface.md
 https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper.md

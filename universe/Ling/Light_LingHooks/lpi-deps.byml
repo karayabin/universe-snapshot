@@ -66,3 +66,10 @@
     - Ling:Light_Events:1.10.6
     - Ling:Light_PlanetInstaller:2.0.0
     - Ling:Light_QuickMailAlert:1.1.6
+
+1.0.12: 
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.9
+    - Ling:Light_Events:1.10.6
+    - Ling:Light_PlanetInstaller:2.0.4
+    - Ling:Light_QuickMailAlert:1.1.7

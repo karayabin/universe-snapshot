@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-05-31
+2019-10-24 -> 2021-07-30
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -156,16 +156,6 @@ $kit.methods_collection:
             -
                 instance: Ling\Light_Kit_Admin\ConfigurationTransformer\LightKitAdminConfigurationTransformer
 
-$micro_permission.methods_collection:
-    -
-        method: registerMicroPermissionsByProfile
-        args:
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml
-
-
-
-
-
 
 $realist.methods_collection:
     -
@@ -204,6 +194,68 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.13.6 -- 2021-07-30
+
+    - checkpoint commit 
+
+- 0.13.5 -- 2021-07-01
+
+    - update api to work with Ling.Light_Kit_Editor:0.3.0 
+    - update api, now use Light_JimToolbox instead of our own implementation 
+  
+- 0.13.4 -- 2021-06-25
+
+    - updated routes, add galaxy prefix 
+  
+- 0.13.3 -- 2021-06-18
+
+    - fix service->getDuelistEngine typo (old lke path) 
+    - update kit pages, using $root variable 
+  
+- 0.13.2 -- 2021-06-18
+
+    - now uses the Light_Kit_Editor page renderer instead of the one from Light_Kit 
+  
+- 0.13.1 -- 2021-06-18
+
+    - fix old code still using old light kit editor path 
+  
+- 0.13.0 -- 2021-06-18
+
+    - update light kit editor path, update pages document 
+  
+- 0.12.48 -- 2021-06-17
+
+    - add LightKitAdminBasePlanetInstaller->registerOpenMicroPermissionsByProfile method
+  
+- 0.12.47 -- 2021-06-17
+
+    - switch to micro-permission open registration system
+  
+- 0.12.46 -- 2021-06-17
+
+    - update light-kit-admin-environment.js, alcpCall now forwards options
+    - update LightKitAdminBasePlanetInstaller, add micro-permission handling
+  
+- 0.12.45 -- 2021-06-03
+
+    - adapt api to work with Light_PlanetInstaller:2.0.4
+    - fix LightKitAdminBasePlanetInstaller->undoInit3 removing source planet permissions instead of the real planet permissions
+  
+- 0.12.44 -- 2021-06-03
+
+    - fix functional typo, namespace of LightRealformConfigurationFileRegistrationHelper called from LightKitAdminBasePlanetInstaller->init2
+  
+- 0.12.43 -- 2021-06-03
+
+    - update LightKitAdminBasePlanetInstaller->init2, now handles realform registration process automatically
+  
+- 0.12.42 -- 2021-06-01
+
+    - update LightKitAdminBasePlanetInstaller->init2, now handles realist request declarations automatically
+    - update LightKitAdminBasePlanetInstaller->init3, now registers the permissions of the lka planet, not the source planet
+    - removed dependency to Light_PluginInstaller
+  
 - 0.12.41 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

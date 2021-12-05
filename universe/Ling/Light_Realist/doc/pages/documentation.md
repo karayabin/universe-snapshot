@@ -36,12 +36,12 @@ This documentation is organized in various documents:
 
 
 
-- [realist, quick recap](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/realist.md)
-- [realist protagonists](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/realist-protagonists.md)
-- [request declaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/request-declaration.md)
-- [open tags](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/open-tags.md)
-- [open admin table one](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/open-admin-table-one.md)
-- [list item renderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md)
-- [list actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md)
-- [action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md)
+- [realist, quick recap](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist.md)
+- [realist protagonists](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-protagonists.md)
+- [request declaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/request-declaration.md)
+- [open tags](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-tags.md)
+- [open admin table one](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-one.md)
+- [list item renderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-item-renderer.md)
+- [list actions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-actions.md)
+- [action items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/action-items.md)
 

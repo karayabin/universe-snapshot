@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [InstallInit1Command::getFlags](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit1Command.php#L107-L117)
+See the source code for method [InstallInit1Command::getFlags](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit1Command.php#L100-L110)
 
 
 See Also

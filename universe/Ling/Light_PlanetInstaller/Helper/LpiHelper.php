@@ -15,6 +15,17 @@ class LpiHelper
 
 
     /**
+     * Returns the app id used by this planet.
+     *
+     * @return string
+     */
+    public static function getAppId(): string
+    {
+        return 'lpi';
+    }
+
+
+    /**
      * Returns a temporary directory used internally by this planet.
      *
      * Note: this directory is not automatically deleted unless you reboot your machine (i.e. never on a server), you need to delete it manually.

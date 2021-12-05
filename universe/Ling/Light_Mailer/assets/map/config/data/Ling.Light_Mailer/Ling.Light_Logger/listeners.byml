@@ -1,0 +1,19 @@
+-
+    channels: mailer.debug
+    listener:
+        instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/mailer_debug.txt
+
+-
+    channels: mailer.send_failures
+    listener:
+        instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/mailer_send_failures.txt
+
+

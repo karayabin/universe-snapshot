@@ -4,7 +4,7 @@
 
 The Light_KitDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Kit\Light_KitDocBuilder]
 
 SeeAlso
 ==============
-Previous class: [Light_InitializerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder.md)<br>Next class: [Light_Kit_AdminDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder.md)<br>
+Previous class: [Light_JimToolboxDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_JimToolbox/Light_JimToolboxDocBuilder.md)<br>Next class: [Light_Kit_AdminDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder.md)<br>

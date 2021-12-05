@@ -1,0 +1,6 @@
+https://github.com/lingtalfi/PaypalTools/blob/master/README.md
+https://github.com/lingtalfi/PaypalTools/blob/master/doc/api/Ling/PaypalTools/Exception/PaypalToolsException.md
+https://github.com/lingtalfi/PaypalTools/blob/master/doc/api/Ling/PaypalTools/Tool/PaypalTool/getAccessTokenInfo.md
+https://github.com/lingtalfi/PaypalTools/blob/master/doc/api/Ling/PaypalTools/Tool/PaypalTool.md
+https://github.com/lingtalfi/PaypalTools/blob/master/doc/api/Ling/PaypalTools.md
+https://github.com/lingtalfi/PaypalTools/blob/master/doc/pages/conception-notes.md

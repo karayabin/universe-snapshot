@@ -6,15 +6,14 @@ namespace Ling\Light_LingStandardService\Service;
 
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Logger\LightLoggerService;
-use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
+use Ling\Light_Logger\Service\LightLoggerService;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\UniverseTools\PlanetTool;
 
 /**
  * The LightLingStandardService01 class.
  */
-abstract class LightLingStandardService01 implements PluginInstallerInterface
+abstract class LightLingStandardService01
 {
 
     /**
@@ -96,79 +95,6 @@ abstract class LightLingStandardService01 implements PluginInstallerInterface
         $this->options = $options;
     }
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * @implementation
-     */
-    public function install()
-    {
-        if (true === $this->container->has("user_database")) {
-
-            $this->prepareNames();
-            /**
-             * @var $userDb LightUserDatabaseService
-             */
-            $userDb = $this->container->get('user_database');
-            $userDb->getFactory()->getPermissionApi()->insertPermissions([
-                [
-                    'name' => $this->_pluginName . ".admin",
-                ],
-                [
-                    'name' => $this->_pluginName . ".user",
-                ],
-            ]);
-        }
-    }
-
-    /**
-     * @implementation
-     */
-    public function isInstalled(): bool
-    {
-        if (true === $this->container->has("user_database")) {
-
-            $this->prepareNames();
-            $permissionName = $this->_pluginName . ".admin";
-            /**
-             * @var $userDb LightUserDatabaseService
-             */
-            $userDb = $this->container->get('user_database');
-            if (null !== $userDb->getFactory()->getPermissionApi()->getPermissionIdByName($permissionName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * @implementation
-     */
-    public function uninstall()
-    {
-        if (true === $this->container->has("user_database")) {
-
-            $this->prepareNames();
-            /**
-             * @var $userDb LightUserDatabaseService
-             */
-            $userDb = $this->container->get('user_database');
-            $userDb->getFactory()->getPermissionApi()->deletePermissionByNames([
-                $this->_pluginName . ".admin",
-                $this->_pluginName . ".user",
-            ]);
-        }
-    }
-
-    /**
-     * @implementation
-     */
-    public function getDependencies(): array
-    {
-        return [];
-    }
 
     //--------------------------------------------
     //

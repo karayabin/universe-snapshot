@@ -1,12 +1,13 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function insertUser(array $user, bool $ignoreDuplicate = true, bool $returnRic = false)
     { //microperm
 
         $errorInfo = null;
 
-
+        $user = array_replace($this->getDefaultValues(), $user);
 
         try {
 

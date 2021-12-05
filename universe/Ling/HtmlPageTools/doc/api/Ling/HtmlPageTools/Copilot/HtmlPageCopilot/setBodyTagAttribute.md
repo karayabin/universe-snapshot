@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::setBodyTagAttribute](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L381-L384)
+See the source code for method [HtmlPageCopilot::setBodyTagAttribute](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L404-L407)
 
 
 See Also

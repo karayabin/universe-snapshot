@@ -1,0 +1,5 @@
+multipleFormEditor:
+    prefixes:
+        lms:
+            realform_identifier: Ling.Light_Kit_Admin_MailStats.generated/{table}
+            kit_page: Ling.Light_Kit_Admin_MailStats/generated/{table}_form

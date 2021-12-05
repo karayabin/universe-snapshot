@@ -7,7 +7,7 @@ LightWebsiteUser::getSessionDuration
 
 
 
-LightWebsiteUser::getSessionDuration — Returns the session_duration of this instance.
+LightWebsiteUser::getSessionDuration — Returns the duration of this user' session in seconds.
 
 
 
@@ -21,7 +21,7 @@ public [LightWebsiteUser::getSessionDuration](https://github.com/lingtalfi/Light
 
 
 
-Returns the session_duration of this instance.
+Returns the duration of this user' session in seconds.
 
 
 
@@ -46,7 +46,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L378-L381)
+See the source code for method [LightWebsiteUser::getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L190-L193)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) class.
 
-Previous method: [setLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setLastRefreshTime.md)<br>Next method: [setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)<br>
+Previous method: [setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)<br>Next method: [connect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/connect.md)<br>
 

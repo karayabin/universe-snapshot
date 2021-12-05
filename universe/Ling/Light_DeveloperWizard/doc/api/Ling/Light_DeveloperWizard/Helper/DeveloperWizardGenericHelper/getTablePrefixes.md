@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DeveloperWizardGenericHelper::getTablePrefixes](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardGenericHelper.php#L101-L152)
+See the source code for method [DeveloperWizardGenericHelper::getTablePrefixes](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardGenericHelper.php#L98-L149)
 
 
 See Also

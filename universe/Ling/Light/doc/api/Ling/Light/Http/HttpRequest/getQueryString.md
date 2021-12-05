@@ -7,7 +7,7 @@ HttpRequest::getQueryString
 
 
 
-HttpRequest::getQueryString — Returns the queryString of the http request.
+HttpRequest::getQueryString — Returns the url-decoded version of the queryString of the http request.
 
 
 
@@ -21,7 +21,7 @@ public [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/mas
 
 
 
-Returns the queryString of the http request.
+Returns the url-decoded version of the queryString of the http request.
 
 
 
@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L233-L236)
+See the source code for method [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L241-L244)
 
 
 See Also

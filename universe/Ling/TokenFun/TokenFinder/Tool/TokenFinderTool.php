@@ -123,9 +123,12 @@ class TokenFinderTool
         $tokens = token_get_all(file_get_contents($file));
         $o = new ClassPropertyTokenFinder();
         $matches = $o->find($tokens);
+
         foreach ($matches as $match) {
             list($startIndex, $endIndex) = $match;
             $slice = TokenTool::slice($tokens, $startIndex, $endIndex);
+
+
 
             $hasComment = TokenTool::matchAny([
                 T_DOC_COMMENT,
@@ -144,7 +147,7 @@ class TokenFinderTool
                 T_STATIC,
             ], $slice);
 
-//            az(TokenTool::explicitTokenNames($slice));
+//            a(TokenTool::explicitTokenNames($slice));
             $varToken = TokenTool::fetch($slice, [T_VARIABLE]);
             $varName = substr($varToken[1], 1); // removing the dollar symbol
 
@@ -165,6 +168,7 @@ class TokenFinderTool
 
             list($startLine, $endLine) = TokenTool::getStartEndLineByTokens($slice);
             $content = TokenTool::tokensToString($slice);
+
             $ret[$varName] = [
                 "varName" => $varName,
                 "hasDocComment" => $hasComment,

@@ -1,6 +1,6 @@
 JBee
 ===========
-2020-07-31 -> 2021-03-05
+2020-07-31 -> 2021-07-13
 
 
 
@@ -42,6 +42,18 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.1.9 -- 2021-07-13
+
+    - fix forgot addOnResizeCallback implementation
+
+- 1.1.8 -- 2021-07-13
+
+    - add addOnResizeCallback function
+  
+- 1.1.7 -- 2021-07-11
+
+    - add url_remove_params function
+  
 - 1.1.6 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

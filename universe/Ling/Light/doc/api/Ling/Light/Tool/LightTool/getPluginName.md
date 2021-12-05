@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightTool::getPluginName](https://github.com/lingtalfi/Light/blob/master/Tool/LightTool.php#L43-L49)
+See the source code for method [LightTool::getPluginName](https://github.com/lingtalfi/Light/blob/master/Tool/LightTool.php#L38-L44)
 
 
 See Also

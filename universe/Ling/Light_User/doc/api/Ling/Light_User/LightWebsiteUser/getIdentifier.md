@@ -47,7 +47,7 @@ Returns string | false.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getIdentifier](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L145-L151)
+See the source code for method [LightWebsiteUser::getIdentifier](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L149-L155)
 
 
 See Also

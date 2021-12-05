@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - Light
+        - Light_Database
+    
+
+post_install: 
+    map: true

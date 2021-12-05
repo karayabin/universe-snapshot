@@ -9,8 +9,10 @@ use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_EasyRoute\Helper\LightEasyRouteHelper;
 use Ling\Light_Events\Helper\LightEventsHelper;
+use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
 use Ling\Light_Kit_Editor\Service\LightKitEditorService;
+use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface;
@@ -34,7 +36,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Kit_Admin";
@@ -70,8 +72,22 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
 
 
         //--------------------------------------------
+        // micro-permissions
+        //--------------------------------------------
+        $output->write("$planetDotName: registering micro-permissions...");
+        $mpFile = $appDir . "/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml";
+        /**
+         * @var $_mp LightMicroPermissionService
+         */
+        $_mp = $this->container->get("micro_permission");
+        $_mp->registerMicroPermissionsToOpenSystemByProfile($mpFile);
+        $output->write("<success>ok.</success>" . PHP_EOL);
+
+
+        //--------------------------------------------
         // kit editor
         //--------------------------------------------
+        $sRootDir = LightKitAdminHelper::getLightKitEditorRootPath('${app_dir}');
         /**
          * @var $ke LightKitEditorService
          */
@@ -81,7 +97,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
             "identifier" => "Ling.Light_Kit_Admin",
             "provider" => "Ling.Light_Kit_Admin",
             "engine" => "babyYaml",
-            "rootDir" => '${app_dir}/config/open/Ling.Light_Kit_Admin/lke',
+            "rootDir" => $sRootDir,
             "label" => "Ling.Light_Kit_Admin",
         ]);
         $output->write("<success>ok.</success>" . PHP_EOL);
@@ -92,7 +108,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Kit_Admin";
@@ -129,13 +145,25 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
 
 
         //--------------------------------------------
+        // micro-permissions
+        //--------------------------------------------
+        $output->write("$planetDotName: unregistering micro-permissions...");
+        $mpFile = $appDir . "/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml";
+        /**
+         * @var $_mp LightMicroPermissionService
+         */
+        $_mp = $this->container->get("micro_permission");
+        $_mp->unregisterMicroPermissionsToOpenSystemByProfile($mpFile);
+        $output->write("<success>ok.</success>" . PHP_EOL);
+
+        //--------------------------------------------
         // kit editor
         //--------------------------------------------
         /**
          * @var $ke LightKitEditorService
          */
         $ke = $this->container->get("kit_editor");
-        $output->write("$planetDotName: registering websites...");
+        $output->write("$planetDotName: unregistering websites...");
         $ke->unregisterWebsite("Ling.Light_Kit_Admin");
         $output->write("<success>ok.</success>" . PHP_EOL);
 
@@ -145,7 +173,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function init3(string $appDir, OutputInterface $output): void
+    public function init3(string $appDir, OutputInterface $output, array $options = []): void
     {
 
 
@@ -320,7 +348,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function undoInit3(string $appDir, OutputInterface $output): void
+    public function undoInit3(string $appDir, OutputInterface $output, array $options = []): void
     {
 
 

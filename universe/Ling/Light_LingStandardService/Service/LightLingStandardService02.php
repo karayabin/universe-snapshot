@@ -6,7 +6,7 @@ namespace Ling\Light_LingStandardService\Service;
 
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 use Ling\UniverseTools\PlanetTool;
 
 /**

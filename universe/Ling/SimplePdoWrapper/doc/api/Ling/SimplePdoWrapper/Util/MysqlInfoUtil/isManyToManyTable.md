@@ -52,7 +52,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::isManyToManyTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L873-L886)
+See the source code for method [MysqlInfoUtil::isManyToManyTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L874-L887)
 
 
 See Also

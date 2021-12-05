@@ -46,7 +46,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getId](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L247-L250)
+See the source code for method [LightWebsiteUser::getId](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L276-L279)
 
 
 See Also

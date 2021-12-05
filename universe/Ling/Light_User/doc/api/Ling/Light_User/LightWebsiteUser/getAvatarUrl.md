@@ -46,7 +46,7 @@ Returns string | null.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getAvatarUrl](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L298-L301)
+See the source code for method [LightWebsiteUser::getAvatarUrl](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L327-L330)
 
 
 See Also

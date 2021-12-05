@@ -194,8 +194,7 @@ rendering:
                         text: Edit
                         url_params_add_ric: true
                         url_params: 
-                            plugin: Ling/Light_Kit_Admin_UserDatabase
-                            controller: Generated/LudUserGroupHasPluginOptionController
+                            execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserGroupHasPluginOptionController->render
                             m: f
                         
                         icon: fas fa-edit
@@ -246,8 +245,7 @@ rendering:
                     id: user_group_id
                 
                 url_params: 
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudUserGroupController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserGroupController->render
                     m: f
                 
             
@@ -258,8 +256,7 @@ rendering:
                     id: plugin_option_id
                 
                 url_params: 
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudPluginOptionController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudPluginOptionController->render
                     m: f
                 
             
@@ -272,7 +269,7 @@ rendering:
     related_links: 
         - 
             text: "Add new \"user group has plugin option\" item"
-            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserDatabase, controller: Generated/LudUserGroupHasPluginOptionController, m:f})
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserGroupHasPluginOptionController->render, m:f})
             icon: fas fa-plus-circle
         
     

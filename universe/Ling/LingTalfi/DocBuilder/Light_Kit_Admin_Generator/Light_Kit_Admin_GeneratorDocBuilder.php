@@ -78,6 +78,7 @@ class Light_Kit_Admin_GeneratorDocBuilder
                 "Ling\Light_RealGenerator\Generator\BaseConfigGenerator",
                 "Ling\Light_RealGenerator\Service\LightRealGeneratorService",
                 "Ling\Light_RealGenerator\Generator\ListConfigGenerator",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
 
             ],
             /**
@@ -151,6 +152,7 @@ class Light_Kit_Admin_GeneratorDocBuilder
                 "realform" => 'https://github.com/lingtalfi/Light_Realform',
                 "open admin data type" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types',
                 "getGenericTagsByTable method" => 'https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getGenericTagsByTable.md',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -167,6 +169,10 @@ class Light_Kit_Admin_GeneratorDocBuilder
                 "Ling\Light_RealGenerator\Generator\BaseConfigGenerator" => "https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator.md",
                 "Ling\Light_RealGenerator\Service\LightRealGeneratorService" => "https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService.md",
                 "Ling\Light_RealGenerator\Generator\ListConfigGenerator" => "https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

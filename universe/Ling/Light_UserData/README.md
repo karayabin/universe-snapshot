@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2021-05-31
+2019-09-27 -> 2021-06-03
 
 
 
@@ -133,9 +133,9 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
-- 1.19.20 -- 2021-05-31
+- 1.19.20 -- 2021-06-03
 
-    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+    - adapt api to work with Light_PlanetInstaller:2.0.4
 
 - 1.19.19 -- 2021-05-31
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::setEmail](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L288-L291)
+See the source code for method [LightWebsiteUser::setEmail](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L317-L320)
 
 
 See Also

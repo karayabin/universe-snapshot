@@ -14,6 +14,7 @@ Summary
 * [Form handling system A](#form-handling-system-a)
 * [The configuration file](#the-configuration-file)
     * [A configuration file example](#a-configuration-file-example)
+* [Registering the configuration file](#registering-the-configuration-file)
 * [The success handler interface](#the-success-handler-interface)
 * [The executeRealform method](#the-executerealform-method)
 * [The updateRic concept](#the-updateric-concept)
@@ -90,15 +91,14 @@ At the core of our system, we use the [Chloroform planet](https://github.com/lin
 
 
 
+
 The configuration file
 -------------
-2020-09-07 -> 2021-03-29
+2020-09-07 -> 2021-06-01
 
 
-To access the configuration file, we use the [Light_Nugget planet](https://github.com/lingtalfi/Light_Nugget), with a relative path of "Light_Realform/form".
 
-
-Our directives are the following:
+The configuration files contains the following directives:
 
 
 - ?title: string, the title of the form. Our service doesn't do anything with it, but this might be useful to your renderer.
@@ -358,6 +358,27 @@ success_handler:
     
 
 ````
+
+
+
+Registering the configuration file
+-----------
+2021-06-01
+
+
+Configuration files are registered dynamically, using an [open registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration).
+
+The **configuration file** should be located in this dir:
+
+- $appDir/config/open/Ling.Light_Realform/$planetDotName/$relPath.byml
+
+Where:
+
+- $relPath is an arbitrary path defined by the author of the $planetDotName planet
+
+
+We resolve the configuration file exactly like the [Ling.Light_Nugget](https://github.com/lingtalfi/Light_Nugget) planet does.
+
 
 
 

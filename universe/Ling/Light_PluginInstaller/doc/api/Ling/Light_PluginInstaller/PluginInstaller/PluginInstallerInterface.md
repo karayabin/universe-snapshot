@@ -4,7 +4,7 @@
 
 The PluginInstallerInterface class
 ================
-2020-02-07 --> 2021-05-31
+2020-02-07 --> 2021-06-25
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\Light_PluginInstaller\PluginInstaller\PluginInstall
 
 SeeAlso
 ==============
-Previous class: [LightPluginInstallerException](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Exception/LightPluginInstallerException.md)<br>Next class: [LightPluginInstallerService](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService.md)<br>
+Previous class: [LightPluginInstallerPlanetInstaller](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Light_PlanetInstaller/LightPluginInstallerPlanetInstaller.md)<br>Next class: [LightPluginInstallerService](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService.md)<br>

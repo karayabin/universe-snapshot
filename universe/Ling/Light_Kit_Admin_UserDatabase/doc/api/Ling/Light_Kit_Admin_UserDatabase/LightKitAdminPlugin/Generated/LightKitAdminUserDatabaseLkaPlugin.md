@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDatabaseLkaPlugin class
 ================
-2020-06-25 --> 2021-05-31
+2020-06-25 --> 2021-06-18
 
 
 
@@ -59,4 +59,4 @@ See the source code of [Ling\Light_Kit_Admin_UserDatabase\LightKitAdminPlugin\Ge
 
 SeeAlso
 ==============
-Previous class: [UserProfileController](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Controller/User/UserProfileController.md)<br>Next class: [LightKitAdminUserDatabaseLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/LightKitAdminPlugin/LightKitAdminUserDatabaseLkaPlugin.md)<br>
+Previous class: [LightKitAdminUserDatabaseException](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Exception/LightKitAdminUserDatabaseException.md)<br>Next class: [LightKitAdminUserDatabaseLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/LightKitAdminPlugin/LightKitAdminUserDatabaseLkaPlugin.md)<br>

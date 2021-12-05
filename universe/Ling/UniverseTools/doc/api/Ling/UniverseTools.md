@@ -1,6 +1,6 @@
 Ling/UniverseTools
 ================
-2019-02-26 --> 2021-05-31
+2019-02-26 --> 2021-07-30
 
 
 
@@ -22,6 +22,7 @@ Table of contents
     - [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/parseDumpDependencies.md) &ndash; A method to help creating the [dependencies.byml file](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md).
     - [DependencyTool::getUniverseAssetDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getUniverseAssetDependencies.md) &ndash; Returns the [universe asset dependencies](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md#the-universeassetdependencies-trick) for a given planet directory.
     - [DependencyTool::getDependencyItem](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyItem.md) &ndash; Returns an array of dependency items for the given $planetDir.
+    - [DependencyTool::getDependencyArray](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyArray.md) &ndash; Returns the array contained in the dependencies.byml file if found, or an empty array otherwise.
     - [DependencyTool::getDependencyList](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyList.md) &ndash; and return an array of all dependencies found in it.
     - [DependencyTool::getDependencyListByFile](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyListByFile.md) &ndash; Parses the given dependencies.byml file, and returns an array of all dependencies found in it.
     - [DependencyTool::getDependencyHomeUrl](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyHomeUrl.md) &ndash; Returns the home url (i.e.
@@ -67,6 +68,7 @@ Table of contents
     - [StandardReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getLatestVersionInfo.md) &ndash; section of the given README file.
     - [StandardReadmeUtil::getErrors](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getErrors.md) &ndash; Returns the errors of this instance.
     - [StandardReadmeUtil::addHistoryLogEntry](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/addHistoryLogEntry.md) &ndash; Adds an history entry to the given "read me" file, with the given message, date and version.
+    - [StandardReadmeUtil::getPlanetsToCommitListByAppDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getPlanetsToCommitListByAppDir.md) &ndash; Returns the array of the planet dot names to commit.
     - [StandardReadmeUtil::addCommitMessageByUniverseDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/addCommitMessageByUniverseDir.md) &ndash; Adds a commit message to the history log section of the README files for each planet in the given universeDir.
     - [StandardReadmeUtil::updateDate](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/updateDate.md) &ndash; Updates the date of the README.md file.
     - [StandardReadmeUtil::addCommitMessageByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/addCommitMessageByPlanetDir.md) &ndash; Adds a commit message to the history log section of the README files for the given planet..

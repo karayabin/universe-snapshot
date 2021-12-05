@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::getJsUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L290-L297)
+See the source code for method [HtmlPageCopilot::getJsUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L300-L307)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) class.
 
-Previous method: [getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssUrls.md)<br>Next method: [addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsCodeBlock.md)<br>
+Previous method: [getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssUrls.md)<br>Next method: [getJsModulesUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsModulesUrls.md)<br>
 

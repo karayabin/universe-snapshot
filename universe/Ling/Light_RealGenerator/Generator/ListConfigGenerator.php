@@ -135,8 +135,6 @@ class ListConfigGenerator extends BaseConfigGenerator
         $main['planetId'] = '%{galaxy}/%{plugin}';
 
 
-
-
         $duelist = [];
         $duelist['table'] = '%{table}';
 
@@ -245,6 +243,17 @@ class ListConfigGenerator extends BaseConfigGenerator
                     $crossColumnPluginName = $this->getCrossColumnPluginName($pluginName, $rfTable, $crossColumnHubLinkTablePrefix2Plugin);
 
 
+                    $executeStr = $crossColumnPluginName . "/Controller";
+                    $executeStr .= "\\" . str_replace([
+                            '{Table}',
+                        ], [
+                            $rfTablePascalCase,
+                        ], $crossColumnHubLinkControllerFormat);
+                    $executeStr .= "->render";
+                    $executeStr = str_replace("/", "\\", $executeStr);
+
+
+
 //                    az($table, $pluginName, $fkTablePrefix, $crossColumnPluginName);
 
 
@@ -260,12 +269,7 @@ class ListConfigGenerator extends BaseConfigGenerator
                             $rfCol => $fk,
                         ],
                         "url_params" => [
-                            'plugin' => $crossColumnPluginName,
-                            'controller' => str_replace([
-                                '{Table}',
-                            ], [
-                                $rfTablePascalCase,
-                            ], $crossColumnHubLinkControllerFormat),
+                            "execute" => $executeStr,
                             'm' => "f",
                         ],
                     ];

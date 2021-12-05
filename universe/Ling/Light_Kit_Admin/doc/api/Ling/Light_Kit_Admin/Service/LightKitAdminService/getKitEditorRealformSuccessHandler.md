@@ -53,7 +53,7 @@ Returns [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Rea
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L343-L348)
+See the source code for method [LightKitAdminService::getKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L346-L351)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [LightKitAdminService](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService.md) class.
 
-Previous method: [getDuelistEngine](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDuelistEngine.md)<br>Next method: [lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md)<br>
+Previous method: [getDuelistEngine](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDuelistEngine.md)<br>Next method: [getValidLightKitAdminUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getValidLightKitAdminUser.md)<br>
 

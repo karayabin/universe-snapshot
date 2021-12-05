@@ -7,7 +7,7 @@ LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGrou
 
 
 
-LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups — Unbinds the permissions of the given $srcPlanetDotName from the main lka permission groups.
+LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups — Unbinds the permissions of the given $planetDotName from the main lka permission groups.
 
 
 
@@ -16,14 +16,13 @@ Description
 ================
 
 
-public static [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/unbindStandardLightPermissionsToLkaPermissionGroups.md)(Ling\Light_UserDatabase\Service\LightUserDatabaseService $userDb, string $srcPlanetDotName) : void
+public static [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/unbindStandardLightPermissionsToLkaPermissionGroups.md)(Ling\Light_UserDatabase\Service\LightUserDatabaseService $userDb, string $planetDotName) : void
 
 
 
 
-Unbinds the permissions of the given $srcPlanetDotName from the main lka permission groups.
+Unbinds the permissions of the given $planetDotName from the main lka permission groups.
 
-The basePluginName is the name of the [light kit admin' source plugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md#light-kit-admin-source-and-port-plugin).
 
 
 Note: the main lka permission groups are:
@@ -41,7 +40,7 @@ Parameters
 
     
 
-- srcPlanetDotName
+- planetDotName
 
     
 
@@ -65,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Helper/LightKitAdminPermissionHelper.php#L76-L104)
+See the source code for method [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Helper/LightKitAdminPermissionHelper.php#L72-L100)
 
 
 See Also

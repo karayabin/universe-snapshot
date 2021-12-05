@@ -4,7 +4,7 @@
 
 The DeveloperWizardGenericHelper class
 ================
-2020-06-30 --> 2021-05-31
+2020-06-30 --> 2021-08-17
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\Light_DeveloperWizard\Helper\DeveloperWizardGeneric
 
 SeeAlso
 ==============
-Previous class: [DeveloperWizardBreezeGeneratorHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardBreezeGeneratorHelper.md)<br>Next class: [DeveloperWizardLkaHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLkaHelper.md)<br>
+Previous class: [DeveloperWizardBreezeGeneratorHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardBreezeGeneratorHelper.md)<br>Next class: [DeveloperWizardLightPlanetInstallerHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLightPlanetInstallerHelper.md)<br>

@@ -1,0 +1,10 @@
+-
+    channels: plugin_installer.debug
+    listener:
+        instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/plugin_installer_debug.txt
+
+

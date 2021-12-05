@@ -1,6 +1,6 @@
 SicTools
 ========
-2019-02-06 -> 2021-03-05
+2019-02-06 -> 2021-08-05
 
 Tools for implementing
 the [sic notation](https://github.com/karayabin/universe-snapshot/blob/master/universe/Ling/NotationFan/sic.md) in a php
@@ -41,6 +41,14 @@ Summary
 History Log
 ------------------
 
+- 1.6.8 -- 2021-08-05
+
+    - add HotServiceResolver->setCustomResolveNotationCallback method 
+  
+- 1.6.7 -- 2021-06-25
+
+    - fix HotServiceResolver->getService not handling the service name when customNotation returns null
+  
 - 1.6.6 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

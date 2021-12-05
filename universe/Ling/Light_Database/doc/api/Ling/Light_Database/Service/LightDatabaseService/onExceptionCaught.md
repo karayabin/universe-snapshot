@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabaseService::onExceptionCaught](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L85-L94)
+See the source code for method [LightDatabaseService::onExceptionCaught](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L84-L93)
 
 
 See Also

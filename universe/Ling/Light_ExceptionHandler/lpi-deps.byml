@@ -103,3 +103,26 @@
     - Ling:Light_Events:1.10.6
     - Ling:Light_Logger:1.11.8
     - Ling:Light_PlanetInstaller:2.0.0
+
+1.2.16: 
+    - Ling:CheapLogger:1.0.7
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.9
+    - Ling:Light_Events:1.10.6
+    - Ling:Light_Logger:1.11.9
+    - Ling:Light_PlanetInstaller:2.0.4
+
+1.2.17: 
+    - Ling:CheapLogger:1.0.7
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.11
+    - Ling:Light_Events:1.10.7
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7
+
+1.2.18: 
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.11
+    - Ling:Light_Events:1.10.8
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7

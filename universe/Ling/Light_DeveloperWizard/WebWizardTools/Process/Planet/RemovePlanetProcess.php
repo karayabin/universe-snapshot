@@ -6,7 +6,6 @@ namespace Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet;
 
 use Ling\Bat\FileSystemTool;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\LightDeveloperWizardCommonProcess;
-use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 
 /**
  * The RemovePlanetProcess class.
@@ -50,17 +49,6 @@ class RemovePlanetProcess extends LightDeveloperWizardCommonProcess
             $appDir . "/www/libs/universe/$galaxy/$planet",
             $appDir . "/www/plugins/$planet",
         ];
-
-
-        if (true === $this->container->has('plugin_installer')) {
-            /**
-             * @var $pluginInstaller LightPluginInstallerService
-             */
-            $pluginInstaller = $this->container->get('plugin_installer');
-            if (true === $pluginInstaller->isRegistered($planet)) {
-                $pluginInstaller->uninstall($planet);
-            }
-        }
 
 
         $somethingRemoved = false;

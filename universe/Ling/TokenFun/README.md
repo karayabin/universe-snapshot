@@ -1,6 +1,6 @@
 TokenFun
 =================
-2016-01-02 -> 2021-03-08
+2016-01-02 -> 2021-08-16
 
 
 
@@ -54,6 +54,22 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.11.12 -- 2021-08-16
+
+    - fix MethodTokenFinder not detecting return hint of type array 
+  
+- 1.11.11 -- 2021-06-04
+
+    - fix ClassPropertyTokenFinder not recognizing ? and | chars
+  
+- 1.11.10 -- 2021-06-04
+
+    - fix ClassPropertyTokenFinder not recognizing property type
+  
+- 1.11.9 -- 2021-06-03
+
+    - fix TokenArrayIteratorTool::moveToCorrespondingEnd capturing false sometimes
 
 - 1.11.8 -- 2021-05-31
 

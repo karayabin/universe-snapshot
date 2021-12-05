@@ -4,7 +4,7 @@
 
 The LightRealGeneratorService class
 ================
-2019-10-24 --> 2021-05-31
+2019-10-24 --> 2021-06-28
 
 
 
@@ -97,4 +97,4 @@ See the source code of [Ling\Light_RealGenerator\Service\LightRealGeneratorServi
 
 SeeAlso
 ==============
-Previous class: [ListConfigGenerator](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator.md)<br>Next class: [RepresentativeColumnFinderUtil](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Util/RepresentativeColumnFinderUtil.md)<br>
+Previous class: [LightRealGeneratorPlanetInstaller](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Light_PlanetInstaller/LightRealGeneratorPlanetInstaller.md)<br>Next class: [RepresentativeColumnFinderUtil](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Util/RepresentativeColumnFinderUtil.md)<br>

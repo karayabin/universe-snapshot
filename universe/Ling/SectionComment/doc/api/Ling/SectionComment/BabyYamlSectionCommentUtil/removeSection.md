@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::removeSection](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L121-L132)
+See the source code for method [BabyYamlSectionCommentUtil::removeSection](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L124-L135)
 
 
 See Also

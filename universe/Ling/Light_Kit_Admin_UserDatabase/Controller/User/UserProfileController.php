@@ -166,7 +166,6 @@ class UserProfileController extends AdminPageController
         //--------------------------------------------
         if ($flasher->hasFlash("user_profile")) {
             list($message, $type) = $flasher->getFlash("user_profile");
-//                $this->getKitAdmin()->addNotification(WiseTool::wiseToLightKitAdmin($type, $message));
             $form->addNotification(WiseTool::wiseToChloroform($type, $message));
         }
 

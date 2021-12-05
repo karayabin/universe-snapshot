@@ -5,13 +5,14 @@ namespace Ling\Light_UserDatabase\Light_PlanetInstaller;
 
 
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Light_Database\Light_PlanetInstaller\LightDatabaseBasePlanetInstaller;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 
 /**
  * The LightUserDatabasePlanetInstaller class.
  */
-class LightUserDatabasePlanetInstaller extends LightUserDatabaseBasePlanetInstaller
+class LightUserDatabasePlanetInstaller extends LightDatabaseBasePlanetInstaller
 {
 
     /**
@@ -24,7 +25,7 @@ class LightUserDatabasePlanetInstaller extends LightUserDatabaseBasePlanetInstal
     /**
      * @implementation
      */
-    public function init3(string $appDir, OutputInterface $output): void
+    public function init3(string $appDir, OutputInterface $output, array $options = []): void
     {
         $this->_output = $output;
 
@@ -122,7 +123,7 @@ class LightUserDatabasePlanetInstaller extends LightUserDatabaseBasePlanetInstal
     /**
      * @implementation
      */
-    public function undoInit3(string $appDir, OutputInterface $output): void
+    public function undoInit3(string $appDir, OutputInterface $output, array $options = []): void
     {
         $this->_output = $output;
 

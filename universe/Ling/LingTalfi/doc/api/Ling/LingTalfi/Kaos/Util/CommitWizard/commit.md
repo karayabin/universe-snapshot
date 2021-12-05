@@ -62,7 +62,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L124-L146)
+See the source code for method [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L150-L172)
 
 
 See Also
@@ -70,5 +70,5 @@ See Also
 
 The [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) class.
 
-Previous method: [commitListFromFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitListFromFile.md)<br>Next method: [commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitByPlanetDir.md)<br>
+Previous method: [commitPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitPlanets.md)<br>Next method: [commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitByPlanetDir.md)<br>
 

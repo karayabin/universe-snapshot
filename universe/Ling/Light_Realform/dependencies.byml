@@ -1,8 +1,13 @@
 dependencies: 
     Ling: 
         - ArrayToString
+        - ArrayVariableResolver
+        - BabyYaml
         - Bat
         - Chloroform
+        - CliTools
+        - ConventionTools
+        - DirScanner
         - Light
         - Light_ChloroformExtension
         - Light_Crud

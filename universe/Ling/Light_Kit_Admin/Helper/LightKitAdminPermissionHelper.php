@@ -14,10 +14,7 @@ class LightKitAdminPermissionHelper
 
 
     /**
-     * Binds the permissions of the given $srcPlanetDotName to the main lka permission groups.
-     *
-     * The srcPlanetDotName is the name of the @page(light kit admin' source plugin).
-     *
+     * Binds the permissions of the given $planetDotName to the main lka permission groups.
      *
      * Note: the main lka permission groups are:
      * - Ling.Light_Kit_Admin.admin
@@ -25,10 +22,10 @@ class LightKitAdminPermissionHelper
      *
      *
      * @param LightUserDatabaseService $userDb
-     * @param string $srcPlanetDotName
+     * @param string $planetDotName
      * @throws \Exception
      */
-    public static function bindStandardLightPermissionsToLkaPermissionGroups(LightUserDatabaseService $userDb, string $srcPlanetDotName)
+    public static function bindStandardLightPermissionsToLkaPermissionGroups(LightUserDatabaseService $userDb, string $planetDotName)
     {
 
         $permGroupApi = $userDb->getFactory()->getPermissionGroupApi();
@@ -37,8 +34,8 @@ class LightKitAdminPermissionHelper
         $groupUserId = $permGroupApi->getPermissionGroupIdByName("Ling.Light_Kit_Admin.user", null, true);
 
 
-        $adminId = $permApi->getPermissionIdByName("$srcPlanetDotName.admin", null, true);
-        $userId = $permApi->getPermissionIdByName("$srcPlanetDotName.user", null, true);
+        $adminId = $permApi->getPermissionIdByName("$planetDotName.admin", null, true);
+        $userId = $permApi->getPermissionIdByName("$planetDotName.user", null, true);
 
 
         $userDb->getFactory()->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermissions([
@@ -59,9 +56,8 @@ class LightKitAdminPermissionHelper
 
 
     /**
-     * Unbinds the permissions of the given $srcPlanetDotName from the main lka permission groups.
+     * Unbinds the permissions of the given $planetDotName from the main lka permission groups.
      *
-     * The basePluginName is the name of the @page(light kit admin' source plugin).
      *
      *
      * Note: the main lka permission groups are:
@@ -70,10 +66,10 @@ class LightKitAdminPermissionHelper
      *
      *
      * @param LightUserDatabaseService $userDb
-     * @param string $srcPlanetDotName
+     * @param string $planetDotName
      * @throws \Exception
      */
-    public static function unbindStandardLightPermissionsToLkaPermissionGroups(LightUserDatabaseService $userDb, string $srcPlanetDotName)
+    public static function unbindStandardLightPermissionsToLkaPermissionGroups(LightUserDatabaseService $userDb, string $planetDotName)
     {
 
         $permGroupApi = $userDb->getFactory()->getPermissionGroupApi();
@@ -82,8 +78,8 @@ class LightKitAdminPermissionHelper
         $groupUserId = $permGroupApi->getPermissionGroupIdByName("Ling.Light_Kit_Admin.user");
 
 
-        $adminId = $permApi->getPermissionIdByName("$srcPlanetDotName.admin");
-        $userId = $permApi->getPermissionIdByName("$srcPlanetDotName.user");
+        $adminId = $permApi->getPermissionIdByName("$planetDotName.admin");
+        $userId = $permApi->getPermissionIdByName("$planetDotName.user");
 
 
         $api = $userDb->getFactory()->getPermissionGroupHasPermissionApi();

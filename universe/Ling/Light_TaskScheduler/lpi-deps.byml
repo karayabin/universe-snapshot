@@ -88,3 +88,13 @@
     - Ling:Light_LingStandardService:1.6.13
     - Ling:Light_UserDatabase:1.31.21
     - Ling:SimplePdoWrapper:1.30.17
+
+1.1.11: 
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.11
+    - Ling:Light_Database:1.14.29
+    - Ling:Light_LingStandardService:1.6.13
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7
+    - Ling:SimplePdoWrapper:1.30.20

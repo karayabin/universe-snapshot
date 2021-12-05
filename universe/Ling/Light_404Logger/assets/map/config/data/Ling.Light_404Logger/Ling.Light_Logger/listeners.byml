@@ -1,0 +1,25 @@
+-
+    channels: "404"
+    listener:
+        instance: Ling\Light_404Logger\Logger\Light404LoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/404-assets.log
+                    format: [{channel}]: {dateTime} -- {message}
+                    expand_array: true
+                    keepOnlyIf:
+                        extension.inArray:
+                            - css
+                            - js
+                            - jpg
+                            - jpeg
+                            - gif
+                            - png
+                            - bmp
+                            - eot
+                            - ttf
+                            - ico
+                            - pdf
+
+

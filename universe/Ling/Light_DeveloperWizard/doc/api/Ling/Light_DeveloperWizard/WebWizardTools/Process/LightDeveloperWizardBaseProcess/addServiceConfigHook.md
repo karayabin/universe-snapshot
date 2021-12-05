@@ -56,6 +56,11 @@ Return values
 Returns void.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 
@@ -64,7 +69,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDeveloperWizardBaseProcess::addServiceConfigHook](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/LightDeveloperWizardBaseProcess.php#L284-L308)
+See the source code for method [LightDeveloperWizardBaseProcess::addServiceConfigHook](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/LightDeveloperWizardBaseProcess.php#L355-L379)
 
 
 See Also
@@ -72,5 +77,5 @@ See Also
 
 The [LightDeveloperWizardBaseProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess.md) class.
 
-Previous method: [addServiceFactory](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/addServiceFactory.md)<br>Next method: [setLearnMoreByHash](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/setLearnMoreByHash.md)<br>
+Previous method: [addServiceFactory](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/addServiceFactory.md)<br>Next method: [createExceptionClass](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/createExceptionClass.md)<br>
 

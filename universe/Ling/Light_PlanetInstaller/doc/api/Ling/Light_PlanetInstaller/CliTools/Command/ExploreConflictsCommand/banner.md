@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ExploreConflictsCommand::banner](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L287-L292)
+See the source code for method [ExploreConflictsCommand::banner](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L286-L291)
 
 
 See Also

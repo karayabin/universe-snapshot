@@ -1,6 +1,6 @@
 Ling/Light_ExceptionHandler
 ================
-2019-11-11 --> 2021-05-31
+2019-11-11 --> 2021-06-28
 
 
 
@@ -19,7 +19,6 @@ Table of contents
 
 Dependencies
 ============
-- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)

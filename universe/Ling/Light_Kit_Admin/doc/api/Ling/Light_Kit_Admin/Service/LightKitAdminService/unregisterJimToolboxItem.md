@@ -54,7 +54,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::unregisterJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L484-L500)
+See the source code for method [LightKitAdminService::unregisterJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L521-L537)
 
 
 See Also

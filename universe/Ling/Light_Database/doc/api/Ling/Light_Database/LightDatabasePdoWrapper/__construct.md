@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabasePdoWrapper::__construct](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L39-L44)
+See the source code for method [LightDatabasePdoWrapper::__construct](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L37-L42)
 
 
 See Also

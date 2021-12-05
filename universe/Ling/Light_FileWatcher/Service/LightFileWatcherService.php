@@ -9,7 +9,7 @@ use Ling\Bat\HashTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_FileWatcher\Exception\LightFileWatcherException;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 
 /**
  * The LightFileWatcherService class.

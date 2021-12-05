@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_Generator
 ================
-2019-11-06 --> 2021-05-31
+2019-11-06 --> 2021-06-25
 
 
 
@@ -28,6 +28,11 @@ Table of contents
     - BaseConfigGenerator::__construct &ndash; Builds the ListConfigGenerator instance.
     - BaseConfigGenerator::setContainer &ndash; Sets the container.
     - BaseConfigGenerator::setDebugCallable &ndash; Sets the debugCallable.
+- [LightKitAdminGeneratorPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Light_PlanetInstaller/LightKitAdminGeneratorPlanetInstaller.md) &ndash; The LightKitAdminGeneratorPlanetInstaller class.
+    - [LightKitAdminGeneratorPlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Light_PlanetInstaller/LightKitAdminGeneratorPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightKitAdminGeneratorPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Light_PlanetInstaller/LightKitAdminGeneratorPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminGeneratorService](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService.md) &ndash; The LightKitAdminGeneratorService class.
     - LightRealGeneratorService::__construct &ndash; Builds the LightRealGeneratorService instance.
     - LightRealGeneratorService::generate &ndash; Same as generateByConf method, but takes the file path instead of the array.
@@ -41,8 +46,11 @@ Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
+- [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [Light_RealGenerator](https://github.com/lingtalfi/Light_RealGenerator)
 - [Light_TablePrefixInfo](https://github.com/lingtalfi/Light_TablePrefixInfo)
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)

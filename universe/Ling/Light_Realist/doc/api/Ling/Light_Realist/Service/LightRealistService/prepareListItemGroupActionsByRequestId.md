@@ -68,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::prepareListItemGroupActionsByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L618-L628)
+See the source code for method [LightRealistService::prepareListItemGroupActionsByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L622-L632)
 
 
 See Also

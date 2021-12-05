@@ -108,6 +108,32 @@ class CommitWizard
 
 
     /**
+     * Commits all the given planets with the given commit message.
+     *
+     * Note: use this from the terminal.
+     *
+     *
+     * Available options are:
+     *
+     * - increment: bool=true, whether to increment the version number in the readme's "history log" section
+     *
+     *
+     *
+     *
+     * @param array $planetDotNames
+     * @param string $commitMsg
+     * @param array $options
+     * @throws \Exception
+     */
+    public function commitPlanets(array $planetDotNames, string $commitMsg, array $options = []): void
+    {
+        foreach ($planetDotNames as $planetDotName) {
+            $this->commit($planetDotName, $commitMsg, $options);
+        }
+    }
+
+
+    /**
      *
      * Commits the given planet with the given message.
      *

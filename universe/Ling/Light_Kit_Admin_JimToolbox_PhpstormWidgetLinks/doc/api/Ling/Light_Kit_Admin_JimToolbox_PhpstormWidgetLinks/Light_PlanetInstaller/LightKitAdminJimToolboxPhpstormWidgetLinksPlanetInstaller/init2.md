@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -37,6 +37,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 

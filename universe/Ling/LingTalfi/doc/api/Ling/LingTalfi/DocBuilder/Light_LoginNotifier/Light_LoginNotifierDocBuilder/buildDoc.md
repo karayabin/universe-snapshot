@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_LoginNotifierDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_LoginNotifier/Light_LoginNotifierDocBuilder.php#L45-L228)
+See the source code for method [Light_LoginNotifierDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_LoginNotifier/Light_LoginNotifierDocBuilder.php#L45-L231)
 
 
 See Also

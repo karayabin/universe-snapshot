@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::getUniqueIndexes](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getUniqueIndexes.md)($table) : array
+public [MysqlWizard::getUniqueIndexes](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getUniqueIndexes.md)($fullTable) : array
 
 
 
@@ -32,7 +32,7 @@ Parameters
 ================
 
 
-- table
+- fullTable
 
     
 
@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getUniqueIndexes](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L321-L341)
+See the source code for method [MysqlWizard::getUniqueIndexes](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L466-L486)
 
 
 See Also

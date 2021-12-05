@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getRights](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L398-L401)
+See the source code for method [LightWebsiteUser::getRights](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L407-L410)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) class.
 
-Previous method: [setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)<br>Next method: [setRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setRights.md)<br>
+Previous method: [setLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setLastRefreshTime.md)<br>Next method: [setRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setRights.md)<br>
 

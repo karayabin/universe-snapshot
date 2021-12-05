@@ -1,8 +1,13 @@
 dependencies: 
     Ling: 
         - ArrayToString
+        - ArrayVariableResolver
+        - BabyYaml
         - Bat
         - CheapLogger
+        - CliTools
+        - ConventionTools
+        - DirScanner
         - JAcpHep
         - JResponsiveTableHelper
         - JRicAdminTableHelper
@@ -12,7 +17,6 @@ dependencies:
         - Light_ControllerHub
         - Light_CsrfSession
         - Light_Database
-        - Light_Kit_Admin
         - Light_MicroPermission
         - Light_Nugget
         - Light_ReverseRouter

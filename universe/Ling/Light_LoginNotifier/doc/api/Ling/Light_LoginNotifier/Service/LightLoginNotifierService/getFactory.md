@@ -46,7 +46,7 @@ Returns [CustomLightLoginNotifierApiFactory](https://github.com/lingtalfi/Light_
 
 Source Code
 ===========
-See the source code for method [LightLoginNotifierService::getFactory](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/Service/LightLoginNotifierService.php#L100-L108)
+See the source code for method [LightLoginNotifierService::getFactory](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/Service/LightLoginNotifierService.php#L101-L113)
 
 
 See Also

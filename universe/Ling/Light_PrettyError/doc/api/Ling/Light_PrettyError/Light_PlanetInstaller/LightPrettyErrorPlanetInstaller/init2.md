@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightPrettyErrorPlanetInstaller::init2](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Light_PlanetInstaller/LightPrettyErrorPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightPrettyErrorPlanetInstaller::init2](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Light_PlanetInstaller/LightPrettyErrorPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -37,6 +37,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 

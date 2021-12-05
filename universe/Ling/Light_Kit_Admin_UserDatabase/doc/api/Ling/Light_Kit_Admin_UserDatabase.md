@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserDatabase
 ================
-2020-06-25 --> 2021-05-31
+2020-06-25 --> 2021-06-18
 
 
 
@@ -124,6 +124,7 @@ Table of contents
     - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
     - LightKitAdminController::renderDefaultPage &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
+- [LightKitAdminUserDatabaseException](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Exception/LightKitAdminUserDatabaseException.md) &ndash; The LightKitAdminUserDatabaseException class.
 - [LightKitAdminUserDatabaseLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/LightKitAdminPlugin/Generated/LightKitAdminUserDatabaseLkaPlugin.md) &ndash; The LightKitAdminUserDatabaseLkaPlugin class.
     - BaseLightKitAdminPlugin::__construct &ndash; Builds the BaseLightKitAdminPlugin instance.
     - BaseLightKitAdminPlugin::getPluginOptions &ndash; Returns the options of this kit admin plugin.
@@ -141,14 +142,6 @@ Table of contents
     - [LightKitAdminUserDatabasePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
-- [LightKitAdminUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PluginInstaller/LightKitAdminUserDatabasePluginInstaller.md) &ndash; The LightKitAdminUserDatabasePluginInstaller class.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::__construct &ndash; Builds the LightKitAdminBasePluginInstallerWithDatabase instance.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::install &ndash; Installs the plugin in the light application.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::uninstall &ndash; Uninstalls the plugin.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies &ndash; Returns the array of dependencies.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminUserDatabaseService](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService.md) &ndash; The LightKitAdminUserDatabaseService class.
     - [LightKitAdminUserDatabaseService::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/__construct.md) &ndash; Builds the LightKitAdminUserDataService instance.
     - [LightKitAdminUserDatabaseService::setContainer](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/setContainer.md) &ndash; Sets the container.
@@ -166,9 +159,11 @@ Dependencies
 - [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
+- [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
 - [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
+- [Light_Realist](https://github.com/lingtalfi/Light_Realist)
 - [Light_User](https://github.com/lingtalfi/Light_User)
 - [Light_UserData](https://github.com/lingtalfi/Light_UserData)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)

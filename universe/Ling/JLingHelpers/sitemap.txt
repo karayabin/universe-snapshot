@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/JLingHelpers/blob/master/README.md
+https://github.com/lingtalfi/JLingHelpers/blob/master/doc/api/Ling/JLingHelpers.md
+https://github.com/lingtalfi/JLingHelpers/blob/master/doc/pages/conception-notes.md

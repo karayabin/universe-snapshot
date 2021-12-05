@@ -13,6 +13,13 @@ use Ling\Light_Kit_Admin\Light_PlanetInstaller\LightKitAdminBasePlanetInstaller;
 class PlanetTightPlanetInstaller extends LightKitAdminBasePlanetInstaller
 {
 
-
+    /**
+     * Builds the PlanetTightPlanetInstaller instance.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->microPermissionProfile = "theGalaxy.thePlanet/Ling.Light_MicroPermission/theService.profile.generated.byml";
+    }
 
 }

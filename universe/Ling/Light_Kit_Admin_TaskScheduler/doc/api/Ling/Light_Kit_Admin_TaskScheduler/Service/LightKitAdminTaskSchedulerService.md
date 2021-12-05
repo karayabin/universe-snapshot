@@ -4,7 +4,7 @@
 
 The LightKitAdminTaskSchedulerService class
 ================
-2020-07-31 --> 2021-05-31
+2020-07-31 --> 2021-06-18
 
 
 
@@ -60,4 +60,4 @@ See the source code of [Ling\Light_Kit_Admin_TaskScheduler\Service\LightKitAdmin
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PluginInstaller/LightKitAdminTaskSchedulerPluginInstaller.md)<br>
+Previous class: [LightKitAdminTaskSchedulerPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PlanetInstaller/LightKitAdminTaskSchedulerPlanetInstaller.md)<br>

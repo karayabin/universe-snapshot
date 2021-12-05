@@ -3,14 +3,18 @@ dependencies:
         - BabyYaml
         - Bat
         - ClassCooker
+        - CliTools
+        - DirScanner
         - Jquery
         - Light
-        - Light_ControllerHub
+        - Light_Cli
         - Light_Database
         - Light_DatabaseInfo
         - Light_DbSynchronizer
+        - Light_EasyRoute
         - Light_Kit_Admin
         - Light_Kit_Admin_Generator
+        - Light_Logger
         - Light_PluginInstaller
         - Light_UserDatabase
         - SimplePdoWrapper

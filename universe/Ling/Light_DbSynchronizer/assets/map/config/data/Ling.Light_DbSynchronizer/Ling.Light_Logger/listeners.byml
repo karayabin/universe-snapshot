@@ -1,0 +1,19 @@
+-
+    channels: db_synchronizer.debug
+    listener:
+        instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/db_synchronizer_debug.txt
+
+
+-
+    channels: db_synchronizer.error
+    listener:
+        instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/db_synchronizer_error.txt
+

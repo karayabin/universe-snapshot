@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LingBreezeGenerator2::log](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator2.php#L2578-L2581)
+See the source code for method [LingBreezeGenerator2::log](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator2.php#L2680-L2683)
 
 
 See Also

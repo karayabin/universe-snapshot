@@ -38,7 +38,6 @@ class ToLinkCommand extends LightPlanetInstallerBaseCommand
             if (true === is_dir($localUniverse)) {
 
 
-
                 $nbPlanets = count($planetDirs);
                 $x = 0;
 
@@ -47,9 +46,7 @@ class ToLinkCommand extends LightPlanetInstallerBaseCommand
                     $s = "$x/$nbPlanets";
 
 
-
                     $planetDotName = PlanetTool::getPlanetDotNameByPlanetDir($planetDir);
-
 
 
                     if (false === is_link($planetDir)) {
@@ -65,8 +62,7 @@ class ToLinkCommand extends LightPlanetInstallerBaseCommand
                         } else {
                             $output->write("<warning>$s: Planet <b>$planetDotName</b> not found in the local universe, skipping.</warning>" . PHP_EOL);
                         }
-                    }
-                    else{
+                    } else {
                         $output->write("$s: <b>$planetDotName</b> is already a link, skipping." . PHP_EOL);
                     }
                 }

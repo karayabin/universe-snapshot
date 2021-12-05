@@ -9,7 +9,7 @@ use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpJsonResponse;
 use Ling\Light_AjaxFileUploadManager\Service\LightAjaxFileUploadManagerService;
 use Ling\Light_Events\Service\LightEventsService;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 
 /**
  * The FileUploadController class.

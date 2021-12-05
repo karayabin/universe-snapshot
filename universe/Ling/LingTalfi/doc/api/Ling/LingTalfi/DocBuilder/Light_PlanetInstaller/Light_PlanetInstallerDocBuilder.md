@@ -4,7 +4,7 @@
 
 The Light_PlanetInstallerDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_PlanetInstaller\Light_Pl
 
 SeeAlso
 ==============
-Previous class: [Light_PasswordProtectorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PasswordProtector/Light_PasswordProtectorDocBuilder.md)<br>Next class: [Light_PluginDatabaseInstallerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginDatabaseInstaller/Light_PluginDatabaseInstallerDocBuilder.md)<br>
+Previous class: [Light_PaymentMethods_StripeDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PaymentMethods_Stripe/Light_PaymentMethods_StripeDocBuilder.md)<br>Next class: [Light_PluginDatabaseInstallerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginDatabaseInstaller/Light_PluginDatabaseInstallerDocBuilder.md)<br>

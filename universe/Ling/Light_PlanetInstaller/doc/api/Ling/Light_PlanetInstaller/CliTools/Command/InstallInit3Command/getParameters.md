@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [InstallInit3Command::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit3Command.php#L71-L82)
+See the source code for method [InstallInit3Command::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit3Command.php#L64-L75)
 
 
 See Also

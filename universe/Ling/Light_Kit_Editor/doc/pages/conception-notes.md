@@ -1,6 +1,6 @@
 Light_Kit_Editor, conception notes
 ================
-2021-03-01 -> 2021-04-08
+2021-03-01 -> 2021-07-01
 
 **Light kit editor** (lke)'s purpose is to help users edit their [kit](https://github.com/lingtalfi/Kit) pages using a gui.
 
@@ -17,7 +17,7 @@ This is the concept of [kit web app](#the-kit-web-app), which basically introduc
 
 Summary
 ------------
-2021-03-12 -> 2021-04-08
+2021-03-12 -> 2021-07-01
 
 * [The kit web app](#the-kit-web-app)
 * [The two engines](#the-two-engines)
@@ -27,11 +27,10 @@ Summary
     * [Block alias](#block-alias)
   * [database storage](#database-storage)
   * [Zone alias conception](#zone-alias-conception)
-* [Adding websites](#adding-websites)
+* [Website items](#website-items)
 * [The website controller](#the-website-controller)
+* [The kit editor page renderer](#the-kit-editor-page-renderer)
   
-
-
 
 
 
@@ -85,22 +84,20 @@ The type of storage you choose is entirely up to you.
 
 babyYaml storage
 -----------
-2021-03-02 -> 2021-04-08
+2021-03-02 -> 2021-06-18
 
 
 The organization of the babyYaml storage is all contained in a so-called root directory (aka **kit web app** directory), which is a directory of your choice.
 We will refer to it as **$root** in this section.
 
+You can put the **$root** dir where you want.
 
-If you don't have a more precise idea of what you are doing, we suggest that your root path is:
+We recommend that you put it in:
 
-- $app_dir/config/open/Light_Kit_Editor/websites/$your_website_identifier
+- $app_dir/config/open/$yourGalaxy.$yourPlanet/Ling.Light_Kit_Editor/$yourWebsiteIdentifier
 
-With:
 
-- $app_dir: the absolute path of the application root dir
-- $your_website_identifier: a unique identifier representing your website
-
+This way, your website is "open" to other planets (continue reading to understand).   
 
 
 
@@ -150,6 +147,14 @@ So for instance in the above example, we have the following mappings:
 - **$layoutId**: $planetDotName/$theme_name/layout_46819 
 - **$pageId**: $planetDotName/some_page 
 - **$blockId**: $planetDotName/some_block 
+
+
+
+
+
+
+
+
 
 
 
@@ -240,7 +245,6 @@ The **block alias**' notation is the following:
 
 
 In other words, you start with the "**b$:**" string, immediately followed by your zone id.
-
 
 
 
@@ -516,13 +520,13 @@ Light kit editor uses the zone alias system instead of the template inheritance 
 
 
 
-Adding websites
+Website items
 ==========
-2021-04-01
+2021-04-01 -> 2021-07-01
 
 
 
-Third party authors can add their own websites via our [open registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration).
+Third party authors create their own websites via our [open registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration).
 
 We provide the following file:
 
@@ -536,14 +540,17 @@ Example:
     provider: Ling.Light_Kit_Admin
     engine: babyYaml
     identifier: some_identifier
-    rootDir: ${app_dir}/config/open/Ling.Light_Kit_Admin/lke
+    rootDir: ${app_dir}/config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin
     label: Website 1
+    theme: Ling.Light_Kit_Admin/zeroadmin
 
 -
     provider: Ling.Light_Kit_Admin
     engine: db
     identifier: lke
+    rootDir: ${app_dir}/config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin
     label: Website name
+    theme: Ling.Light_Kit_Admin/zeroadmin
 
 ```
 
@@ -552,10 +559,18 @@ Each entry is an item representing a website, which has the following structure:
 - provider: string, the [dot name](https://github.com/karayabin/universe-snapshot#the-planet-dot-name) of the plugin providing the website
 - engine: string, which engine to use for this website (db or babyYaml)
 - identifier: string, a unique identifier for this website. This will be used as a reference internally
-- ?rootDir: string, only necessary for the babyYaml engine: the root dir of the website files. The ${app_dir} tag will be resolved
-    to the application root directory.
+- ?rootDir: string, the root dir of the website files.
+    It must start with The ${app_dir} tag, which will be either:
+    - resolved to the application root directory
+    - stripped out (internally) to get the relative path to the root dir
+    depending on the methods used.
+    
+    While this is mostly useful with the babyYaml engine type, the db engine also uses it if you use the **$root** alias in your layout path.
+    In that case, the **$root** alias is replaced with the value of this rootDir property.
+
 - label: string, the human label for the website, will be used in the gui
-- ?theme: string, the default theme to use for this website, see our [kit-theme](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/pages/kit-theme.md) page for more info
+- ?theme: string="default", the default theme to use for this website, see our [kit-theme](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/pages/kit-theme.md) page for more info.
+  
 - ...: other properties might be added
 
 
@@ -577,9 +592,31 @@ We create a dedicated route to access it:
 
 The expected GET parameters are the following:
 
-- website_id: the website identifier
-- page_id: the page identifier
+- ?**website_id**: the website identifier
+- **page_id**: the page identifier
 
+
+You can set a "default website identifier" via our service configuration (which defaults to "default").
+
+This way you don't have to specify the **website_id** parameter in GET. 
+
+
+
+
+
+
+
+The kit editor page renderer
+=========
+2021-06-18
+
+
+We provide our own replacement to the [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md) (which is the main renderer of the kit system).
+
+You can use our page renderer to benefit the followings (assuming proper configuration):
+
+- the $t variable is automatically replaced with the theme name in the layout path.
+- the $root variable is automatically replaced with the relative $root path of your website (relative to the application dir)
 
 
 

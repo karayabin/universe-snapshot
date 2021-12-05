@@ -152,7 +152,9 @@ class LightEasyRouteService
                 $pattern = $prefix . $pattern;
             }
 
-            $pattern = rtrim($pattern, "/");
+            if ("/" !== $pattern) {
+                $pattern = rtrim($pattern, "/");
+            }
             $light->registerRoute($pattern, $controller, $routeId, $route);
         }
     }

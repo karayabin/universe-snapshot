@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CreateMapCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CreateMapCommand.php#L27-L30)
+See the source code for method [CreateMapCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CreateMapCommand.php#L26-L29)
 
 
 See Also

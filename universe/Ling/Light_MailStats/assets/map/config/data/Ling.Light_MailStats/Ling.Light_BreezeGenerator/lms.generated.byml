@@ -1,0 +1,26 @@
+class: Ling\Light_BreezeGenerator\Generator\LingBreezeGenerator2
+conf:
+    source:
+#        Use either file or database as the source
+        file: /Users/pierrelafitte/Documents/it/web/Komin>/service création/projets/jin_site_demo/universe/Ling/Light_MailStats/assets/fixtures/create-structure.sql
+#        database: true
+#        tables: []
+
+
+#        Used to filter the tables to parse
+        prefix: lms
+
+
+        prefixes:
+            - lms
+
+
+
+    target:
+        dir: ${app_dir}/universe/Ling/Light_MailStats/Api
+        namespace: Ling\Light_MailStats\Api
+        apiName: LightMailStats
+
+
+    options:
+        dev: false

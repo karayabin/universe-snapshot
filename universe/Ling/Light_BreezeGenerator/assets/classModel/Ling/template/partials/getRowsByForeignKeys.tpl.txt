@@ -1,0 +1,27 @@
+    /**
+     * @implementation
+     * @inheritDoc
+     */
+    public function getUserRatesItemsByUserId(string $userId, array $components = []): array
+    {
+        $markers = [
+            ":user_id" => $userId,
+        ];
+        $q = "
+        select * from `$this->table`
+        where `user_id`=:user_id
+        ";
+        $options = $this->fetchRoutine($q, $markers, $components, [
+            'whereKeyword' => 'and',
+        ]);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+
+        return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
+    }
+
+
+
+

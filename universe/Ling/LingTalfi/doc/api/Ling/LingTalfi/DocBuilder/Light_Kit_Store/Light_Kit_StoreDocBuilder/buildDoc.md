@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_Kit_StoreDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Store/Light_Kit_StoreDocBuilder.php#L45-L206)
+See the source code for method [Light_Kit_StoreDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Store/Light_Kit_StoreDocBuilder.php#L45-L239)
 
 
 See Also

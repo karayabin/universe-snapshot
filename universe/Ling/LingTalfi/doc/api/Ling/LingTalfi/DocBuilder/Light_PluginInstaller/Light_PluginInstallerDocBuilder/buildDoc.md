@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_PluginInstallerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_PluginInstaller/Light_PluginInstallerDocBuilder.php#L45-L220)
+See the source code for method [Light_PluginInstallerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_PluginInstaller/Light_PluginInstallerDocBuilder.php#L45-L223)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/Light_RealGenerator
 ================
-2019-10-24 --> 2021-05-31
+2019-10-24 --> 2021-06-28
 
 
 
@@ -23,6 +23,11 @@ Table of contents
     - [BaseConfigGenerator::__construct](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/__construct.md) &ndash; Builds the ListConfigGenerator instance.
     - [BaseConfigGenerator::setContainer](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/setContainer.md) &ndash; Sets the container.
     - [BaseConfigGenerator::setDebugCallable](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/setDebugCallable.md) &ndash; Sets the debugCallable.
+- [LightRealGeneratorPlanetInstaller](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Light_PlanetInstaller/LightRealGeneratorPlanetInstaller.md) &ndash; The LightRealGeneratorPlanetInstaller class.
+    - [LightRealGeneratorPlanetInstaller::init2](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Light_PlanetInstaller/LightRealGeneratorPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightRealGeneratorPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Light_PlanetInstaller/LightRealGeneratorPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightRealGeneratorService](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService.md) &ndash; The LightRealGeneratorService class.
     - [LightRealGeneratorService::__construct](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService/__construct.md) &ndash; Builds the LightRealGeneratorService instance.
     - [LightRealGeneratorService::generate](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService/generate.md) &ndash; Same as generateByConf method, but takes the file path instead of the array.
@@ -42,9 +47,11 @@ Dependencies
 - [ArrayVariableResolver](https://github.com/lingtalfi/ArrayVariableResolver)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)
 
 

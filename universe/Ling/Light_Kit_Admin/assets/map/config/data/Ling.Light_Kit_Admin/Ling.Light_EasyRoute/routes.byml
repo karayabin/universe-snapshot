@@ -1,4 +1,4 @@
-Light_Kit_Admin:
+Ling.Light_Kit_Admin:
     prefix: ${kit_admin_vars.route_prefix}
     routes:
         lka_route-home:

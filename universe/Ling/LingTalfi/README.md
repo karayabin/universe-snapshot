@@ -1,6 +1,6 @@
 LingTalfi
 ===========
-2019-03-13 -> 2021-05-31
+2019-03-13 -> 2021-12-02
 
 
 
@@ -38,6 +38,31 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.25.8 -- 2021-12-02
+
+    - removed -v flag while pushing to github
+  
+- 1.25.7 -- 2021-12-02
+
+    - test commit
+
+- 1.25.6 -- 2021-12-02
+
+    - fix PackAndPushUniToolCommand still having the git prompt password problem
+  
+- 1.25.5 -- 2021-08-02
+
+    - update PushCommand, now accepts hosting_app kaos option
+
+- 1.25.4 -- 2021-06-25
+
+    - update api, generated README now starts with version 0.0.1 (instead of 1.0.0)
+    - add .git detection in kpp command
+  
+- 1.25.3 -- 2021-06-04
+
+    - fix InitializePlanetCommand not writing service section correctly in the README
+  
 - 1.25.2 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

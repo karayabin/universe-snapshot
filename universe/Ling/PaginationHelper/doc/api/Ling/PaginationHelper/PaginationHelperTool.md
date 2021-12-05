@@ -4,7 +4,7 @@
 
 The PaginationHelperTool class
 ================
-2021-03-25 --> 2021-05-31
+2021-03-25 --> 2021-07-09
 
 
 
@@ -50,3 +50,6 @@ See the source code of [Ling\PaginationHelper\PaginationHelperTool](https://gith
 
 
 
+SeeAlso
+==============
+Previous class: [PaginationHelperException](https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Exception/PaginationHelperException.md)<br>Next class: [Amazon2021Paginator](https://github.com/lingtalfi/PaginationHelper/blob/master/doc/api/Ling/PaginationHelper/Paginator/Amazon2021Paginator.md)<br>

@@ -54,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::registerJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L456-L470)
+See the source code for method [LightKitAdminService::registerJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L493-L507)
 
 
 See Also

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [OrderBy::__construct](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L28-L31)
+See the source code for method [OrderBy::__construct](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L35-L38)
 
 
 See Also

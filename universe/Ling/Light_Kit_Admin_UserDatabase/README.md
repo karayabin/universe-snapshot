@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserDatabase
 ===========
-2020-06-25 -> 2021-05-31
+2020-06-25 -> 2021-06-25
 
 
 This is a work in progress until version 1.
@@ -63,14 +63,6 @@ kit_admin_user_database:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$micro_permission.methods_collection: 
-    - 
-        method: registerMicroPermissionsByProfile
-        args: 
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserDatabase/Ling.Light_MicroPermission/kit_admin_user_database.profile.generated.byml
-        
-    
-
 $kit_admin.methods_collection: 
     - 
         method: registerPlugin
@@ -95,6 +87,38 @@ History Log
 =============
 
 
+- 0.5.27 -- 2021-06-25
+
+    - updated routes, add galaxy prefix
+
+- 0.5.26 -- 2021-06-18
+
+    - Update api to work with Ling.Light_Kit_Admin:0.13.3
+
+- 0.5.25 -- 2021-06-18
+
+    - update api to work with Ling.Light_Kit_Admin:0.13.0
+  
+- 0.5.24 -- 2021-06-17
+
+    - fix LightKitAdminUserDatabasePlanetInstaller not registering realist/realform
+  
+- 0.5.23 -- 2021-06-17
+
+    - checkpoint commit
+  
+- 0.5.22 -- 2021-06-17
+
+    - checkpoint commit
+  
+- 0.5.21 -- 2021-06-17
+
+    - switch to micro-permission open registration system
+  
+- 0.5.20 -- 2021-06-03
+
+    - adapt api to work with Light_PlanetInstaller:2.0.4
+  
 - 0.5.19 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

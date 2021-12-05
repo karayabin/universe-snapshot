@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [DebugSessionDirCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L202-L210)
+See the source code for method [DebugSessionDirCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L201-L209)
 
 
 See Also

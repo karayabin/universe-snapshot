@@ -8,6 +8,7 @@ https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTool
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/BangTool/bangApp.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/BangTool.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/collectDependenciesRecursively.md
+https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyArray.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyHomeUrl.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyItem.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyList.md
@@ -62,6 +63,7 @@ https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTool
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getAllVersionNumbers.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getErrors.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getLatestVersionInfo.md
+https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getPlanetsToCommitListByAppDir.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getReadmeVersionsByPlanetDir.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/updateDate.md
 https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil.md

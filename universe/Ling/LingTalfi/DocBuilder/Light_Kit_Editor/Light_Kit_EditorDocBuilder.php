@@ -77,6 +77,9 @@ class Light_Kit_EditorDocBuilder
             "reportIgnore" => [
                 "Ling\Light\Controller\LightController",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+                "Ling\Light_Kit\PageRenderer\LightKitPageRenderer",
+                "Ling\Kit\PageRenderer\KitPageRenderer",
+
 
             ],
             /**
@@ -150,6 +153,9 @@ class Light_Kit_EditorDocBuilder
                 "open tags" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md#the-updateric-concept",
                 "handy exception" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/handy-exception.md",
                 "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
+                "Light_Kit conception notes" => 'https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md',
+                "widget coordinates" => 'https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#widget-coordinates',
+                "light philosophy page" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md',
             ],
             /**
              * An array of external classes to url.
@@ -179,6 +185,13 @@ class Light_Kit_EditorDocBuilder
                 "Ling\Light_Kit_Editor\Light_Realist\DuelistEngine\?string" => "https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_Realist/DuelistEngine/?string.md",
                 "Ling\Light_Kit_Editor\Storage\?string" => "https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Storage/?string.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+                "Ling\Kit\Exception\KitException" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md",
+                "Ling\Light_Kit\ConfigurationTransformer\ConfigurationTransformerInterface" => "https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/ConfigurationTransformer/ConfigurationTransformerInterface.md",
+                "Ling\Light_Kit\PageRenderer\LightKitPageRenderer" => "https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md",
+                "Ling\Kit\PageRenderer\KitPageRendererInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md",
+                "Ling\Kit\WidgetHandler\WidgetHandlerInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md",
+                "Ling\HtmlPageTools\Copilot\HtmlPageCopilot" => "https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md",
+                "Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md",
 
 
             ],

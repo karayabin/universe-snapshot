@@ -4,7 +4,7 @@
 
 The Light_DatabaseInfoDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_DatabaseInfo\Light_Datab
 
 SeeAlso
 ==============
-Previous class: [Light_DatabaseDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Database/Light_DatabaseDocBuilder.md)<br>Next class: [Light_DatabaseUtilsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_DatabaseUtils/Light_DatabaseUtilsDocBuilder.md)<br>
+Previous class: [Light_DatabaseFakeDataMakerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_DatabaseFakeDataMaker/Light_DatabaseFakeDataMakerDocBuilder.md)<br>Next class: [Light_DatabaseUtilsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_DatabaseUtils/Light_DatabaseUtilsDocBuilder.md)<br>

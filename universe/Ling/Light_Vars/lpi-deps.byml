@@ -24,3 +24,11 @@
 1.0.6: 
     - Ling:ArrayVariableResolver:1.2.5
     - Ling:Bat:1.322
+
+1.0.7: 
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.329
+
+1.0.8: 
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.330

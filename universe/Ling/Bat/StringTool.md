@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14 -> 2021-04-06
+2015-10-14 -> 2021-07-22
 
 
 
@@ -52,7 +52,52 @@ Exact nomenclature is defined in
 This method is an alias to the [CaseTool:camel2Constant](https://github.com/lingtalfi/Bat/blob/master/CaseTool.md#camel2Constant) method since 1.22.
 See the CaseTool:camel2Constant documentation for more info.
 
- 
+
+
+
+countCapitals
+-----------
+2021-06-21
+
+
+
+
+```php
+int    countCapitals ( string:str )
+```
+
+
+Returns the number of capitals in the given string.
+
+
+
+cutAtWordBoundary
+-----------
+2021-07-22
+
+
+
+
+```php
+str    cutAtWordBoundary ( string:str, int:maxNbChars = 250, str:ending="...", bool:&more = false)
+```
+
+
+Returns a subset of the given string, which doesn't cut a word in half, and which length is the closest to the given maxNbChars without being higher.
+
+In addition to that, the ending string is added only if the str length is greater than the given maxNbChars limit.
+
+The "more" flag is raised to true if that's the case.
+
+The given string preferably shouldn't contain any PHP_EOL chars.
+
+Example:
+
+```php 
+$s = "This is a test sentence.";
+a(StringTool::cutAtWordBoundary($s, 15)); // This is a test...
+```
+
 
 
 cutNumericalSuffix
@@ -133,6 +178,19 @@ Returns the plural form of the given word.
 ```php
 a(StringTool::getPlural("cat")); // cats
 ```
+
+
+getSymbolicPath
+-----------
+2021-06-21
+
+
+```php
+string      getSymbolicPath (string:path, string:appDir)
+```
+
+Returns a symbolic path, where the given absolute path to the application directory is replaced by the symbol [app].
+
 
 
 getUniqueCssId

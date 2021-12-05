@@ -61,7 +61,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L563-L597)
+See the source code for method [TokenFinderTool::getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L567-L601)
 
 
 See Also

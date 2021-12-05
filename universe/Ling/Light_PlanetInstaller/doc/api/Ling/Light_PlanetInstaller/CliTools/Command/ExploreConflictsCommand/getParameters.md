@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ExploreConflictsCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L86-L98)
+See the source code for method [ExploreConflictsCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L85-L97)
 
 
 See Also

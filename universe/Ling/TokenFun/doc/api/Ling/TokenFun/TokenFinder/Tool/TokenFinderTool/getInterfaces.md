@@ -62,7 +62,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getInterfaces](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L307-L346)
+See the source code for method [TokenFinderTool::getInterfaces](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L311-L350)
 
 
 See Also

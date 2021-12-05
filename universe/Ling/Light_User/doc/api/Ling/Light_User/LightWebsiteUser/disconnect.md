@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::disconnect](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L196-L200)
+See the source code for method [LightWebsiteUser::disconnect](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L225-L229)
 
 
 See Also

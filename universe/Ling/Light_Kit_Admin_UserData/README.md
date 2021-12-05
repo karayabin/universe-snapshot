@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserData
 ===========
-2020-02-28 -> 2021-05-31
+2020-02-28 -> 2021-06-25
 
 
 
@@ -57,60 +57,7 @@ kit_admin_user_data:
     methods: 
         setContainer: 
             container: @container()
-        
-    
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-#$realform.methods_collection:
-#    -
-#        method: registerFormHandler
-#        args:
-#            plugin: Light_Kit_Admin_UserData
-#            handler:
-#                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-#                methods:
-#                    setConfDir:
-#                        dir: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserData/Light_Realform
-#
-$user_row_restriction.methods_collection: 
-    - 
-        method: registerRowRestrictionHandlerByTablePrefix
-        args: 
-            prefix: luda
-            handler: 
-                instance: Ling\Light_Kit_Admin_UserData\Light_UserRowRestriction\LightKitAdminUserDataRowRestrictionHandler
-                methods: 
-                    setContainer: 
-                        container: @container()
                     
-                
-            
-        
-    
-
-$micro_permission.methods_collection: 
-    - 
-        method: registerMicroPermissionsByProfile
-        args: 
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserData/Ling.Light_MicroPermission/kit_admin_user_data.profile.generated.byml
-        
-    
-
-$kit_admin.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            pluginName: Light_Kit_Admin_UserData
-            plugin: 
-                instance: Ling\Light_Kit_Admin_UserData\LightKitAdminPlugin\Generated\LightKitAdminUserDataLkaPlugin
-                methods: 
-                    setOptionsFile: 
-                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserData/Ling.Light_Kit_Admin/lka-options.generated.byml
-                    
-                
-            
         
       
     
@@ -122,6 +69,31 @@ $kit_admin.methods_collection:
 History Log
 =============
 
+
+- 1.7.24 -- 2021-06-25
+
+    - updated routes, add galaxy prefix
+
+- 1.7.23 -- 2021-06-18
+
+    - Update api to work with Ling.Light_Kit_Admin:0.13.3
+
+- 1.7.22 -- 2021-06-18
+
+    - update api to work with Ling.Light_Kit_Admin:0.13.0
+
+- 1.7.21 -- 2021-06-17
+
+    - checkpoint commit
+  
+- 1.7.20 -- 2021-06-17
+
+    - switch to micro-permission open registration system
+  
+- 1.7.19 -- 2021-06-03
+
+    - adapt api to work with Light_PlanetInstaller:2.0.4
+    - removed dependency to Light_PluginInstaller
 
 - 1.7.18 -- 2021-05-31
 

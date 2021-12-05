@@ -1,5 +1,8 @@
 https://github.com/lingtalfi/Light_Mailer/blob/master/README.md
 https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Exception/LightMailerException.md
+https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Light_PlanetInstaller/LightMailerPlanetInstaller/init2.md
+https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Light_PlanetInstaller/LightMailerPlanetInstaller/undoInit2.md
+https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Light_PlanetInstaller/LightMailerPlanetInstaller.md
 https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/__construct.md
 https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/checkSubject.md
 https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/debugLog.md

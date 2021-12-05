@@ -4,7 +4,7 @@
 
 The CommitWizard class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -49,6 +49,7 @@ class <span class="pl-k">CommitWizard</span>  {
     - public [__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/__construct.md)() : void
     - public [setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/setOutput.md)([Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
     - public [commitListFromFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitListFromFile.md)(string $filePath, string $commitMsg, ?array $options = []) : void
+    - public [commitPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitPlanets.md)(array $planetDotNames, string $commitMsg, ?array $options = []) : void
     - public [commit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commit.md)(string $planetDotName, string $commitMessage, ?array $options = []) : void
     - public [commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitByPlanetDir.md)(string $planetDir, ?string $appPath = null) : void
     - private [msg](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/msg.md)(string $msg) : void
@@ -86,6 +87,7 @@ Methods
 - [CommitWizard::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/__construct.md) &ndash; Builds the CommitWizard instance.
 - [CommitWizard::setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/setOutput.md) &ndash; Sets the output.
 - [CommitWizard::commitListFromFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitListFromFile.md) &ndash; Commits all planets listed in the given file, with the given commit message.
+- [CommitWizard::commitPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitPlanets.md) &ndash; Commits all the given planets with the given commit message.
 - [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commit.md) &ndash; Commits the given planet with the given message.
 - [CommitWizard::commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitByPlanetDir.md) &ndash; Commits (and pushes to github.com) the given planet, using the actual last commit message from the readme's history log section.
 - [CommitWizard::msg](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/msg.md) &ndash; Writes a message to the output.

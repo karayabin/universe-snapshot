@@ -4,7 +4,7 @@
 
 The LightKitEditorPlanetInstaller class
 ================
-2021-03-01 --> 2021-05-31
+2021-03-01 --> 2021-08-03
 
 
 
@@ -28,8 +28,8 @@ class <span class="pl-k">LightKitEditorPlanetInstaller</span> extends [LightBase
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [LightBasePlanetInstaller::$container](#property-container) ;
 
 - Methods
-    - public [init2](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_PlanetInstaller/LightKitEditorPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
-    - public [undoInit2](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_PlanetInstaller/LightKitEditorPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+    - public [init2](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_PlanetInstaller/LightKitEditorPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
+    - public [undoInit2](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_PlanetInstaller/LightKitEditorPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 - Inherited methods
     - public LightBasePlanetInstaller::__construct() : void
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Editor\Light_PlanetInstaller\LightKitEdit
 
 SeeAlso
 ==============
-Previous class: [LightKitEditorException](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Exception/LightKitEditorException.md)<br>Next class: [LightKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_Realform/SuccessHandler/LightKitEditorRealformSuccessHandler.md)<br>
+Previous class: [WebsiteRootTransformer](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_Kit/ConfigurationTransformer/WebsiteRootTransformer.md)<br>Next class: [LightKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_Realform/SuccessHandler/LightKitEditorRealformSuccessHandler.md)<br>

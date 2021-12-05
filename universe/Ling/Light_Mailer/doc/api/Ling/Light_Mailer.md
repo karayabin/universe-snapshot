@@ -1,6 +1,6 @@
 Ling/Light_Mailer
 ================
-2020-06-29 --> 2021-05-31
+2020-06-29 --> 2021-06-28
 
 
 
@@ -9,6 +9,11 @@ Table of contents
 ===========
 
 - [LightMailerException](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Exception/LightMailerException.md) &ndash; The LightMailerException class.
+- [LightMailerPlanetInstaller](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Light_PlanetInstaller/LightMailerPlanetInstaller.md) &ndash; The LightMailerPlanetInstaller class.
+    - [LightMailerPlanetInstaller::init2](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Light_PlanetInstaller/LightMailerPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightMailerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Light_PlanetInstaller/LightMailerPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightMailerService](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService.md) &ndash; The LightMailerService class.
     - [LightMailerService::__construct](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/__construct.md) &ndash; Builds the LightMailerService instance.
     - [LightMailerService::setContainer](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setContainer.md) &ndash; Sets the container.
@@ -26,8 +31,10 @@ Dependencies
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
 - [ArrayVariableResolver](https://github.com/lingtalfi/ArrayVariableResolver)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 
 

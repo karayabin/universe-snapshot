@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ImportUtil::getWarnings](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L567-L570)
+See the source code for method [ImportUtil::getWarnings](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L623-L626)
 
 
 See Also

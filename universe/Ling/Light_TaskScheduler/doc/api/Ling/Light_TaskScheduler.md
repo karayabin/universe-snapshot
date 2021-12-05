@@ -1,6 +1,6 @@
 Ling/Light_TaskScheduler
 ================
-2020-06-30 --> 2021-05-31
+2020-06-30 --> 2021-06-25
 
 
 
@@ -102,18 +102,12 @@ Table of contents
     - [LightTaskSchedulerApiFactory::setContainer](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/LightTaskSchedulerApiFactory/setContainer.md) &ndash; Sets the container.
 - [LightTaskSchedulerException](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Exception/LightTaskSchedulerException.md) &ndash; The LightTaskSchedulerException class.
 - [LightTaskSchedulerPlanetInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PlanetInstaller/LightTaskSchedulerPlanetInstaller.md) &ndash; The LightTaskSchedulerPlanetInstaller class.
-    - LightUserDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
-    - LightUserDatabaseBasePlanetInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
-    - LightUserDatabaseBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
-- [LightTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PluginInstaller/LightTaskSchedulerPluginInstaller.md) &ndash; The LightTaskSchedulerPluginInstaller class.
-    - [LightTaskSchedulerPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PluginInstaller/LightTaskSchedulerPluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
-    - LightUserDatabaseBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::install &ndash; Installs the plugin in the light application.
-    - LightUserDatabaseBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightUserDatabaseBasePluginInstaller::uninstall &ndash; Uninstalls the plugin.
-    - LightUserDatabaseBasePluginInstaller::getDependencies &ndash; Returns the array of dependencies.
+    - [LightTaskSchedulerPlanetInstaller::init2](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PlanetInstaller/LightTaskSchedulerPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightTaskSchedulerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PlanetInstaller/LightTaskSchedulerPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightDatabaseBasePlanetInstaller instance.
+    - LightDatabaseBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightDatabaseBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightTaskSchedulerService](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Service/LightTaskSchedulerService.md) &ndash; The LightTaskSchedulerService class.
     - [LightTaskSchedulerService::__construct](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Service/LightTaskSchedulerService/__construct.md) &ndash; Builds the LightTaskSchedulerService instance.
     - [LightTaskSchedulerService::run](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Service/LightTaskSchedulerService/run.md) &ndash; This method IS the task manager.
@@ -126,10 +120,12 @@ Table of contents
 Dependencies
 ============
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
+- [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

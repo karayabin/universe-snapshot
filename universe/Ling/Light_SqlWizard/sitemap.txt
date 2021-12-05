@@ -1,0 +1,11 @@
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/README.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Exception/LightSqlWizardException.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Service/LightSqlWizardService/__construct.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Service/LightSqlWizardService/error.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Service/LightSqlWizardService/getMysqlWizard.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Service/LightSqlWizardService/getOption.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Service/LightSqlWizardService/setContainer.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Service/LightSqlWizardService/setOptions.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard/Service/LightSqlWizardService.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/api/Ling/Light_SqlWizard.md
+https://github.com/lingtalfi/Light_SqlWizard/blob/master/doc/pages/conception-notes.md

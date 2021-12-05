@@ -63,7 +63,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::addCommitMessageByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L243-L263)
+See the source code for method [StandardReadmeUtil::addCommitMessageByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L299-L319)
 
 
 See Also

@@ -1,0 +1,12 @@
+mail_stats:
+    instance: Ling\Light_MailStats\Service\LightMailStatsService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: ${mail_stats_vars.service_options}
+
+
+
+mail_stats_vars:
+    service_options: []

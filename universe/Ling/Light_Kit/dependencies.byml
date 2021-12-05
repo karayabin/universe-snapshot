@@ -8,6 +8,7 @@ dependencies:
         - Kit_PrototypeWidget
         - Light
         - Light_Events
+        - Light_Vars
     
 
 post_install: 

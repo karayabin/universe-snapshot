@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getClassSignatureInfo](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L256-L282)
+See the source code for method [TokenFinderTool::getClassSignatureInfo](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L260-L286)
 
 
 See Also

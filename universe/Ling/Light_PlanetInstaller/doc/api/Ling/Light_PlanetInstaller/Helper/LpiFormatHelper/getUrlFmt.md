@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LpiFormatHelper::getUrlFmt](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiFormatHelper.php#L93-L96)
+See the source code for method [LpiFormatHelper::getUrlFmt](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiFormatHelper.php#L92-L95)
 
 
 See Also

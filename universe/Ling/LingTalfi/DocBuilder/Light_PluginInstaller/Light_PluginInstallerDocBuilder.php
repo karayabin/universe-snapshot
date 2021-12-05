@@ -75,7 +75,8 @@ class Light_PluginInstallerDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -148,6 +149,7 @@ class Light_PluginInstallerDocBuilder
                 "planet dot name" => "https://github.com/karayabin/universe-snapshot#the-planet-dot-name",
                 "classic log levels" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/classic-log-levels.md",
                 "light standard permissions" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md",
+                "Light_PlanetInstaller conception notes" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.
@@ -165,7 +167,8 @@ class Light_PluginInstallerDocBuilder
                 "Ling\CliTools\Formatter\BashtmlFormatter" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md",
                 "Ling\CyclicChainDetector\CyclicChainDetectorUtil" => "https://github.com/lingtalfi/CyclicChainDetector/blob/master/doc/api/Ling/CyclicChainDetector/CyclicChainDetectorUtil.md",
                 "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
-
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
 
 
             ],

@@ -52,7 +52,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L302-L316)
+See the source code for method [LightKitAdminService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L305-L319)
 
 
 See Also

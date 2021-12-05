@@ -4,7 +4,7 @@
 
 The LightMailerService class
 ================
-2020-06-29 --> 2021-05-31
+2020-06-29 --> 2021-06-28
 
 
 
@@ -153,4 +153,4 @@ See the source code of [Ling\Light_Mailer\Service\LightMailerService](https://gi
 
 SeeAlso
 ==============
-Previous class: [LightMailerException](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Exception/LightMailerException.md)<br>
+Previous class: [LightMailerPlanetInstaller](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Light_PlanetInstaller/LightMailerPlanetInstaller.md)<br>

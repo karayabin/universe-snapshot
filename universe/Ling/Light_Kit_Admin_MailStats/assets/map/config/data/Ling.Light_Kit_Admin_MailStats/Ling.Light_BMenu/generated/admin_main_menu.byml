@@ -1,0 +1,29 @@
+- 
+    id: kit_admin_mail_stats-lms
+    icon: fas fa-puzzle-piece
+    text: Mail Stats
+    route: null
+    children: 
+        - 
+            id: kit_admin_mail_stats-lms_tracker
+            icon: fas fa-asterisk
+            text: Tracker
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_MailStats\Controller\Generated\LmsTrackerController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: kit_admin_mail_stats-lms_stats
+            icon: fas fa-asterisk
+            text: Stats
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_MailStats\Controller\Generated\LmsStatsController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+    

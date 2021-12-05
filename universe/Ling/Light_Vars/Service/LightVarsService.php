@@ -74,13 +74,34 @@ class LightVarsService
 
 
     /**
-     * Resolves the container variables in the given string, if they are written in container notation.
+     * Returns all the vars stored in this instance.
      *
-     * The container notation is like ${this}:
+     * @return array
+     */
+    public function getVars(): array{
+        return $this->vars;
+    }
+
+
+    /**
+     * Resolves the container variables in the given string, if they are written in "container notation".
+     *
+     *
+     * By container notation, we mean something like this:
+     *
+     * - ${example_var}
+     *
+     *
+     * So:
      *
      * - a dollar symbol followed by an opening curly bracket
      * - the dot path to the variable to resolve (using the @page(bdot notation))
      * - a closing bracket
+     *
+     *
+     * Note: our heuristics doesn't necessarily use the same heuristics that the Light container does, we just
+     * use the name "container notation" for our own purposes here.
+     *
      *
      *
      *

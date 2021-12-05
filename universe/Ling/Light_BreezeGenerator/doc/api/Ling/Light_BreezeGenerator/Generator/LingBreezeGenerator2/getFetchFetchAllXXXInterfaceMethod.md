@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LingBreezeGenerator2::getFetchFetchAllXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator2.php#L2024-L2030)
+See the source code for method [LingBreezeGenerator2::getFetchFetchAllXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator2.php#L2126-L2132)
 
 
 See Also

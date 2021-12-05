@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitWizard::commitAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L267-L270)
+See the source code for method [CommitWizard::commitAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L293-L296)
 
 
 See Also

@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ImportUtil::stripConcreteImportMap](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L629-L636)
+See the source code for method [ImportUtil::stripConcreteImportMap](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L685-L692)
 
 
 See Also

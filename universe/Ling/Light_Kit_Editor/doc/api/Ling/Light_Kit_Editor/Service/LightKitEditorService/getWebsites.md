@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::getWebsites](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L269-L278)
+See the source code for method [LightKitEditorService::getWebsites](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L354-L363)
 
 
 See Also

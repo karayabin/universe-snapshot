@@ -49,7 +49,7 @@ Returns false | string.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getNamespace](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L528-L541)
+See the source code for method [TokenFinderTool::getNamespace](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L532-L545)
 
 
 See Also

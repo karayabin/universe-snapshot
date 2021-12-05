@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::setAvatarUrl](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L308-L311)
+See the source code for method [LightWebsiteUser::setAvatarUrl](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L337-L340)
 
 
 See Also

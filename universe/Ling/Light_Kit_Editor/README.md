@@ -1,6 +1,6 @@
 Light_Kit_Editor
 ===========
-2021-03-08 -> 2021-05-31
+2021-03-08 -> 2021-08-03
 
 
 
@@ -56,7 +56,8 @@ kit_editor:
     methods:
         setContainer:
             container: @container()
-
+        setDefaultWebsiteIdentifier:
+            identifier: default
 
 
 
@@ -68,6 +69,38 @@ kit_editor:
 History Log
 =============
 
+- 0.3.0 -- 2021-08-03
+
+    - update babyYaml storage, now add _babyYamlPage info 
+    - add LightKitEditorPageRenderer class
+    - simplified theme concepts
+    - update easy route namespace (add galaxy prefix)
+  
+- 0.2.10 -- 2021-06-25
+
+    - updated routes, add galaxy prefix
+
+- 0.2.9 -- 2021-06-22
+
+    - fix service->renderPage not taking advantage of LightKitEditorHelper::getBasicPageRenderer
+  
+- 0.2.8 -- 2021-06-19
+
+    - fix LightKitEditorHelper::getBasicPageRenderer not using the kit configured service as the instance base
+  
+- 0.2.7 -- 2021-06-18
+
+    - add LightKitEditorHelper class
+  
+- 0.2.6 -- 2021-06-18
+
+    - add default website_identifier concept
+    - add own page renderer
+  
+- 0.2.5 -- 2021-06-03
+
+    - adapt api to work with Light_PlanetInstaller:2.0.4
+  
 - 0.2.4 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

@@ -4,7 +4,7 @@
 
 The LightFileWatcherService class
 ================
-2020-06-25 --> 2021-05-31
+2020-06-25 --> 2021-06-28
 
 
 
@@ -128,4 +128,4 @@ See the source code of [Ling\Light_FileWatcher\Service\LightFileWatcherService](
 
 SeeAlso
 ==============
-Previous class: [LightFileWatcherException](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Exception/LightFileWatcherException.md)<br>
+Previous class: [LightFileWatcherPlanetInstaller](https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Light_PlanetInstaller/LightFileWatcherPlanetInstaller.md)<br>

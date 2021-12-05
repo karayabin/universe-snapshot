@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - CliTools
+        - Light
+        - Light_Database
+        - Light_EasyRoute
+        - Light_PlanetInstaller
+        - SimplePdoWrapper
+    
+
+post_install: 
+    map: true

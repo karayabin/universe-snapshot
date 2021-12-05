@@ -4,7 +4,7 @@
 
 The LightKitAdminGeneratorService class
 ================
-2019-11-06 --> 2021-05-31
+2019-11-06 --> 2021-06-25
 
 
 
@@ -76,4 +76,4 @@ See the source code of [Ling\Light_Kit_Admin_Generator\Service\LightKitAdminGene
 
 SeeAlso
 ==============
-Previous class: [MenuConfigGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator.md)<br>
+Previous class: [LightKitAdminGeneratorPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Light_PlanetInstaller/LightKitAdminGeneratorPlanetInstaller.md)<br>

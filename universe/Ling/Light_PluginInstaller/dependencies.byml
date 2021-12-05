@@ -4,6 +4,8 @@ dependencies:
         - CliTools
         - CyclicChainDetector
         - Light
+        - Light_Logger
+        - Light_PlanetInstaller
         - SimplePdoWrapper
         - UniverseTools
     

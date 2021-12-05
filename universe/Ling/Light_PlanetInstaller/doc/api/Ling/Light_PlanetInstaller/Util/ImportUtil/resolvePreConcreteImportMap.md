@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ImportUtil::resolvePreConcreteImportMap](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L892-L982)
+See the source code for method [ImportUtil::resolvePreConcreteImportMap](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L947-L1037)
 
 
 See Also

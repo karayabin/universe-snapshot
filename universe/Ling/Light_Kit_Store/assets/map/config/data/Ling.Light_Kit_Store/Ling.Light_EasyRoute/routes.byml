@@ -1,0 +1,43 @@
+Ling.Light_Kit_Store:
+    prefix: null
+    routes:
+        lks_route-home:
+            pattern: /
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreHomeController->render
+        lks_route-websites:
+            pattern: /websites
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreWebsitesListController->render
+        lks_route-pages:
+            pattern: /pages
+            controller: Ling\Light_Kit_Store\Controller\Front\StorePagesListController->render
+        lks_route-widgets:
+            pattern: /widgets
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreWidgetsListController->render
+        lks_route-about:
+            pattern: /about
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreAboutController->render
+        lks_route-api:
+            pattern: /api
+            controller: Ling\Light_Kit_Store\Controller\StoreApiController->execute
+        lks_route-404:
+            pattern: /404
+            controller: Ling\Light_Kit_Store\Controller\Front\Store404Controller->render
+        lks_route-your_new_password:
+            pattern: /your_new_password
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreYourNewPasswordController->render
+        lks_route-search:
+            pattern: /search
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreSearchResultsController->render
+        lks_route-your_account_home:
+            pattern: /your_account
+            controller: Ling\Light_Kit_Store\Controller\Front\Account\YourAccountHomeController->render
+
+        lks_route-product:
+            pattern: /product
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreProductPageController->render
+
+        lks_route-ratings:
+            pattern: /customer-reviews
+            controller: Ling\Light_Kit_Store\Controller\Front\StoreRatingListController->render
+
+

@@ -4,7 +4,7 @@
 
 The SqlQueryDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\SqlQuery\SqlQueryDocBuilder](h
 
 SeeAlso
 ==============
-Previous class: [SimplePdoWrapperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimplePdoWrapper/SimplePdoWrapperDocBuilder.md)<br>Next class: [SqlWizardDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SqlWizard/SqlWizardDocBuilder.md)<br>
+Previous class: [SqlFiddlerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SqlFiddler/SqlFiddlerDocBuilder.md)<br>Next class: [SqlWizardDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SqlWizard/SqlWizardDocBuilder.md)<br>

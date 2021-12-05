@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L249-L255)
+See the source code for method [Light::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L265-L271)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) class.
 
-Previous method: [setHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setHttpRequest.md)<br>Next method: [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)<br>
+Previous method: [setHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setHttpRequest.md)<br>Next method: [setMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setMatchingRoute.md)<br>
 

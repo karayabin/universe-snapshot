@@ -73,6 +73,11 @@ class TokenArrayIteratorTool
                 while ($tai->valid()) {
                     $tai->next();
                     $token = $tai->current();
+
+                    if (false === $token) {
+                        continue;
+                    }
+
                     $capture[] = $token;
                     if (is_string($token)) {
                         if ($begin === $token) {
@@ -337,6 +342,34 @@ class TokenArrayIteratorTool
         while (is_array($cur) && T_WHITESPACE === $cur[0]) {
             $tai->next();
             $cur = $tai->current();
+        }
+    }
+
+
+    /**
+     * Skips the given tokens and positions the cursor AFTER the last found token.
+     *
+     * @param TokenArrayIteratorInterface $tai
+     * @param array $tokens
+     */
+    public static function skipTokens(TokenArrayIteratorInterface $tai, array $tokens = [])
+    {
+        $cur = $tai->current();
+        while (true) {
+            $affected = false;
+            foreach ($tokens as $token) {
+                if (
+                    $cur === $token ||
+                    (true === is_array($cur) && $token === $cur[0])
+                ) {
+                    $tai->next();
+                    $cur = $tai->current();
+                    $affected = true;
+                }
+            }
+            if (false === $affected) {
+                break;
+            }
         }
     }
 

@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::hasCssCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L360-L363)
+See the source code for method [HtmlPageCopilot::hasCssCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L383-L386)
 
 
 See Also

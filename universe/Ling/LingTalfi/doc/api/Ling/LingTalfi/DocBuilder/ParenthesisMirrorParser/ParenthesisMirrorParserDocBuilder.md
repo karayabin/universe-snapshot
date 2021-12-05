@@ -4,7 +4,7 @@
 
 The ParenthesisMirrorParserDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\ParenthesisMirrorParser\Parent
 
 SeeAlso
 ==============
-Previous class: [ParentChildDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParentChild/ParentChildDocBuilder.md)<br>Next class: [PhpExcelToolDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PhpExcelTool/PhpExcelToolDocBuilder.md)<br>
+Previous class: [ParentChildDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParentChild/ParentChildDocBuilder.md)<br>Next class: [PaypalToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PaypalTools/PaypalToolsDocBuilder.md)<br>

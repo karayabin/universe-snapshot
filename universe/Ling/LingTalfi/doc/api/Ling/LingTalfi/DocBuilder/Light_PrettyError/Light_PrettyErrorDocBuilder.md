@@ -4,7 +4,7 @@
 
 The Light_PrettyErrorDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_PrettyError\Light_Pretty
 
 SeeAlso
 ==============
-Previous class: [Light_PrerouteHubDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrerouteHub/Light_PrerouteHubDocBuilder.md)<br>Next class: [Light_QuickMailAlertDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_QuickMailAlert/Light_QuickMailAlertDocBuilder.md)<br>
+Previous class: [Light_PrerouteHubDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrerouteHub/Light_PrerouteHubDocBuilder.md)<br>Next class: [Light_ProjectVarsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ProjectVars/Light_ProjectVarsDocBuilder.md)<br>

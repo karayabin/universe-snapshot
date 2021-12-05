@@ -20,7 +20,7 @@ class LightAjaxHandlerPlanetInstaller extends LightBasePlanetInstaller implement
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $output->write("Ling.Light_AjaxHandler: copying Ling.Light_EasyRoute routes to master...");
         LightEasyRouteHelper::copyRoutesFromPluginToMaster($appDir, "Ling.Light_AjaxHandler");
@@ -31,7 +31,7 @@ class LightAjaxHandlerPlanetInstaller extends LightBasePlanetInstaller implement
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $output->write("Ling.Light_AjaxHandler: removing Ling.Light_EasyRoute routes from master...");
         LightEasyRouteHelper::removeRoutesFromMaster($appDir, "Ling.Light_AjaxHandler");

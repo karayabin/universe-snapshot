@@ -1,6 +1,6 @@
 Kit_PrototypeWidget
 ===========
-2019-04-25 -> 2021-04-08
+2019-04-25 -> 2021-06-22
 
 
 
@@ -107,6 +107,18 @@ Related
 History Log
 =============
 
+- 1.1.9 -- 2021-06-22
+
+    - update PrototypeWidgetHandler, now z references widgetConf.vars instead of widgetConf
+  
+- 1.1.8 -- 2021-06-22
+
+    - update PrototypeWidgetHandler, now provides the widgetConf as the z variable for templates.
+
+- 1.1.7 -- 2021-06-22
+
+    - update PrototypeWidgetHandler, add access to copilot instance
+  
 - 1.1.6 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

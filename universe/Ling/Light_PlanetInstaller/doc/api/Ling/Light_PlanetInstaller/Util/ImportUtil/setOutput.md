@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ImportUtil::setOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L110-L113)
+See the source code for method [ImportUtil::setOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L118-L121)
 
 
 See Also

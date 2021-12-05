@@ -235,6 +235,7 @@ class Light_Kit_AdminDocBuilder
                 "acp response" => "https://github.com/lingtalfi/AjaxCommunicationProtocol",
                 "lka jim toolbox" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-jim-toolbox.md",
                 "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
+                "light philosophy page" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md',
             ],
             /**
              * An array of external classes to url.
@@ -328,6 +329,7 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit3HookInterface.md",
                 "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
+                "Ling\WiseTool\Exception\WiseToolException" => "https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/Exception/WiseToolException.md",
 
             ],
         ];

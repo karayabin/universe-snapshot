@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UpgradeUniverseCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeUniverseCommand.php#L112-L120)
+See the source code for method [UpgradeUniverseCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeUniverseCommand.php#L110-L118)
 
 
 See Also

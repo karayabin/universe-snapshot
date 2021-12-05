@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDeveloperWizardService::setOptions](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Service/LightDeveloperWizardService.php#L98-L101)
+See the source code for method [LightDeveloperWizardService::setOptions](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Service/LightDeveloperWizardService.php#L100-L103)
 
 
 See Also

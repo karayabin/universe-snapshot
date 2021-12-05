@@ -8,10 +8,9 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Kit\ConfigurationTransformer\ThemeTransformer;
-use Ling\Light_Kit\Service\LightKitService;
 use Ling\Light_Kit_Editor\Api\Custom\CustomLightKitEditorApiFactory;
 use Ling\Light_Kit_Editor\Exception\LightKitEditorException;
+use Ling\Light_Kit_Editor\Helper\LightKitEditorHelper;
 use Ling\Light_Kit_Editor\Storage\LkeMultiStorageApi;
 
 
@@ -37,12 +36,32 @@ class LightKitEditorService
 
 
     /**
+     * This property holds the defaultWebsiteIdentifier for this instance.
+     * @var string
+     */
+    private string $defaultWebsiteIdentifier;
+
+
+    /**
+     * The theme actually used when rendering a page.
+     * This is only set when you call our renderPage method.
+     * Otherwise, it's null.
+     *
+     *
+     * @var string | null
+     */
+    private ?string $theme;
+
+
+    /**
      * Builds the LightKitEditorService instance.
      */
     public function __construct()
     {
         $this->container = null;
         $this->factory = null;
+        $this->defaultWebsiteIdentifier = "default";
+        $this->theme = null;
     }
 
     /**
@@ -54,6 +73,43 @@ class LightKitEditorService
     {
         $this->container = $container;
     }
+
+    /**
+     * Sets the defaultWebsiteIdentifier.
+     *
+     * @param string $defaultWebsiteIdentifier
+     */
+    public function setDefaultWebsiteIdentifier(string $defaultWebsiteIdentifier)
+    {
+        $this->defaultWebsiteIdentifier = $defaultWebsiteIdentifier;
+    }
+
+    /**
+     * Returns the defaultWebsiteIdentifier of this instance.
+     *
+     * @return string
+     */
+    public function getDefaultWebsiteIdentifier(): string
+    {
+        return $this->defaultWebsiteIdentifier;
+    }
+
+
+    /**
+     * Returns the theme actually used while rendering the page.
+     *
+     * The theme is only available when you call the renderPage method of this class.
+     *
+     * This method is designed to be called from templates.
+     *
+     *
+     * @return string|null
+     */
+    public function getTheme(): string|null
+    {
+        return $this->theme;
+    }
+
 
 
 
@@ -108,14 +164,35 @@ class LightKitEditorService
     /**
      * Renders the page identified by the given arguments.
      *
+     *
+     * The pageOptions are forwarded to the (kit_page_renderer)->renderPage method.
+     *
+     * Available options are:
+     * - before: callback to trigger before the page is rendered
+     *
+     *
      * @param string $websiteId
      * @param string $pageId
+     * @param array $pageOptions
+     * @param array $options
      * @return HttpResponseInterface
      */
-    public function renderPage(string $websiteId, string $pageId): HttpResponseInterface
+    public function renderPage(string $websiteId, string $pageId, array $pageOptions = [], array $options = []): HttpResponseInterface
     {
 
+
+        $before = $options['before'] ?? null;
+
+
         $website = $this->getWebsiteByIdentifier($websiteId);
+
+
+        /**
+         * Here we want to allow the user to change the theme on a page basis,
+         * hence we don't directly call the basic page renderer, but rather
+         * access the page ourselves to see if there is a theme override...
+         *
+         */
         $engine = $website['engine'];
         $storage = $this->getMultiStorageApi();
         switch ($engine) {
@@ -131,38 +208,46 @@ class LightKitEditorService
                 break;
         }
 
-        $page = $storage->getPageConf($pageId);
-
-
-        /**
-         * @var $kit LightKitService
-         */
-        $kit = $this->container->get("kit");
+        $page = $storage->getPageConf($pageId); // sneak peak to the page conf
+        if (false === $page) {
+            return new HttpResponse("Page not found", 404);
+        }
 
 
         $pageVars = $page['vars'] ?? [];
         $theme = $pageVars['theme'] ?? null;
+        $root = $website["rootDir"] ?? null;
+        if (null === $theme || '$t' === $theme) {
+            $theme = $website["theme"] ?? null;
+        }
+        $this->theme = $theme;
 
-        if ('$t' === $theme) {
-            if (true === array_key_exists("theme", $website)) {
-                $theme = $website['theme'];
-            }
+        if (true === is_string($root)) {
+            $root = str_replace('${app_dir}/', '', $root);
+        }
+
+        /**
+         * ... then we use the basic page renderer...
+         */
+        $pageRenderer = LightKitEditorHelper::getBasicPageRenderer($this->container, [
+            'type' => $engine,
+            'theme' => $theme,
+            'root' => $root,
+            'storage' => $storage,
+        ]);
+
+
+        if (true === is_callable($before)) {
+            $before();
         }
 
 
-        $page['layout'] = str_replace('$t', $theme, $page['layout']);
-
-        $themeTransformer = new ThemeTransformer();
-        $themeTransformer->setTheme($theme);
-        $kit->addPageConfigurationTransformer($themeTransformer);
+        return new HttpResponse($pageRenderer->renderPage($pageId, $pageOptions));
 
 
-//az($page);
-
-
-        return new HttpResponse($kit->renderPage($pageId, [
-            'pageConf' => $page,
-        ]));
+//        return new HttpResponse($pageRenderer->renderPage($pageId, [
+//            'pageConf' => $page,
+//        ]));
 
     }
 
@@ -314,21 +399,6 @@ class LightKitEditorService
         return false;
     }
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Throws an exception.
-     * @param string $msg
-     * @param int|null $code
-     * @throws \Exception
-     */
-    private function error(string $msg, int $code = null)
-    {
-        throw new LightKitEditorException(static::class . ": " . $msg, $code);
-    }
-
     /**
      * Returns the factory for this plugin's api.
      *
@@ -342,6 +412,24 @@ class LightKitEditorService
             $this->factory->setPdoWrapper($this->container->get("database"));
         }
         return $this->factory;
+    }
+
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Throws an exception.
+     * @param string $msg
+     * @param int|null $code
+     * @throws \Exception
+     */
+    private function error(string $msg, int $code = null)
+    {
+        throw new LightKitEditorException(static::class . ": " . $msg, $code);
     }
 
 

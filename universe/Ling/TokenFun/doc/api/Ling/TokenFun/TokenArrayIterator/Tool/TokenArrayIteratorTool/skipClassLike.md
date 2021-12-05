@@ -61,7 +61,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::skipClassLike](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L115-L169)
+See the source code for method [TokenArrayIteratorTool::skipClassLike](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L120-L174)
 
 
 See Also

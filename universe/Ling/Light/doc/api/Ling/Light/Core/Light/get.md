@@ -61,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Light::get](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L326-L329)
+See the source code for method [Light::get](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L364-L367)
 
 
 See Also

@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_DbSynchronizerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_DbSynchronizer/Light_DbSynchronizerDocBuilder.php#L45-L212)
+See the source code for method [Light_DbSynchronizerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_DbSynchronizer/Light_DbSynchronizerDocBuilder.php#L45-L218)
 
 
 See Also

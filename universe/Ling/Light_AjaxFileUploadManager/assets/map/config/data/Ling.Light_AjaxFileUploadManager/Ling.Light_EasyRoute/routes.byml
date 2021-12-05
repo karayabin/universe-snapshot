@@ -1,4 +1,4 @@
-Light_AjaxFileUploadManager:
+Ling.Light_AjaxFileUploadManager:
     routes:
         afup_route-ajax_file_upload_manager:
             pattern: /ajax_file_upload_manager

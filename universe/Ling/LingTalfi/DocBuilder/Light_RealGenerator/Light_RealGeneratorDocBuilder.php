@@ -75,7 +75,7 @@ class Light_RealGeneratorDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
             ],
             /**
              * Your project start date.
@@ -149,6 +149,7 @@ class Light_RealGeneratorDocBuilder
                 "generate method" => 'https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService/generate.md',
                 "getGenericTagsByTable method" => 'https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getGenericTagsByTable.md',
                 "representative column" => 'https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/pages/conception-notes.md#the-representative-column',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -161,6 +162,9 @@ class Light_RealGeneratorDocBuilder
              */
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
             ],
             "ignoreFilesStartingWith" => [
 //                "PHPExcel/",

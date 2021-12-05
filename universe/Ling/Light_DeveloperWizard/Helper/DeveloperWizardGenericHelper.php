@@ -5,6 +5,7 @@ namespace Ling\Light_DeveloperWizard\Helper;
 
 
 use Ling\Bat\BDotTool;
+use Ling\Bat\StringTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_DeveloperWizard\Exception\LightDeveloperWizardException;
@@ -28,11 +29,7 @@ class DeveloperWizardGenericHelper
      */
     public static function getSymbolicPath(string $path, string $appDir): string
     {
-        $p = explode($appDir, $path, 2);
-        if (2 === count($p)) {
-            return '[app]' . array_pop($p);
-        }
-        return $path;
+        return StringTool::getSymbolicPath($path, $appDir);
     }
 
 

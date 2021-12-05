@@ -68,7 +68,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::moveToCorrespondingEnd](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L56-L93)
+See the source code for method [TokenArrayIteratorTool::moveToCorrespondingEnd](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L56-L98)
 
 
 See Also

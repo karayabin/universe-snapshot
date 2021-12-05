@@ -50,7 +50,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ImportUtil::translateTheoreticalToConcrete](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L607-L617)
+See the source code for method [ImportUtil::translateTheoreticalToConcrete](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L663-L673)
 
 
 See Also

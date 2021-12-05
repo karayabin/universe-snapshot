@@ -4,7 +4,7 @@
 
 The LightKitAdminEditorRealformSuccessHandler class
 ================
-2019-05-17 --> 2021-05-31
+2019-05-17 --> 2021-07-30
 
 
 
@@ -65,4 +65,4 @@ See the source code of [Ling\Light_Kit_Admin\Light_Realform\SuccessHandler\Light
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller.md)<br>Next class: [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md)<br>
+Previous class: [LightKitAdminPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller.md)<br>Next class: [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md)<br>

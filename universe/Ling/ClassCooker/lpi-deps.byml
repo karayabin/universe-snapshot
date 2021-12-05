@@ -93,3 +93,11 @@
 1.16.4: 
     - Ling:Bat:1.322
     - Ling:TokenFun:1.11.7
+
+1.16.5: 
+    - Ling:Bat:1.322
+    - Ling:TokenFun:1.11.9
+
+1.16.6: 
+    - Ling:Bat:1.329
+    - Ling:TokenFun:1.11.11

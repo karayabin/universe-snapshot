@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function fetchAll(array $components = []): array
     {
@@ -15,6 +16,7 @@
 
     /**
      * @implementation
+     * @inheritDoc
      */
     public function fetch(array $components = [])
     {

@@ -1,6 +1,6 @@
 SectionComment
 ===========
-2021-03-19 -> 2021-05-27
+2021-03-19 -> 2021-08-10
 
 
 
@@ -42,6 +42,10 @@ Summary
 History Log
 =============
 
+- 1.0.4 -- 2021-08-10
+
+    - update BabyYamlSectionCommentUtil->addSection, now add extra carriage returns after section
+  
 - 1.0.3 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

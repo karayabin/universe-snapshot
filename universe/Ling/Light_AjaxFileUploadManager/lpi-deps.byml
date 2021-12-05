@@ -360,3 +360,54 @@
     - Ling:Light_UserData:1.19.19
     - Ling:Light_UserManager:1.5.8
     - Ling:ThumbnailTools:1.3.4
+
+1.8.14: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:JFileUploader:3.0.9
+    - Ling:Light:0.70.11
+    - Ling:Light_CsrfSession:1.0.6
+    - Ling:Light_Database:1.14.29
+    - Ling:Light_EasyRoute:1.3.10
+    - Ling:Light_Events:1.10.7
+    - Ling:Light_HtmlPageCopilot:1.0.9
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7
+    - Ling:Light_UserData:1.19.20
+    - Ling:Light_UserManager:1.5.16
+    - Ling:ThumbnailTools:1.3.5
+
+1.8.15: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:JFileUploader:3.0.9
+    - Ling:Light:0.70.11
+    - Ling:Light_CsrfSession:1.0.6
+    - Ling:Light_Database:1.14.29
+    - Ling:Light_EasyRoute:1.3.10
+    - Ling:Light_Events:1.10.7
+    - Ling:Light_HtmlPageCopilot:1.0.9
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7
+    - Ling:Light_UserData:1.19.20
+    - Ling:Light_UserManager:1.5.16
+    - Ling:ThumbnailTools:1.3.5
+
+1.8.16: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.330
+    - Ling:CliTools:1.10.29
+    - Ling:JFileUploader:3.0.9
+    - Ling:Light:0.70.11
+    - Ling:Light_CsrfSession:1.0.6
+    - Ling:Light_Database:1.14.30
+    - Ling:Light_EasyRoute:1.3.12
+    - Ling:Light_Events:1.10.8
+    - Ling:Light_HtmlPageCopilot:1.0.9
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.8
+    - Ling:Light_UserData:1.19.20
+    - Ling:Light_UserManager:1.5.16
+    - Ling:ThumbnailTools:1.3.5

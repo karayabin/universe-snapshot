@@ -1,6 +1,6 @@
 Light_LoginNotifier
 ===========
-2020-11-30 -> 2021-03-31
+2020-11-30 -> 2021-06-25
 
 
 
@@ -74,6 +74,10 @@ login_notifier:
 History Log
 =============
 
+- 1.0.13 -- 2021-06-25
+
+    - removed dependency to Light_PluginInstaller
+  
 - 1.0.12 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

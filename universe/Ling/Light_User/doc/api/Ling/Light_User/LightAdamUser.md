@@ -4,7 +4,7 @@
 
 The LightAdamUser class
 ================
-2019-05-10 --> 2021-05-31
+2019-05-10 --> 2021-06-24
 
 
 
@@ -59,4 +59,4 @@ See the source code of [Ling\Light_User\LightAdamUser](https://github.com/lingta
 
 SeeAlso
 ==============
-Next class: [LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md)<br>
+Next class: [LightOpenUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightOpenUser.md)<br>

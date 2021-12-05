@@ -48,7 +48,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LpiHelper::getSelfTmpDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L25-L28)
+See the source code for method [LpiHelper::getSelfTmpDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L36-L39)
 
 
 See Also
@@ -56,5 +56,5 @@ See Also
 
 The [LpiHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper.md) class.
 
-Next method: [getSessionDirsPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getSessionDirsPath.md)<br>
+Previous method: [getAppId](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getAppId.md)<br>Next method: [getSessionDirsPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getSessionDirsPath.md)<br>
 

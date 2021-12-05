@@ -20,10 +20,11 @@ interface LightPlanetInstallerInit1HookInterface
      *
      * @param string $appDir
      * @param OutputInterface $output
+     * @param array $options
      *
      * @return void
      */
-    public function init1(string $appDir, OutputInterface $output): void;
+    public function init1(string $appDir, OutputInterface $output, array $options = []): void;
 
 
     /**
@@ -31,6 +32,7 @@ interface LightPlanetInstallerInit1HookInterface
      *
      * @param string $appDir
      * @param OutputInterface $output
+     * @param array $options
      */
-    public function undoInit1(string $appDir, OutputInterface $output): void;
+    public function undoInit1(string $appDir, OutputInterface $output, array $options = []): void;
 }

@@ -4,7 +4,7 @@
 
 The SimplePdoWrapperInterface class
 ================
-2019-07-22 --> 2021-05-31
+2019-07-22 --> 2021-08-05
 
 
 
@@ -70,8 +70,8 @@ abstract class <span class="pl-k">SimplePdoWrapperInterface</span>  {
     - abstract public [replace](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/replace.md)($table, ?array $fields = [], ?array $options = []) : false | string
     - abstract public [update](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/update.md)($table, array $fields, ?$whereConds = null, ?array $markers = []) : bool
     - abstract public [delete](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/delete.md)($table, ?$whereConds = null, ?$markers = []) : mixed
-    - abstract public [fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/fetch.md)($query, ?array $markers = [], ?$fetchStyle = null) : false | array
-    - abstract public [fetchAll](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/fetchAll.md)($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : false | array
+    - abstract public [fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/fetch.md)($query, ?array $markers = [], ?$fetchStyle = null) : array | string | false
+    - abstract public [fetchAll](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/fetchAll.md)($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : array
     - abstract public [executeStatement](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/executeStatement.md)($query) : false | int
     - abstract public [transaction](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/transaction.md)(callable $transactionCallback, ?Exception &$e = null) : bool
     - abstract public [setConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/setConnexion.md)(PDO $connexion) : void

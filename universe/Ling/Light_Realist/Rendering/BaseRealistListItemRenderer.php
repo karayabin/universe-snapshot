@@ -9,7 +9,6 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
-use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Realist\Exception\LightRealistException;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 
@@ -284,7 +283,7 @@ class BaseRealistListItemRenderer implements RealistListItemRendererInterface, L
                     if (array_key_exists($rowKey, $row)) {
                         $extraUrlParams[$k] = $row[$rowKey];
                     } else {
-                        throw new LightKitAdminException("Undefined key $rowKey in the given row.");
+                        throw new LightRealistException("Undefined key $rowKey in the given row.");
                     }
                 }
 

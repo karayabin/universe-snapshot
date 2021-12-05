@@ -11,7 +11,56 @@
  **/
 
 if ('undefined' === typeof window.bee) {
+
+
+
     window.bee = {
+
+        _resizeCallables: [],
+        _resizeTriggered: false,
+        _onResize: function(){
+            var clientWidth = document.documentElement.clientWidth;
+            var clientHeight = document.documentElement.clientHeight;
+            var bodyClientHeight = document.body.clientHeight;
+            var bodyClientWidth = document.body.clientWidth;
+
+            var innerWidth = window.innerWidth;
+            var innerHeight = window.innerHeight;
+
+
+            for(var i in this._resizeCallables){
+                var cb = this._resizeCallables[i];
+                cb({
+                    viewportWidth: clientWidth,
+                    viewportWidthWithScrollbar: innerWidth,
+                    pageWidth: bodyClientWidth,
+
+                    viewportHeight: clientHeight,
+                    viewportHeightWithScrollbar: innerHeight,
+                    pageHeight: bodyClientHeight,
+
+                });
+            }
+        },
+        /**
+         * The callable receives an object containing the following entries:
+         *
+         * - viewportWidth
+         * - viewportWidthWithScrollbar
+         * - pageWidth
+         * - viewportHeight
+         * - viewportHeightWithScrollbar
+         * - pageHeight
+         *
+         */
+        addOnResizeCallback: function(cb){
+            this._resizeCallables.push(cb);
+            if(false === this._resizeTriggered){
+                this._resizeTriggered = true;
+                window.addEventListener("resize", this._onResize.bind(this));
+            }
+        },
+
         arrayKeyExists: function (key, object) {
             return (key in object);
         },
@@ -609,7 +658,27 @@ if ('undefined' === typeof window.bee) {
             return baseUrl;
         },
 
-
+        url_remove_params: function (url, paramsToRemove) {
+            let split = url.split('?', 2);
+            let qs = '';
+            let baseUrl = split.shift();
+            if (1 === split.length) {
+                qs = split.shift();
+            }
+            let urlParams = this.queryStringToObject(qs);
+            for(var i in paramsToRemove){
+                var key = paramsToRemove[i];
+                if(key in urlParams){
+                    delete urlParams[key];
+                }
+            }
+            var encodeParams = true;
+            let q = this.objectToQueryString(urlParams, encodeParams);
+            if (q.length > 0) {
+                baseUrl += '?' + q;
+            }
+            return baseUrl;
+        },
         //----------------------------------------
         // PRIVATE
         //----------------------------------------

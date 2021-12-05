@@ -48,7 +48,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::refresh](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L164-L169)
+See the source code for method [LightWebsiteUser::refresh](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L172-L177)
 
 
 See Also
@@ -56,5 +56,5 @@ See Also
 
 The [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) class.
 
-Previous method: [hasRight](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/hasRight.md)<br>Next method: [connect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/connect.md)<br>
+Previous method: [hasRight](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/hasRight.md)<br>Next method: [setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)<br>
 

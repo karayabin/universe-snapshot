@@ -4,7 +4,7 @@
 
 The LightKitAdminBMenuModifier class
 ================
-2019-05-17 --> 2021-05-31
+2019-05-17 --> 2021-07-30
 
 
 

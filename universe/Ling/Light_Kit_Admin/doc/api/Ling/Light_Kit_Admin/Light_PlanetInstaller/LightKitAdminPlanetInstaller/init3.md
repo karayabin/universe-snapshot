@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitAdminPlanetInstaller::init3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller/init3.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+public [LightKitAdminPlanetInstaller::init3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller/init3.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output, ?array $options = []) : void
 
 
 
@@ -40,6 +40,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -55,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminPlanetInstaller::init3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PlanetInstaller/LightKitAdminPlanetInstaller.php#L148-L318)
+See the source code for method [LightKitAdminPlanetInstaller::init3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PlanetInstaller/LightKitAdminPlanetInstaller.php#L176-L346)
 
 
 See Also

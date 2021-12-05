@@ -11,7 +11,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            event: Light.on_route_found
+            event: Ling.Light.on_route_found
             listener:
                 instance: @service(csrf_simple)
                 callable_method: onRouteFound

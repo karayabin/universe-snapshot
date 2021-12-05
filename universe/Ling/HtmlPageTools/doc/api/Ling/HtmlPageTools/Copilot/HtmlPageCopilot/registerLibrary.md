@@ -93,7 +93,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L263-L269)
+See the source code for method [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L264-L279)
 
 
 See Also

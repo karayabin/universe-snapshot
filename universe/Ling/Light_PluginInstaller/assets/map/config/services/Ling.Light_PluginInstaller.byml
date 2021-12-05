@@ -8,18 +8,3 @@ plugin_installer:
                 useDebug: false      # default is false
                 useCache: true     # default is true
 
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: plugin_installer.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/plugin_installer_debug.txt

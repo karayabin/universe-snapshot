@@ -1,0 +1,11 @@
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/README.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Exception/LightProjectVarsException.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Service/LightProjectVarsService/__construct.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Service/LightProjectVarsService/error.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Service/LightProjectVarsService/getVariable.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Service/LightProjectVarsService/getVariables.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Service/LightProjectVarsService/setContainer.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Service/LightProjectVarsService/setVariables.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars/Service/LightProjectVarsService.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/api/Ling/Light_ProjectVars.md
+https://github.com/lingtalfi/Light_ProjectVars/blob/master/doc/pages/conception-notes.md

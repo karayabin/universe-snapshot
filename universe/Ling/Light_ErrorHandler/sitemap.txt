@@ -3,6 +3,9 @@ https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_E
 https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_Logger/LightLoggerErrorHandlerListener/listen.md
 https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_Logger/LightLoggerErrorHandlerListener/setContainer.md
 https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_Logger/LightLoggerErrorHandlerListener.md
+https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_PlanetInstaller/LightErrorHandlerPlanetInstaller/init2.md
+https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_PlanetInstaller/LightErrorHandlerPlanetInstaller/undoInit2.md
+https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_PlanetInstaller/LightErrorHandlerPlanetInstaller.md
 https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/__construct.md
 https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/errorHandler.md
 https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/fatalErrorHandler.md

@@ -55,7 +55,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::addCommitMessageByUniverseDir](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L184-L190)
+See the source code for method [StandardReadmeUtil::addCommitMessageByUniverseDir](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L240-L246)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [StandardReadmeUtil](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil.md) class.
 
-Previous method: [addHistoryLogEntry](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/addHistoryLogEntry.md)<br>Next method: [updateDate](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/updateDate.md)<br>
+Previous method: [getPlanetsToCommitListByAppDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getPlanetsToCommitListByAppDir.md)<br>Next method: [updateDate](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/updateDate.md)<br>
 

@@ -1,0 +1,17 @@
+A request to change your password has been recorded on our servers on {fullDate}.
+
+If you're not the author of this request, please ignore the following.
+
+
+To reset your password, click the link below:
+
+
+{link}
+
+
+Cheers.
+
+
+
+
+

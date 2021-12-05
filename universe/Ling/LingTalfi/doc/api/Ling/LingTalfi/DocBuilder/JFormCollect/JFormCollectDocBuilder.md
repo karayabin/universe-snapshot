@@ -4,7 +4,7 @@
 
 The JFormCollectDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\JFormCollect\JFormCollectDocBu
 
 SeeAlso
 ==============
-Previous class: [JFileUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JFileUploader/JFileUploaderDocBuilder.md)<br>Next class: [JPostFormDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JPostForm/JPostFormDocBuilder.md)<br>
+Previous class: [JFileUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JFileUploader/JFileUploaderDocBuilder.md)<br>Next class: [JLingHelpersDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JLingHelpers/JLingHelpersDocBuilder.md)<br>

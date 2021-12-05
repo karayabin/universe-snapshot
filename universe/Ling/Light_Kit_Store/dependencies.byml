@@ -1,7 +1,35 @@
 dependencies: 
     Ling: 
+        - BabyYaml
+        - Bat
+        - CliTools
+        - JAcpHep
+        - JFormCollect
         - Light
+        - Light_Database
+        - Light_DatabaseFakeDataMaker
+        - Light_EasyRoute
+        - Light_Events
+        - Light_Kit
+        - Light_Kit_Editor
+        - Light_Logger
+        - Light_MailStats
+        - Light_Mailer
+        - Light_PasswordProtector
+        - Light_PlanetInstaller
+        - Light_ProjectVars
+        - Light_ReverseRouter
+        - Light_User
+        - Light_UserManager
+        - Light_Vars
+        - SimplePdoWrapper
+        - SqlFiddler
     
 
 post_install: 
     map: true
+
+commands: 
+    init1: 
+        - cd www; npm install bootstrap
+    

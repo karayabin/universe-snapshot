@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [LightPlanetInstallerInit2HookInterface::init2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface/init2.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+abstract public [LightPlanetInstallerInit2HookInterface::init2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface/init2.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output, ?array $options = []) : void
 
 
 
@@ -40,6 +40,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -55,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerInit2HookInterface::init2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightPlanetInstallerInit2HookInterface.php#L26-L26)
+See the source code for method [LightPlanetInstallerInit2HookInterface::init2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightPlanetInstallerInit2HookInterface.php#L27-L27)
 
 
 See Also

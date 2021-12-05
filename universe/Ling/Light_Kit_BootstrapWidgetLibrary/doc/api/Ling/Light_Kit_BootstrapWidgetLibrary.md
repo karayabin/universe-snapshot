@@ -1,6 +1,6 @@
 Ling/Light_Kit_BootstrapWidgetLibrary
 ================
-2019-04-26 --> 2021-05-31
+2019-04-26 --> 2021-06-28
 
 
 
@@ -8,6 +8,60 @@ Ling/Light_Kit_BootstrapWidgetLibrary
 Table of contents
 ===========
 
+- [CreateWidgetCommand](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/CreateWidgetCommand.md) &ndash; The CreateWidgetCommand class.
+    - [CreateWidgetCommand::getDescription](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/CreateWidgetCommand/getDescription.md) &ndash; Returns the description of the command.
+    - [CreateWidgetCommand::getParameters](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/CreateWidgetCommand/getParameters.md) &ndash; Returns the parameters available for this command.
+    - [CreateWidgetCommand::getAliases](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/CreateWidgetCommand/getAliases.md) &ndash; Returns the aliases used by this command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/__construct.md) &ndash; Builds the LightKitBootstrapWidgetLibraryBaseCommand instance.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::setContainer](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::run](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/run.md) &ndash; Runs the command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getName](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getName.md) &ndash; Returns the name of the command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getFlags](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getFlags.md) &ndash; Returns the array of flags available for this command, which form is name => description.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getOptions](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getOptions.md) &ndash; Returns the array of available options for this command, which form is name => optionItem.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::write](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/write.md) &ndash; Writes a message to the output.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::setApplication](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/setApplication.md) &ndash; Sets the application.
+- [HelpCommand](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/HelpCommand.md) &ndash; The HelpCommand class.
+    - [HelpCommand::getDescription](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/HelpCommand/getDescription.md) &ndash; Returns the description of the command.
+    - [HelpCommand::getFlags](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/HelpCommand/getFlags.md) &ndash; Returns the array of flags available for this command, which form is name => description.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/__construct.md) &ndash; Builds the LightKitBootstrapWidgetLibraryBaseCommand instance.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::setContainer](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::run](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/run.md) &ndash; Runs the command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getName](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getName.md) &ndash; Returns the name of the command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getAliases](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getAliases.md) &ndash; Returns the aliases used by this command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getOptions](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getOptions.md) &ndash; Returns the array of available options for this command, which form is name => optionItem.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getParameters](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getParameters.md) &ndash; Returns the parameters available for this command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::write](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/write.md) &ndash; Writes a message to the output.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::setApplication](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/setApplication.md) &ndash; Sets the application.
+- [LightKitBootstrapWidgetLibraryBaseCommand](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand.md) &ndash; The LightKitBootstrapWidgetLibraryBaseCommand class.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/__construct.md) &ndash; Builds the LightKitBootstrapWidgetLibraryBaseCommand instance.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::setContainer](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::run](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/run.md) &ndash; Runs the command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getName](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getName.md) &ndash; Returns the name of the command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getDescription](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getDescription.md) &ndash; Returns the description of the command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getAliases](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getAliases.md) &ndash; Returns the aliases used by this command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getFlags](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getFlags.md) &ndash; Returns the array of flags available for this command, which form is name => description.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getOptions](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getOptions.md) &ndash; Returns the array of available options for this command, which form is name => optionItem.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::getParameters](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/getParameters.md) &ndash; Returns the parameters available for this command.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::write](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/write.md) &ndash; Writes a message to the output.
+    - [LightKitBootstrapWidgetLibraryBaseCommand::setApplication](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Command/LightKitBootstrapWidgetLibraryBaseCommand/setApplication.md) &ndash; Sets the application.
+- [LightKitBootstrapWidgetLibraryApplication](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Program/LightKitBootstrapWidgetLibraryApplication.md) &ndash; The LightKitBootstrapWidgetLibraryApplication class.
+    - [LightKitBootstrapWidgetLibraryApplication::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Program/LightKitBootstrapWidgetLibraryApplication/__construct.md) &ndash; Builds the Application instance.
+    - [LightKitBootstrapWidgetLibraryApplication::getAppId](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/CliTools/Program/LightKitBootstrapWidgetLibraryApplication/getAppId.md) &ndash; Returns the appId of the application.
+    - LightCliBaseApplication::getCommands &ndash; Returns the array of commands provided by the application.
+    - LightCliBaseApplication::setContainer &ndash; Sets the light service container interface.
+    - Application::registerCommand &ndash; Registers a command with the given aliases.
+    - AbstractProgram::setLogger &ndash; Sets the logger.
+    - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
+    - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
+    - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
+    - AbstractProgram::run &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
+- [LightKitBootstrapWidgetLibraryException](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Exception/LightKitBootstrapWidgetLibraryException.md) &ndash; The LightKitBootstrapWidgetLibraryException class.
+- [LightKitBootstrapWidgetLibraryHelper](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Helper/LightKitBootstrapWidgetLibraryHelper.md) &ndash; The LightKitBootstrapWidgetLibraryHelper class.
+    - [LightKitBootstrapWidgetLibraryHelper::getAppId](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Helper/LightKitBootstrapWidgetLibraryHelper/getAppId.md) &ndash; Returns the app id used by this planet.
+- [LightKitBootstrapWidgetLibraryService](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Service/LightKitBootstrapWidgetLibraryService.md) &ndash; The LightKitBootstrapWidgetLibraryService class.
+    - [LightKitBootstrapWidgetLibraryService::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Service/LightKitBootstrapWidgetLibraryService/__construct.md) &ndash; Builds the LightKitBootstrapWidgetLibraryService instance.
+    - [LightKitBootstrapWidgetLibraryService::setContainer](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Service/LightKitBootstrapWidgetLibraryService/setContainer.md) &ndash; Sets the container.
+    - [LightKitBootstrapWidgetLibraryService::setOptions](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Service/LightKitBootstrapWidgetLibraryService/setOptions.md) &ndash; Sets the options.
 - [BlogCardsWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/BlogCardsWidget.md) &ndash; The BlogCardsWidget class.
     - PicassoWidget::__construct &ndash; Builds the PicassoWidget instance.
     - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
@@ -589,7 +643,11 @@ Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
+- [Light](https://github.com/lingtalfi/Light)
+- [Light_Cli](https://github.com/lingtalfi/Light_Cli)
+- [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 
 

@@ -74,5 +74,5 @@ See Also
 
 The [LightVarsService](https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService.md) class.
 
-Previous method: [setVar](https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/setVar.md)<br>Next method: [resolveContainerNotation](https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/resolveContainerNotation.md)<br>
+Previous method: [setVar](https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/setVar.md)<br>Next method: [getVars](https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/getVars.md)<br>
 

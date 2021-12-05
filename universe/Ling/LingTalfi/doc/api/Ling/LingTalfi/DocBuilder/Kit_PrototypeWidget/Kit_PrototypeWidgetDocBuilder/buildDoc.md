@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Kit_PrototypeWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder.php#L45-L208)
+See the source code for method [Kit_PrototypeWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder.php#L45-L209)
 
 
 See Also

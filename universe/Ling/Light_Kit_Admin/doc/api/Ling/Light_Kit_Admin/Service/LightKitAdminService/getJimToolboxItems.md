@@ -48,7 +48,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L413-L446)
+See the source code for method [LightKitAdminService::getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L450-L483)
 
 
 See Also

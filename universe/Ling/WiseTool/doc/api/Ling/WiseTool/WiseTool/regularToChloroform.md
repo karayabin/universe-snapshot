@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [WiseTool::regularToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToChloroform.md)(string $regularType, string $message) : Ling\Chloroform\FormNotification\FormNotificationInterface
+public static [WiseTool::regularToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToChloroform.md)(string $regularType, string $message) : [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)
 
 
 
@@ -42,7 +42,7 @@ Parameters
 Return values
 ================
 
-Returns Ling\Chloroform\FormNotification\FormNotificationInterface.
+Returns [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md).
 
 
 Exceptions thrown
@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WiseTool::regularToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L237-L252)
+See the source code for method [WiseTool::regularToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L210-L225)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [WiseTool](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool.md) class.
 
-Previous method: [regularToWise](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToWise.md)<br>Next method: [regularToLightKitAdmin](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToLightKitAdmin.md)<br>
+Previous method: [regularToWise](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToWise.md)<br>Next method: [bootstrapToRegular](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/bootstrapToRegular.md)<br>
 

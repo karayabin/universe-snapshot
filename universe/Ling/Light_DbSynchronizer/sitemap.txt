@@ -3,6 +3,9 @@ https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light
 https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Helper/LightDbSynchronizerHelper/guessScopeByCreateFile.md
 https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Helper/LightDbSynchronizerHelper/synchronizePlanetCreateFile.md
 https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Helper/LightDbSynchronizerHelper.md
+https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Light_PlanetInstaller/LightDbSynchronizerPlanetInstaller/init2.md
+https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Light_PlanetInstaller/LightDbSynchronizerPlanetInstaller/undoInit2.md
+https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Light_PlanetInstaller/LightDbSynchronizerPlanetInstaller.md
 https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Service/LightDbSynchronizerService/__construct.md
 https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Service/LightDbSynchronizerService/addStatementsForIndex.md
 https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Service/LightDbSynchronizerService/cleanColumnTypes.md

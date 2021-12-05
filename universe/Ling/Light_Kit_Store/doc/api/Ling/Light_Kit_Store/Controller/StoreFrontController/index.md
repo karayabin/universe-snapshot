@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [StoreFrontController::index](https://github.com/lingtalfi/Light_Kit_Store/blob/master/doc/api/Ling/Light_Kit_Store/Controller/StoreFrontController/index.md)(Ling\Light\Http\HttpRequestInterface $request) : Ling\Light\Http\HttpResponseInterface
+public [StoreFrontController::index](https://github.com/lingtalfi/Light_Kit_Store/blob/master/doc/api/Ling/Light_Kit_Store/Controller/StoreFrontController/index.md)(Ling\Light\Http\HttpRequestInterface $request) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
@@ -38,7 +38,7 @@ Parameters
 Return values
 ================
 
-Returns Ling\Light\Http\HttpResponseInterface.
+Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md).
 
 
 

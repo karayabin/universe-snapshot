@@ -59,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::updateInfo](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L218-L236)
+See the source code for method [LightWebsiteUser::updateInfo](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L247-L265)
 
 
 See Also

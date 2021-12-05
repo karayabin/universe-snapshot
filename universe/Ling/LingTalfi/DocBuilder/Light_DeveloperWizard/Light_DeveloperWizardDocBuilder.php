@@ -77,6 +77,9 @@ class Light_DeveloperWizardDocBuilder
             "reportIgnore" => [
                 "Ling\WebWizardTools\Process\WebWizardToolsProcess",
                 "Ling\WebWizardTools\WebWizard\WebWizardToolsWebWizard",
+                "Ling\Light_Cli\CliTools\Program\LightCliBaseApplication",
+                "Ling\CliTools\Program\Application",
+                "Ling\CliTools\Program\AbstractProgram",
 
 
             ],
@@ -185,6 +188,13 @@ class Light_DeveloperWizardDocBuilder
                 "Ling\WebWizardTools\WebWizard\Renderer\WebWizardToolsWebWizardRendererInterface" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/Renderer/WebWizardToolsWebWizardRendererInterface.md",
                 "Ling\ClassCooker\ClassCooker" => "https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/ClassCooker.md",
                 "Ling\ClassCooker\FryingPan\FryingPan" => "https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan.md",
+                "Ling\Light_Cli\CliTools\Program\LightCliCommandInterface" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliCommandInterface.md",
+                "Ling\CliTools\Command\CommandInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md",
+                "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
+                "Ling\Light_Cli\CliTools\Program\LightCliBaseApplication" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication.md",
+                "Ling\Light_Cli\CliTools\Program\LightCliApplicationInterface" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface.md",
+                "Ling\CliTools\Program\ProgramInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md",
+                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger/blob/master/doc/api/Ling/UniversalLogger/UniversalLoggerInterface.md",
 
 
             ],

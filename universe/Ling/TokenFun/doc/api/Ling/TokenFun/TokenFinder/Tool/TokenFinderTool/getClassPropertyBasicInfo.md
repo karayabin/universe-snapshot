@@ -69,7 +69,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getClassPropertyBasicInfo](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L119-L184)
+See the source code for method [TokenFinderTool::getClassPropertyBasicInfo](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L119-L188)
 
 
 See Also

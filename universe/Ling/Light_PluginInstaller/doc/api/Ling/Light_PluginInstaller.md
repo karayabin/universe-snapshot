@@ -1,6 +1,6 @@
 Ling/Light_PluginInstaller
 ================
-2020-02-07 --> 2021-05-31
+2020-02-07 --> 2021-06-25
 
 
 
@@ -9,6 +9,11 @@ Table of contents
 ===========
 
 - [LightPluginInstallerException](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Exception/LightPluginInstallerException.md) &ndash; The LightPluginInstallerException class.
+- [LightPluginInstallerPlanetInstaller](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Light_PlanetInstaller/LightPluginInstallerPlanetInstaller.md) &ndash; The LightPluginInstallerPlanetInstaller class.
+    - [LightPluginInstallerPlanetInstaller::init2](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Light_PlanetInstaller/LightPluginInstallerPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightPluginInstallerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Light_PlanetInstaller/LightPluginInstallerPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md) &ndash; The PluginInstallerInterface interface.
     - [PluginInstallerInterface::install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface/install.md) &ndash; Installs the plugin in the light application.
     - [PluginInstallerInterface::isInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
@@ -39,6 +44,8 @@ Dependencies
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [CyclicChainDetector](https://github.com/lingtalfi/CyclicChainDetector)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 

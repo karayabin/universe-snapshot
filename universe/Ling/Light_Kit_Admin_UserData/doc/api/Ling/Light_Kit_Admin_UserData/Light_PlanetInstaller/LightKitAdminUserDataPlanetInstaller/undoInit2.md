@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitAdminUserDataPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller/undoInit2.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+public [LightKitAdminUserDataPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller/undoInit2.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output, ?array $options = []) : void
 
 
 
@@ -38,6 +38,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -53,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminUserDataPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller.php#L69-L106)
+See the source code for method [LightKitAdminUserDataPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller.php#L71-L112)
 
 
 See Also

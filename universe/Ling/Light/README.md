@@ -1,6 +1,6 @@
 Light
 ===========
-2019-04-05 -> 2021-05-31
+2019-04-05 -> 2021-07-30
 
 
 
@@ -41,6 +41,7 @@ Summary
     - [Efficiency tips](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/efficiency-tips.md)
     - [Environments](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/environments.md)
     - [Events](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md)
+    - [Exceptions](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/exceptions.md)
     - [General philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md)
     - [how to debug](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/how-to-debug.md)
     - [light init script](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-init-script.md)
@@ -65,6 +66,37 @@ Summary
 History Log
 =============
 
+- 0.70.13 -- 2021-07-30
+
+    - fix LightTool::isAjax calling undefined service router
+    - add Light->logError method, and LightController->logError method
+  
+- 0.70.12 -- 2021-06-29
+
+    - add logging section to general philosophy document
+    - update HttpRequestInterface, now the accessors to main arrays don't throw exception by default
+  
+- 0.70.11 -- 2021-06-25
+
+    - update light application recommended structure document
+    - add exceptions document
+  
+- 0.70.10 -- 2021-06-17
+
+    - fix HttpRequest returning the url-encoded form of QUERY_STRING
+  
+- 0.70.9 -- 2021-05-31
+
+    - add LightServiceHelper methods to help with service
+
+- 0.70.8 -- 2021-05-31
+
+    - add LightServiceHelper class
+
+- 0.70.7 -- 2021-05-31
+
+    - add service enable/disable convention
+  
 - 0.70.6 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

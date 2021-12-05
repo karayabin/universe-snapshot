@@ -1,6 +1,6 @@
 Light_Logger
 ===========
-2019-08-01 -> 2021-05-03
+2019-08-01 -> 2021-08-05
 
 
 
@@ -36,6 +36,10 @@ Summary
 ===========
 - [Light_Logger api](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Service](#service)
+- Pages
+  - [Conception notes](https://github.com/lingtalfi/Light_Logger/blob/master/doc/pages/conception-notes.md)
+
+
 
 
 Service
@@ -102,6 +106,20 @@ logger:
 History Log
 =============
 
+- 1.11.12 -- 2021-08-05
+
+    - fix service not recognizing @container and @service notation for open registration
+    - update conception notes, add common channels section
+    - update docblock comments of main dispatch methods (msg is of type mixed)
+  
+- 1.11.11 -- 2021-06-25
+
+    - fix functional typo in LightLoggerHelper
+  
+- 1.11.10 -- 2021-06-25
+
+    - add open registration system
+  
 - 1.11.9 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

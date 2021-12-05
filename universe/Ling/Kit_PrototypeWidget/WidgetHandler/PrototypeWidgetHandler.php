@@ -51,6 +51,14 @@ class PrototypeWidgetHandler implements WidgetHandlerInterface, KitPageRendererA
 
 
     /**
+     * This property holds the _copilot for this instance.
+     * @var HtmlPageCopilot
+     *
+     */
+    private HtmlPageCopilot $_copilot;
+
+
+    /**
      * Builds the PrototypeWidgetHandler instance.
      */
     public function __construct()
@@ -95,12 +103,16 @@ class PrototypeWidgetHandler implements WidgetHandlerInterface, KitPageRendererA
      */
     public function render(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string
     {
+        $this->_copilot = $copilot; // make the copilot accessible to the template
+
+
         if (null !== $this->rootDir) {
             if (array_key_exists("template", $widgetConf)) {
 
                 $template = $this->rootDir . "/" . $widgetConf['template'];
                 if (file_exists($template)) {
                     ob_start();
+                    $z = $widgetConf['vars'] ?? [];
                     include $template;
                     return ob_get_clean();
                 } else {
@@ -118,6 +130,18 @@ class PrototypeWidgetHandler implements WidgetHandlerInterface, KitPageRendererA
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * Returns the instance of the copilot.
+     * This is designed to be used from inside the prototype template file.
+     *
+     * @return HtmlPageCopilot
+     */
+    protected function getCopilot(): HtmlPageCopilot
+    {
+        return $this->_copilot;
+    }
+
+
     /**
      * Throws an useful error message.
      *

@@ -5,6 +5,7 @@ namespace Ling\ClassCooker\FryingPan\Ingredient;
 
 
 use Ling\Bat\CommentTool;
+use Ling\CheapLogger\CheapLogger;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 
 /**

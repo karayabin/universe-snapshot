@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::getColumnNullabilities](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNullabilities.md)($table) : array
+public [MysqlWizard::getColumnNullabilities](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNullabilities.md)($fullTable) : array
 
 
 
@@ -33,7 +33,7 @@ Parameters
 ================
 
 
-- table
+- fullTable
 
     
 
@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getColumnNullabilities](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L299-L307)
+See the source code for method [MysqlWizard::getColumnNullabilities](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L444-L452)
 
 
 See Also

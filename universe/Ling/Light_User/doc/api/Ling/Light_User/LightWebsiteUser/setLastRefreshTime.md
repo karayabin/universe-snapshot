@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::setLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L368-L371)
+See the source code for method [LightWebsiteUser::setLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L397-L400)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) class.
 
-Previous method: [getLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getLastRefreshTime.md)<br>Next method: [getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getSessionDuration.md)<br>
+Previous method: [getLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getLastRefreshTime.md)<br>Next method: [getRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getRights.md)<br>
 

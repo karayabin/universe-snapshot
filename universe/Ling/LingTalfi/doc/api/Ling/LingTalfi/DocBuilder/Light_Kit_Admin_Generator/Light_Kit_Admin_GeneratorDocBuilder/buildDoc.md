@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_Kit_Admin_GeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_Generator/Light_Kit_Admin_GeneratorDocBuilder.php#L45-L220)
+See the source code for method [Light_Kit_Admin_GeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_Generator/Light_Kit_Admin_GeneratorDocBuilder.php#L45-L226)
 
 
 See Also

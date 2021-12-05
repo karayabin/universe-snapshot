@@ -55,7 +55,7 @@ Returns [OrderBy](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [OrderBy::add](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L56-L63)
+See the source code for method [OrderBy::add](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L63-L70)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [OrderBy](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy.md) class.
 
-Previous method: [inst](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/inst.md)<br>Next method: [apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/apply.md)<br>
+Previous method: [inst](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/inst.md)<br>Next method: [addExpression](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/addExpression.md)<br>
 

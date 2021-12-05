@@ -1,0 +1,8 @@
+Ling.Light_Kit_Editor.admin:
+    - store.lke_widget
+    - store.lke_block
+    - store.lke_page
+    - store.lke_block_has_widget
+    - store.lke_page_has_block
+
+

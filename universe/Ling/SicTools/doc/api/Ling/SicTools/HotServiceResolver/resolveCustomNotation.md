@@ -68,7 +68,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [HotServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L222-L225)
+See the source code for method [HotServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L245-L252)
 
 
 See Also
@@ -76,5 +76,5 @@ See Also
 
 The [HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver.md) class.
 
-Previous method: [getService](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/getService.md)<br>Next method: [resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveArgs.md)<br>
+Previous method: [setCustomResolveNotationCallback](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/setCustomResolveNotationCallback.md)<br>Next method: [resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveArgs.md)<br>
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -40,6 +40,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -55,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Database/blob/master/Light_PlanetInstaller/LightDatabasePlanetInstaller.php#L91-L101)
+See the source code for method [LightDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Database/blob/master/Light_PlanetInstaller/LightDatabasePlanetInstaller.php#L93-L111)
 
 
 See Also

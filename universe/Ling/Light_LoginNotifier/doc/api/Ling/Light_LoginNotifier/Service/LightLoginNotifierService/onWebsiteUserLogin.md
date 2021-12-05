@@ -52,7 +52,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoginNotifierService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/Service/LightLoginNotifierService.php#L44-L92)
+See the source code for method [LightLoginNotifierService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/Service/LightLoginNotifierService.php#L45-L93)
 
 
 See Also

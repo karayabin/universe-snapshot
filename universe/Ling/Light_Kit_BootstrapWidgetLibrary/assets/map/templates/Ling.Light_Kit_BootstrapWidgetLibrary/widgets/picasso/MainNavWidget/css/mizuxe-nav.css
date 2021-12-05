@@ -1,9 +1,11 @@
 .kit-bwl-mainnav.mizuxe-nav.navbar {
   box-shadow: 2px 2px 5px #3292a6;
   opacity: 0.9;
-  background: white; }
-  .kit-bwl-mainnav.mizuxe-nav.navbar .nav-item {
-    font-size: 1.4rem;
-    padding-right: 1.4rem; }
+  background: white;
+}
+.kit-bwl-mainnav.mizuxe-nav.navbar .nav-item {
+  font-size: 1.4rem;
+  padding-right: 1.4rem;
+}
 
 /*# sourceMappingURL=mizuxe-nav.css.map */

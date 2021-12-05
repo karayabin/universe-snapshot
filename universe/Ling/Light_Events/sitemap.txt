@@ -4,6 +4,9 @@ https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/registerOpenEventByPlanet.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/unregisterOpenEventByPlanet.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper.md
+https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Light_PlanetInstaller/LightEventsPlanetInstaller/init2.md
+https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Light_PlanetInstaller/LightEventsPlanetInstaller/undoInit2.md
+https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Light_PlanetInstaller/LightEventsPlanetInstaller.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface/process.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/DebugLightEventsService/onListenerProcessBefore.md

@@ -22,6 +22,7 @@ class ClassPropertyTokenFinder extends RecursiveTokenFinder
      */
     public function find(array $tokens)
     {
+//        az(TokenTool::explicitTokenNames($tokens));
         $ret = [];
         $tai = new TokenArrayIterator($tokens);
         $start = null;
@@ -72,6 +73,28 @@ class ClassPropertyTokenFinder extends RecursiveTokenFinder
                             TokenArrayIteratorTool::skipWhiteSpaces($tai);
                             $cur = $tai->current();
                         }
+
+                        /**
+                         * skipping type hint,
+                         *
+                         * variable type if any (object, array, ...)
+                         *
+                         * examples:
+                         * - protected CustomLightKitStoreApiFactory|null $factory;
+                         * - protected ?CustomLightKitStoreApiFactory $factory;
+                         *
+                         */
+
+                        while (true === TokenTool::match([
+                                T_STRING,
+                                "?",
+                                "|",
+                            ], $cur)) {
+                            $tai->next();
+                            TokenArrayIteratorTool::skipWhiteSpaces($tai);
+                            $cur = $tai->current();
+                        }
+
 
                         if (TokenTool::match([
                             T_VARIABLE,

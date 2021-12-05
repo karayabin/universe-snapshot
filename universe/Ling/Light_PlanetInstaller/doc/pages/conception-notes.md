@@ -1,6 +1,6 @@
 Light_PlanetInstaller, conception notes
 ================
-2020-12-03 -> 2021-05-31
+2020-12-03 -> 2021-06-17
 
 This is a variation of the [uni tool](https://github.com/lingtalfi/universe-naive-importer), which I found too
 complicated.
@@ -14,15 +14,15 @@ Table of Contents
 - [Commands usage](#commands-usage)
 - [import map](#import-map)
 - [The two types of conflicts](#the-two-types-of-conflicts)
-  - [application conflicts](#application-conflicts)
-  - [inter-planet conflicts](#inter-planet-conflicts)
-  - [application conflict resolution mode](#application-conflict-resolution-mode)
+    - [application conflicts](#application-conflicts)
+    - [inter-planet conflicts](#inter-planet-conflicts)
+    - [application conflict resolution mode](#application-conflict-resolution-mode)
 
 - [import algorithm](#import-algorithm)
 - [install algorithm](#install-algorithm)
-  - [init 1](#init-1)
-  - [init 2](#init-2)
-  - [init 3](#init-3)
+    - [init 1](#init-1)
+    - [init 2](#init-2)
+    - [init 3](#init-3)
 
 - [uninstall algorithm](#uninstall-algorithm)
 - [upgrade algorithm](#upgrade-algorithm)
@@ -30,18 +30,15 @@ Table of Contents
 - [session dir](#session-dir)
 - [the lpi deps file](#the-lpi-deps-file)
 - [uni style vs versioned style](#uni-style-vs-versioned-style)
-  - [My personal opinion about it](#my-personal-opinion-about-it)
+    - [My personal opinion about it](#my-personal-opinion-about-it)
 - [Versioned style mess](#versioned-style-mess)
 - [Universe maps](#universe-maps)
 - [alternate universe and symlink, speed up your workflow](#alternate-universe-and-symlink-speed-up-your-workflow)
 - [todir and tolink](#todir-and-tolink)
 
-
-
 Overview
 -------
 2021-05-27
-
 
 The **Light_PlanetInstaller** planet provides command to install/uninstall planets in your apps.
 
@@ -49,10 +46,11 @@ It supersedes the [Light_PluginInstaller](https://github.com/lingtalfi/Light_Plu
 
 The api is designed to work with the [uni style](#uni-style-vs-versioned-style) installing by default.
 
-Although we provide tools to work with [versioned style](#versioned-style-mess) installing, we don't recommend it, unless you have no other choice.
+Although we provide tools to work with [versioned style](#versioned-style-mess) installing, we don't recommend it,
+unless you have no other choice.
 
-
-You should first install the [Light_Cli](https://github.com/lingtalfi/Light_Cli/) tool on your machine, in order to use our planet.
+You should first install the [Light_Cli](https://github.com/lingtalfi/Light_Cli/) tool on your machine, in order to use
+our planet.
 
 In the rest of this document, we assume that **Light_Cli** is installed.
 
@@ -60,14 +58,10 @@ In the rest of this document, we assume that **Light_Cli** is installed.
 
 Commands usage
 ---------
-2021-05-27 -> 2021-05-31
+2021-05-27 -> 2021-06-17
 
-
-
-
-The following commands are described using [kwin notation](https://github.com/lingtalfi/TheBar/blob/master/discussions/kwin-notation.md).
-
-
+The following commands are described
+using [kwin notation](https://github.com/lingtalfi/TheBar/blob/master/discussions/kwin-notation.md).
 
 ```kwin
 - **clean_session_dirs**:
@@ -131,6 +125,13 @@ The following commands are described using [kwin notation](https://github.com/li
                 - earliest
             - tim: string. The path to a file containing the [theoretical import map](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map) to use. If set, this will bypass the planetDotName argument passed to this command,
               and the planets imported will be the ones defined in the **theoretical import map**. 
+            - who-calls: string=planetDotName. When this option is set, if acts as if the test flag was raised, and it displays the list of the planetDotNames from the theoretical import map which
+                  depend on the planetDotName defined by this option.
+                  So for instance if you call this command: 
+                    lt import Ling.Light_Kit_JimToolbox_PhpstormWidgetLinks --who-calls=Ling.Light_Kit_Admin
+                   It then returns the list of the planetDotNames from the tim of Ling.Light_Kit_JimToolbox_PhpstormWidgetLinks which depend on Ling.Light_Kit_Admin.
+                   This option currently only works in uni style (i.e., not with version numbers). 
+                     
             
         - flags: 
             - d: if set, enables the debug mode, in which output is a bit more verbose
@@ -141,6 +142,14 @@ The following commands are described using [kwin notation](https://github.com/li
             - f: if set, forces the reimporting of the planet, even if it's already in your app
             - test-build-dir: if set, the import command will stop after creating the build dir. In other words, nothing will be actually imported, but you will not only have the [concrete import map](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map) created,
                 but also the **build dir**. See the [import algorithm](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-algorithm) section for more info about the **build dir**.
+            - sort-cim: if set, the display of the [concrete import map](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map) will be sorted alphabetically (instead of children first parents last). 
+            - babyInit: bool=false. Whether to trigger the baby init planet mode.
+                In this mode, the planet is not imported, but only the init phases are triggered.
+                A baby planet is a planet which is not yet formed. It's not committed. The version is not available, the dependencies are not created yet.
+                Using the baby init mode, we can still trigger the init phases of the planet at an early stage.
+                This option is mainly useful while you're developing a planet and you still want to test its init phases it.
+                Dependencies are always ignored (even if the planet happens to have some).
+      
         - aliases:
             - import
                      
@@ -180,7 +189,13 @@ The following commands are described using [kwin notation](https://github.com/li
                 - latest
                 - earliest
             - tim: string. The path to a file containing the [theoretical import map](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map) to use. If set, this will bypass the planetDotName argument passed to this command,
-              and the planets imported will be the ones defined in the **theoretical import map**. 
+              and the planets imported will be the ones defined in the **theoretical import map**.
+            - who-calls: string=planetDotName. When this option is set, if acts as if the test flag was raised, and it displays the list of the planetDotNames from the theoretical import map which
+                  depend on the planetDotName defined by this option.
+                  So for instance if you call this command: 
+                    lt import Ling.Light_Kit_JimToolbox_PhpstormWidgetLinks --who-calls=Ling.Light_Kit_Admin
+                   It then returns the list of the planetDotNames from the tim of Ling.Light_Kit_JimToolbox_PhpstormWidgetLinks which depend on Ling.Light_Kit_Admin.
+                   This option currently only works in uni style (i.e., not with version numbers).                
             
         - flags: 
             - d: if set, enables the debug mode, in which output is a bit more verbose
@@ -191,6 +206,13 @@ The following commands are described using [kwin notation](https://github.com/li
             - f: if set, forces the reimporting of the planet, even if it's already in your app
             - test-build-dir: if set, the install command will stop after creating the build dir. In other words, nothing will be actually imported, but you will not only have the [concrete import map](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map) created,
                 but also the **build dir**. See the [import algorithm](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-algorithm) section for more info about the **build dir**.
+            - babyInit: bool=false. Whether to trigger the baby init planet mode.
+                In this mode, the planet is not imported, but only the init phases are triggered.
+                A baby planet is a planet which is not yet formed. It's not committed. The version is not available, the dependencies are not created yet.
+                Using the baby init mode, we can still trigger the init phases of the planet at an early stage.
+                This option is mainly useful while you're developing a planet and you still want to test its init phases it.
+                Dependencies are always ignored (even if the planet happens to have some).
+                      
         - aliases:
             - install
             
@@ -314,8 +336,6 @@ The following commands are described using [kwin notation](https://github.com/li
             
                                     
 ```
-
-
 
 import map
 -----------
@@ -717,23 +737,25 @@ planet is actually installed or not.
 
 upgrade algorithm
 --------
-2021-05-27
+2021-05-27 -> 2021-06-03
 
 The upgrade algorithm is composed of the following parts:
 
-- the [uninstall](#uninstall-algorithm)
+- the [uninstall](#uninstall-algorithm) with the isUpgrade flag
 - the physical removal of the old planet (deleting the dir/symlink from the hard drive)
 - the [import](#import-algorithm) of the new planet
 - optionally the [install](#install-algorithm) of the new planet (only if you pass the **--install** option)
 
-By default, it will upgrade every planet in the given app directory, or you can specify a particular planet to upgrade,
-or even a list of planets to upgrade.
+By default, this command will upgrade every planet in the current application directory, or you can specify a particular
+planet to upgrade, or even a list of planets to upgrade.
 
+For the **uninstall** phase, we pass the **isUpgrade** flag to the uninstaller, to differentiate the standalone **
+uninstall** process from the **uninstall** process used within the **upgrade** algorithm.
 
+The expected behaviour of a planet when uninstalling is:
 
-
-
-
+- if the **isUpgrade** flag is set, it should not drop its tables from the database
+- if the **isUpgrade** flag is not set, it should drop its tables from the database
 
 delete concept
 ------------
@@ -1031,22 +1053,18 @@ Then, from time to time, we do an upgrade:
 lt upgrade_universe /myphp/universe 
 ```
 
-
-
-
-
 todir and tolink
 -----------
 2021-05-31
 
-
-**todir** and **tolink** are two complementary comments that might be useful if you are using a [local universe](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#local-universe).
+**todir** and **tolink** are two complementary comments that might be useful if you are using
+a [local universe](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#local-universe).
 
 Basically, they convert the planets of your app in either real directories or symlinks.
 
-
 - todir: convert all the planets of your app (that are links) to real directories
-- tolink: convert all the planets of your app (that are real directories) to links (symlinks) to their local universe correspondent if any
+- tolink: convert all the planets of your app (that are real directories) to links (symlinks) to their local universe
+  correspondent if any
                 
 
 

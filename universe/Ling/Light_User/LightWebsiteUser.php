@@ -128,6 +128,10 @@ class LightWebsiteUser implements RefreshableLightUserInterface
     }
 
 
+
+    //--------------------------------------------
+    // LightUserInterface
+    //--------------------------------------------
     /**
      * @implementation
      */
@@ -158,6 +162,10 @@ class LightWebsiteUser implements RefreshableLightUserInterface
         return in_array('*', $this->rights, true) || in_array($right, $this->rights, true);
     }
 
+
+    //--------------------------------------------
+    // RefreshableLightUserInterface
+    //--------------------------------------------
     /**
      * @implementation
      */
@@ -168,7 +176,28 @@ class LightWebsiteUser implements RefreshableLightUserInterface
         }
     }
 
+    /**
+     * @implementation
+     */
+    public function setSessionDuration(int $durationInSeconds)
+    {
+        $this->session_duration = $durationInSeconds;
+    }
 
+    /**
+     * @implementation
+     */
+    public function getSessionDuration(): int
+    {
+        return $this->session_duration;
+    }
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     /**
      * Connects the user (i.e. stores it in the session).
      * Note: you should only use this method once just after the user credentials
@@ -368,26 +397,6 @@ class LightWebsiteUser implements RefreshableLightUserInterface
     public function setLastRefreshTime(int $last_refresh_time)
     {
         $this->last_refresh_time = $last_refresh_time;
-    }
-
-    /**
-     * Returns the session_duration of this instance.
-     *
-     * @return int
-     */
-    public function getSessionDuration(): int
-    {
-        return $this->session_duration;
-    }
-
-    /**
-     * Sets the session_duration.
-     *
-     * @param int $session_duration
-     */
-    public function setSessionDuration(int $session_duration)
-    {
-        $this->session_duration = $session_duration;
     }
 
     /**

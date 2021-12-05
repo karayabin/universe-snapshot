@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserPreferences
 ================
-2020-08-13 --> 2021-05-31
+2020-08-13 --> 2021-06-18
 
 
 
@@ -36,29 +36,17 @@ Table of contents
     - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
     - LightKitAdminController::renderDefaultPage &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
-- [LightKitAdminUserPreferencesLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/LightKitAdminPlugin/Generated/LightKitAdminUserPreferencesLkaPlugin.md) &ndash; The LightKitAdminUserPreferencesLkaPlugin class.
-    - BaseLightKitAdminPlugin::__construct &ndash; Builds the BaseLightKitAdminPlugin instance.
-    - BaseLightKitAdminPlugin::getPluginOptions &ndash; Returns the options of this kit admin plugin.
-    - BaseLightKitAdminPlugin::setOptionsFile &ndash; Sets the file.
 - [LightKitAdminUserPreferencesControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_ControllerHub/Generated/LightKitAdminUserPreferencesControllerHubHandler.md) &ndash; The LightKitAdminUserPreferencesControllerHubHandler class.
     - [LightKitAdminUserPreferencesControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_ControllerHub/Generated/LightKitAdminUserPreferencesControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminUserPreferencesPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_PlanetInstaller/LightKitAdminUserPreferencesPlanetInstaller.md) &ndash; The LightKitAdminUserPreferencesPlanetInstaller class.
+    - [LightKitAdminUserPreferencesPlanetInstaller::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_PlanetInstaller/LightKitAdminUserPreferencesPlanetInstaller/__construct.md) &ndash; Builds the LightKitAdminUserPreferencesPlanetInstaller instance.
     - LightKitAdminBasePlanetInstaller::init2 &ndash; Executes the init 2 phase of the install command.
     - LightKitAdminBasePlanetInstaller::undoInit2 &ndash; Undoes the init 2 phase.
     - LightKitAdminBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
     - LightKitAdminBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
-    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
-- [LightKitAdminUserPreferencesPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_PluginInstaller/LightKitAdminUserPreferencesPluginInstaller.md) &ndash; The LightKitAdminUserPreferencesPluginInstaller class.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::__construct &ndash; Builds the LightKitAdminBasePluginInstallerWithDatabase instance.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::install &ndash; Installs the plugin in the light application.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::uninstall &ndash; Uninstalls the plugin.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies &ndash; Returns the array of dependencies.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminUserPreferencesService](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Service/LightKitAdminUserPreferencesService.md) &ndash; The LightKitAdminUserPreferencesService class.
     - LightKitAdminStandardServicePlugin::__construct &ndash; Builds the LightLingStandardService01 instance.
     - LightKitAdminStandardServicePlugin::setContainer &ndash; Sets the container.

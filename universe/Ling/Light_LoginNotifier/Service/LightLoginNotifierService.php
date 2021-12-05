@@ -4,6 +4,7 @@
 namespace Ling\Light_LoginNotifier\Service;
 
 
+use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_LingStandardService\Service\LightLingStandardService02;
 use Ling\Light_LoginNotifier\Api\Custom\CustomLightLoginNotifierApiFactory;
 use Ling\Light_Mailer\Service\LightMailerService;
@@ -102,7 +103,11 @@ class LightLoginNotifierService extends LightLingStandardService02
         if (null === $this->factory) {
             $this->factory = new CustomLightLoginNotifierApiFactory();
             $this->factory->setContainer($this->container);
-            $this->factory->setPdoWrapper($this->container->get("database"));
+            /**
+             * @var $db LightDatabaseService
+             */
+            $db = $this->container->get("database");
+            $this->factory->setPdoWrapper($db);
         }
         return $this->factory;
     }

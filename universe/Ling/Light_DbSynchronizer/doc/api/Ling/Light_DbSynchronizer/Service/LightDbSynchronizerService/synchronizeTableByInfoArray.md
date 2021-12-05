@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDbSynchronizerService::synchronizeTableByInfoArray](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L401-L759)
+See the source code for method [LightDbSynchronizerService::synchronizeTableByInfoArray](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L402-L761)
 
 
 See Also

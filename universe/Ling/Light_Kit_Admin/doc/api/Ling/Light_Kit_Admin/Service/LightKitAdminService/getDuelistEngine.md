@@ -46,7 +46,7 @@ Returns [DuelistEngineInterface](https://github.com/lingtalfi/Light_Realist/blob
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getDuelistEngine](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L325-L330)
+See the source code for method [LightKitAdminService::getDuelistEngine](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L328-L333)
 
 
 See Also

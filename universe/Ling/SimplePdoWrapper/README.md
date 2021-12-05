@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2021-03-05
+2019-02-04 -> 2021-08-05
 
 
 
@@ -1060,6 +1060,38 @@ Related
 History Log
 ------------------
 
+- 1.32.0 -- 2021-08-05
+
+    - update SimplePdoWrapperInterface->fetch, now returns false instead of null
+  
+- 1.31.0 -- 2021-08-05
+
+    - update SimplePdoWrapperInterface->fetch, now returns null instead of false, fetchAll always returns an array
+  
+- 1.30.24 -- 2021-07-30
+
+    - fix SimplePdoWrapperInterface->fetch not taking into account string returned
+
+- 1.30.23 -- 2021-07-27
+
+    - update OrderBy, add addExpression method
+    
+- 1.30.22 -- 2021-07-27
+
+    - update SimplePdoWrapper::addWhereSubStmt, now accepts whereKeyword option
+    
+- 1.30.21 -- 2021-07-02
+
+    - update SimplePdoWrapperInterface->fetch and fetchAll signatures
+    
+- 1.30.20 -- 2021-06-24
+
+    - fix MysqlInfoUtil->getHasItems returning erroneous right handles
+    
+- 1.30.19 -- 2021-06-17
+
+    - fix SimplePdoWrapper::addAssignmentListSubStmt not escaping all keys with backticks
+    
 - 1.30.18 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

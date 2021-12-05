@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDatabaseService class
 ================
-2020-06-25 --> 2021-05-31
+2020-06-25 --> 2021-06-18
 
 
 
@@ -66,4 +66,4 @@ See the source code of [Ling\Light_Kit_Admin_UserDatabase\Service\LightKitAdminU
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PluginInstaller/LightKitAdminUserDatabasePluginInstaller.md)<br>
+Previous class: [LightKitAdminUserDatabasePlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller.md)<br>

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DebugSessionDirCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L40-L166)
+See the source code for method [DebugSessionDirCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L39-L165)
 
 
 See Also

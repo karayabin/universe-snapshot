@@ -75,7 +75,8 @@ class Light_FileWatcherDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -143,6 +144,7 @@ class Light_FileWatcherDocBuilder
             "keyWord2UrlMap" => [
                 "Light_FileWatcher conception notes" => $doc . '/pages/conception-notes.md',
                 "the Ling.Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -155,6 +157,10 @@ class Light_FileWatcherDocBuilder
              */
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
+
             ],
             "ignoreFilesStartingWith" => [
 //                "PHPExcel/",

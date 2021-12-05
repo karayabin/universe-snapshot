@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::checkCsrfTokenByGenericActionItem](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L757-L766)
+See the source code for method [LightRealistService::checkCsrfTokenByGenericActionItem](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L784-L793)
 
 
 See Also

@@ -1,0 +1,13 @@
+sql_wizard:
+    instance: Ling\Light_SqlWizard\Service\LightSqlWizardService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: ${sql_wizard_vars.service_options}
+
+
+sql_wizard_vars:
+    service_options: []
+
+

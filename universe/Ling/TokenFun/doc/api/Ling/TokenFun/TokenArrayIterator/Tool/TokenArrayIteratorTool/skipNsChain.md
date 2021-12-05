@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::skipNsChain](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L280-L326)
+See the source code for method [TokenArrayIteratorTool::skipNsChain](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L285-L331)
 
 
 See Also

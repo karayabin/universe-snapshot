@@ -13,6 +13,7 @@ https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/L
 https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/LightKitAdminPlugin/Generated/LightKitAdminTaskSchedulerLkaPlugin.md
 https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_ControllerHub/Generated/LightKitAdminTaskSchedulerControllerHubHandler/handle.md
 https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_ControllerHub/Generated/LightKitAdminTaskSchedulerControllerHubHandler.md
+https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PlanetInstaller/LightKitAdminTaskSchedulerPlanetInstaller/__construct.md
 https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PlanetInstaller/LightKitAdminTaskSchedulerPlanetInstaller/onMapCopyAfter.md
 https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PlanetInstaller/LightKitAdminTaskSchedulerPlanetInstaller.md
 https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PluginInstaller/LightKitAdminTaskSchedulerPluginInstaller.md

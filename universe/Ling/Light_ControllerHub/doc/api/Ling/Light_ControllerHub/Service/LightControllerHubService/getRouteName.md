@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightControllerHubService::getRouteName](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L127-L143)
+See the source code for method [LightControllerHubService::getRouteName](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L128-L131)
 
 
 See Also

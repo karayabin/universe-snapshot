@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [HttpRequestInterface::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md)(string $key, ?bool $throwEx = true) : mixed
+abstract public [HttpRequestInterface::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md)(string $key, ?bool $throwEx = false) : mixed
 
 
 

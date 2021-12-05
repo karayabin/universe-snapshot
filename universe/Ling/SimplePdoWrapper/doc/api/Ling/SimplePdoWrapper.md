@@ -1,6 +1,6 @@
 Ling/SimplePdoWrapper
 ================
-2019-07-22 --> 2021-05-31
+2019-07-22 --> 2021-08-05
 
 
 
@@ -94,6 +94,7 @@ Table of contents
     - [OrderBy::__construct](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/__construct.md) &ndash; Builds the OrderBy instance.
     - [OrderBy::inst](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/inst.md) &ndash; Creates a new instance and returns it.
     - [OrderBy::add](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/add.md) &ndash; Adds a column/direction info to this instance, and returns itself for chaining.
+    - [OrderBy::addExpression](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/addExpression.md) &ndash; Adds an orderBy expression, and returns itself for chaining.
     - [OrderBy::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/apply.md) &ndash; Appends the relevant sql to the given query.
     - [OrderBy::getColDirs](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/getColDirs.md) &ndash; Returns the colDirs of this instance.
 - [RicHelper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/RicHelper.md) &ndash; The RicHelper class.

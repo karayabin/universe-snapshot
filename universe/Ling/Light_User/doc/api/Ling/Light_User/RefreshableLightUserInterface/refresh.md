@@ -56,5 +56,5 @@ See Also
 
 The [RefreshableLightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/RefreshableLightUserInterface.md) class.
 
-
+Next method: [setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/RefreshableLightUserInterface/setSessionDuration.md)<br>
 

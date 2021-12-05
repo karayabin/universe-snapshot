@@ -54,7 +54,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [QuestionHelper::askYesNo](https://github.com/lingtalfi/CliTools/blob/master/Helper/QuestionHelper.php#L103-L115)
+See the source code for method [QuestionHelper::askYesNo](https://github.com/lingtalfi/CliTools/blob/master/Helper/QuestionHelper.php#L133-L145)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper.md) class.
 
-Previous method: [askClear](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askClear.md)<br>
+Previous method: [askSelectListItem](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askSelectListItem.md)<br>
 

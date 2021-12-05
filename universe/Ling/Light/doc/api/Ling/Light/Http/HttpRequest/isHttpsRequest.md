@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::isHttpsRequest](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L270-L273)
+See the source code for method [HttpRequest::isHttpsRequest](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L278-L281)
 
 
 See Also

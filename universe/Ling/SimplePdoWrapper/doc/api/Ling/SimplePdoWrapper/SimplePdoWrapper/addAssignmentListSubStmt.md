@@ -29,12 +29,12 @@ The string depends on the given $firstForm.
 
 - With firstForm = true, the string looks like this:
 
-         (a, b, c) VALUES (:a, :b, :c)
+         (`a`, `b`, `c`) VALUES (:a, :b, :c)
 
 
 - With firstForm = false, the string looks like this:
 
-         a=:a, b=:b, c=:c
+         `a`=:a, `b`=:b, `c`=:c
 
 
 
@@ -74,7 +74,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L561-L593)
+See the source code for method [SimplePdoWrapper::addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L572-L604)
 
 
 See Also

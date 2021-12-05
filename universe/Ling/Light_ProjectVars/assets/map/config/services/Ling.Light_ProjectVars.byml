@@ -1,0 +1,18 @@
+project_vars:
+    instance: Ling\Light_ProjectVars\Service\LightProjectVarsService
+    methods:
+        setContainer:
+            container: @container()
+        setVariables:
+            vars: ${project_vars_vars.variables}
+
+
+
+$project_vars_vars.variables:
+    project_name: my_project
+    website: myproject.com
+
+
+
+
+

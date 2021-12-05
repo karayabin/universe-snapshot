@@ -4,7 +4,7 @@
 
 The PrototypeWidgetHandler class
 ================
-2019-04-25 --> 2021-05-31
+2019-04-25 --> 2021-06-22
 
 
 
@@ -42,13 +42,15 @@ class <span class="pl-k">PrototypeWidgetHandler</span> implements [WidgetHandler
 - Properties
     - protected string [$rootDir](#property-rootDir) ;
     - protected [Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) [$kitPageRenderer](#property-kitPageRenderer) ;
+    - private [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) [$_copilot](#property-_copilot) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/__construct.md)() : void
     - public [setKitPageRenderer](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/setKitPageRenderer.md)([Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) $renderer) : void
     - public [setRootDir](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/setRootDir.md)(string $rootDir) : [PrototypeWidgetHandler](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler.md)
     - public [process](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/process.md)(array &$widgetConf, array $debug) : void
-    - public [render](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/render.md)(array $widgetConf, Ling\HtmlPageTools\Copilot\HtmlPageCopilot $copilot, array $debug) : string
+    - public [render](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/render.md)(array $widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, array $debug) : string
+    - protected [getCopilot](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/getCopilot.md)() : [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md)
     - protected [error](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/error.md)(string $msg, array $widgetConf, array $debug) : void
 
 }
@@ -72,6 +74,12 @@ Properties
     
     
 
+- <span id="property-_copilot"><b>_copilot</b></span>
+
+    This property holds the _copilot for this instance.
+    
+    
+
 
 
 Methods
@@ -82,6 +90,7 @@ Methods
 - [PrototypeWidgetHandler::setRootDir](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/setRootDir.md) &ndash; Sets the rootDir.
 - [PrototypeWidgetHandler::process](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/process.md) &ndash; Process the widget.
 - [PrototypeWidgetHandler::render](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/render.md) &ndash; Returns the html code of the widget, according to the widget configuration.
+- [PrototypeWidgetHandler::getCopilot](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/getCopilot.md) &ndash; Returns the instance of the copilot.
 - [PrototypeWidgetHandler::error](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler/error.md) &ndash; Throws an useful error message.
 
 

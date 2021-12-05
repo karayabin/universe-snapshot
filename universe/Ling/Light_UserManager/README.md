@@ -1,6 +1,6 @@
 Light_UserManager
 ===========
-2019-05-10 -> 2021-03-15
+2019-05-10 -> 2021-06-24
 
 
 
@@ -62,7 +62,9 @@ user_manager:
 #            user:
 #                instance: Ling\Light_User\AdamLightUser
     instance: Ling\Light_UserManager\Service\LightUserManagerService
-    methods: []
+    methods:
+        setUserClass:
+            userClass: ${user_manager_vars.userClass}
 #        setUser:
 #            user:
 #                instance: Ling\Light_User\LightWebsiteUser
@@ -75,6 +77,11 @@ user_manager:
 #                        pseudo: Ling
 #                    connect: []
 #                    disconnect: []
+
+
+
+user_manager_vars:
+    userClass: Ling\Light_User\LightWebsiteUser
 ```
                 
                 
@@ -88,6 +95,34 @@ Related
 History Log
 =============
 
+- 1.5.16 -- 2021-06-24
+
+    - add service->setSessionDuration method 
+  
+- 1.5.15 -- 2021-06-24
+
+    - fix function typo in service, addPrepareUseCallback -> addPrepareUserCallback 
+  
+- 1.5.14 -- 2021-06-24
+
+    - add service->addPrepareUserCallback method
+  
+- 1.5.13 -- 2021-06-22
+
+    - fix AnyUserManager->getUser never invalidating user
+  
+- 1.5.12 -- 2021-06-22
+
+    - add userClass in service vars
+  
+- 1.5.11 -- 2021-06-14
+
+    - add AnyUserManager->getOpenUser method
+  
+- 1.5.10 -- 2021-06-14
+
+    - add AnyUserManager class
+  
 - 1.5.9 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

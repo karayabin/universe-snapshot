@@ -57,5 +57,5 @@ See Also
 
 The [LightController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md) class.
 
-Previous method: [getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getHttpRequest.md)<br>
+Previous method: [getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getHttpRequest.md)<br>Next method: [logError](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/logError.md)<br>
 

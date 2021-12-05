@@ -4,7 +4,7 @@
 
 The MysqlLightWebsiteUserDatabase class
 ================
-2019-07-19 --> 2021-05-31
+2019-07-19 --> 2021-06-15
 
 
 
@@ -158,4 +158,4 @@ See the source code of [Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase](h
 
 SeeAlso
 ==============
-Previous class: [LightUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabasePluginInstaller.md)<br>Next class: [LightUserDatabaseService](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService.md)<br>
+Previous class: [LightUserDatabasePlanetInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabasePlanetInstaller.md)<br>Next class: [LightUserDatabaseService](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService.md)<br>

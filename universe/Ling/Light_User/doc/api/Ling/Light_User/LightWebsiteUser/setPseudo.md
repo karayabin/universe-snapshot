@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::setPseudo](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L328-L331)
+See the source code for method [LightWebsiteUser::setPseudo](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L357-L360)
 
 
 See Also

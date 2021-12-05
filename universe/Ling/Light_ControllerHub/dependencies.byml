@@ -4,7 +4,6 @@ dependencies:
         - CliTools
         - Light
         - Light_EasyRoute
-        - Light_Kit_Admin
         - Light_PlanetInstaller
         - UniverseTools
     

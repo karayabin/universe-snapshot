@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightLingHooksPlanetInstaller::init2](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Light_PlanetInstaller/LightLingHooksPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightLingHooksPlanetInstaller::init2](https://github.com/lingtalfi/Light_LingHooks/blob/master/doc/api/Ling/Light_LingHooks/Light_PlanetInstaller/LightLingHooksPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -37,6 +37,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 

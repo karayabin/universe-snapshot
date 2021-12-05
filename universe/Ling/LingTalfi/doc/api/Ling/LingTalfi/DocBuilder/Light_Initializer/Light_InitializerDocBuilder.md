@@ -4,7 +4,7 @@
 
 The Light_InitializerDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Initializer\Light_Initia
 
 SeeAlso
 ==============
-Previous class: [Light_HtmlPageCopilotDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_HtmlPageCopilot/Light_HtmlPageCopilotDocBuilder.md)<br>Next class: [Light_KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit/Light_KitDocBuilder.md)<br>
+Previous class: [Light_HtmlPageCopilotDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_HtmlPageCopilot/Light_HtmlPageCopilotDocBuilder.md)<br>Next class: [Light_It4ToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_It4Tools/Light_It4ToolsDocBuilder.md)<br>

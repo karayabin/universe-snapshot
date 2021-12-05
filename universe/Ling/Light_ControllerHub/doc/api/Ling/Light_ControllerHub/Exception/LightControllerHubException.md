@@ -4,7 +4,7 @@
 
 The LightControllerHubException class
 ================
-2019-10-28 --> 2021-05-31
+2019-10-28 --> 2021-07-30
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_ControllerHub\Exception\LightControllerHubExc
 
 SeeAlso
 ==============
-Previous class: [LightControllerHubHandlerInterface](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/ControllerHubHandler/LightControllerHubHandlerInterface.md)<br>Next class: [LightControllerHubPlanetInstaller](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Light_PlanetInstaller/LightControllerHubPlanetInstaller.md)<br>
+Previous class: [LightControllerHubHandlerInterface](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/ControllerHubHandler/LightControllerHubHandlerInterface.md)<br>Next class: [LightControllerHubHelper](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Helper/LightControllerHubHelper.md)<br>

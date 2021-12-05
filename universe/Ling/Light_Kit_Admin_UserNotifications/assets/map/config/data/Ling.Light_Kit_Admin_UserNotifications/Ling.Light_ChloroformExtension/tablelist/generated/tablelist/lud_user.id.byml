@@ -1,0 +1,11 @@
+sql: select id as value, concat(id, '. ', pseudo) as label from lud_user
+column: id
+search_column: concat(id, '. ', pseudo)
+render: adapt
+threshold: 200
+security: 
+    any: 
+        micro_permission: store.lud_user.read
+        permission: Ling.Light_Kit_Admin.admin
+    
+    all: []

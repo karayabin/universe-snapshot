@@ -67,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DependencyTool::getDependencyItem](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L340-L362)
+See the source code for method [DependencyTool::getDependencyItem](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L341-L363)
 
 
 See Also
@@ -75,5 +75,5 @@ See Also
 
 The [DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool.md) class.
 
-Previous method: [getUniverseAssetDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getUniverseAssetDependencies.md)<br>Next method: [getDependencyList](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyList.md)<br>
+Previous method: [getUniverseAssetDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getUniverseAssetDependencies.md)<br>Next method: [getDependencyArray](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyArray.md)<br>
 

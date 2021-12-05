@@ -86,9 +86,9 @@ class PackLightPluginCommand extends KaosGenericCommand
                 "templates/Ling.Light_Mailer/$galaxyName.$pluginName",
                 "www/libs/universe/$galaxyName/$pluginName",
                 "scripts/$galaxyName/$pluginName",
-                "config/open/Ling.Light_Kit_Admin/lke/layouts/$galaxyName.$pluginName",
-                "config/open/Ling.Light_Kit_Admin/lke/pages/$galaxyName.$pluginName",
-                "config/open/Ling.Light_Kit_Admin/lke/zones/$galaxyName.$pluginName",
+                "config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/layouts/$galaxyName.$pluginName",
+                "config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/pages/$galaxyName.$pluginName",
+                "config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/zones/$galaxyName.$pluginName",
             ];
 
             foreach ($items as $relPath) {

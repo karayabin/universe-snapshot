@@ -4,7 +4,7 @@
 
 The LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller class
 ================
-2021-05-02 --> 2021-05-31
+2021-05-02 --> 2021-07-08
 
 
 
@@ -28,8 +28,8 @@ class <span class="pl-k">LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstall
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [LightBasePlanetInstaller::$container](#property-container) ;
 
 - Methods
-    - public [init2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
-    - public [undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+    - public [init2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
+    - public [undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/blob/master/doc/api/Ling/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_PlanetInstaller/LightKitAdminJimToolboxPhpstormWidgetLinksPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 - Inherited methods
     - public LightBasePlanetInstaller::__construct() : void

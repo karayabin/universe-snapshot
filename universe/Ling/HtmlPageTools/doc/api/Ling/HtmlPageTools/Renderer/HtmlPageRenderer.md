@@ -4,7 +4,7 @@
 
 The HtmlPageRenderer class
 ================
-2019-04-24 --> 2021-05-31
+2019-04-24 --> 2021-08-17
 
 
 
@@ -112,4 +112,4 @@ See the source code of [Ling\HtmlPageTools\Renderer\HtmlPageRenderer](https://gi
 
 SeeAlso
 ==============
-Previous class: [HtmlPageException](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Exception/HtmlPageException.md)<br>
+Previous class: [HtmlPageToolsHelper](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Helper/HtmlPageToolsHelper.md)<br>

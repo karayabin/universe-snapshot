@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAAA,kCAAmC;EACjC,UAAU,EAAE,mBAAmB;EAC/B,OAAO,EAAE,GAAG;EACZ,UAAU,EAAE,KAAK;EAEjB,4CAAU;IACR,SAAS,EAAE,MAAM;IACjB,aAAa,EAAE,MAAM",
-"sources": ["mizuxe-nav.scss"],
-"names": [],
-"file": "mizuxe-nav.css"
-}
+{"version":3,"sourceRoot":"","sources":["mizuxe-nav.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;AAEA;EACE;EACA","file":"mizuxe-nav.css"}

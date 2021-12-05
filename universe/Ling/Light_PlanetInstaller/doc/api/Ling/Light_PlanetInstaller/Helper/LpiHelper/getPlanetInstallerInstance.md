@@ -49,7 +49,7 @@ Returns object | false.
 
 Source Code
 ===========
-See the source code for method [LpiHelper::getPlanetInstallerInstance](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L58-L69)
+See the source code for method [LpiHelper::getPlanetInstallerInstance](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L69-L80)
 
 
 See Also

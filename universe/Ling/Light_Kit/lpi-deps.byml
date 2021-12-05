@@ -373,3 +373,45 @@
     - Ling:Kit_PrototypeWidget:1.1.6
     - Ling:Light:0.70.6
     - Ling:Light_Events:1.10.6
+
+1.18.5: 
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.327
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit:1.14.2
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kit_PrototypeWidget:1.1.6
+    - Ling:Light:0.70.10
+    - Ling:Light_Events:1.10.6
+
+1.18.6: 
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.329
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit:1.14.2
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kit_PrototypeWidget:1.1.9
+    - Ling:Light:0.70.10
+    - Ling:Light_Events:1.10.6
+
+1.18.7: 
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.329
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit:1.14.2
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kit_PrototypeWidget:1.1.9
+    - Ling:Light:0.70.10
+    - Ling:Light_Events:1.10.6
+    - Ling:Light_Vars:1.0.7
+
+1.18.8: 
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.332
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit:1.14.2
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kit_PrototypeWidget:1.1.9
+    - Ling:Light:0.70.12
+    - Ling:Light_Events:1.10.8
+    - Ling:Light_Vars:1.0.8

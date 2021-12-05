@@ -57,7 +57,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::skipFunction](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L231-L266)
+See the source code for method [TokenArrayIteratorTool::skipFunction](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L236-L271)
 
 
 See Also

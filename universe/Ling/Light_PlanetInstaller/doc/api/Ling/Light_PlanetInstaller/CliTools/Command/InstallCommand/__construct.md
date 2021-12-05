@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [InstallCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallCommand.php#L34-L37)
+See the source code for method [InstallCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallCommand.php#L33-L36)
 
 
 See Also

@@ -7,7 +7,7 @@ LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups
 
 
 
-LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups — Binds the permissions of the given $srcPlanetDotName to the main lka permission groups.
+LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups — Binds the permissions of the given $planetDotName to the main lka permission groups.
 
 
 
@@ -16,15 +16,12 @@ Description
 ================
 
 
-public static [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md)(Ling\Light_UserDatabase\Service\LightUserDatabaseService $userDb, string $srcPlanetDotName) : void
+public static [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md)(Ling\Light_UserDatabase\Service\LightUserDatabaseService $userDb, string $planetDotName) : void
 
 
 
 
-Binds the permissions of the given $srcPlanetDotName to the main lka permission groups.
-
-The srcPlanetDotName is the name of the [light kit admin' source plugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md#light-kit-admin-source-and-port-plugin).
-
+Binds the permissions of the given $planetDotName to the main lka permission groups.
 
 Note: the main lka permission groups are:
 - Ling.Light_Kit_Admin.admin
@@ -41,7 +38,7 @@ Parameters
 
     
 
-- srcPlanetDotName
+- planetDotName
 
     
 
@@ -65,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Helper/LightKitAdminPermissionHelper.php#L31-L58)
+See the source code for method [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Helper/LightKitAdminPermissionHelper.php#L28-L55)
 
 
 See Also

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UpgradeUtil::setOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L63-L66)
+See the source code for method [UpgradeUtil::setOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L61-L64)
 
 
 See Also

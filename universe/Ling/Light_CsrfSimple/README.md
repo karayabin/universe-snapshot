@@ -1,10 +1,10 @@
 Light_CsrfSimple
 ===========
-2019-11-07 -> 2021-03-15
+2019-11-07 -> 2021-06-25
 
 
 
-A tool to help protecting your [light](https://github.com/lingtalfi/Light) application against csrf attacks.
+A tool to help protect your [light](https://github.com/lingtalfi/Light) application against csrf attacks.
 
 This is a [Light plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
 
@@ -99,6 +99,10 @@ History Log
 =============
 
 
+
+- 1.2.11 -- 2021-06-25
+
+    - fix service config event not being namespaced with galaxy
 
 - 1.2.10 -- 2021-05-31
 

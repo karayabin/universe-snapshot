@@ -1,4 +1,8 @@
 https://github.com/lingtalfi/Light_Logger/blob/master/README.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Exception/LightLoggerException.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Helper/LightLoggerHelper/copyListenersFromPluginToMaster.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Helper/LightLoggerHelper/removeListenersFromMaster.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Helper/LightLoggerHelper.md
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/debug.md
@@ -35,5 +39,17 @@ https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener.md
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface/listen.md
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/__construct.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/addListener.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/debug.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/dispatch.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/error.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/fatal.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/log.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/notice.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/setContainer.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/trace.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/warn.md
+https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService.md
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger.md
 https://github.com/lingtalfi/Light_Logger/blob/master/doc/pages/conception-notes.md

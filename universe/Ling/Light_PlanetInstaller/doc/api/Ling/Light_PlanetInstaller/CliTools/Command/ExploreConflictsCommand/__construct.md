@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ExploreConflictsCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L35-L38)
+See the source code for method [ExploreConflictsCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L34-L37)
 
 
 See Also

@@ -1,0 +1,52 @@
+kit_debugtrace:
+    instance: Ling\Light_Kit_DebugTrace\Service\LightKitDebugTraceService
+    methods:
+        setContainer:
+            container: @container()
+        setTargetFile:
+            file: /tmp/kit_debugtrace.txt
+        setTargetDir:
+            file: /tmp/kit_debugtrace
+        setHttpRequestFilters:
+            filters:
+                urlIgnoreIfStartWith: []
+                    - /user-data
+                    - /ajax-handler
+                    - /plugins/
+                    - /css/tmp/
+                    - /browser-sync/
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            event: Ling.Light.on_route_found
+            listener:
+                instance: @service(kit_debugtrace)
+                callable_method: onRouteFound
+    -
+        method: registerListener
+        args:
+            event: Ling.Light_Kit.on_page_conf_ready
+            listener:
+                instance: @service(kit_debugtrace)
+                callable_method: onKitPageConfReady
+    -
+        method: registerListener
+        args:
+            event: Ling.Light.initialize_1
+            listener:
+                instance: @service(kit_debugtrace)
+                callable_method: initialize
+    -
+        method: registerListener
+        args:
+            event: Ling.Light.end_routine
+            listener:
+                instance: @service(kit_debugtrace)
+                callable_method: onEndRoutine
+

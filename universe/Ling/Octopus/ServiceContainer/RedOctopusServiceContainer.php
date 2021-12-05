@@ -141,6 +141,9 @@ class RedOctopusServiceContainer extends HotServiceResolver implements OctopusSe
 
 
 
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -149,6 +152,7 @@ class RedOctopusServiceContainer extends HotServiceResolver implements OctopusSe
      */
     protected function resolveCustomNotation($value, &$isCustomNotation = false)
     {
+
         if (is_string($value)) { // value could be anything
             if ('@container()' === $value) {
                 $isCustomNotation = true;
@@ -162,6 +166,7 @@ class RedOctopusServiceContainer extends HotServiceResolver implements OctopusSe
                 return $this->get($service);
             }
         }
+
         return null;
     }
 

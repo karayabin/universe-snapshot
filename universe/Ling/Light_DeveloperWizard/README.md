@@ -1,6 +1,6 @@
 Light_DeveloperWizard
 ===========
-2020-06-30 -> 2021-05-06
+2020-06-30 -> 2021-08-17
 
 
 
@@ -37,6 +37,7 @@ Summary
 - [Services](#services)
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conception-notes.md)
+    - [cli](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/cli.md)
     - [Conventions](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md)
     - [Tutorial: Create a service](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/create-a-service-tutorial.md)
     - [Task details](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/task-details.md)
@@ -69,6 +70,93 @@ History Log
 =============
 
 
+- 1.28.48 -- 2021-08-17
+
+    - update CreateControllerCommand, now asks whether to create the route
+    - add api controller template
+
+- 1.28.47 -- 2021-08-16
+
+    - update LightDeveloperWizardBaseProcess->addServiceOptions, getOptions method now uses BdotTool, and fix some inconsistencies   
+  
+- 1.28.46 -- 2021-08-12
+
+    - fix RemovePlanetProcess, remove call to deprecated plugin_installer service  
+  
+- 1.28.45 -- 2021-08-12
+
+    - fix generated basic service, missing array hint in $options property declaration  
+  
+- 1.28.44 -- 2021-07-08
+
+    - fix create "conception notes" command overwriting the conception notes file if it exists
+  
+- 1.28.43 -- 2021-06-29
+
+    - update create_controller command, removes Controller suffix from the guessed route name
+  
+- 1.28.42 -- 2021-06-29
+
+    - add cli tool with create_controller command
+    - update basic service class template
+
+- 1.28.41 -- 2021-06-28
+
+    - fix create basic service process, incorrect BasicException path   
+
+- 1.28.40 -- 2021-06-28
+
+    - update create basic service process, add getOption method if the file doesn't exist  
+    - fix api wrong reference to Ling.Light_Logger  
+  
+- 1.28.39 -- 2021-06-25
+
+    - update create basic service process, enhance the created service config file  
+  
+- 1.28.38 -- 2021-06-24
+
+    - update related breeze generator processes, now are disabled if breeze gen service not installed  
+  
+- 1.28.37 -- 2021-06-24
+
+    - update create cli app process, now generate a more useful DemoCommand. 
+    - getSymbolicPath now proxies to Bat::getSymbolicPath 
+    - fix wrong dependencies to ...PlanetXXX 
+  
+- 1.28.36 -- 2021-06-21
+
+    - add create cli app process
+  
+- 1.28.35 -- 2021-06-18
+
+    - fix code to be compliant with Ling.Light_Kit_Admin:0.13.0
+  
+- 1.28.34 -- 2021-06-18
+
+    - fix functional typo Light_Planet_Installer instead of Light_PlanetInstaller
+  
+- 1.28.33 -- 2021-06-18
+
+    - update lka processes to generate classes compliant with open registration system for micro-permissions
+    - update lka processes to generate config compliant with modern Light_ControllerHub system (with execute instead of plugin/controller)
+    - add CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller class
+  
+- 1.28.32 -- 2021-06-04
+
+    - update create basic service task, now adds type hint to the container property of the generated class
+  
+- 1.28.31 -- 2021-06-04
+
+    - fix AddServiceLingBreeze2GetFactoryMethodProcess generating property called before it's defined 
+  
+- 1.28.30 -- 2021-06-04
+
+    - update AddServiceLingBreeze2GetFactoryMethodProcess, add property type hints
+  
+- 1.28.29 -- 2021-06-03
+
+    - fix AddServiceLingBreeze2GetFactoryMethodProcess class not working properly
+  
 - 1.28.28 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

@@ -4,13 +4,13 @@
 namespace Ling\Light\Helper;
 
 
-use Ling\CheapLogger\CheapLogger;
 use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Core\Light;
 use Ling\Light\Core\LightAwareInterface;
 use Ling\Light\Exception\LightException;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
  * The ControllerHelper class.
@@ -36,8 +36,8 @@ class ControllerHelper
      * @param $controller
      * @param Light $light
      * @return HttpResponseInterface
-     * @throws LightException
-     * @throws \ReflectionException
+     * @throws \Exception
+     *
      */
     public static function executeController($controller, Light $light): HttpResponseInterface
     {
@@ -55,6 +55,7 @@ class ControllerHelper
         //--------------------------------------------
         if (is_callable($controller)) {
 
+
             // we need to inject variables in the controller
             $controllerArgs = ControllerHelper::getControllerArgs($controller, $light);
             $response = call_user_func_array($controller, $controllerArgs);
@@ -66,6 +67,36 @@ class ControllerHelper
             $routeName = $route['name'];
             $type = gettype($controller);
             throw new LightException("The given controller is not a callable for route $routeName, $type given.");
+        }
+    }
+
+
+    /**
+     * Executes the controller corresponding to the given route, if found, and returns the returned response.
+     * Throws an exception if the route is not found.
+     *
+     * Note that this method doesn't trigger the events that the light core does when it renders a route,
+     * therefore you should only use this method if you know what you're doing.
+     *
+     *
+     * @param string $routeName
+     * @param LightServiceContainerInterface $container
+     * @return HttpResponseInterface
+     * @throws \Exception
+     */
+    public static function executeControllerByRouteName(string $routeName, LightServiceContainerInterface $container): HttpResponseInterface
+    {
+        $light = $container->getLight();
+        $routes = $light->getRoutes();
+
+        if (true === array_key_exists($routeName, $routes)) {
+            $route = $routes[$routeName];
+            $light->setMatchingRoute($route);
+            return ControllerHelper::executeController($route['controller'], $light);
+
+        } else {
+            // I don't put 404 light error code here, because I'm afraid that it might trigger infinite loop (but maybe it doesn't, didn't give it too much thought)
+            throw new LightException("Route not found: $routeName (from executeControllerByRouteName).");
         }
     }
 
@@ -167,7 +198,14 @@ class ControllerHelper
     {
         $controllerArgs = [];
         $route = $light->getMatchingRoute();
-        $routeUrlParams = $route['url_params'];
+        if (false === $route) {
+            // this happens when you call the executeControllerByRouteName method
+            // maybe we should add setMatchingRoute to light.core instead ? (seems more logical perhaps)
+            $route = [];
+        }
+
+
+        $routeUrlParams = $route['url_params'] ?? [];
         $httpRequest = $light->getHttpRequest();
         $requestArgs = $httpRequest->getGet();
         $controllerArgsInfo = ControllerHelper::getControllerArgsInfo($controller);

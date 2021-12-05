@@ -46,7 +46,7 @@ Returns false | int.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getConnectTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L338-L341)
+See the source code for method [LightWebsiteUser::getConnectTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L367-L370)
 
 
 See Also

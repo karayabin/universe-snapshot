@@ -18,3 +18,24 @@
     - Ling:Light_Kit_Admin:0.12.41
     - Ling:Light_Kit_Admin_DebugTrace:1.6.18
     - Ling:Light_PlanetInstaller:2.0.0
+
+1.0.3: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:CliTools:1.10.29
+    - Ling:Light_Kit_Admin:0.12.45
+    - Ling:Light_Kit_Admin_DebugTrace:1.6.19
+    - Ling:Light_PlanetInstaller:2.0.4
+
+1.0.4: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:CliTools:1.10.29
+    - Ling:Light_JimToolbox:1.0.0
+    - Ling:Light_Kit_Admin_DebugTrace:1.6.19
+    - Ling:Light_PlanetInstaller:2.0.8
+
+1.0.5: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:CliTools:1.10.29
+    - Ling:Light_JimToolbox:1.0.0
+    - Ling:Light_Kit_Admin_DebugTrace:1.6.20
+    - Ling:Light_PlanetInstaller:2.0.8

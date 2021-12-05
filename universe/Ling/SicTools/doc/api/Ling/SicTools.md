@@ -1,6 +1,6 @@
 Ling/SicTools
 ================
-2019-04-25 --> 2021-05-31
+2019-04-25 --> 2021-08-05
 
 
 
@@ -20,6 +20,7 @@ Table of contents
 - [HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver.md) &ndash; on the fly from a stored sic notation.
     - [HotServiceResolver::__construct](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/__construct.md) &ndash; Builds the HotServiceResolver instance.
     - [HotServiceResolver::getService](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/getService.md) &ndash; Returns the service (an instance of a class) defined in the given sic block.
+    - [HotServiceResolver::setCustomResolveNotationCallback](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/setCustomResolveNotationCallback.md) &ndash; Sets the customResolveNotationCallback.
 - [SicTool](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool.md) &ndash; The SicTool class contains general purpose methods to work with the sic notation.
     - [SicTool::isSicBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool/isSicBlock.md) &ndash; Returns whether the given $thing is a sic block.
 - [SicFileCombinerUtil](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil.md) &ndash; The SicFileCombinerUtil class.

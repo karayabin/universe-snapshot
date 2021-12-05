@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoginNotifierService::__construct](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/Service/LightLoginNotifierService.php#L29-L33)
+See the source code for method [LightLoginNotifierService::__construct](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/Service/LightLoginNotifierService.php#L30-L34)
 
 
 See Also

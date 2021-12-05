@@ -4,7 +4,7 @@
 
 The LightWebsiteUser class
 ================
-2019-05-10 --> 2021-05-31
+2019-05-10 --> 2021-06-24
 
 
 
@@ -71,6 +71,8 @@ class <span class="pl-k">LightWebsiteUser</span> implements [RefreshableLightUse
     - public [getIdentifier](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getIdentifier.md)() : string | false
     - public [hasRight](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/hasRight.md)(string $right) : bool
     - public [refresh](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/refresh.md)() : void
+    - public [setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)(int $durationInSeconds) : mixed
+    - public [getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getSessionDuration.md)() : int
     - public [connect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/connect.md)() : void
     - public [disconnect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/disconnect.md)() : void
     - public [updateInfo](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/updateInfo.md)(array $info) : void
@@ -87,8 +89,6 @@ class <span class="pl-k">LightWebsiteUser</span> implements [RefreshableLightUse
     - public [setConnectTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setConnectTime.md)(int $connect_time) : void
     - public [getLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getLastRefreshTime.md)() : false | int
     - public [setLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setLastRefreshTime.md)(int $last_refresh_time) : void
-    - public [getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getSessionDuration.md)() : int
-    - public [setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)(int $session_duration) : void
     - public [getRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getRights.md)() : array
     - public [setRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setRights.md)(array $rights) : void
     - public [getExtra](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getExtra.md)() : array
@@ -175,6 +175,8 @@ Methods
 - [LightWebsiteUser::getIdentifier](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getIdentifier.md) &ndash; or false if the user is not valid.
 - [LightWebsiteUser::hasRight](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/hasRight.md) &ndash; Returns whether the user has the given right.
 - [LightWebsiteUser::refresh](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/refresh.md) &ndash; Refreshes the user.
+- [LightWebsiteUser::setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md) &ndash; Sets the duration of this user' session in seconds.
+- [LightWebsiteUser::getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getSessionDuration.md) &ndash; Returns the duration of this user' session in seconds.
 - [LightWebsiteUser::connect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/connect.md) &ndash; Connects the user (i.e.
 - [LightWebsiteUser::disconnect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/disconnect.md) &ndash; Disconnects the current user.
 - [LightWebsiteUser::updateInfo](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/updateInfo.md) &ndash; Updates the user information.
@@ -191,8 +193,6 @@ Methods
 - [LightWebsiteUser::setConnectTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setConnectTime.md) &ndash; Sets the connect_time.
 - [LightWebsiteUser::getLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getLastRefreshTime.md) &ndash; Returns the last_refresh_time of this instance.
 - [LightWebsiteUser::setLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setLastRefreshTime.md) &ndash; Sets the last_refresh_time.
-- [LightWebsiteUser::getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getSessionDuration.md) &ndash; Returns the session_duration of this instance.
-- [LightWebsiteUser::setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md) &ndash; Sets the session_duration.
 - [LightWebsiteUser::getRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getRights.md) &ndash; Returns the rights of this instance.
 - [LightWebsiteUser::setRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setRights.md) &ndash; Sets the rights.
 - [LightWebsiteUser::getExtra](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getExtra.md) &ndash; Returns the extra of this instance.

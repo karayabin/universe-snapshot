@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getHost](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L262-L265)
+See the source code for method [HttpRequest::getHost](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L270-L273)
 
 
 See Also

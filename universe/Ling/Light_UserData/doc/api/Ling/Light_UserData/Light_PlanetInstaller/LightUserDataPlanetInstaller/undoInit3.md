@@ -16,12 +16,16 @@ Description
 ================
 
 
-public [LightUserDataPlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/undoInit3.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+public [LightUserDataPlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/undoInit3.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output, ?array $options = []) : void
 
 
 
 
 Undoes the init 3 phase.
+
+Available options are:
+
+- isUpgrade: bool=false. Whether the calling process comes from the upgrade command.
 
 
 
@@ -35,6 +39,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 
@@ -53,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataPlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PlanetInstaller/LightUserDataPlanetInstaller.php#L151-L192)
+See the source code for method [LightUserDataPlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PlanetInstaller/LightUserDataPlanetInstaller.php#L149-L189)
 
 
 See Also

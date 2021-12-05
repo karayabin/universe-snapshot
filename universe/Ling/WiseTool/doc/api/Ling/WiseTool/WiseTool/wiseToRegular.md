@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WiseTool::wiseToRegular](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L85-L100)
+See the source code for method [WiseTool::wiseToRegular](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L84-L99)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/Light_Database
 ================
-2019-07-22 --> 2021-05-31
+2019-07-22 --> 2021-06-28
 
 
 
@@ -29,6 +29,11 @@ Table of contents
     - SimplePdoWrapper::fetchAll &ndash; Executes the prepared statement and return an array containing all of the result set rows.
     - SimplePdoWrapper::executeStatement &ndash; Executes an SQL statement and returns the number of affected rows.
     - SimplePdoWrapper::addWhereSubStmt &ndash; defined in the comments of the SimplePdoWrapperInterface->update method.
+- [LightDatabaseBasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabaseBasePlanetInstaller.md) &ndash; The LightDatabaseBasePlanetInstaller class.
+    - [LightDatabaseBasePlanetInstaller::__construct](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabaseBasePlanetInstaller/__construct.md) &ndash; Builds the LightDatabaseBasePlanetInstaller instance.
+    - [LightDatabaseBasePlanetInstaller::init3](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabaseBasePlanetInstaller/init3.md) &ndash; Executes the init 3 phase of the install command.
+    - [LightDatabaseBasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabaseBasePlanetInstaller/undoInit3.md) &ndash; Undoes the init 3 phase.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightDatabasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller.md) &ndash; The LightDatabasePlanetInstaller class.
     - [LightDatabasePlanetInstaller::init1](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/init1.md) &ndash; Executes the init 1 phase of the install command.
     - [LightDatabasePlanetInstaller::undoInit1](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/undoInit1.md) &ndash; Undoes the init 1 phase.
@@ -64,12 +69,13 @@ Dependencies
 ============
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
 - [Bat](https://github.com/lingtalfi/Bat)
-- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_DbSynchronizer](https://github.com/lingtalfi/Light_DbSynchronizer)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 - [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 
 

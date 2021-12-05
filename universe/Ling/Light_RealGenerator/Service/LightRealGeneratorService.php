@@ -8,7 +8,7 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\BDotTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
 use Ling\Light_RealGenerator\Generator\FormConfigGenerator;
 use Ling\Light_RealGenerator\Generator\ListConfigGenerator;

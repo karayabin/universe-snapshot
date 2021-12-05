@@ -84,7 +84,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::queryLog](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L635-L638)
+See the source code for method [SimplePdoWrapper::queryLog](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L646-L649)
 
 
 See Also

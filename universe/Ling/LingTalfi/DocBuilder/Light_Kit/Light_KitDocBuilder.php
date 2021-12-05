@@ -77,6 +77,7 @@ class Light_KitDocBuilder
             "reportIgnore" => [
                 "Ling\Kit\PageRenderer\KitPageRenderer",
                 "Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler",
+                "Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler",
 
             ],
             /**
@@ -177,6 +178,8 @@ class Light_KitDocBuilder
                 "Ling\Kit_PicassoWidget\Exception\PicassoWidgetException" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Exception/PicassoWidgetException.md",
                 "Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler.md",
                 "Ling\Kit\PageRenderer\KitPageRendererAwareInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md",
+                "Ling\Kit_PrototypeWidget\Exception\PrototypeWidgetException" => "https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/Exception/PrototypeWidgetException.md",
+                "Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler" => "https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/doc/api/Ling/Kit_PrototypeWidget/WidgetHandler/PrototypeWidgetHandler.md",
 
             ],
         ];

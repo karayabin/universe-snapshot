@@ -80,8 +80,11 @@ class WidgetVariablesHelper
                     foreach ($positionConf as $index => $widgetConf) {
 
                         if (
-                            true === array_key_exists('id', $widgetConf) &&
-                            $widgetId === $widgetConf['id']
+
+                            (true === array_key_exists('id', $widgetConf) && $widgetId === $widgetConf['id']) ||
+                            (true === array_key_exists('name', $widgetConf) && $widgetId === $widgetConf['name'])
+
+
                         ) {
 
                             if (true === is_array($newWidgetConf)) {

@@ -5,6 +5,9 @@ namespace Ling\Light_Realist\Helper;
 
 
 use Ling\Bat\BDotTool;
+use Ling\Bat\FileSystemTool;
+use Ling\CliTools\Output\OutputInterface;
+use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Light_Realist\Exception\LightRealistException;
 
 /**
@@ -12,6 +15,74 @@ use Ling\Light_Realist\Exception\LightRealistException;
  */
 class RequestDeclarationHelper
 {
+
+
+    /**
+     * Registers the planet by copying the given dir content to the expected location.
+     *
+     * See more details in the @page(open registration system of Ling.Light_Realist).
+     *
+     * The given dir should contain only babyYaml files representing request declarations.
+     * Sub-directories are allowed, but only files will be copied.
+     *
+     *
+     * @param OutputInterface $output
+     * @param string $appDir
+     * @param string $planetDotName
+     * @param string $dir
+     */
+    public static function registerRequestDeclarationsByDirectory(OutputInterface $output, string $appDir, string $planetDotName, string $dir)
+    {
+        if (true === is_dir($dir)) {
+
+            $relPaths = YorgDirScannerTool::getFilesWithExtension($dir, "byml", false, true, true);
+            $dstDir = $appDir . "/config/open/Ling.Light_Realist/$planetDotName";
+            if ($relPaths) {
+
+                $nb = count($relPaths);
+                $output->write("Copying <b>$nb</b> request declaration(s) to <blue>$dstDir</blue>." . PHP_EOL);
+                foreach ($relPaths as $path) {
+                    $dstFile = $dstDir . "/$path";
+                    FileSystemTool::copyFile($dir . "/$path", $dstFile);
+                }
+            }
+        }
+
+    }
+
+
+    /**
+     * Unregisters the planet by removing the given dir content from the expected location.
+     *
+     * See more details in the @page(open registration system of Ling.Light_Realist).
+     *
+     *
+     *
+     * @param OutputInterface $output
+     * @param string $appDir
+     * @param string $planetDotName
+     * @param string $dir
+     */
+    public static function unregisterRequestDeclarationsByDirectory(OutputInterface $output, string $appDir, string $planetDotName, string $dir)
+    {
+        if (true === is_dir($dir)) {
+
+            $relPaths = YorgDirScannerTool::getFilesWithExtension($dir, "byml", false, true, true);
+            $dstDir = $appDir . "/config/open/Ling.Light_Realist/$planetDotName";
+            if ($relPaths) {
+
+                $n = 0;
+                foreach ($relPaths as $path) {
+                    $dstFile = $dstDir . "/$path";
+                    if (true === file_exists($dstFile)) {
+                        FileSystemTool::remove($dstFile);
+                        $n++;
+                    }
+                }
+                $output->write("Removed <b>$n</b> request declaration(s) from <blue>$dstDir</blue>." . PHP_EOL);
+            }
+        }
+    }
 
 
     /**

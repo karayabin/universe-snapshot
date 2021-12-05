@@ -67,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCliApplication::onCommandNotFound](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Program/LightCliApplication.php#L112-L231)
+See the source code for method [LightCliApplication::onCommandNotFound](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Program/LightCliApplication.php#L116-L235)
 
 
 See Also

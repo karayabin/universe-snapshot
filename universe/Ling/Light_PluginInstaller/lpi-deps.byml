@@ -315,3 +315,13 @@
     - Ling:Light:0.70.6
     - Ling:SimplePdoWrapper:1.30.17
     - Ling:UniverseTools:1.22.40
+
+2.0.23: 
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:CyclicChainDetector:1.1.3
+    - Ling:Light:0.70.11
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7
+    - Ling:SimplePdoWrapper:1.30.20
+    - Ling:UniverseTools:1.22.42

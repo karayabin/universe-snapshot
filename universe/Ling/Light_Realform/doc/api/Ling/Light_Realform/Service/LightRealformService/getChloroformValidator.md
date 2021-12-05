@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformService::getChloroformValidator](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L384-L471)
+See the source code for method [LightRealformService::getChloroformValidator](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L429-L516)
 
 
 See Also

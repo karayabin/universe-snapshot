@@ -60,7 +60,7 @@ class ExecuteLkaGeneratorProcess extends LightKitAdminBaseProcess
             $appDir = $this->container->getApplicationDir();
             $serviceName = LightNamesAndPathHelper::getServiceName($planet);
 
-            $lkaGenConfigPath = $appDir . "/config/data/$galaxy.$planet/Ling.Light_Kit_Admin_Generator/$serviceName.byml";
+            $lkaGenConfigPath = $appDir . "/config/data/$galaxy.$planet/Ling.Light_Kit_Admin_Generator/$serviceName.custom.byml";
             $lkaGenConfigPath2 = $appDir . "/config/data/$galaxy.$planet/Ling.Light_Kit_Admin_Generator/$serviceName.generated.byml";
 
 

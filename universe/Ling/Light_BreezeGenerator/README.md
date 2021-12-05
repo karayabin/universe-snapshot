@@ -1,6 +1,6 @@
 Light_BreezeGenerator
 ===========
-2019-09-11 -> 2021-03-15
+2019-09-11 -> 2021-07-22
 
 
 
@@ -70,6 +70,30 @@ breeze_generator:
 History Log
 =============
 
+-- 1.29.20 -- 2021-07-22
+
+    - update generator, typo in generated methods with fk.
+  
+- 1.29.19 -- 2021-07-22
+
+    - update generator, now fk generated methods receive the components argument
+  
+- 1.29.18 -- 2021-07-22
+
+    - update generator, now generates method from fk as well
+  
+- 1.29.17 -- 2021-07-05
+
+    - update generator, now fetchRoutine is protected instead of private
+  
+- 1.29.16 -- 2021-06-29
+
+    - fix generator, incorrectly using default values with update methods
+  
+- 1.29.15 -- 2021-06-28
+
+    - update generator, now also generates a getDefaultValues method
+  
 - 1.29.14 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

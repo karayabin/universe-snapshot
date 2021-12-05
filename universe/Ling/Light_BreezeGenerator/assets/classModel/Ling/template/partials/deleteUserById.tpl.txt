@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function deleteUserById(int $id)
     {

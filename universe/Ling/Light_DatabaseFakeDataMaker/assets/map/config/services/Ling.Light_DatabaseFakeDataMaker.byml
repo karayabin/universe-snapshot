@@ -1,0 +1,13 @@
+database_fake_data_maker:
+    instance: Ling\Light_DatabaseFakeDataMaker\Service\LightDatabaseFakeDataMakerService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: ${database_fake_data_maker_vars.service_options}
+
+
+database_fake_data_maker_vars:
+    service_options: []
+
+

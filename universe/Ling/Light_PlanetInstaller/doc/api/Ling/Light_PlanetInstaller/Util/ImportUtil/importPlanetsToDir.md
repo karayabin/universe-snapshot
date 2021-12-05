@@ -35,6 +35,7 @@ Available options are (when no explanations, same as import method from this cla
 - lo
 - altHasLast
 - useUniStyle: bool=false. Whether to use uni style import (i.e. always use latest versions)
+- baby
 
 
 
@@ -75,7 +76,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ImportUtil::importPlanetsToDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L662-L792)
+See the source code for method [ImportUtil::importPlanetsToDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L717-L847)
 
 
 See Also

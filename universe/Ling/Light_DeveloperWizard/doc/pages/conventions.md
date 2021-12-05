@@ -1,6 +1,6 @@
 Conventions
 ===============
-2020-07-09 -> 2020-07-30
+2020-07-09 -> 2021-06-28
 
 
 
@@ -20,7 +20,7 @@ Here are some conventions used by the developer wizard.
 
 Basic service
 ------------
-2020-07-09 -> 2020-07-23
+2020-07-09 -> 2021-06-28
 
 
 
@@ -78,11 +78,14 @@ The generated class has the following:
 
 - public setContainer
 - public setOptions
+- public getOption
 - private error (throws the exception "${planetName}/Exception/${tightPlanetName}Exception" )
 
 
 
 The **options** property's comment is a [ldw-standard-available-options-in-docblock](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#ldw-standard-available-options-in-docblock).
+
+Note: at the moment the **getOption** method is only generated if the service class file doesn't exist (i.e., incomplete implementation).
 
 
 

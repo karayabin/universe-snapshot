@@ -1,0 +1,13 @@
+it4_tools:
+    instance: Ling\Light_It4Tools\Service\LightIt4ToolsService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: ${it4_tools_vars.service_options}
+
+
+it4_tools_vars:
+    service_options: []
+
+

@@ -84,7 +84,7 @@ class AddServiceLogDebugMethodProcess extends LightDeveloperWizardCommonProcess
 ',
         ]));
 
-        $pan->addIngredient(UseStatementIngredient::create()->setValue("Ling\Light_Logger\LightLoggerService"));
+        $pan->addIngredient(UseStatementIngredient::create()->setValue("Ling\Light_Logger\Service\LightLoggerService"));
 
 
         $this->addServiceContainer($pan);

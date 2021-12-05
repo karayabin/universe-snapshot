@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/ConventionTools/blob/master/README.md
+https://github.com/lingtalfi/ConventionTools/blob/master/doc/api/Ling/ConventionTools/ConventionTool/getGeneratedCustomPath.md
+https://github.com/lingtalfi/ConventionTools/blob/master/doc/api/Ling/ConventionTools/ConventionTool.md
+https://github.com/lingtalfi/ConventionTools/blob/master/doc/api/Ling/ConventionTools.md

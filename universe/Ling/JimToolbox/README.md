@@ -1,6 +1,6 @@
 JimToolbox
 ===========
-2021-04-15 -> 2021-05-07
+2021-04-15 -> 2021-07-27
 
 
 
@@ -43,6 +43,10 @@ Summary
 History Log
 =============
 
+- 1.0.5 -- 2021-07-27
+
+    - update css, now add offset-50 class as an option
+  
 - 1.0.4 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

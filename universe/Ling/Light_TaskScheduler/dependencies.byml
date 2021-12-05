@@ -1,10 +1,12 @@
 dependencies: 
     Ling: 
         - Bat
+        - CliTools
         - Light
         - Light_Database
         - Light_LingStandardService
-        - Light_UserDatabase
+        - Light_Logger
+        - Light_PlanetInstaller
         - SimplePdoWrapper
     
 

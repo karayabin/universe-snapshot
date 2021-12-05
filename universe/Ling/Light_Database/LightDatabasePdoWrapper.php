@@ -3,12 +3,10 @@
 
 namespace Ling\Light_Database;
 
-use Ling\CheapLogger\CheapLogger;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Exception\LightDatabaseException;
 use Ling\Light_Events\Service\LightEventsService;
-use Ling\Light_Logger\LightLoggerService;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
 
 /**
@@ -23,14 +21,23 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
      *
      * @var \PDOException|null
      */
-    protected $pdoException;
+    protected ?\PDOException $pdoException;
 
 
     /**
      * This property holds the container for this instance.
-     * @var LightServiceContainerInterface
+     * @var LightServiceContainerInterface|null
      */
-    protected $container;
+    protected ?LightServiceContainerInterface $container;
+
+
+    /**
+     * The name of the database defined in the configuration.
+     * If not set, it's an empty string.
+     *
+     * @var string
+     */
+    protected string $dbName;
 
 
     /**
@@ -41,6 +48,7 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
         parent::__construct();
         $this->pdoException = null;
         $this->container = null;
+        $this->dbName = "";
     }
 
 
@@ -85,6 +93,8 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
     {
 
         $driver = $settings['pdo_driver'] ?? 'mysql';
+
+        $this->dbName = $settings['pdo_database'];
 
         //--------------------------------------------
         // DSN
@@ -153,6 +163,19 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
         return $this->pdoException;
     }
 
+    /**
+     * Returns the name of the database chosen at the init step.
+     * If not defined, an empty string is returned.
+     *
+     * @return string
+     */
+    public function getDatabaseName(): string
+    {
+        return $this->dbName;
+    }
+
+
+
 
 
 
@@ -205,8 +228,6 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
             ]);
         $dispatcher->dispatch($eventName, $event);
     }
-
-
 
 
 }

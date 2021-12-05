@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::getDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L852-L862)
+See the source code for method [LightRealistService::getDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L879-L889)
 
 
 See Also

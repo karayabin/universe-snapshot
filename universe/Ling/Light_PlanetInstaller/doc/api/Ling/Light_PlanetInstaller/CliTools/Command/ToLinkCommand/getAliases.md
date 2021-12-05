@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ToLinkCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToLinkCommand.php#L109-L117)
+See the source code for method [ToLinkCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToLinkCommand.php#L105-L113)
 
 
 See Also

@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LpiHelper::getSessionDirsPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L34-L37)
+See the source code for method [LpiHelper::getSessionDirsPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L45-L48)
 
 
 See Also

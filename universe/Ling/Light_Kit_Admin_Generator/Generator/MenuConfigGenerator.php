@@ -179,7 +179,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             "{TableNoPrefix}" => CaseTool::toPascal($tableWithoutPrefix),
         ];
         $controller = str_replace(array_keys($tags), array_values($tags), $controller);
-        $controller = str_replace('\\', '/', $controller);
+//        $controller = str_replace('\\', '/', $controller);
 
 
         $defaultLabel = $this->getDefaultLabel($tableWithoutPrefix, $hasKeywords);
@@ -194,8 +194,9 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             'text' => $defaultLabel,
             'route' => $hubs->getRouteName(),
             'route_url_params' => [
-                "plugin" => $galaxy . "/" . $menuPlugin, // using the planetId
-                "controller" => $controller,
+                "execute" => "$galaxy\\$menuPlugin\\Controller\\$controller" . "->render",
+//                "plugin" => $galaxy . "/" . $menuPlugin, // using the planetId
+//                "controller" => $controller,
             ],
             '_right' => $defaultRight,
             'children' => [],

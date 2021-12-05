@@ -7,7 +7,7 @@ VoidHttpRequest::getQueryString
 
 
 
-VoidHttpRequest::getQueryString — Returns the queryString of the http request.
+VoidHttpRequest::getQueryString — Returns the url-decoded version of the queryString of the http request.
 
 
 
@@ -21,7 +21,7 @@ public [VoidHttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob
 
 
 
-Returns the queryString of the http request.
+Returns the url-decoded version of the queryString of the http request.
 
 
 

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminEditorRealformSuccessHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler.php#L18-L21)
+See the source code for method [LightKitAdminEditorRealformSuccessHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler.php#L19-L22)
 
 
 See Also

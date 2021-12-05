@@ -4,7 +4,7 @@
 
 The DeveloperWizardLkaHelper class
 ================
-2020-06-30 --> 2021-05-31
+2020-06-30 --> 2021-08-17
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\Light_DeveloperWizard\Helper\DeveloperWizardLkaHelp
 
 SeeAlso
 ==============
-Previous class: [DeveloperWizardGenericHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardGenericHelper.md)<br>Next class: [LightDeveloperWizardService](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Service/LightDeveloperWizardService.md)<br>
+Previous class: [DeveloperWizardLightPlanetInstallerHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLightPlanetInstallerHelper.md)<br>Next class: [LightDeveloperWizardHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/LightDeveloperWizardHelper.md)<br>

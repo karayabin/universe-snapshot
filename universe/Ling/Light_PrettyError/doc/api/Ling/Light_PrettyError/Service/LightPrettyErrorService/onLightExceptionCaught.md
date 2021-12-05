@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightPrettyErrorService::onLightExceptionCaught](https://github.com/lingtalfi/Light_PrettyError/blob/master/Service/LightPrettyErrorService.php#L54-L88)
+See the source code for method [LightPrettyErrorService::onLightExceptionCaught](https://github.com/lingtalfi/Light_PrettyError/blob/master/Service/LightPrettyErrorService.php#L52-L86)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/Light_Events
 ================
-2019-10-31 --> 2021-05-31
+2019-10-31 --> 2021-06-28
 
 
 
@@ -13,6 +13,11 @@ Table of contents
     - [LightEventsHelper::dispatchEvent](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/dispatchEvent.md) &ndash; Dispatches the $eventName event using a LightEvent object filled with the given $variables.
     - [LightEventsHelper::registerOpenEventByPlanet](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/registerOpenEventByPlanet.md) &ndash; Adds open events.
     - [LightEventsHelper::unregisterOpenEventByPlanet](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/unregisterOpenEventByPlanet.md) &ndash; Removes open events.
+- [LightEventsPlanetInstaller](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Light_PlanetInstaller/LightEventsPlanetInstaller.md) &ndash; The LightEventsPlanetInstaller class.
+    - [LightEventsPlanetInstaller::init2](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Light_PlanetInstaller/LightEventsPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightEventsPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Light_PlanetInstaller/LightEventsPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightEventsListenerInterface](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface.md) &ndash; The LightEventsListenerInterface interface.
     - [LightEventsListenerInterface::process](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface/process.md) &ndash; Process the given data.
 - [LightEventsService](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService.md) &ndash; The LightEventsService class.
@@ -32,6 +37,7 @@ Dependencies
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [SectionComment](https://github.com/lingtalfi/SectionComment)
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 

@@ -1,0 +1,7 @@
+commands: 
+    init1: 
+        - composer require stripe/stripe-php
+    
+
+dependencies: []
+post_install: []

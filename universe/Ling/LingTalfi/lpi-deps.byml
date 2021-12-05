@@ -916,3 +916,105 @@
     - Ling:SimpleCurl:1.0.6
     - Ling:Uni2:1.9.13
     - Ling:UniverseTools:1.22.40
+
+1.25.3: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.323
+    - Ling:CliTools:1.10.29
+    - Ling:DirScanner:1.13.6
+    - Ling:DocTools:1.14.11
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kwin:1.0.7
+    - Ling:Light:0.70.9
+    - Ling:Light_DbSynchronizer:1.2.19
+    - Ling:Light_PlanetInstaller:2.0.4
+    - Ling:Light_PluginInstaller:2.0.22
+    - Ling:PlanetSitemap:1.0.6
+    - Ling:SimpleCurl:1.0.7
+    - Ling:Uni2:1.9.14
+    - Ling:UniverseTools:1.22.41
+
+1.25.4: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:DirScanner:1.13.6
+    - Ling:DocTools:1.14.11
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kwin:1.0.7
+    - Ling:Light:0.70.11
+    - Ling:Light_DbSynchronizer:1.2.19
+    - Ling:Light_PlanetInstaller:2.0.7
+    - Ling:Light_PluginInstaller:2.0.22
+    - Ling:PlanetSitemap:1.0.6
+    - Ling:SimpleCurl:1.0.7
+    - Ling:Uni2:1.9.14
+    - Ling:UniverseTools:1.22.42
+
+1.25.5: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.338
+    - Ling:CliTools:1.10.30
+    - Ling:DirScanner:1.13.6
+    - Ling:DocTools:1.14.11
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kwin:1.0.7
+    - Ling:Light:0.70.13
+    - Ling:Light_DbSynchronizer:1.2.22
+    - Ling:Light_PlanetInstaller:2.0.9
+    - Ling:Light_PluginInstaller:2.0.23
+    - Ling:PlanetSitemap:1.0.6
+    - Ling:SimpleCurl:1.0.7
+    - Ling:Uni2:1.9.14
+    - Ling:UniverseTools:1.22.44
+
+1.25.6: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.339
+    - Ling:CliTools:1.10.30
+    - Ling:DirScanner:1.13.6
+    - Ling:DocTools:1.14.11
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kwin:1.0.7
+    - Ling:Light:0.70.13
+    - Ling:Light_DbSynchronizer:1.2.22
+    - Ling:Light_PlanetInstaller:2.0.9
+    - Ling:Light_PluginInstaller:2.0.23
+    - Ling:PlanetSitemap:1.0.6
+    - Ling:SimpleCurl:1.0.7
+    - Ling:Uni2:1.9.14
+    - Ling:UniverseTools:1.22.44
+
+1.25.7: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.339
+    - Ling:CliTools:1.10.30
+    - Ling:DirScanner:1.13.6
+    - Ling:DocTools:1.14.11
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kwin:1.0.7
+    - Ling:Light:0.70.13
+    - Ling:Light_DbSynchronizer:1.2.22
+    - Ling:Light_PlanetInstaller:2.0.9
+    - Ling:Light_PluginInstaller:2.0.23
+    - Ling:PlanetSitemap:1.0.6
+    - Ling:SimpleCurl:1.0.7
+    - Ling:Uni2:1.9.14
+    - Ling:UniverseTools:1.22.44
+
+1.25.8: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.339
+    - Ling:CliTools:1.10.30
+    - Ling:DirScanner:1.13.6
+    - Ling:DocTools:1.14.11
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Kwin:1.0.7
+    - Ling:Light:0.70.13
+    - Ling:Light_DbSynchronizer:1.2.22
+    - Ling:Light_PlanetInstaller:2.0.9
+    - Ling:Light_PluginInstaller:2.0.23
+    - Ling:PlanetSitemap:1.0.6
+    - Ling:SimpleCurl:1.0.7
+    - Ling:Uni2:1.9.14
+    - Ling:UniverseTools:1.22.44

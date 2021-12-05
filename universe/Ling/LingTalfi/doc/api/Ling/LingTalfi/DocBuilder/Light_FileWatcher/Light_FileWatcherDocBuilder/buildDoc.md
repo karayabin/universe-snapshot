@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_FileWatcherDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_FileWatcher/Light_FileWatcherDocBuilder.php#L45-L207)
+See the source code for method [Light_FileWatcherDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_FileWatcher/Light_FileWatcherDocBuilder.php#L45-L213)
 
 
 See Also

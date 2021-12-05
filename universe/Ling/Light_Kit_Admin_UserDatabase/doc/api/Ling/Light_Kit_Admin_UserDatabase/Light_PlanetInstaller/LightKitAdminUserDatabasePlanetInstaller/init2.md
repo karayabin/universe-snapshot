@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitAdminUserDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightKitAdminUserDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -40,6 +40,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -55,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminUserDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller.php#L25-L56)
+See the source code for method [LightKitAdminUserDatabasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller.php#L29-L107)
 
 
 See Also

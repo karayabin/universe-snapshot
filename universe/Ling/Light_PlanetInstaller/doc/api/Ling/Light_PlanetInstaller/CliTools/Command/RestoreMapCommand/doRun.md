@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RestoreMapCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L37-L111)
+See the source code for method [RestoreMapCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L36-L110)
 
 
 See Also

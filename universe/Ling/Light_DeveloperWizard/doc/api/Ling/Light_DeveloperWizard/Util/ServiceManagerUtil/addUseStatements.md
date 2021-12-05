@@ -25,7 +25,7 @@ Adds the given use statement(s) to the service class, if it/they doesn't exist.
 
 The statement must look like this (including the semi-colon at the end, but not the PHP_EOL at the very end):
 
-- use Ling\Light_Logger\LightLoggerService;
+- use Ling\Light_Logger\Service\LightLoggerService;
 
 
 

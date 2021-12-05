@@ -61,7 +61,7 @@ Returns string | false.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getParentClassName](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L205-L237)
+See the source code for method [TokenFinderTool::getParentClassName](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L209-L241)
 
 
 See Also

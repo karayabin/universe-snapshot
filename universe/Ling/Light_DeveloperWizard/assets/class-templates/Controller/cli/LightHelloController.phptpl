@@ -1,0 +1,33 @@
+<?php
+
+
+namespace Ling\Light_Kit_StoreXXX\Controller;
+
+
+use Ling\Light\Controller\LightController;
+use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\Http\HttpResponse;
+use Ling\Light\Http\HttpResponseInterface;
+
+
+/**
+ * The LightHelloController class.
+ */
+class LightHelloController extends LightController
+{
+
+
+    /**
+     * Renders the "your new password" page, and returns the appropriate http response.
+     *
+     * @param HttpRequestInterface $request
+     * @return HttpResponseInterface
+     */
+    public function render(HttpRequestInterface $request): HttpResponseInterface
+    {
+        $word = $request->getGetValue("word", false) ?? "Hello";
+        return new HttpResponse($word, 200);
+    }
+
+}
+

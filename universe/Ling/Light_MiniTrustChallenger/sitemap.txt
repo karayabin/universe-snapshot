@@ -1,0 +1,12 @@
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/README.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Exception/LightMiniTrustChallengerException.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService/__construct.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService/checkChallengeString.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService/encode.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService/error.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService/getChallengeString.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService/setContainer.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService/setContexts.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger/Service/LightMiniTrustChallengerService.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/api/Ling/Light_MiniTrustChallenger.md
+https://github.com/lingtalfi/Light_MiniTrustChallenger/blob/master/doc/pages/conception-notes.md

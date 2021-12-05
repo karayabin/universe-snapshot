@@ -4,9 +4,13 @@
 namespace Ling\Light_Realist\Service;
 
 
+use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\BDotTool;
+use Ling\Bat\FileSystemTool;
 use Ling\Bat\SmartCodeTool;
+use Ling\ConventionTools\ConventionTool;
 use Ling\Light\Helper\LightHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
@@ -404,8 +408,8 @@ class LightRealistService
             'page' => $page,
             'rows' => $rows, //
             'rows_html' => $rowsHtml,
-            'sql_query' => $debugInfo['stmt']??'',
-            'markers' => $debugInfo['markers']??[],
+            'sql_query' => $debugInfo['stmt'] ?? '',
+            'markers' => $debugInfo['markers'] ?? [],
         ];
 
 
@@ -685,11 +689,34 @@ class LightRealistService
             // FALLBACK MECHANISM
             //--------------------------------------------
 
+
             /**
              * @var $nug LightNuggetService
              */
-            $nug = $this->container->get("nugget");
-            $ret = $nug->getNugget($requestId, "Ling.Light_Realist/list");
+//            $nug = $this->container->get("nugget");
+//            $ret = $nug->getNugget($requestId, "Ling.Light_Realist/list");
+
+
+            $p = explode(":", $requestId, 2);
+            if (2 !== count($p)) {
+                $this->error("Invalid request identifier: $requestId. Missing colon.");
+            }
+            list($planetDotName, $relPath) = $p;
+            $f = $this->container->getApplicationDir() . "/config/open/Ling.Light_Realist/$planetDotName/$relPath.byml";
+            $f = ConventionTool::getGeneratedCustomPath(FileSystemTool::removeTraversalDots($f));
+            if (false === file_exists($f)) {
+                $this->error("realist file not found for requestId $requestId ($f).");
+            }
+            $ret = BabyYamlUtil::readFile($f);
+            if (array_key_exists("_vars", $ret)) {
+                $vars = $ret["_vars"];
+                $resolver = new ArrayVariableResolverUtil();
+                $resolver->setFirstSymbol("");
+                $resolver->setOpeningBracket('%{');
+                $resolver->setClosingBracket('}');
+                $resolver->resolve($ret, $vars);
+            }
+            $ret = LightHelper::executeParenthesisWrappersByArray($ret, $this->container, ['::']);
 
 
             // dynamic injection phase

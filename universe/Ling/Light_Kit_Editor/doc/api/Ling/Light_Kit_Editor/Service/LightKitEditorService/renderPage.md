@@ -16,12 +16,18 @@ Description
 ================
 
 
-public [LightKitEditorService::renderPage](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Service/LightKitEditorService/renderPage.md)(string $websiteId, string $pageId) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+public [LightKitEditorService::renderPage](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Service/LightKitEditorService/renderPage.md)(string $websiteId, string $pageId, ?array $pageOptions = [], ?array $options = []) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
 
 Renders the page identified by the given arguments.
+
+
+The pageOptions are forwarded to the (kit_page_renderer)->renderPage method.
+
+Available options are:
+- before: callback to trigger before the page is rendered
 
 
 
@@ -35,6 +41,14 @@ Parameters
     
 
 - pageId
+
+    
+
+- pageOptions
+
+    
+
+- options
 
     
 
@@ -53,7 +67,7 @@ Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/d
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::renderPage](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L115-L167)
+See the source code for method [LightKitEditorService::renderPage](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L180-L252)
 
 
 See Also

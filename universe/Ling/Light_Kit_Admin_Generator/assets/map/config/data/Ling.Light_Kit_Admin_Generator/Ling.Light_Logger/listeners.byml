@@ -1,0 +1,8 @@
+-
+    channels: lka_generator.debug
+    listener:
+        instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/lka_generator_debug.txt

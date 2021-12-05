@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [InstallInit3Command::getOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit3Command.php#L87-L99)
+See the source code for method [InstallInit3Command::getOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit3Command.php#L80-L92)
 
 
 See Also

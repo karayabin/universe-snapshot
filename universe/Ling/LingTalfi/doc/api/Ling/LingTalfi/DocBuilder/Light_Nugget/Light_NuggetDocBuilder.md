@@ -4,7 +4,7 @@
 
 The Light_NuggetDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Nugget\Light_NuggetDocBu
 
 SeeAlso
 ==============
-Previous class: [Light_MicroPermissionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_MicroPermission/Light_MicroPermissionDocBuilder.md)<br>Next class: [Light_PasswordProtectorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PasswordProtector/Light_PasswordProtectorDocBuilder.md)<br>
+Previous class: [Light_MiniTrustChallengerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_MiniTrustChallenger/Light_MiniTrustChallengerDocBuilder.md)<br>Next class: [Light_PasswordProtectorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PasswordProtector/Light_PasswordProtectorDocBuilder.md)<br>

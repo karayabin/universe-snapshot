@@ -69,7 +69,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::addSection](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L68-L111)
+See the source code for method [BabyYamlSectionCommentUtil::addSection](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L68-L114)
 
 
 See Also

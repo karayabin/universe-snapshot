@@ -1,6 +1,6 @@
 Ling/Light_PrettyError
 ================
-2019-04-05 --> 2021-05-31
+2019-04-05 --> 2021-08-10
 
 
 
@@ -25,6 +25,6 @@ Dependencies
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
-- [UniversalTemplateEngine](https://github.com/lingtalfi/UniversalTemplateEngine)
+- [Light_ZephyrTemplate](https://github.com/lingtalfi/Light_ZephyrTemplate)
 
 

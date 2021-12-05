@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L155-L254)
+See the source code for method [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L179-L278)
 
 
 See Also
@@ -78,5 +78,5 @@ See Also
 
 The [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md) class.
 
-Previous method: [configure](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/configure.md)<br>Next method: [getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md)<br>
+Previous method: [getControllerVars](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getControllerVars.md)<br>Next method: [getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md)<br>
 

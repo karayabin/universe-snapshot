@@ -56,7 +56,7 @@ Other return types are free to be interpreted as you see fit.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerApplication::runProgram](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L94-L100)
+See the source code for method [LightPlanetInstallerApplication::runProgram](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L95-L101)
 
 
 See Also

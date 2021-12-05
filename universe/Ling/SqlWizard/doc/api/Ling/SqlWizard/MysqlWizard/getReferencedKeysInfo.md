@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getReferencedKeysInfo](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L461-L506)
+See the source code for method [MysqlWizard::getReferencedKeysInfo](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L606-L651)
 
 
 See Also

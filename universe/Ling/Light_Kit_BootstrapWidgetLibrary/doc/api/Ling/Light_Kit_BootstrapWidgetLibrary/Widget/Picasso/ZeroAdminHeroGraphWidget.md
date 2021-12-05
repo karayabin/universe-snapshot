@@ -4,7 +4,7 @@
 
 The ZeroAdminHeroGraphWidget class
 ================
-2019-04-26 --> 2021-05-31
+2019-04-26 --> 2021-06-28
 
 
 
@@ -35,7 +35,7 @@ class <span class="pl-k">ZeroAdminHeroGraphWidget</span> extends [EasyLightPicas
     - public EasyLightPicassoWidget::__construct() : void
     - public EasyLightPicassoWidget::setKitPageRenderer([Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) $renderer) : void
     - public EasyLightPicassoWidget::getKitPageRenderer() : [KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) | null
-    - protected EasyLightPicassoWidget::getContainer() : Ling\Light\ServiceContainer\LightServiceContainerInterface
+    - protected EasyLightPicassoWidget::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - public WidgetConfAwarePicassoWidget::setWidgetConf(array $widgetConf) : void
     - public WidgetConfAwarePicassoWidget::getWidgetConf() : array
     - public PicassoWidget::getLibraries() : array

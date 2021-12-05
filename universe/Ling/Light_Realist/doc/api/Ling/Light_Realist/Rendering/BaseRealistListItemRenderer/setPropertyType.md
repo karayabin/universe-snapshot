@@ -58,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::setPropertyType](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L140-L143)
+See the source code for method [BaseRealistListItemRenderer::setPropertyType](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L139-L142)
 
 
 See Also

@@ -3,7 +3,6 @@
 
 namespace Ling\Light\Tool;
 
-use Ling\Light\Router\LightRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
@@ -21,11 +20,7 @@ class LightTool
      */
     public static function isAjax(LightServiceContainerInterface $container): bool
     {
-        /**
-         * @var $router LightRouterInterface
-         */
-        $router = $container->get('router');
-        $matchingRoute = $router->getMatchingRoute();
+        $matchingRoute = $container->getLight()->getMatchingRoute();
         if (false !== $matchingRoute) {
             $isAjax = $matchingRoute['is_ajax'] ?? false;
             return $isAjax;

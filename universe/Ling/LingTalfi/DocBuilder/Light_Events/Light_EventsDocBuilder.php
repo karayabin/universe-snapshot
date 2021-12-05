@@ -75,7 +75,8 @@ class Light_EventsDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -144,6 +145,7 @@ class Light_EventsDocBuilder
                 "Light_Events conception notes" => $doc . '/pages/conception-notes.md',
                 'bashtml' => 'https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md',
                 'basic open events convention' => 'https://github.com/lingtalfi/Light_Events/blob/master/doc/pages/conception-notes.md#basic-open-events-convention',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -157,6 +159,9 @@ class Light_EventsDocBuilder
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\CliTools\Formatter\BashtmlFormatter" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
 
 
             ],

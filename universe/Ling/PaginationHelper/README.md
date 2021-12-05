@@ -1,6 +1,6 @@
 PaginationHelper
 ===========
-2021-03-25
+2021-03-25 -> 2021-07-09
 
 
 
@@ -42,6 +42,10 @@ Summary
 History Log
 =============
 
+- 1.0.2 -- 2021-07-09
+
+    - add paginator classes
+  
 - 1.0.1 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

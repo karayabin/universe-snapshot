@@ -59,7 +59,6 @@ class MethodTokenFinder extends RecursiveTokenFinder
                     $key = $tai->key();
 
 
-
                     if (TokenTool::match([
                         T_COMMENT,
                         T_DOC_COMMENT,
@@ -124,7 +123,10 @@ class MethodTokenFinder extends RecursiveTokenFinder
                         if (TokenTool::match(':', $tai->current())) {
                             $tai->next();
                             TokenArrayIteratorTool::skipWhiteSpaces($tai);
-                            if (TokenTool::match(T_STRING, $tai->current())) {
+                            if (TokenTool::match([
+                                T_STRING,
+                                T_ARRAY,
+                            ], $tai->current())) {
                                 $tai->next();
                                 TokenArrayIteratorTool::skipWhiteSpaces($tai);
                             }

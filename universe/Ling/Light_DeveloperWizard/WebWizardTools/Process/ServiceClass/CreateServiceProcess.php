@@ -111,44 +111,6 @@ class CreateServiceProcess extends LightDeveloperWizardCommonProcess
     }
 
 
-    /**
-     * Creates the exception class (of the @page(basic service convention)) if necessary.
-     */
-    protected function createExceptionClass()
-    {
-
-        $util = $this->util;
-        $hasExceptionFile = $util->hasBasicServiceExceptionFile();
-        $planetIdentifier = $util->getPlanetIdentifier();
-
-        //--------------------------------------------
-        // EXCEPTION CLASS
-        //--------------------------------------------
-        if (true === $hasExceptionFile) {
-            $this->infoMessage("The planet $planetIdentifier already has an exception class.");
-
-        } else {
-            $this->infoMessage("Creating <a target='_blank' href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service exception</a> for planet $planetIdentifier.");
-            $tpl = __DIR__ . "/../../../assets/class-templates/Exception/BasicException.phptpl";
-
-            $planet = $util->getPlanetName();
-            $tightName = $util->getTightPlanetName();
-
-
-            $content = file_get_contents($tpl);
-            $content = str_replace([
-                "Light_XXX",
-                "LightXXX",
-            ], [
-                $planet,
-                $tightName,
-            ], $content);
-            $dstPath = $util->getBasicServiceExceptionPath();
-            FileSystemTool::mkfile($dstPath, $content);
-        }
-
-    }
-
 
     /**
      * Creates @page(the basic service config file) if not there already.

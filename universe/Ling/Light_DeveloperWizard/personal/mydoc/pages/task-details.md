@@ -1,6 +1,6 @@
 Task details
 =============
-2020-07-09 -> 2021-05-06
+2020-07-09 -> 2021-06-21
 
 
 
@@ -14,12 +14,16 @@ Task details
     - [Generate breeze api](#generate-breeze-api)
     - [Generate breeze config](#generate-breeze-config)
     - [Execute the lka generator config file](#execute-the-lka-generator-config-file)
+- Light_Cli
+    - [Create a basic cli app](#create-cli-app)
 - Light_Kit_Admin
     - [Create lka generator config](#create-lka-generator-config)
     - [Create lka planet](#create-lka-planet)
     - [Generate Light_Kit_Admin plugin](#generate-light_kit_admin-plugin)
     - [Create the lka user main page with helloWorld](#create-the-lka-user-main-page)
     - [Create the lka user main page with basicList](#create-the-lka-user-main-page-with-basiclist)
+- Light_PlanetInstaller
+    - [Create Light_PlanetInstaller class with database](#create-light_planetinstaller-class-with-database)
 - Planet
     - [Remove planet](#remove-planet)
     - [Create conception notes](#create-conception-notes)
@@ -37,6 +41,52 @@ Task details
     - [Disable service](#disable-service)
     - [Enable service](#enable-service)
 
+
+
+
+
+
+Create cli app
+-------
+2021-06-21
+
+
+This task creates a basic [Light_Cli](https://github.com/lingtalfi/Light_Cli/) application,
+with two commands:
+
+- DemoCommand
+- HelpCommand
+
+Basically, the created files are (if they don't exist):
+
+
+```txt
+- $planetDir/
+----- Helper
+--------- ${tightPlanetName}Helper.php
+----- CliTools/
+--------- Command/
+------------- DemoCommand.php
+------------- HelpCommand.php
+------------- ${tightPlanetName}BaseCommand.php
+--------- Program/
+------------- ${tightPlanetName}Application.php
+```
+
+
+A config hook is also added in your service configuration file, so that the created application instance is registered
+to the **Light_Cli** service.
+
+
+Create Light_PlanetInstaller class with database
+-------
+2021-06-18
+
+
+This task creates a [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller/) class,
+which extends the [LightDatabaseBasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabaseBasePlanetInstaller.md) class.
+
+This is suited for planets which use a database along with the [create file](https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md) technique.
 
 
 
@@ -203,7 +253,7 @@ The files are only created if they don't exist.
 
 Execute the lka generator config file
 ----------
-2020-08-03 -> 2021-03-18
+2020-08-03 -> 2021-06-18
 
 
 Pre-requisites:
@@ -260,12 +310,13 @@ Executing the lka generator alone can generate at most those files:
 ----------------------------- mpl_bottles.byml
 --------- open/
 ------------- Ling.Light_Kit_Admin/
------------------ lke/
---------------------- pages/
-------------------------- MyGalaxy.Light_Kit_Admin_MyPlanet/
------------------------------ generated/
---------------------------------- lmp_xxx_form.byml
---------------------------------- lmp_xxx_list.byml
+----------------- Ling.Light_Kit_Editor/
+--------------------- admin/
+------------------------- pages/
+----------------------------- MyGalaxy.Light_Kit_Admin_MyPlanet/
+--------------------------------- generated/
+------------------------------------- lmp_xxx_form.byml
+------------------------------------- lmp_xxx_list.byml
 ----- universe/
 --------- MyGalaxy/
 ------------- Light_Kit_Admin_MyPlanet/

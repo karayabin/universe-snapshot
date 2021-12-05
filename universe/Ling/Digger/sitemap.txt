@@ -1,0 +1,5 @@
+https://github.com/lingtalfi/Digger/blob/master/README.md
+https://github.com/lingtalfi/Digger/blob/master/doc/api/Ling/Digger/DiggerTool/getDiggerFile.md
+https://github.com/lingtalfi/Digger/blob/master/doc/api/Ling/Digger/DiggerTool/getValue.md
+https://github.com/lingtalfi/Digger/blob/master/doc/api/Ling/Digger/DiggerTool.md
+https://github.com/lingtalfi/Digger/blob/master/doc/api/Ling/Digger.md

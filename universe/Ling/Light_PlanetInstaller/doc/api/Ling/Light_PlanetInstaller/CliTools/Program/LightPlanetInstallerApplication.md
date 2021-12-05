@@ -4,7 +4,7 @@
 
 The LightPlanetInstallerApplication class
 ================
-2020-12-08 --> 2021-05-31
+2020-12-08 --> 2021-07-08
 
 
 
@@ -48,7 +48,6 @@ class <span class="pl-k">LightPlanetInstallerApplication</span> extends [LightCl
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/__construct.md)() : void
     - public [getAppId](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/getAppId.md)() : string
-    - protected [runProgram](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/runProgram.md)(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed
     - protected [onCommandInstantiated](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/onCommandInstantiated.md)([Ling\CliTools\Command\CommandInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md) $command) : void
     - private [error](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/error.md)(string $msg, ?int $code = null) : void
 
@@ -56,6 +55,7 @@ class <span class="pl-k">LightPlanetInstallerApplication</span> extends [LightCl
     - public LightCliBaseApplication::getCommands() : [LightCliCommandInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliCommandInterface.md)
     - public LightCliBaseApplication::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public Application::registerCommand(string $commandClassName, $aliases) : void
+    - protected Application::runProgram(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed
     - protected Application::onCommandNotFound(string $commandAlias, Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
     - public AbstractProgram::setLogger([Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/doc/api/Ling/UniversalLogger/UniversalLoggerInterface.md) $logger) : void
     - public AbstractProgram::setLoggerChannel(string $loggerChannel) : void
@@ -75,12 +75,12 @@ Methods
 
 - [LightPlanetInstallerApplication::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/__construct.md) &ndash; Builds the Application instance.
 - [LightPlanetInstallerApplication::getAppId](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/getAppId.md) &ndash; Returns the appId of the application.
-- [LightPlanetInstallerApplication::runProgram](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/runProgram.md) &ndash; Runs the program, and returns the exit status.
 - [LightPlanetInstallerApplication::onCommandInstantiated](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/onCommandInstantiated.md) &ndash; Can decorate the command after it has just been instantiated.
 - [LightPlanetInstallerApplication::error](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/error.md) &ndash; Throws an exception.
 - LightCliBaseApplication::getCommands &ndash; Returns the array of commands provided by the application.
 - LightCliBaseApplication::setContainer &ndash; Sets the light service container interface.
 - Application::registerCommand &ndash; Registers a command with the given aliases.
+- Application::runProgram &ndash; Runs the program, and returns the exit status.
 - Application::onCommandNotFound &ndash; Hook called if a command was not found.
 - AbstractProgram::setLogger &ndash; Sets the logger.
 - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.

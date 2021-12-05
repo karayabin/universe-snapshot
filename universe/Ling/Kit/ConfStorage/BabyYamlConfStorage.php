@@ -169,6 +169,7 @@ class BabyYamlConfStorage implements ConfStorageInterface, VariableAwareConfStor
                 }
                 $conf = ArrayTool::arrayMergeReplaceRecursive($allConf);
             }
+
             return $conf;
         } else {
             $this->addError("Page not found: $pageName ($pageFile).");

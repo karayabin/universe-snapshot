@@ -1,0 +1,17 @@
+kit_admin_kit_editor-lke:
+    id: kit_admin_kit_editor-lke
+    icon: fas fa-puzzle-piece
+    text: Kit Editor
+    route: null
+    children:
+        kit_admin_kit_editor-lke_editor:
+            id: kit_admin_kit_editor-lke_editor
+            icon: fas fa-asterisk
+            text: Editor
+            route: lch_route-hub
+            route_url_params:
+                plugin: Ling/Light_Kit_Admin_Kit_Editor
+                controller: Editor/LkeEditorController
+
+            _right: Ling.Light_Kit_Admin.admin
+            children: []

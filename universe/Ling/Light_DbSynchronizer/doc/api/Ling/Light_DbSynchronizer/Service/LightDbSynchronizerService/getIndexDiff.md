@@ -62,7 +62,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightDbSynchronizerService::getIndexDiff](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L853-L883)
+See the source code for method [LightDbSynchronizerService::getIndexDiff](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L855-L885)
 
 
 See Also

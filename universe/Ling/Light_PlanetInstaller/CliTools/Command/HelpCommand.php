@@ -9,7 +9,6 @@ use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Cli\Helper\LightCliCommandDocHelper;
 use Ling\Light_Cli\Helper\LightCliFormatHelper;
-use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
 
 
 /**
@@ -35,7 +34,7 @@ class HelpCommand extends LightPlanetInstallerBaseCommand
 
         $verbose = $input->hasFlag("v");
 
-        $format = LpiFormatHelper::getBannerFmt();
+        $format = LightCliFormatHelper::getBannerFmt();
 
 
         $output->write("<$format>" . str_repeat('=', 35) . "</$format>" . PHP_EOL);
@@ -90,55 +89,4 @@ class HelpCommand extends LightPlanetInstallerBaseCommand
     }
 
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Returns a formatted command name string.
-     *
-     * @param string $commandName
-     * @return string
-     */
-    private function n(string $commandName): string
-    {
-        $fmt = LpiFormatHelper::getCommandFmt();
-        return "<$fmt>" . $commandName . "</$fmt>";
-    }
-
-    /**
-     * Returns a formatted option/parameter string.
-     *
-     * @param string $option
-     * @return string
-     */
-    private function opt(string $option): string
-    {
-        $fmt = LpiFormatHelper::getCommandLineOptionFmt();
-        return "<$fmt>" . $option . "</$fmt>";
-    }
-
-    /**
-     * Returns a formatted flag string.
-     *
-     * @param string $flag
-     * @return string
-     */
-    private function flag(string $flag): string
-    {
-        $fmt = LpiFormatHelper::getCommandLineFlagFmt();
-        return "<$fmt>" . $flag . "</$fmt>";
-    }
-
-    /**
-     * Returns a formatted configuration directive string.
-     *
-     * @param string $option
-     * @return string
-     */
-    private function arg(string $option): string
-    {
-        $fmt = LpiFormatHelper::getCommandLineParameterFmt();
-        return "<$fmt>" . $option . "</$fmt>";
-    }
 }

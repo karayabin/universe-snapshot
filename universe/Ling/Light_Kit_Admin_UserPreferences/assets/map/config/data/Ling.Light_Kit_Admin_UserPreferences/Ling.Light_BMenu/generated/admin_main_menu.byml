@@ -10,8 +10,7 @@
             text: User preference
             route: lch_route-hub
             route_url_params: 
-                plugin: Ling/Light_Kit_Admin_UserPreferences
-                controller: Generated/LupUserPreferenceController
+                execute: Ling\Light_Kit_Admin_UserPreferences\Controller\Generated\LupUserPreferenceController->render
             
             _right: Ling.Light_Kit_Admin.admin
             children: []

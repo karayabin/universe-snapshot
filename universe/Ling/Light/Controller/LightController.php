@@ -88,4 +88,19 @@ class LightController implements LightControllerInterface, LightAwareInterface
     {
         return $this->getContainer()->has($serviceName);
     }
+
+
+    /**
+     *
+     * Sends a log message to the logger service's error channel.
+     *
+     * See the @page(light philosophy page) for more details.
+     *
+     * @param $msg
+     * @throws \Exception
+     */
+    protected function logError($msg)
+    {
+        $this->getLight()->logError($msg);
+    }
 }

@@ -4,7 +4,6 @@
 namespace Ling\Light_PlanetInstaller\PlanetInstaller;
 
 
-
 /**
  * The LightPlanetInstallerInterface interface.
  */

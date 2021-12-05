@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::hasDescription](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L175-L178)
+See the source code for method [HtmlPageCopilot::hasDescription](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L176-L179)
 
 
 See Also

@@ -107,7 +107,7 @@ array(3) {
 
 Source Code
 ===========
-See the source code for method [DependencyTool::getDependencyList](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L388-L402)
+See the source code for method [DependencyTool::getDependencyList](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L406-L420)
 
 
 See Also
@@ -115,5 +115,5 @@ See Also
 
 The [DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool.md) class.
 
-Previous method: [getDependencyItem](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyItem.md)<br>Next method: [getDependencyListByFile](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyListByFile.md)<br>
+Previous method: [getDependencyArray](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyArray.md)<br>Next method: [getDependencyListByFile](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/getDependencyListByFile.md)<br>
 

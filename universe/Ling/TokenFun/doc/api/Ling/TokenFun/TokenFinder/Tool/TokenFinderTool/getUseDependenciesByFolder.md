@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getUseDependenciesByFolder](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L605-L617)
+See the source code for method [TokenFinderTool::getUseDependenciesByFolder](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L609-L621)
 
 
 See Also

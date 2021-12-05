@@ -4,7 +4,7 @@
 
 The Light_Kit_Admin_UserDatabaseDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Kit_Admin_UserDatabase\L
 
 SeeAlso
 ==============
-Previous class: [Light_Kit_Admin_UserDataDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_UserData/Light_Kit_Admin_UserDataDocBuilder.md)<br>Next class: [Light_Kit_Admin_UserPreferencesDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_UserPreferences/Light_Kit_Admin_UserPreferencesDocBuilder.md)<br>
+Previous class: [Light_Kit_Admin_UserDataDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_UserData/Light_Kit_Admin_UserDataDocBuilder.md)<br>Next class: [Light_Kit_Admin_UserNotificationsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_UserNotifications/Light_Kit_Admin_UserNotificationsDocBuilder.md)<br>

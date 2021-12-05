@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L306-L309)
+See the source code for method [HtmlPageCopilot::addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L329-L332)
 
 
 See Also
@@ -58,5 +58,5 @@ See Also
 
 The [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) class.
 
-Previous method: [getJsUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsUrls.md)<br>Next method: [addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md)<br>
+Previous method: [getJsModulesUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsModulesUrls.md)<br>Next method: [addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md)<br>
 

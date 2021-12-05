@@ -4,7 +4,7 @@
 
 The LightZephyrTemplate class
 ================
-2019-04-09 --> 2021-05-31
+2019-04-09 --> 2021-08-10
 
 
 
@@ -60,3 +60,6 @@ See the source code of [Ling\Light_ZephyrTemplate\LightZephyrTemplate](https://g
 
 
 
+SeeAlso
+==============
+Next class: [LightZephyrTemplateService](https://github.com/lingtalfi/Light_ZephyrTemplate/blob/master/doc/api/Ling/Light_ZephyrTemplate/Service/LightZephyrTemplateService.md)<br>

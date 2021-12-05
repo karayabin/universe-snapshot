@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::addMeta](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L187-L190)
+See the source code for method [HtmlPageCopilot::addMeta](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L188-L191)
 
 
 See Also

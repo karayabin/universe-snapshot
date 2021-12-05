@@ -4,7 +4,7 @@
 
 The LightKitAdminGeneratorException class
 ================
-2019-11-06 --> 2021-05-31
+2019-11-06 --> 2021-06-25
 
 
 

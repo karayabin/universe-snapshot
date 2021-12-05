@@ -6,7 +6,7 @@ rendering:
     related_links: 
         - 
             text: "See the list of \"User has permission group\" items"
-            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserDatabase, controller: Generated/LudUserHasPermissionGroupController}))::
+            url: ::(@reverse_router->getUrl(lch_route-hub, {execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserHasPermissionGroupController->render}))::
             icon: fas fa-plus-circle
         
     

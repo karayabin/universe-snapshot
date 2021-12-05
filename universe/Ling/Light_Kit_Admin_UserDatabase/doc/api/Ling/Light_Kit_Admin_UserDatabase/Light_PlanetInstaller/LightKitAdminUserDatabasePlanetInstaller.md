@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDatabasePlanetInstaller class
 ================
-2020-06-25 --> 2021-05-31
+2020-06-25 --> 2021-06-18
 
 
 
@@ -28,8 +28,8 @@ class <span class="pl-k">LightKitAdminUserDatabasePlanetInstaller</span> extends
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [LightBasePlanetInstaller::$container](#property-container) ;
 
 - Methods
-    - public [init2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
-    - public [undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+    - public [init2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
+    - public [undoInit2](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PlanetInstaller/LightKitAdminUserDatabasePlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 - Inherited methods
     - public LightBasePlanetInstaller::__construct() : void
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Admin_UserDatabase\Light_PlanetInstaller\
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserDatabaseControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_ControllerHub/Generated/LightKitAdminUserDatabaseControllerHubHandler.md)<br>Next class: [LightKitAdminUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PluginInstaller/LightKitAdminUserDatabasePluginInstaller.md)<br>
+Previous class: [LightKitAdminUserDatabaseControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_ControllerHub/Generated/LightKitAdminUserDatabaseControllerHubHandler.md)<br>Next class: [LightKitAdminUserDatabaseService](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService.md)<br>

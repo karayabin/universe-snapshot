@@ -58,7 +58,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::skipSquareBracketsChain](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L186-L215)
+See the source code for method [TokenArrayIteratorTool::skipSquareBracketsChain](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L191-L220)
 
 
 See Also

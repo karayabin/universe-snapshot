@@ -46,7 +46,7 @@ Returns [LkeMultiStorageApi](https://github.com/lingtalfi/Light_Kit_Editor/blob/
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::getMultiStorageApi](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L100-L105)
+See the source code for method [LightKitEditorService::getMultiStorageApi](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L156-L161)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightKitEditorService](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Service/LightKitEditorService.md) class.
 
-Previous method: [setContainer](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Service/LightKitEditorService/setContainer.md)<br>Next method: [renderPage](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Service/LightKitEditorService/renderPage.md)<br>
+Previous method: [getTheme](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Service/LightKitEditorService/getTheme.md)<br>Next method: [renderPage](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Service/LightKitEditorService/renderPage.md)<br>
 

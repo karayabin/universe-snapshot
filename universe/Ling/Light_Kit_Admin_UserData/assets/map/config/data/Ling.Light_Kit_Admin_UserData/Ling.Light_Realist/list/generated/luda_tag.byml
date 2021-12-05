@@ -183,8 +183,7 @@ rendering:
                         text: Edit
                         url_params_add_ric: true
                         url_params: 
-                            plugin: Ling/Light_Kit_Admin_UserData
-                            controller: Generated/LudaTagController
+                            execute: Ling\Light_Kit_Admin_UserData\Controller\Generated\LudaTagController->render
                             m: f
                         
                         icon: fas fa-edit
@@ -237,7 +236,7 @@ rendering:
     related_links: 
         - 
             text: "Add new \"tag\" item"
-            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserData, controller: Generated/LudaTagController, m:f})
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {execute: Ling\Light_Kit_Admin_UserData\Controller\Generated\LudaTagController->render, m:f})
             icon: fas fa-plus-circle
         
     

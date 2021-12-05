@@ -5,18 +5,15 @@ namespace Ling\Light_UserDatabase;
 
 
 use Ling\ArrayToString\ArrayToStringTool;
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_PasswordProtector\Service\LightPasswordProtector;
-use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
-use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_UserDatabase\Api\Custom\CustomLightUserDatabaseApiFactory;
 use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
-use Ling\SimplePdoWrapper\Util\Where;
-use Ling\SqlWizard\Tool\MysqlSerializeTool;
 
 /**
  * The MysqlLightWebsiteUserDatabase interface.
@@ -43,8 +40,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      * @var string|null = null
      */
     protected $database;
-
-
 
 
     /**
@@ -81,8 +76,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      * @var CustomLightUserDatabaseApiFactory
      */
     private $factory;
-
-
 
 
     /**
@@ -191,9 +184,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     }
 
 
-
-
-
     /**
      * @implementation
      */
@@ -222,7 +212,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
             $dispatcher->dispatch('Ling.Light_UserDatabase.on_new_user_before', $event);
             $array = $event->getVar('userInfo');
         }
-
 
 
         if (null !== $this->passwordProtector) {
@@ -454,7 +443,10 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     protected function unserialize(array &$array)
     {
-        MysqlSerializeTool::unserialize($array, ['extra']);
+//        MysqlSerializeTool::unserialize($array, ['extra']); // old method, but not very readable
+
+        $extra = $array['extra'] ?? [];
+        $array["extra"] = BabyYamlUtil::readBabyYamlString($extra);
     }
 
     /**
@@ -464,6 +456,11 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     protected function serialize(array &$array)
     {
-        MysqlSerializeTool::serialize($array, ['extra']);
+//        MysqlSerializeTool::serialize($array, ['extra']); // old method, but not very readable
+
+        $extra = $array['extra'] ?? [];
+        $array["extra"] = BabyYamlUtil::getBabyYamlString($extra);
+
+
     }
 }

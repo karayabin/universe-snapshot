@@ -76,6 +76,8 @@ class Light_Kit_Admin_DebugTraceDocBuilder
              */
             "reportIgnore" => [
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+                "Ling\Light_Kit_DebugTrace\Service\LightKitDebugTraceService",
+
 
             ],
             /**
@@ -166,7 +168,8 @@ class Light_Kit_Admin_DebugTraceDocBuilder
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
-
+                "Ling\Light_Kit_DebugTrace\Exception\LightKitDebugTraceException" => "https://github.com/lingtalfi/Light_Kit_DebugTrace/blob/master/doc/api/Ling/Light_Kit_DebugTrace/Exception/LightKitDebugTraceException.md",
+                "Ling\Light_Kit_DebugTrace\Service\LightKitDebugTraceService" => "https://github.com/lingtalfi/Light_Kit_DebugTrace/blob/master/doc/api/Ling/Light_Kit_DebugTrace/Service/LightKitDebugTraceService.md",
 
             ],
             "ignoreFilesStartingWith" => [

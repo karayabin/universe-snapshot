@@ -59,5 +59,5 @@ See Also
 
 The [CreateServiceProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess/__construct.md)<br>Next method: [createExceptionClass](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess/createExceptionClass.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess/__construct.md)<br>Next method: [createBasicConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess/createBasicConfigFile.md)<br>
 

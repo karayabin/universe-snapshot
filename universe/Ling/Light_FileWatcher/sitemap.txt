@@ -1,5 +1,8 @@
 https://github.com/lingtalfi/Light_FileWatcher/blob/master/README.md
 https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Exception/LightFileWatcherException.md
+https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Light_PlanetInstaller/LightFileWatcherPlanetInstaller/init2.md
+https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Light_PlanetInstaller/LightFileWatcherPlanetInstaller/undoInit2.md
+https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Light_PlanetInstaller/LightFileWatcherPlanetInstaller.md
 https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/__construct.md
 https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/createMonitorFile.md
 https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Service/LightFileWatcherService/debugLog.md

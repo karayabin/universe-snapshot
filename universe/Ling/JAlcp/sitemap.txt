@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/JAlcp/blob/master/README.md
+https://github.com/lingtalfi/JAlcp/blob/master/doc/api/Ling/JAlcp.md

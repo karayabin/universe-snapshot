@@ -1,0 +1,20 @@
+A request to subscribe to {website} has been has been recorded on our servers on {fullDate}.
+
+If you're not the author of this request, please ignore the following.
+
+
+Please click the link below to confirm your subscription:
+
+
+{link}
+
+
+Cheers.
+
+{tracker}
+
+
+
+
+
+

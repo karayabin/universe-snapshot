@@ -1,6 +1,6 @@
 Ling/Light_Logger
 ================
-2019-08-01 --> 2021-05-31
+2019-08-01 --> 2021-08-05
 
 
 
@@ -8,16 +8,10 @@ Ling/Light_Logger
 Table of contents
 ===========
 
-- [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md) &ndash; The LightLoggerService class provides a simple logging system for a light application.
-    - [LightLoggerService::__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md) &ndash; Builds the LightLoggerService instance.
-    - [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md) &ndash; Registers a listener (callable) for the given $channel(s).
-    - [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md) &ndash; Sends a the log $message to the given $channel.
-    - [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/trace.md) &ndash; Dispatches a log message on the "trace" channel.
-    - [LightLoggerService::debug](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/debug.md) &ndash; Dispatches a log message on the "debug" channel.
-    - [LightLoggerService::notice](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/notice.md) &ndash; Dispatches a log message on the "notice" channel.
-    - [LightLoggerService::warn](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/warn.md) &ndash; Dispatches a log message on the "warn" channel.
-    - [LightLoggerService::error](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/error.md) &ndash; Dispatches a log message on the "error" channel.
-    - [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/fatal.md) &ndash; Dispatches a log message on the "fatal" channel.
+- [LightLoggerException](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Exception/LightLoggerException.md) &ndash; The LightLoggerException class.
+- [LightLoggerHelper](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Helper/LightLoggerHelper.md) &ndash; The LightLoggerHelper class.
+    - [LightLoggerHelper::copyListenersFromPluginToMaster](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Helper/LightLoggerHelper/copyListenersFromPluginToMaster.md) &ndash; Copies the listeners from the given planet to our open registration system.
+    - [LightLoggerHelper::removeListenersFromMaster](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Helper/LightLoggerHelper/removeListenersFromMaster.md) &ndash; Removes the listeners (defined by the given planet) from the master.
 - [BaseLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener.md) &ndash; The BaseLoggerListener class.
     - [BaseLoggerListener::__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener/__construct.md) &ndash; Builds the BaseLoggerListener instance.
     - [BaseLoggerListener::configure](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener/configure.md) &ndash; Configures this instance.
@@ -38,13 +32,27 @@ Table of contents
     - [LightLastMessageFileLoggerListener::listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/listen.md) &ndash; Reacts to the given logger message in a specific way.
 - [LightLoggerListenerInterface](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface.md) &ndash; The LightLoggerListenerInterface interface is the interface for all logger listeners.
     - [LightLoggerListenerInterface::listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface/listen.md) &ndash; Reacts to the given logger message in a specific way.
+- [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService.md) &ndash; The LightLoggerService class provides a simple logging system for a light application.
+    - [LightLoggerService::__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/__construct.md) &ndash; Builds the LightLoggerService instance.
+    - [LightLoggerService::setContainer](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/setContainer.md) &ndash; Sets the container.
+    - [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/addListener.md) &ndash; Registers a listener (callable) for the given $channel(s).
+    - [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/log.md) &ndash; Sends a the log $message to the given $channel.
+    - [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/trace.md) &ndash; Dispatches a log message on the "trace" channel.
+    - [LightLoggerService::debug](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/debug.md) &ndash; Dispatches a log message on the "debug" channel.
+    - [LightLoggerService::notice](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/notice.md) &ndash; Dispatches a log message on the "notice" channel.
+    - [LightLoggerService::warn](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/warn.md) &ndash; Dispatches a log message on the "warn" channel.
+    - [LightLoggerService::error](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/error.md) &ndash; Dispatches a log message on the "error" channel.
+    - [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService/fatal.md) &ndash; Dispatches a log message on the "fatal" channel.
 
 
 Dependencies
 ============
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [CliTools](https://github.com/lingtalfi/CliTools)
+- [Light](https://github.com/lingtalfi/Light)
+- [SicTools](https://github.com/lingtalfi/SicTools)
 - [UniversalLogger](https://github.com/lingtalfi/UniversalLogger)
 
 

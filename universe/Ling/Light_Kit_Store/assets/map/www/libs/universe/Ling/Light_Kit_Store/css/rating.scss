@@ -1,0 +1,38 @@
+@import "vars";
+
+
+.customer-review-item {
+  .line1 {
+    i {
+      font-size: 29px;
+      color: gray;
+    }
+
+    .user-name::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .line2 {
+    i {
+      color: $starColor;
+      letter-spacing: -3px;
+      font-size: 15px;
+    }
+  }
+
+  .review-date {
+    font-size: 10px;
+    color: #565959;
+    line-height: 1.6rem;
+  }
+
+  .comment-title {
+    display: block;
+  }
+
+  .rating-comment {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

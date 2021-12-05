@@ -1,6 +1,6 @@
 Light kit admin plugins
 =============
-2020-02-28 -> 2021-03-15
+2020-02-28 -> 2021-06-18
 
 
 
@@ -61,7 +61,7 @@ Examples:
 
 Creating pages
 ==========
-2021-03-08 -> 2021-03-12
+2021-03-08 -> 2021-06-18
 
 
 A page is a very easy concept to grasp: you basically open an url in your browser, and it shows you a page.
@@ -69,12 +69,12 @@ A page is a very easy concept to grasp: you basically open an url in your browse
 **Light_Kit_Admin** is based on the [kit system](https://github.com/lingtalfi/Kit), where pages are represented by a php array called the [page conf array](https://github.com/lingtalfi/Kit#the-kit-configuration-array) (aka kit conf array in kit's nomenclature).
 
 
-The implementation of the **kit system** in **lka** is based on the [Light_Kit_Editor](https://github.com/lingtalfi/Light_Kit_Editor) plugin, which allows **light kit admin** to provide an [open](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration) configuration [eco-structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/nomenclature.md#eco-structure)
+The implementation of the **kit system** in **lka** is actually based on the [Light_Kit_Editor](https://github.com/lingtalfi/Light_Kit_Editor) plugin, which allows **light kit admin** to provide an [open](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration) configuration [eco-structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/nomenclature.md#eco-structure)
 based on [babyYaml](https://github.com/lingtalfi/BabyYaml) files.
 
-The structure we use is a [kit web app](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/pages/conception-notes.md#the-kit-web-app) directory, its location is:
+The structure we use is a [kit web app](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/pages/conception-notes.md#the-kit-web-app) directory (aka **$root** dir), its location is:
 
-- **config/open/Ling.Light_Kit_Admin/lke**
+- **config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin**
 
 
 The default [theme](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/kit-theme.md) for **light kit admin** is: 

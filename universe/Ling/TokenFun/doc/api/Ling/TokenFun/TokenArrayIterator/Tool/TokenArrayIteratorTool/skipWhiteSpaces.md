@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::skipWhiteSpaces](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L334-L341)
+See the source code for method [TokenArrayIteratorTool::skipWhiteSpaces](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L339-L346)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [TokenArrayIteratorTool](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool.md) class.
 
-Previous method: [skipNsChain](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipNsChain.md)<br>Next method: [skipWhiteSpacesOrComma](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipWhiteSpacesOrComma.md)<br>
+Previous method: [skipNsChain](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipNsChain.md)<br>Next method: [skipTokens](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipTokens.md)<br>
 

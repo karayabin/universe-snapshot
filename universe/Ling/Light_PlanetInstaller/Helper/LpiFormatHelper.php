@@ -4,7 +4,6 @@
 namespace Ling\Light_PlanetInstaller\Helper;
 
 
-use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Cli\Helper\LightCliFormatHelper;
 
 /**

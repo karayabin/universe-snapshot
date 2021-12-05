@@ -4,7 +4,7 @@
 
 The HttpRequest class
 ================
-2019-04-09 --> 2021-05-31
+2019-04-09 --> 2021-07-30
 
 
 
@@ -64,13 +64,13 @@ class <span class="pl-k">HttpRequest</span> implements [HttpRequestInterface](ht
     - public [getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeaders.md)() : array
     - public [getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md)(string $header, ?$default = null) : string | mixed
     - public [getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGet.md)() : array
-    - public [getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGetValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - public [getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGetValue.md)(string $key, ?bool $throwEx = false) : mixed
     - public [getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPost.md)() : array
-    - public [getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPostValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - public [getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPostValue.md)(string $key, ?bool $throwEx = false) : mixed
     - public [getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFiles.md)() : array
-    - public [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFilesValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - public [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFilesValue.md)(string $key, ?bool $throwEx = false) : mixed
     - public [getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookie.md)() : array
-    - public [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookieValue.md)(string $key, ?bool $throwEx = true) : mixed
+    - public [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookieValue.md)(string $key, ?bool $throwEx = false) : mixed
 
 }
 
@@ -198,7 +198,7 @@ Methods
 - [HttpRequest::getMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getMethod.md) &ndash; Returns the http method used for the request, in lower case.
 - [HttpRequest::getUri](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getUri.md) &ndash; Returns the uri of the http request.
 - [HttpRequest::getUriPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getUriPath.md) &ndash; Returns the uriPath of the http request.
-- [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getQueryString.md) &ndash; Returns the queryString of the http request.
+- [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getQueryString.md) &ndash; Returns the url-decoded version of the queryString of the http request.
 - [HttpRequest::getQueryArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getQueryArgs.md) &ndash; Returns the array version of the query string of the http request.
 - [HttpRequest::getTime](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getTime.md) &ndash; The time when the http request was created.
 - [HttpRequest::getHost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHost.md) &ndash; Returns the host of the http request.

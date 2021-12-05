@@ -7,7 +7,6 @@ namespace Ling\Light_PlanetInstaller\CliTools\Command;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Cli\Helper\LightCliFormatHelper;
-use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
 use Ling\Light_PlanetInstaller\Util\UninstallUtil;
 
 
@@ -44,7 +43,6 @@ class UninstallCommand extends LightPlanetInstallerBaseCommand
         $util->uninstall($planetDotName, [
             'app' => $appDir,
         ]);
-
 
 
         return 0;

@@ -1,6 +1,6 @@
 Light_Kit_Admin_TaskScheduler
 ===========
-2020-07-31 -> 2021-05-31
+2020-07-31 -> 2021-06-18
 
 
 
@@ -76,31 +76,7 @@ kit_admin_task_scheduler:
         setContainer: 
             container: @container()
         
-    
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-$micro_permission.methods_collection: 
-    - 
-        method: registerMicroPermissionsByProfile
-        args: 
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_TaskScheduler/Ling.Light_MicroPermission/kit_admin_task_scheduler.profile.generated.byml
-        
-    
-
-$kit_admin.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            pluginName: Light_Kit_Admin_TaskScheduler
-            plugin: 
-                instance: Ling\Light_Kit_Admin_TaskScheduler\LightKitAdminPlugin\Generated\LightKitAdminTaskSchedulerLkaPlugin
-                methods: 
-                    setOptionsFile: 
-                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_TaskScheduler/Ling.Light_Kit_Admin/lka-options.generated.byml
-                    
-                
+      
     
 ```
 
@@ -108,6 +84,22 @@ $kit_admin.methods_collection:
 
 History Log
 =============
+
+- 1.5.20 -- 2021-06-18
+
+    - Update api to work with Ling.Light_Kit_Admin:0.13.3
+
+- 1.5.19 -- 2021-06-18
+  
+    - update api to work with Ling.Light_Kit_Admin:0.13.0
+  
+- 1.5.18 -- 2021-06-17
+  
+    - checkpoint commit
+  
+- 1.5.17 -- 2021-06-17
+  
+    - switch to micro-permission open registration system
 
 - 1.5.16 -- 2021-05-31
 

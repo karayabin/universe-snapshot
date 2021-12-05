@@ -113,3 +113,112 @@
     - Ling:PaginationHelper:1.0.0
     - Ling:RowsSortHelper:1.0.0
     - Ling:SimplePdoWrapper:1.30.17
+
+0.2.5: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.322
+    - Ling:CliTools:1.10.29
+    - Ling:DirScanner:1.13.6
+    - Ling:Kit:1.14.2
+    - Ling:Light:0.70.9
+    - Ling:Light_Database:1.14.28
+    - Ling:Light_EasyRoute:1.3.9
+    - Ling:Light_Kit:1.18.4
+    - Ling:Light_PlanetInstaller:2.0.4
+    - Ling:Light_Realform:2.1.2
+    - Ling:Light_Realist:2.1.2
+    - Ling:LogicalOperator:1.0.1
+    - Ling:PaginationHelper:1.0.1
+    - Ling:RowsSortHelper:1.0.1
+    - Ling:SimplePdoWrapper:1.30.18
+
+0.2.6: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.324
+    - Ling:CliTools:1.10.29
+    - Ling:DirScanner:1.13.6
+    - Ling:Kit:1.14.2
+    - Ling:Light:0.70.10
+    - Ling:Light_Database:1.14.28
+    - Ling:Light_EasyRoute:1.3.9
+    - Ling:Light_Kit:1.18.4
+    - Ling:Light_PlanetInstaller:2.0.5
+    - Ling:Light_Realform:2.1.2
+    - Ling:Light_Realist:2.1.2
+    - Ling:LogicalOperator:1.0.1
+    - Ling:PaginationHelper:1.0.1
+    - Ling:RowsSortHelper:1.0.1
+    - Ling:SimplePdoWrapper:1.30.19
+
+0.2.7: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.324
+    - Ling:CliTools:1.10.29
+    - Ling:DirScanner:1.13.6
+    - Ling:Kit:1.14.2
+    - Ling:Light:0.70.10
+    - Ling:Light_Database:1.14.28
+    - Ling:Light_EasyRoute:1.3.9
+    - Ling:Light_Kit:1.18.4
+    - Ling:Light_PlanetInstaller:2.0.5
+    - Ling:Light_Realform:2.1.2
+    - Ling:Light_Realist:2.1.2
+    - Ling:Light_Vars:1.0.6
+    - Ling:LogicalOperator:1.0.1
+    - Ling:PaginationHelper:1.0.1
+    - Ling:RowsSortHelper:1.0.1
+    - Ling:SimplePdoWrapper:1.30.19
+
+0.2.8: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.324
+    - Ling:CliTools:1.10.29
+    - Ling:DirScanner:1.13.6
+    - Ling:Kit:1.14.2
+    - Ling:Light:0.70.10
+    - Ling:Light_Database:1.14.28
+    - Ling:Light_EasyRoute:1.3.10
+    - Ling:Light_Kit:1.18.4
+    - Ling:Light_PlanetInstaller:2.0.5
+    - Ling:Light_Realform:2.1.2
+    - Ling:Light_Realist:2.1.2
+    - Ling:LogicalOperator:1.0.1
+    - Ling:PaginationHelper:1.0.1
+    - Ling:RowsSortHelper:1.0.1
+    - Ling:SimplePdoWrapper:1.30.19
+
+0.2.9: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.328
+    - Ling:CliTools:1.10.29
+    - Ling:DirScanner:1.13.6
+    - Ling:Kit:1.14.2
+    - Ling:Light:0.70.10
+    - Ling:Light_Database:1.14.28
+    - Ling:Light_EasyRoute:1.3.10
+    - Ling:Light_Kit:1.18.5
+    - Ling:Light_PlanetInstaller:2.0.6
+    - Ling:Light_Realform:2.1.2
+    - Ling:Light_Realist:2.1.2
+    - Ling:LogicalOperator:1.0.1
+    - Ling:PaginationHelper:1.0.1
+    - Ling:RowsSortHelper:1.0.1
+    - Ling:SimplePdoWrapper:1.30.19
+
+0.3.0: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.338
+    - Ling:CliTools:1.10.30
+    - Ling:DirScanner:1.13.6
+    - Ling:Kit:1.14.2
+    - Ling:Light:0.70.13
+    - Ling:Light_Database:1.14.30
+    - Ling:Light_EasyRoute:1.3.14
+    - Ling:Light_Kit:1.18.8
+    - Ling:Light_PlanetInstaller:2.0.9
+    - Ling:Light_Realform:2.1.2
+    - Ling:Light_Realist:2.1.3
+    - Ling:LogicalOperator:1.0.1
+    - Ling:PaginationHelper:1.0.2
+    - Ling:RowsSortHelper:1.0.1
+    - Ling:SimplePdoWrapper:1.30.24

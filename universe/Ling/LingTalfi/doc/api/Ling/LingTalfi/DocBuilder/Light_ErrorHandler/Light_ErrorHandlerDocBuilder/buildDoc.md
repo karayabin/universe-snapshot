@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_ErrorHandlerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ErrorHandler/Light_ErrorHandlerDocBuilder.php#L45-L214)
+See the source code for method [Light_ErrorHandlerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ErrorHandler/Light_ErrorHandlerDocBuilder.php#L45-L219)
 
 
 See Also

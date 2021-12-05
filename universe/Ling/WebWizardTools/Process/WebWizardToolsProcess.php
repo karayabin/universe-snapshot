@@ -478,6 +478,7 @@ abstract class WebWizardToolsProcess
             case "error":
                 $this->report->addError($msg);
                 break;
+            case "warning":
             case "important":
                 $this->report->addImportant($msg);
                 break;

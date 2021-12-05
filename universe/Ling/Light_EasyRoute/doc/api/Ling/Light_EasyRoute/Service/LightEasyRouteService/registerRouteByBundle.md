@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEasyRouteService::registerRouteByBundle](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Service/LightEasyRouteService.php#L141-L158)
+See the source code for method [LightEasyRouteService::registerRouteByBundle](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Service/LightEasyRouteService.php#L141-L160)
 
 
 See Also

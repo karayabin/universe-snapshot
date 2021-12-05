@@ -4,8 +4,33 @@ kit_store:
         setContainer:
             container: @container()
         setOptions:
-            options: []
+            options: ${kit_store_vars.service_options}
+
+
+kit_store_vars:
+    service_options:
+        captcha_keys: []
+        not_found_route: lks_route-404
+    global_vars:
+        front_theme: Ling.Light_Kit_Store/theme1
 
 
 
+# --------------------------------------
+# hooks
+# --------------------------------------
+$vars.methods_collection:
+    -
+        method: setVar
+        args:
+            key: kit_store_vars
+            value: ${kit_store_vars.global_vars}
 
+
+$user_manager.methods_collection:
+    -
+        method: addPrepareUserCallback
+        args:
+            callback:
+                instance: @service(kit_store)
+                callable_method: prepareUser

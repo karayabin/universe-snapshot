@@ -4,7 +4,7 @@
 
 The MysqlSerializeTool class
 ================
-2019-07-23 --> 2021-05-31
+2019-07-23 --> 2021-07-06
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\SqlWizard\Tool\MysqlSerializeTool](https://github.c
 
 SeeAlso
 ==============
-Previous class: [MysqlWizard](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard.md)<br>Next class: [MysqlStructureReaderTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlStructureReaderTool.md)<br>
+Previous class: [FullTableHelper](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/FullTableHelper.md)<br>Next class: [MysqlStructureReaderTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlStructureReaderTool.md)<br>

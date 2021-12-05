@@ -4,11 +4,16 @@ dependencies:
         - Light
         - Light_Events
         - Light_PlanetInstaller
-        - UniversalTemplateEngine
+        - Light_ZephyrTemplate
     
 
 post_install: 
     map: true
     composer: 
         - require filp/whoops
+    
+
+commands: 
+    init1: 
+        - composer require filp/whoops
     

@@ -4,7 +4,7 @@
 
 The LightDbSynchronizerHelper class
 ================
-2020-06-19 --> 2021-05-31
+2020-06-19 --> 2021-06-28
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_DbSynchronizer\Helper\LightDbSynchronizerHelp
 
 SeeAlso
 ==============
-Previous class: [LightDbSynchronizerException](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Exception/LightDbSynchronizerException.md)<br>Next class: [LightDbSynchronizerService](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Service/LightDbSynchronizerService.md)<br>
+Previous class: [LightDbSynchronizerException](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Exception/LightDbSynchronizerException.md)<br>Next class: [LightDbSynchronizerPlanetInstaller](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/api/Ling/Light_DbSynchronizer/Light_PlanetInstaller/LightDbSynchronizerPlanetInstaller.md)<br>

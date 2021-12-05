@@ -4,7 +4,7 @@
 
 The LightKitAdminController class
 ================
-2019-05-17 --> 2021-05-31
+2019-05-17 --> 2021-07-30
 
 
 
@@ -44,7 +44,6 @@ class <span class="pl-k">LightKitAdminController</span> extends [LightController
     - protected [checkRight](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/checkRight.md)(string $right) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) | null
     - protected [checkMicroPermission](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/checkMicroPermission.md)(string $microPermission) : void
     - protected [error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/error.md)(string $msg) : void
-    - private [getKitPageRendererInstance](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getKitPageRendererInstance.md)() : [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md)
 
 - Inherited methods
     - public LightController::setLight([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light) : void
@@ -52,6 +51,7 @@ class <span class="pl-k">LightKitAdminController</span> extends [LightController
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
     - protected LightController::hasService(string $serviceName) : bool
+    - protected LightController::logError($msg) : void
 
 }
 
@@ -92,12 +92,12 @@ Methods
 - [LightKitAdminController::checkRight](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/checkRight.md) &ndash; Ensures that the current user is connected and has the right provided in the arguments.
 - [LightKitAdminController::checkMicroPermission](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/checkMicroPermission.md) &ndash; redirects to the access_denied page.
 - [LightKitAdminController::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/error.md) &ndash; Throws an exception.
-- [LightKitAdminController::getKitPageRendererInstance](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getKitPageRendererInstance.md) &ndash; Returns the LightKitPageRenderer instance to use to render the pages.
 - LightController::setLight &ndash; Sets the light instance.
 - LightController::getLight &ndash; Returns the light application.
 - LightController::getContainer &ndash; Returns the service container.
 - LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
 - LightController::hasService &ndash; Returns whether the container contains the service which name is given.
+- LightController::logError &ndash; Sends a log message to the logger service's error channel.
 
 
 

@@ -1,8 +1,6 @@
 Light_EndRoutine_Debugger
 ===========
-2019-09-20 -> 2021-03-15
-
-
+2019-09-20 -> 2021-06-28
 
 An end routine for debugging your application variables.
 
@@ -13,12 +11,15 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
-Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller)
+via [light-cli](https://github.com/lingtalfi/Light_Cli)
+
 ```bash
 lt install Ling.Light_EndRoutine_Debugger
 ```
 
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+
 ```bash
 uni import Ling/Light_EndRoutine_Debugger
 ```
@@ -32,20 +33,18 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [Light_EndRoutine_Debugger api](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+
+- [Light_EndRoutine_Debugger api](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger.md) (
+  generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Services](#services)
 - [Related](#related)
-
-
-
 
 Services
 =========
 
 
-This plugin doesn't provide any service, but subscribes to the **end_routine** service,
-as we can see in the following example configuration:
-
+This plugin doesn't provide any service, but subscribes to the **end_routine** service, as we can see in the following
+example configuration:
 
 ```yaml
 # --------------------------------------
@@ -73,20 +72,18 @@ $events.methods_collection:
 
 ```
 
-
-
-
 Related
 ==========
 
 - [Light_EndRoutine](https://github.com/lingtalfi/Light_EndRoutine)
 
-
-
-
 History Log
 =============
 
+- 1.2.9 -- 2021-06-28
+
+    - fix api wrong reference to Ling.Light_Logger
+  
 - 1.2.8 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
@@ -118,15 +115,16 @@ History Log
 - 1.2.1 -- 2019-12-19
 
     - fix service configuration functional typo
-    
+
 - 1.2.0 -- 2019-12-19
 
-    - update LightEndRoutineDebuggerHandler to accommodate Ling.Light.end_routine event instead of the end_routine service
-    
+    - update LightEndRoutineDebuggerHandler to accommodate Ling.Light.end_routine event instead of the end_routine
+      service
+
 - 1.1.0 -- 2019-09-23
 
     - add LightEndRoutineDebuggerHandler.options.path option
-    
+
 - 1.0.0 -- 2019-09-20
 
     - initial commit

@@ -47,7 +47,7 @@ Returns [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob
 
 Source Code
 ===========
-See the source code for method [LightKitPageRenderer::getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L267-L273)
+See the source code for method [LightKitPageRenderer::getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/PageRenderer/LightKitPageRenderer.php#L291-L297)
 
 
 See Also

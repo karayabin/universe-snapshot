@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UninstallCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L25-L51)
+See the source code for method [UninstallCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L24-L49)
 
 
 See Also

@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ImportCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L114-L121)
+See the source code for method [ImportCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L125-L132)
 
 
 See Also

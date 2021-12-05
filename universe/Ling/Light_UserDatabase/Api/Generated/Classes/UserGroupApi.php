@@ -259,6 +259,7 @@ class UserGroupApi extends CustomLightUserDatabaseBaseApi implements UserGroupAp
      */
     public function getUserGroupIdByName(string $name, $default = null, bool $throwNotFoundEx = false)
     {
+
         $ret = $this->pdoWrapper->fetch("select id from `$this->table` where name=:name", [
             "name" => $name,
 

@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ImportCommand::getFlags](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L183-L198)
+See the source code for method [ImportCommand::getFlags](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L204-L227)
 
 
 See Also

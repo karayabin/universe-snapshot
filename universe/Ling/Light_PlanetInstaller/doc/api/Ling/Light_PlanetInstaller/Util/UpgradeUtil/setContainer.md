@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UpgradeUtil::setContainer](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L73-L76)
+See the source code for method [UpgradeUtil::setContainer](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L71-L74)
 
 
 See Also

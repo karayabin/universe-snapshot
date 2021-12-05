@@ -32,8 +32,7 @@ admin:
                 text: Permission
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudPermissionController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudPermissionController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []
@@ -44,8 +43,7 @@ admin:
                 text: Permission group
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudPermissionGroupController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudPermissionGroupController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []
@@ -56,8 +54,7 @@ admin:
                 text: Permission group/Permission
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudPermissionGroupHasPermissionController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudPermissionGroupHasPermissionController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []
@@ -68,8 +65,7 @@ admin:
                 text: Plugin option
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudPluginOptionController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudPluginOptionController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []
@@ -80,8 +76,7 @@ admin:
                 text: User
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudUserController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []
@@ -92,8 +87,7 @@ admin:
                 text: User group
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudUserGroupController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserGroupController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []
@@ -104,8 +98,7 @@ admin:
                 text: User group/Plugin option
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudUserGroupHasPluginOptionController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserGroupHasPluginOptionController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []
@@ -116,8 +109,7 @@ admin:
                 text: User/Permission group
                 route: lch_route-hub
                 route_url_params:
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudUserHasPermissionGroupController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserHasPermissionGroupController->render
 
                 _right: Ling.Light_Kit_Admin.admin
                 children: []

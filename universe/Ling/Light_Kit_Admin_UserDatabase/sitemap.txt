@@ -39,6 +39,7 @@ https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Li
 https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/ControllerHub/Generated/LightKitAdminUserDatabaseControllerHubHandler.md
 https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/ControllerHub/LightKitAdminUserDatabaseControllerHubHandler/handle.md
 https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/ControllerHub/LightKitAdminUserDatabaseControllerHubHandler.md
+https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Exception/LightKitAdminUserDatabaseException.md
 https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/LightKitAdminPlugin/Generated/LightKitAdminUserDatabaseLkaPlugin.md
 https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/LightKitAdminPlugin/LightKitAdminUserDatabaseLkaPlugin.md
 https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_ControllerHub/Generated/LightKitAdminUserDatabaseControllerHubHandler/handle.md

@@ -67,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [InstallInit1Command::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit1Command.php#L45-L49)
+See the source code for method [InstallInit1Command::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit1Command.php#L38-L42)
 
 
 See Also

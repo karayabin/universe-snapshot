@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::__construct](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L86-L89)
+See the source code for method [MysqlWizard::__construct](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L96-L99)
 
 
 See Also

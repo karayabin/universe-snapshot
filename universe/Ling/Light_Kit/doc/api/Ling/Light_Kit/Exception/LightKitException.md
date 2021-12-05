@@ -4,7 +4,7 @@
 
 The LightKitException class
 ================
-2019-04-25 --> 2021-05-31
+2019-04-25 --> 2021-07-08
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Kit\Exception\LightKitException](https://gith
 
 SeeAlso
 ==============
-Previous class: [LightKitCssFileGenerator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator.md)<br>Next class: [WidgetVariablesHelper](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Helper/WidgetVariablesHelper.md)<br>
+Previous class: [LightKitCssFileGenerator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator.md)<br>Next class: [LightKitControllerHelper](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Helper/LightKitControllerHelper.md)<br>

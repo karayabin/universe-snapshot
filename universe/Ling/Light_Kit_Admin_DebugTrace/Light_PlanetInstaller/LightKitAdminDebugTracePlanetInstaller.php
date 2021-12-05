@@ -20,7 +20,7 @@ class LightKitAdminDebugTracePlanetInstaller extends LightBasePlanetInstaller im
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $planetDotName = "Ling.Light_Kit_Admin_DebugTrace";
         //--------------------------------------------
@@ -37,7 +37,7 @@ class LightKitAdminDebugTracePlanetInstaller extends LightBasePlanetInstaller im
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $planetDotName = "Ling.Light_Kit_Admin_DebugTrace";
         //--------------------------------------------

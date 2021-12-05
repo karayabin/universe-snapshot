@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerService::error](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L123-L126)
+See the source code for method [LightPlanetInstallerService::error](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Service/LightPlanetInstallerService.php#L122-L125)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_LingStandardService
 ===========
-2020-07-28 -> 2021-03-05
+2020-07-28 -> 2021-06-28
 
 
 
@@ -44,6 +44,11 @@ Summary
 History Log
 =============
 
+- 1.6.14 -- 2021-06-28
+
+    - fix api wrong reference to Ling.Light_Logger
+    - removed dependency to Ling.Light_PluginInstaller
+  
 - 1.6.13 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

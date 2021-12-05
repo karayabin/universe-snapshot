@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function getResourcesKey2Value(string $key, string $value, $where, array $markers = [])
     {

@@ -1,0 +1,11 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - CliTools
+        - Light_JimToolbox
+        - Light_Kit_DebugTrace
+        - Light_PlanetInstaller
+    
+
+post_install: 
+    map: true

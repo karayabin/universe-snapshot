@@ -16,13 +16,17 @@ Description
 ================
 
 
-public static [SimplePdoWrapper::addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addWhereSubStmt.md)(&$stmt, array &$markers, $whereConds) : void
+public static [SimplePdoWrapper::addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addWhereSubStmt.md)(&$stmt, array &$markers, $whereConds, ?array $options = []) : void
 
 
 
 
 Adds the $whereConds to the given statement ($stmt), using the notation
 defined in the comments of the SimplePdoWrapperInterface->update method.
+
+Available options are:
+- whereKeyword: string=WHERE. Which keyword to use as where.
+        If your query already contains the "where" keyword, you might set this to "AND" for instance (or "OR").
 
 
 
@@ -40,6 +44,10 @@ Parameters
     
 
 - whereConds
+
+    
+
+- options
 
     
 
@@ -63,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L432-L468)
+See the source code for method [SimplePdoWrapper::addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L437-L479)
 
 
 See Also

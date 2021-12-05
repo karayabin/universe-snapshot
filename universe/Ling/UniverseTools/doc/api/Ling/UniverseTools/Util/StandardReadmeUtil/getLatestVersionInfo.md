@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [StandardReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getLatestVersionInfo.md)(string $readMeFile, ?array &$errors = []) : array | false
+public [StandardReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getLatestVersionInfo.md)(string $readMeFile, ?array &$errors = [], ?array $options = []) : array | false
 
 
 
@@ -30,9 +30,18 @@ In case of success, the array has the following structure:
 
 - 0: version
 - 1: text
+- 2: isDoubleDash (bool)
 
 
 Errors, if any, are put in the errors array.
+
+
+Available options are:
+
+- considerDoubleDash: bool=false, if true, the first version found might be a double dash. If false (by default),
+     the first version found can never be a double dash version.
+
+Note: double dash is a convention I use to indicate that the planet needs to be committed (like a todo hint).
 
 
 
@@ -46,6 +55,10 @@ Parameters
     
 
 - errors
+
+    
+
+- options
 
     
 
@@ -64,7 +77,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L61-L113)
+See the source code for method [StandardReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L71-L134)
 
 
 See Also

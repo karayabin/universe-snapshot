@@ -4,7 +4,7 @@
 
 The LpiHelper class
 ================
-2020-12-08 --> 2021-05-31
+2020-12-08 --> 2021-07-08
 
 
 
@@ -25,6 +25,7 @@ Class synopsis
 class <span class="pl-k">LpiHelper</span>  {
 
 - Methods
+    - public static [getAppId](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getAppId.md)() : string
     - public static [getSelfTmpDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getSelfTmpDir.md)() : string
     - public static [getSessionDirsPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getSessionDirsPath.md)() : string
     - public static [getUniverseMapsDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getUniverseMapsDir.md)(string $appDir) : string
@@ -41,6 +42,7 @@ class <span class="pl-k">LpiHelper</span>  {
 Methods
 ==============
 
+- [LpiHelper::getAppId](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getAppId.md) &ndash; Returns the app id used by this planet.
 - [LpiHelper::getSelfTmpDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getSelfTmpDir.md) &ndash; Returns a temporary directory used internally by this planet.
 - [LpiHelper::getSessionDirsPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getSessionDirsPath.md) &ndash; Returns the location of the "session dirs" directory.
 - [LpiHelper::getUniverseMapsDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiHelper/getUniverseMapsDir.md) &ndash; Returns the path to the universe maps directory.

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::getRic](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getRic.md)($table) : array | false
+public [MysqlWizard::getRic](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getRic.md)($fullTable) : array | false
 
 
 
@@ -31,7 +31,7 @@ Parameters
 ================
 
 
-- table
+- fullTable
 
     
 
@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getRic](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L434-L442)
+See the source code for method [MysqlWizard::getRic](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L579-L587)
 
 
 See Also

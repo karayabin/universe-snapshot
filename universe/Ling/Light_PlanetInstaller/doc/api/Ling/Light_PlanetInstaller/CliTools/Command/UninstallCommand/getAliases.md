@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UninstallCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L105-L113)
+See the source code for method [UninstallCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L103-L111)
 
 
 See Also

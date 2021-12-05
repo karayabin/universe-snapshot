@@ -6,6 +6,7 @@ dependencies:
         - DirScanner
         - Light
         - Light_Logger
+        - Light_PlanetInstaller
         - SectionComment
         - UniverseTools
     

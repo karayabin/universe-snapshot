@@ -4,7 +4,7 @@
 
 The Light_TablePrefixInfoDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_TablePrefixInfo\Light_Ta
 
 SeeAlso
 ==============
-Previous class: [Light_SpinKitHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SpinKitHelper/Light_SpinKitHelperDocBuilder.md)<br>Next class: [Light_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder.md)<br>
+Previous class: [Light_StripeToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_StripeTools/Light_StripeToolsDocBuilder.md)<br>Next class: [Light_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder.md)<br>

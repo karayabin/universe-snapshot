@@ -6,7 +6,7 @@ rendering:
     related_links: 
         - 
             text: "See the list of \"Resource file\" items"
-            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserData, controller: Generated/LudaResourceFileController}))::
+            url: ::(@reverse_router->getUrl(lch_route-hub, {execute: Ling\Light_Kit_Admin_UserData\Controller\Generated\LudaResourceFileController->render}))::
             icon: fas fa-plus-circle
         
     

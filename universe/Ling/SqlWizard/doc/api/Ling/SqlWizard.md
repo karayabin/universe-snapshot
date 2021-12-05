@@ -1,6 +1,6 @@
 Ling/SqlWizard
 ================
-2019-07-23 --> 2021-05-31
+2019-07-23 --> 2021-07-06
 
 
 
@@ -15,9 +15,11 @@ Table of contents
     - [MysqlWizard::setConnection](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/setConnection.md) &ndash; Sets the connection instance (a php \PDO instance).
     - [MysqlWizard::getDatabases](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getDatabases.md) &ndash; Returns the list of database names in alphabetical order.
     - [MysqlWizard::getTables](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getTables.md) &ndash; Returns the list of table names in alphabetical order for the given database.
+    - [MysqlWizard::count](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/count.md) &ndash; Returns the number of rows in the given table.
     - [MysqlWizard::getAutoIncrementedField](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getAutoIncrementedField.md) &ndash; Returns the name of the auto-incremented field, or false if there is none.
     - [MysqlWizard::getColumnDataTypes](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnDataTypes.md) &ndash; Returns an array of column_name => column_data_type.
     - [MysqlWizard::getColumnDefaultValues](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnDefaultValues.md) &ndash; Returns an array of column_name => default_value.
+    - [MysqlWizard::getColumnDefaultApiValues](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnDefaultApiValues.md) &ndash; Returns some default "api" values for the given $table.
     - [MysqlWizard::getColumnNames](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNames.md) &ndash; Returns the list of column names for the given $table.
     - [MysqlWizard::getColumnNullabilities](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNullabilities.md) &ndash; Returns an array of column_name => is_nullable.
     - [MysqlWizard::getUniqueIndexes](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getUniqueIndexes.md) &ndash; Returns an array of index_name => indexes.
@@ -25,6 +27,8 @@ Table of contents
     - [MysqlWizard::getPrimaryKey](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getPrimaryKey.md) &ndash; Returns the primary key of the given $table.
     - [MysqlWizard::getRic](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getRic.md) &ndash; Returns the ric for the given $table.
     - [MysqlWizard::getReferencedKeysInfo](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getReferencedKeysInfo.md) &ndash; Return an array of entries referencing the given $table.
+- [FullTableHelper](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/FullTableHelper.md) &ndash; The FullTableHelper class.
+    - [FullTableHelper::explodeTable](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/FullTableHelper/explodeTable.md) &ndash; Returns an array containing the db and the table extracted from the given full table.
 - [MysqlSerializeTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlSerializeTool.md) &ndash; The MysqlSerializeTool class.
     - [MysqlSerializeTool::serialize](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlSerializeTool/serialize.md) &ndash; Serializes the $keys found in the given array in place.
     - [MysqlSerializeTool::unserialize](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlSerializeTool/unserialize.md) &ndash; Un-serializes the $keys found in the given array in place.
@@ -51,6 +55,7 @@ Table of contents
 
 Dependencies
 ============
+- [Bat](https://github.com/lingtalfi/Bat)
 - [JumboExploder](https://github.com/lingtalfi/JumboExploder)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 

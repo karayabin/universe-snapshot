@@ -1,6 +1,6 @@
 CliTools
 ===========
-2019-02-22 -> 2021-05-25
+2019-02-22 -> 2021-07-08
 
 
 
@@ -78,6 +78,10 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
 
+- 1.10.30 -- 2021-07-08
+
+    - add QuestionHelper::askSelectListItem method
+  
 - 1.10.29 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

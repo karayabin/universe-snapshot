@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function getTagsByResourceId(string $resourceId): array
     {

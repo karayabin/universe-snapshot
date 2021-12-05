@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserPreferences
 ===========
-2020-08-13 -> 2021-05-31
+2020-08-13 -> 2021-06-18
 
 
 
@@ -85,31 +85,6 @@ kit_admin_user_preferences:
             container: @container()
         
     
-
-# --------------------------------------
-# hooks
-# --------------------------------------   
-$micro_permission.methods_collection: 
-    - 
-        method: registerMicroPermissionsByProfile
-        args: 
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserPreferences/Ling.Light_MicroPermission/kit_admin_user_preferences.profile.generated.byml
-        
-    
-
-$kit_admin.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            pluginName: Light_Kit_Admin_UserPreferences
-            plugin: 
-                instance: Ling\Light_Kit_Admin_UserPreferences\LightKitAdminPlugin\Generated\LightKitAdminUserPreferencesLkaPlugin
-                methods: 
-                    setOptionsFile: 
-                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_UserPreferences/Ling.Light_Kit_Admin/lka-options.generated.byml
-                    
-                
-            
         
     
     
@@ -120,6 +95,22 @@ $kit_admin.methods_collection:
 History Log
 =============
 
+- 1.2.18 -- 2021-06-18
+
+    - Update api to work with Ling.Light_Kit_Admin:0.13.3
+
+- 1.2.17 -- 2021-06-18
+
+    - update api to work with Ling.Light_Kit_Admin:0.13.0
+  
+- 1.2.16 -- 2021-06-17
+
+    - checkpoint commit
+
+- 1.2.15 -- 2021-06-17
+
+    - switch to micro-permission open registration system
+  
 - 1.2.14 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

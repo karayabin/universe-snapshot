@@ -1,6 +1,6 @@
 Ling/Light
 ================
-2019-04-09 --> 2021-05-31
+2019-04-09 --> 2021-07-30
 
 
 
@@ -24,10 +24,12 @@ Table of contents
     - [Light::getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getHttpRequest.md) &ndash; Returns the httpRequest of this instance.
     - [Light::setHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setHttpRequest.md) &ndash; Sets the httpRequest.
     - [Light::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getMatchingRoute.md) &ndash; Returns the matching route array, or false if no route matched.
+    - [Light::setMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setMatchingRoute.md) &ndash; Sets the matchingRoute.
     - [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md) &ndash; Registers a route item, as defined in [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
     - [Light::get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/get.md) &ndash; An alias for the registerRoute method.
     - [Light::initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md) &ndash; Triggers the initialize phase if set in the service container.
     - [Light::run](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md) &ndash; Runs the Light web application.
+    - [Light::logError](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/logError.md) &ndash; Sends a log message to the logger service's error channel.
 - [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md) &ndash; The LightAwareInterface interface.
     - [LightAwareInterface::setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface/setLight.md) &ndash; Sets the light instance.
 - [LightEvent](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Events/LightEvent.md) &ndash; The LightEvent class.
@@ -49,6 +51,7 @@ Table of contents
     - [ConfigurationHelper::getCombinedConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md) &ndash; Returns the merged configuration of all [BabyYaml](https://github.com/lingtalfi/BabyYaml) configuration files found in the given directory.
 - [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md) &ndash; The ControllerHelper class.
     - [ControllerHelper::executeController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/executeController.md) &ndash; Executes the given controller and returns the appropriate response.
+    - [ControllerHelper::executeControllerByRouteName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/executeControllerByRouteName.md) &ndash; Executes the controller corresponding to the given route, if found, and returns the returned response.
     - [ControllerHelper::resolveController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/resolveController.md) &ndash; controller can be extracted out of the given value.
     - [ControllerHelper::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/getControllerArgs.md) &ndash; Returns the controller arguments for the given controller and light instance.
     - [ControllerHelper::getControllerArgsInfo](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/getControllerArgsInfo.md) &ndash; Returns an array of controller args corresponding to the given controller.
@@ -61,6 +64,11 @@ Table of contents
 - [LightNamesAndPathHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper.md) &ndash; The LightNamesAndPathHelper class.
     - [LightNamesAndPathHelper::getServiceName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper/getServiceName.md) &ndash; Returns the service name, based on the given planet name.
     - [LightNamesAndPathHelper::getSymbolicPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper/getSymbolicPath.md) &ndash; Returns a symbolic path, where the given absolute path to the application directory is replaced by the symbol [app].
+- [LightServiceHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightServiceHelper.md) &ndash; The LightServiceHelper class.
+    - [LightServiceHelper::getServiceStatusByPlanetDotName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightServiceHelper/getServiceStatusByPlanetDotName.md) &ndash; Returns the status of a service for a given app and planetDotName.
+    - [LightServiceHelper::getServiceFileByPlanetDotName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightServiceHelper/getServiceFileByPlanetDotName.md) &ndash; Returns the service file for a given planet.
+    - [LightServiceHelper::disableServiceByPlanetDotName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightServiceHelper/disableServiceByPlanetDotName.md) &ndash; Disables the service file for the given planet, and returns an int.
+    - [LightServiceHelper::enableServiceByPlanetDotName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightServiceHelper/enableServiceByPlanetDotName.md) &ndash; Enables the service file for the given planet, and returns an int.
 - [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md) &ndash; The ServiceContainerHelper class.
     - [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md) &ndash; Returns an instance of a service container according to the given options.
 - [ZFileHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper.md) &ndash; The ZFileHelper class.
@@ -122,7 +130,7 @@ Table of contents
     - [HttpRequest::getMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getMethod.md) &ndash; Returns the http method used for the request, in lower case.
     - [HttpRequest::getUri](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getUri.md) &ndash; Returns the uri of the http request.
     - [HttpRequest::getUriPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getUriPath.md) &ndash; Returns the uriPath of the http request.
-    - [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getQueryString.md) &ndash; Returns the queryString of the http request.
+    - [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getQueryString.md) &ndash; Returns the url-decoded version of the queryString of the http request.
     - [HttpRequest::getQueryArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getQueryArgs.md) &ndash; Returns the array version of the query string of the http request.
     - [HttpRequest::getTime](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getTime.md) &ndash; The time when the http request was created.
     - [HttpRequest::getHost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHost.md) &ndash; Returns the host of the http request.
@@ -144,7 +152,7 @@ Table of contents
     - [HttpRequestInterface::getMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getMethod.md) &ndash; Returns the http method used for the request, in lower case.
     - [HttpRequestInterface::getUri](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getUri.md) &ndash; Returns the uri of the http request.
     - [HttpRequestInterface::getUriPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getUriPath.md) &ndash; Returns the uriPath of the http request.
-    - [HttpRequestInterface::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getQueryString.md) &ndash; Returns the queryString of the http request.
+    - [HttpRequestInterface::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getQueryString.md) &ndash; Returns the url-decoded version of the queryString of the http request.
     - [HttpRequestInterface::getQueryArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getQueryArgs.md) &ndash; Returns the array version of the query string of the http request.
     - [HttpRequestInterface::getTime](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getTime.md) &ndash; The time when the http request was created.
     - [HttpRequestInterface::getHost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHost.md) &ndash; Returns the host of the http request.
@@ -193,7 +201,7 @@ Table of contents
     - [VoidHttpRequest::getMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getMethod.md) &ndash; Returns the http method used for the request, in lower case.
     - [VoidHttpRequest::getUri](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getUri.md) &ndash; Returns the uri of the http request.
     - [VoidHttpRequest::getUriPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getUriPath.md) &ndash; Returns the uriPath of the http request.
-    - [VoidHttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getQueryString.md) &ndash; Returns the queryString of the http request.
+    - [VoidHttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getQueryString.md) &ndash; Returns the url-decoded version of the queryString of the http request.
     - [VoidHttpRequest::getQueryArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getQueryArgs.md) &ndash; Returns the array version of the query string of the http request.
     - [VoidHttpRequest::getTime](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getTime.md) &ndash; The time when the http request was created.
     - [VoidHttpRequest::getHost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getHost.md) &ndash; Returns the host of the http request.
@@ -317,9 +325,9 @@ Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
-- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
+- [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 - [Octopus](https://github.com/lingtalfi/Octopus)
 - [ParenthesisMirrorParser](https://github.com/lingtalfi/ParenthesisMirrorParser)
 - [PhpUploadFileFix](https://github.com/lingtalfi/PhpUploadFileFix)

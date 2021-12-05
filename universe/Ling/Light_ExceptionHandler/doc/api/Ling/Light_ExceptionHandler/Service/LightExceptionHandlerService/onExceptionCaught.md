@@ -64,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightExceptionHandlerService::onExceptionCaught](https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/Service/LightExceptionHandlerService.php#L33-L44)
+See the source code for method [LightExceptionHandlerService::onExceptionCaught](https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/Service/LightExceptionHandlerService.php#L32-L43)
 
 
 See Also

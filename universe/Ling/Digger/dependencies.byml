@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - UniverseTools
+    
+
+post_install: []

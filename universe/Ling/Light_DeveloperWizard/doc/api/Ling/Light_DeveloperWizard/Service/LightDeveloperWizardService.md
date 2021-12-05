@@ -4,7 +4,7 @@
 
 The LightDeveloperWizardService class
 ================
-2020-06-30 --> 2021-05-31
+2020-06-30 --> 2021-08-17
 
 
 
@@ -96,4 +96,4 @@ See the source code of [Ling\Light_DeveloperWizard\Service\LightDeveloperWizardS
 
 SeeAlso
 ==============
-Previous class: [DeveloperWizardLkaHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLkaHelper.md)<br>Next class: [DeveloperWizardFileTool](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Tool/DeveloperWizardFileTool.md)<br>
+Previous class: [LightDeveloperWizardHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/LightDeveloperWizardHelper.md)<br>Next class: [DeveloperWizardFileTool](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Tool/DeveloperWizardFileTool.md)<br>

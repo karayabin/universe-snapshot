@@ -4,7 +4,7 @@
 
 The DeployDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Deploy\DeployDocBuilder](https
 
 SeeAlso
 ==============
-Previous class: [CyclicChainDetectorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CyclicChainDetector/CyclicChainDetectorDocBuilder.md)<br>Next class: [DirScannerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DirScanner/DirScannerDocBuilder.md)<br>
+Previous class: [CyclicChainDetectorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CyclicChainDetector/CyclicChainDetectorDocBuilder.md)<br>Next class: [DiggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Digger/DiggerDocBuilder.md)<br>

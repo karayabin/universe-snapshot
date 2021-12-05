@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Light::run](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L376-L546)
+See the source code for method [Light::run](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L414-L583)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) class.
 
-Previous method: [initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md)<br>Next method: [renderDebugPage](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md)<br>
+Previous method: [initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md)<br>Next method: [logError](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/logError.md)<br>
 

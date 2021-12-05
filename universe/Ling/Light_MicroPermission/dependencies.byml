@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - BabyYaml
+        - Bat
         - Light
         - Light_User
         - Light_UserManager

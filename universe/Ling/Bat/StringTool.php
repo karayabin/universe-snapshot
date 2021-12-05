@@ -62,6 +62,46 @@ class StringTool
 
 
     /**
+     * Returns the number of capitals in the given string.
+     *
+     * https://stackoverflow.com/questions/1557975/simplest-shortest-way-to-count-capital-letters-in-a-string-with-php
+     *
+     *
+     * @param string $s
+     * @return int
+     */
+    public static function countCapitals(string $s): int
+    {
+        return mb_strlen(preg_replace('![^A-Z]+!', '', $s));
+    }
+
+
+    /**
+     * Returns a subset of the given string, which doesn't cut a word in half, and which length is the closest to the given maxNbChars without being higher.
+     *
+     * In addition to that, the ending string is added only if the str length is greater than the given maxNbChars limit.
+     *
+     * The "more" flag is raised to true if that's the case.
+     *
+     * The given string preferably shouldn't contain any PHP_EOL chars.
+     *
+     * @param string $str
+     * @param int $maxNbChars
+     * @return string
+     */
+    public static function cutAtWordBoundary(string $str, int $maxNbChars = 250, string $ending = "...", bool &$more = false): string
+    {
+        $s = wordwrap(str_replace(PHP_EOL, ' ', $str), $maxNbChars, PHP_EOL);
+
+        $ret = explode(PHP_EOL, $s, 2)[0];
+        if (mb_strlen($str) > $maxNbChars) {
+            $ret .= $ending;
+            $more = true;
+        }
+        return $ret;
+    }
+
+    /**
      * Take a string, and return an array containing two entries:
      *
      * - the string without the numerical suffix
@@ -140,6 +180,23 @@ class StringTool
             }
         }
         return $identifier;
+    }
+
+
+    /**
+     * Returns a symbolic path, where the given absolute path to the application directory is replaced by the symbol [app].
+     *
+     * @param string $path
+     * @param string $appDir
+     * @return string
+     */
+    public static function getSymbolicPath(string $path, string $appDir): string
+    {
+        $p = explode($appDir, $path, 2);
+        if (2 === count($p)) {
+            return '[app]' . array_pop($p);
+        }
+        return $path;
     }
 
 

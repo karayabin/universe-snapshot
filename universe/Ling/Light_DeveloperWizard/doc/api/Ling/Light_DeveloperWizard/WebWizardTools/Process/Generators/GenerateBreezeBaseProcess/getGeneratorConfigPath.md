@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [GenerateBreezeBaseProcess::getGeneratorConfigPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeBaseProcess.php#L105-L122)
+See the source code for method [GenerateBreezeBaseProcess::getGeneratorConfigPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeBaseProcess.php#L110-L127)
 
 
 See Also

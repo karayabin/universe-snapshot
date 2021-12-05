@@ -50,7 +50,7 @@ Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/d
 
 Source Code
 ===========
-See the source code for method [LightKitAdminController::checkRight](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L222-L247)
+See the source code for method [LightKitAdminController::checkRight](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L224-L249)
 
 
 See Also

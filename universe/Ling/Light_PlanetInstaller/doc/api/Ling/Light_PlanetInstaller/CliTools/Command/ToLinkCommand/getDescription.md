@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ToLinkCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToLinkCommand.php#L97-L104)
+See the source code for method [ToLinkCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToLinkCommand.php#L93-L100)
 
 
 See Also

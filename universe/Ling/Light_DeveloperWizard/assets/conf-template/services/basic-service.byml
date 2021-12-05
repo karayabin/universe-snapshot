@@ -4,8 +4,10 @@ task_xxx:
         setContainer:
             container: @container()
         setOptions:
-            options: []
+            options: ${task_xxx_vars.service_options}
 
 
+task_xxx_vars:
+    service_options: []
 
 

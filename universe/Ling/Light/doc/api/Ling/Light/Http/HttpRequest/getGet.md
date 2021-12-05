@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getGet](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L318-L321)
+See the source code for method [HttpRequest::getGet](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L326-L329)
 
 
 See Also

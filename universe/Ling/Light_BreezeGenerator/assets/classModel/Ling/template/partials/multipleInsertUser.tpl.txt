@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function insertPermissions(array $permissions, bool $ignoreDuplicate = true, bool $returnRic = false)
     {

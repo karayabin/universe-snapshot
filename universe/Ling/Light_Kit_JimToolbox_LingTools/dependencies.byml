@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - CliTools
+        - Light_EasyRoute
+        - Light_JimToolbox
+        - Light_PlanetInstaller
+    
+
+post_install: 
+    map: true

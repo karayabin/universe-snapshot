@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CreateServiceProcess::createBasicConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/CreateServiceProcess.php#L156-L192)
+See the source code for method [CreateServiceProcess::createBasicConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/CreateServiceProcess.php#L118-L154)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [CreateServiceProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess.md) class.
 
-Previous method: [createExceptionClass](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess/createExceptionClass.md)<br>
+Previous method: [doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/ServiceClass/CreateServiceProcess/doExecute.md)<br>
 

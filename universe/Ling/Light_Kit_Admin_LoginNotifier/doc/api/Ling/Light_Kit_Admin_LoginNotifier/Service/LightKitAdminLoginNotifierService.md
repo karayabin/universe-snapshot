@@ -4,7 +4,7 @@
 
 The LightKitAdminLoginNotifierService class
 ================
-2020-11-30 --> 2021-05-31
+2020-11-30 --> 2021-06-18
 
 
 
@@ -60,4 +60,4 @@ See the source code of [Ling\Light_Kit_Admin_LoginNotifier\Service\LightKitAdmin
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminLoginNotifierPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/doc/api/Ling/Light_Kit_Admin_LoginNotifier/Light_PluginInstaller/LightKitAdminLoginNotifierPluginInstaller.md)<br>
+Previous class: [LightKitAdminLoginNotifierPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/doc/api/Ling/Light_Kit_Admin_LoginNotifier/Light_PlanetInstaller/LightKitAdminLoginNotifierPlanetInstaller.md)<br>

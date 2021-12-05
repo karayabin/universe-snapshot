@@ -8,7 +8,7 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\BDotTool;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 
 /**
  * The LightEndRoutineDebuggerHandler class.

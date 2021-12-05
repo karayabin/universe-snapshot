@@ -1,0 +1,87 @@
+_vars: 
+    nuggetId: Ling.Light_Kit_Admin_Kit_Editor:generated/lke_page
+
+rendering: 
+    title: Page form
+    related_links: 
+        - 
+            text: "See the list of \"Page\" items"
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: Ling/Light_Kit_Admin_Kit_Editor, controller: Generated/LkePageController}))::
+            icon: fas fa-plus-circle
+        
+    
+
+ric: 
+    - id
+
+feeder: null
+storage_id: lke_page
+success_messages: 
+    create: The item has been successfully stored in the database
+    update: The item has been successfully updated in the database, with ric {sRic}
+
+security: []
+chloroform: 
+    id: realgen-lke_page
+    fields: 
+        identifier: 
+            label: Identifier
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        label: 
+            label: Label
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        layout: 
+            label: Layout
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        layout_vars: 
+            label: Layout vars
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        title: 
+            label: Title
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        description: 
+            label: Description
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        bodyclass: 
+            label: Bodyclass
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+    
+
+success_handler: 
+#    class: defaultDbHandler
+    len: @kit_admin->getKitEditorRealformSuccessHandler(babyYaml)

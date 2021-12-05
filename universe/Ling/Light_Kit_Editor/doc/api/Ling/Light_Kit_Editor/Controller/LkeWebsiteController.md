@@ -4,7 +4,7 @@
 
 The LkeWebsiteController class
 ================
-2021-03-01 --> 2021-05-31
+2021-03-01 --> 2021-08-03
 
 
 
@@ -37,6 +37,7 @@ class <span class="pl-k">LkeWebsiteController</span> extends [LightController](h
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
     - protected LightController::hasService(string $serviceName) : bool
+    - protected LightController::logError($msg) : void
 
 }
 
@@ -55,6 +56,7 @@ Methods
 - LightController::getContainer &ndash; Returns the service container.
 - LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
 - LightController::hasService &ndash; Returns whether the container contains the service which name is given.
+- LightController::logError &ndash; Sends a log message to the logger service's error channel.
 
 
 

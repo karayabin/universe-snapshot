@@ -2,8 +2,10 @@ dependencies:
     Ling: 
         - BabyYaml
         - Bat
+        - CliTools
         - Light
         - Light_Logger
+        - Light_PlanetInstaller
     
 
 post_install: 

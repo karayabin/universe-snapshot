@@ -4,7 +4,7 @@
 
 The HtmlPageCopilot class
 ================
-2019-04-24 --> 2021-05-31
+2019-04-24 --> 2021-08-17
 
 
 
@@ -56,6 +56,7 @@ class <span class="pl-k">HtmlPageCopilot</span>  {
     - public [registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/registerLibrary.md)(string $name, ?array $js = [], ?array $css = [], ?array $options = []) : void
     - public [getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssUrls.md)() : array
     - public [getJsUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsUrls.md)() : array
+    - public [getJsModulesUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsModulesUrls.md)() : array
     - public [addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsCodeBlock.md)(string $codeBlock) : void
     - public [addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md)(string $codeBlock) : void
     - public [getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsCodeBlocks.md)() : array
@@ -104,8 +105,9 @@ Properties
     
     It's an array of libraryName => assetsItem.
     Each assetsItem is an array of:
-    - 0: array of js urls
+    - 0: array of regular js files urls
     - 1: array of css urls
+    - 0: array of js modules urls
     
     
 
@@ -167,6 +169,7 @@ Methods
 - [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/registerLibrary.md) &ndash; Registers an asset library.
 - [HtmlPageCopilot::getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssUrls.md) &ndash; Returns all the css urls collected.
 - [HtmlPageCopilot::getJsUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsUrls.md) &ndash; Returns all the js urls collected.
+- [HtmlPageCopilot::getJsModulesUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsModulesUrls.md) &ndash; Returns all the js modules urls collected.
 - [HtmlPageCopilot::addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsCodeBlock.md) &ndash; Adds a js code block to this instance.
 - [HtmlPageCopilot::addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md) &ndash; Adds a css code block to this instance.
 - [HtmlPageCopilot::getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsCodeBlocks.md) &ndash; Returns the jsCodeBlocks of this instance.

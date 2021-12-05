@@ -4,7 +4,7 @@
 
 The BaseLightKitAdminPlugin class
 ================
-2019-05-17 --> 2021-05-31
+2019-05-17 --> 2021-07-30
 
 
 
@@ -69,4 +69,4 @@ See the source code of [Ling\Light_Kit_Admin\LightKitAdminPlugin\BaseLightKitAdm
 
 SeeAlso
 ==============
-Previous class: [JimToolboxItemHandlerInterface](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemHandlerInterface.md)<br>Next class: [LightKitAdminPluginInterface](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md)<br>
+Previous class: [LightKitAdminWiseHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminWiseHelper.md)<br>Next class: [LightKitAdminPluginInterface](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md)<br>

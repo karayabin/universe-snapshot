@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [VoidHttpRequest::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getCookieValue.md)(string $key, ?bool $throwEx = true) : mixed
+public [VoidHttpRequest::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest/getCookieValue.md)(string $key, ?bool $throwEx = false) : mixed
 
 
 

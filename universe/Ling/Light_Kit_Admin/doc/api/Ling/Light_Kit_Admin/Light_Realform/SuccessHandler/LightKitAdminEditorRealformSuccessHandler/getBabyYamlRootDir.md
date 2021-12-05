@@ -48,7 +48,7 @@ Returns [?string](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/a
 
 Source Code
 ===========
-See the source code for method [LightKitAdminEditorRealformSuccessHandler::getBabyYamlRootDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler.php#L27-L30)
+See the source code for method [LightKitAdminEditorRealformSuccessHandler::getBabyYamlRootDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler.php#L28-L31)
 
 
 See Also

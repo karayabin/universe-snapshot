@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ExploreConflictsCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L74-L81)
+See the source code for method [ExploreConflictsCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L73-L80)
 
 
 See Also

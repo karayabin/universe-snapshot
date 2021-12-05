@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_DeveloperWizardDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_DeveloperWizard/Light_DeveloperWizardDocBuilder.php#L45-L239)
+See the source code for method [Light_DeveloperWizardDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_DeveloperWizard/Light_DeveloperWizardDocBuilder.php#L45-L249)
 
 
 See Also

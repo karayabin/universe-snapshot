@@ -94,6 +94,18 @@ Available options are:
 - testBuild: bool=false. if true, will import planets into the build dir and stop after that: and the planets won't be imported into the target app.
      This mode can be useful to consult the concrete import map, the theoretical import map, and/or the conflicts, and examine the content of the build dir.
 - showEndTip: bool=true. Whether to display an end tip at the end of the process.
+- sortCim: bool=false. Whether to sort the display of the **concrete import map** alphabetically. By default (false), the **concrete import map**
+     is displayed naturally (i.e. dependencies first, parents last).
+- babyInit: bool=false. Whether to trigger the baby init planet mode.
+
+     In this mode, the planet is not imported, but only the init phases are triggered.
+
+     A baby planet is a planet which is not yet formed. It's not committed. The version is not available, the dependencies are not created yet.
+     Using the baby init mode, we can still trigger the init phases of the planet at an early stage.
+     This option is mainly useful while you're developing a planet and you still want to test its init phases it.
+     Dependencies are always ignored (even if the planet happens to have some).
+
+
 
 
 
@@ -135,7 +147,7 @@ Returns string | false.
 
 Source Code
 ===========
-See the source code for method [ImportUtil::import](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L220-L483)
+See the source code for method [ImportUtil::import](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L240-L540)
 
 
 See Also

@@ -84,7 +84,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabaseService::queryLog](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L100-L167)
+See the source code for method [LightDatabaseService::queryLog](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L99-L166)
 
 
 See Also

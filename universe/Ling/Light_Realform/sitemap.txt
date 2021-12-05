@@ -42,6 +42,9 @@ https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realf
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface/getSuccessHandler.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface/setId.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface.md
+https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Helper/LightRealformConfigurationFileRegistrationHelper/registerConfigurationFileByDirectory.md
+https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Helper/LightRealformConfigurationFileRegistrationHelper/unregisterConfigurationFileByDirectory.md
+https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Helper/LightRealformConfigurationFileRegistrationHelper.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Renderer/RealformRendererInterface.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/__construct.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getChloroform.md

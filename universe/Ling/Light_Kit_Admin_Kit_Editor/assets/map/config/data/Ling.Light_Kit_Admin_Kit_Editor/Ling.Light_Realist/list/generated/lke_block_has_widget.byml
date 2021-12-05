@@ -1,0 +1,284 @@
+_vars: 
+    table: lke_block_has_widget
+    plugin: Light_Kit_Admin_Kit_Editor
+    galaxy: Ling
+
+planetId: %{galaxy}/%{plugin}
+duelist: 
+    table: %{table} bhw
+    ric: 
+        - id
+    
+    base_fields: 
+        - bhw.id
+        - bhw.block_id
+        - bhw.widget_id
+        - bhw.position
+        - concat(bhw.block_id, '. ', b.identifier) as block_id_plus
+        - concat(bhw.widget_id, '. ', w.identifier) as widget_id_plus
+    
+    base_joins: 
+        - inner join lke_block b on bhw.block_id=b.id
+        - inner join lke_widget w on bhw.widget_id=w.id
+    
+    order: 
+        col_order: $column $direction
+    
+    where: 
+        general_search: <
+            bhw.id like :%expression% or
+            concat(bhw.block_id, '. ', b.identifier) like :%expression% or
+            concat(bhw.widget_id, '. ', w.identifier) like :%expression% or
+            bhw.position like :%expression%
+        >
+        generic_filter: $column $operator :operator_value
+        generic_sub_filter: $column like :%operator_value%
+        open_parenthesis: (
+        close_parenthesis: )
+        and: and
+        or: or
+        in_rics: (bhw.id like :id)
+    
+    limit: 
+        page: $page
+        page_length: $page_length
+    
+    options: 
+        wiring: []
+        default_limit_page: 1
+        default_limit_page_length: 20
+        tag_options: 
+            generic_filter: 
+                operator_and_value: 
+                    source: operator
+                    target: operator_value
+                
+            
+        
+    
+
+query_error_show_debug_info: true
+action_handler: 
+    class: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
+    allowed_actions: 
+        - my_action
+    
+
+rendering: 
+    title: Block has widget list
+    list_general_actions: 
+        - 
+            action_id: realist-generate_random_rows
+            text: Generate
+            icon: fas fa-spray-can
+        
+        - 
+            action_id: realist-save_table
+            text: Save table content
+            icon: fas fa-download
+        
+        - 
+            action_id: realist-load_table
+            text: Load table content
+            icon: fas fa-upload
+        
+    
+    list_item_group_actions: 
+        - 
+            action_id: realist-print_rows
+            text: Print
+            icon: fas fa-print
+        
+        - 
+            action_id: realist-delete_rows
+            text: Delete
+            icon: far fa-trash-alt
+        
+        - 
+            action_id: realist-edit_rows
+            text: Edit
+            icon: fas fa-edit
+            realform_id: %{galaxy}.%{plugin}:generated/%{table}
+        
+        - 
+            text: Share
+            icon: fas fa-share-square
+            items: 
+                - 
+                    action_id: realist-rows_to_ods
+                    text: OpenOffice ods
+                    icon: far fa-file-alt
+                
+                - 
+                    action_id: realist-rows_to_xlsx
+                    text: Excel xlsx
+                    icon: far fa-file-excel
+                
+                - 
+                    action_id: realist-rows_to_xls
+                    text: Excel xls
+                    icon: far fa-file-excel
+                
+                - 
+                    action_id: realist-rows_to_html
+                    text: Html
+                    icon: far fa-file-code
+                
+                - 
+                    action_id: realist-rows_to_csv
+                    text: Csv
+                    icon: fas fa-file-csv
+                
+                - 
+                    action_id: realist-rows_to_pdf
+                    text: Pdf
+                    icon: far fa-file-pdf
+                
+            
+        
+    
+    list_renderer: 
+        class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
+    
+    responsive_table_helper: 
+        collapsible_column_indexes: admin
+    
+    open_admin_table: 
+        widget_statuses: 
+            debug_window: true
+            global_search: true
+            advanced_search: true
+            toolbar: true
+            table: true
+            head: true
+            head_sort: true
+            checkbox: true
+            neck_filters: true
+            pagination: true
+            number_of_items_per_page: true
+            number_of_rows_info: true
+        
+        data_types: 
+            id: number
+            block_id: number
+            widget_id: number
+            position: number
+            block_id_plus: string
+            widget_id_plus: string
+            _action: action
+            _checkbox: checkbox
+        
+    
+    properties_to_display: 
+        - _checkbox
+        - id
+        - block_id_plus
+        - widget_id_plus
+        - position
+        - _action
+    
+    property_labels: 
+        id: "#"
+        block_id: Block id
+        widget_id: Widget id
+        position: Position
+        block_id_plus: Block
+        widget_id_plus: Widget
+        _action: Actions
+        _checkbox: Checkbox
+    
+    list_item_renderer: 
+        class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
+        types: 
+            avatar_url: 
+                type: Light_Realist.image
+                width: 100
+            
+            _action: 
+                type: Light_Realist.mixer
+                separator: &nbsp;
+                items: 
+                    - 
+                        type: Light_Realist.hub_link
+                        text: Edit
+                        url_params_add_ric: true
+                        url_params: 
+                            execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeBlockHasWidgetController->render
+                            m: f
+                        
+                        icon: fas fa-edit
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        text: Delete
+                        action_id: realist-delete_rows
+                        include_ric: true
+                        confirmExecute: 
+                            text: Are you sure you want to delete this row?
+                            loader: true
+                        
+                        params: 
+                            table: lke_block_has_widget
+                        
+                        icon: fas fa-trash-alt
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        text: Duplicate row
+                        action_id: realist-duplicate_row
+                        confirmExecute: 
+                            text: Are you sure you want to duplicate this row?
+                            loader: true
+                        
+                        include_ric: true
+                        icon: far fa-copy
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        confirmExecute: 
+                            text: Are you sure you want to duplicate this entity?
+                            loader: true
+                        
+                        text: Duplicate entity
+                        action_id: realist-duplicate_row_deep
+                        include_ric: true
+                        icon: far fa-clone
+                    
+                
+            
+            _checkbox: Light_Realist.checkbox
+            block_id_plus: 
+                type: Light_Realist.hub_link
+                text: null
+                url_params_add_keys: 
+                    id: block_id
+                
+                url_params: 
+                    execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeBlockController->render
+                    m: f
+                
+            
+            widget_id_plus: 
+                type: Light_Realist.hub_link
+                text: null
+                url_params_add_keys: 
+                    id: widget_id
+                
+                url_params: 
+                    execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeWidgetController->render
+                    m: f
+                
+            
+        
+        dynamic: 
+            - _checkbox
+            - _action
+        
+    
+    related_links: 
+        - 
+            text: "Add new \"block has widget\" item"
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeBlockHasWidgetController->render, m:f})
+            icon: fas fa-plus-circle
+        
+    

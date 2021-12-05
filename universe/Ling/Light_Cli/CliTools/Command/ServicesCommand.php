@@ -34,8 +34,10 @@ class ServicesCommand extends LightCliDocCommand
         $this->msg("<b>$nbItems</b> service(s) found:" . PHP_EOL);
         foreach ($services as $service) {
             if (true === $verbose) {
+
                 $instance = $this->container->get($service);
                 $this->msg('- <b>' . $service . '</b>: ' . $instance::class . PHP_EOL);
+
             } else {
                 $this->msg('- <b>' . $service . '</b>' . PHP_EOL);
             }

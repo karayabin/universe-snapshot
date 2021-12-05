@@ -109,7 +109,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightDbSynchronizerService::synchronize](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L187-L351)
+See the source code for method [LightDbSynchronizerService::synchronize](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L187-L352)
 
 
 See Also

@@ -5,7 +5,6 @@ namespace Ling\LingTalfi\Kaos\Command;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
-use Ling\Bat\ClassTool;
 use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\ArrayInput;
@@ -62,10 +61,8 @@ class PushCommand extends KaosGenericCommand
     {
 
 
-
         $prefs = PreferencesTool::getPreferences();
         $docToolExtraLoaders = $prefs['docToolExtraLoaders'] ?? [];
-
 
 
         $indentLevel = $this->application->getBaseIndentLevel();
@@ -87,6 +84,14 @@ class PushCommand extends KaosGenericCommand
 
             list($galaxyName, $planetName) = $pInfo;
 
+
+            $gitDir = $planetDir . "/.git";
+            if (false === is_dir($gitDir)) {
+                $output->write("<error>oops, the .git directory was not found in $gitDir</error>" . PHP_EOL);
+                return;
+            }
+
+
             H::info(H::i($indentLevel) . "Pushing planet <blue>$galaxyName/$planetName</blue> ($planetDir):" . PHP_EOL, $output);
             H::info(H::i($indentLevel + 1) . "Scanning <b>README.md</b> file:" . PHP_EOL, $output);
 
@@ -99,6 +104,8 @@ class PushCommand extends KaosGenericCommand
             if (file_exists($kaosOptionsFile)) {
                 $kaosOptions = BabyYamlUtil::readFile($kaosOptionsFile);
             }
+
+            $hostingAppDir = $kaosOptions['hosting_app'] ?? null;
 
             //--------------------------------------------
             // SCANNING README.MD
@@ -153,9 +160,14 @@ class PushCommand extends KaosGenericCommand
                     /**
                      * More about universe assets: https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md
                      */
-                    if (null !== $applicationDir) {
+                    if (null !== $hostingAppDir || null !== $applicationDir) {
+
+
+                        // using hosting app dir first if defined
+                        $_appDir = $hostingAppDir ?? $applicationDir;
+
                         $relPath = "www/libs/universe/$galaxyName/$planetName";
-                        $applicationPlanetWebAssetsDir = $applicationDir . "/$relPath";
+                        $applicationPlanetWebAssetsDir = $_appDir . "/$relPath";
                         if (is_dir($applicationPlanetWebAssetsDir)) {
                             $dst = $mapDir . "/" . $relPath;
 
@@ -235,17 +247,19 @@ class PushCommand extends KaosGenericCommand
                                     if (array_key_exists('map', $postInstall)) {
 
 
+                                        $_appDir = $hostingAppDir ?? $applicationDir;
+
+
                                         H::info(H::i($indentLevel + 1) . "Light plugin with map assets detected, calling <b>kaos packlightmap</b> command." . PHP_EOL, $output);
                                         $myInput = new ArrayInput();
                                         $myInput->setItems([
                                             ":packlightmap" => true,
-                                            "a" => $applicationDir,
+                                            "a" => $_appDir,
                                         ]);
                                         $this->application->run($myInput, $output);
                                     }
                                 }
                             }
-
 
 
                             //--------------------------------------------
@@ -378,8 +392,6 @@ EEE;
                                     $planetDotName = $galaxyName . ".$planetName";
                                     if (true === in_array($planetDotName, $deps)) {
                                         $output->write("found hook to Light_AppBoilerplate." . PHP_EOL);
-
-
 
 
                                         H::info(H::i($indentLevel) . "Upgrading boilerplate." . PHP_EOL, $output);

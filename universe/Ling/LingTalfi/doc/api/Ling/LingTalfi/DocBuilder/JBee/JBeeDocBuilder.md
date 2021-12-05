@@ -4,7 +4,7 @@
 
 The JBeeDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\JBee\JBeeDocBuilder](https://g
 
 SeeAlso
 ==============
-Previous class: [InvoiceGeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/InvoiceGenerator/InvoiceGeneratorDocBuilder.md)<br>Next class: [JBootstrapAutocompleteDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JBootstrapAutocomplete/JBootstrapAutocompleteDocBuilder.md)<br>
+Previous class: [JAlcpDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JAlcp/JAlcpDocBuilder.md)<br>Next class: [JBootstrapAutocompleteDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JBootstrapAutocomplete/JBootstrapAutocompleteDocBuilder.md)<br>

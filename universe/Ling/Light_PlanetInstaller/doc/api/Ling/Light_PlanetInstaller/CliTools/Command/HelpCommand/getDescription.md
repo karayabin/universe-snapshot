@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HelpCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/HelpCommand.php#L69-L76)
+See the source code for method [HelpCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/HelpCommand.php#L68-L75)
 
 
 See Also

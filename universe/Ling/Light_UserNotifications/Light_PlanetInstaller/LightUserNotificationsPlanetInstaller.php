@@ -4,12 +4,12 @@
 namespace Ling\Light_UserNotifications\Light_PlanetInstaller;
 
 
-use Ling\Light_UserDatabase\Light_PlanetInstaller\LightUserDatabaseBasePlanetInstaller;
+use Ling\Light_Database\Light_PlanetInstaller\LightDatabaseBasePlanetInstaller;
 
 /**
  * The LightUserNotificationsPlanetInstaller class.
  */
-class LightUserNotificationsPlanetInstaller extends LightUserDatabaseBasePlanetInstaller
+class LightUserNotificationsPlanetInstaller extends LightDatabaseBasePlanetInstaller
 {
 
 }

@@ -21,7 +21,7 @@ class ForbiddenController extends AdminPageController
      * @return string|HttpResponseInterface
      * @throws \Exception
      */
-    public function render()
+    public function render(): HttpResponseInterface|string
     {
 
         $updator = null;

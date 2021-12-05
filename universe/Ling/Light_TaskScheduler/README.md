@@ -1,6 +1,6 @@
 Light_TaskScheduler
 ===========
-2020-07-27 -> 2021-05-31
+2020-07-27 -> 2021-06-25
 
 
 
@@ -61,43 +61,6 @@ task_scheduler:
                 executionMode: lastOnly     # The default is lastOnly
                 useDebug: true              # The default is false
             
-        
-    
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection: 
-    - 
-        method: addListener
-        args: 
-            channels: task_scheduler.error
-            listener: 
-                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
-                methods: 
-                    configure: 
-                        options: 
-                            file: ${app_dir}/log/task_scheduler_error.txt
-                        
-                    
-                
-            
-        
-    
-    - 
-        method: addListener
-        args: 
-            channels: task_scheduler.debug
-            listener: 
-                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
-                methods: 
-                    configure: 
-                        options: 
-                            file: ${app_dir}/log/task_scheduler_debug.txt
-                        
-                    
-            
-        
     
 
 
@@ -108,6 +71,10 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.1.11 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
+  
 - 1.1.10 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

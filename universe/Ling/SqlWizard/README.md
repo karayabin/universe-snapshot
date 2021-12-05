@@ -1,6 +1,6 @@
 SqlWizard
 =========
-2019-02-04 -> 2021-03-05
+2019-02-04 -> 2021-07-06
 
 
 
@@ -48,6 +48,54 @@ Summary
 History Log
 ------------------
 
+- 1.13.21 -- 2021-07-06
+
+    - fix MysqlStructureReader->readContent, update regexes so that it handles whitespaces properly
+  
+- 1.13.20 -- 2021-07-02
+
+    - fix MysqlStructureReader->readerArrayToTableInfo not handling when pk is null
+  
+- 1.13.19 -- 2021-07-02
+
+    - add MysqlWizard->count method
+  
+- 1.13.18 -- 2021-07-02
+
+    - add FullTableHelper class
+  
+- 1.13.17 -- 2021-06-29
+
+    - update MysqlWizard->getColumnDefaultApiValues now includes autoIncremented field by default (changed again)
+  
+- 1.13.16 -- 2021-06-29
+
+    - fix MysqlWizard->getColumnDefaultApiValues functional typo
+  
+- 1.13.15 -- 2021-06-29
+
+    - update MysqlWizard->getColumnDefaultApiValues, add options now autoIncremented field is not returned by default
+  
+- 1.13.14 -- 2021-06-28
+
+    - update MysqlWizard->getColumnDefaultApiValues now returns columns in natural order
+  
+- 1.13.13 -- 2021-06-28
+
+    - fix MysqlStructureReader returning random db names
+  
+- 1.13.12 -- 2021-06-28
+
+    - fix MysqlWizard->getColumnDefaultApiValues functional typo
+  
+- 1.13.11 -- 2021-06-28
+
+    - update MysqlWizard->getColumnDefaultApiValues, autoIncremented fields now have null default value
+  
+- 1.13.10 -- 2021-06-28
+
+    - add MysqlWizard->getColumnDefaultApiValues method
+  
 - 1.13.9 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

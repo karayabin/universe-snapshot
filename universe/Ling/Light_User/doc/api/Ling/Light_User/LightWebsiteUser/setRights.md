@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::setRights](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L408-L411)
+See the source code for method [LightWebsiteUser::setRights](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L417-L420)
 
 
 See Also

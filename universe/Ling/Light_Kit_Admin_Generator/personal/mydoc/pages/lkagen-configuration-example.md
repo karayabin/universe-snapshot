@@ -280,8 +280,7 @@ list:
                     text: Edit
                     url_params_add_ric: true
                     url_params:
-                        plugin: !{galaxyName}/!{plugin}
-                        controller: Generated/{TableClass}Controller
+                        execute: !{galaxyName}\!{plugin}\Controller\Generated\{TableClass}Controller->render
                         m: f
                     icon: fas fa-edit
 
@@ -341,7 +340,7 @@ list:
     related_links:
         -
             text: Add new "{label}" item
-            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller, m:f})
+            url: REALIST(Light_Realist, route, lch_route-hub, {execute: !{galaxyName}\!{plugin}\Controller\Generated\{TableClass}Controller->render, m:f})
             icon: fas fa-plus-circle
 
 # This section defines the behaviour of the form configuration file generator
@@ -686,20 +685,20 @@ controller: []
         form_page_format: '!{galaxyName}.!{plugin}/generated/{table}_form'
 
         # The relative path from the app dir to the form configuration file
-        # Defaults to: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
+        # Defaults to: config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
         # The following extra tags are available:
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        form_config_path_format: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
+        form_config_path_format: config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/pages/!{galaxyName}.!{plugin}/generated/{table}_form.byml
 
         # The relative path from the app dir to the list configuration file
-        # Defaults to: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
+        # Defaults to: config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
         # The following extra tags are available:
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        list_config_path_format: config/open/Ling.Light_Kit_Admin/lke/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
+        list_config_path_format: config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin/pages/!{galaxyName}.!{plugin}/generated/{table}_list.byml
 
         # An array of related links to add to all the generated form kit page conf.
         # The default value is basically the array below, except that the plugin is replaced with Light_Kit_Admin.
@@ -710,7 +709,7 @@ controller: []
         form_page_related_links:
             -
                 text: See the list of "{TableLabel}" items
-                url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{Table}Controller}))::
+                url: ::(@reverse_router->getUrl(lch_route-hub, {execute: !{galaxyName}\!{plugin}\Controller\Generated\{Table}Controller->render}))::
                 icon: fas fa-plus-circle
 
 

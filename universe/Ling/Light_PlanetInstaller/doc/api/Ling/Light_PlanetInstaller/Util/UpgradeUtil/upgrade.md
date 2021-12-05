@@ -74,7 +74,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UpgradeUtil::upgrade](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L112-L211)
+See the source code for method [UpgradeUtil::upgrade](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UpgradeUtil.php#L110-L210)
 
 
 See Also

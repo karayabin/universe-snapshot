@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [UninstallCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L60-L67)
+See the source code for method [UninstallCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L58-L65)
 
 
 See Also

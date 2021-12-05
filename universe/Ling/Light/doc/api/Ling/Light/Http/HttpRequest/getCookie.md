@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getCookie](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L387-L390)
+See the source code for method [HttpRequest::getCookie](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L395-L398)
 
 
 See Also

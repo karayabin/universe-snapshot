@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::isHasTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L844-L860)
+See the source code for method [MysqlInfoUtil::isHasTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L845-L861)
 
 
 See Also

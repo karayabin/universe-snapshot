@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ToLinkCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToLinkCommand.php#L26-L80)
+See the source code for method [ToLinkCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ToLinkCommand.php#L26-L76)
 
 
 See Also

@@ -1,10 +1,10 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2021-03-15
+2019-11-06 -> 2021-06-25
 
 
 
-A plugin to help creating an auto-admin in [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin). 
+A plugin to help create an auto-admin in [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin). 
 
 This is a [Light plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
 
@@ -67,20 +67,6 @@ kit_admin_generator:
                 useDebug: true                          # default is false
                 debugLogChannel: lka_generator.debug   # default is real_generator.debug
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: lka_generator.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/lka_generator_debug.txt
 
 ```
 
@@ -101,6 +87,34 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.19.22 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
+
+- 1.19.21 -- 2021-06-18
+
+    - update api to be compliant with Ling.Light_Kit_Admin:0.13.2
+  
+- 1.19.21 -- 2021-06-18
+
+    - update conf example and fix typos to be compliant with Ling.Light_Kit_Admin:0.13.0
+  
+- 1.19.20 -- 2021-06-18
+
+    - update api to work with Ling.Light_Kit_Admin:0.13.0
+  
+- 1.19.19 -- 2021-06-17
+
+    - fix typo (render instead of renderList/renderForm)
+  
+- 1.19.18 -- 2021-06-17
+
+    - update lkagen configuration example
+  
+- 1.19.17 -- 2021-06-17
+
+    - update api, generated bmenu links now use modern Light_ControllerHub system
+  
 - 1.19.16 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

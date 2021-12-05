@@ -50,7 +50,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorBabyYamlStorage::getPageConf](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L87-L118)
+See the source code for method [LightKitEditorBabyYamlStorage::getPageConf](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L87-L120)
 
 
 See Also

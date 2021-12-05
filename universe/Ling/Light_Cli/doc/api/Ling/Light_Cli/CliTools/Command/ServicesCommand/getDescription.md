@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ServicesCommand::getDescription](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ServicesCommand.php#L53-L58)
+See the source code for method [ServicesCommand::getDescription](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ServicesCommand.php#L55-L60)
 
 
 See Also

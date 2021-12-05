@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UninstallUtil::message](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UninstallUtil.php#L120-L126)
+See the source code for method [UninstallUtil::message](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/UninstallUtil.php#L124-L130)
 
 
 See Also

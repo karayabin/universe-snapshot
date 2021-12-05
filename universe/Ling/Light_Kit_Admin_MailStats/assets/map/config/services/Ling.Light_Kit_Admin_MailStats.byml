@@ -1,0 +1,11 @@
+kit_admin_mail_stats:
+    instance: Ling\Light_Kit_Admin_MailStats\Service\LightKitAdminMailStatsService
+    methods:
+        setContainer:
+            container: @container()
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------

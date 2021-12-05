@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::addModal](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L416-L419)
+See the source code for method [HtmlPageCopilot::addModal](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L439-L442)
 
 
 See Also

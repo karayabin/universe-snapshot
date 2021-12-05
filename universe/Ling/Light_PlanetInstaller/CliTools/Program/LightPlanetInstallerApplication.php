@@ -4,12 +4,11 @@
 namespace Ling\Light_PlanetInstaller\CliTools\Program;
 
 use Ling\CliTools\Command\CommandInterface;
-use Ling\CliTools\Input\InputInterface;
-use Ling\CliTools\Output\OutputInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light_Cli\CliTools\Program\LightCliBaseApplication;
 use Ling\Light_PlanetInstaller\CliTools\Command\LightPlanetInstallerBaseCommand;
 use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
+use Ling\Light_PlanetInstaller\Helper\LpiHelper;
 
 /**
  * The LightPlanetInstallerApplication class.
@@ -78,25 +77,7 @@ class LightPlanetInstallerApplication extends LightCliBaseApplication
      */
     public function getAppId(): string
     {
-        return 'lpi';
-    }
-
-
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * @overrides
-     */
-    protected function runProgram(InputInterface $input, OutputInterface $output): int|null
-    {
-        if (true === $input->hasFlag('dev')) {
-            $this->devMode = true;
-        }
-        return parent::runProgram($input, $output);
+        return LpiHelper::getAppId();
     }
 
 

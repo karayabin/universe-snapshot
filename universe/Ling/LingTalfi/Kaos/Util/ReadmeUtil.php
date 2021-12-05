@@ -136,8 +136,9 @@ class ReadmeUtil
     {
         $u = new StandardReadmeUtil();
         return $u->getLatestVersionInfo($readMeFile, $errors);
-
     }
+
+
 
     /**
      * Returns the errors of this instance.

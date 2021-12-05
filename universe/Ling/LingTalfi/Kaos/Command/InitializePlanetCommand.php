@@ -107,7 +107,7 @@ class InitializePlanetCommand extends KaosGenericCommand
 
                 if (true === $isLight && null !== $applicationDir) {
                     $readMeUtil->setIsLight($isLight);
-                    $serviceFile = $applicationDir . "/config/services/$planetName.byml";
+                    $serviceFile = $applicationDir . "/config/services/$galaxyName.$planetName.byml";
                     if (file_exists($serviceFile)) {
                         $readMeUtil->setServiceContent(file_get_contents($serviceFile));
                     }

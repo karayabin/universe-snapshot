@@ -1,0 +1,32 @@
+title: Light_Kit_Editor: Edit the pages of your sites.
+description: <
+    This page helps you edit the pages of your websites.
+>
+
+
+layout: $root/layouts/$t/main_layout.php
+vars:
+    theme: $t
+layout_vars: []
+vars:
+    theme: $t
+
+
+zones:
+    notifications: b$:Ling.Light_Kit_Admin/notifications_default
+    toasts: b$:Ling.Light_Kit_Admin/toasts_default
+    sub_header: b$:Ling.Light_Kit_Admin/sub_header_default
+    header: b$:Ling.Light_Kit_Admin/header_default
+    sidebar: b$:Ling.Light_Kit_Admin/sidebar_default
+    body:
+        - b$:Ling.Light_Kit_Admin/body_default
+        -
+            id: w-lke-editor
+            name: lke_editor
+            type: picasso
+            className: Ling\Light_Kit_Admin_Kit_Editor\Widget\Picasso\LkeEditorWidget
+            widgetDir: templates/Ling.Light_Kit_Admin_Kit_Editor/widgets/picasso/LkeEditorWidget
+            template: default.php
+            vars: []
+
+    footer: b$:Ling.Light_Kit_Admin/footer_default

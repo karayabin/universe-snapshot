@@ -58,7 +58,7 @@ class QuestionHelper
      *
      * Depending on your taste, you might end the question with a PHP_EOL (I personally tend to prefer to have the user's response
      * on the same line, but adding the PHP_EOL at the end will put the user response on the next line).
-     * Same with the retry message, you can end it with a PhP_EOL or not.
+     * Same with the retry message, you can end it with a PHP_EOL or not.
      * The retry message should probably re-introduce the question, or part of it.
      *
      * For instance, a typical question/retryMessage would be:
@@ -89,6 +89,36 @@ class QuestionHelper
             }
         }
         return $line;
+    }
+
+
+    /**
+     * Asks the user to choose from the given list.
+     * The question argument is prepended to the list choice.
+     *
+     *
+     * @param OutputInterface $output
+     * @param string $question
+     * @param array $list
+     * @return string
+     */
+    public static function askSelectListItem(OutputInterface $output, string $question, array $list)
+    {
+
+        $dataType = "number";
+        $sItems = "";
+        foreach ($list as $k => $v) {
+            if (false === is_numeric($k)) {
+                $dataType = "letter";
+            }
+            $sItems .= "- <b>$k</b>: $v" . PHP_EOL;
+        }
+        $retryMessage = "Invalid answer, try again (type a $dataType):";
+        $q = $question . PHP_EOL .  $sItems;
+
+        return self::askClear($output, $q, $retryMessage, function ($response) use ($list) {
+            return array_key_exists($response, $list);
+        });
     }
 
 

@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LpiHelper::getUniverseMapsDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L45-L48)
+See the source code for method [LpiHelper::getUniverseMapsDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiHelper.php#L56-L59)
 
 
 See Also

@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UninstallCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L72-L83)
+See the source code for method [UninstallCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L70-L81)
 
 
 See Also

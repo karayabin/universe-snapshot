@@ -94,4 +94,4 @@ See the source code of [Ling\Light_Cli\CliTools\Command\HelpCommand](https://git
 
 SeeAlso
 ==============
-Previous class: [CreateAppCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/CreateAppCommand.md)<br>Next class: [LightCliBaseCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/LightCliBaseCommand.md)<br>
+Previous class: [EnableServiceCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/EnableServiceCommand.md)<br>Next class: [LightCliBaseCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/LightCliBaseCommand.md)<br>

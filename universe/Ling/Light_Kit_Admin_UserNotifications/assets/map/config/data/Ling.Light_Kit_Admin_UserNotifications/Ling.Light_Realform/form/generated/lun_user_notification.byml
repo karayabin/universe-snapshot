@@ -1,0 +1,101 @@
+_vars: 
+    nuggetId: Ling.Light_Kit_Admin_UserNotifications:generated/lun_user_notification
+
+rendering: 
+    title: User notification form
+    related_links: 
+        - 
+            text: "See the list of \"User notification\" items"
+            url: ::(@reverse_router->getUrl(lch_route-hub, {execute: Ling\Light_Kit_Admin_UserNotifications\Controller\Generated\LunUserNotificationController->render}))::
+            icon: fas fa-plus-circle
+        
+    
+
+ric: 
+    - id
+
+feeder: null
+storage_id: lun_user_notification
+success_messages: 
+    create: The item has been successfully stored in the database
+    update: The item has been successfully updated in the database, with ric {sRic}
+
+security: []
+chloroform: 
+    id: realgen-lun_user_notification
+    fields: 
+        lud_user_id: 
+            label: Lud user id
+            type: table_list
+            validators: 
+                required: []
+            
+            nullable: false
+            tableListDirectiveId: %{nuggetId}:chloroform.fields.lud_user_id.tableListConf
+            tableListConf: 
+                sql: select id as value, concat(id, '. ', pseudo) as label from lud_user
+                column: id
+                search_column: concat(id, '. ', pseudo)
+                renderAs: adapt
+                threshold: 200
+                security: 
+                    any: 
+                        micro_permission: store.lud_user.read
+                        permission: Ling.Light_Kit_Admin.admin
+                    
+                    all: []
+                
+            
+        
+        feeder: 
+            label: Feeder
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        type: 
+            label: Type
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        message: 
+            label: Message
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        status: 
+            label: Status
+            type: number
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        date_creation: 
+            label: Date creation
+            type: datetime
+            validators: 
+                requiredDatetime: []
+            
+            nullable: false
+        
+        date_deletion: 
+            label: Date deletion
+            type: datetime
+            validators: 
+                requiredDatetime: []
+            
+            nullable: true
+        
+    
+
+success_handler: 
+    class: defaultDbHandler

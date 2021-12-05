@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightTool::isAjax](https://github.com/lingtalfi/Light/blob/master/Tool/LightTool.php#L22-L34)
+See the source code for method [LightTool::isAjax](https://github.com/lingtalfi/Light/blob/master/Tool/LightTool.php#L21-L29)
 
 
 See Also

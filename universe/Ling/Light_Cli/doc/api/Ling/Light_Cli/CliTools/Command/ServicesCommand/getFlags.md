@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ServicesCommand::getFlags](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ServicesCommand.php#L63-L72)
+See the source code for method [ServicesCommand::getFlags](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ServicesCommand.php#L65-L74)
 
 
 See Also

@@ -2,6 +2,7 @@ https://github.com/lingtalfi/Light_Vars/blob/master/README.md
 https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Exception/LightVarsException.md
 https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/__construct.md
 https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/getVar.md
+https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/getVars.md
 https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/resolveContainerNotation.md
 https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService/setVar.md
 https://github.com/lingtalfi/Light_Vars/blob/master/doc/api/Ling/Light_Vars/Service/LightVarsService.md

@@ -46,7 +46,7 @@ Returns [OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [CommitWizard::getOutput](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L250-L256)
+See the source code for method [CommitWizard::getOutput](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L276-L282)
 
 
 See Also

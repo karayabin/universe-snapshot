@@ -1,6 +1,6 @@
 Realist 
 ============
-2020-08-24
+2020-08-24 -> 2021-06-01
 
 
 
@@ -59,7 +59,7 @@ The "listItem renderer" is called when you want to display the items of the list
 
 The main synopsis
 ------------
-2020-08-24
+2020-08-24 -> 2021-06-01
 
 
 Ok, so we start by creating a [request declaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/request-declaration.md).
@@ -74,11 +74,12 @@ Call our service's **getListRendererByRequestId** method with a **requestId** to
 
 
 
-Internally, we use the [Light_Nugget](https://github.com/lingtalfi/Light_Nugget) plugin to fetch the **request declaration** corresponding to the given **requestId**.
-The main benefit of using Light_Nugget is that it relies on naming convention, and so plugin authors don't need to register to our service to access the request declaration.
+We use an [open registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration) to convert the **requestId** to a **request declaration**.
+
+See more info about the **open registration system** in the [request declaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/request-declaration.md) page.
 
 
-Once you have the **list renderer** instance, you can just call its various "render" methods in the order you want to fit your design:
+From the **request_declaration**, you get the **list renderer** instance, you can just call its various "render" methods in the order you want to fit your design:
 
 - render
 - renderTitle

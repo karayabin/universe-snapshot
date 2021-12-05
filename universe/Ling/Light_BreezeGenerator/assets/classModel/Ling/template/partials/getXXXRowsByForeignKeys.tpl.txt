@@ -1,0 +1,9 @@
+    /**
+     * Returns the rows of the xx_table matching the given userId.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param string $userId
+     * @param array $components
+     * @return array
+     */
+    public function getUserRatesItemsByUserId(string $userId, array $components = []): array;

@@ -53,7 +53,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L135-L140)
+See the source code for method [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L135-L139)
 
 
 See Also

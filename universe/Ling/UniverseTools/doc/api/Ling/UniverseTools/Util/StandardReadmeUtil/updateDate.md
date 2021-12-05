@@ -61,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::updateDate](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L208-L225)
+See the source code for method [StandardReadmeUtil::updateDate](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L264-L281)
 
 
 See Also

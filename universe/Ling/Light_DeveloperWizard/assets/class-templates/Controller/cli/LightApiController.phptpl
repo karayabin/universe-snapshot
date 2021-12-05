@@ -1,0 +1,96 @@
+<?php
+
+
+namespace Ling\Light_Kit_StoreXXX\Controller;
+
+
+use Ling\Light\Controller\LightController;
+use Ling\Light\Http\HttpJsonResponse;
+use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\Http\HttpResponse;
+use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_Logger\Service\LightLoggerService;
+
+
+/**
+ * The LightApiController class.
+ *
+ * All methods of this class are alcp ends for clients.
+ *
+ *
+ */
+class LightApiController extends LightController
+{
+
+
+    /**
+     * Executes the action given in the GET parameters and returns a response.
+     *
+     * The "action" parameter should be present in GET.
+     *
+     * This is designed as a hub/proxy for all the other methods of this class.
+     *
+     * It's basically the only method that we expose publicly.
+     *
+     *
+     *
+     * @param HttpRequestInterface $request
+     * @return HttpResponseInterface
+     */
+    public function execute(HttpRequestInterface $request): HttpResponseInterface
+    {
+        $action = $request->getGetValue("action", false) ?? "undefined";
+
+
+        try {
+
+            // alcp actions
+            switch ($action) {
+                case "test":
+                    return $this->test($request);
+            }
+        } catch (\Exception $e) {
+
+            /**
+             * @var $_lo LightLoggerService
+             */
+            $_lo = $this->getContainer()->get("logger");
+            $_lo->error($e);
+
+            return HttpJsonResponse::create([
+                "type" => "error",
+                "error" => "Oops, an unexpected error occurred. We're working on it right now. Try again later, or contact us. Sorry for the inconvenience.",
+            ]);
+        }
+
+
+        // other action types
+        switch ($action) {
+            default:
+                return new HttpResponse("Unknown action: $action.", 404);
+                break;
+        }
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Test method.
+     * You should probably remove me.
+     * This is an @page(alcp service).
+     *
+     * @param HttpRequestInterface $request
+     * @return HttpJsonResponse
+     * @throws \Exception
+     */
+    private function test(HttpRequestInterface $request): HttpJsonResponse
+    {
+        return HttpJsonResponse::create([
+            "type" => "success",
+        ]);
+
+    }
+}
+

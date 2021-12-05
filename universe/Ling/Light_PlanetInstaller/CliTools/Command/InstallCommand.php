@@ -10,13 +10,13 @@ use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light_Cli\Helper\LightCliFormatHelper;
-use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
 use Ling\Light_PlanetInstaller\Helper\LpiHelper;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit1HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface;
 use Ling\Light_PlanetInstaller\Util\InstallInitUtil;
 use Ling\UniverseTools\AssetsMapTool;
+use Ling\UniverseTools\DependencyTool;
 use Ling\UniverseTools\PlanetTool;
 
 
@@ -130,6 +130,16 @@ class InstallCommand extends ImportCommand
                 'values' => [
                 ],
             ],
+            "who-calls" => [
+                'desc' => " string=planetDotName. When this option is set, if acts as if the test flag was raised, and it displays the list of the planetDotNames from the theoretical import map which
+ depend on the planetDotName defined by this option.
+ So for instance if you call this command: 
+ lt import Ling.Light_Kit_JimToolbox_PhpstormWidgetLinks --who-calls=Ling.Light_Kit_Admin
+ It then returns the list of the planetDotNames from the tim of Ling.Light_Kit_JimToolbox_PhpstormWidgetLinks which depend on Ling.Light_Kit_Admin.
+ This option currently only works in uni style (i.e., not with version numbers). ",
+                'values' => [
+                ],
+            ],
         ];
     }
 
@@ -150,6 +160,13 @@ class InstallCommand extends ImportCommand
             "f" => " if set, forces the reimporting of the planet, even if it's already in your app",
             "test-build-dir" => " if set, the install command will stop after creating the build dir. In other words, nothing will be actually imported, but you will not only have the <$co>concrete import map</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-map</$url>) created,
  but also the <b>build dir</b>. See the <$co>import algorithm</$co>(<$url>https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#import-algorithm</$url>) section for more info about the <b>build dir</b>.",
+            "babyInit" => " bool=false. Whether to trigger the baby init planet mode.
+ In this mode, the planet is not imported, but only the init phases are triggered.
+ A baby planet is a planet which is not yet formed. It's not committed. The version is not available, the dependencies are not created yet.
+ Using the baby init mode, we can still trigger the init phases of the planet at an early stage.
+ This option is mainly useful while you're developing a planet and you still want to test its init phases it.
+ Dependencies are always ignored (even if the planet happens to have some).
+ ",
         ];
     }
 
@@ -205,7 +222,6 @@ class InstallCommand extends ImportCommand
         $debug = $input->hasFlag("d");
         $methodName = "init" . $initNumber;
 
-
         try {
 
             //--------------------------------------------
@@ -258,6 +274,24 @@ class InstallCommand extends ImportCommand
                                 $output->write("no assets/map...");
                             }
                         }
+
+                        //--------------------------------------------
+                        // INIT1 COMMANDS
+                        //--------------------------------------------
+                        $dependencyArray = DependencyTool::getDependencyArray($planetDir);
+                        $initCommands = $dependencyArray['commands']['init1'] ?? [];
+
+
+                        if ($initCommands) {
+                            $output->write("$planetDotName: executing <b>init1</b> commands from <blue>dependencies.byml</blue>..." . PHP_EOL);
+                            foreach ($initCommands as $cmd) {
+                                $output->write("$planetDotName: executing <red>$cmd</red>..." . PHP_EOL);
+                                passthru($cmd);
+                                $output->write("<success>ok.</success>" . PHP_EOL);
+                            }
+                        }
+
+
                     }
 
 
@@ -283,7 +317,7 @@ class InstallCommand extends ImportCommand
                             if (false === $debug && false === $assetsHappened) {
                                 $output->write($sentenceBegin);
                             }
-                            $output->write("<b>executing init $initNumber hook</b>...");
+                            $output->write("<b>executing init $initNumber hook</b>..." . PHP_EOL);
 //                            $output->write(PHP_EOL); // assuming installer will output some message, makes the display cleaner
                             $instance->$methodName($appDir, $output);
                             $hookFound = true;
@@ -291,7 +325,7 @@ class InstallCommand extends ImportCommand
                     }
                     if (false === $hookFound) {
                         if (true === $debug) {
-                            $output->write("no <b>init $initNumber</b> hook found...");
+                            $output->write("no <b>init $initNumber</b> hook found..." . PHP_EOL);
                         }
                     }
 

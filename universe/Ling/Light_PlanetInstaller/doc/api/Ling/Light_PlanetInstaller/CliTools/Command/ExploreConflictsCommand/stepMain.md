@@ -58,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ExploreConflictsCommand::stepMain](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L119-L172)
+See the source code for method [ExploreConflictsCommand::stepMain](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ExploreConflictsCommand.php#L118-L171)
 
 
 See Also

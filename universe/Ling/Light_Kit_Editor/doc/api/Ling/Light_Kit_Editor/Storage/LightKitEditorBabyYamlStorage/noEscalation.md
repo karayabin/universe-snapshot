@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorBabyYamlStorage::noEscalation](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L131-L134)
+See the source code for method [LightKitEditorBabyYamlStorage::noEscalation](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L133-L136)
 
 
 See Also

@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [CleanSessionDirsCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L62-L70)
+See the source code for method [CleanSessionDirsCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L61-L69)
 
 
 See Also

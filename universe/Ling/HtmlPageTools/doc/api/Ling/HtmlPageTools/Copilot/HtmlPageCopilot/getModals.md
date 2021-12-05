@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::getModals](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L405-L408)
+See the source code for method [HtmlPageCopilot::getModals](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L428-L431)
 
 
 See Also

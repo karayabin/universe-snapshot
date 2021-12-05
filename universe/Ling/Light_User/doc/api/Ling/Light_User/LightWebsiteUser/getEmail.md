@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getEmail](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L278-L281)
+See the source code for method [LightWebsiteUser::getEmail](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L307-L310)
 
 
 See Also

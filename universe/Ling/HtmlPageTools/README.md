@@ -1,10 +1,10 @@
 HtmlPageTools
 ===========
-2019-04-24 -> 2021-03-05
+2019-04-24 -> 2021-08-17
 
 
 
-Some tools to create an html page in a widget environment.
+Some tools to create an html page in a modular environment.
 
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
@@ -43,6 +43,14 @@ Summary
 History Log
 =============
 
+- 2.2.6 -- 2021-08-17
+
+    - add HtmlPageToolsHelper class
+
+- 2.2.5 -- 2021-08-05
+
+    - update copilot, now distinguishes between js regular files and js es6 modules
+  
 - 2.2.4 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

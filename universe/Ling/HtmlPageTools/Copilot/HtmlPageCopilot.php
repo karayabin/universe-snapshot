@@ -26,14 +26,14 @@ class HtmlPageCopilot
      *
      * @var string
      */
-    protected $title;
+    protected string $title;
 
     /**
      * This property holds the description for this instance.
      * This is the meta description.
      * @var string
      */
-    protected $description;
+    protected string $description;
 
     /**
      * This property holds the metas for this instance.
@@ -42,20 +42,21 @@ class HtmlPageCopilot
      *
      * @var array
      */
-    protected $metas;
+    protected array $metas;
 
     /**
      * This property holds the libraries for this instance.
      *
      * It's an array of libraryName => assetsItem.
      * Each assetsItem is an array of:
-     * - 0: array of js urls
+     * - 0: array of regular js files urls
      * - 1: array of css urls
+     * - 0: array of js modules urls
      *
      *
      * @var array
      */
-    protected $libraries;
+    protected array $libraries;
 
 
     /**
@@ -264,7 +265,16 @@ class HtmlPageCopilot
     {
         $override = $options['override'] ?? false;
         if (true === $override || false === array_key_exists($name, $this->libraries)) {
-            $this->libraries[$name] = [$js, $css];
+
+            $jsModules = [];
+            foreach ($js as $k => $jsItem) {
+                if (true === str_starts_with($jsItem, "module:")) {
+                    $jsModules[] = mb_substr($jsItem, 7);
+                    unset($js[$k]);
+                }
+            }
+
+            $this->libraries[$name] = [$js, $css, $jsModules];
         }
     }
 
@@ -292,6 +302,19 @@ class HtmlPageCopilot
         $urls = [];
         foreach ($this->libraries as $lib) {
             $urls = array_merge($urls, $lib[0]);
+        }
+        return $urls;
+    }
+
+    /**
+     * Returns all the js modules urls collected.
+     * @return array
+     */
+    public function getJsModulesUrls(): array
+    {
+        $urls = [];
+        foreach ($this->libraries as $lib) {
+            $urls = array_merge($urls, $lib[2]);
         }
         return $urls;
     }

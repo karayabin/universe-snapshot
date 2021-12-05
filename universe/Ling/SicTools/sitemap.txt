@@ -20,6 +20,7 @@ https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServi
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/getService.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveArgs.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveCustomNotation.md
+https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/setCustomResolveNotationCallback.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool/isSicBlock.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool.md

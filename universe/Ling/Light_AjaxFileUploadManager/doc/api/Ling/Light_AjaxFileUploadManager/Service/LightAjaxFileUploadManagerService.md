@@ -4,7 +4,7 @@
 
 The LightAjaxFileUploadManagerService class
 ================
-2019-08-01 --> 2021-05-31
+2019-08-01 --> 2021-06-29
 
 
 
@@ -102,4 +102,4 @@ See the source code of [Ling\Light_AjaxFileUploadManager\Service\LightAjaxFileUp
 
 SeeAlso
 ==============
-Previous class: [LightAjaxFileUploadManagerException](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Exception/LightAjaxFileUploadManagerException.md)<br>Next class: [LightAjaxFileUploadManagerRenderingUtil](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Util/LightAjaxFileUploadManagerRenderingUtil.md)<br>
+Previous class: [LightAjaxFileUploadManagerPlanetInstaller](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Light_PlanetInstaller/LightAjaxFileUploadManagerPlanetInstaller.md)<br>Next class: [LightAjaxFileUploadManagerRenderingUtil](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Util/LightAjaxFileUploadManagerRenderingUtil.md)<br>

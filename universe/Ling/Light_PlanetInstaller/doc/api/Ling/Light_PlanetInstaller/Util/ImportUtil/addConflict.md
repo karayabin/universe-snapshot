@@ -60,7 +60,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ImportUtil::addConflict](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L1367-L1370)
+See the source code for method [ImportUtil::addConflict](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L1423-L1426)
 
 
 See Also

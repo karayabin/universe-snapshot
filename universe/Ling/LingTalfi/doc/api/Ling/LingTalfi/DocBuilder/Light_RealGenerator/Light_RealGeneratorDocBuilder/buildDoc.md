@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_RealGeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_RealGenerator/Light_RealGeneratorDocBuilder.php#L45-L211)
+See the source code for method [Light_RealGeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_RealGenerator/Light_RealGeneratorDocBuilder.php#L45-L215)
 
 
 See Also

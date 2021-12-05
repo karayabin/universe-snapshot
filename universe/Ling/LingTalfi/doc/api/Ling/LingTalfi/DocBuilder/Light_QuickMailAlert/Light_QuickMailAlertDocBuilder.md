@@ -4,7 +4,7 @@
 
 The Light_QuickMailAlertDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_QuickMailAlert\Light_Qui
 
 SeeAlso
 ==============
-Previous class: [Light_PrettyErrorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder.md)<br>Next class: [Light_RealGeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_RealGenerator/Light_RealGeneratorDocBuilder.md)<br>
+Previous class: [Light_ProjectVarsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ProjectVars/Light_ProjectVarsDocBuilder.md)<br>Next class: [Light_RealGeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_RealGenerator/Light_RealGeneratorDocBuilder.md)<br>

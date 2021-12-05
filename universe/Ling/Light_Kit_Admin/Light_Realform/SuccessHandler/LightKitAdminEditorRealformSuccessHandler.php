@@ -3,6 +3,7 @@
 
 namespace Ling\Light_Kit_Admin\Light_Realform\SuccessHandler;
 
+use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Editor\Light_Realform\SuccessHandler\LightKitEditorRealformSuccessHandler;
 
 /**
@@ -26,7 +27,7 @@ class LightKitAdminEditorRealformSuccessHandler extends LightKitEditorRealformSu
      */
     protected function getBabyYamlRootDir(): ?string
     {
-        return $this->container->getApplicationDir() . "/config/open/Ling.Light_Kit_Admin/lke";
+        return LightKitAdminHelper::getLightKitEditorRootPath($this->container->getApplicationDir());
     }
 
 

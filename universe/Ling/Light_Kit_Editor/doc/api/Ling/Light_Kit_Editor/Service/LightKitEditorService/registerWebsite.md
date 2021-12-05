@@ -61,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::registerWebsite](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L185-L230)
+See the source code for method [LightKitEditorService::registerWebsite](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L270-L315)
 
 
 See Also

@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_ErrorPopDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ErrorPop/Light_ErrorPopDocBuilder.php#L45-L206)
+See the source code for method [Light_ErrorPopDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ErrorPop/Light_ErrorPopDocBuilder.php#L45-L212)
 
 
 See Also

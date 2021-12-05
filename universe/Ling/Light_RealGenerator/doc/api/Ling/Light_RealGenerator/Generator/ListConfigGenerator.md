@@ -4,7 +4,7 @@
 
 The ListConfigGenerator class
 ================
-2019-10-24 --> 2021-05-31
+2019-10-24 --> 2021-06-28
 
 
 
@@ -141,4 +141,4 @@ See the source code of [Ling\Light_RealGenerator\Generator\ListConfigGenerator](
 
 SeeAlso
 ==============
-Previous class: [FormConfigGenerator](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/FormConfigGenerator.md)<br>Next class: [LightRealGeneratorService](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService.md)<br>
+Previous class: [FormConfigGenerator](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/FormConfigGenerator.md)<br>Next class: [LightRealGeneratorPlanetInstaller](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Light_PlanetInstaller/LightRealGeneratorPlanetInstaller.md)<br>

@@ -2,13 +2,14 @@ dependencies:
     Ling: 
         - ArrayToString
         - Bat
-        - CheapLogger
         - CliTools
         - Light
+        - Light_DbSynchronizer
         - Light_Events
         - Light_Logger
         - Light_PlanetInstaller
         - SimplePdoWrapper
+        - UniverseTools
     
 
 post_install: 

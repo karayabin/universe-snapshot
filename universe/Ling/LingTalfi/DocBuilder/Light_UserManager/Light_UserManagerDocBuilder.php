@@ -155,6 +155,8 @@ class Light_UserManagerDocBuilder
             "externalClass2Url" => [
                 "Ling\Light_User\LightUserInterface" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md",
                 "Ling\Light_User\LightWebsiteUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md",
+                "Ling\Light_User\LightOpenUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightOpenUser.md",
+
             ],
         ];
 

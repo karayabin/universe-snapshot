@@ -4,7 +4,7 @@
 
 The LightLoginNotifierService class
 ================
-2020-11-27 --> 2021-05-31
+2020-11-27 --> 2021-06-25
 
 
 
@@ -96,4 +96,4 @@ See the source code of [Ling\Light_LoginNotifier\Service\LightLoginNotifierServi
 
 SeeAlso
 ==============
-Previous class: [LightLoginNotifierPluginInstaller](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PluginInstaller/LightLoginNotifierPluginInstaller.md)<br>
+Previous class: [LightLoginNotifierPlanetInstaller](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PlanetInstaller/LightLoginNotifierPlanetInstaller.md)<br>

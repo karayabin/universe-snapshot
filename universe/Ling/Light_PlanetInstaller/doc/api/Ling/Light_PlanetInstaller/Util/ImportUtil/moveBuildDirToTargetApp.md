@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ImportUtil::moveBuildDirToTargetApp](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L495-L558)
+See the source code for method [ImportUtil::moveBuildDirToTargetApp](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L552-L615)
 
 
 See Also

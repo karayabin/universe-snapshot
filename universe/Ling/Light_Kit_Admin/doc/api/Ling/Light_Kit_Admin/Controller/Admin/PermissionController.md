@@ -4,7 +4,7 @@
 
 The PermissionController class
 ================
-2019-05-17 --> 2021-05-31
+2019-05-17 --> 2021-07-30
 
 
 
@@ -51,6 +51,7 @@ class <span class="pl-k">PermissionController</span> extends [AdminPageControlle
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
     - protected LightController::hasService(string $serviceName) : bool
+    - protected LightController::logError($msg) : void
 
 }
 
@@ -82,6 +83,7 @@ Methods
 - LightController::getContainer &ndash; Returns the service container.
 - LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
 - LightController::hasService &ndash; Returns whether the container contains the service which name is given.
+- LightController::logError &ndash; Sends a log message to the logger service's error channel.
 
 
 

@@ -1,6 +1,6 @@
 Light_ZephyrTemplate
 ===========
-2019-04-09 -> 2021-03-15
+2019-04-09 -> 2021-08-10
 
 
 
@@ -64,6 +64,10 @@ The **template** service can be used to render html using the [zephyr template e
 History Log
 =============
 
+- 1.2.7 -- 2021-08-10
+
+    - add service class
+  
 - 1.2.6 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

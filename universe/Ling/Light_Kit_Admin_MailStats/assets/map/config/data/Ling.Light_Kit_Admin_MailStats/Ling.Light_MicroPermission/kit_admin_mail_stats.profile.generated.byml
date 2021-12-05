@@ -1,0 +1,5 @@
+Ling.Light_MailStats.admin:
+    - store.lms_tracker
+    - store.lms_stats
+
+

@@ -1,6 +1,6 @@
 Light_ErrorHandler
 ===========
-2020-06-01 -> 2021-03-15
+2020-06-01 -> 2021-06-28
 
 
 
@@ -73,26 +73,6 @@ $events.methods_collection:
                 callable_method: registerFunctions
 
 
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels:
-                - error_handler
-                - fatal_error_handler
-                - error
-            listener:
-                instance: Ling\Light_ErrorHandler\Light_Logger\LightLoggerErrorHandlerListener
-                methods:
-                    setContainer:
-                        container: @container()
-                    configure:
-                        options:
-                            file: ${app_dir}/log/errors/{date}.txt
-
-
-
-
 
 ```
 
@@ -112,6 +92,14 @@ Related
 History Log
 =============
 
+- 1.0.14 -- 2021-06-28
+
+    - fix api wrong reference to Ling.Light_Logger
+  
+- 1.0.13 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
+  
 - 1.0.12 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

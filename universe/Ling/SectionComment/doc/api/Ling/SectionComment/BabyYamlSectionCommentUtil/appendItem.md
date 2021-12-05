@@ -62,7 +62,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::appendItem](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L265-L273)
+See the source code for method [BabyYamlSectionCommentUtil::appendItem](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L268-L276)
 
 
 See Also

@@ -204,8 +204,7 @@ rendering:
                         text: Edit
                         url_params_add_ric: true
                         url_params: 
-                            plugin: Ling/Light_Kit_Admin_UserData
-                            controller: Generated/LudaResourceFileController
+                            execute: Ling\Light_Kit_Admin_UserData\Controller\Generated\LudaResourceFileController->render
                             m: f
                         
                         icon: fas fa-edit
@@ -256,8 +255,7 @@ rendering:
                     id: luda_resource_id
                 
                 url_params: 
-                    plugin: Ling/Light_Kit_Admin_UserData
-                    controller: Generated/LudaResourceController
+                    execute: Ling\Light_Kit_Admin_UserData\Controller\Generated\LudaResourceController->render
                     m: f
                 
             
@@ -270,7 +268,7 @@ rendering:
     related_links: 
         - 
             text: "Add new \"resource file\" item"
-            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserData, controller: Generated/LudaResourceFileController, m:f})
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {execute: Ling\Light_Kit_Admin_UserData\Controller\Generated\LudaResourceFileController->render, m:f})
             icon: fas fa-plus-circle
         
     

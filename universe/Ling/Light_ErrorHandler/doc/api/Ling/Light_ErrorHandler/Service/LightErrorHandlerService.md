@@ -4,7 +4,7 @@
 
 The LightErrorHandlerService class
 ================
-2020-06-01 --> 2021-05-31
+2020-06-01 --> 2021-06-28
 
 
 
@@ -99,4 +99,4 @@ See the source code of [Ling\Light_ErrorHandler\Service\LightErrorHandlerService
 
 SeeAlso
 ==============
-Previous class: [LightLoggerErrorHandlerListener](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_Logger/LightLoggerErrorHandlerListener.md)<br>
+Previous class: [LightErrorHandlerPlanetInstaller](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_PlanetInstaller/LightErrorHandlerPlanetInstaller.md)<br>

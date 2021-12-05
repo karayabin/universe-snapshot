@@ -1,6 +1,6 @@
 Conception notes 
 ========
-2019-05-15 -> 2021-04-01
+2019-05-15 -> 2021-06-25
 
 
 
@@ -10,13 +10,14 @@ Conception notes
 * [Light execute notation](#light-execute-notation)
 * [The widget variables system](#widget-variables-system)
 * [Page conf updator](#page-conf-updator)
+* [The global controller vars convention](#the-global-controller-vars-convention)
 
 
 
 
 Widget coordinates
 -----------
-2021-03-12 -> 2021-04-01
+2021-03-12 -> 2021-06-25
 
 **Widget coordinates** allow you to target a widget in a given page.
 
@@ -29,6 +30,9 @@ With:
 - $zoneId: string, the identifier of the zone
 - $widgetId: string, the identifier of the widget, which must be defined at the widget configuration level by using the **id** key.
         The widget id must be unique in the context of the zone.
+        If the **id** key is not defined, the name of the widget is used. 
+        However, using the widget name is less precise than using the widget id.
+        That's because the same widget name can be used multiple times on a page (i.e., you can have multiple instances of the same widget on a page).
 
 
 In an [eco-structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/nomenclature.md#eco-structure) where third-party plugins collaborate to create a **kit page conf array**, the **widget coordinates**
@@ -195,9 +199,16 @@ own use.
 
 
 
-
+The global controller vars convention
+----------
+2021-06-25
 
  
+As an alternative way to pass variables from the controller to the widget templates, we've implemented the [global controller vars convention](https://github.com/lingtalfi/TheBar/blob/master/discussions/global-controller-vars.md).
+
+We've only implemented this system for the widgets of type **prototype** so far (i.e., not picasso).
+
+
 
 
 

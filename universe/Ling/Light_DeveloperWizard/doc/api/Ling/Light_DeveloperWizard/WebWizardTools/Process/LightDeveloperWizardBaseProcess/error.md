@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDeveloperWizardBaseProcess::error](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/LightDeveloperWizardBaseProcess.php#L333-L336)
+See the source code for method [LightDeveloperWizardBaseProcess::error](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/LightDeveloperWizardBaseProcess.php#L450-L453)
 
 
 See Also

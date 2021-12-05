@@ -4,7 +4,7 @@
 
 The RealformHandlerAliasHelperInterface class
 ================
-2019-10-21 --> 2021-05-31
+2019-10-21 --> 2021-06-03
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Realform\Handler\AliasHelper\RealformHandlerA
 
 SeeAlso
 ==============
-Previous class: [BaseRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/BaseRealformHandlerAliasHelper.md)<br>Next class: [RealformRendererInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Renderer/RealformRendererInterface.md)<br>
+Previous class: [BaseRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/BaseRealformHandlerAliasHelper.md)<br>Next class: [LightRealformConfigurationFileRegistrationHelper](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Helper/LightRealformConfigurationFileRegistrationHelper.md)<br>

@@ -1,6 +1,6 @@
 Light_AjaxHandler
 ===========
-2019-09-19 -> 2021-05-31
+2019-09-19 -> 2021-06-25
 
 
 
@@ -74,6 +74,14 @@ ajax_handler:
 History Log
 =============
 
+- 2.2.10 -- 2021-06-25
+
+    - updated routes, add galaxy prefix 
+
+- 2.2.9 -- 2021-06-03
+
+    - adapt api to work with Light_PlanetInstaller:2.0.4
+  
 - 2.2.8 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

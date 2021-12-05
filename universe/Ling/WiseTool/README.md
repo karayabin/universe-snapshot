@@ -1,6 +1,6 @@
 WiseTool
 ===========
-2019-08-07 -> 2021-03-05
+2019-08-07 -> 2021-07-30
 
 
 
@@ -88,7 +88,6 @@ At the moment,  the supported systems are:
 - bootstrap
 - wise
 - chloroform (as a target only)
-- light kit admin (as a target only)
 
 
 
@@ -96,6 +95,10 @@ At the moment,  the supported systems are:
 
 History Log
 =============
+
+- 1.2.5 -- 2021-07-30
+
+    - update WiseTool class, removed dependencies to Ling.Light_Kit_Admin
 
 - 1.2.4 -- 2021-05-31
 

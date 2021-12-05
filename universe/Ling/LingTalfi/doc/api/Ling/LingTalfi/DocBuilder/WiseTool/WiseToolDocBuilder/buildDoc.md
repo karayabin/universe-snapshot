@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WiseToolDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/WiseTool/WiseToolDocBuilder.php#L44-L199)
+See the source code for method [WiseToolDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/WiseTool/WiseToolDocBuilder.php#L45-L203)
 
 
 See Also

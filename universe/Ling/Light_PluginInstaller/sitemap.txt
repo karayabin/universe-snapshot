@@ -5,6 +5,9 @@ https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Ligh
 https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Helper/PluginInstallerSynchronizerHelper/getTableScope.md
 https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Helper/PluginInstallerSynchronizerHelper/synchronizeDatabaseByPlanetDotName.md
 https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Helper/PluginInstallerSynchronizerHelper.md
+https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Light_PlanetInstaller/LightPluginInstallerPlanetInstaller/init2.md
+https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Light_PlanetInstaller/LightPluginInstallerPlanetInstaller/undoInit2.md
+https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Light_PlanetInstaller/LightPluginInstallerPlanetInstaller.md
 https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller/__construct.md
 https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller/debugMsg.md
 https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller/dropTables.md

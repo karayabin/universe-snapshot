@@ -1,7 +1,24 @@
-developer_wizard:
+developer_wizard: 
     instance: Ling\Light_DeveloperWizard\Service\LightDeveloperWizardService
-    methods:
-        setContainer:
+    methods: 
+        setContainer: 
             container: @container()
-        setOptions:
+        
+        setOptions: 
             options: []
+        
+    
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$cli.methods_collection: 
+    - 
+        method: registerCliApp
+        args: 
+            appId: wiz
+            app: 
+                instance: Ling\Light_DeveloperWizard\CliTools\Program\LightDeveloperWizardApplication
+            
+        
+    

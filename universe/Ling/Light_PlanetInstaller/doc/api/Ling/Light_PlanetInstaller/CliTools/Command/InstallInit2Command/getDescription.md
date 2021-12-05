@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [InstallInit2Command::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit2Command.php#L60-L68)
+See the source code for method [InstallInit2Command::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallInit2Command.php#L53-L61)
 
 
 See Also

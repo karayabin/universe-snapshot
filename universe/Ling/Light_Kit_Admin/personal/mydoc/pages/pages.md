@@ -1,31 +1,19 @@
 Pages 
 =================
-2019-08-07 -> 2021-03-08
+2019-08-07 -> 2021-06-18
 
 
 
 
-
-The pages included with light kit admin
--------------
-2020-12-03
+**Light_Kit_Admin** pages are handled via the [Light_Kit_Editor](https://github.com/lingtalfi/Light_Kit_Editor/) system, 
+and we put our **$root** path in:
 
 
-
-**Light_Kit_Admin** provides a few pages on its own:
-
-
-- lka_route-home (/) --> Ling\Light_Kit_Admin\Controller\DashboardController->render
-- lka_route-login (/login) --> Ling\Light_Kit_Admin\Controller\LoginFormController->render
-- lka_route-logout (/logout) --> Ling\Light_Kit_Admin\Controller\LogoutController->render
-- lka_route-forbidden_page (/forbidden) --> Ling\Light_Kit_Admin\Controller\ForbiddenController->render
-- lka_route-tool_multiple_form_edit (/tool/multiple-form-edit) --> Ling\Light_Kit_Admin\Controller\Tools\RealformMultipleEditController->render
-- lka_route-forgotten_password (/forgotten-password) --> Ling\Light_Kit_Admin\Controller\ForgottenPasswordController->render
+- $app_dir/config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin
 
 
 
-
-
+Third-party plugins can assume this location and build upon that if they want (i.e., we shall never change it).
 
 
 

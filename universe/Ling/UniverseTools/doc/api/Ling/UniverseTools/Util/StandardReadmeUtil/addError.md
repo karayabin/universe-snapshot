@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::addError](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L275-L278)
+See the source code for method [StandardReadmeUtil::addError](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L331-L334)
 
 
 See Also

@@ -75,6 +75,10 @@ cli:
 History Log
 =============
 
+- 1.0.25 -- 2021-05-31
+
+    - adding enable_service, disable_service commands
+
 - 1.0.24 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

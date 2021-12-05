@@ -39,14 +39,43 @@ class MachineTool
     }
 
 
+    /**
+     * Returns the program path, or false if not found.
+     *
+     * This is based on which on unix.
+     *
+     * There is no windows implementation at the moment.
+     *
+     * @param string $program
+     * @return string
+     * @throws \Exception
+     */
+    public static function getProgramPath(string $program): string
+    {
+        if (true === self::isUnix()) {
+            ob_start();
+            passthru("which $program");
+            $res = trim(ob_get_clean());
+            if ('' !== $res) {
+                return $res;
+            }
+            return false;
+
+
+        } else {
+            // todo: implement for windows...
+            throw new \Exception("Sorry dude, not implemented now for windows machine, please improve this class");
+        }
+    }
+
+
     public static function hasProgram($program)
     {
         if (true === self::isUnix()) {
             ob_start();
             passthru("which $program");
             return (strlen(ob_get_clean()) > 0);
-        }
-        else {
+        } else {
             // todo: implement for windows...
             throw new \Exception("Sorry dude, not implemented now for windows machine, please improve this class");
         }

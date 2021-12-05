@@ -5,9 +5,9 @@ namespace Ling\Light_UserData\Light_PlanetInstaller;
 
 
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Light_Database\Light_PlanetInstaller\LightDatabaseBasePlanetInstaller;
 use Ling\Light_Events\Helper\LightEventsHelper;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
-use Ling\Light_UserDatabase\Light_PlanetInstaller\LightUserDatabaseBasePlanetInstaller;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\SimplePdoWrapper\Util\Where;
@@ -16,7 +16,7 @@ use Ling\SimplePdoWrapper\Util\Where;
 /**
  * The LightUserDataPlanetInstaller class.
  */
-class LightUserDataPlanetInstaller extends LightUserDatabaseBasePlanetInstaller implements LightPlanetInstallerInit2HookInterface
+class LightUserDataPlanetInstaller extends LightDatabaseBasePlanetInstaller implements LightPlanetInstallerInit2HookInterface
 {
 
     /**
@@ -29,7 +29,7 @@ class LightUserDataPlanetInstaller extends LightUserDatabaseBasePlanetInstaller 
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $planetDotName = "Ling.Light_UserData";
         //--------------------------------------------
@@ -44,7 +44,7 @@ class LightUserDataPlanetInstaller extends LightUserDatabaseBasePlanetInstaller 
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $planetDotName = "Ling.Light_UserData";
         //--------------------------------------------
@@ -59,7 +59,7 @@ class LightUserDataPlanetInstaller extends LightUserDatabaseBasePlanetInstaller 
     /**
      * @overrides
      */
-    public function init3(string $appDir, OutputInterface $output): void
+    public function init3(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $this->_output = $output;
@@ -125,7 +125,7 @@ class LightUserDataPlanetInstaller extends LightUserDatabaseBasePlanetInstaller 
             if ($ids) {
 
                 foreach ($ids as $id) {
-                $this->message("binding <b>Ling.Light_UserData.MSC/default</b> to group with id=$id from <b>lud_user_group</b> in <b>lud_user_group_has_plugin_option</b>." . PHP_EOL);
+                    $this->message("binding <b>Ling.Light_UserData.MSC/default</b> to group with id=$id from <b>lud_user_group</b> in <b>lud_user_group_has_plugin_option</b>." . PHP_EOL);
                     $api->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
                         'user_group_id' => $id,
                         'plugin_option_id' => $pluginOptionId,
@@ -143,12 +143,10 @@ class LightUserDataPlanetInstaller extends LightUserDatabaseBasePlanetInstaller 
     }
 
 
-
-
     /**
      * @overrides
      */
-    public function undoInit3(string $appDir, OutputInterface $output): void
+    public function undoInit3(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $this->_output = $output;
@@ -180,7 +178,6 @@ class LightUserDataPlanetInstaller extends LightUserDatabaseBasePlanetInstaller 
 
             $this->message("removing <b>Ling.Light_UserData.MSC/default</b> from <b>lud_plugin_option</b>  if it exists." . PHP_EOL);
             $factory->getPluginOptionApi()->deletePluginOptionsByPluginName('Ling.Light_UserData');
-
 
 
         }, $exception);

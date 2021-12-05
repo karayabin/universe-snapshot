@@ -1,0 +1,4 @@
+1.0.0: 
+    - Ling:Light:0.70.11
+    - Ling:Light_Database:1.14.30
+    - Ling:SqlWizard:1.13.9

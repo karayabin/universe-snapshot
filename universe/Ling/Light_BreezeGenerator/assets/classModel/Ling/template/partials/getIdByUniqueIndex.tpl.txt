@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function getUserGroupIdByName(string $name, $default = null, bool $throwNotFoundEx = false)
     {

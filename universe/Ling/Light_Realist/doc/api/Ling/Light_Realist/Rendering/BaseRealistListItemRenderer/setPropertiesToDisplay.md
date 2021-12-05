@@ -50,7 +50,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::setPropertiesToDisplay](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L157-L160)
+See the source code for method [BaseRealistListItemRenderer::setPropertiesToDisplay](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L156-L159)
 
 
 See Also

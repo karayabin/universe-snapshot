@@ -10,8 +10,7 @@
             text: Connexion
             route: lch_route-hub
             route_url_params: 
-                plugin: Ling/Light_Kit_Admin_LoginNotifier
-                controller: Generated/LlnConnexionController
+                execute: Ling\Light_Kit_Admin_LoginNotifier\Controller\Generated\LlnConnexionController->render
             
             _right: Ling.Light_Kit_Admin.admin
             children: []

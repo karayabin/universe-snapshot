@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LpiGlobalDirHelper::getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L28-L43)
+See the source code for method [LpiGlobalDirHelper::getPlanetVersions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L27-L42)
 
 
 See Also

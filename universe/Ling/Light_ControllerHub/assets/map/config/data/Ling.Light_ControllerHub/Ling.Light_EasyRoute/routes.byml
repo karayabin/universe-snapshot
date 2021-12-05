@@ -1,4 +1,4 @@
-Light_ControllerHub:
+Ling.Light_ControllerHub:
     routes:
         lch_route-hub:
             pattern: /hub

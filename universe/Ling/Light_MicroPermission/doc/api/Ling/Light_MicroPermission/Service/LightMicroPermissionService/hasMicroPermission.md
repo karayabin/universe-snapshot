@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightMicroPermissionService::hasMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/Service/LightMicroPermissionService.php#L108-L164)
+See the source code for method [LightMicroPermissionService::hasMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/Service/LightMicroPermissionService.php#L266-L362)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightMicroPermissionService](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService.md) class.
 
-Previous method: [checkMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/checkMicroPermission.md)<br>
+Previous method: [checkMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/checkMicroPermission.md)<br>Next method: [cleanUpAsterisks](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/cleanUpAsterisks.md)<br>
 

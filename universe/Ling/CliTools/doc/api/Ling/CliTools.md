@@ -1,6 +1,6 @@
 Ling/CliTools
 ================
-2019-02-26 --> 2021-05-31
+2019-02-26 --> 2021-07-08
 
 
 
@@ -31,6 +31,7 @@ Table of contents
 - [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper.md) &ndash; The QuestionHelper class.
     - [QuestionHelper::ask](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/ask.md) &ndash; Asks the given $question to the $user, and returns the answer (string).
     - [QuestionHelper::askClear](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askClear.md) &ndash; Prints a question to the terminal.
+    - [QuestionHelper::askSelectListItem](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askSelectListItem.md) &ndash; Asks the user to choose from the given list.
     - [QuestionHelper::askYesNo](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askYesNo.md) &ndash; Asks the given question to the user, repeats it until the answer is either y or n, and returns whether the answer was y.
 - [VirginiaMessageHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper.md) &ndash; The VirginiaMessageHelper class.
     - [VirginiaMessageHelper::success](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/success.md) &ndash; Writes a success message to the output.

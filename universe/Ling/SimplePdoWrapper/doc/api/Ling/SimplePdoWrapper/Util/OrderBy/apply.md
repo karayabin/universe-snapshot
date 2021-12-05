@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [OrderBy::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L78-L90)
+See the source code for method [OrderBy::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L97-L118)
 
 
 See Also
@@ -59,5 +59,5 @@ See Also
 
 The [OrderBy](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy.md) class.
 
-Previous method: [add](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/add.md)<br>Next method: [getColDirs](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/getColDirs.md)<br>
+Previous method: [addExpression](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/addExpression.md)<br>Next method: [getColDirs](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy/getColDirs.md)<br>
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitStoreService::setContainer](https://github.com/lingtalfi/Light_Kit_Store/blob/master/doc/api/Ling/Light_Kit_Store/Service/LightKitStoreService/setContainer.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : void
+public [LightKitStoreService::setContainer](https://github.com/lingtalfi/Light_Kit_Store/blob/master/doc/api/Ling/Light_Kit_Store/Service/LightKitStoreService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitStoreService::setContainer](https://github.com/lingtalfi/Light_Kit_Store/blob/master/Service/LightKitStoreService.php#L52-L55)
+See the source code for method [LightKitStoreService::setContainer](https://github.com/lingtalfi/Light_Kit_Store/blob/master/Service/LightKitStoreService.php#L94-L97)
 
 
 See Also

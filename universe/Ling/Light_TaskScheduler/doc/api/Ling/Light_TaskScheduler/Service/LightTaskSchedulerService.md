@@ -4,7 +4,7 @@
 
 The LightTaskSchedulerService class
 ================
-2020-06-30 --> 2021-05-31
+2020-06-30 --> 2021-06-25
 
 
 
@@ -98,4 +98,4 @@ See the source code of [Ling\Light_TaskScheduler\Service\LightTaskSchedulerServi
 
 SeeAlso
 ==============
-Previous class: [LightTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PluginInstaller/LightTaskSchedulerPluginInstaller.md)<br>
+Previous class: [LightTaskSchedulerPlanetInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PlanetInstaller/LightTaskSchedulerPlanetInstaller.md)<br>

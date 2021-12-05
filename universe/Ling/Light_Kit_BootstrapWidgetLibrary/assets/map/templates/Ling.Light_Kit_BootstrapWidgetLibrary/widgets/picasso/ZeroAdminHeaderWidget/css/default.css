@@ -6,79 +6,102 @@
   padding: 0;
   margin: 0;
   background-color: #fff;
-  border-bottom: 1px solid #c8ced3; }
+  border-bottom: 1px solid #c8ced3;
+}
+.app-header .navbar-brand {
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-right: 0;
+  background-color: transparent;
+  width: 185px;
+}
+@media (max-width: 768px) {
   .app-header .navbar-brand {
-    height: 50px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin-right: 0;
-    background-color: transparent;
-    width: 185px; }
-    @media (max-width: 768px) {
-      .app-header .navbar-brand {
-        width: auto;
-        flex: 1; } }
+    width: auto;
+    flex: 1;
+  }
+}
+.app-header .navbar-toggler {
+  color: #aaa;
+  order: -1;
+}
+.app-header .navbar-toggler:hover {
+  color: #888;
+}
+@media (min-width: 992px) {
   .app-header .navbar-toggler {
-    color: #aaa;
-    order: -1; }
-    .app-header .navbar-toggler:hover {
-      color: #888; }
-    @media (min-width: 992px) {
-      .app-header .navbar-toggler {
-        order: 0; } }
-  .app-header .nav-item {
-    position: relative;
-    min-width: 50px;
-    margin: 0;
-    text-align: center; }
-  .app-header .nav-link {
-    color: #626262; }
-    .app-header .nav-link:hover {
-      color: #234; }
-    .app-header .nav-link .img-avatar {
-      height: 35px;
-      margin: 0 10px; }
-    .app-header .nav-link .badge {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -16px;
-      margin-left: 0; }
-  .app-header .navbar-nav .dropdown-menu {
-    position: absolute;
-    padding: 0;
-    border-radius: 0.25rem; }
-    .app-header .navbar-nav .dropdown-menu a {
-      font-size: 0.9rem; }
-    .app-header .navbar-nav .dropdown-menu .media {
-      font-size: 12px;
-      width: 30vw; }
-      .app-header .navbar-nav .dropdown-menu .media:hover {
-        background: #ececec; }
-  .app-header .navbar-nav .dropdown-header {
-    padding: 8px 20px;
-    background: #d0d7de;
-    border-bottom: 1px solid #ccc;
-    display: block;
-    margin-bottom: 0;
-    font-size: .75rem;
-    color: #6d7986;
-    white-space: nowrap; }
-  .app-header .navbar-nav i {
-    font-size: 1.25rem;
-    color: #aaa; }
-    .app-header .navbar-nav i:hover {
-      color: #888; }
-  .app-header .navbar-nav .dropdown-item {
-    padding: 10px 20px;
-    border-bottom: 1px solid #ccc; }
-    .app-header .navbar-nav .dropdown-item i {
-      font-size: 0.9rem;
-      margin-right: 5px;
-      width: 20px; }
-    .app-header .navbar-nav .dropdown-item:hover {
-      background-color: #eee; }
+    order: 0;
+  }
+}
+.app-header .nav-item {
+  position: relative;
+  min-width: 50px;
+  margin: 0;
+  text-align: center;
+}
+.app-header .nav-link {
+  color: #626262;
+}
+.app-header .nav-link:hover {
+  color: #234;
+}
+.app-header .nav-link .img-avatar {
+  height: 35px;
+  margin: 0 10px;
+}
+.app-header .nav-link .badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -16px;
+  margin-left: 0;
+}
+.app-header .navbar-nav .dropdown-menu {
+  position: absolute;
+  padding: 0;
+  border-radius: 0.25rem;
+}
+.app-header .navbar-nav .dropdown-menu a {
+  font-size: 0.9rem;
+}
+.app-header .navbar-nav .dropdown-menu .media {
+  font-size: 12px;
+  width: 30vw;
+}
+.app-header .navbar-nav .dropdown-menu .media:hover {
+  background: #ececec;
+}
+.app-header .navbar-nav .dropdown-header {
+  padding: 8px 20px;
+  background: #d0d7de;
+  border-bottom: 1px solid #ccc;
+  display: block;
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  color: #6d7986;
+  white-space: nowrap;
+}
+.app-header .navbar-nav i {
+  font-size: 1.25rem;
+  color: #aaa;
+}
+.app-header .navbar-nav i:hover {
+  color: #888;
+}
+.app-header .navbar-nav .dropdown-item {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+}
+.app-header .navbar-nav .dropdown-item i {
+  font-size: 0.9rem;
+  margin-right: 5px;
+  width: 20px;
+}
+.app-header .navbar-nav .dropdown-item:hover {
+  background-color: #eee;
+}
 
 /*# sourceMappingURL=default.css.map */

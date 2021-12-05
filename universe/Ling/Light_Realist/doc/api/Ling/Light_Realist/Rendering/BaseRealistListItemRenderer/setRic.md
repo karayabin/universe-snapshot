@@ -49,7 +49,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::setRic](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L148-L151)
+See the source code for method [BaseRealistListItemRenderer::setRic](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L147-L150)
 
 
 See Also

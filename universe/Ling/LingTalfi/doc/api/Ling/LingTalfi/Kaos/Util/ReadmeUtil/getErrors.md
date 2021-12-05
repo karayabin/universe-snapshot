@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L147-L150)
+See the source code for method [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L148-L151)
 
 
 See Also

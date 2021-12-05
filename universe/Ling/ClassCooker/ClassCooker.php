@@ -313,7 +313,7 @@ class ClassCooker
      *
      * The statement must look like this (including the semi-colon at the end, but not the PHP_EOL at the very end):
      *
-     * - use Ling\Light_Logger\LightLoggerService;
+     * - use Ling\Light_Logger\Service\LightLoggerService;
      *
      *
      * @param string|array $useStatements

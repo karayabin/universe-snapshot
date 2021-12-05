@@ -4,7 +4,7 @@
 
 The LudUserHasPermissionGroupController class
 ================
-2020-06-25 --> 2021-05-31
+2020-06-25 --> 2021-06-18
 
 
 

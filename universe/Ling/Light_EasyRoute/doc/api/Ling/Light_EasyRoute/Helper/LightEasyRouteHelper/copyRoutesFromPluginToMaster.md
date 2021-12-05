@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Helper/LightEasyRouteHelper.php#L24-L39)
+See the source code for method [LightEasyRouteHelper::copyRoutesFromPluginToMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Helper/LightEasyRouteHelper.php#L92-L107)
 
 
 See Also
@@ -67,5 +67,5 @@ See Also
 
 The [LightEasyRouteHelper](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper.md) class.
 
-Next method: [removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/removeRoutesFromMaster.md)<br>
+Previous method: [getPluginFile](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/getPluginFile.md)<br>Next method: [removeRoutesFromMaster](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Helper/LightEasyRouteHelper/removeRoutesFromMaster.md)<br>
 

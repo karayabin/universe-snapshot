@@ -13,11 +13,13 @@ use Ling\Light_DeveloperWizard\WebWizardTools\Process\Database\AddStandardPermis
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Database\SynchronizeDbProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Generators\GenerateBreezeApiProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Generators\GenerateBreezeConfigProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Cli\CreateCliAppProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaGeneratorConfigProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaPlanetProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaUserMainPage;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaUserMainPageList;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\ExecuteLkaGeneratorProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_PlanetInstaller\CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet\CreateConceptionNotesProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet\CreateExceptionClassProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet\RemovePlanetProcess;
@@ -245,6 +247,11 @@ class LightDeveloperWizardService
                 $ww->setProcess((new GenerateBreezeApiProcess()));
 
 
+                // Light_Cli
+                $ww->setProcess(new CreateCliAppProcess());
+
+
+
                 // lka
                 $ww->setProcess((new CreateLkaPlanetProcess()));
                 $ww->setProcess((new CreateLkaGeneratorConfigProcess()));
@@ -274,6 +281,10 @@ class LightDeveloperWizardService
                 $ww->setProcess((new RemovePlanetProcess()));
                 $ww->setProcess((new CreateConceptionNotesProcess()));
                 $ww->setProcess((new CreateExceptionClassProcess()));
+
+
+                // planet installer
+                $ww->setProcess((new CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller()));
 
 
                 // widget

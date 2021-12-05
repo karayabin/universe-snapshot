@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WiseTool::regularToBootstrap](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L187-L202)
+See the source code for method [WiseTool::regularToBootstrap](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L160-L175)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [WiseTool](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool.md) class.
 
-Previous method: [wiseToLightKitAdmin](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/wiseToLightKitAdmin.md)<br>Next method: [regularToWise](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToWise.md)<br>
+Previous method: [wiseToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/wiseToChloroform.md)<br>Next method: [regularToWise](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToWise.md)<br>
 

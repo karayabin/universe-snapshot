@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorBabyYamlStorage::getWidgetsByBlock](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L157-L165)
+See the source code for method [LightKitEditorBabyYamlStorage::getWidgetsByBlock](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L159-L167)
 
 
 See Also

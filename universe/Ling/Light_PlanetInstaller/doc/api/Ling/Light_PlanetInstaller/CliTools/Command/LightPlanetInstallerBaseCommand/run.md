@@ -61,7 +61,7 @@ Other return value types might be added in the future
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerBaseCommand::run](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/LightPlanetInstallerBaseCommand.php#L81-L107)
+See the source code for method [LightPlanetInstallerBaseCommand::run](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/LightPlanetInstallerBaseCommand.php#L82-L108)
 
 
 See Also

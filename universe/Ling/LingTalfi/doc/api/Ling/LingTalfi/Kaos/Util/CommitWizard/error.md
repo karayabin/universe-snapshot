@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [CommitWizard::error](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L239-L242)
+See the source code for method [CommitWizard::error](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L265-L268)
 
 
 See Also

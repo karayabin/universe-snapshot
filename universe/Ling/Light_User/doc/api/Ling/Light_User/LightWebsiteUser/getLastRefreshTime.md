@@ -46,7 +46,7 @@ Returns false | int.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::getLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L358-L361)
+See the source code for method [LightWebsiteUser::getLastRefreshTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L387-L390)
 
 
 See Also

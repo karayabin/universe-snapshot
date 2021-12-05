@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder.php#L44-L211)
+See the source code for method [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder.php#L45-L221)
 
 
 See Also

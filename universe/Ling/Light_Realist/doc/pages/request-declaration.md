@@ -1,6 +1,6 @@
 The request declaration
 ============
-2020-08-24 -> 2020-11-13
+2020-08-24 -> 2021-06-01
 
 
 
@@ -8,6 +8,38 @@ The **request declaration** is the config array our service use in order to know
 
 The **request declaration** is identified by a **requestId**, which is a small string we can easily transmit via ajax.
 
+
+
+The open registration system
+--------
+2021-06-01
+
+To convert the **requestId** to an actual **request declaration** array, we use the following open convention:
+
+
+- from the **requestId** we extract the [planetDotName](https://github.com/karayabin/universe-snapshot#the-planet-dot-name) and the relative path.
+    In fact, the format of the requestId is:
+    - $requestId = $planetDotName:$relPath
+    
+- then we look for this file:
+    - $appDir/config/open/Ling.Light_Realist/$planetDotName/$relPath.byml
+    
+    The [custom/config pattern](https://github.com/lingtalfi/TheBar/blob/master/discussions/generated-custom-config-pattern.md) applies.
+
+- If such file is found, we read it (it's a babyYaml file described in the next section),
+    and we resolve the _vars section if it exists, using the same technique as the [one described in the Light_Nugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#variables-replacement) planet.
+
+- we also resolve [pmp variables](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md#light-execute-notation-with-light-pmp-wrapper) for more flexibility
+  
+- we also allow an old dynamic variable injection technique (see the source code of **LightRealistService->getConfigurationArrayByRequestId** for more info) 
+
+- the result of all those transformations IS the **request declaration**
+
+
+
+The request declaration file
+-------
+2020-08-24 -> 2021-06-01
 
 The **request declaration** is composed of different **properties**.
 

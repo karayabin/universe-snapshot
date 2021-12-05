@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_Logger;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -142,6 +143,7 @@ class Light_LoggerDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Bat\ConvertTool::convertHumanSizeToBytes" => 'https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes',
+                "Ling.Light_Logger conception notes" => 'https://github.com/lingtalfi/Light_Logger/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -154,6 +156,7 @@ class Light_LoggerDocBuilder
              */
             "externalClass2Url" => [
                 "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\Light_Logger\Service\?LightServiceContainerInterface" => "https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/?LightServiceContainerInterface.md",
 
             ],
         ];
@@ -190,6 +193,9 @@ class Light_LoggerDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+
+
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

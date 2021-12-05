@@ -1,0 +1,9 @@
+dependencies: 
+    Ling: 
+        - Light
+        - Light_Database
+        - SqlWizard
+    
+
+post_install: 
+    map: true

@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LpiFormatHelper::getFileFmt](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiFormatHelper.php#L83-L86)
+See the source code for method [LpiFormatHelper::getFileFmt](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiFormatHelper.php#L82-L85)
 
 
 See Also

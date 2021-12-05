@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [DebugSessionDirCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L186-L197)
+See the source code for method [DebugSessionDirCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L185-L196)
 
 
 See Also

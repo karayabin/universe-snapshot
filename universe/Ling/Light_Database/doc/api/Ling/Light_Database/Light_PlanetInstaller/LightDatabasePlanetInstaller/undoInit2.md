@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightDatabasePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightDatabasePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -38,6 +38,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -53,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabasePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Database/blob/master/Light_PlanetInstaller/LightDatabasePlanetInstaller.php#L107-L117)
+See the source code for method [LightDatabasePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Database/blob/master/Light_PlanetInstaller/LightDatabasePlanetInstaller.php#L117-L135)
 
 
 See Also

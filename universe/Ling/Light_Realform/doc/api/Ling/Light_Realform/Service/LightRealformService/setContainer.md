@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealformService::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L262-L265)
+See the source code for method [LightRealformService::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L307-L310)
 
 
 See Also

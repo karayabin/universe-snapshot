@@ -88,7 +88,6 @@ class LightKitEditorBabyYamlStorage extends LightKitEditorAbstractStorage
     {
         $pageName = $this->noEscalation($pageName);
 
-
         $pageFile = $this->rootDir . "/pages/$pageName.byml";
         if (true === file_exists($pageFile)) {
             $arr = BabyYamlUtil::readFile($pageFile);
@@ -107,8 +106,11 @@ class LightKitEditorBabyYamlStorage extends LightKitEditorAbstractStorage
                         }
                     }
                 }
-
             }
+            $arr['_babyYamlPage'] = [
+                "name" => $pageName,
+                "file" => $pageFile,
+            ];
             return $arr;
         } else {
             $this->addError("File not found: $pageFile.");

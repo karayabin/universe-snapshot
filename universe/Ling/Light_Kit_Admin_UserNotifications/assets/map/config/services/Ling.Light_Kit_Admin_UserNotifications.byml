@@ -1,0 +1,6 @@
+kit_admin_user_notifications: 
+    instance: Ling\Light_Kit_Admin_UserNotifications\Service\LightKitAdminUserNotificationsService
+    methods: 
+        setContainer: 
+            container: @container()
+

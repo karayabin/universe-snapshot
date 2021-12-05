@@ -46,7 +46,7 @@ Returns [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getNotifications](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L178-L181)
+See the source code for method [LightKitAdminService::getNotifications](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L181-L184)
 
 
 See Also

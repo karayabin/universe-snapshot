@@ -8,6 +8,7 @@ use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
 use Ling\Kit_PicassoWidget\Util\VariableDescriptionDocWriterUtil;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -79,6 +80,10 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
                 "Ling\ZephyrTemplateEngine\ZephyrTemplateEngine",
                 "Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget",
                 "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidget",
+                "Ling\Light_Cli\CliTools\Program\LightCliBaseApplication",
+                "Ling\CliTools\Program\Application",
+                "Ling\CliTools\Program\AbstractProgram",
+
             ],
             /**
              * Your project start date.
@@ -147,6 +152,7 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
                 "widget configuration array" => 'https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array',
                 "html page copilot" => 'https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md',
                 "jAcpHep" => 'https://github.com/lingtalfi/JAcpHep',
+                "Light_Kit_BootstrapWidgetLibrary conception notes" => 'https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -166,6 +172,16 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
                 "Ling\Kit\PageRenderer\KitPageRendererAwareInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md",
                 "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidgetInterface" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidgetInterface.md",
                 "Ling\Kit\PageRenderer\KitPageRendererInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_Cli\CliTools\Program\LightCliCommandInterface" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliCommandInterface.md",
+                "Ling\CliTools\Command\CommandInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
+                "Ling\Light_Cli\CliTools\Program\LightCliBaseApplication" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication.md",
+                "Ling\Light_Cli\CliTools\Program\LightCliApplicationInterface" => "https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface.md",
+                "Ling\CliTools\Program\ProgramInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md",
+                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger/blob/master/doc/api/Ling/UniversalLogger/UniversalLoggerInterface.md",
+
             ],
         ];
 
@@ -221,6 +237,9 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+
+
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

@@ -20,7 +20,7 @@ class LightPrettyErrorPlanetInstaller extends LightBasePlanetInstaller implement
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $planetDotName = "Ling.Light_PrettyError";
         //--------------------------------------------
@@ -38,7 +38,7 @@ class LightPrettyErrorPlanetInstaller extends LightBasePlanetInstaller implement
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
         $planetDotName = "Ling.Light_PrettyError";
         //--------------------------------------------

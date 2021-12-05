@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CreateMapCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CreateMapCommand.php#L36-L58)
+See the source code for method [CreateMapCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CreateMapCommand.php#L35-L57)
 
 
 See Also

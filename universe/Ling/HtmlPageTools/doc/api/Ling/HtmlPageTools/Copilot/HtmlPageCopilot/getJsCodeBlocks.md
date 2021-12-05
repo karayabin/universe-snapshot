@@ -48,7 +48,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L329-L332)
+See the source code for method [HtmlPageCopilot::getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L352-L355)
 
 
 See Also

@@ -49,7 +49,7 @@ Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/d
 
 Source Code
 ===========
-See the source code for method [LkaJimToolboxController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/JimToolbox/LkaJimToolboxController.php#L29-L89)
+See the source code for method [LkaJimToolboxController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/JimToolbox/LkaJimToolboxController.php#L25-L46)
 
 
 See Also

@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_MailerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Mailer/Light_MailerDocBuilder.php#L45-L210)
+See the source code for method [Light_MailerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Mailer/Light_MailerDocBuilder.php#L45-L216)
 
 
 See Also

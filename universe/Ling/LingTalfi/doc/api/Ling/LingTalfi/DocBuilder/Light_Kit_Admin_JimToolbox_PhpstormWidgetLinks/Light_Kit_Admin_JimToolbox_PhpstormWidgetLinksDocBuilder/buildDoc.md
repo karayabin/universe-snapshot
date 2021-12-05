@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder.php#L45-L217)
+See the source code for method [Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinks/Light_Kit_Admin_JimToolbox_PhpstormWidgetLinksDocBuilder.php#L45-L222)
 
 
 See Also

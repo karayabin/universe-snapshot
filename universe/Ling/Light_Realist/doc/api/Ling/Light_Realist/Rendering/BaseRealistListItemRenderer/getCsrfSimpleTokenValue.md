@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::getCsrfSimpleTokenValue](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L413-L424)
+See the source code for method [BaseRealistListItemRenderer::getCsrfSimpleTokenValue](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L412-L423)
 
 
 See Also

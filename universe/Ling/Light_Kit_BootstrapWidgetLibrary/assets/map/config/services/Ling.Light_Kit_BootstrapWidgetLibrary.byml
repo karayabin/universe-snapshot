@@ -1,0 +1,24 @@
+kit_bootstrap_widget_library: 
+    instance: Ling\Light_Kit_BootstrapWidgetLibrary\Service\LightKitBootstrapWidgetLibraryService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+        setOptions: 
+            options: []
+        
+    
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$cli.methods_collection: 
+    - 
+        method: registerCliApp
+        args: 
+            appId: bwl
+            app: 
+                instance: Ling\Light_Kit_BootstrapWidgetLibrary\CliTools\Program\LightKitBootstrapWidgetLibraryApplication
+            
+        
+    

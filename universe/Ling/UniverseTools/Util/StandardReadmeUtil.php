@@ -49,18 +49,36 @@ class StandardReadmeUtil
      *
      * - 0: version
      * - 1: text
+     * - 2: isDoubleDash (bool)
      *
      *
      * Errors, if any, are put in the errors array.
      *
      *
+     * Available options are:
+     *
+     * - considerDoubleDash: bool=false, if true, the first version found might be a double dash. If false (by default),
+     *      the first version found can never be a double dash version.
+     *
+     * Note: double dash is a convention I use to indicate that the planet needs to be committed (like a todo hint).
+     *
+     *
      * @param string $readMeFile
      * @param array $errors
+     * @param array $options
      * @return array|false
      */
-    public function getLatestVersionInfo(string $readMeFile, array &$errors = []): array|false
+    public function getLatestVersionInfo(string $readMeFile, array &$errors = [], array $options = []): array|false
     {
         $this->errors = [];
+        $useDoubleDash = $options['considerDoubleDash'] ?? false;
+
+        if (false === $useDoubleDash) {
+            $lineRegex = '!^(- )([0-9]+\.[0-9]+(\.[0-9]+)?) -- [0-9]{4}-[0-9]{2}-[0-9]{2}!';
+        } else {
+            $lineRegex = '!^(--? )([0-9]+\.[0-9]+(\.[0-9]+)?) -- [0-9]{4}-[0-9]{2}-[0-9]{2}!';
+        }
+
         $ret = false;
         if (file_exists($readMeFile)) {
 
@@ -70,16 +88,18 @@ class StandardReadmeUtil
 
             $historyLogSectionFound = false;
             $versionFound = false;
+            $isDoubleDash = false;
             $version = null;
             $text = null;
             foreach ($lines as $line) {
                 if (true === $historyLogSectionFound) {
                     if (false === $versionFound) {
-                        if (0 === strpos($line, '- ')) {
-                            if (preg_match('!([0-9]+\.[0-9]+(\.[0-9]+)?) -- [0-9]{4}-[0-9]{2}-[0-9]{2}!', $line, $match)) {
-                                $version = $match[1];
-                                $versionFound = true;
-                            }
+                        if (preg_match($lineRegex, $line, $match)) {
+
+                            $dash = trim($match[1]);
+                            $isDoubleDash = ('--' === $dash);
+                            $version = $match[2];
+                            $versionFound = true;
                         }
                     } else {
                         if (preg_match('!^\s+- (.*)!', $line, $match)) {
@@ -100,6 +120,7 @@ class StandardReadmeUtil
                 $ret = [
                     $version,
                     $text,
+                    $isDoubleDash,
                 ];
             } else {
                 $this->addError("Could not find the version and/or the commit text from the \"History Log\" section (in $readMeFile).");
@@ -170,6 +191,41 @@ class StandardReadmeUtil
         }
     }
 
+
+    /**
+     * Returns the array of the planet dot names to commit.
+     *
+     * This is based on a little convention I use: I put a double dash to the first commit line (in the History section of the readme file),
+     * to indicate that this planet needs to be committed later.
+     *
+     *
+     *
+     * @param string $appDir
+     * @return array
+     */
+    public function getPlanetsToCommitListByAppDir(string $appDir): array
+    {
+        $ret = [];
+        $uniDir = $appDir . "/universe";
+        $planetDirs = PlanetTool::getPlanetDirs($uniDir);
+        $options = [
+            "considerDoubleDash" => true,
+        ];
+        foreach ($planetDirs as $planetDir) {
+            $readmeFile = $planetDir . "/README.md";
+            $errors = [];
+            $arr = $this->getLatestVersionInfo($readmeFile, $errors, $options);
+
+            if (false !== $arr) {
+
+                if (true === $arr[2]) {
+                    $planetDotName = PlanetTool::getPlanetDotNameByPlanetDir($planetDir);
+                    $ret[] = $planetDotName;
+                }
+            }
+        }
+        return $ret;
+    }
 
     /**
      * Adds a commit message to the history log section of the README files for each planet in the given universeDir.

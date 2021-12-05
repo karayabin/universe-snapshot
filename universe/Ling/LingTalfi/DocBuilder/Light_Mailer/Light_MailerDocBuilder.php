@@ -76,6 +76,8 @@ class Light_MailerDocBuilder
              */
             "reportIgnore" => [
                 "\Swift_Mailer",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
+
             ],
             /**
              * Your project start date.
@@ -143,6 +145,7 @@ class Light_MailerDocBuilder
             "keyWord2UrlMap" => [
                 "Light_Mailer conception notes" => $doc . '/pages/conception-notes.md',
                 "multi-sender section of the conception notes" => $doc . '/pages/conception-notes.md#multi-sender',
+                "Light_PlanetInstaller conception notes" => 'https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -157,6 +160,9 @@ class Light_MailerDocBuilder
                 "Ling\ArrayVariableResolver\Exception\ArrayVariableResolverException" => "https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/Exception/ArrayVariableResolverException.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "\Swift_Transport" => "https://github.com/swiftmailer/swiftmailer/blob/master/lib/classes/Swift/Transport.php",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface.md",
 
             ],
             "ignoreFilesStartingWith" => [

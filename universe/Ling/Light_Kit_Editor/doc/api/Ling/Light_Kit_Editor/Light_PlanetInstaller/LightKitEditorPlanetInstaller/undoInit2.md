@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitEditorPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_PlanetInstaller/LightKitEditorPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightKitEditorPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_PlanetInstaller/LightKitEditorPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -35,6 +35,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 

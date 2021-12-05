@@ -4,7 +4,7 @@
 
 The LightKitAdminTaskSchedulerLkaPlugin class
 ================
-2020-07-31 --> 2021-05-31
+2020-07-31 --> 2021-06-18
 
 
 

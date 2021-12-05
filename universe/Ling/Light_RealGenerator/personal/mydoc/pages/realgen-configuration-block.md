@@ -1,6 +1,6 @@
 The configuration block
 --------------
-2019-10-24 -> 2021-03-15
+2019-10-24 -> 2021-06-17
 
 
 A configuration block is an array.
@@ -413,7 +413,7 @@ form:
     related_links:
         -
             text: See the list of "{Label}" items
-            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{plugin}, controller: Generated/{TableClass}Controller}))::
+            url: ::(@reverse_router->getUrl(lch_route-hub, {execute: !{galaxy}\!{plugin}\Controller\Generated\{TableClass}Controller->render}))::
             icon: fas fa-plus-circle
 
 ```

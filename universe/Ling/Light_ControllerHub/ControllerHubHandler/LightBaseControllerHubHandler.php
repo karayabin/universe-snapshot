@@ -11,7 +11,7 @@ use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
+use Ling\Light_ControllerHub\Exception\LightControllerHubException;
 
 /**
  * The LightBaseControllerHubHandler class.
@@ -96,7 +96,7 @@ abstract class LightBaseControllerHubHandler implements LightControllerHubHandle
             $r = ControllerHelper::executeController($controller, $light);
             return $r;
         } else {
-            throw new LightKitAdminException("Wrong controllerIdentifier $controllerIdentifier.");
+            throw new LightControllerHubException("Wrong controllerIdentifier $controllerIdentifier.");
         }
     }
 }

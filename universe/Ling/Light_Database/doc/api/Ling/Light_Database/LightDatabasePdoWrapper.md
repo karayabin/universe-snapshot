@@ -4,7 +4,7 @@
 
 The LightDatabasePdoWrapper class
 ================
-2019-07-22 --> 2021-05-31
+2019-07-22 --> 2021-06-28
 
 
 
@@ -140,4 +140,4 @@ See the source code of [Ling\Light_Database\LightDatabasePdoWrapper](https://git
 
 SeeAlso
 ==============
-Previous class: [LightDatabaseHelper](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Helper/LightDatabaseHelper.md)<br>Next class: [LightDatabasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller.md)<br>
+Previous class: [LightDatabaseHelper](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Helper/LightDatabaseHelper.md)<br>Next class: [LightDatabaseBasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabaseBasePlanetInstaller.md)<br>

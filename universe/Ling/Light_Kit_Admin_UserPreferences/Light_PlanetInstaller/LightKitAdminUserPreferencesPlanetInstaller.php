@@ -14,5 +14,13 @@ class LightKitAdminUserPreferencesPlanetInstaller extends LightKitAdminBasePlane
 {
 
 
+    /**
+     * Builds the LightKitAdminUserPreferencesPlanetInstaller instance.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->microPermissionProfile = "Ling.Light_Kit_Admin_UserPreferences/Ling.Light_MicroPermission/kit_admin_user_preferences.profile.generated.byml";
+    }
 
 }

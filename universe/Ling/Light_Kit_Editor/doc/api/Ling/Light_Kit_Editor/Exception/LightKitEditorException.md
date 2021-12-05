@@ -4,7 +4,7 @@
 
 The LightKitEditorException class
 ================
-2021-03-01 --> 2021-05-31
+2021-03-01 --> 2021-08-03
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Kit_Editor\Exception\LightKitEditorException]
 
 SeeAlso
 ==============
-Previous class: [LightKitEditorEngine](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Engine/LightKitEditorEngine.md)<br>Next class: [LightKitEditorPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Light_PlanetInstaller/LightKitEditorPlanetInstaller.md)<br>
+Previous class: [LightKitEditorEngine](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Engine/LightKitEditorEngine.md)<br>Next class: [LightKitEditorHelper](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/api/Ling/Light_Kit_Editor/Helper/LightKitEditorHelper.md)<br>

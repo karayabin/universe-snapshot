@@ -4,7 +4,7 @@
 
 The HtmlPageException class
 ================
-2019-04-24 --> 2021-05-31
+2019-04-24 --> 2021-08-17
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\HtmlPageTools\Exception\HtmlPageException](https://
 
 SeeAlso
 ==============
-Previous class: [CssFileGeneratorInterface](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface.md)<br>Next class: [HtmlPageRenderer](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Renderer/HtmlPageRenderer.md)<br>
+Previous class: [CssFileGeneratorInterface](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface.md)<br>Next class: [HtmlPageToolsHelper](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Helper/HtmlPageToolsHelper.md)<br>

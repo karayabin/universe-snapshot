@@ -93,4 +93,4 @@ See the source code of [Ling\Light_Cli\CliTools\Command\CreateAppCommand](https:
 
 SeeAlso
 ==============
-Previous class: [CommandsCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/CommandsCommand.md)<br>Next class: [HelpCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/HelpCommand.md)<br>
+Previous class: [CommandsCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/CommandsCommand.md)<br>Next class: [DisableServiceCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/DisableServiceCommand.md)<br>

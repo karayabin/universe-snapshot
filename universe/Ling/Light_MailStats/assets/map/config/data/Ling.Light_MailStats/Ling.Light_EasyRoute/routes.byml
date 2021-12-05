@@ -1,0 +1,6 @@
+Ling.Light_MailStats:
+    prefix: null
+    routes:
+        lms_route-redirect:
+            pattern: /lms_redirect
+            controller: Ling\Light_MailStats\Controller\LightMailStatsController->redirect

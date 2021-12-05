@@ -186,6 +186,7 @@ class Light_RealistDocBuilder
                 "realist generic action item section" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/action-items.md#generic-action-item',
                 "realist action handler section" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-protagonists.md#the-action-handler',
                 "open tags" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-tags.md',
+                "open registration system of Ling.Light_Realist" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/request-declaration.md#the-open-registration-system',
 
             ],
             /**

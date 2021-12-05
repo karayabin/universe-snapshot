@@ -1,6 +1,6 @@
 General philosophy of the Light framework
 ================
-2019-04-09 
+2019-04-09 -> 2021-06-29
 
 
 
@@ -51,6 +51,20 @@ I'm not interrupting my flow for stupid checking. Plus, it makes the code cleane
 
 
  
+
+Logging
+-----------
+2021-06-29
+
+We generally use the [Ling.Light_Logger](https://github.com/lingtalfi/Light_Logger) plugin under the hood.
+
+For logging errors, we use the "error" channel only.
+
+This represents all type of **critical** errors: the ones that stops your website from working correctly.
+
+This includes fatal errors.
+
+
 
 
 

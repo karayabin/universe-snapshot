@@ -7,7 +7,6 @@ namespace Ling\Light_PlanetInstaller\Helper;
 use Exception;
 use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\YorgDirScannerTool;
-use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
 use Ling\UniverseTools\PlanetTool;
 
 /**

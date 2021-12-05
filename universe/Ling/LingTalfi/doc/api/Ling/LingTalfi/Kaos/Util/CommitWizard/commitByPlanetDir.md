@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitWizard::commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L155-L195)
+See the source code for method [CommitWizard::commitByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L181-L221)
 
 
 See Also

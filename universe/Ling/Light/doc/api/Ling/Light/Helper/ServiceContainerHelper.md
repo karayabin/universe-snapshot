@@ -4,7 +4,7 @@
 
 The ServiceContainerHelper class
 ================
-2019-04-09 --> 2021-05-31
+2019-04-09 --> 2021-07-30
 
 
 
@@ -62,4 +62,4 @@ See the source code of [Ling\Light\Helper\ServiceContainerHelper](https://github
 
 SeeAlso
 ==============
-Previous class: [LightNamesAndPathHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper.md)<br>Next class: [ZFileHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper.md)<br>
+Previous class: [LightServiceHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightServiceHelper.md)<br>Next class: [ZFileHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper.md)<br>

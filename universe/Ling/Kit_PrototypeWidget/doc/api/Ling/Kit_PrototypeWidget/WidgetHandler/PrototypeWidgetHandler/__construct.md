@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PrototypeWidgetHandler::__construct](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php#L56-L60)
+See the source code for method [PrototypeWidgetHandler::__construct](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php#L64-L68)
 
 
 See Also

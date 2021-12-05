@@ -1,6 +1,6 @@
 TheBar
 ======
-2015-11-03 -> 2021-05-31
+2015-11-03 -> 2021-07-02
 
 
 
@@ -10,6 +10,7 @@ Listen to some of our customer's stories.
 
 
 - [Ajax file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md): a discussion about ajax file upload
+- [Alcp service](https://github.com/lingtalfi/TheBar/blob/master/discussions/alcp-service.md): a definition of the alcp service
 - [Basic security nugget](https://github.com/lingtalfi/TheBar/blob/master/discussions/basic-security-nugget.md): a discussion about the basic security nugget
 - [classic log levels](https://github.com/lingtalfi/TheBar/blob/master/discussions/classic-log-levels.md): the classic log levels definition
 - [clever form initiative](https://github.com/lingtalfi/TheBar/blob/master/discussions/clever-form-initiative.md): the clever form initiative document
@@ -17,6 +18,7 @@ Listen to some of our customer's stories.
 - [curious notations in light](https://github.com/lingtalfi/TheBar/blob/master/discussions/curious-notations-in-light.md): the curious notations in light memo
 - [database identity usurpation](https://github.com/lingtalfi/TheBar/blob/master/discussions/database-identity-usurpation.md): a discussion about some database identity usurpation 
 - [DevicesResolutions](https://github.com/lingtalfi/TheBar/blob/master/DevicesResolutions/devices-resolutions.md): devices resolutions cheat sheet
+- [digger convention](https://github.com/lingtalfi/TheBar/blob/master/discussions/digger.md): the digger convention explained
 - [docblock comment](https://github.com/lingtalfi/TheBar/blob/master/discussions/docblock-comment.md): a doc block comment definition
 - [error logging convention](https://github.com/lingtalfi/TheBar/blob/master/discussions/error-logging-convention.md): the error logging convention document
 - [handy exception](https://github.com/lingtalfi/TheBar/blob/master/discussions/handy-exception.md): the handy exception definition
@@ -24,12 +26,15 @@ Listen to some of our customer's stories.
 - [flat-filesystem](https://github.com/lingtalfi/TheBar/blob/master/discussions/flat-filesystem.md): A flat filesystem 
 - [form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md): a discussion about php session security
 - [full ajax form](https://github.com/lingtalfi/TheBar/blob/master/discussions/full-ajax-form.md): the full ajax form technique 
+- [full table](https://github.com/lingtalfi/TheBar/blob/master/discussions/full-table.md): the full table definition 
+- [global controller vars](https://github.com/lingtalfi/TheBar/blob/master/discussions/global-controller-vars.md): the global controller vars convention 
 - [Iframe signal](https://github.com/lingtalfi/TheBar/blob/master/discussions/iframe-signal.md): a discussion about the iframe signal technique
 - [import install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md): a disambiguation about the import install concepts 
 - [inject svelte in an existing app](https://github.com/lingtalfi/TheBar/blob/master/discussions/inject-svelte-in-existing-app.md): Inject a svelte component in an existing app 
 - [Joe's Corner](https://github.com/lingtalfi/TheBar/blob/master/joe/README.md): tells you about how the universe should be organized 
 - [kwin notation](https://github.com/lingtalfi/TheBar/blob/master/discussions/kwin-notation.md): the kwin notation 
 - [light-standard-permissions](https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md): the light standard permissions 
+- [Micro-permissions based system](https://github.com/lingtalfi/TheBar/blob/master/discussions/micro-permissions-based-system.md): introducing the micro-permissions based system 
 - [panda-headers protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/panda-headers-protocol.md): the panda-headers protocol 
 - [permissive-dev-environment](https://github.com/lingtalfi/TheBar/blob/master/discussions/permissive-dev-environment.md): the permissive dev environment discussion 
 - [php session security](https://github.com/lingtalfi/TheBar/blob/master/discussions/php-session-security.md): a discussion about php session security
@@ -66,6 +71,30 @@ uni import Ling/TheBar
 History Log
 ===============
 
+- 1.24.42 -- 2021-07-02
+
+    - add full table definition
+  
+- 1.24.41 -- 2021-06-29
+
+    - fix digger convention link in README.md
+  
+- 1.24.40 -- 2021-06-29
+
+    - add digger convention document
+  
+- 1.24.39 -- 2021-06-25
+
+    - add "global controller vars" discussion
+  
+- 1.24.38 -- 2021-06-16
+
+    - add "micro-permissions based system" discussion
+  
+- 1.24.37 -- 2021-06-15
+
+    - add alcp service definition
+  
 - 1.24.36 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

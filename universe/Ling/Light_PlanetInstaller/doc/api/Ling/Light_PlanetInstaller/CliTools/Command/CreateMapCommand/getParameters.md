@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [CreateMapCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CreateMapCommand.php#L80-L91)
+See the source code for method [CreateMapCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CreateMapCommand.php#L79-L90)
 
 
 See Also

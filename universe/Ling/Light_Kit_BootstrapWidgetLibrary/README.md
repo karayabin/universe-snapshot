@@ -1,6 +1,6 @@
 Light_Kit_BootstrapWidgetLibrary
 ===========
-2019-04-26 -> 2021-04-15
+2019-04-26 -> 2021-06-28
 
 
 
@@ -40,6 +40,43 @@ Summary
 
 
 
+
+Service config
+---------
+2021-06-21
+
+
+The default config of our service looks like this:
+
+```yaml
+kit_bootstrap_widget_library: 
+    instance: Ling\Light_Kit_BootstrapWidgetLibrary\Service\LightKitBootstrapWidgetLibraryService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+        setOptions: 
+            options: []
+        
+    
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$cli.methods_collection: 
+    - 
+        method: registerCliApp
+        args: 
+            appId: bwl
+            app: 
+                instance: Ling\Light_Kit_BootstrapWidgetLibrary\CliTools\Program\LightKitBootstrapWidgetLibraryApplication
+            
+        
+    
+```
+
+
+
 Related
 =========
 - [Light_Kit_Demo](https://github.com/lingtalfi/Light_Kit_Demo/): a planet showing some demos made with Light_Kit_BootstrapWidgetLibrary. 
@@ -49,10 +86,18 @@ Related
 
 History Log
 =============
+  
+- 1.18.15 -- 2021-06-28
 
+    - fix api wrong reference to Ling.Light_Logger
+  
+- 1.18.14 -- 2021-06-21
+
+    - add cli app with create_widget command
+  
 - 1.18.13 -- 2021-05-31
 
-    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api)
 
 - 1.18.12 -- 2021-04-15
 

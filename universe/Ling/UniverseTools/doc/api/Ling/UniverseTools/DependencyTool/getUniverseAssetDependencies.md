@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [DependencyTool::getUniverseAssetDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L297-L311)
+See the source code for method [DependencyTool::getUniverseAssetDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L298-L312)
 
 
 See Also

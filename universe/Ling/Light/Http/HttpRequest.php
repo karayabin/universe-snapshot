@@ -152,11 +152,19 @@ class HttpRequest implements HttpRequestInterface
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $uriPath = explode('?', $_SERVER["REQUEST_URI"])[0];
-        $qString = $_SERVER['QUERY_STRING'];
+
+        /**
+         * From my understanding, this field is url encoded (but we want to work with the decoded version).
+         * http://www.faqs.org/rfcs/rfc3875.html
+         *
+         */
+        $qString = urldecode($_SERVER['QUERY_STRING']);
         $uri = $uriPath;
         if ($qString) {
+            //
             $uri .= "?" . $qString;
         }
+
         $time = $_SERVER["REQUEST_TIME_FLOAT"];
         $host = $_SERVER["HTTP_HOST"];
         $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443;
@@ -323,7 +331,7 @@ class HttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getGetValue(string $key, bool $throwEx = true)
+    public function getGetValue(string $key, bool $throwEx = false)
     {
         if (array_key_exists($key, $this->get)) {
             return $this->get[$key];
@@ -346,7 +354,7 @@ class HttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getPostValue(string $key, bool $throwEx = true)
+    public function getPostValue(string $key, bool $throwEx = false)
     {
         if (array_key_exists($key, $this->post)) {
             return $this->post[$key];
@@ -369,7 +377,7 @@ class HttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getFilesValue(string $key, bool $throwEx = true)
+    public function getFilesValue(string $key, bool $throwEx = false)
     {
         if (array_key_exists($key, $this->files)) {
             return $this->files[$key];
@@ -392,7 +400,7 @@ class HttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
-    public function getCookieValue(string $key, bool $throwEx = true)
+    public function getCookieValue(string $key, bool $throwEx = false)
     {
         if (array_key_exists($key, $this->cookie)) {
             return $this->cookie[$key];

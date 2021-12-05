@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/JModules/blob/master/README.md
+https://github.com/lingtalfi/JModules/blob/master/doc/api/Ling/JModules.md
+https://github.com/lingtalfi/JModules/blob/master/doc/pages/conception-notes.md

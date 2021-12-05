@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitWizard::msgError](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L218-L221)
+See the source code for method [CommitWizard::msgError](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/CommitWizard.php#L244-L247)
 
 
 See Also

@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WidgetVariablesHelper::doInjectWidgetVariables](https://github.com/lingtalfi/Light_Kit/blob/master/Helper/WidgetVariablesHelper.php#L68-L118)
+See the source code for method [WidgetVariablesHelper::doInjectWidgetVariables](https://github.com/lingtalfi/Light_Kit/blob/master/Helper/WidgetVariablesHelper.php#L68-L121)
 
 
 See Also

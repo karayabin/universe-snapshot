@@ -119,6 +119,7 @@ class DependencyTool
      * A reference to the configuration array created, which has the following structure:
      * - dependencies: array of galaxyName => planets (list of planet names)
      * - post_install: the given $postInstall array
+     * - ...other properties might be added.
      *
      * @param array $postInstall
      * @param array $options
@@ -275,10 +276,10 @@ class DependencyTool
                 $galaxies[$galaxy] = $planets;
             }
 
-            $conf = [
-                "dependencies" => $galaxies,
-                "post_install" => $postInstall,
-            ];
+            $conf['dependencies'] = $galaxies;
+            $conf['post_install'] = $postInstall;
+
+
             return BabyYamlUtil::getBabyYamlString($conf) . PHP_EOL;
 
 
@@ -357,6 +358,23 @@ class DependencyTool
             $ret['dependencies'] = $dependencies;
             $ret['post_install'] = $postInstall;
 
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Returns the array contained in the dependencies.byml file if found, or an empty array otherwise.
+     *
+     * @param string $planetDir
+     * @return array
+     */
+    public static function getDependencyArray(string $planetDir): array
+    {
+        $ret = [];
+        $dependencyFile = $planetDir . "/dependencies.byml";
+        if (file_exists($dependencyFile)) {
+            $ret = BabyYamlUtil::readFile($dependencyFile);
         }
         return $ret;
     }
@@ -517,6 +535,7 @@ class DependencyTool
      * Available options are:
      * - ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
      *          then the file is excluded.
+     *
      *
      * @param string $planetDir
      * @param array $postInstall

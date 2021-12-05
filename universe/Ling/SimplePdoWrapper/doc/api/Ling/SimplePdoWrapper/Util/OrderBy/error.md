@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [OrderBy::error](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L115-L118)
+See the source code for method [OrderBy::error](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L143-L146)
 
 
 See Also

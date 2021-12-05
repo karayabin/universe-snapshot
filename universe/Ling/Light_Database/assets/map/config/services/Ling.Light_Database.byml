@@ -26,18 +26,3 @@ database:
 #        initCommand: SET NAMES 'UTF8'
 
 
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: database
-            listener:
-                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/sql/{date}.txt

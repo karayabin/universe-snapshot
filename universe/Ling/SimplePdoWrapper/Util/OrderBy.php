@@ -19,7 +19,14 @@ class OrderBy
      *
      * @var array
      */
-    protected $colDirs;
+    private array $colDirs;
+
+
+    /**
+     * Array of sort by clauses.
+     * @var array
+     */
+    private array $cols;
 
 
     /**
@@ -63,6 +70,18 @@ class OrderBy
     }
 
 
+    /**
+     * Adds an orderBy expression, and returns itself for chaining.
+     *
+     * @param string $orderByExpression
+     * @return $this
+     */
+    public function addExpression(string $orderByExpression): self
+    {
+        $this->cols[] = $orderByExpression;
+        return $this;
+    }
+
 
     //--------------------------------------------
     //
@@ -85,6 +104,15 @@ class OrderBy
             }
             list($col, $dir) = $colDir;
             $query .= '`' . $col . '` ' . $dir;
+            $n = true;
+        }
+
+        $n = false;
+        foreach ($this->cols as $expr) {
+            if (true === $n) {
+                $query .= ', ';
+            }
+            $query .= $expr;
             $n = true;
         }
     }

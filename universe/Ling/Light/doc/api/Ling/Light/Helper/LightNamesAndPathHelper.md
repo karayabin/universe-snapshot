@@ -4,7 +4,7 @@
 
 The LightNamesAndPathHelper class
 ================
-2019-04-09 --> 2021-05-31
+2019-04-09 --> 2021-07-30
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light\Helper\LightNamesAndPathHelper](https://githu
 
 SeeAlso
 ==============
-Previous class: [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md)<br>Next class: [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md)<br>
+Previous class: [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md)<br>Next class: [LightServiceHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightServiceHelper.md)<br>

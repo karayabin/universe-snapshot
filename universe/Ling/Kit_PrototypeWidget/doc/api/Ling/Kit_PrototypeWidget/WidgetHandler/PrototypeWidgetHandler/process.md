@@ -64,7 +64,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PrototypeWidgetHandler::process](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php#L87-L90)
+See the source code for method [PrototypeWidgetHandler::process](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php#L95-L98)
 
 
 See Also

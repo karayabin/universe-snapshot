@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightLingStandardService01::logDebug](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardService01.php#L184-L195)
+See the source code for method [LightLingStandardService01::logDebug](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardService01.php#L110-L121)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [LightLingStandardService01](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01.md) class.
 
-Previous method: [getDependencies](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01/getDependencies.md)<br>Next method: [error](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01/error.md)<br>
+Previous method: [setOptions](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01/setOptions.md)<br>Next method: [error](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01/error.md)<br>
 

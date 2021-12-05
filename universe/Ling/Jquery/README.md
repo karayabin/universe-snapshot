@@ -1,6 +1,6 @@
 Jquery
 =============
-2015-11-03 -> 2021-03-05
+2015-11-03 -> 2021-06-18
 
 
 
@@ -28,10 +28,11 @@ Some compressed Jquery libraries.
 
 Available libraries
 -----------------------
-
+2015-11-03 -> 2021-06-18
 
 - 2.1.4
-- 3.5.11
+- 3.5.1
+- 3.6.0
 
 
 
@@ -42,7 +43,7 @@ How to use
 Import the planet, then inject the library in your html:
 
 ```html 
-<script src="/libs/universe/Ling/Jquery/3.5.1/jquery.min.js"></script>
+<script src="/libs/universe/Ling/Jquery/3.6.0/jquery.min.js"></script>
 ```
 
 
@@ -57,6 +58,10 @@ Note: we're using the [recommended assets structure for the universe](https://gi
 History Log
 ===============
 
+- 1.1.6 -- 2021-06-18
+
+    - add jquery 3.6.0
+  
 - 1.1.5 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

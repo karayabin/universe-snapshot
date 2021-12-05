@@ -142,6 +142,7 @@ class SqlWizardDocBuilder
             "keyWord2UrlMap" => [
                 "MysqlStructureReader example" => $doc . '/pages/mysql-structure-reader-example.md',
                 "Light_DatabaseInfo->getTableInfo" => "https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Service/LightDatabaseInfoService/getTableInfo.md",
+                "full table" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/full-table.md",
             ],
             /**
              * An array of external classes to url.

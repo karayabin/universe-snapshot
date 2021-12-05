@@ -147,13 +147,15 @@ interface SimplePdoWrapperInterface
     /**
      * Executes the prepared statement and returns the fetched row, or false in case of failure.
      *
+     * Note: strings can be returned if you use fetch styles such as \PDO::FETCH_COLUMN.
+     *
      *
      * @param $query
      * @param array $markers
      * @param null $fetchStyle
-     * @return false|array
+     * @return array|string|false
      */
-    public function fetch($query, array $markers = [], $fetchStyle = null);
+    public function fetch($query, array $markers = [], $fetchStyle = null): array|string|false;
 
     /**
      * Executes the prepared statement and return an array containing all of the result set rows.
@@ -169,11 +171,11 @@ interface SimplePdoWrapperInterface
      * @param int $fetchStyle
      * @param mixed $fetchArg
      * @param array $ctorArgs
-     * @return false|array
+     * @return array
      * @throws \PDOException
      * @throws NoPdoConnectionException
      */
-    public function fetchAll($query, array $markers = [], $fetchStyle = null, $fetchArg = null, array $ctorArgs = []);
+    public function fetchAll($query, array $markers = [], $fetchStyle = null, $fetchArg = null, array $ctorArgs = []): array;
 
 
     /**

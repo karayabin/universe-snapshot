@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::isValid](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L134-L140)
+See the source code for method [LightWebsiteUser::isValid](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L138-L144)
 
 
 See Also

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CleanSessionDirsCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L34-L40)
+See the source code for method [CleanSessionDirsCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L33-L39)
 
 
 See Also

@@ -19,7 +19,7 @@ class LightKitEditorPlanetInstaller extends LightBasePlanetInstaller implements 
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Kit_Editor";
@@ -36,7 +36,7 @@ class LightKitEditorPlanetInstaller extends LightBasePlanetInstaller implements 
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Kit_Editor";

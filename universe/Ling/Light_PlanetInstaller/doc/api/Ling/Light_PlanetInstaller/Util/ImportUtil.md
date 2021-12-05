@@ -4,7 +4,7 @@
 
 The ImportUtil class
 ================
-2020-12-08 --> 2021-05-31
+2020-12-08 --> 2021-07-08
 
 
 
@@ -32,6 +32,7 @@ class <span class="pl-k">ImportUtil</span>  {
     - private string|null [$userCrmChoice](#property-userCrmChoice) ;
     - private bool [$useDebug](#property-useDebug) ;
     - private string [$debugFmt](#property-debugFmt) ;
+    - private string|null [$whoCalls](#property-whoCalls) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Util/ImportUtil/__construct.md)() : void
@@ -117,6 +118,12 @@ Properties
 - <span id="property-debugFmt"><b>debugFmt</b></span>
 
     The bashtml format to use to prefix a debug message.
+    
+    
+
+- <span id="property-whoCalls"><b>whoCalls</b></span>
+
+    This property holds the whoCalls for this instance.
     
     
 

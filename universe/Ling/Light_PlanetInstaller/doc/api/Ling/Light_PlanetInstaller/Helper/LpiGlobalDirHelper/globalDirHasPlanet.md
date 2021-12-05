@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LpiGlobalDirHelper::globalDirHasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L67-L72)
+See the source code for method [LpiGlobalDirHelper::globalDirHasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiGlobalDirHelper.php#L66-L71)
 
 
 See Also

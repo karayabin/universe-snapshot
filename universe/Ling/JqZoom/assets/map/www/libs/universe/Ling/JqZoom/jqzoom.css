@@ -1,0 +1,78 @@
+.jqzoom {
+    border: 1px solid black;
+    float: left;
+    position: relative;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.jqzoom img {
+    float: left;
+}
+
+
+div.zoomdiv {
+    z-index: 100;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    background: #ffffff;
+    border: 1px solid #666;
+
+    display: none;
+    text-align: center;
+    overflow: hidden;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+
+}
+
+div.jqZoomPup {
+    z-index: 10;
+    visibility: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #aaa;
+    background: #ffffff url(zoom.gif) 50% top no-repeat;;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    filter: alpha(Opacity=50);
+}
+
+
+/*------------------------------------
+- https://www.jqueryscript.net/demo/magnify-image-hover/
+------------------------------------*/
+.zoom-box {
+    position: relative;
+}
+
+.zoom-box img {
+    vertical-align: bottom;
+}
+
+.zoom-box .zoom-selector {
+    position: absolute;
+    background-image: url("selector.png");
+    background-repeat: repeat;
+    display: none;
+    cursor: crosshair;
+}
+
+.zoom-box .viewer-box {
+    position: absolute;
+    border: 1px solid rgb(239, 237, 240);
+    display: none;
+    overflow: hidden;
+}
+
+.zoom-box .viewer-box > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}

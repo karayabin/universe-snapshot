@@ -23,6 +23,9 @@ private [ImportUtil::collectUniDependencies](https://github.com/lingtalfi/Light_
 
 Collects the uni dependencies for the given planet, recursively.
 
+Available options come from the import method of the same class:
+- baby
+
 
 
 
@@ -66,7 +69,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ImportUtil::collectUniDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L1479-L1512)
+See the source code for method [ImportUtil::collectUniDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L1545-L1591)
 
 
 See Also

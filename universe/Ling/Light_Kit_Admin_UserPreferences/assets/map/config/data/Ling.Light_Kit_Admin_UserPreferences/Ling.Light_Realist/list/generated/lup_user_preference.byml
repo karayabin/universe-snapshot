@@ -214,8 +214,7 @@ rendering:
                         text: Edit
                         url_params_add_ric: true
                         url_params: 
-                            plugin: Ling/Light_Kit_Admin_UserPreferences
-                            controller: Generated/LupUserPreferenceController
+                            execute: Ling\Light_Kit_Admin_UserPreferences\Controller\Generated\LupUserPreferenceController->render
                             m: f
                         
                         icon: fas fa-edit
@@ -266,8 +265,7 @@ rendering:
                     id: lud_user_id
                 
                 url_params: 
-                    plugin: Ling/Light_Kit_Admin_UserDatabase
-                    controller: Generated/LudUserController
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserController->render
                     m: f
                 
             
@@ -280,7 +278,7 @@ rendering:
     related_links: 
         - 
             text: "Add new \"user preference\" item"
-            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserPreferences, controller: Generated/LupUserPreferenceController, m:f})
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {execute: Ling\Light_Kit_Admin_UserPreferences\Controller\Generated\LupUserPreferenceController->render, m:f})
             icon: fas fa-plus-circle
         
     

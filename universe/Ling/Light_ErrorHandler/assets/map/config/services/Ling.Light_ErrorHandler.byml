@@ -22,21 +22,3 @@ $events.methods_collection:
                 callable_method: registerFunctions
 
 
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels:
-                - error_handler
-                - fatal_error_handler
-                - error
-            listener:
-                instance: Ling\Light_ErrorHandler\Light_Logger\LightLoggerErrorHandlerListener
-                methods:
-                    setContainer:
-                        container: @container()
-                    configure:
-                        options:
-                            file: ${app_dir}/log/errors/{date}.txt
-
-

@@ -8,6 +8,7 @@ use Ling\CliTools\Helper\QuestionHelper;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light\Helper\ZFileHelper;
 use Ling\Light_Events\Helper\LightEventsHelper;
+use Ling\Light_Logger\Helper\LightLoggerHelper;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit1HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
@@ -23,7 +24,7 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function init1(string $appDir, OutputInterface $output): void
+    public function init1(string $appDir, OutputInterface $output, array $options = []): void
     {
 
 
@@ -36,6 +37,7 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller implements L
             $output->write(PHP_EOL);
 
             $output->write("You are installing Light_Database planet. Please provide your database credentials." . PHP_EOL);
+            $output->write("Note: you need to create the database before starting this process (otherwise it won't work)." . PHP_EOL);
             $database = QuestionHelper::ask($output, "1/3: What's the name of your database? ");
             $user = QuestionHelper::ask($output, "2/3: What's the name of the database user? ");
             $pass = QuestionHelper::ask($output, "3/3: What's the password of the database user? ");
@@ -66,7 +68,7 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function undoInit1(string $appDir, OutputInterface $output): void
+    public function undoInit1(string $appDir, OutputInterface $output, array $options = []): void
     {
 
 
@@ -88,7 +90,7 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Database";
@@ -98,13 +100,21 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller implements L
         $output->write("$planetDotName: registering open events...");
         LightEventsHelper::registerOpenEventByPlanet($this->container, $planetDotName);
         $output->write("<success>ok.</success>" . PHP_EOL);
+
+
+        //--------------------------------------------
+        // logger
+        //--------------------------------------------
+        $output->write("$planetDotName: registering Ling.Light_Logger listeners to open system...");
+        LightLoggerHelper::copyListenersFromPluginToMaster($appDir, $planetDotName);
+        $output->write("<success>ok.</success>" . PHP_EOL);
     }
 
 
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Database";
@@ -113,6 +123,14 @@ class LightDatabasePlanetInstaller extends LightBasePlanetInstaller implements L
         //--------------------------------------------
         $output->write("$planetDotName: unregistering open events...");
         LightEventsHelper::unregisterOpenEventByPlanet($this->container, $planetDotName);
+        $output->write("<success>ok.</success>" . PHP_EOL);
+
+
+        //--------------------------------------------
+        // logger
+        //--------------------------------------------
+        $output->write("$planetDotName: unregistering Ling.Light_Logger listeners from open system...");
+        LightLoggerHelper::removeListenersFromMaster($appDir, $planetDotName);
         $output->write("<success>ok.</success>" . PHP_EOL);
     }
 

@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HelpCommand::getFlags](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/HelpCommand.php#L81-L90)
+See the source code for method [HelpCommand::getFlags](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/HelpCommand.php#L80-L89)
 
 
 See Also
@@ -55,5 +55,5 @@ See Also
 
 The [HelpCommand](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/HelpCommand.md) class.
 
-Previous method: [getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/HelpCommand/getDescription.md)<br>Next method: [n](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/HelpCommand/n.md)<br>
+Previous method: [getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/HelpCommand/getDescription.md)<br>
 

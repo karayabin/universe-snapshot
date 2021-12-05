@@ -1,6 +1,6 @@
 Light_LingHooks
 ===========
-2020-08-17 -> 2021-05-31
+2020-08-17 -> 2021-06-03
 
 
 
@@ -71,6 +71,10 @@ ling_hooks:
 History Log
 =============
 
+- 1.0.12 -- 2021-06-03
+
+    - adapt api to work with Light_PlanetInstaller:2.0.4
+  
 - 1.0.11 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

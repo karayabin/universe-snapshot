@@ -1,6 +1,6 @@
 Light_PluginInstaller
 ===========
-2020-02-07 -> 2021-05-31
+2020-02-07 -> 2021-06-25
 
 
 Deprecation notice
@@ -73,24 +73,15 @@ plugin_installer:
                 useCache: true     # default is true
 
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -   method: addListener
-        args:
-            channels: plugin_installer.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/plugin_installer_debug.txt
 
 ```
 
 History Log
 =============
+
+- 2.0.23 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
 
 - 2.0.22 -- 2021-05-31
 

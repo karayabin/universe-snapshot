@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/JqZoom/blob/master/README.md
+https://github.com/lingtalfi/JqZoom/blob/master/doc/api/Ling/JqZoom.md

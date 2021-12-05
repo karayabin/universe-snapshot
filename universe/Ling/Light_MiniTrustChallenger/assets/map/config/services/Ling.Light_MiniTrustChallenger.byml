@@ -1,0 +1,15 @@
+mini_trust_challenger:
+    instance: Ling\Light_MiniTrustChallenger\Service\LightMiniTrustChallengerService
+    methods:
+        setContainer:
+            container: @container()
+        setContexts:
+            context1:
+                code: oizjeg70rrRL
+
+
+
+
+
+
+

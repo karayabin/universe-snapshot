@@ -2,8 +2,11 @@ dependencies:
     Ling: 
         - BabyYaml
         - Bat
+        - CliTools
         - Light_ControllerHub
         - Light_Kit_Admin
+        - Light_Logger
+        - Light_PlanetInstaller
         - Light_RealGenerator
         - Light_TablePrefixInfo
         - SqlWizard

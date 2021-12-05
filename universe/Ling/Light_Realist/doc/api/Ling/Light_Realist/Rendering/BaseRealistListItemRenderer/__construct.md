@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::__construct](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L95-L106)
+See the source code for method [BaseRealistListItemRenderer::__construct](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L94-L105)
 
 
 See Also

@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [RestoreMapCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L147-L155)
+See the source code for method [RestoreMapCommand::getAliases](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L146-L154)
 
 
 See Also

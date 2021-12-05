@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ImportUtil::getTheoreticalImportMapFromUniDependencyMaster](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L1461-L1467)
+See the source code for method [ImportUtil::getTheoreticalImportMapFromUniDependencyMaster](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/ImportUtil.php#L1520-L1528)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The SqlWizardDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\SqlWizard\SqlWizardDocBuilder]
 
 SeeAlso
 ==============
-Previous class: [SqlQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SqlQuery/SqlQueryDocBuilder.md)<br>Next class: [SvelteTemplateBuilderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SvelteTemplateBuilder/SvelteTemplateBuilderDocBuilder.md)<br>
+Previous class: [SqlQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SqlQuery/SqlQueryDocBuilder.md)<br>Next class: [StripeToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/StripeTools/StripeToolsDocBuilder.md)<br>

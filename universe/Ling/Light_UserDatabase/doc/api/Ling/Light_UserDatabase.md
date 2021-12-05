@@ -1,6 +1,6 @@
 Ling/Light_UserDatabase
 ================
-2019-07-19 --> 2021-05-31
+2019-07-19 --> 2021-06-15
 
 
 
@@ -833,32 +833,11 @@ Table of contents
     - [LightUserDatabaseInterface::getAllUserInfo](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface/getAllUserInfo.md) &ndash; Returns an array of user info (one per user).
     - [LightUserDatabaseInterface::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface/updateUser.md) &ndash; Updates the user identified by the given identifier.
     - [LightUserDatabaseInterface::deleteUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface/deleteUser.md) &ndash; Deletes the user identified by the given identifier.
-- [LightUserDatabaseBasePlanetInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller.md) &ndash; The LightUserDatabaseBasePlanetInstaller class.
-    - [LightUserDatabaseBasePlanetInstaller::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller/__construct.md) &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
-    - [LightUserDatabaseBasePlanetInstaller::setContainer](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller/setContainer.md) &ndash; Sets the container.
-    - [LightUserDatabaseBasePlanetInstaller::init3](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller/init3.md) &ndash; Executes the init 3 phase of the install command.
-    - [LightUserDatabaseBasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller/undoInit3.md) &ndash; Undoes the init 3 phase.
 - [LightUserDatabasePlanetInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabasePlanetInstaller.md) &ndash; The LightUserDatabasePlanetInstaller class.
     - [LightUserDatabasePlanetInstaller::init3](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabasePlanetInstaller/init3.md) &ndash; Executes the init 3 phase of the install command.
     - [LightUserDatabasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabasePlanetInstaller/undoInit3.md) &ndash; Undoes the init 3 phase.
-    - [LightUserDatabaseBasePlanetInstaller::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller/__construct.md) &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
-    - [LightUserDatabaseBasePlanetInstaller::setContainer](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PlanetInstaller/LightUserDatabaseBasePlanetInstaller/setContainer.md) &ndash; Sets the container.
-- [LightUserDatabaseBasePluginInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md) &ndash; The LightUserDatabaseBasePluginInstaller class.
-    - [LightUserDatabaseBasePluginInstaller::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/__construct.md) &ndash; Builds the LightBasePluginInstaller instance.
-    - [LightUserDatabaseBasePluginInstaller::setContainer](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/setContainer.md) &ndash; Sets the container.
-    - [LightUserDatabaseBasePluginInstaller::install](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/install.md) &ndash; Installs the plugin in the light application.
-    - [LightUserDatabaseBasePluginInstaller::isInstalled](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - [LightUserDatabaseBasePluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
-    - [LightUserDatabaseBasePluginInstaller::getDependencies](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
-    - [LightUserDatabaseBasePluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
-- [LightUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabasePluginInstaller.md) &ndash; The LightUserDatabasePluginInstaller class.
-    - [LightUserDatabasePluginInstaller::install](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabasePluginInstaller/install.md) &ndash; Installs the plugin in the light application.
-    - [LightUserDatabasePluginInstaller::getDependencies](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabasePluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
-    - [LightUserDatabasePluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabasePluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
-    - [LightUserDatabaseBasePluginInstaller::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/__construct.md) &ndash; Builds the LightBasePluginInstaller instance.
-    - [LightUserDatabaseBasePluginInstaller::setContainer](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/setContainer.md) &ndash; Sets the container.
-    - [LightUserDatabaseBasePluginInstaller::isInstalled](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - [LightUserDatabaseBasePluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
+    - LightDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightDatabaseBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [MysqlLightWebsiteUserDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase.md) &ndash; The MysqlLightWebsiteUserDatabase interface.
     - [MysqlLightWebsiteUserDatabase::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/__construct.md) &ndash; Builds the MysqlLightUserDatabase instance.
     - [MysqlLightWebsiteUserDatabase::getUserInfoByCredentials](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/getUserInfoByCredentials.md) &ndash; credentials don't match any user.
@@ -904,20 +883,16 @@ Table of contents
 Dependencies
 ============
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Bullsheet](https://github.com/lingtalfi/Light_Bullsheet)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
-- [Light_DbSynchronizer](https://github.com/lingtalfi/Light_DbSynchronizer)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_FileWatcher](https://github.com/lingtalfi/Light_FileWatcher)
 - [Light_PasswordProtector](https://github.com/lingtalfi/Light_PasswordProtector)
-- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
-- [SqlWizard](https://github.com/lingtalfi/SqlWizard)
 - [TinyBullsheeter](https://github.com/lingtalfi/TinyBullsheeter)
-- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 
 

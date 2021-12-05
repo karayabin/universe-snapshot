@@ -8,29 +8,3 @@ db_synchronizer:
                 useDebug: true          # default is true
                 stopAtFirstError: true # default is false
 
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: db_synchronizer.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/db_synchronizer_debug.txt
-    -
-        method: addListener
-        args:
-            channels: db_synchronizer.error
-            listener:
-                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/db_synchronizer_error.txt
-

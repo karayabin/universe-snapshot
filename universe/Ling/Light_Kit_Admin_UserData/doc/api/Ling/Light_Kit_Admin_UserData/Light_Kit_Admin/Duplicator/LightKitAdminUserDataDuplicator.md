@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataDuplicator class
 ================
-2020-02-28 --> 2021-05-31
+2020-02-28 --> 2021-06-18
 
 
 

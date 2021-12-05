@@ -4,7 +4,7 @@
 
 The LightLoggerListenerInterface class
 ================
-2019-08-01 --> 2021-05-31
+2019-08-01 --> 2021-08-05
 
 
 
@@ -59,4 +59,4 @@ See the source code of [Ling\Light_Logger\Listener\LightLoggerListenerInterface]
 
 SeeAlso
 ==============
-Previous class: [LightLastMessageFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener.md)<br>
+Previous class: [LightLastMessageFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener.md)<br>Next class: [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Service/LightLoggerService.md)<br>

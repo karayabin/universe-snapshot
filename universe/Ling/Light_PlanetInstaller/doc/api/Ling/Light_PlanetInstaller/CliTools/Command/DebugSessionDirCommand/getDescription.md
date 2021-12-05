@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [DebugSessionDirCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L174-L181)
+See the source code for method [DebugSessionDirCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/DebugSessionDirCommand.php#L173-L180)
 
 
 See Also

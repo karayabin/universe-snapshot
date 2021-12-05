@@ -4,7 +4,7 @@
 
 The PhpExcelToolDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\PhpExcelTool\PhpExcelToolDocBu
 
 SeeAlso
 ==============
-Previous class: [ParenthesisMirrorParserDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParenthesisMirrorParser/ParenthesisMirrorParserDocBuilder.md)<br>Next class: [PhpFileValidatorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PhpFileValidator/PhpFileValidatorDocBuilder.md)<br>
+Previous class: [PaypalToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PaypalTools/PaypalToolsDocBuilder.md)<br>Next class: [PhpFileValidatorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PhpFileValidator/PhpFileValidatorDocBuilder.md)<br>

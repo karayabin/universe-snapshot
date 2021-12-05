@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorBabyYamlStorage::sanitizePath](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L175-L178)
+See the source code for method [LightKitEditorBabyYamlStorage::sanitizePath](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L177-L180)
 
 
 See Also

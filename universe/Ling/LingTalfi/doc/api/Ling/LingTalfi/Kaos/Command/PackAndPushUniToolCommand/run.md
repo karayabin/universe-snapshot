@@ -61,7 +61,7 @@ Other return value types might be added in the future
 
 Source Code
 ===========
-See the source code for method [PackAndPushUniToolCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PackAndPushUniToolCommand.php#L46-L244)
+See the source code for method [PackAndPushUniToolCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PackAndPushUniToolCommand.php#L46-L247)
 
 
 See Also

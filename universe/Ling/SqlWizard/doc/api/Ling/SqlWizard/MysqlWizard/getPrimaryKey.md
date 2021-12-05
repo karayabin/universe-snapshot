@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::getPrimaryKey](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getPrimaryKey.md)($table) : array | false
+public [MysqlWizard::getPrimaryKey](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getPrimaryKey.md)($fullTable) : array | false
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- table
+- fullTable
 
     
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getPrimaryKey](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L408-L421)
+See the source code for method [MysqlWizard::getPrimaryKey](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L553-L566)
 
 
 See Also

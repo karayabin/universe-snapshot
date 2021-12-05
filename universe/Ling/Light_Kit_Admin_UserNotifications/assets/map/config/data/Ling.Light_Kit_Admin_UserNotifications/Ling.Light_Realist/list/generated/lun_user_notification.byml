@@ -1,0 +1,289 @@
+_vars: 
+    table: lun_user_notification
+    plugin: Light_Kit_Admin_UserNotifications
+    galaxy: Ling
+
+planetId: %{galaxy}/%{plugin}
+duelist: 
+    table: %{table} un
+    ric: 
+        - id
+    
+    base_fields: 
+        - un.id
+        - un.lud_user_id
+        - un.feeder
+        - un.type
+        - un.message
+        - un.status
+        - un.date_creation
+        - un.date_deletion
+        - concat(un.lud_user_id, '. ', lu.pseudo) as lud_user_id_plus
+    
+    base_joins: 
+        - inner join lud_user lu on un.lud_user_id=lu.id
+    
+    order: 
+        col_order: $column $direction
+    
+    where: 
+        general_search: <
+            un.id like :%expression% or
+            concat(un.lud_user_id, '. ', lu.pseudo) like :%expression% or
+            un.feeder like :%expression% or
+            un.type like :%expression% or
+            un.message like :%expression% or
+            un.status like :%expression% or
+            un.date_creation like :%expression% or
+            un.date_deletion like :%expression%
+        >
+        generic_filter: $column $operator :operator_value
+        generic_sub_filter: $column like :%operator_value%
+        open_parenthesis: (
+        close_parenthesis: )
+        and: and
+        or: or
+        in_rics: (un.id like :id)
+    
+    limit: 
+        page: $page
+        page_length: $page_length
+    
+    options: 
+        wiring: []
+        default_limit_page: 1
+        default_limit_page_length: 20
+        tag_options: 
+            generic_filter: 
+                operator_and_value: 
+                    source: operator
+                    target: operator_value
+                
+            
+        
+    
+
+query_error_show_debug_info: true
+action_handler: 
+    class: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
+    allowed_actions: 
+        - my_action
+    
+
+rendering: 
+    title: User notification list
+    list_general_actions: 
+        - 
+            action_id: realist-generate_random_rows
+            text: Generate
+            icon: fas fa-spray-can
+        
+        - 
+            action_id: realist-save_table
+            text: Save table content
+            icon: fas fa-download
+        
+        - 
+            action_id: realist-load_table
+            text: Load table content
+            icon: fas fa-upload
+        
+    
+    list_item_group_actions: 
+        - 
+            action_id: realist-print_rows
+            text: Print
+            icon: fas fa-print
+        
+        - 
+            action_id: realist-delete_rows
+            text: Delete
+            icon: far fa-trash-alt
+        
+        - 
+            action_id: realist-edit_rows
+            text: Edit
+            icon: fas fa-edit
+            realform_id: %{galaxy}.%{plugin}:generated/%{table}
+        
+        - 
+            text: Share
+            icon: fas fa-share-square
+            items: 
+                - 
+                    action_id: realist-rows_to_ods
+                    text: OpenOffice ods
+                    icon: far fa-file-alt
+                
+                - 
+                    action_id: realist-rows_to_xlsx
+                    text: Excel xlsx
+                    icon: far fa-file-excel
+                
+                - 
+                    action_id: realist-rows_to_xls
+                    text: Excel xls
+                    icon: far fa-file-excel
+                
+                - 
+                    action_id: realist-rows_to_html
+                    text: Html
+                    icon: far fa-file-code
+                
+                - 
+                    action_id: realist-rows_to_csv
+                    text: Csv
+                    icon: fas fa-file-csv
+                
+                - 
+                    action_id: realist-rows_to_pdf
+                    text: Pdf
+                    icon: far fa-file-pdf
+                
+            
+        
+    
+    list_renderer: 
+        class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
+    
+    responsive_table_helper: 
+        collapsible_column_indexes: admin
+    
+    open_admin_table: 
+        widget_statuses: 
+            debug_window: true
+            global_search: true
+            advanced_search: true
+            toolbar: true
+            table: true
+            head: true
+            head_sort: true
+            checkbox: true
+            neck_filters: true
+            pagination: true
+            number_of_items_per_page: true
+            number_of_rows_info: true
+        
+        data_types: 
+            id: number
+            lud_user_id: number
+            feeder: string
+            type: string
+            message: string
+            status: number
+            date_creation: datetime
+            date_deletion: datetime
+            lud_user_id_plus: string
+            _action: action
+            _checkbox: checkbox
+        
+    
+    properties_to_display: 
+        - _checkbox
+        - id
+        - lud_user_id_plus
+        - feeder
+        - type
+        - message
+        - status
+        - date_creation
+        - date_deletion
+        - _action
+    
+    property_labels: 
+        id: "#"
+        lud_user_id: Lud user id
+        feeder: Feeder
+        type: Type
+        message: Message
+        status: Status
+        date_creation: Date creation
+        date_deletion: Date deletion
+        lud_user_id_plus: Lud user
+        _action: Actions
+        _checkbox: Checkbox
+    
+    list_item_renderer: 
+        class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
+        types: 
+            avatar_url: 
+                type: Light_Realist.image
+                width: 100
+            
+            _action: 
+                type: Light_Realist.mixer
+                separator: &nbsp;
+                items: 
+                    - 
+                        type: Light_Realist.hub_link
+                        text: Edit
+                        url_params_add_ric: true
+                        url_params: 
+                            execute: Ling\Light_Kit_Admin_UserNotifications\Controller\Generated\LunUserNotificationController->render
+                            m: f
+                        
+                        icon: fas fa-edit
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        text: Delete
+                        action_id: realist-delete_rows
+                        include_ric: true
+                        confirmExecute: 
+                            text: Are you sure you want to delete this row?
+                            loader: true
+                        
+                        params: 
+                            table: lun_user_notification
+                        
+                        icon: fas fa-trash-alt
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        text: Duplicate row
+                        action_id: realist-duplicate_row
+                        confirmExecute: 
+                            text: Are you sure you want to duplicate this row?
+                            loader: true
+                        
+                        include_ric: true
+                        icon: far fa-copy
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        confirmExecute: 
+                            text: Are you sure you want to duplicate this entity?
+                            loader: true
+                        
+                        text: Duplicate entity
+                        action_id: realist-duplicate_row_deep
+                        include_ric: true
+                        icon: far fa-clone
+                    
+                
+            
+            _checkbox: Light_Realist.checkbox
+            lud_user_id_plus: 
+                type: Light_Realist.hub_link
+                text: null
+                url_params_add_keys: 
+                    id: lud_user_id
+                
+                url_params: 
+                    execute: Ling\Light_Kit_Admin_UserDatabase\Controller\Generated\LudUserController->render
+                    m: f
+                
+            
+        
+        dynamic: 
+            - _checkbox
+            - _action
+        
+    
+    related_links: 
+        - 
+            text: "Add new \"user notification\" item"
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {execute: Ling\Light_Kit_Admin_UserNotifications\Controller\Generated\LunUserNotificationController->render, m:f})
+            icon: fas fa-plus-circle
+        
+    

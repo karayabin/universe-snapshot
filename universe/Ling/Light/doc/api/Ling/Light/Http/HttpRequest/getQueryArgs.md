@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getQueryArgs](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L241-L249)
+See the source code for method [HttpRequest::getQueryArgs](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L249-L257)
 
 
 See Also

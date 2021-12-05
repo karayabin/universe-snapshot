@@ -1,0 +1,8 @@
+ajax_file_upload_manager:
+    instance: Ling\Light_AjaxFileUploadManager\Service\LightAjaxFileUploadManagerService
+    methods:
+        setApplicationDir:
+            dir: ${app_dir}
+        setContainer:
+            container: @container()
+    methods_collection: []

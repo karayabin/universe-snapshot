@@ -7,7 +7,6 @@ namespace Ling\Light_PlanetInstaller\CliTools\Command;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Cli\Helper\LightCliFormatHelper;
-use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
 use Ling\Light_PlanetInstaller\Util\UpgradeUtil;
 use Ling\UniverseTools\PlanetTool;
 
@@ -45,7 +44,6 @@ class UpgradeUniverseCommand extends LightPlanetInstallerBaseCommand
 
 
         $appDir = dirname($uniDir);
-
 
 
         $planetDotNames = PlanetTool::getPlanetDotNames($uniDir);
@@ -118,7 +116,6 @@ class UpgradeUniverseCommand extends LightPlanetInstallerBaseCommand
             "upgrade_universe" => "lpi upgrade_universe",
         ];
     }
-
 
 
 }

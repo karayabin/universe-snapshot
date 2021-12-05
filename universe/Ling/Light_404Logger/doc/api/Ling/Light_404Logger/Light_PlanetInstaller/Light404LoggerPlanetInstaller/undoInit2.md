@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Light404LoggerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [Light404LoggerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Light_PlanetInstaller/Light404LoggerPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -38,6 +38,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -53,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Light404LoggerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_404Logger/blob/master/Light_PlanetInstaller/Light404LoggerPlanetInstaller.php#L40-L49)
+See the source code for method [Light404LoggerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_404Logger/blob/master/Light_PlanetInstaller/Light404LoggerPlanetInstaller.php#L49-L66)
 
 
 See Also

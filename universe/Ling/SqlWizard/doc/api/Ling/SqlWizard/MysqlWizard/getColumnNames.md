@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::getColumnNames](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNames.md)($table) : array
+public [MysqlWizard::getColumnNames](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNames.md)($fullTable) : array
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- table
+- fullTable
 
     
 
@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getColumnNames](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L276-L284)
+See the source code for method [MysqlWizard::getColumnNames](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L421-L429)
 
 
 See Also
@@ -64,5 +64,5 @@ See Also
 
 The [MysqlWizard](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard.md) class.
 
-Previous method: [getColumnDefaultValues](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnDefaultValues.md)<br>Next method: [getColumnNullabilities](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNullabilities.md)<br>
+Previous method: [getColumnDefaultApiValues](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnDefaultApiValues.md)<br>Next method: [getColumnNullabilities](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnNullabilities.md)<br>
 

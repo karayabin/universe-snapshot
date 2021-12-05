@@ -1,6 +1,6 @@
 Light_MicroPermission
 ===========
-2019-09-26 -> 2021-03-15
+2019-09-26 -> 2021-06-17
 
 
 
@@ -74,6 +74,14 @@ micro_permission:
 
 History Log
 =============
+
+- 3.1.1 -- 2021-06-17
+
+    - add service->unregisterMicroPermissionsToOpenSystemByProfile method
+  
+- 3.1.0 -- 2021-06-16
+
+    - add open registration system
 
 - 3.0.11 -- 2021-05-31
 

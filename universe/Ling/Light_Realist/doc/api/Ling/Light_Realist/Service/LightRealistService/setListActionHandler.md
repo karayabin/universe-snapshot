@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealistService::setListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L507-L513)
+See the source code for method [LightRealistService::setListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L511-L517)
 
 
 See Also

@@ -62,7 +62,7 @@ When the sic block will not resolve
 
 Source Code
 ===========
-See the source code for method [HotServiceResolver::getService](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L67-L192)
+See the source code for method [HotServiceResolver::getService](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L75-L201)
 
 
 See Also
@@ -70,5 +70,5 @@ See Also
 
 The [HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/__construct.md)<br>Next method: [resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveCustomNotation.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/__construct.md)<br>Next method: [setCustomResolveNotationCallback](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/setCustomResolveNotationCallback.md)<br>
 

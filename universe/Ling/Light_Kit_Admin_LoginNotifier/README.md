@@ -1,6 +1,6 @@
 Light_Kit_Admin_LoginNotifier
 ===========
-2020-11-30 -> 2021-05-31
+2020-11-30 -> 2021-06-18
 
 
 
@@ -54,32 +54,6 @@ kit_admin_login_notifier:
         setContainer: 
             container: @container()
         
-    
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-$micro_permission.methods_collection: 
-    - 
-        method: registerMicroPermissionsByProfile
-        args: 
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin_LoginNotifier/Ling.Light_MicroPermission/kit_admin_login_notifier.profile.generated.byml
-        
-    
-
-$kit_admin.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            pluginName: Light_Kit_Admin_LoginNotifier
-            plugin: 
-                instance: Ling\Light_Kit_Admin_LoginNotifier\LightKitAdminPlugin\Generated\LightKitAdminLoginNotifierLkaPlugin
-                methods: 
-                    setOptionsFile: 
-                        file: ${app_dir}/config/data/Ling.Light_Kit_Admin_LoginNotifier/Ling.Light_Kit_Admin/lka-options.generated.byml
-                    
-                
-            
         
     
 
@@ -90,6 +64,26 @@ $kit_admin.methods_collection:
 History Log
 =============
 
+- 1.0.19 -- 2021-06-18
+
+    - Update api to work with Ling.Light_Kit_Admin:0.13.3
+
+- 1.0.18 -- 2021-06-18
+
+    - update api to work with Ling.Light_Kit_Admin:0.13.0
+  
+- 1.0.17 -- 2021-06-17
+
+    - update service snippet in README.md
+  
+- 1.0.16 -- 2021-06-17
+
+    - checkpoint commit
+  
+- 1.0.15 -- 2021-06-17
+
+    - switch to micro-permission open registration system
+  
 - 1.0.14 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

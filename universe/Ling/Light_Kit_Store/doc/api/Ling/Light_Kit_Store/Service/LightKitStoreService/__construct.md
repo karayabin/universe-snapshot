@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitStoreService::__construct](https://github.com/lingtalfi/Light_Kit_Store/blob/master/Service/LightKitStoreService.php#L41-L45)
+See the source code for method [LightKitStoreService::__construct](https://github.com/lingtalfi/Light_Kit_Store/blob/master/Service/LightKitStoreService.php#L73-L87)
 
 
 See Also

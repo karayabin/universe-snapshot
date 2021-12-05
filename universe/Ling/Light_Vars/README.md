@@ -1,6 +1,6 @@
 Light_Vars
 ===========
-2021-02-25 -> 2021-03-15
+2021-02-25 -> 2021-07-01
 
 
 
@@ -66,6 +66,14 @@ vars:
 History Log
 =============
 
+- 1.0.8 -- 2021-07-01
+
+    - update service->resolveContainerNotation method, add precision comment
+  
+- 1.0.7 -- 2021-06-25
+
+    - add service->getVars method
+  
 - 1.0.6 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

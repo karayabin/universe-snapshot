@@ -149,3 +149,59 @@
     - Ling:Light:0.70.6
     - Ling:Light_Events:1.10.6
     - Ling:Light_Logger:1.11.9
+
+1.3.15: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.323
+    - Ling:Light:0.70.9
+    - Ling:Light_Events:1.10.6
+    - Ling:Light_Logger:1.11.9
+
+1.3.16: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.323
+    - Ling:Light:0.70.9
+    - Ling:Light_Events:1.10.6
+    - Ling:Light_Logger:1.11.9
+
+1.3.17: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.324
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.9
+    - Ling:Light_Events:1.10.6
+    - Ling:Light_Logger:1.11.9
+    - Ling:Light_PlanetInstaller:2.0.4
+
+1.3.18: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.11
+    - Ling:Light_Events:1.10.6
+    - Ling:Light_Logger:1.11.9
+    - Ling:Light_PlanetInstaller:2.0.6
+
+1.3.19: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.11
+    - Ling:Light_Events:1.10.7
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7
+
+1.3.20: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:ArrayVariableResolver:1.2.5
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:Light:0.70.11
+    - Ling:Light_Events:1.10.8
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7

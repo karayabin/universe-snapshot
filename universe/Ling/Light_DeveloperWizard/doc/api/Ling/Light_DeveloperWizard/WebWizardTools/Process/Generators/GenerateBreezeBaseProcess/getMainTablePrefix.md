@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [GenerateBreezeBaseProcess::getMainTablePrefix](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeBaseProcess.php#L130-L134)
+See the source code for method [GenerateBreezeBaseProcess::getMainTablePrefix](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeBaseProcess.php#L135-L139)
 
 
 See Also

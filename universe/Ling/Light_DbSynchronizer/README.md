@@ -1,6 +1,6 @@
 Light_DbSynchronizer
 ===========
-2020-06-19 -> 2021-04-06
+2020-06-19 -> 2021-06-28
 
 
 
@@ -61,34 +61,6 @@ db_synchronizer:
                 stopAtFirstError: false # default is false
 
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: db_synchronizer.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/db_synchronizer_debug.txt
-    -
-        method: addListener
-        args:
-            channels: db_synchronizer.error
-            listener:
-                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/db_synchronizer_error.txt
-
-
-
-
 ```
 
 
@@ -96,6 +68,18 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.2.22 -- 2021-06-28
+
+    - fix service not able to create new columns with non-nullable date/datetime
+  
+- 1.2.21 -- 2021-06-28
+
+    - fix api wrong reference to Ling.Light_Logger
+  
+- 1.2.20 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
+  
 - 1.2.19 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

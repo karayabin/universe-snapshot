@@ -32,8 +32,6 @@ class UpgradeUtil
     private LightServiceContainerInterface $container;
 
 
-
-
     /**
      * This property holds the errorMessages for this instance.
      * It's an array of items, each of which:
@@ -176,6 +174,7 @@ class UpgradeUtil
                     $uninstallUtil->setContainer($this->container);
                     $uninstallUtil->uninstall($planetDotName, [
                         'app' => $appDir,
+                        'isUpgrade' => true,
                     ]);
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [LightPlanetInstallerInit2HookInterface::undoInit2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface/undoInit2.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+abstract public [LightPlanetInstallerInit2HookInterface::undoInit2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit2HookInterface/undoInit2.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output, ?array $options = []) : void
 
 
 
@@ -38,6 +38,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -53,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerInit2HookInterface::undoInit2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightPlanetInstallerInit2HookInterface.php#L35-L35)
+See the source code for method [LightPlanetInstallerInit2HookInterface::undoInit2](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/PlanetInstaller/LightPlanetInstallerInit2HookInterface.php#L37-L37)
 
 
 See Also

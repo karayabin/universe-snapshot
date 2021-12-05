@@ -4,7 +4,7 @@
 
 The LightUserDatabaseBasePlanetInstaller class
 ================
-2019-07-19 --> 2021-05-31
+2019-07-19 --> 2021-06-01
 
 
 

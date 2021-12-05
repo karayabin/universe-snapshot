@@ -9,17 +9,4 @@ events:
                 debugCall: true       # default is false
                 formattingDispatch: white:bgRed
                 formattingCall: null
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: events.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/events_debug.txt
+

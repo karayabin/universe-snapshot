@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::getColumnDataTypes](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnDataTypes.md)($table, ?$precision = false) : array
+public [MysqlWizard::getColumnDataTypes](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getColumnDataTypes.md)($fullTable, ?$precision = false) : array
 
 
 
@@ -33,7 +33,7 @@ Parameters
 ================
 
 
-- table
+- fullTable
 
     
 
@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getColumnDataTypes](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L228-L240)
+See the source code for method [MysqlWizard::getColumnDataTypes](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L255-L267)
 
 
 See Also

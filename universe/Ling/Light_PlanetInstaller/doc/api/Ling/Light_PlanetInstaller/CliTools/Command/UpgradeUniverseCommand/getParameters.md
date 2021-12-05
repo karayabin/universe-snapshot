@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UpgradeUniverseCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeUniverseCommand.php#L96-L107)
+See the source code for method [UpgradeUniverseCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UpgradeUniverseCommand.php#L94-L105)
 
 
 See Also

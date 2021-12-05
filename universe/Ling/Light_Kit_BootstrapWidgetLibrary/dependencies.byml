@@ -2,8 +2,12 @@ dependencies:
     Ling: 
         - BabyYaml
         - Bat
+        - CliTools
         - HtmlPageTools
         - Kit_PicassoWidget
+        - Light
+        - Light_Cli
+        - Light_Logger
     
 
 post_install: 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::skipWhiteSpacesOrComma](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L349-L359)
+See the source code for method [TokenArrayIteratorTool::skipWhiteSpacesOrComma](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L382-L392)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [TokenArrayIteratorTool](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool.md) class.
 
-Previous method: [skipWhiteSpaces](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipWhiteSpaces.md)<br>Next method: [skipUntil](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipUntil.md)<br>
+Previous method: [skipTokens](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipTokens.md)<br>Next method: [skipUntil](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/Tool/TokenArrayIteratorTool/skipUntil.md)<br>
 

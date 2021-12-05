@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L276-L283)
+See the source code for method [HtmlPageCopilot::getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L286-L293)
 
 
 See Also

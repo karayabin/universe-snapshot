@@ -543,3 +543,23 @@
     - Ling:Bat:1.322
     - Ling:HtmlPageTools:2.2.4
     - Ling:Kit_PicassoWidget:1.30.9
+
+1.18.14: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.327
+    - Ling:CliTools:1.10.29
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Light:0.70.10
+    - Ling:Light_Cli:1.0.25
+    - Ling:Light_Logger:1.11.9
+
+1.18.15: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.329
+    - Ling:CliTools:1.10.29
+    - Ling:HtmlPageTools:2.2.4
+    - Ling:Kit_PicassoWidget:1.30.9
+    - Ling:Light:0.70.11
+    - Ling:Light_Cli:1.0.25
+    - Ling:Light_Logger:1.11.11

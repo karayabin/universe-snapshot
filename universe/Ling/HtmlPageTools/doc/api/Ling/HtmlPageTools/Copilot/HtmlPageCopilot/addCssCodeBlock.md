@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L317-L320)
+See the source code for method [HtmlPageCopilot::addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L340-L343)
 
 
 See Also

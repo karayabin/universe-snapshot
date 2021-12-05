@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabaseService::__construct](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L44-L49)
+See the source code for method [LightDatabaseService::__construct](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L43-L48)
 
 
 See Also

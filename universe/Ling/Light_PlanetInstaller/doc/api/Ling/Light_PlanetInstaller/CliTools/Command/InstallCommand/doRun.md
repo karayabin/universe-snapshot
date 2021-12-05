@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [InstallCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallCommand.php#L43-L61)
+See the source code for method [InstallCommand::doRun](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallCommand.php#L42-L60)
 
 
 See Also

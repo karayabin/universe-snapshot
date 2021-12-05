@@ -1,5 +1,8 @@
 logger:
-    instance: Ling\Light_Logger\LightLoggerService
+    instance: Ling\Light_Logger\Service\LightLoggerService
+    methods:
+        setContainer:
+            container: @container()
     methods_collection: []
         -
             method: addListener

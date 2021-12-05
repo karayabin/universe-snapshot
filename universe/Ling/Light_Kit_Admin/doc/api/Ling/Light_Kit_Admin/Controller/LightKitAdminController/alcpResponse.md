@@ -49,7 +49,7 @@ Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/d
 
 Source Code
 ===========
-See the source code for method [LightKitAdminController::alcpResponse](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L203-L211)
+See the source code for method [LightKitAdminController::alcpResponse](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L205-L213)
 
 
 See Also

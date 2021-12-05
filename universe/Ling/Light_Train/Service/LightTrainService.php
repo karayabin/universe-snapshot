@@ -96,4 +96,17 @@ class LightTrainService extends LightLingStandardService01
         return $this->factory;
     }
 
+
+    /**
+     * Throws an exception.
+     *
+     * @param string $msg
+     * @param int|null $code
+     * @throws \Exception
+     */
+    private function error(string $msg, int $code = null)
+    {
+        throw new LightTrainException(static::class . ": " . $msg, $code);
+    }
+    
 }

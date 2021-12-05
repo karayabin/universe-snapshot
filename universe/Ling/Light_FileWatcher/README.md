@@ -1,6 +1,6 @@
 Light_FileWatcher
 ===========
-2020-06-25 -> 2021-03-15
+2020-06-25 -> 2021-06-28
 
 
 
@@ -73,21 +73,6 @@ $events.methods_collection:
                 callable_method: onInitialize
 
 
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: file_watcher.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/file_watcher_debug.txt
-
-
-
-
 ```
 
 
@@ -95,6 +80,14 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.1.9 -- 2021-06-28
+
+    - fix api wrong reference to Ling.Light_Logger
+  
+- 1.1.8 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
+  
 - 1.1.7 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

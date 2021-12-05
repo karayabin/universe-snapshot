@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ImportCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L126-L142)
+See the source code for method [ImportCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L137-L153)
 
 
 See Also

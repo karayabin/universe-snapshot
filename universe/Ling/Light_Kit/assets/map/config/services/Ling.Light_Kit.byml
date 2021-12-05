@@ -46,10 +46,12 @@ kit:
             args:
                 - prototype
                 -
-                    instance: Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
+                    instance: Ling\Light_Kit\WidgetHandler\LightKitPrototypeWidgetHandler
                     methods:
                         setRootDir:
                             appDir: ${app_dir}
+                        setContainer:
+                            container: @container()
 
 
 kit_css_file_generator:

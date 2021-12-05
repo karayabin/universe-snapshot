@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function updateUser(array $user, $where = null, array $markers = [])
     {

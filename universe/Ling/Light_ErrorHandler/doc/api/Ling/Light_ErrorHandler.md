@@ -1,6 +1,6 @@
 Ling/Light_ErrorHandler
 ================
-2020-06-01 --> 2021-05-31
+2020-06-01 --> 2021-06-28
 
 
 
@@ -13,6 +13,11 @@ Table of contents
     - [LightLoggerErrorHandlerListener::setContainer](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_Logger/LightLoggerErrorHandlerListener/setContainer.md) &ndash; Sets the container.
     - [LightLoggerErrorHandlerListener::listen](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_Logger/LightLoggerErrorHandlerListener/listen.md) &ndash; and possibly rotates the file when the file size gets too big.
     - LightFileLoggerListener::configure &ndash; Configures this instance.
+- [LightErrorHandlerPlanetInstaller](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_PlanetInstaller/LightErrorHandlerPlanetInstaller.md) &ndash; The LightErrorHandlerPlanetInstaller class.
+    - [LightErrorHandlerPlanetInstaller::init2](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_PlanetInstaller/LightErrorHandlerPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightErrorHandlerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Light_PlanetInstaller/LightErrorHandlerPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightErrorHandlerService](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService.md) &ndash; The LightErrorHandlerService class.
     - [LightErrorHandlerService::__construct](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/__construct.md) &ndash; Builds the LightErrorHandlerService instance.
     - [LightErrorHandlerService::setContainer](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/setContainer.md) &ndash; Sets the container.
@@ -26,7 +31,9 @@ Table of contents
 Dependencies
 ============
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 
 

@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::getErrors](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L121-L124)
+See the source code for method [StandardReadmeUtil::getErrors](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L142-L145)
 
 
 See Also

@@ -30,7 +30,7 @@ to the total number of printed lines, thus saving screen space.
 
 Depending on your taste, you might end the question with a PHP_EOL (I personally tend to prefer to have the user's response
 on the same line, but adding the PHP_EOL at the end will put the user response on the next line).
-Same with the retry message, you can end it with a PhP_EOL or not.
+Same with the retry message, you can end it with a PHP_EOL or not.
 The retry message should probably re-introduce the question, or part of it.
 
 For instance, a typical question/retryMessage would be:
@@ -84,5 +84,5 @@ See Also
 
 The [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper.md) class.
 
-Previous method: [ask](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/ask.md)<br>Next method: [askYesNo](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askYesNo.md)<br>
+Previous method: [ask](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/ask.md)<br>Next method: [askSelectListItem](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askSelectListItem.md)<br>
 

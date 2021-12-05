@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightDeveloperWizardBaseProcess::isLightPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/LightDeveloperWizardBaseProcess.php#L59-L62)
+See the source code for method [LightDeveloperWizardBaseProcess::isLightPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/LightDeveloperWizardBaseProcess.php#L68-L71)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightDeveloperWizardBaseProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess.md) class.
 
-Previous method: [getSymbolicPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/getSymbolicPath.md)<br>Next method: [getFryingPanByFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/getFryingPanByFile.md)<br>
+Previous method: [getContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/getContainer.md)<br>Next method: [getFryingPanByFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess/getFryingPanByFile.md)<br>
 

@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ControllerHelper::resolveController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L93-L137)
+See the source code for method [ControllerHelper::resolveController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L124-L168)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md) class.
 
-Previous method: [executeController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/executeController.md)<br>Next method: [getControllerArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/getControllerArgs.md)<br>
+Previous method: [executeControllerByRouteName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/executeControllerByRouteName.md)<br>Next method: [getControllerArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/getControllerArgs.md)<br>
 

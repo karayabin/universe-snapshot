@@ -1,6 +1,6 @@
 Ling/Light_DeveloperWizard
 ================
-2020-06-30 --> 2021-05-31
+2020-06-30 --> 2021-08-17
 
 
 
@@ -8,6 +8,53 @@ Ling/Light_DeveloperWizard
 Table of contents
 ===========
 
+- [CreateControllerCommand](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/CreateControllerCommand.md) &ndash; The CreateControllerCommand class.
+    - [CreateControllerCommand::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/CreateControllerCommand/__construct.md) &ndash; Builds the DemoCommand instance.
+    - [CreateControllerCommand::getDescription](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/CreateControllerCommand/getDescription.md) &ndash; Returns the description of the command.
+    - [CreateControllerCommand::getAliases](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/CreateControllerCommand/getAliases.md) &ndash; Returns the aliases used by this command.
+    - [LightDeveloperWizardBaseCommand::setContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightDeveloperWizardBaseCommand::run](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/run.md) &ndash; Runs the command.
+    - [LightDeveloperWizardBaseCommand::getName](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getName.md) &ndash; Returns the name of the command.
+    - [LightDeveloperWizardBaseCommand::getFlags](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getFlags.md) &ndash; Returns the array of flags available for this command, which form is name => description.
+    - [LightDeveloperWizardBaseCommand::getOptions](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getOptions.md) &ndash; Returns the array of available options for this command, which form is name => optionItem.
+    - [LightDeveloperWizardBaseCommand::getParameters](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getParameters.md) &ndash; Returns the parameters available for this command.
+    - [LightDeveloperWizardBaseCommand::write](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/write.md) &ndash; Writes a message to the output.
+    - [LightDeveloperWizardBaseCommand::setApplication](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/setApplication.md) &ndash; Sets the application.
+- [HelpCommand](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/HelpCommand.md) &ndash; The HelpCommand class.
+    - [HelpCommand::getDescription](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/HelpCommand/getDescription.md) &ndash; Returns the description of the command.
+    - [HelpCommand::getFlags](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/HelpCommand/getFlags.md) &ndash; Returns the array of flags available for this command, which form is name => description.
+    - [LightDeveloperWizardBaseCommand::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/__construct.md) &ndash; Builds the LightDeveloperWizardBaseCommand instance.
+    - [LightDeveloperWizardBaseCommand::setContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightDeveloperWizardBaseCommand::run](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/run.md) &ndash; Runs the command.
+    - [LightDeveloperWizardBaseCommand::getName](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getName.md) &ndash; Returns the name of the command.
+    - [LightDeveloperWizardBaseCommand::getAliases](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getAliases.md) &ndash; Returns the aliases used by this command.
+    - [LightDeveloperWizardBaseCommand::getOptions](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getOptions.md) &ndash; Returns the array of available options for this command, which form is name => optionItem.
+    - [LightDeveloperWizardBaseCommand::getParameters](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getParameters.md) &ndash; Returns the parameters available for this command.
+    - [LightDeveloperWizardBaseCommand::write](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/write.md) &ndash; Writes a message to the output.
+    - [LightDeveloperWizardBaseCommand::setApplication](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/setApplication.md) &ndash; Sets the application.
+- [LightDeveloperWizardBaseCommand](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand.md) &ndash; The LightDeveloperWizardBaseCommand class.
+    - [LightDeveloperWizardBaseCommand::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/__construct.md) &ndash; Builds the LightDeveloperWizardBaseCommand instance.
+    - [LightDeveloperWizardBaseCommand::setContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightDeveloperWizardBaseCommand::run](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/run.md) &ndash; Runs the command.
+    - [LightDeveloperWizardBaseCommand::getName](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getName.md) &ndash; Returns the name of the command.
+    - [LightDeveloperWizardBaseCommand::getDescription](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getDescription.md) &ndash; Returns the description of the command.
+    - [LightDeveloperWizardBaseCommand::getAliases](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getAliases.md) &ndash; Returns the aliases used by this command.
+    - [LightDeveloperWizardBaseCommand::getFlags](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getFlags.md) &ndash; Returns the array of flags available for this command, which form is name => description.
+    - [LightDeveloperWizardBaseCommand::getOptions](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getOptions.md) &ndash; Returns the array of available options for this command, which form is name => optionItem.
+    - [LightDeveloperWizardBaseCommand::getParameters](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/getParameters.md) &ndash; Returns the parameters available for this command.
+    - [LightDeveloperWizardBaseCommand::write](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/write.md) &ndash; Writes a message to the output.
+    - [LightDeveloperWizardBaseCommand::setApplication](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Command/LightDeveloperWizardBaseCommand/setApplication.md) &ndash; Sets the application.
+- [LightDeveloperWizardApplication](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Program/LightDeveloperWizardApplication.md) &ndash; The LightDeveloperWizardApplication class.
+    - [LightDeveloperWizardApplication::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Program/LightDeveloperWizardApplication/__construct.md) &ndash; Builds the Application instance.
+    - [LightDeveloperWizardApplication::getAppId](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/CliTools/Program/LightDeveloperWizardApplication/getAppId.md) &ndash; Returns the appId of the application.
+    - LightCliBaseApplication::getCommands &ndash; Returns the array of commands provided by the application.
+    - LightCliBaseApplication::setContainer &ndash; Sets the light service container interface.
+    - Application::registerCommand &ndash; Registers a command with the given aliases.
+    - AbstractProgram::setLogger &ndash; Sets the logger.
+    - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
+    - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
+    - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
+    - AbstractProgram::run &ndash; Executes the program, and returns the exit code, if defined by the concrete class.
 - [LightDeveloperWizardException](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Exception/LightDeveloperWizardException.md) &ndash; The LightDeveloperWizardException class.
 - [ConfigHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/ConfigHelper.md) &ndash; The ConfigHelper class.
     - [ConfigHelper::hasSectionComment](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/ConfigHelper/hasSectionComment.md) &ndash; Returns whether the given config file contains a [section comment](https://github.com/lingtalfi/TheBar/blob/master/discussions/section-comment.md) named $bannerName.
@@ -24,11 +71,15 @@ Table of contents
     - [DeveloperWizardGenericHelper::getTablesByCreateFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardGenericHelper/getTablesByCreateFile.md) &ndash; Returns the name of the tables found in the given create file.
     - [DeveloperWizardGenericHelper::getTablePrefix](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardGenericHelper/getTablePrefix.md) &ndash; Returns the table prefix from either the preferences (if found), or guessed from the given createFile otherwise.
     - [DeveloperWizardGenericHelper::getTablePrefixes](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardGenericHelper/getTablePrefixes.md) &ndash; Returns an array of table prefixes found from the given create file.
+- [DeveloperWizardLightPlanetInstallerHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLightPlanetInstallerHelper.md) &ndash; The DeveloperWizardLightPlanetInstallerHelper class.
+    - [DeveloperWizardLightPlanetInstallerHelper::createPlanetInstaller](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLightPlanetInstallerHelper/createPlanetInstaller.md) &ndash; Creates a planet installer for the given planet.
 - [DeveloperWizardLkaHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLkaHelper.md) &ndash; The DeveloperWizardLkaHelper class.
     - [DeveloperWizardLkaHelper::getLkaOriginPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLkaHelper/getLkaOriginPlanet.md) &ndash; Returns the name of the planet from which the given lka planet originates from.
     - [DeveloperWizardLkaHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLkaHelper/getLkaPlanetNameByPlanet.md) &ndash; Returns the lka planet name for the given planet.
     - [DeveloperWizardLkaHelper::createLkaGeneratorConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLkaHelper/createLkaGeneratorConfigFile.md) &ndash; Creates a basic lka generator config file, and returns its path.
     - [DeveloperWizardLkaHelper::getBasicLkaGeneratorConfig](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardLkaHelper/getBasicLkaGeneratorConfig.md) &ndash; Returns a basic lka configuration array.
+- [LightDeveloperWizardHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/LightDeveloperWizardHelper.md) &ndash; The LightDeveloperWizardHelper class.
+    - [LightDeveloperWizardHelper::getAppId](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/LightDeveloperWizardHelper/getAppId.md) &ndash; Returns the app id used by this planet.
 - [LightDeveloperWizardService](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Service/LightDeveloperWizardService.md) &ndash; The LightDeveloperWizardService class.
     - [LightDeveloperWizardService::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Service/LightDeveloperWizardService/__construct.md) &ndash; Builds the LightDeveloperWizardService instance.
     - [LightDeveloperWizardService::setContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Service/LightDeveloperWizardService/setContainer.md) &ndash; Sets the container.
@@ -234,6 +285,30 @@ Table of contents
     - WebWizardToolsProcess::setCategory &ndash; Sets the category.
     - WebWizardToolsProcess::execute &ndash; Executes the process.
     - WebWizardToolsProcess::addLogMessage &ndash; Adds a message of the given type to the log.
+- [CreateCliAppProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Cli/CreateCliAppProcess.md) &ndash; The CreateCliAppProcess class.
+    - [CreateCliAppProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Cli/CreateCliAppProcess/__construct.md) &ndash; Builds the WebWizardToolsProcess instance.
+    - [LightDeveloperWizardCommonProcess::setContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardCommonProcess/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightDeveloperWizardCommonProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardCommonProcess/prepare.md) &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
+    - WebWizardToolsProcess::getReport &ndash; Returns the report of this instance.
+    - WebWizardToolsProcess::getControls &ndash; Returns the controls of this instance.
+    - WebWizardToolsProcess::setWebWizard &ndash; Sets the webWizard.
+    - WebWizardToolsProcess::setControl &ndash; Adds a control to this process.
+    - WebWizardToolsProcess::getName &ndash; Returns the name of this instance.
+    - WebWizardToolsProcess::setName &ndash; Sets the name.
+    - WebWizardToolsProcess::getLabel &ndash; Returns the label of this instance.
+    - WebWizardToolsProcess::setLabel &ndash; Sets the label.
+    - WebWizardToolsProcess::getParams &ndash; Returns the params of this instance.
+    - WebWizardToolsProcess::setParams &ndash; Sets the params.
+    - WebWizardToolsProcess::getLearnMore &ndash; Returns the learnMore of this instance.
+    - WebWizardToolsProcess::setLearnMore &ndash; Sets the learnMore.
+    - WebWizardToolsProcess::isEnabled &ndash; Returns the enabled of this instance.
+    - WebWizardToolsProcess::setEnabled &ndash; Sets the enabled.
+    - WebWizardToolsProcess::getDisabledReason &ndash; Returns the disabledReason of this instance.
+    - WebWizardToolsProcess::setDisabledReason &ndash; Sets the disabledReason.
+    - WebWizardToolsProcess::getCategory &ndash; Returns the category of this instance.
+    - WebWizardToolsProcess::setCategory &ndash; Sets the category.
+    - WebWizardToolsProcess::execute &ndash; Executes the process.
+    - WebWizardToolsProcess::addLogMessage &ndash; Adds a message of the given type to the log.
 - [CreateLkaGeneratorConfigProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/CreateLkaGeneratorConfigProcess.md) &ndash; The CreateLkaGeneratorConfigProcess class.
     - [CreateLkaGeneratorConfigProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/CreateLkaGeneratorConfigProcess/__construct.md) &ndash; Builds the WebWizardToolsProcess instance.
     - [CreateLkaGeneratorConfigProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/CreateLkaGeneratorConfigProcess/prepare.md) &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
@@ -358,6 +433,30 @@ Table of contents
     - [LightKitAdminBaseProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess/__construct.md) &ndash; Builds the WebWizardToolsProcess instance.
     - [LightKitAdminBaseProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess/prepare.md) &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
     - [LightDeveloperWizardCommonProcess::setContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardCommonProcess/setContainer.md) &ndash; Sets the light service container interface.
+    - WebWizardToolsProcess::getReport &ndash; Returns the report of this instance.
+    - WebWizardToolsProcess::getControls &ndash; Returns the controls of this instance.
+    - WebWizardToolsProcess::setWebWizard &ndash; Sets the webWizard.
+    - WebWizardToolsProcess::setControl &ndash; Adds a control to this process.
+    - WebWizardToolsProcess::getName &ndash; Returns the name of this instance.
+    - WebWizardToolsProcess::setName &ndash; Sets the name.
+    - WebWizardToolsProcess::getLabel &ndash; Returns the label of this instance.
+    - WebWizardToolsProcess::setLabel &ndash; Sets the label.
+    - WebWizardToolsProcess::getParams &ndash; Returns the params of this instance.
+    - WebWizardToolsProcess::setParams &ndash; Sets the params.
+    - WebWizardToolsProcess::getLearnMore &ndash; Returns the learnMore of this instance.
+    - WebWizardToolsProcess::setLearnMore &ndash; Sets the learnMore.
+    - WebWizardToolsProcess::isEnabled &ndash; Returns the enabled of this instance.
+    - WebWizardToolsProcess::setEnabled &ndash; Sets the enabled.
+    - WebWizardToolsProcess::getDisabledReason &ndash; Returns the disabledReason of this instance.
+    - WebWizardToolsProcess::setDisabledReason &ndash; Sets the disabledReason.
+    - WebWizardToolsProcess::getCategory &ndash; Returns the category of this instance.
+    - WebWizardToolsProcess::setCategory &ndash; Sets the category.
+    - WebWizardToolsProcess::execute &ndash; Executes the process.
+    - WebWizardToolsProcess::addLogMessage &ndash; Adds a message of the given type to the log.
+- [CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_PlanetInstaller/CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller.md) &ndash; The CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller class.
+    - [CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_PlanetInstaller/CreatePlanetInstallerExtendingLightDatabaseBasePlanetInstaller/__construct.md) &ndash; Builds the WebWizardToolsProcess instance.
+    - [LightDeveloperWizardCommonProcess::setContainer](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardCommonProcess/setContainer.md) &ndash; Sets the light service container interface.
+    - [LightDeveloperWizardCommonProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardCommonProcess/prepare.md) &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
     - WebWizardToolsProcess::getReport &ndash; Returns the report of this instance.
     - WebWizardToolsProcess::getControls &ndash; Returns the controls of this instance.
     - WebWizardToolsProcess::setWebWizard &ndash; Sets the webWizard.
@@ -693,14 +792,18 @@ Dependencies
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [ClassCooker](https://github.com/lingtalfi/ClassCooker)
+- [CliTools](https://github.com/lingtalfi/CliTools)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Jquery](https://github.com/lingtalfi/Jquery)
 - [Light](https://github.com/lingtalfi/Light)
-- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
+- [Light_Cli](https://github.com/lingtalfi/Light_Cli)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [Light_DbSynchronizer](https://github.com/lingtalfi/Light_DbSynchronizer)
+- [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
 - [Light_Kit_Admin_Generator](https://github.com/lingtalfi/Light_Kit_Admin_Generator)
+- [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 - [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)

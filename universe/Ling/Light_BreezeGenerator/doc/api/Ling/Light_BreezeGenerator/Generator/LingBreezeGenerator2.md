@@ -4,7 +4,7 @@
 
 The LingBreezeGenerator2 class
 ================
-2019-09-11 --> 2021-05-31
+2019-09-11 --> 2021-07-22
 
 
 
@@ -31,6 +31,7 @@ The variables array:
 In this generator, we pass a variables array containing a lot of useful information.
 The variables array has at most the following structure:
 
+- db: string
 - namespace: string
 - table: string
 - className: string
@@ -95,7 +96,9 @@ class <span class="pl-k">LingBreezeGenerator2</span> implements [BreezeGenerator
     - protected [getItemsInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsInterfaceMethod.md)(array $variables, ?string $template = null) : string
     - protected [getItemInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemInterfaceMethod.md)(array $variables) : string
     - protected [getItemsByHasMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByHasMethod.md)(array $variables) : string
+    - protected [getItemsByForeignKeysMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByForeignKeysMethod.md)(array $variables) : string
     - protected [getItemsByHasInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByHasInterfaceMethod.md)(array $variables) : string
+    - protected [getItemsByForeignKeysInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByForeignKeysInterfaceMethod.md)(array $variables) : string
     - protected [getItemsXXXByHasMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasMethod.md)(array $variables) : string
     - protected [getItemsXXXByHasInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasInterfaceMethod.md)(array $variables) : string
     - protected [getIdByUniqueIndexInterfaceMethods](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getIdByUniqueIndexInterfaceMethods.md)(array $variables) : string
@@ -196,7 +199,9 @@ Methods
 - [LingBreezeGenerator2::getItemsInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsInterfaceMethod.md) &ndash; Parses the given variables and return a string corresponding to the getItemsInterface method.
 - [LingBreezeGenerator2::getItemInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemInterfaceMethod.md) &ndash; Parses the given variables and return a string corresponding to the getItemInterface method.
 - [LingBreezeGenerator2::getItemsByHasMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByHasMethod.md) &ndash; Parses the given variables and returns a string corresponding to the "getTagsByResourceId" methods.
+- [LingBreezeGenerator2::getItemsByForeignKeysMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByForeignKeysMethod.md) &ndash; Parses the given variables and returns a generated method for each given foreign key.
 - [LingBreezeGenerator2::getItemsByHasInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByHasInterfaceMethod.md) &ndash; Parses the given variables and returns a string corresponding to the "getTagsByResourceId" methods for the interface.
+- [LingBreezeGenerator2::getItemsByForeignKeysInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsByForeignKeysInterfaceMethod.md) &ndash; Parses the given variables and returns a string corresponding to the interface method to generate.
 - [LingBreezeGenerator2::getItemsXXXByHasMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasMethod.md) &ndash; Parses the given variables and returns a string corresponding to the "getTagNamesByResourceId" methods.
 - [LingBreezeGenerator2::getItemsXXXByHasInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasInterfaceMethod.md) &ndash; Parses the given variables and returns a string corresponding to the "getTagNamesByResourceId" interface methods.
 - [LingBreezeGenerator2::getIdByUniqueIndexInterfaceMethods](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getIdByUniqueIndexInterfaceMethods.md) &ndash; Parses the given variables, and returns an output.

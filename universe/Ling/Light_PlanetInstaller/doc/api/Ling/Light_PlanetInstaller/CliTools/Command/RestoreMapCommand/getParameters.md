@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [RestoreMapCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L131-L142)
+See the source code for method [RestoreMapCommand::getParameters](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L130-L141)
 
 
 See Also

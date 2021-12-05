@@ -1,0 +1,73 @@
+- 
+    id: kit_admin_kit_editor-lke
+    icon: fas fa-puzzle-piece
+    text: Kit Editor
+    route: null
+    children: 
+        - 
+            id: kit_admin_kit_editor-lke_widget
+            icon: fas fa-asterisk
+            text: Widget
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeWidgetController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: kit_admin_kit_editor-lke_block
+            icon: fas fa-asterisk
+            text: Block
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeBlockController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: kit_admin_kit_editor-lke_site
+            icon: fas fa-asterisk
+            text: Site
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeSiteController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: kit_admin_kit_editor-lke_page
+            icon: fas fa-asterisk
+            text: Page
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkePageController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: kit_admin_kit_editor-lke_block_has_widget
+            icon: fas fa-asterisk
+            text: Block/Widget
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkeBlockHasWidgetController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: kit_admin_kit_editor-lke_page_has_block
+            icon: fas fa-asterisk
+            text: Page/Block
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_Kit_Editor\Controller\Generated\LkePageHasBlockController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+    

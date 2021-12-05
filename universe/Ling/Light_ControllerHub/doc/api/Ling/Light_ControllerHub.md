@@ -1,6 +1,6 @@
 Ling/Light_ControllerHub
 ================
-2019-10-28 --> 2021-05-31
+2019-10-28 --> 2021-07-30
 
 
 
@@ -19,6 +19,8 @@ Table of contents
 - [LightControllerHubHandlerInterface](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/ControllerHubHandler/LightControllerHubHandlerInterface.md) &ndash; The LightControllerHubHandlerInterface interface.
     - [LightControllerHubHandlerInterface::handle](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/ControllerHubHandler/LightControllerHubHandlerInterface/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
 - [LightControllerHubException](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Exception/LightControllerHubException.md) &ndash; The LightControllerHubException class.
+- [LightControllerHubHelper](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Helper/LightControllerHubHelper.md) &ndash; The LightControllerHubHelper class.
+    - [LightControllerHubHelper::getRouteName](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Helper/LightControllerHubHelper/getRouteName.md) &ndash; Returns the route name of the hub controller.
 - [LightControllerHubPlanetInstaller](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Light_PlanetInstaller/LightControllerHubPlanetInstaller.md) &ndash; The LightControllerHubPlanetInstaller class.
     - [LightControllerHubPlanetInstaller::init2](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Light_PlanetInstaller/LightControllerHubPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
     - [LightControllerHubPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Light_PlanetInstaller/LightControllerHubPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
@@ -38,7 +40,6 @@ Dependencies
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
-- [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
 - [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 

@@ -1,0 +1,18 @@
+- 
+    id: kit_admin_user_notifications-lun
+    icon: fas fa-puzzle-piece
+    text: User Notifications
+    route: null
+    children: 
+        - 
+            id: kit_admin_user_notifications-lun_user_notification
+            icon: fas fa-asterisk
+            text: User notification
+            route: lch_route-hub
+            route_url_params: 
+                execute: Ling\Light_Kit_Admin_UserNotifications\Controller\Generated\LunUserNotificationController->render
+            
+            _right: Ling.Light_Kit_Admin.admin
+            children: []
+        
+    

@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::dQuoteTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L901-L905)
+See the source code for method [MysqlInfoUtil::dQuoteTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L902-L906)
 
 
 See Also

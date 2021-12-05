@@ -57,7 +57,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BabyYamlSectionCommentUtil::getSectionsInfo](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L148-L246)
+See the source code for method [BabyYamlSectionCommentUtil::getSectionsInfo](https://github.com/lingtalfi/SectionComment/blob/master/BabyYamlSectionCommentUtil.php#L151-L249)
 
 
 See Also

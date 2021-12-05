@@ -53,6 +53,11 @@ abstract class GenerateBreezeBaseProcess extends LightDeveloperWizardBaseProcess
             $this->setDisabledReason('Missing <a target="_blank" href="https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md">create file.</a>');
         }
 
+        if (false === $this->getContainer()->has("breeze_generator")) {
+            $this->setDisabledReason('The <a href="https://github.com/lingtalfi/Light_BreezeGenerator" target="_blank">Ling.Light_BreezeGenerator planet</a> is not installed.');
+        }
+
+
     }
 
 

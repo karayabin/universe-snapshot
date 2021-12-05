@@ -1,6 +1,6 @@
 Ling/Light_UserData
 ================
-2019-09-27 --> 2021-05-31
+2019-09-27 --> 2021-06-03
 
 
 
@@ -469,16 +469,8 @@ Table of contents
     - [LightUserDataPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - [LightUserDataPlanetInstaller::init3](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/init3.md) &ndash; Executes the init 3 phase of the install command.
     - [LightUserDataPlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/undoInit3.md) &ndash; Undoes the init 3 phase.
-    - LightUserDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
-    - LightUserDatabaseBasePlanetInstaller::setContainer &ndash; Sets the container.
-- [LightUserDataPluginInstaller](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller.md) &ndash; The LightUserDataPluginInstaller class.
-    - [LightUserDataPluginInstaller::install](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/install.md) &ndash; Installs the plugin in the light application.
-    - [LightUserDataPluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
-    - [LightUserDataPluginInstaller::getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
-    - [LightUserDataPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
-    - LightUserDatabaseBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
+    - LightDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightDatabaseBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightUserDataRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md) &ndash; The LightUserDataRealformHandlerAliasHelper class.
     - [LightUserDataRealformHandlerAliasHelper::getChloroformValidator](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper/getChloroformValidator.md) &ndash; Returns a configured validator instance, based on the given type and validatorConf array.
     - [LightUserDataRealformHandlerAliasHelper::getDataTransformer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper/getDataTransformer.md) &ndash; Returns the data transformer instance based on the given alias and parameters.

@@ -5,7 +5,9 @@ user_manager:
 #            user:
 #                instance: Ling\Light_User\AdamLightUser
     instance: Ling\Light_UserManager\Service\LightUserManagerService
-    methods: []
+    methods:
+        setUserClass:
+            userClass: ${user_manager_vars.userClass}
 #        setUser:
 #            user:
 #                instance: Ling\Light_User\LightWebsiteUser
@@ -18,3 +20,8 @@ user_manager:
 #                        pseudo: Ling
 #                    connect: []
 #                    disconnect: []
+
+
+
+user_manager_vars:
+    userClass: Ling\Light_User\LightWebsiteUser

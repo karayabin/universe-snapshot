@@ -4,7 +4,7 @@
 
 The LightErrorPopService class
 ================
-2020-06-01 --> 2021-05-31
+2020-06-01 --> 2021-06-25
 
 
 
@@ -46,3 +46,6 @@ See the source code of [Ling\Light_ErrorPop\Service\LightErrorPopService](https:
 
 
 
+SeeAlso
+==============
+Previous class: [LightErrorPopPlanetInstaller](https://github.com/lingtalfi/Light_ErrorPop/blob/master/doc/api/Ling/Light_ErrorPop/Light_PlanetInstaller/LightErrorPopPlanetInstaller.md)<br>

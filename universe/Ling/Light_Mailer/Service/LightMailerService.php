@@ -11,7 +11,7 @@ use Ling\Bat\FileSystemTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Events\Service\LightEventsService;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 use Ling\Light_Mailer\Exception\LightMailerException;
 use Swift_ByteStream_FileByteStream;
 
@@ -596,7 +596,7 @@ class LightMailerService
      */
     private function getMailerRootDir(): string
     {
-        return $this->container->getApplicationDir() . "/templates/Light_Mailer";
+        return $this->container->getApplicationDir() . "/templates/Ling.Light_Mailer";
     }
 
 

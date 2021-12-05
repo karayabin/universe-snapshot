@@ -4,7 +4,7 @@
 
 The LightUserInterface class
 ================
-2019-05-10 --> 2021-05-31
+2019-05-10 --> 2021-06-24
 
 
 
@@ -57,4 +57,4 @@ See the source code of [Ling\Light_User\LightUserInterface](https://github.com/l
 
 SeeAlso
 ==============
-Previous class: [LightAdamUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightAdamUser.md)<br>Next class: [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md)<br>
+Previous class: [LightOpenUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightOpenUser.md)<br>Next class: [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md)<br>

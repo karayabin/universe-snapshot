@@ -1,6 +1,6 @@
 Light_ErrorPop
 ===========
-2020-06-01 -> 2021-03-15
+2020-06-01 -> 2021-06-25
 
 
 
@@ -54,25 +54,6 @@ Here is an example of the service configuration:
 error_pop:
     instance: Ling\Light_ErrorPop\Service\LightErrorPopService
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels:
-                - error_handler
-                - fatal_error_handler
-                - error
-            listener:
-                instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
-                methods:
-                    setFile:
-                        file: /tmp/error_pop.txt
-                        
-
 
 ```
 
@@ -89,6 +70,10 @@ Related
 History Log
 =============
 
+- 1.0.9 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
+  
 - 1.0.8 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

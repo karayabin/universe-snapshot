@@ -20,17 +20,24 @@ interface LightPlanetInstallerInit3HookInterface
      *
      * @param string $appDir
      * @param OutputInterface $output
+     * @param array $options
      *
      * @return void
      */
-    public function init3(string $appDir, OutputInterface $output): void;
+    public function init3(string $appDir, OutputInterface $output, array $options = []): void;
 
 
     /**
      * Undoes the init 3 phase.
      *
+     * Available options are:
+     *
+     * - isUpgrade: bool=false. Whether the calling process comes from the upgrade command.
+     *
+     *
      * @param string $appDir
      * @param OutputInterface $output
+     * @param array $options
      */
-    public function undoInit3(string $appDir, OutputInterface $output): void;
+    public function undoInit3(string $appDir, OutputInterface $output, array $options = []): void;
 }

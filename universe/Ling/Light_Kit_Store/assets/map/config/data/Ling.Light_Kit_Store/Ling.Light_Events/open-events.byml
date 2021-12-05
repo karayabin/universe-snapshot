@@ -1,0 +1,2 @@
+Ling.Light.on_exception_caught:
+    - @kit_store->onLightExceptionCaught(data)

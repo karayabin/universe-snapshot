@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CleanSessionDirsCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L25-L28)
+See the source code for method [CleanSessionDirsCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L24-L27)
 
 
 See Also

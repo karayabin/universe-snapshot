@@ -53,7 +53,7 @@ Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/d
 
 Source Code
 ===========
-See the source code for method [LkeWebsiteController::render](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Controller/LkeWebsiteController.php#L30-L43)
+See the source code for method [LkeWebsiteController::render](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Controller/LkeWebsiteController.php#L30-L50)
 
 
 See Also

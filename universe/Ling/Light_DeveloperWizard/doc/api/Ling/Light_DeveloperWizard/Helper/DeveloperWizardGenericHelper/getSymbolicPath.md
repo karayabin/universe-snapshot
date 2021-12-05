@@ -53,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [DeveloperWizardGenericHelper::getSymbolicPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardGenericHelper.php#L29-L36)
+See the source code for method [DeveloperWizardGenericHelper::getSymbolicPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardGenericHelper.php#L30-L33)
 
 
 See Also

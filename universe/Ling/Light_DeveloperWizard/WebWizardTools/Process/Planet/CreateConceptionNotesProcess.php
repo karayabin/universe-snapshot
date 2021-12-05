@@ -50,8 +50,13 @@ $date
 
 EEE;
 
-        FileSystemTool::mkfile($path, $content);
-        $this->infoMessage("Creating conception notes at " . $this->getSymbolicPath($path) . ".");
+        if (false === file_exists($path)) {
+
+            FileSystemTool::mkfile($path, $content);
+            $this->infoMessage("Creating conception notes at " . $this->getSymbolicPath($path) . ".");
+        } else {
+            $this->infoMessage("Conception notes already exist at " . $this->getSymbolicPath($path) . ".");
+        }
 
     }
 

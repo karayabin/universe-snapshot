@@ -40,7 +40,7 @@ interface HttpRequestInterface
     public function getUriPath(): string;
 
     /**
-     * Returns the queryString of the http request.
+     * Returns the url-decoded version of the queryString of the http request.
      * @return string
      */
     public function getQueryString(): string;
@@ -140,7 +140,7 @@ interface HttpRequestInterface
      * @param bool $throwEx
      * @return mixed
      */
-    public function getGetValue(string $key, bool $throwEx = true);
+    public function getGetValue(string $key, bool $throwEx = false);
 
     /**
      * Returns the original $_POST array attached with the http request.
@@ -160,7 +160,7 @@ interface HttpRequestInterface
      * @param bool $throwEx
      * @return mixed
      */
-    public function getPostValue(string $key, bool $throwEx = true);
+    public function getPostValue(string $key, bool $throwEx = false);
 
     /**
      * Returns the  flattened version (with dots) of the $_FILES array (see
@@ -182,7 +182,7 @@ interface HttpRequestInterface
      * @param bool $throwEx
      * @return mixed
      */
-    public function getFilesValue(string $key, bool $throwEx = true);
+    public function getFilesValue(string $key, bool $throwEx = false);
 
     /**
      * Returns the original $_COOKIE array attached with the http request.
@@ -202,7 +202,7 @@ interface HttpRequestInterface
      * @param bool $throwEx
      * @return mixed
      */
-    public function getCookieValue(string $key, bool $throwEx = true);
+    public function getCookieValue(string $key, bool $throwEx = false);
 }
 
 

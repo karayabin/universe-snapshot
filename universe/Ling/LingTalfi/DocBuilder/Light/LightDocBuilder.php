@@ -153,6 +153,7 @@ class LightDocBuilder
                 "light execute notation" =>  'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md',
                 "ParenthesisMirrorWrapper conception notes" =>  'https://github.com/lingtalfi/ParenthesisMirrorParser/blob/master/doc/pages/conception-notes.md',
                 "SicFileCombinerUtil->combine method" =>  'https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil.md',
+                "light philosophy page" =>  'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md#logging',
             ],
             /**
              * An array of external classes to url.

@@ -4,7 +4,7 @@
 
 The SvelteTemplateBuilderDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\SvelteTemplateBuilder\SvelteTe
 
 SeeAlso
 ==============
-Previous class: [SqlWizardDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SqlWizard/SqlWizardDocBuilder.md)<br>Next class: [TemporaryVirtualFileSystemDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/TemporaryVirtualFileSystem/TemporaryVirtualFileSystemDocBuilder.md)<br>
+Previous class: [StripeToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/StripeTools/StripeToolsDocBuilder.md)<br>Next class: [TemporaryVirtualFileSystemDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/TemporaryVirtualFileSystem/TemporaryVirtualFileSystemDocBuilder.md)<br>

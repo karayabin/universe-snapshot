@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitStoreService::error](https://github.com/lingtalfi/Light_Kit_Store/blob/master/Service/LightKitStoreService.php#L84-L87)
+See the source code for method [LightKitStoreService::error](https://github.com/lingtalfi/Light_Kit_Store/blob/master/Service/LightKitStoreService.php#L351-L354)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [LightKitStoreService](https://github.com/lingtalfi/Light_Kit_Store/blob/master/doc/api/Ling/Light_Kit_Store/Service/LightKitStoreService.md) class.
 
-Previous method: [registerWebsiteFromDirectory](https://github.com/lingtalfi/Light_Kit_Store/blob/master/doc/api/Ling/Light_Kit_Store/Service/LightKitStoreService/registerWebsiteFromDirectory.md)<br>
+Previous method: [onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Store/blob/master/doc/api/Ling/Light_Kit_Store/Service/LightKitStoreService/onLightExceptionCaught.md)<br>
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightAjaxHandlerPlanetInstaller::init2](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Light_PlanetInstaller/LightAjaxHandlerPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightAjaxHandlerPlanetInstaller::init2](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Light_PlanetInstaller/LightAjaxHandlerPlanetInstaller/init2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -37,6 +37,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 

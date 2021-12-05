@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorService::unregisterWebsite](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L241-L261)
+See the source code for method [LightKitEditorService::unregisterWebsite](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Service/LightKitEditorService.php#L326-L346)
 
 
 See Also

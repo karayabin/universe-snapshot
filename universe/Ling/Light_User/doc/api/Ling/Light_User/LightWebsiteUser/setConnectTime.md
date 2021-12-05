@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::setConnectTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L348-L351)
+See the source code for method [LightWebsiteUser::setConnectTime](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L377-L380)
 
 
 See Also

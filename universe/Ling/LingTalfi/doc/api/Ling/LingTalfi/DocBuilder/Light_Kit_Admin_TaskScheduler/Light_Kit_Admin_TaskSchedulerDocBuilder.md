@@ -4,7 +4,7 @@
 
 The Light_Kit_Admin_TaskSchedulerDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Kit_Admin_TaskScheduler\
 
 SeeAlso
 ==============
-Previous class: [Light_Kit_Admin_LoginNotifierDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_LoginNotifier/Light_Kit_Admin_LoginNotifierDocBuilder.md)<br>Next class: [Light_Kit_Admin_UserDataDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_UserData/Light_Kit_Admin_UserDataDocBuilder.md)<br>
+Previous class: [Light_Kit_Admin_MailStatsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_MailStats/Light_Kit_Admin_MailStatsDocBuilder.md)<br>Next class: [Light_Kit_Admin_UserDataDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_UserData/Light_Kit_Admin_UserDataDocBuilder.md)<br>

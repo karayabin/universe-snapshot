@@ -57,9 +57,7 @@ Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/d
 Exceptions thrown
 ================
 
-- [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md).&nbsp;
-
-- [ReflectionException](http://php.net/manual/en/class.reflectionexception.php).&nbsp;
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 
 
 
@@ -69,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ControllerHelper::executeController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L42-L70)
+See the source code for method [ControllerHelper::executeController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L42-L71)
 
 
 See Also
@@ -77,5 +75,5 @@ See Also
 
 The [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md) class.
 
-Next method: [resolveController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/resolveController.md)<br>
+Next method: [executeControllerByRouteName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/executeControllerByRouteName.md)<br>
 

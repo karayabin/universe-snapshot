@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [WiseTool::wiseToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/wiseToChloroform.md)(string $wiseType, string $message) : Ling\Chloroform\FormNotification\FormNotificationInterface
+public static [WiseTool::wiseToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/wiseToChloroform.md)(string $wiseType, string $message) : [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)
 
 
 
@@ -42,7 +42,7 @@ Parameters
 Return values
 ================
 
-Returns Ling\Chloroform\FormNotification\FormNotificationInterface.
+Returns [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md).
 
 
 Exceptions thrown
@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WiseTool::wiseToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L136-L151)
+See the source code for method [WiseTool::wiseToChloroform](https://github.com/lingtalfi/WiseTool/blob/master/WiseTool.php#L135-L150)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [WiseTool](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool.md) class.
 
-Previous method: [wiseToBootstrap](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/wiseToBootstrap.md)<br>Next method: [wiseToLightKitAdmin](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/wiseToLightKitAdmin.md)<br>
+Previous method: [wiseToBootstrap](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/wiseToBootstrap.md)<br>Next method: [regularToBootstrap](https://github.com/lingtalfi/WiseTool/blob/master/doc/api/Ling/WiseTool/WiseTool/regularToBootstrap.md)<br>
 

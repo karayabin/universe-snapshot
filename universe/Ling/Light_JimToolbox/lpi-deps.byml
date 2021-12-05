@@ -1,0 +1,55 @@
+1.0.0: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.332
+    - Ling:Light:0.70.12
+    - Ling:Light_ControllerHub:1.3.7
+    - Ling:Light_ReverseRouter:1.11.7
+    - Ling:UrlSmuggler:1.0.1
+
+1.0.1: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.332
+    - Ling:JimToolbox:1.0.4
+    - Ling:Light:0.70.12
+    - Ling:Light_ControllerHub:1.3.7
+    - Ling:Light_ReverseRouter:1.11.7
+    - Ling:UrlSmuggler:1.0.1
+
+1.0.2: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.332
+    - Ling:JimToolbox:1.0.4
+    - Ling:Light:0.70.12
+    - Ling:Light_ControllerHub:1.3.8
+    - Ling:Light_ReverseRouter:1.11.7
+    - Ling:UrlSmuggler:1.0.1
+
+1.0.3: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.332
+    - Ling:DirScanner:1.13.6
+    - Ling:JimToolbox:1.0.4
+    - Ling:Light:0.70.12
+    - Ling:Light_ControllerHub:1.3.8
+    - Ling:Light_ReverseRouter:1.11.7
+    - Ling:UrlSmuggler:1.0.1
+
+1.0.4: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.333
+    - Ling:DirScanner:1.13.6
+    - Ling:JimToolbox:1.0.4
+    - Ling:Light:0.70.12
+    - Ling:Light_ControllerHub:1.3.8
+    - Ling:Light_ReverseRouter:1.11.7
+    - Ling:UrlSmuggler:1.0.1
+
+1.0.5: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.338
+    - Ling:DirScanner:1.13.6
+    - Ling:JimToolbox:1.0.5
+    - Ling:Light:0.70.12
+    - Ling:Light_ControllerHub:1.3.8
+    - Ling:Light_ReverseRouter:1.11.7
+    - Ling:UrlSmuggler:1.0.1

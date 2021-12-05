@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::__construct](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L109-L120)
+See the source code for method [HtmlPageCopilot::__construct](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L110-L121)
 
 
 See Also

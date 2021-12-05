@@ -4,7 +4,7 @@
 
 The Light_SpinKitHelperDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_SpinKitHelper\Light_Spin
 
 SeeAlso
 ==============
-Previous class: [Light_SimpleHttpServerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SimpleHttpServer/Light_SimpleHttpServerDocBuilder.md)<br>Next class: [Light_TablePrefixInfoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TablePrefixInfo/Light_TablePrefixInfoDocBuilder.md)<br>
+Previous class: [Light_SimpleHttpServerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SimpleHttpServer/Light_SimpleHttpServerDocBuilder.md)<br>Next class: [Light_SqlWizardDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SqlWizard/Light_SqlWizardDocBuilder.md)<br>

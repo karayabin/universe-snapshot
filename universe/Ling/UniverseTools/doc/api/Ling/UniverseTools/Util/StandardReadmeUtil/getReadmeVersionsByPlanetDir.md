@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::getReadmeVersionsByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L289-L297)
+See the source code for method [StandardReadmeUtil::getReadmeVersionsByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L345-L353)
 
 
 See Also

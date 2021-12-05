@@ -1,0 +1,13 @@
+jim_toolbox:
+    instance: Ling\Light_JimToolbox\Service\LightJimToolboxService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: ${jim_toolbox_vars.service_options}
+
+
+jim_toolbox_vars:
+    service_options: []
+
+

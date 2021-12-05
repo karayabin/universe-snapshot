@@ -1,0 +1,13 @@
+-
+    channels:
+        - error_handler
+        - fatal_error_handler
+        - error
+    listener:
+        instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
+        methods:
+            setFile:
+                file: /tmp/error_pop.txt
+
+
+

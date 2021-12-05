@@ -36,8 +36,8 @@ Each "has item" has the following structure:
 - referenced_by_right: string, the name of the column of the **right** table referencing the **has** table's foreign key
 - left_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **left** table.
      This method will list the following handles:
-- the column of the **left** table referencing the **has** table's foreign key (same value as the **referenced_by_left** property)
-- the unique indexes of the **left** table
+     - the column of the **left** table referencing the **has** table's foreign key (same value as the **referenced_by_left** property)
+     - the unique indexes of the **left** table
 
 - right_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **right** table.
      This method will list the following handles:
@@ -47,8 +47,8 @@ Each "has item" has the following structure:
          - label
          - identifier
 
-- the unique indexes of the **right** table that have only one column (i.e not the unique indexes with multiple columns).
-     If the unique index column contains only the aforementioned "natural" column, this particular index is discarded (as to avoid redundancy).
+     - the unique indexes of the **right** table that have only one column (i.e not the unique indexes with multiple columns).
+         If the unique index column contains only the aforementioned "natural" column, this particular index is discarded (as to avoid redundancy).
 
 
 
@@ -94,7 +94,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::getHasItems](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L708-L827)
+See the source code for method [MysqlInfoUtil::getHasItems](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L708-L828)
 
 
 See Also

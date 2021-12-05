@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightControllerHubService::getControllerHubHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L61-L108)
+See the source code for method [LightControllerHubService::getControllerHubHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L62-L109)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightKitStoreItemInstallerInterface class
 ================
-2021-04-06 --> 2021-05-31
+2021-04-06 --> 2021-08-02
 
 
 

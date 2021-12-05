@@ -7,3 +7,7 @@
 1.0.6: []
 1.0.7: []
 1.0.8: []
+1.0.9: 
+    - Ling:CliTools:1.10.29
+    - Ling:Light_Logger:1.11.11
+    - Ling:Light_PlanetInstaller:2.0.7

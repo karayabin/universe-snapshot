@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::getControllerHubRoute](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L375-L385)
+See the source code for method [BaseRealistListItemRenderer::getControllerHubRoute](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L374-L384)
 
 
 See Also

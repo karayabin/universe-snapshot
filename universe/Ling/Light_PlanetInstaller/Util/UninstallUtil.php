@@ -65,6 +65,7 @@ class UninstallUtil
      * Available options are:
      *
      * - app: string, the path to the app where the planet is located.
+     * - isUpgrade: bool=false, whether the calling process comes from the upgrade command.
      *
      * @param string $planetDotName
      * @param array $options
@@ -74,6 +75,7 @@ class UninstallUtil
 
 
         $appDir = $options['app'] ?? null;
+        $isUpgrade = $options['isUpgrade'] ?? false;
         $this->message("uninstalling $planetDotName.");
 
 
@@ -89,7 +91,9 @@ class UninstallUtil
             }
             if ($instance instanceof LightPlanetInstallerInit3HookInterface) {
                 $this->message("triggering <b:red>undoInit3</b:red> process.");
-                $instance->undoInit3($appDir, $this->output);
+                $instance->undoInit3($appDir, $this->output, [
+                    'isUpgrade' => $isUpgrade,
+                ]);
             } else {
                 $this->message("no <b:red>undoInit3</b:red> process found, skipping.");
             }

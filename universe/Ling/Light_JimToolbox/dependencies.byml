@@ -1,0 +1,14 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - DirScanner
+        - JimToolbox
+        - Light
+        - Light_ControllerHub
+        - Light_ReverseRouter
+        - UrlSmuggler
+    
+
+post_install: 
+    map: true

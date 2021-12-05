@@ -51,7 +51,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightRealistService::getStandardDeveloperVariables](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L435-L452)
+See the source code for method [LightRealistService::getStandardDeveloperVariables](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L439-L456)
 
 
 See Also

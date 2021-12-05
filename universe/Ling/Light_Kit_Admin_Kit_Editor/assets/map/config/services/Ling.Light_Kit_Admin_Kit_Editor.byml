@@ -1,0 +1,8 @@
+kit_admin_kit_editor: 
+    instance: Ling\Light_Kit_Admin_Kit_Editor\Service\LightKitAdminKitEditorService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+    
+

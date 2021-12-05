@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [OrderBy::getColDirs](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L97-L100)
+See the source code for method [OrderBy::getColDirs](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/OrderBy.php#L125-L128)
 
 
 See Also

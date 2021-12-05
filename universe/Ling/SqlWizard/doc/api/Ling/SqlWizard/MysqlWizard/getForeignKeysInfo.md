@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::getForeignKeysInfo](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getForeignKeysInfo.md)($table) : array
+public [MysqlWizard::getForeignKeysInfo](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getForeignKeysInfo.md)($fullTable) : array
 
 
 
@@ -34,7 +34,7 @@ Parameters
 ================
 
 
-- table
+- fullTable
 
     
 
@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getForeignKeysInfo](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L362-L397)
+See the source code for method [MysqlWizard::getForeignKeysInfo](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L507-L542)
 
 
 See Also

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ServicesCommand::doRun](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ServicesCommand.php#L25-L43)
+See the source code for method [ServicesCommand::doRun](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ServicesCommand.php#L25-L45)
 
 
 See Also

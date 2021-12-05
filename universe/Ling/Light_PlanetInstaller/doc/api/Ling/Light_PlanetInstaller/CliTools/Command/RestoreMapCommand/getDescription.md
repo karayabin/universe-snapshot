@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [RestoreMapCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L119-L126)
+See the source code for method [RestoreMapCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/RestoreMapCommand.php#L118-L125)
 
 
 See Also

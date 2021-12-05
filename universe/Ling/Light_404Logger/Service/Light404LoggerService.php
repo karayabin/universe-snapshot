@@ -5,7 +5,7 @@ namespace Ling\Light_404Logger\Service;
 
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightException;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 
 /**
  * The Light404LoggerService class.

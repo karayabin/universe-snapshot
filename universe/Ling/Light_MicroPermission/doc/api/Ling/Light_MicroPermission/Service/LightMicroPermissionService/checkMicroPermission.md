@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMicroPermissionService::checkMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/Service/LightMicroPermissionService.php#L93-L98)
+See the source code for method [LightMicroPermissionService::checkMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/Service/LightMicroPermissionService.php#L251-L256)
 
 
 See Also

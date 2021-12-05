@@ -3,7 +3,11 @@
 
 namespace Ling\Light_Realform\Service;
 
+use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
+use Ling\Bat\BDotTool;
+use Ling\Bat\FileSystemTool;
 use Ling\Bat\SmartCodeTool;
 use Ling\Bat\StringTool;
 use Ling\Bat\UriTool;
@@ -19,6 +23,7 @@ use Ling\Chloroform\Validator\FileMimeTypeValidator;
 use Ling\Chloroform\Validator\PasswordConfirmValidator;
 use Ling\Chloroform\Validator\PasswordValidator;
 use Ling\Chloroform\Validator\ValidatorInterface;
+use Ling\ConventionTools\ConventionTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Helper\LightHelper;
 use Ling\Light\Http\HttpResponseInterface;
@@ -83,11 +88,34 @@ class LightRealformService
      */
     public function getNugget(string $nuggetId): array
     {
+        $p = explode(":", $nuggetId, 2);
+        if (2 !== count($p)) {
+            $this->error("Invalid nugget: $nuggetId. Missing colon.");
+        }
+        list($planetDotName, $relPath) = $p;
+        $f = $this->container->getApplicationDir() . "/config/open/Ling.Light_Realform/$planetDotName/$relPath.byml";
+        $f = ConventionTool::getGeneratedCustomPath(FileSystemTool::removeTraversalDots($f));
+        if (false === file_exists($f)) {
+            $this->error("realform file not found with nuggetId $nuggetId ($f).");
+        }
+        $ret = BabyYamlUtil::readFile($f);
+        if (array_key_exists("_vars", $ret)) {
+            $vars = $ret["_vars"];
+            $resolver = new ArrayVariableResolverUtil();
+            $resolver->setFirstSymbol("");
+            $resolver->setOpeningBracket('%{');
+            $resolver->setClosingBracket('}');
+            $resolver->resolve($ret, $vars);
+        }
+
+        return LightHelper::executeParenthesisWrappersByArray($ret, $this->container, ['::']);
+
+
         /**
-         * @var $nug LightNuggetService
-         */
-        $nug = $this->container->get("nugget");
-        return $nug->getNugget($nuggetId, "Ling.Light_Realform/form");
+//         * @var $nug LightNuggetService
+//         */
+//        $nug = $this->container->get("nugget");
+//        return $nug->getNugget($nuggetId, "Ling.Light_Realform/form");
     }
 
 
@@ -99,11 +127,28 @@ class LightRealformService
      */
     public function getNuggetDirective(string $nuggetDirectiveId): array
     {
-        /**
-         * @var $nug LightNuggetService
-         */
-        $nug = $this->container->get("nugget");
-        return $nug->getNuggetDirective($nuggetDirectiveId, "Ling.Light_Realform/form");
+
+
+        $p = explode(":", $nuggetDirectiveId);
+        if (3 !== count($p)) {
+            $this->error("Invalid nuggetDirectiveId format, with \"$nuggetDirectiveId\".");
+        }
+        $directivePath = array_pop($p);
+        $nuggetId = implode(":", $p);
+        $nugget = $this->getNugget($nuggetId);
+        $found = false;
+        $value = BDotTool::getDotValue($directivePath, $nugget, null, $found);
+        if (false === $found) {
+            $this->error("Directive not found with nuggetId: \"$nuggetId\", and path: \"$directivePath\".");
+        }
+        return $value;
+
+
+//        /**
+//         * @var $nug LightNuggetService
+//         */
+//        $nug = $this->container->get("nugget");
+//        return $nug->getNuggetDirective($nuggetDirectiveId, "Ling.Light_Realform/form");
     }
 
 

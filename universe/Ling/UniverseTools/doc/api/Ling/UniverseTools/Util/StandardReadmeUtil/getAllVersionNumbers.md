@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::getAllVersionNumbers](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L310-L344)
+See the source code for method [StandardReadmeUtil::getAllVersionNumbers](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L366-L400)
 
 
 See Also

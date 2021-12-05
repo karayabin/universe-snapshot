@@ -77,6 +77,8 @@ class Light_UserDatabaseDocBuilder
             "reportIgnore" => [
                 "Ling\Light_Bullsheet\Bullsheeter\LightAbstractBullsheeter",
                 "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
+                "Ling\Light_Database\Light_PlanetInstaller\LightDatabaseBasePlanetInstaller",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
 
 
             ],
@@ -191,6 +193,7 @@ class Light_UserDatabaseDocBuilder
                 "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
                 "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInit3HookInterface.md",
                 "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
+                "Ling\Light_Database\Light_PlanetInstaller\LightDatabaseBasePlanetInstaller" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabaseBasePlanetInstaller.md",
 
             ],
         ];

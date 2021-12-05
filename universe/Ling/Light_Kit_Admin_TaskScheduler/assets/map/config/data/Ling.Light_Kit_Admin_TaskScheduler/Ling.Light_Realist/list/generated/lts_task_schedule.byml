@@ -233,8 +233,7 @@ rendering:
                         text: Edit
                         url_params_add_ric: true
                         url_params: 
-                            plugin: Ling/Light_Kit_Admin_TaskScheduler
-                            controller: Generated/LtsTaskScheduleController
+                            execute: Ling\Light_Kit_Admin_TaskScheduler\Controller\Generated\LtsTaskScheduleController->render
                             m: f
                         
                         icon: fas fa-edit
@@ -287,7 +286,7 @@ rendering:
     related_links: 
         - 
             text: "Add new \"task schedule\" item"
-            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {plugin: Ling/Light_Kit_Admin_TaskScheduler, controller: Generated/LtsTaskScheduleController, m:f})
+            url: REALIST(Ling.Light_Realist, route, lch_route-hub, {execute: Ling\Light_Kit_Admin_TaskScheduler\Controller\Generated\LtsTaskScheduleController->render, m:f})
             icon: fas fa-plus-circle
         
     

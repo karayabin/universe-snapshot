@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RemovePlanetProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Planet/RemovePlanetProcess.php#L33-L88)
+See the source code for method [RemovePlanetProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Planet/RemovePlanetProcess.php#L32-L76)
 
 
 See Also

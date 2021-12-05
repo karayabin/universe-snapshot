@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function updateUserById(int $id, array $user, array $extraWhere = [], array $markers = [])
     {

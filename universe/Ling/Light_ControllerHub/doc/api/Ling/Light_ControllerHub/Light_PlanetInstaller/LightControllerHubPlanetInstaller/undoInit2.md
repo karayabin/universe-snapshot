@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightControllerHubPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Light_PlanetInstaller/LightControllerHubPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output) : void
+public [LightControllerHubPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Light_PlanetInstaller/LightControllerHubPlanetInstaller/undoInit2.md)(string $appDir, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -35,6 +35,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 

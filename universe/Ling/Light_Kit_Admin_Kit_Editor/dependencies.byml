@@ -1,0 +1,20 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - CliTools
+        - Kit_PicassoWidget
+        - Light
+        - Light_AjaxHandler
+        - Light_ControllerHub
+        - Light_CsrfSession
+        - Light_Kit
+        - Light_Kit_Admin
+        - Light_Kit_Editor
+        - Light_MicroPermission
+        - Light_PlanetInstaller
+        - UniverseTools
+    
+
+post_install: 
+    map: true

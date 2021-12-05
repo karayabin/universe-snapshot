@@ -4,7 +4,7 @@
 
 The JimToolboxDocBuilder class
 ================
-2019-03-13 --> 2021-05-31
+2019-03-13 --> 2021-12-02
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\JimToolbox\JimToolboxDocBuilde
 
 SeeAlso
 ==============
-Previous class: [JSortableListsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JSortableLists/JSortableListsDocBuilder.md)<br>Next class: [JumboExploderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JumboExploder/JumboExploderDocBuilder.md)<br>
+Previous class: [JSortableListsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JSortableLists/JSortableListsDocBuilder.md)<br>Next class: [JqZoomDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/JqZoom/JqZoomDocBuilder.md)<br>

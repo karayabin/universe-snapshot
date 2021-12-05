@@ -134,14 +134,20 @@
 
 
 .jim-toolbox .toolbox-content {
-    height: calc(100% - 50px);
+    height: 100%;
     overflow: auto;
     position: relative;
     background: #fff;
     display: flex;
     flex-direction: column;
+}
+
+
+.jim-toolbox .toolbox-content.offset-50 {
+    height: calc(100% - 50px);
     top: 50px;
 }
+
 
 .jim-toolbox .toolbox-title {
     padding: 1.35rem 1.5rem;

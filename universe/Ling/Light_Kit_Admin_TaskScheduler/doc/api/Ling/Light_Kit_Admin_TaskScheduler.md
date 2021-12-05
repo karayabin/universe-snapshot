@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_TaskScheduler
 ================
-2020-07-31 --> 2021-05-31
+2020-07-31 --> 2021-06-18
 
 
 
@@ -37,20 +37,12 @@ Table of contents
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminTaskSchedulerPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PlanetInstaller/LightKitAdminTaskSchedulerPlanetInstaller.md) &ndash; The LightKitAdminTaskSchedulerPlanetInstaller class.
+    - [LightKitAdminTaskSchedulerPlanetInstaller::__construct](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PlanetInstaller/LightKitAdminTaskSchedulerPlanetInstaller/__construct.md) &ndash; Builds the LightKitAdminTaskSchedulerPlanetInstaller instance.
     - LightKitAdminBasePlanetInstaller::init2 &ndash; Executes the init 2 phase of the install command.
     - LightKitAdminBasePlanetInstaller::undoInit2 &ndash; Undoes the init 2 phase.
     - LightKitAdminBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
     - LightKitAdminBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
-    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
-- [LightKitAdminTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PluginInstaller/LightKitAdminTaskSchedulerPluginInstaller.md) &ndash; The LightKitAdminTaskSchedulerPluginInstaller class.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::__construct &ndash; Builds the LightKitAdminBasePluginInstallerWithDatabase instance.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::install &ndash; Installs the plugin in the light application.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::uninstall &ndash; Uninstalls the plugin.
-    - LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies &ndash; Returns the array of dependencies.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminTaskSchedulerService](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Service/LightKitAdminTaskSchedulerService.md) &ndash; The LightKitAdminTaskSchedulerService class.
     - LightKitAdminStandardServicePlugin::__construct &ndash; Builds the LightLingStandardService01 instance.
     - LightKitAdminStandardServicePlugin::setContainer &ndash; Sets the container.

@@ -1,91 +1,141 @@
 Permissions
 ==============
-2019-10-30 -> 2020-08-21
+2019-10-30 -> 2021-06-16
 
 
 
 
-In **Light_Kit_Admin** (lka), the permission system is based on [micro-permissions profiles](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/conception-notes.md#micro-permission-profiles).
+Prerequisites:
+
+- [micro-permissions](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/conception-notes.md)
+- [the basic permission system](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md)
 
 
-We provide the following [permission groups](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md):
+
+
+
+A reminder of permissions in light
+----------
+2021-06-16
+
+
+
+
+Light kit admin is based on the [website user](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md), 
+which has any number of **permission groups**.
+
+Each **permission group** contains any number of **permissions**.
+
+The **permission** is the thing code is tested against when we want to check if the user is granted a certain privilege.
+
+
+We can go below that with **micro-permissions**. **Micro-permissions** were created to avoid the "too many permissions" problem.
+
+But in the end, **micro-permissions** resolve to a simple **permission**.
+
+
+In other words, we just care about **permissions**. The **permission group** and **micro-permissions** are just here to help with organization of **permissions**.
+
+
+In general, **micro-permissions** are hard-coded an can be changed only by the plugin author, whereas **permissions** and **permissions groups** can be re-assigned by the human
+admin via a gui.
+
+
+
+
+light kit admin's permission philosophy
+----------
+2020-07-27 -> 2021-06-16
+
+
+
+In a word, we try to promote and implement [the micro-permissions based system](https://github.com/lingtalfi/TheBar/blob/master/discussions/micro-permissions-based-system.md).
+
+
+
+
+
+In addition to that, in lka, we provide the following **permission groups**:
+
 
 - **Ling.Light_Kit_Admin.admin**
 - **Ling.Light_Kit_Admin.user**
 
 
-The **Ling.Light_Kit_Admin.admin** permission group contains the following [permissions](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md):
 
-- Ling.Light_Kit_Admin.admin
-- Ling.Light_Kit_Admin.user 
+And the following **permissions**:
 
-Note: yes, there is a **Ling.Light_Kit_Admin.admin** permission, and a **Ling.Light_Kit_Admin.admin** permission group. They are different things, although they have a similar name.
+- **Ling.Light_Kit_Admin.admin**
+- **Ling.Light_Kit_Admin.user**
 
 
-The **Ling.Light_Kit_Admin.user** permission group contains the following permissions:
-- Ling.Light_Kit_Admin.user 
+(yes, they are named the same as the **permission groups**)
 
 
 
-The **Ling.Light_Kit_Admin.admin** permission contains the following micro-permissions:
+
+The **Ling.Light_Kit_Admin.admin** **permission group** contains the following **permissions**:
+- **Ling.Light_Kit_Admin.admin**
+- **Ling.Light_Kit_Admin.user**
+
+
+The **Ling.Light_Kit_Admin.user** **permission group** contains the following **permissions**:
+- **Ling.Light_Kit_Admin.user** 
+
+
+
+The **Ling.Light_Kit_Admin.admin** permission contains the following **micro-permission**:
 
 - store
 
-Which basically means the admin can do whatever he wants with the database.
+This basically means the admin can do whatever he wants with the database.
 
 
 The **Ling.Light_Kit_Admin.user** permission doesn't contain any micro-permissions. 
-This basically means that by default the lka user can't alter the database.
+This basically means that by default the lka user can't alter the database at all.
+
+
+To put it simply, database wise, the admin can do everything and the user can do nothing.
+
+
+That's by default.
 
     
  
  
 Plugin authors, the Light_Kit_Admin permission philosophy
 -----------
-2020-07-27 -> 2020-08-21
-
-
-We recommend that plugin authors implement the following guidelines as their permission system.
-
-
-First, use the lka permission groups at your advantage. So if your plugin only needs a super-admin, you're already covered,
-just connect as any user which owns the **Ling.Light_Kit_Admin.admin** permission group, as this permission group is allowed to alter anything in the database.
-
-
-Secondly, let the admin do their job. The main idea being that we don't know in advance the needs of an admin.
-We can provide them with some basic tools though.  
-
-
-Create two permissions:
-
-- Light_Kit_Admin_YourPlugin.admin
-- Light_Kit_Admin_YourPlugin.user
-
-
-Assign **Light_Kit_Admin_YourPlugin.admin** to our **Ling.Light_Kit_Admin.admin** permission group,
-and assign **Light_Kit_Admin_YourPlugin.user** to both our **Ling.Light_Kit_Admin.admin** and **Ling.Light_Kit_Admin.user** permission groups.
-
-For **Light_Kit_Admin_YourPlugin.admin**, add the **store.$table** micro-permission for every table your plugin handles. 
-For **Light_Kit_Admin_YourPlugin.user**, don't add any micro-permission. 
-
-
-Then, let the admin create for himself the relationships he needs.
-
-So for instance, the admin wants to create a permission group which lets the user administrate plugin ABC and plugin DEF, but not plugin GHI,
-but that's the admin problem not yours (we, as plugin authors) just provide the **permissions** for the admin to play with.
+2020-07-27 -> 2021-06-16
 
 
 
-Now of course having only two permissions might not cover all the use cases, and occasionally you might need to create a new permission profile (i.e. a **permission** and its related **micro-permission profile**).
-
-For the main part though, we recommend stick with this game plan.
+We recommend that lka plugin authors implement the following guidelines for their permission system.
 
 
-Remember that everytime you create a new permission, you provide one more option for the admin, and as you might already know, having too many options is not always a good idea, as it can confuse the user (i.e. the admin in this case).
- 
- 
+Create two **permissions**:
 
- 
+- **YouGalaxy.Light_Kit_Admin_YourPlugin.admin**
+- **YouGalaxy.Light_Kit_Admin_YourPlugin.user**
+
+
+Then:
+- Assign the **YouGalaxy.Light_Kit_Admin_YourPlugin.admin** **permission** to our **Ling.Light_Kit_Admin.admin** **permission group**.
+- Assign **YouGalaxy.Light_Kit_Admin_YourPlugin.user** to both our **Ling.Light_Kit_Admin.admin** and **Ling.Light_Kit_Admin.user** **permission groups**.
+
+
+Then:
+
+- For **YouGalaxy.Light_Kit_Admin_YourPlugin.admin**, add the **store.$table** **micro-permission** for every table your plugin handles. 
+- Don't add any **micro-permission** for your **YouGalaxy.Light_Kit_Admin_YourPlugin.user** **permission**. 
+
+
+
+That's it.
+
+
+I believe sticking with those guidelines create a conceptually simple permission system, 
+which can be taken advantage of with some tools such as the [developer wizard](https://github.com/lingtalfi/Light_DeveloperWizard) for instance.
+
 
 
 
@@ -95,15 +145,4 @@ Remember that everytime you create a new permission, you provide one more option
 
  
  
-
-
-
-Related
----------
-
-More background information: 
-- [permission conception notes](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md)
-
-
-
 

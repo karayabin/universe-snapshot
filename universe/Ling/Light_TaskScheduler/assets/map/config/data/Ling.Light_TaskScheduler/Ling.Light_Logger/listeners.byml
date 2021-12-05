@@ -1,0 +1,19 @@
+-
+    channels: task_scheduler.error
+    listener:
+        instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/task_scheduler_error.txt
+
+-
+    channels: task_scheduler.debug
+    listener:
+        instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+        methods:
+            configure:
+                options:
+                    file: ${app_dir}/log/task_scheduler_debug.txt
+
+

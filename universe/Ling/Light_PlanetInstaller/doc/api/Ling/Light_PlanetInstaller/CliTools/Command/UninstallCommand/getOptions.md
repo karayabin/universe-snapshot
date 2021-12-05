@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UninstallCommand::getOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L88-L100)
+See the source code for method [UninstallCommand::getOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/UninstallCommand.php#L86-L98)
 
 
 See Also

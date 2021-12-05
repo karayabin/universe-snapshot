@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getIp](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L286-L289)
+See the source code for method [HttpRequest::getIp](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L294-L297)
 
 
 See Also

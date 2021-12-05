@@ -13,6 +13,7 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
+use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Light_Realform\SuccessHandler\LightKitAdminEditorRealformSuccessHandler;
 use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
@@ -22,6 +23,8 @@ use Ling\Light_Realform\SuccessHandler\RealformSuccessHandlerInterface;
 use Ling\Light_Realist\DuelistEngine\DuelistEngineInterface;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightWebsiteUser;
+use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
+use Ling\Light_UserManager\Service\LightUserManagerService;
 use Ling\UrlSmuggler\UrlSmugglerTool;
 
 
@@ -325,7 +328,7 @@ class LightKitAdminService
     public function getDuelistEngine(): DuelistEngineInterface
     {
         $o = new LightKitEditorBabyYamlDuelistEngine();
-        $o->setRootDir($this->container->getApplicationDir() . "/config/open/Ling.Light_Kit_Admin/lke");
+        $o->setRootDir(LightKitAdminHelper::getLightKitEditorRootPath($this->container->getApplicationDir()));
         return $o;
     }
 
@@ -345,6 +348,40 @@ class LightKitAdminService
         $o = new LightKitAdminEditorRealformSuccessHandler();
         $o->setEngineType($type);
         return $o;
+    }
+
+
+    /**
+     * Returns a valid lka user, or false if such user doesn't exist.
+     *
+     * @return LightWebsiteUser|false
+     */
+    public function getValidLightKitAdminUser(): LightWebsiteUser|false
+    {
+        /**
+         * @var $_um LightUserManagerService
+         */
+        $_um = $this->container->get("user_manager");
+        try {
+            return $_um->getValidWebsiteUser();
+        } catch (\Exception) {
+            return false;
+        }
+    }
+
+    /**
+     * Updates the given user in the storage (probably a database).
+     *
+     * @param LightWebsiteUser $user
+     * @param array $updateInfo
+     */
+    public function updateLightKitAdminUser(LightWebsiteUser $user, array $updateInfo = [])
+    {
+        /**
+         * @var $_ud LightUserDatabaseService
+         */
+        $_ud = $this->getContainer()->get("user_database");
+        $_ud->updateUserById($user->getId(), $updateInfo);
     }
 
 
@@ -403,114 +440,4 @@ class LightKitAdminService
     }
 
 
-    /**
-     * Returns the array of jim toolbox items.
-     *
-     * See the @page(lka jim toolbox) document for more information.
-     *
-     * @return array
-     */
-    public function getJimToolboxItems(): array
-    {
-        $ret = [];
-        $uri = $this->container->getLight()->getHttpRequest()->getUri();
-        $file = $this->getJimToolboxItemsFile();
-        if (true === is_file($file)) {
-            $arr = BabyYamlUtil::readFile($file);
-            foreach ($arr as $k => $v) {
-                $ret[$k] = $v;
-                if (true === array_key_exists("acp_class", $v)) {
-
-                    /**
-                     * @var $hu LightControllerHubService
-                     */
-                    $hu = $this->container->get("controller_hub");
-                    $route = $hu->getRouteName();
-
-
-                    $get = $v['get'] ?? [];
-                    /**
-                     * @var $rr LightReverseRouterService
-                     */
-                    $rr = $this->container->get("reverse_router");
-                    $url = $rr->getUrl($route, array_merge($get, [
-                        'execute' => "Ling\Light_Kit_Admin\Controller\JimToolbox\LkaJimToolboxController->render",
-                        'acp_class' => $v['acp_class'],
-                        'current_uri' => UrlSmugglerTool::smuggle($uri),
-                    ]), true);
-                    $ret[$k]['url'] = $url;
-                }
-            }
-        }
-        return $ret;
-    }
-
-
-    /**
-     * Registers a jim toolbox item.
-     * See the @page(lka jim toolbox) document for more information.
-     *
-     * @param string $key
-     * @param array $item
-     */
-    public function registerJimToolboxItem(string $key, array $item)
-    {
-        $file = $this->getJimToolboxItemsFile();
-        if (true === is_file($file)) {
-            $arr = BabyYamlUtil::readFile($file);
-        } else {
-            $arr = [];
-        }
-        if (true === array_key_exists($key, $arr)) {
-            throw new LightKitAdminException("A jim toolbox item with the key $key already exists. Aborting.");
-        }
-
-        $arr[$key] = $item;
-        BabyYamlUtil::writeFile($arr, $file);
-    }
-
-
-    /**
-     * Unregisters a jim toolbox item, and returns whether the given key was actually registered.
-     *
-     * If the given key didn't exist, false is returned.
-     *
-     *
-     * See the @page(lka jim toolbox) document for more information.
-     *
-     * @param string $key
-     * @return bool
-     */
-    public function unregisterJimToolboxItem(string $key): bool
-    {
-        $found = false;
-        $file = $this->getJimToolboxItemsFile();
-        if (true === is_file($file)) {
-            $arr = BabyYamlUtil::readFile($file);
-        } else {
-            $arr = [];
-        }
-        if (true === array_key_exists($key, $arr)) {
-            unset($arr[$key]);
-            $found = true;
-        }
-
-        BabyYamlUtil::writeFile($arr, $file);
-        return $found;
-    }
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Returns the path to the jim toolbox items file.
-     * @return string
-     */
-    private function getJimToolboxItemsFile(): string
-    {
-        $appDir = $this->container->getApplicationDir();
-        return $appDir . '/config/open/Ling.Light_Kit_Admin/JimToolbox/items.byml';
-    }
 }

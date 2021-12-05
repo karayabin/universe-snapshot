@@ -4,9 +4,8 @@
 namespace Ling\Light_ExceptionHandler\Service;
 
 
-use Ling\CheapLogger\CheapLogger;
 use Ling\Light\Events\LightEvent;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 
 /**
  * The LightExceptionHandlerService class.

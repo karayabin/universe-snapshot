@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/StripeTools/blob/master/README.md
+https://github.com/lingtalfi/StripeTools/blob/master/doc/api/Ling/StripeTools.md
+https://github.com/lingtalfi/StripeTools/blob/master/doc/pages/conception-notes.md

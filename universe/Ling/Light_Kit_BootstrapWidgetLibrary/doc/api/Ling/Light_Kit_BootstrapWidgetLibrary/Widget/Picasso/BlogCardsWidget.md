@@ -4,7 +4,7 @@
 
 The BlogCardsWidget class
 ================
-2019-04-26 --> 2021-05-31
+2019-04-26 --> 2021-06-28
 
 
 
@@ -79,4 +79,4 @@ See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Blo
 
 SeeAlso
 ==============
-Next class: [BlogenAdminTableWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/BlogenAdminTableWidget.md)<br>
+Previous class: [LightKitBootstrapWidgetLibraryService](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Service/LightKitBootstrapWidgetLibraryService.md)<br>Next class: [BlogenAdminTableWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/BlogenAdminTableWidget.md)<br>

@@ -9,9 +9,8 @@ use Ling\Bat\DebugTool;
 use Ling\CliTools\Formatter\BashtmlFormatter;
 use Ling\Light\Events\LightEvent;
 use Ling\Light_Database\LightDatabasePdoWrapper;
-use Ling\Light_Logger\LightLoggerService;
+use Ling\Light_Logger\Service\LightLoggerService;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
-use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
 
 /**

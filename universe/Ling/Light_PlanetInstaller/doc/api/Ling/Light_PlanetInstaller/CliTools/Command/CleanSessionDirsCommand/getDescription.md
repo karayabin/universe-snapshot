@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CleanSessionDirsCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L49-L57)
+See the source code for method [CleanSessionDirsCommand::getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/CleanSessionDirsCommand.php#L48-L56)
 
 
 See Also

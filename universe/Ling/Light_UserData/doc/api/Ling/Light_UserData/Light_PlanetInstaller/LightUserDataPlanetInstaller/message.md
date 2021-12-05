@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataPlanetInstaller::message](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PlanetInstaller/LightUserDataPlanetInstaller.php#L204-L207)
+See the source code for method [LightUserDataPlanetInstaller::message](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PlanetInstaller/LightUserDataPlanetInstaller.php#L201-L204)
 
 
 See Also

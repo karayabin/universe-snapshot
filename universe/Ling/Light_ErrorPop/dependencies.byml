@@ -1,3 +1,9 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - CliTools
+        - Light_Logger
+        - Light_PlanetInstaller
+    
+
 post_install: 
     map: true

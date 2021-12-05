@@ -1,6 +1,6 @@
 Light_Events
 ===========
-2019-10-31 -> 2021-05-03
+2019-10-31 -> 2021-06-28
 
 
 
@@ -63,20 +63,7 @@ events:
                 debugCall: true       # default is false
                 formattingDispatch: white:bgRed
                 formattingCall: null
-# --------------------------------------
-# hooks
-# --------------------------------------
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: events.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/events_debug.txt
+
 
 ```
 
@@ -87,6 +74,14 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.10.8 -- 2021-06-28
+
+    - fix api wrong reference to Ling.Light_Logger
+  
+- 1.10.7 -- 2021-06-25
+
+    - update api, now use Ling.Light_Logger open registration system
+  
 - 1.10.6 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

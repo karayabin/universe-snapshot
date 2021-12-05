@@ -4,7 +4,7 @@
 
 The LightKitPicassoWidgetHandler class
 ================
-2019-04-25 --> 2021-05-31
+2019-04-25 --> 2021-07-08
 
 
 
@@ -119,4 +119,4 @@ See the source code of [Ling\Light_Kit\WidgetHandler\LightKitPicassoWidgetHandle
 
 SeeAlso
 ==============
-Previous class: [LightKitService](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Service/LightKitService.md)<br>
+Previous class: [LightKitService](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Service/LightKitService.md)<br>Next class: [LightKitPrototypeWidgetHandler](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/WidgetHandler/LightKitPrototypeWidgetHandler.md)<br>

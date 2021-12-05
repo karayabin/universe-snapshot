@@ -46,7 +46,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getPort](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L278-L281)
+See the source code for method [HttpRequest::getPort](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L286-L289)
 
 
 See Also

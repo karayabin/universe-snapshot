@@ -54,7 +54,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ClassPropertyTokenFinder::find](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/ClassPropertyTokenFinder.php#L23-L134)
+See the source code for method [ClassPropertyTokenFinder::find](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/ClassPropertyTokenFinder.php#L23-L157)
 
 
 See Also

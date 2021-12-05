@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightCliApplication::getCurrentDirectory](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Program/LightCliApplication.php#L80-L83)
+See the source code for method [LightCliApplication::getCurrentDirectory](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Program/LightCliApplication.php#L84-L87)
 
 
 See Also

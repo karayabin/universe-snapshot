@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::render](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L175-L216)
+See the source code for method [BaseRealistListItemRenderer::render](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L174-L215)
 
 
 See Also

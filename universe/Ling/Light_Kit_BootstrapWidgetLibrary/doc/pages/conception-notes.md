@@ -1,6 +1,6 @@
 Conception notes
 ==========
-2019-04-25
+2019-04-25 -> 2021-06-21
 
 
 
@@ -10,6 +10,8 @@ No widget code have been written yet, this is exciting.
 
 Screenshot library organization, widget naming
 ===============
+2019-04-25
+
 
 Before I even think of coding, I need to organize the widgets.
 
@@ -130,7 +132,7 @@ to capture the precise widget area.
 
 Integration in a Light application
 ===============
-
+2019-04-25
 
 
 Following the [Light application recommended structure](https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recommended-structure.md),
@@ -167,7 +169,41 @@ And, the "widget" directories will be copied to the light app in:
 
 
 
+The command line tool
+--------
+2021-06-21
 
+
+We also provide a command line tool.
+
+It uses the [Light_Cli](https://github.com/lingtalfi/Light_Cli/) planet with an appId of **bwl**.
+
+So for instance, you can access our raw commands with something like:
+
+```bash
+lt bwl $the_command_name
+```
+
+Reminder: if a command has an alias, you can omit the **bwl** identifier and type the alias directly after **lt**.
+
+
+The commands are the following.
+
+
+```yamll
+- **help**: shows the help for the <b>Light_Kit_BootstrapWidgetLibrary</b> cli tool. 
+    - Arguments:
+        - flags:
+            - v: display a more verbose help  
+- **create_widget**:
+    Creates a basic widget in our planet. This command was designed for widget authors who want to extend our library.
+      
+    - Arguments:
+        - parameters: 
+            - widgetClassName: the short classname of the widget to create. Example: KitStoreHeaderWidget.
+        - aliases: 
+            - create_widget
+```
 
 
 

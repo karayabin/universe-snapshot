@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataRowRestrictionHandler class
 ================
-2020-02-28 --> 2021-05-31
+2020-02-28 --> 2021-06-18
 
 
 
@@ -72,4 +72,4 @@ See the source code of [Ling\Light_Kit_Admin_UserData\Light_UserRowRestriction\L
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserDataPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PluginInstaller/LightKitAdminUserDataPluginInstaller.md)<br>Next class: [LightKitAdminUserDataService](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService.md)<br>
+Previous class: [LightKitAdminUserDataPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller.md)<br>Next class: [LightKitAdminUserDataService](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService.md)<br>

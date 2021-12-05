@@ -4,17 +4,16 @@
 namespace Ling\Light_DeveloperWizard\WebWizardTools\Process;
 
 
-use Ling\Bat\BDotTool;
 use Ling\Bat\CaseTool;
+use Ling\Bat\FileSystemTool;
 use Ling\ClassCooker\FryingPan\FryingPan;
 use Ling\ClassCooker\FryingPan\Ingredient\BasicConstructorVariableInitIngredient;
 use Ling\ClassCooker\FryingPan\Ingredient\MethodIngredient;
 use Ling\ClassCooker\FryingPan\Ingredient\PropertyIngredient;
 use Ling\ClassCooker\FryingPan\Ingredient\UseStatementIngredient;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DeveloperWizard\Exception\LightDeveloperWizardException;
 use Ling\Light_DeveloperWizard\Helper\DeveloperWizardGenericHelper;
-use Ling\Light_DeveloperWizard\Tool\DeveloperWizardFileTool;
-use Ling\SqlWizard\Util\MysqlStructureReader;
 use Ling\WebWizardTools\Process\WebWizardToolsProcess;
 
 
@@ -52,6 +51,16 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
 
 
     /**
+     * Returns the container instance.
+     * @return LightServiceContainerInterface
+     */
+    protected function getContainer(): LightServiceContainerInterface
+    {
+        return $this->getContextVar("container");
+    }
+
+
+    /**
      * Returns whether the given planet is a light planet.
      * @param string $planet
      * @return bool
@@ -60,7 +69,6 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
     {
         return (0 === strpos($planet, "Light_"));
     }
-
 
 
     /**
@@ -111,6 +119,11 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
      */
     protected function addServiceOptions(FryingPan $pan, string $planetName)
     {
+
+
+        $pan->addIngredient(UseStatementIngredient::create()->setValue('Ling\Bat\BDotTool'));
+
+
         $pan->addIngredient(PropertyIngredient::create()->setValue("options", [
             'template' => '
     /**
@@ -125,7 +138,7 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
      *
      * @var array
      */
-    protected $options;
+    protected array $options;
     
 ',
             'afterProperty' => 'container',
@@ -154,6 +167,57 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
         ]));
 
 
+        $pan->addIngredient(MethodIngredient::create()->setValue("getOptions", [
+            'template' => '
+    /**
+     * Returns the options of this instance.
+     *
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+    
+',
+            "afterMethod" => 'setOptions',
+        ]));
+
+
+        $pan->addIngredient(MethodIngredient::create()->setValue("getOption", [
+            'template' => '
+    /**
+     * Returns the option value corresponding to the given key.
+     * If the option is not found, the return depends on the throwEx flag:
+     *
+     * - if set to true, an exception is thrown
+     * - if set to false, the default value is returned
+     *
+     *
+     * @param string $key
+     * @param null $default
+     * @param bool $throwEx
+     * @throws \Exception
+     */
+    public function getOption(string $key, $default = null, bool $throwEx = false)
+    {
+        $found = false;
+        $value = BDotTool::getDotValue($key, $this->options, $default, $found);
+
+        if (false !== $found) {
+            return $value;
+        }
+        if (true === $throwEx) {
+            $this->error("Undefined option: $key.");
+        }
+        return $default;
+    }
+    
+',
+            "afterMethod" => 'getOptions',
+        ]));
+
+
     }
 
     /**
@@ -174,17 +238,17 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
      * This property holds the container for this instance.
      * @var LightServiceContainerInterface
      */
-    protected $container;
+    protected LightServiceContainerInterface $container;
     
 ',
             'top' => true,
         ]));
 
 
-        $pan->addIngredient(BasicConstructorVariableInitIngredient::create()->setValue('container', [
-            'template' => str_repeat(' ', 8) . '$this->container = null;        
-',
-        ]));
+//        $pan->addIngredient(BasicConstructorVariableInitIngredient::create()->setValue('container', [
+//            'template' => str_repeat(' ', 8) . '$this->container = null;
+//',
+//        ]));
 
 
         $pan->addIngredient(MethodIngredient::create()->setValue("setContainer", [
@@ -219,25 +283,27 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
 
         $factoryName = 'Custom' . CaseTool::toFlexiblePascal($planetName) . 'ApiFactory';
         $useStatementClass = $galaxyName . "\\" . $planetName . '\\Api\\Custom\\' . $factoryName;
+        $useStatementClass2 = "Ling\Light_Database\Service\LightDatabaseService";
 
 
         $pan->addIngredient(UseStatementIngredient::create()->setValue($useStatementClass));
+        $pan->addIngredient(UseStatementIngredient::create()->setValue($useStatementClass2));
 
 
         $pan->addIngredient(PropertyIngredient::create()->setValue("factory", [
             'template' => '
     /**
      * This property holds the factory for this instance.
-     * @var ' . $factoryName . '
+     * @var ' . $factoryName . '|null
      */
-    protected $factory;
+    protected ?' . $factoryName . ' $factory;
     
 ',
         ]));
 
 
         $pan->addIngredient(BasicConstructorVariableInitIngredient::create()->setValue('factory', [
-            'template' => str_repeat(' ', 8) . '$this->factory = null;        
+            'template' => str_repeat(' ', 8) . '$this->factory = null;
 ',
         ]));
 
@@ -254,7 +320,11 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
         if (null === $this->factory) {
             $this->factory = new ' . $factoryName . '();
             $this->factory->setContainer($this->container);
-            $this->factory->setPdoWrapper($this->container->get("database"));
+            /**
+             * @var $db LightDatabaseService
+             */
+            $db = $this->container->get("database");
+            $this->factory->setPdoWrapper($db);
         }
         return $this->factory;
     }
@@ -279,7 +349,8 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
      *
      * @param string $serviceName
      * @param array $methodItem
-     * @param array $ifArgs
+     * @param array|null $ifArgs
+     * @throws \Exception
      */
     protected function addServiceConfigHook(string $serviceName, array $methodItem, array $ifArgs = null)
     {
@@ -307,6 +378,52 @@ abstract class LightDeveloperWizardBaseProcess extends WebWizardToolsProcess
         }
     }
 
+
+    /**
+     * Creates the exception class (of the @page(basic service convention)) if necessary.
+     */
+    protected function createExceptionClass()
+    {
+
+        $util = $this->util;
+        if (null === $util) {
+            $this->error("The createExceptionClass method is only available for processes which defined the util property.");
+        }
+
+
+        $hasExceptionFile = $util->hasBasicServiceExceptionFile();
+        $planetIdentifier = $util->getPlanetIdentifier();
+
+        //--------------------------------------------
+        // EXCEPTION CLASS
+        //--------------------------------------------
+        if (true === $hasExceptionFile) {
+            $this->infoMessage("The planet $planetIdentifier already has an exception class.");
+
+        } else {
+            $this->infoMessage("Creating <a target='_blank' href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service exception</a> for planet $planetIdentifier.");
+
+
+            $tpl = __DIR__ . "/../../assets/class-templates/Exception/BasicException.phptpl";
+
+
+            $planet = $util->getPlanetName();
+            $tightName = $util->getTightPlanetName();
+
+
+            $content = file_get_contents($tpl);
+            $content = str_replace([
+                "Light_XXX",
+                "LightXXX",
+            ], [
+                $planet,
+                $tightName,
+            ], $content);
+            $dstPath = $util->getBasicServiceExceptionPath();
+            FileSystemTool::mkfile($dstPath, $content);
+        }
+
+    }
 
     /**
      * Sets the learnMore property based on the given hash.

@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::addDynamicProperty](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L166-L169)
+See the source code for method [BaseRealistListItemRenderer::addDynamicProperty](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L165-L168)
 
 
 See Also

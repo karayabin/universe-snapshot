@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::addBodyTagClass](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L370-L373)
+See the source code for method [HtmlPageCopilot::addBodyTagClass](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L393-L396)
 
 
 See Also

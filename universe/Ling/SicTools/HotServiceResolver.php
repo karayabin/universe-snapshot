@@ -35,11 +35,19 @@ class HotServiceResolver
 
 
     /**
+     * This property holds the customResolveNotationCallback for this instance.
+     * @var callable|null
+     */
+    private $customResolveNotationCallback;
+
+
+    /**
      * Builds the HotServiceResolver instance.
      */
     public function __construct()
     {
         $this->passKey = '__pass__';
+        $this->customResolveNotationCallback = null;
     }
 
 
@@ -67,6 +75,7 @@ class HotServiceResolver
     public function getService(array $sicBlock)
     {
         if (true === SicTool::isSicBlock($sicBlock, $this->passKey)) {
+
             $service = null;
 
             //--------------------------------------------
@@ -88,7 +97,7 @@ class HotServiceResolver
 
                     $isCustomNotation = false;
                     $customNotation = $this->resolveCustomNotation($className, $isCustomNotation);
-                    if (false === $customNotation) {
+                    if (false === $customNotation || null === $customNotation) {
                         $service = new $className();
                     } else {
                         // assuming an object is returned
@@ -191,6 +200,20 @@ class HotServiceResolver
         return false;
     }
 
+
+    /**
+     * Sets the customResolveNotationCallback.
+     *
+     * @param callable $customResolveNotationCallback
+     */
+    public function setCustomResolveNotationCallback(callable $customResolveNotationCallback)
+    {
+        $this->customResolveNotationCallback = $customResolveNotationCallback;
+    }
+
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -221,7 +244,11 @@ class HotServiceResolver
      */
     protected function resolveCustomNotation($value, &$isCustomNotation = false)
     {
-        return null;
+        if (null !== $this->customResolveNotationCallback) {
+            return call_user_func_array($this->customResolveNotationCallback, [$value, &$isCustomNotation]);
+        } else {
+            return null;
+        }
     }
 
     //--------------------------------------------

@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::renderPropertyContent](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L237-L324)
+See the source code for method [BaseRealistListItemRenderer::renderPropertyContent](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L236-L323)
 
 
 See Also

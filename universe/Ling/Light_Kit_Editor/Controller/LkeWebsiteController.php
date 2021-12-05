@@ -27,17 +27,24 @@ class LkeWebsiteController extends LightController
      * @param HttpRequestInterface $request
      * @return HttpResponseInterface
      */
-    public function render(HttpRequestInterface $request): HttpResponseInterface{
-        $websiteId = $request->getGetValue("website_id");
+    public function render(HttpRequestInterface $request): HttpResponseInterface
+    {
+
+        $websiteId = $request->getGetValue("website_id", false);
+        if (null === $websiteId) {
+            /**
+             * @var $_ke LightKitEditorService
+             */
+            $_ke = $this->getContainer()->get("kit_editor");
+            $websiteId = $_ke->getDefaultWebsiteIdentifier();
+        }
+
         $pageId = $request->getGetValue("page_id");
         /**
          * @var $ke LightKitEditorService
          */
         $ke = $this->getContainer()->get("kit_editor");
         return $ke->renderPage($websiteId, $pageId);
-
-
-
 
 
     }

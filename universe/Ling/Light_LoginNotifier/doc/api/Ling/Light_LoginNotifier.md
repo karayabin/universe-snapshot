@@ -1,6 +1,6 @@
 Ling/Light_LoginNotifier
 ================
-2020-11-27 --> 2021-05-31
+2020-11-27 --> 2021-06-25
 
 
 
@@ -102,18 +102,10 @@ Table of contents
     - [LightLoginNotifierApiFactory::setContainer](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/LightLoginNotifierApiFactory/setContainer.md) &ndash; Sets the container.
 - [LightLoginNotifierException](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Exception/LightLoginNotifierException.md) &ndash; The LightLoginNotifierException class.
 - [LightLoginNotifierPlanetInstaller](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PlanetInstaller/LightLoginNotifierPlanetInstaller.md) &ndash; The LightLoginNotifierPlanetInstaller class.
-    - LightUserDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightUserDatabaseBasePlanetInstaller instance.
-    - LightUserDatabaseBasePlanetInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
-    - LightUserDatabaseBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
-- [LightLoginNotifierPluginInstaller](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PluginInstaller/LightLoginNotifierPluginInstaller.md) &ndash; The LightLoginNotifierPluginInstaller class.
-    - [LightLoginNotifierPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PluginInstaller/LightLoginNotifierPluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
-    - LightUserDatabaseBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::install &ndash; Installs the plugin in the light application.
-    - LightUserDatabaseBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightUserDatabaseBasePluginInstaller::uninstall &ndash; Uninstalls the plugin.
-    - LightUserDatabaseBasePluginInstaller::getDependencies &ndash; Returns the array of dependencies.
+    - LightDatabaseBasePlanetInstaller::__construct &ndash; Builds the LightDatabaseBasePlanetInstaller instance.
+    - LightDatabaseBasePlanetInstaller::init3 &ndash; Executes the init 3 phase of the install command.
+    - LightDatabaseBasePlanetInstaller::undoInit3 &ndash; Undoes the init 3 phase.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightLoginNotifierService](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Service/LightLoginNotifierService.md) &ndash; The LightLoginNotifierService class.
     - [LightLoginNotifierService::__construct](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Service/LightLoginNotifierService/__construct.md) &ndash; Builds the LightLoginNotifierService instance.
     - [LightLoginNotifierService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Service/LightLoginNotifierService/onWebsiteUserLogin.md) &ndash; Notifies the Light_LoginNotifier plugin that a website user has just logged in.
@@ -130,7 +122,6 @@ Dependencies
 - [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
 - [Light_Mailer](https://github.com/lingtalfi/Light_Mailer)
 - [Light_User](https://github.com/lingtalfi/Light_User)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

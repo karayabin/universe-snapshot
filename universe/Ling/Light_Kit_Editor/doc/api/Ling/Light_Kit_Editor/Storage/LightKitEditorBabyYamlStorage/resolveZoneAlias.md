@@ -49,7 +49,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightKitEditorBabyYamlStorage::resolveZoneAlias](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L143-L150)
+See the source code for method [LightKitEditorBabyYamlStorage::resolveZoneAlias](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/Storage/LightKitEditorBabyYamlStorage.php#L145-L152)
 
 
 See Also

@@ -1,5 +1,6 @@
     /**
      * @implementation
+     * @inheritDoc
      */
     public function getResource($where, array $markers = [], $default = null, bool $throwNotFoundEx = false)
     {

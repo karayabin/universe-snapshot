@@ -21,15 +21,3 @@ $events.methods_collection:
                 callable_method: onInitialize
 
 
-$logger.methods_collection:
-    -
-        method: addListener
-        args:
-            channels: file_watcher.debug
-            listener:
-                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
-                methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/file_watcher_debug.txt
-

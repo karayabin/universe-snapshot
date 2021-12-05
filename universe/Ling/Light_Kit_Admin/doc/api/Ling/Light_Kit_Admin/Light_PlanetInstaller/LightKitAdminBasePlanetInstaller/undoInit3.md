@@ -16,12 +16,16 @@ Description
 ================
 
 
-public [LightKitAdminBasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/undoInit3.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+public [LightKitAdminBasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/undoInit3.md)(string $appDir, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output, ?array $options = []) : void
 
 
 
 
 Undoes the init 3 phase.
+
+Available options are:
+
+- isUpgrade: bool=false. Whether the calling process comes from the upgrade command.
 
 
 
@@ -35,6 +39,10 @@ Parameters
     
 
 - output
+
+    
+
+- options
 
     
 
@@ -53,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.php#L119-L137)
+See the source code for method [LightKitAdminBasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.php#L214-L232)
 
 
 See Also

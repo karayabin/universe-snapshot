@@ -7,7 +7,7 @@ LightWebsiteUser::setSessionDuration
 
 
 
-LightWebsiteUser::setSessionDuration — Sets the session_duration.
+LightWebsiteUser::setSessionDuration — Sets the duration of this user' session in seconds.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [LightWebsiteUser::setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)(int $session_duration) : void
+public [LightWebsiteUser::setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/setSessionDuration.md)(int $durationInSeconds) : mixed
 
 
 
 
-Sets the session_duration.
+Sets the duration of this user' session in seconds.
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- session_duration
+- durationInSeconds
 
     
 
@@ -38,7 +38,7 @@ Parameters
 Return values
 ================
 
-Returns void.
+Returns mixed.
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUser::setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L388-L391)
+See the source code for method [LightWebsiteUser::setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/LightWebsiteUser.php#L182-L185)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) class.
 
-Previous method: [getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getSessionDuration.md)<br>Next method: [getRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getRights.md)<br>
+Previous method: [refresh](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/refresh.md)<br>Next method: [getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser/getSessionDuration.md)<br>
 

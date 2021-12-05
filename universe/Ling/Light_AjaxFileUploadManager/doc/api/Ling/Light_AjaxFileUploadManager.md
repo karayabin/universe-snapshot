@@ -1,6 +1,6 @@
 Ling/Light_AjaxFileUploadManager
 ================
-2019-08-01 --> 2021-05-31
+2019-08-01 --> 2021-06-29
 
 
 
@@ -13,6 +13,11 @@ Table of contents
     - LightController::__construct &ndash; Builds the LightController instance.
     - LightController::setLight &ndash; Sets the light instance.
 - [LightAjaxFileUploadManagerException](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Exception/LightAjaxFileUploadManagerException.md) &ndash; The LightAjaxFileUploadManagerException class.
+- [LightAjaxFileUploadManagerPlanetInstaller](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Light_PlanetInstaller/LightAjaxFileUploadManagerPlanetInstaller.md) &ndash; The LightAjaxFileUploadManagerPlanetInstaller class.
+    - [LightAjaxFileUploadManagerPlanetInstaller::init2](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Light_PlanetInstaller/LightAjaxFileUploadManagerPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
+    - [LightAjaxFileUploadManagerPlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Light_PlanetInstaller/LightAjaxFileUploadManagerPlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightAjaxFileUploadManagerService](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService.md) &ndash; The LightAjaxFileUploadManagerService class.
     - [LightAjaxFileUploadManagerService::__construct](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/__construct.md) &ndash; Builds the LightAjaxFileUploadManagerService instance.
     - [LightAjaxFileUploadManagerService::setApplicationDir](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/setApplicationDir.md) &ndash; Sets the applicationDir.
@@ -34,13 +39,16 @@ Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [JFileUploader](https://github.com/lingtalfi/JFileUploader)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_HtmlPageCopilot](https://github.com/lingtalfi/Light_HtmlPageCopilot)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [Light_UserData](https://github.com/lingtalfi/Light_UserData)
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 - [ThumbnailTools](https://github.com/lingtalfi/ThumbnailTools)

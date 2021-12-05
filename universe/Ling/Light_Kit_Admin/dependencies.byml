@@ -30,7 +30,7 @@ dependencies:
         - Light_EasyRoute
         - Light_Events
         - Light_Flasher
-        - Light_HtmlPageCopilot
+        - Light_JimToolbox
         - Light_Kit
         - Light_Kit_BootstrapWidgetLibrary
         - Light_Kit_Editor

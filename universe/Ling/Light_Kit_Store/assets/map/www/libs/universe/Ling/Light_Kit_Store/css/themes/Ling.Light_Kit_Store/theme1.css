@@ -1,0 +1,105 @@
+/**
+* This stylesheet will be included automatically
+* by the layout if the "Ling.Light_Kit_Store/theme1" theme is chosen.
+*
+* This is synced with the LightKitStoreThemeHelper class (which probably might be removed at some point?).
+*/
+/*------------------------------------
+- GENERAL
+------------------------------------*/
+.weak-link {
+  color: #007185;
+  text-decoration: none;
+}
+
+.weak-link:hover {
+  color: #952c2c;
+  text-decoration: underline;
+}
+
+.strong-link {
+  color: #0F1111;
+  text-decoration: none;
+}
+
+.strong-link:hover {
+  color: #952c2c;
+  text-decoration: underline;
+}
+
+.color-alt {
+  color: #c45500;
+}
+
+.text-med {
+  font-size: 90%;
+}
+
+.text-small {
+  font-size: 85%;
+}
+
+/*------------------------------------
+- product rating drop down
+------------------------------------*/
+.dd-dropdown .container__arrow {
+  height: 16px;
+  width: 16px;
+  background-color: #FFF;
+  position: absolute;
+}
+
+.dd-dropdown .container__arrow--tc {
+  left: 35%;
+  top: 0px;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.dd-container {
+  min-width: 260px;
+}
+
+.dd-stars {
+  letter-spacing: -1.7px;
+}
+
+.dd-star {
+  color: #ff9b00;
+  font-size: 0.9em;
+}
+
+.dd-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dd-nb-eval {
+  color: #565959;
+  font-size: 14px;
+}
+
+.dd-line .progress {
+  border: 1px solid #ddd;
+}
+
+.dd-line {
+  font-size: 14px;
+  color: #007185;
+}
+
+.dd-line:hover {
+  color: #952c2c;
+  text-decoration: underline;
+}
+
+.dd-line:hover .progress {
+  border: 1px solid #952c2c;
+}
+
+.dd-see-all-comments-link {
+  font-size: 15px;
+}
+
+/*# sourceMappingURL=theme1.css.map */

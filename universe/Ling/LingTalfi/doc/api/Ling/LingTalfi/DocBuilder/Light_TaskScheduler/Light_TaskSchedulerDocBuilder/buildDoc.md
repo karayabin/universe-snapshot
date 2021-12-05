@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_TaskSchedulerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder.php#L45-L228)
+See the source code for method [Light_TaskSchedulerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder.php#L45-L232)
 
 
 See Also
