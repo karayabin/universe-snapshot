@@ -53,7 +53,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getCurrentDatabase](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L666-L670)
+See the source code for method [MysqlWizard::getCurrentDatabase](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L672-L676)
 
 
 See Also

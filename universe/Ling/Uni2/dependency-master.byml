@@ -1182,7 +1182,7 @@ galaxies:
             
         
         Light_BreezeGenerator: 
-            version: 1.29.19
+            version: 1.29.21
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1625,13 +1625,16 @@ galaxies:
             
         
         Light_It4Tools: 
-            version: 1.0.4
+            version: 1.0.6
             dependencies: 
                 Ling: 
                     - BabyYaml
                     - Bat
+                    - DirScanner
                     - Light
                     - Light_Database
+                    - Light_DatabaseInfo
+                    - SimplePdoWrapper
                 
             
             post_install: 
@@ -3202,7 +3205,7 @@ galaxies:
             post_install: []
         
         SimplePdoWrapper: 
-            version: 1.32.0
+            version: 1.32.1
             dependencies: 
                 Ling: 
                     - Bat
@@ -3253,7 +3256,7 @@ galaxies:
             post_install: []
         
         SqlWizard: 
-            version: 1.13.21
+            version: 1.13.22
             dependencies: 
                 Ling: 
                     - Bat

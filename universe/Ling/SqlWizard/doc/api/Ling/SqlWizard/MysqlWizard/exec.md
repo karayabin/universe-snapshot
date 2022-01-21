@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::exec](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L704-L710)
+See the source code for method [MysqlWizard::exec](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L710-L716)
 
 
 See Also

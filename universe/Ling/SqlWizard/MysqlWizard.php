@@ -367,6 +367,7 @@ class MysqlWizard
                     case "tinyint":
                         $defaultValue = "0";
                         break;
+                    case "float":
                     case "decimal":
                         $defaultValue = "0.0";
                         break;
@@ -386,10 +387,15 @@ class MysqlWizard
                     case "char":
                     case "varchar":
                     case "text":
+                    case "mediumtext":
+                    case "longtext":
                         $defaultValue = "";
                         break;
                     case "datetime":
                         $defaultValue = date("Y-m-d H:i:s");
+                        break;
+                    case "time":
+                        $defaultValue = date("H:i:s");
                         break;
                     case "date":
                         $defaultValue = date("Y-m-d");

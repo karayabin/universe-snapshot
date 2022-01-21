@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2021-08-05
+2019-02-04 -> 2022-01-20
 
 
 
@@ -1060,6 +1060,10 @@ Related
 History Log
 ------------------
 
+- 1.32.1 -- 2022-01-20
+
+    - update MysqlInfoUtil->splitTableName, now becomes protected
+  
 - 1.32.0 -- 2021-08-05
 
     - update SimplePdoWrapperInterface->fetch, now returns false instead of null

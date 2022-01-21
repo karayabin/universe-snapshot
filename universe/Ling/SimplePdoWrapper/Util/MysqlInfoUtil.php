@@ -652,6 +652,7 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
         list($schema, $table) = $this->splitTableName($table);
         $fullTableName = $schema . "." . $table;
         $rfkMap = $this->getReverseForeignKeyMap($databases);
+
         if (array_key_exists($fullTableName, $rfkMap)) {
             return $rfkMap[$fullTableName];
         }
@@ -675,8 +676,8 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
      * - referenced_by_left: string, the name of the column of the **left** table referencing the **has** table's foreign key
      * - referenced_by_right: string, the name of the column of the **right** table referencing the **has** table's foreign key
      * - left_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **left** table.
-     *      This method will list the following handles:
      *      - the column of the **left** table referencing the **has** table's foreign key (same value as the **referenced_by_left** property)
+     *      This method will list the following handles:
      *      - the unique indexes of the **left** table
      *
      * - right_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **right** table.
@@ -905,6 +906,34 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
         return $table;
     }
 
+    /**
+     * Returns an array with the following info:
+     * - database: string
+     * - table: string
+     *
+     * Those information are extracted from the given table name, which might use the db.table notation,
+     * or just be a single table name. In case of a single table name, the database returned is the current database.
+     *
+     *
+     *
+     * @param string $table
+     * @return array
+     */
+    protected function splitTableName(string $table): array
+    {
+        $schema = null;
+        $p = explode('.', $table, 2);
+        if (2 === count($p)) {
+            list($schema, $table) = $p;
+        }
+        if (null === $schema) {
+            $schema = $this->getDatabase();
+        }
+        return [$schema, $table];
+    }
+
+
+
 //    protected function getResolvedForeignKeyInfo(&$db = null, &$table = null, &$column = null)
 //    {
 //        $foreignKeys = $this->getForeignKeysInfo($table, $db);
@@ -926,31 +955,7 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
     //--------------------------------------------
     //
     //--------------------------------------------
-    /**
-     * Returns an array with the following info:
-     * - database: string
-     * - table: string
-     *
-     * Those information are extracted from the given table name, which might use the db.table notation,
-     * or just be a single table name. In case of a single table name, the database returned is the current database.
-     *
-     *
-     *
-     * @param string $table
-     * @return array
-     */
-    private function splitTableName(string $table): array
-    {
-        $schema = null;
-        $p = explode('.', $table, 2);
-        if (2 === count($p)) {
-            list($schema, $table) = $p;
-        }
-        if (null === $schema) {
-            $schema = $this->getDatabase();
-        }
-        return [$schema, $table];
-    }
+
 
     /**
      * Returns the natural handle for the given table, based on the given handleLabels.

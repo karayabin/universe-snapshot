@@ -27,3 +27,19 @@
     - Ling:Bat:1.339
     - Ling:Light:0.70.13
     - Ling:Light_Database:1.14.30
+
+1.0.5: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.339
+    - Ling:DirScanner:1.13.6
+    - Ling:Light:0.70.13
+    - Ling:Light_Database:1.14.30
+
+1.0.6: 
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.339
+    - Ling:DirScanner:1.13.6
+    - Ling:Light:0.70.13
+    - Ling:Light_Database:1.14.30
+    - Ling:Light_DatabaseInfo:1.12.7
+    - Ling:SimplePdoWrapper:1.32.1

@@ -1,6 +1,6 @@
 SqlWizard
 =========
-2019-02-04 -> 2021-07-06
+2019-02-04 -> 2022-01-20
 
 
 
@@ -48,6 +48,10 @@ Summary
 History Log
 ------------------
 
+- 1.13.22 -- 2022-01-20
+
+    - add MysqlWizard->getColumnDefaultApiValues types: longtext, mediumtext, float, time
+  
 - 1.13.21 -- 2021-07-06
 
     - fix MysqlStructureReader->readContent, update regexes so that it handles whitespaces properly

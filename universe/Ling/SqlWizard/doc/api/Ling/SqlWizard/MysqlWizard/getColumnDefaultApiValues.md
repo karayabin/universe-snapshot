@@ -84,7 +84,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlWizard::getColumnDefaultApiValues](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L331-L408)
+See the source code for method [MysqlWizard::getColumnDefaultApiValues](https://github.com/lingtalfi/SqlWizard/blob/master/MysqlWizard.php#L331-L414)
 
 
 See Also

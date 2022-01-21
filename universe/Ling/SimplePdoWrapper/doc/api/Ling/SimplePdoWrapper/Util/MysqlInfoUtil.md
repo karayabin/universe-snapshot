@@ -4,7 +4,7 @@
 
 The MysqlInfoUtil class
 ================
-2019-07-22 --> 2021-08-05
+2019-07-22 --> 2022-01-20
 
 
 
@@ -58,7 +58,7 @@ class <span class="pl-k">MysqlInfoUtil</span>  {
     - public [isHasTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/isHasTable.md)(string $table, ?array $options = []) : bool
     - public [isManyToManyTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/isManyToManyTable.md)(string $table) : bool
     - protected [dQuoteTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/dQuoteTable.md)(string $table) : string
-    - private [splitTableName](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/splitTableName.md)(string $table) : array
+    - protected [splitTableName](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/splitTableName.md)(string $table) : array
     - private [getNaturalHandle](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/getNaturalHandle.md)(string $table, ?array $handleLabels = null) : string | false
     - private [error](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/error.md)(string $msg) : void
 

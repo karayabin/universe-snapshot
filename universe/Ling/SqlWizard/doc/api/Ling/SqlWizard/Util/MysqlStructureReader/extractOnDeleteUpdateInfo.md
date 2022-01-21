@@ -57,7 +57,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [MysqlStructureReader::extractOnDeleteUpdateInfo](https://github.com/lingtalfi/SqlWizard/blob/master/Util/MysqlStructureReader.php#L633-L649)
+See the source code for method [MysqlStructureReader::extractOnDeleteUpdateInfo](https://github.com/lingtalfi/SqlWizard/blob/master/Util/MysqlStructureReader.php#L635-L651)
 
 
 See Also

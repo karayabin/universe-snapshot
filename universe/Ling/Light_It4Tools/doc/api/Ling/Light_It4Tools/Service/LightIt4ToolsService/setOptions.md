@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightIt4ToolsService::setOptions](https://github.com/lingtalfi/Light_It4Tools/blob/master/Service/LightIt4ToolsService.php#L64-L67)
+See the source code for method [LightIt4ToolsService::setOptions](https://github.com/lingtalfi/Light_It4Tools/blob/master/Service/LightIt4ToolsService.php#L65-L68)
 
 
 See Also

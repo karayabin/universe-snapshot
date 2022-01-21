@@ -4,7 +4,7 @@
 
 The LightBreezeGeneratorException class
 ================
-2019-09-11 --> 2021-07-22
+2019-09-11 --> 2022-01-21
 
 
 

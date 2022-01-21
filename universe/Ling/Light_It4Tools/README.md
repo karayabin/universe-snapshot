@@ -1,6 +1,6 @@
 Light_It4Tools
 ===========
-2021-12-01
+2021-12-01 -> 2022-01-20
 
 
 
@@ -57,10 +57,9 @@ it4_tools:
         setOptions:
             options: ${it4_tools_vars.service_options}
 
-
 it4_tools_vars:
-    service_options: []
-
+    service_options:
+        dbInfoCacheDir: ${app_dir}/cache/Light_DatabaseInfo
 
 
 
@@ -72,6 +71,14 @@ it4_tools_vars:
 History Log
 =============
 
+- 1.0.6 -- 2022-01-20
+
+    - add It42021LightDatabaseInfoService class
+  
+- 1.0.5 -- 2021-12-05
+
+    - add It4FileParserTool class
+  
 - 1.0.4 -- 2021-12-05
 
     - add It4DbParserTool->recreateAll method

@@ -162,3 +162,8 @@
     - Ling:Bat:1.330
     - Ling:JumboExploder:1.0.5
     - Ling:SimplePdoWrapper:1.30.21
+
+1.13.22: 
+    - Ling:Bat:1.339
+    - Ling:JumboExploder:1.0.5
+    - Ling:SimplePdoWrapper:1.32.1

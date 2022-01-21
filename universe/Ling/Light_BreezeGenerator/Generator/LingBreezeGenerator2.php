@@ -101,6 +101,24 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
 
 
     /**
+     * Custom templates to use instead of the default ones.
+     * Available values are:
+     * - base: to override the generated base api class
+     * - factory: to override the generated factory class
+     *
+     *
+     * @var array
+     */
+    private array $customTemplates;
+
+    /**
+     * Whether to generate interfaces for custom classes.
+     * @var bool = false
+     */
+    private bool $useCustomInterfaces;
+
+
+    /**
      * Builds the LingBreezeGenerator instance.
      */
     public function __construct()
@@ -109,7 +127,9 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         $this->alreadyUsedMethodNames = [];
         $this->alreadyUsedMethodNamesInterface = [];
         $this->_usePrefixInMethodNames = true;
+        $this->useCustomInterfaces = true;
         $this->_allPrefixes = [];
+        $this->customTemplates = [];
     }
 
     /**
@@ -135,6 +155,9 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         $options = $conf['options'] ?? [];
         $devMode = $options['dev'] ?? false;
         $this->_usePrefixInMethodNames = (bool)($options['usePrefixInMethodNames'] ?? true);
+        $dbInfoService = $options['dbInfoService'] ?? null;
+        $this->customTemplates = $options['templates'] ?? [];
+        $this->useCustomInterfaces = $options['useCustomInterfaces'] ?? true;
 
 
         $source = $conf['source'];
@@ -162,7 +185,14 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         /**
          * @var $dbInfo LightDatabaseInfoService
          */
-        $dbInfo = $this->container->get('database_info');
+        if (null !== $dbInfoService) {
+            $dbInfo = $dbInfoService;
+            if (false === ($dbInfo instanceof LightDatabaseInfoService)) {
+                $this->error("Conf error: dbInfoService must be an instance of LightDatabaseInfoService");
+            }
+        } else {
+            $dbInfo = $this->container->get('database_info');
+        }
 
 
         /**
@@ -208,6 +238,7 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
 
 
         foreach ($tables as $table) {
+
 
             // reset cache per table
             $this->alreadyUsedMethodNamesInterface = [];
@@ -328,8 +359,11 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
 
             $customNamespace = $this->getClassNamespace($namespace, 'Custom\Classes');
             $sFactoryUses .= 'use ' . $customNamespace . "\\" . $returnedClassName . ";" . PHP_EOL;
-            $interfaceNamespace = $this->getClassNamespace($namespace, 'Custom\Interfaces');
-            $sFactoryUses .= 'use ' . $interfaceNamespace . "\\" . 'Custom' . $interfaceClassName . ";" . PHP_EOL;
+
+            if (true === $this->useCustomInterfaces) {
+                $interfaceNamespace = $this->getClassNamespace($namespace, 'Custom\Interfaces');
+                $sFactoryUses .= 'use ' . $interfaceNamespace . "\\" . 'Custom' . $interfaceClassName . ";" . PHP_EOL;
+            }
 
 
             // preparing factory
@@ -358,17 +392,20 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
             }
 
 
-            //--------------------------------------------
-            // GENERATE CUSTOM INTERFACES
-            //--------------------------------------------
-            $content = $this->generateCustomInterfaces([
-                "namespace" => $namespace,
-                "objectClassName" => $objectClassName,
-                "interfaceSuffix" => $interfaceSuffix,
-            ]);
-            $bs0Path = $this->getClassPath($dir, 'Custom/Interfaces/Custom' . $objectClassName . $interfaceSuffix);
-            if (true === $devMode || false === file_exists($bs0Path)) {
-                FileSystemTool::mkfile($bs0Path, $content);
+            if (true === $this->useCustomInterfaces) {
+
+                //--------------------------------------------
+                // GENERATE CUSTOM INTERFACES
+                //--------------------------------------------
+                $content = $this->generateCustomInterfaces([
+                    "namespace" => $namespace,
+                    "objectClassName" => $objectClassName,
+                    "interfaceSuffix" => $interfaceSuffix,
+                ]);
+                $bs0Path = $this->getClassPath($dir, 'Custom/Interfaces/Custom' . $objectClassName . $interfaceSuffix);
+                if (true === $devMode || false === file_exists($bs0Path)) {
+                    FileSystemTool::mkfile($bs0Path, $content);
+                }
             }
 
         }
@@ -733,7 +770,12 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
     public function generateObjectFactoryClass(array $variables): string
     {
 
-        $template = __DIR__ . "/../assets/classModel/Ling/template/MyFactory.phtml";
+        if (true === array_key_exists("factory", $this->customTemplates)) {
+            $template = $this->customTemplates['factory'];
+        } else {
+            $template = __DIR__ . "/../assets/classModel/Ling/template/MyFactory.phtml";
+        }
+
         $content = file_get_contents($template);
         $namespace = $this->getClassNamespace($variables['namespace'], $variables['relativeDirFactory']);
         $factoryClassName = $variables['factoryClassName'];
@@ -772,7 +814,11 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
     {
 
 
-        $template = __DIR__ . "/../assets/classModel/Ling/template/CustomUserObject.phtml";
+        if (true === $this->useCustomInterfaces) {
+            $template = __DIR__ . "/../assets/classModel/Ling/template/CustomUserObject.phtml";
+        } else {
+            $template = __DIR__ . "/../assets/classModel/Ling/template/CustomUserObjectNoInterface.phtml";
+        }
         $content = file_get_contents($template);
         $namespace = $variables['namespace'];
 
@@ -794,7 +840,9 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         // uses
         $uses = [];
         $uses[] = "use " . $namespaceBaseApi . "\\$baseClassName;";
-        $uses[] = "use " . $namespaceInterface . "\\$objectInterfaceName;";
+        if (true === $this->useCustomInterfaces) {
+            $uses[] = "use " . $namespaceInterface . "\\$objectInterfaceName;";
+        }
 
         $content = str_replace('// the uses', implode(PHP_EOL, $uses) . PHP_EOL, $content);
         return $content;
@@ -924,7 +972,11 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
     public function generateObjectBase(array $variables): string
     {
 
-        $template = __DIR__ . "/../assets/classModel/Ling/template/MyObjectBase2.phtml";
+        if (true === array_key_exists("base", $this->customTemplates)) {
+            $template = $this->customTemplates['base'];
+        } else {
+            $template = __DIR__ . "/../assets/classModel/Ling/template/MyObjectBase2.phtml";
+        }
         $content = file_get_contents($template);
 
         $namespace = $this->getClassNamespace($variables['namespace'], 'Generated\Classes');
@@ -1833,8 +1885,6 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         $plural = StringTool::getPlural($variables['className']);
 
 
-
-
         foreach ($fkInfo as $fkCol => $item) {
 
 
@@ -2365,11 +2415,18 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         $returnedObjectName = $returnedClassName;
 
 
+        if (false === $this->useCustomInterfaces) {
+            $returnedType = $returnedObjectName;
+        } else {
+            $returnedType = "Custom" . $interfaceClassName;
+        }
+
+
         $tpl = __DIR__ . "/../assets/classModel/Ling/template/partials/getUserObject.tpl.txt";
         $content = file_get_contents($tpl);
 
-        $content = str_replace('returnedUserObjectInterface', 'Custom' . $interfaceClassName, $content);
-        $content = str_replace('UserObjectInterface', 'Custom' . $interfaceClassName, $content);
+        $content = str_replace('returnedUserObjectInterface', $returnedType, $content);
+        $content = str_replace('UserObjectInterface', $returnedType, $content);
 
 
         $content = str_replace('new UserObject', 'new ' . $returnedObjectName, $content);

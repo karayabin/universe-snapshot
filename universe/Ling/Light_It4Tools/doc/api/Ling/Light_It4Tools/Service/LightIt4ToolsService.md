@@ -4,7 +4,7 @@
 
 The LightIt4ToolsService class
 ================
-2021-12-01 --> 2021-12-05
+2021-12-01 --> 2022-01-20
 
 
 
@@ -35,6 +35,7 @@ class <span class="pl-k">LightIt4ToolsService</span>  {
     - public [getOptions](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getOptions.md)() : array
     - public [getOption](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getOption.md)(string $key, ?$default = null, ?bool $throwEx = false) : void
     - public [getDatabaseParser](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getDatabaseParser.md)() : [It4DbParserTool](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool.md)
+    - public [getDatabaseInfoService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getDatabaseInfoService.md)(?array $options = []) : [It42021LightDatabaseInfoService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Light_DatabaseInfo/It42021LightDatabaseInfoService.md)
     - private [error](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/error.md)(string $msg) : void
 
 }
@@ -74,6 +75,7 @@ Methods
 - [LightIt4ToolsService::getOptions](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getOptions.md) &ndash; Returns the options of this instance.
 - [LightIt4ToolsService::getOption](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getOption.md) &ndash; Returns the option value corresponding to the given key.
 - [LightIt4ToolsService::getDatabaseParser](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getDatabaseParser.md) &ndash; Returns the parser tool.
+- [LightIt4ToolsService::getDatabaseInfoService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getDatabaseInfoService.md) &ndash; Returns a database info service, prepared for it4 2021 structure (db schema without foreign keys).
 - [LightIt4ToolsService::error](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/error.md) &ndash; Throws an exception.
 
 
@@ -89,4 +91,4 @@ See the source code of [Ling\Light_It4Tools\Service\LightIt4ToolsService](https:
 
 SeeAlso
 ==============
-Previous class: [LightIt4ToolsException](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Exception/LightIt4ToolsException.md)<br>
+Previous class: [It42021LightDatabaseInfoService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Light_DatabaseInfo/It42021LightDatabaseInfoService.md)<br>Next class: [It42021MysqlInfoUtil](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/SimplePdoWrapper/Util/It42021MysqlInfoUtil.md)<br>

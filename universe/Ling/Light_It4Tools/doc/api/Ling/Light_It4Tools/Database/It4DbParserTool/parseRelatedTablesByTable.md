@@ -61,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [It4DbParserTool::parseRelatedTablesByTable](https://github.com/lingtalfi/Light_It4Tools/blob/master/Database/It4DbParserTool.php#L525-L544)
+See the source code for method [It4DbParserTool::parseRelatedTablesByTable](https://github.com/lingtalfi/Light_It4Tools/blob/master/Database/It4DbParserTool.php#L547-L566)
 
 
 See Also
@@ -69,5 +69,5 @@ See Also
 
 The [It4DbParserTool](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool.md) class.
 
-Previous method: [getDatabaseService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getDatabaseService.md)<br>
+Previous method: [getDatabaseService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getDatabaseService.md)<br>Next method: [getForeignKeysDir](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getForeignKeysDir.md)<br>
 

@@ -76,6 +76,9 @@ class Light_It4ToolsDocBuilder
              */
             "reportIgnore" => [
 //                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService",
+                "Ling\SimplePdoWrapper\Util\MysqlInfoUtil",
+
             ],
             /**
              * Your project start date.
@@ -142,6 +145,11 @@ class Light_It4ToolsDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Light_It4Tools conception notes" => $conception,
+                "ric" => "https://github.com/lingtalfi/NotationFan/blob/master/ric.md",
+                "ric strict" => "https://github.com/lingtalfi/NotationFan/blob/master/ric.md",
+                "TypeHelper::getSimpleTypes" => "https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Helper/TypeHelper/getSimpleTypes.md",
+                "the has table information conception notes" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md#the-has-table-information",
+                "the conception notes about has table information" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md#the-has-table-information",
             ],
             /**
              * An array of external classes to url.
@@ -155,6 +163,9 @@ class Light_It4ToolsDocBuilder
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\Light_Database\Service\LightDatabaseService" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md",
+                "Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService" => "https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Service/LightDatabaseInfoService.md",
+                "Ling\SimplePdoWrapper\Util\MysqlInfoUtil" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md",
+                "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md",
 
             ],
             "ignoreFilesStartingWith" => [

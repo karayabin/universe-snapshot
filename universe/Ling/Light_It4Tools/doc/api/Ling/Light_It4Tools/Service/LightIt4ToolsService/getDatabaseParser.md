@@ -46,7 +46,7 @@ Returns [It4DbParserTool](https://github.com/lingtalfi/Light_It4Tools/blob/maste
 
 Source Code
 ===========
-See the source code for method [LightIt4ToolsService::getDatabaseParser](https://github.com/lingtalfi/Light_It4Tools/blob/master/Service/LightIt4ToolsService.php#L117-L122)
+See the source code for method [LightIt4ToolsService::getDatabaseParser](https://github.com/lingtalfi/Light_It4Tools/blob/master/Service/LightIt4ToolsService.php#L118-L123)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightIt4ToolsService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService.md) class.
 
-Previous method: [getOption](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getOption.md)<br>Next method: [error](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/error.md)<br>
+Previous method: [getOption](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getOption.md)<br>Next method: [getDatabaseInfoService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getDatabaseInfoService.md)<br>
 

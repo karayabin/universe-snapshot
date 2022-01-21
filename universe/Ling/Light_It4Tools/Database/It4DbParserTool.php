@@ -91,7 +91,7 @@ class It4DbParserTool
     {
 
 
-        $fkeyDir = $rootDir . "/fkeys";
+        $fkeyDir = $this->getForeignKeysDir($rootDir);
 
 
         // 0.
@@ -493,6 +493,28 @@ class It4DbParserTool
     }
 
 
+    /**
+     * Returns an array of foreignKeyName => info, where info is an array:
+     * - 0: the foreign key table
+     * - 1: the foreign key field
+     * - 2: a comment assigned to that foreign key, or null if no comment was there
+     *
+     *
+     * @param string $rootDir
+     * @param string $table
+     * @return array
+     */
+    public function getForeignKeys(string $rootDir, string $table): array
+    {
+        $ret = [];
+        $fkeyDir = $this->getForeignKeysDir($rootDir);
+        $file = $fkeyDir . "/$table.byml";
+        if (true === file_exists($file)) {
+            return BabyYamlUtil::readFile($file);
+        }
+        return $ret;
+    }
+
 
     //--------------------------------------------
     //
@@ -543,4 +565,15 @@ class It4DbParserTool
         }
     }
 
+
+    /**
+     * Returns the foreign key dir.
+     *
+     * @param string $rootDir
+     * @return string
+     */
+    private function getForeignKeysDir(string $rootDir): string
+    {
+        return $rootDir . "/fkeys";
+    }
 }

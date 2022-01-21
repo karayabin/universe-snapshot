@@ -8,6 +8,7 @@ use Ling\Bat\BDotTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_It4Tools\Database\It4DbParserTool;
 use Ling\Light_It4Tools\Exception\LightIt4ToolsException;
+use Ling\Light_It4Tools\Light_DatabaseInfo\It42021LightDatabaseInfoService;
 
 
 /**
@@ -121,6 +122,36 @@ class LightIt4ToolsService
         return $parser;
     }
 
+
+    /**
+     * Returns a database info service, prepared for it4 2021 structure (db schema without foreign keys).
+     *
+     * Available options are:
+     * - dbKeysRootDir: string, the root dir of the dbKeys system.
+     *
+     *
+     * @param array $options
+     * @return It42021LightDatabaseInfoService
+     * @throws \Exception
+     */
+    public function getDatabaseInfoService(array $options = []): It42021LightDatabaseInfoService
+    {
+
+        $dbKeysRootDir = $options['dbKeysRootDir'] ?? null;
+
+        $o = new It42021LightDatabaseInfoService();
+        $o->setContainer($this->container);
+
+        if(null !== $dbKeysRootDir){
+            $o->setDbKeysRootDir($dbKeysRootDir);
+        }
+
+        $cacheDir = $this->getOption("dbInfoCacheDir");
+        if (null !== $cacheDir) {
+            $o->setCacheDir($cacheDir);
+        }
+        return $o;
+    }
 
     //--------------------------------------------
     //

@@ -4,7 +4,7 @@
 
 The It4DbParserTool class
 ================
-2021-12-01 --> 2021-12-05
+2021-12-01 --> 2022-01-20
 
 
 
@@ -41,8 +41,10 @@ class <span class="pl-k">It4DbParserTool</span>  {
     - public [getPotentialNamespaces](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getPotentialNamespaces.md)() : array
     - public [clusterize](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/clusterize.md)(string $createDir, array $tables, string $dstFile, ?array &$notFound = []) : void
     - public [getTables](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getTables.md)() : array
+    - public [getForeignKeys](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getForeignKeys.md)(string $rootDir, string $table) : array
     - protected [getDatabaseService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getDatabaseService.md)() : [LightDatabaseService](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md)
     - private [parseRelatedTablesByTable](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/parseRelatedTablesByTable.md)(string $foreignKeysDir, string $table, ?array &$alreadyKnownTables = [], ?array $noParseTables = []) : void
+    - private [getForeignKeysDir](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getForeignKeysDir.md)(string $rootDir) : string
 
 }
 
@@ -82,8 +84,10 @@ Methods
 - [It4DbParserTool::getPotentialNamespaces](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getPotentialNamespaces.md) &ndash; Returns the potential namespaces for the database.
 - [It4DbParserTool::clusterize](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/clusterize.md) &ndash; Creates a sql file of type create.
 - [It4DbParserTool::getTables](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getTables.md) &ndash; Returns the available tables.
+- [It4DbParserTool::getForeignKeys](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getForeignKeys.md) &ndash; 
 - [It4DbParserTool::getDatabaseService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getDatabaseService.md) &ndash; Returns the light database service.
 - [It4DbParserTool::parseRelatedTablesByTable](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/parseRelatedTablesByTable.md) &ndash; Accumulates the tables related via a foreign key to the given table.
+- [It4DbParserTool::getForeignKeysDir](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Database/It4DbParserTool/getForeignKeysDir.md) &ndash; Returns the foreign key dir.
 
 
 

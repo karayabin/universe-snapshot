@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightIt4ToolsService::error](https://github.com/lingtalfi/Light_It4Tools/blob/master/Service/LightIt4ToolsService.php#L134-L137)
+See the source code for method [LightIt4ToolsService::error](https://github.com/lingtalfi/Light_It4Tools/blob/master/Service/LightIt4ToolsService.php#L165-L168)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightIt4ToolsService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService.md) class.
 
-Previous method: [getDatabaseParser](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getDatabaseParser.md)<br>
+Previous method: [getDatabaseInfoService](https://github.com/lingtalfi/Light_It4Tools/blob/master/doc/api/Ling/Light_It4Tools/Service/LightIt4ToolsService/getDatabaseInfoService.md)<br>
 

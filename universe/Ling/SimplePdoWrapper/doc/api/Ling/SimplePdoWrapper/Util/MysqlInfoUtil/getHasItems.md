@@ -35,8 +35,8 @@ Each "has item" has the following structure:
 - referenced_by_left: string, the name of the column of the **left** table referencing the **has** table's foreign key
 - referenced_by_right: string, the name of the column of the **right** table referencing the **has** table's foreign key
 - left_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **left** table.
-     This method will list the following handles:
      - the column of the **left** table referencing the **has** table's foreign key (same value as the **referenced_by_left** property)
+     This method will list the following handles:
      - the unique indexes of the **left** table
 
 - right_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **right** table.
@@ -94,7 +94,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::getHasItems](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L708-L828)
+See the source code for method [MysqlInfoUtil::getHasItems](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L709-L829)
 
 
 See Also

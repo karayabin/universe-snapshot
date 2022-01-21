@@ -6,8 +6,8 @@ it4_tools:
         setOptions:
             options: ${it4_tools_vars.service_options}
 
-
 it4_tools_vars:
-    service_options: []
+    service_options:
+        dbInfoCacheDir: ${app_dir}/cache/Light_DatabaseInfo
 
 

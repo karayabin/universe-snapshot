@@ -57,6 +57,9 @@ class MysqlStructureReader
      */
     public static function readerArrayToTableInfo(array $readerArray, SimplePdoWrapperInterface $pdoWrapper, string $defaultDb = null): array
     {
+
+
+
         $util = new MysqlInfoUtil($pdoWrapper);
 
         $table = $readerArray['table'];

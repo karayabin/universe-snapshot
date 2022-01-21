@@ -668,3 +668,23 @@
     - Ling:Light_Database:1.14.30
     - Ling:Light_DatabaseInfo:1.12.7
     - Ling:SqlWizard:1.13.21
+
+1.29.20: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.339
+    - Ling:CheapLogger:1.0.7
+    - Ling:Light:0.70.13
+    - Ling:Light_Database:1.14.30
+    - Ling:Light_DatabaseInfo:1.12.7
+    - Ling:SqlWizard:1.13.21
+
+1.29.21: 
+    - Ling:ArrayToString:1.4.6
+    - Ling:BabyYaml:1.7.11
+    - Ling:Bat:1.339
+    - Ling:CheapLogger:1.0.7
+    - Ling:Light:0.70.13
+    - Ling:Light_Database:1.14.30
+    - Ling:Light_DatabaseInfo:1.12.7
+    - Ling:SqlWizard:1.13.22

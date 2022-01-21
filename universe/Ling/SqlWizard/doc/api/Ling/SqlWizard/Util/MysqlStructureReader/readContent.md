@@ -103,7 +103,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlStructureReader::readContent](https://github.com/lingtalfi/SqlWizard/blob/master/Util/MysqlStructureReader.php#L205-L411)
+See the source code for method [MysqlStructureReader::readContent](https://github.com/lingtalfi/SqlWizard/blob/master/Util/MysqlStructureReader.php#L207-L413)
 
 
 See Also
